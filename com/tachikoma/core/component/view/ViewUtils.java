@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,14 +30,14 @@ public class ViewUtils {
         }
     }
 
-    public static Drawable generateBackgroundWithShadow(View view, int i, float f2, int i2, int i3, float f3, int i4) {
+    public static Drawable generateBackgroundWithShadow(View view2, int i, float f, int i2, int i3, float f2, int i4) {
         InterceptResult invokeCommon;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view, Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f3), Integer.valueOf(i4)})) == null) {
-            float f4 = 2.0f * f2;
-            int i6 = (int) f3;
-            float[] fArr = {f4, f4, f4, f4, f4, f4, f4, f4};
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view2, Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Integer.valueOf(i4)})) == null) {
+            float f3 = 2.0f * f;
+            int i6 = (int) f2;
+            float[] fArr = {f3, f3, f3, f3, f3, f3, f3, f3};
             Rect rect = new Rect();
             rect.left = i6;
             rect.right = i6;
@@ -57,10 +57,10 @@ public class ViewUtils {
             ShapeDrawable shapeDrawable = new ShapeDrawable();
             shapeDrawable.setPadding(rect);
             shapeDrawable.getPaint().setColor(i);
-            shapeDrawable.getPaint().setShadowLayer(f2, i3, i5, i2);
-            view.setLayerType(1, null);
+            shapeDrawable.getPaint().setShadowLayer(f, i3, i5, i2);
+            view2.setLayerType(1, null);
             shapeDrawable.setShape(new RoundRectShape(fArr, null, null));
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{shapeDrawable, view.getBackground()});
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{shapeDrawable, view2.getBackground()});
             int i7 = i6 * 2;
             layerDrawable.setLayerInset(0, i7, i7, i6, i7);
             return layerDrawable;

@@ -7,7 +7,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -15,7 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.oi;
+/* loaded from: classes.dex */
 public class AlaRoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.mRoundLayoutRadius = f2;
-        this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
+        float f = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.mRoundLayoutRadius = f;
+        this.mRadius = new float[]{f, f, f, f, f, f, f, f};
         init();
     }
 
@@ -115,9 +115,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.mRoundLayoutRadius = f2;
-        this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
+        float f = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.mRoundLayoutRadius = f;
+        this.mRadius = new float[]{f, f, f, f, f, f, f, f};
         init();
     }
 
@@ -140,9 +140,9 @@ public class AlaRoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f2 = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-        this.mRoundLayoutRadius = f2;
-        this.mRadius = new float[]{f2, f2, f2, f2, f2, f2, f2, f2};
+        float f = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        this.mRoundLayoutRadius = f;
+        this.mRadius = new float[]{f, f, f, f, f, f, f, f};
         init();
     }
 }

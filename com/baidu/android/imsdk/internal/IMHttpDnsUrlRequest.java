@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMHttpDnsUrlRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_DNS_HOST = "https://httpsdns.baidu.com/";
@@ -115,8 +115,8 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
                     if (optJSONArray != null && length2 > 0) {
                         try {
                             arrayList2.add(optJSONArray.getString(0));
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             arrayList = arrayList2;
                             LogUtils.e(TAG, "HttpDnsRequester ip parse exception " + e.getMessage());
                             IMSocketAddrProvider.getInstance(this.mContext).onGetHttpDNSAddressResult(arrayList);
@@ -127,8 +127,8 @@ public class IMHttpDnsUrlRequest extends BaseHttpRequest {
                     }
                     arrayList = arrayList2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
             IMSocketAddrProvider.getInstance(this.mContext).onGetHttpDNSAddressResult(arrayList);
         }

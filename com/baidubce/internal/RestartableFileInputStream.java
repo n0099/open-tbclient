@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RestartableFileInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,8 +61,8 @@ public class RestartableFileInputStream extends RestartableInputStream {
             try {
                 this.input.close();
                 this.input = new FileInputStream(this.file);
-            } catch (IOException e2) {
-                throw new BceClientException("Fail to restart.", e2);
+            } catch (IOException e) {
+                throw new BceClientException("Fail to restart.", e);
             }
         }
     }

@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RichContentHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RICH_CONTENT_IMAGE_TYPE = 1;
@@ -55,8 +55,8 @@ public class RichContentHelper {
                         parseJson.setIsLong(FileHelper.checkIsLongImage(parseJson.getFilePath()));
                         arrayList.add(parseJson);
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return arrayList;
@@ -88,8 +88,8 @@ public class RichContentHelper {
                         jSONArray.put(jSONObject);
                     }
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONArray;
         }

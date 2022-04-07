@@ -8,9 +8,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.n;
-import c.a.p0.g;
-import c.a.p0.q;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,30 +26,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gi5;
+import com.repackage.oi;
+import com.repackage.xg5;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f31172b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<SelectForumData> f31173c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View.OnClickListener f31174d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View.OnClickListener f31175e;
+    public xg5 a;
+    public int b;
+    public List<SelectForumData> c;
+    public View.OnClickListener d;
+    public View.OnClickListener e;
     @Nullable
+    public gi5.e f;
 
-    /* renamed from: f  reason: collision with root package name */
-    public q.e f31176f;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,10 +67,10 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             SelectForumData selectForumData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (selectForumData = (SelectForumData) view.getTag()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (selectForumData = (SelectForumData) view2.getTag()) == null) {
                 return;
             }
             if (!selectForumData.isCanPost) {
@@ -88,13 +78,13 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921507, selectForumData.blockInfo));
                 return;
             }
-            TiebaStatic.log(new StatisticItem("c13995").param("fid", selectForumData.forumId).param("obj_source", this.a.f31172b));
+            TiebaStatic.log(new StatisticItem("c13995").param("fid", selectForumData.forumId).param("obj_source", this.a.b));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921505, selectForumData));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921503));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,42 +109,34 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             SelectForumData selectForumData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (selectForumData = (SelectForumData) view.getTag()) == null || this.a.f31176f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (selectForumData = (SelectForumData) view2.getTag()) == null || this.a.f == null) {
                 return;
             }
-            this.a.f31176f.a(selectForumData);
+            this.a.f.a(selectForumData);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public BarImageView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f31177b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f31178c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f31179d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public ImageView f31180e;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+        public ImageView e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(SelectForumItemAdapter selectForumItemAdapter, View view) {
-            super(view);
+        public c(SelectForumItemAdapter selectForumItemAdapter, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {selectForumItemAdapter, view};
+                Object[] objArr = {selectForumItemAdapter, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -165,20 +147,20 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                     return;
                 }
             }
-            this.a = (BarImageView) view.findViewById(R.id.obfuscated_res_0x7f0905b6);
-            this.f31177b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0905b9);
-            this.f31178c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f0905b8);
-            this.f31179d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0905b7);
-            this.f31180e = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.a = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c0);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905c3);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c2);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905c1);
+            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905c4);
         }
     }
 
-    public SelectForumItemAdapter(g gVar) {
+    public SelectForumItemAdapter(xg5 xg5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gVar};
+            Object[] objArr = {xg5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -188,9 +170,9 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
                 return;
             }
         }
-        this.f31174d = new a(this);
-        this.f31175e = new b(this);
-        this.a = gVar;
+        this.d = new a(this);
+        this.e = new b(this);
+        this.a = xg5Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -199,7 +181,7 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public void onBindViewHolder(@NonNull c cVar, int i) {
         SelectForumData selectForumData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i) == null) || (selectForumData = (SelectForumData) ListUtils.getItem(this.f31173c, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, cVar, i) == null) || (selectForumData = (SelectForumData) ListUtils.getItem(this.c, i)) == null) {
             return;
         }
         cVar.a.setPlaceHolder(1);
@@ -207,44 +189,44 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
         cVar.a.setShowOuterBorder(true);
         cVar.a.setShowInnerBorder(false);
         cVar.a.setStrokeColorResId(R.color.CAM_X0401);
-        cVar.a.setStrokeWith(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-        cVar.a.J(selectForumData.avatarUrl, 10, false);
-        cVar.f31177b.setText(selectForumData.forumName);
-        SkinManager.setViewTextColor(cVar.f31177b, (int) R.color.CAM_X0105);
+        cVar.a.setStrokeWith(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+        cVar.a.K(selectForumData.avatarUrl, 10, false);
+        cVar.b.setText(selectForumData.forumName);
+        SkinManager.setViewTextColor(cVar.b, (int) R.color.CAM_X0105);
         if (selectForumData.level <= 0) {
-            cVar.f31178c.setVisibility(8);
+            cVar.c.setVisibility(8);
         } else {
-            cVar.f31178c.setVisibility(0);
-            SkinManager.setImageResource(cVar.f31178c, BitmapHelper.getGradeResourceIdInEnterForum(selectForumData.level));
+            cVar.c.setVisibility(0);
+            SkinManager.setImageResource(cVar.c, BitmapHelper.getGradeResourceIdInEnterForum(selectForumData.level));
         }
-        if (this.f31176f != null) {
-            cVar.f31179d.setVisibility(8);
-            cVar.f31180e.setVisibility(0);
+        if (this.f != null) {
+            cVar.d.setVisibility(8);
+            cVar.e.setVisibility(0);
             if (selectForumData.isInterestForumSelected) {
-                WebPManager.setPureDrawable(cVar.f31180e, R.drawable.obfuscated_res_0x7f080998, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f08099e, R.color.CAM_X0302, WebPManager.ResourceStateType.NORMAL);
             } else {
-                WebPManager.setPureDrawable(cVar.f31180e, R.drawable.obfuscated_res_0x7f080997, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(cVar.e, R.drawable.obfuscated_res_0x7f08099d, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL);
             }
         } else {
-            cVar.f31179d.setVisibility(selectForumData.isLately ? 0 : 8);
-            cVar.f31180e.setVisibility(8);
+            cVar.d.setVisibility(selectForumData.isLately ? 0 : 8);
+            cVar.e.setVisibility(8);
         }
-        SkinManager.setViewTextColor(cVar.f31179d, (int) R.color.CAM_X0302);
+        SkinManager.setViewTextColor(cVar.d, (int) R.color.CAM_X0302);
         cVar.itemView.setTag(selectForumData);
         SkinManager.setBackgroundResource(cVar.itemView, R.drawable.forum_selected_view_bg);
-        if (this.f31176f != null) {
+        if (this.f != null) {
             selectForumData.index = i;
-            cVar.itemView.setOnClickListener(this.f31175e);
+            cVar.itemView.setOnClickListener(this.e);
             return;
         }
-        cVar.itemView.setOnClickListener(this.f31174d);
+        cVar.itemView.setOnClickListener(this.d);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.f31173c) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ListUtils.getCount(this.c) : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -254,27 +236,27 @@ public class SelectForumItemAdapter extends RecyclerView.Adapter<c> {
     public c onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d6, viewGroup, false)) : (c) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d7, viewGroup, false)) : (c) invokeLI.objValue;
     }
 
     public void i(List<SelectForumData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f31173c = list;
+            this.c = list;
         }
     }
 
-    public void j(q.e eVar) {
+    public void j(gi5.e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f31176f = eVar;
+            this.f = eVar;
         }
     }
 
     public void k(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f31172b = i;
+            this.b = i;
         }
     }
 }

@@ -125,9 +125,9 @@ public class ViewBoundsCheck {
     public interface Callback {
         View getChildAt(int i);
 
-        int getChildEnd(View view);
+        int getChildEnd(View view2);
 
-        int getChildStart(View view);
+        int getChildStart(View view2);
 
         int getParentEnd();
 
@@ -165,7 +165,7 @@ public class ViewBoundsCheck {
             int parentStart = this.mCallback.getParentStart();
             int parentEnd = this.mCallback.getParentEnd();
             int i5 = i2 > i ? 1 : -1;
-            View view = null;
+            View view2 = null;
             while (i != i2) {
                 View childAt = this.mCallback.getChildAt(i);
                 this.mBoundFlags.setBounds(parentStart, parentEnd, this.mCallback.getChildStart(childAt), this.mCallback.getChildEnd(childAt));
@@ -180,21 +180,21 @@ public class ViewBoundsCheck {
                     this.mBoundFlags.resetFlags();
                     this.mBoundFlags.addFlags(i4);
                     if (this.mBoundFlags.boundsMatch()) {
-                        view = childAt;
+                        view2 = childAt;
                     }
                 }
                 i += i5;
             }
-            return view;
+            return view2;
         }
         return (View) invokeIIII.objValue;
     }
 
-    public boolean isViewWithinBoundFlags(View view, int i) {
+    public boolean isViewWithinBoundFlags(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i)) == null) {
-            this.mBoundFlags.setBounds(this.mCallback.getParentStart(), this.mCallback.getParentEnd(), this.mCallback.getChildStart(view), this.mCallback.getChildEnd(view));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i)) == null) {
+            this.mBoundFlags.setBounds(this.mCallback.getParentStart(), this.mCallback.getParentEnd(), this.mCallback.getChildStart(view2), this.mCallback.getChildEnd(view2));
             if (i != 0) {
                 this.mBoundFlags.resetFlags();
                 this.mBoundFlags.addFlags(i);

@@ -9,28 +9,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CubicBezierInterpolator implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PointF a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public PointF f43564b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public PointF f43565c;
+    public PointF b;
+    public PointF c;
     public PointF end;
     public PointF start;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CubicBezierInterpolator(double d2, double d3, double d4, double d5) {
-        this((float) d2, (float) d3, (float) d4, (float) d5);
+    public CubicBezierInterpolator(double d, double d2, double d3, double d4) {
+        this((float) d, (float) d2, (float) d3, (float) d4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,13 +41,13 @@ public class CubicBezierInterpolator implements Interpolator {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CubicBezierInterpolator(float f2, float f3, float f4, float f5) {
-        this(new PointF(f2, f3), new PointF(f4, f5));
+    public CubicBezierInterpolator(float f, float f2, float f3, float f4) {
+        this(new PointF(f, f2), new PointF(f3, f4));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,14 +77,14 @@ public class CubicBezierInterpolator implements Interpolator {
             }
         }
         this.a = new PointF();
-        this.f43564b = new PointF();
-        this.f43565c = new PointF();
-        float f2 = pointF.x;
-        if (f2 < 0.0f || f2 > 1.0f) {
+        this.b = new PointF();
+        this.c = new PointF();
+        float f = pointF.x;
+        if (f < 0.0f || f > 1.0f) {
             throw new IllegalArgumentException("startX value must be in the range [0, 1]");
         }
-        float f3 = pointF2.x;
-        if (f3 < 0.0f || f3 > 1.0f) {
+        float f2 = pointF2.x;
+        if (f2 < 0.0f || f2 > 1.0f) {
             throw new IllegalArgumentException("endX value must be in the range [0, 1]");
         }
         this.start = pointF;
@@ -125,70 +121,70 @@ public class CubicBezierInterpolator implements Interpolator {
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? new CubicBezierInterpolator(0.0f, 0.0f, 1.0f, 1.0f) : (CubicBezierInterpolator) invokeV.objValue;
     }
 
-    private float getBezierCoordinateX(float f2) {
+    private float getBezierCoordinateX(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f2)) == null) {
-            PointF pointF = this.f43565c;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f)) == null) {
+            PointF pointF = this.c;
             PointF pointF2 = this.start;
-            float f3 = pointF2.x * 3.0f;
-            pointF.x = f3;
-            PointF pointF3 = this.f43564b;
-            float f4 = ((this.end.x - pointF2.x) * 3.0f) - f3;
-            pointF3.x = f4;
+            float f2 = pointF2.x * 3.0f;
+            pointF.x = f2;
+            PointF pointF3 = this.b;
+            float f3 = ((this.end.x - pointF2.x) * 3.0f) - f2;
+            pointF3.x = f3;
             PointF pointF4 = this.a;
-            float f5 = (1.0f - pointF.x) - f4;
-            pointF4.x = f5;
-            return f2 * (pointF.x + ((pointF3.x + (f5 * f2)) * f2));
+            float f4 = (1.0f - pointF.x) - f3;
+            pointF4.x = f4;
+            return f * (pointF.x + ((pointF3.x + (f4 * f)) * f));
         }
         return invokeF.floatValue;
     }
 
-    private float getXDerivate(float f2) {
+    private float getXDerivate(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) ? this.f43565c.x + (f2 * ((this.f43564b.x * 2.0f) + (this.a.x * 3.0f * f2))) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f)) == null) ? this.c.x + (f * ((this.b.x * 2.0f) + (this.a.x * 3.0f * f))) : invokeF.floatValue;
     }
 
-    public float getBezierCoordinateY(float f2) {
+    public float getBezierCoordinateY(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            PointF pointF = this.f43565c;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            PointF pointF = this.c;
             PointF pointF2 = this.start;
-            float f3 = pointF2.y * 3.0f;
-            pointF.y = f3;
-            PointF pointF3 = this.f43564b;
-            float f4 = ((this.end.y - pointF2.y) * 3.0f) - f3;
-            pointF3.y = f4;
+            float f2 = pointF2.y * 3.0f;
+            pointF.y = f2;
+            PointF pointF3 = this.b;
+            float f3 = ((this.end.y - pointF2.y) * 3.0f) - f2;
+            pointF3.y = f3;
             PointF pointF4 = this.a;
-            float f5 = (1.0f - pointF.y) - f4;
-            pointF4.y = f5;
-            return f2 * (pointF.y + ((pointF3.y + (f5 * f2)) * f2));
+            float f4 = (1.0f - pointF.y) - f3;
+            pointF4.y = f4;
+            return f * (pointF.y + ((pointF3.y + (f4 * f)) * f));
         }
         return invokeF.floatValue;
     }
 
     @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f2) {
+    public float getInterpolation(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? getBezierCoordinateY(getXForTime(f2)) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? getBezierCoordinateY(getXForTime(f)) : invokeF.floatValue;
     }
 
-    public float getXForTime(float f2) {
+    public float getXForTime(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
-            float f3 = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
+            float f2 = f;
             for (int i = 1; i < 14; i++) {
-                float bezierCoordinateX = getBezierCoordinateX(f3) - f2;
+                float bezierCoordinateX = getBezierCoordinateX(f2) - f;
                 if (Math.abs(bezierCoordinateX) < 0.001d) {
                     break;
                 }
-                f3 -= bezierCoordinateX / getXDerivate(f3);
+                f2 -= bezierCoordinateX / getXDerivate(f2);
             }
-            return f3;
+            return f2;
         }
         return invokeF.floatValue;
     }

@@ -16,17 +16,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BannerDownloadStateBar extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f31128b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f31129c;
+    public TextView b;
+    public ImageView c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BannerDownloadStateBar(Context context) {
@@ -52,12 +48,12 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0063, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0065, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
-            this.f31129c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090279);
-            this.f31128b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09027c);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090281);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090284);
             setState(0);
         }
     }
@@ -67,40 +63,40 @@ public class BannerDownloadStateBar extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 0) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
-                this.f31129c.setVisibility(8);
-                this.f31129c.setImageDrawable(null);
-                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009b);
-                this.f31128b.setTextColor(Color.parseColor("#333333"));
+                this.c.setVisibility(8);
+                this.c.setImageDrawable(null);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009b);
+                this.b.setTextColor(Color.parseColor("#333333"));
             } else if (i == 1) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
-                this.f31129c.setVisibility(0);
-                this.f31129c.setImageResource(R.drawable.obfuscated_res_0x7f0800c0);
-                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009e);
-                this.f31128b.setTextColor(Color.parseColor("#333333"));
+                this.c.setVisibility(0);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800c0);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009e);
+                this.b.setTextColor(Color.parseColor("#333333"));
             } else if (i == 2) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
-                this.f31129c.setVisibility(0);
-                this.f31129c.setImageResource(R.drawable.obfuscated_res_0x7f0800c1);
-                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009f);
-                this.f31128b.setTextColor(Color.parseColor("#333333"));
+                this.c.setVisibility(0);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f0800c1);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009f);
+                this.b.setTextColor(Color.parseColor("#333333"));
             } else if (i == 3) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bf);
-                this.f31129c.setVisibility(8);
-                this.f31129c.setImageDrawable(null);
-                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009c);
-                this.f31128b.setTextColor(Color.parseColor("#FFFFFF"));
+                this.c.setVisibility(8);
+                this.c.setImageDrawable(null);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009c);
+                this.b.setTextColor(Color.parseColor("#FFFFFF"));
             } else if (i != 4) {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800be);
-                this.f31129c.setVisibility(8);
-                this.f31129c.setImageDrawable(null);
-                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009b);
-                this.f31128b.setTextColor(Color.parseColor("#333333"));
+                this.c.setVisibility(8);
+                this.c.setImageDrawable(null);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009b);
+                this.b.setTextColor(Color.parseColor("#333333"));
             } else {
                 setBackgroundResource(R.drawable.obfuscated_res_0x7f0800bf);
-                this.f31129c.setVisibility(8);
-                this.f31129c.setImageDrawable(null);
-                this.f31128b.setText(R.string.obfuscated_res_0x7f0f009d);
-                this.f31128b.setTextColor(Color.parseColor("#FFFFFF"));
+                this.c.setVisibility(8);
+                this.c.setImageDrawable(null);
+                this.b.setText(R.string.obfuscated_res_0x7f0f009d);
+                this.b.setTextColor(Color.parseColor("#FFFFFF"));
             }
         }
     }

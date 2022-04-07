@@ -1,6 +1,5 @@
 package com.baidu.tieba.screenlocknotify.loadmore;
 
-import c.a.p0.n3.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -9,15 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nd8;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a loadMoreData;
+    public nd8 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreHttpResponseMessage() {
@@ -37,10 +37,10 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public a getData() {
+    public nd8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadMoreData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loadMoreData : (nd8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -60,8 +60,8 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         if (dataRes == null || dataRes == null) {
             return;
         }
-        a aVar = new a();
-        this.loadMoreData = aVar;
-        aVar.c(getMoreMsgResIdl.data);
+        nd8 nd8Var = new nd8();
+        this.loadMoreData = nd8Var;
+        nd8Var.c(getMoreMsgResIdl.data);
     }
 }

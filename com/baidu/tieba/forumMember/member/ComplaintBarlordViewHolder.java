@@ -10,32 +10,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f32199b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f32200c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32201d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f32202e;
+    public RelativeLayout b;
+    public View c;
+    public TextView d;
+    public ImageView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ComplaintBarlordViewHolder(View view) {
-        super(view);
+    public ComplaintBarlordViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,9 +39,9 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = 3;
-        this.f32199b = (RelativeLayout) view.findViewById(R.id.obfuscated_res_0x7f090311);
-        this.f32200c = view.findViewById(R.id.obfuscated_res_0x7f090ef6);
-        this.f32201d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090312);
-        this.f32202e = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090310);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09031b);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090ef2);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09031c);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09031a);
     }
 }

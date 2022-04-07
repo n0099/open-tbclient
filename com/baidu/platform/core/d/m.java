@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class m extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public class m extends k {
 
     private TaxiInfo a(JSONObject jSONObject) {
         InterceptResult invokeL;
+        float f;
         float f2;
         float f3;
-        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONObject)) == null) {
             if (jSONObject == null) {
@@ -75,17 +75,17 @@ public class m extends k {
             int length = optJSONArray.length();
             int i = 0;
             while (true) {
-                f2 = 0.0f;
+                f = 0.0f;
                 if (i >= length) {
+                    f2 = 0.0f;
                     f3 = 0.0f;
-                    f4 = 0.0f;
                     break;
                 }
                 JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null && jSONObject2.optString("desc").contains("白天")) {
-                    f3 = (float) jSONObject2.optDouble("km_price");
-                    f4 = (float) jSONObject2.optDouble("start_price");
-                    f2 = (float) jSONObject2.optDouble("total_price");
+                    f2 = (float) jSONObject2.optDouble("km_price");
+                    f3 = (float) jSONObject2.optDouble("start_price");
+                    f = (float) jSONObject2.optDouble("total_price");
                     break;
                 }
                 i++;
@@ -93,9 +93,9 @@ public class m extends k {
             taxiInfo.setDesc(jSONObject.optString("remark"));
             taxiInfo.setDistance(jSONObject.optInt("distance"));
             taxiInfo.setDuration(jSONObject.optInt("duration"));
-            taxiInfo.setTotalPrice(f2);
-            taxiInfo.setStartPrice(f4);
-            taxiInfo.setPerKMPrice(f3);
+            taxiInfo.setTotalPrice(f);
+            taxiInfo.setStartPrice(f3);
+            taxiInfo.setPerKMPrice(f2);
             return taxiInfo;
         }
         return (TaxiInfo) invokeL.objValue;
@@ -241,8 +241,8 @@ public class m extends k {
                 }
                 transitRouteResult.setRoutelines(arrayList);
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -256,8 +256,8 @@ public class m extends k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 jSONObject = null;
             }
             if (jSONObject == null) {

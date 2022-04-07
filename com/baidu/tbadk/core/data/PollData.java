@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.go4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
 import tbclient.PollOption;
-/* loaded from: classes4.dex */
-public class PollData extends p implements Serializable {
+/* loaded from: classes3.dex */
+public class PollData extends go4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int endTime;
@@ -107,7 +107,7 @@ public class PollData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.totalPoll : invokeV.longValue;
     }
 
-    @Override // c.a.o0.r.r.p
+    @Override // com.repackage.go4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
@@ -132,8 +132,8 @@ public class PollData extends p implements Serializable {
                     this.options.add(pollOptionData);
                 }
             }
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 

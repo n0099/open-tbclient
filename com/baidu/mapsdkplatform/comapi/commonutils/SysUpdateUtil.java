@@ -15,19 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SysUpdateUtil implements SysUpdateObserver {
     public static /* synthetic */ Interceptable $ic;
     public static com.baidu.mapsdkplatform.comjni.map.commonmemcache.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f26633b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f26634c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f26635d;
+    public static boolean b;
+    public static String c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,9 +38,9 @@ public class SysUpdateUtil implements SysUpdateObserver {
             }
         }
         a = new com.baidu.mapsdkplatform.comjni.map.commonmemcache.a();
-        f26633b = false;
-        f26634c = "";
-        f26635d = 0;
+        b = false;
+        c = "";
+        d = 0;
     }
 
     public SysUpdateUtil() {
@@ -82,11 +76,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c9, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c6, code lost:
         if ("10.0.0.200".equals(r9.trim()) != false) goto L47;
      */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d4  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00dc  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00d9  */
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -100,46 +94,46 @@ public class SysUpdateUtil implements SysUpdateObserver {
         String lowerCase = activeNetworkInfo.getTypeName().toLowerCase();
         if (lowerCase.equals("wifi") && activeNetworkInfo.isConnected()) {
             AppEngine.SetProxyInfo(null, 0);
-            f26633b = false;
+            b = false;
         } else if (!lowerCase.equals("mobile") && (!lowerCase.equals("wifi") || NetworkUtil.isWifiConnected(activeNetworkInfo))) {
         } else {
             String extraInfo = activeNetworkInfo.getExtraInfo();
-            f26633b = false;
+            b = false;
             if (extraInfo != null) {
                 String lowerCase2 = extraInfo.toLowerCase();
                 if (lowerCase2.startsWith(ConectivityUtils.APN_CMWAP) || lowerCase2.startsWith(ConectivityUtils.APN_UNIWAP) || lowerCase2.startsWith(ConectivityUtils.APN_3GWAP)) {
-                    f26634c = "10.0.0.172";
+                    c = "10.0.0.172";
                 } else {
                     if (!lowerCase2.startsWith(ConectivityUtils.APN_CTWAP)) {
                         if (lowerCase2.startsWith(ConectivityUtils.APN_CMNET) || lowerCase2.startsWith(ConectivityUtils.APN_UNINET) || lowerCase2.startsWith(ConectivityUtils.APN_CTNET) || lowerCase2.startsWith(ConectivityUtils.APN_3GNET)) {
-                            f26633b = false;
+                            b = false;
                         }
-                        if (f26633b) {
-                            AppEngine.SetProxyInfo(f26634c, f26635d);
+                        if (b) {
+                            AppEngine.SetProxyInfo(c, d);
                             return;
                         } else {
                             AppEngine.SetProxyInfo(null, 0);
                             return;
                         }
                     }
-                    f26634c = "10.0.0.200";
+                    c = "10.0.0.200";
                 }
             } else {
                 String defaultHost = Proxy.getDefaultHost();
                 int defaultPort = Proxy.getDefaultPort();
                 if (defaultHost != null && defaultHost.length() > 0) {
                     if ("10.0.0.172".equals(defaultHost.trim())) {
-                        f26634c = "10.0.0.172";
-                        f26635d = defaultPort;
-                        f26633b = true;
+                        c = "10.0.0.172";
+                        d = defaultPort;
+                        b = true;
                     }
                 }
-                if (f26633b) {
+                if (b) {
                 }
             }
-            f26635d = 80;
-            f26633b = true;
-            if (f26633b) {
+            d = 80;
+            b = true;
+            if (b) {
             }
         }
     }

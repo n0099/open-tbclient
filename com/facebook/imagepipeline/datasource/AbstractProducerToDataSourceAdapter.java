@@ -20,7 +20,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDataSource<T> implements HasImageRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,10 +117,10 @@ public abstract class AbstractProducerToDataSourceAdapter<T> extends AbstractDat
             }
 
             @Override // com.facebook.imagepipeline.producers.BaseConsumer
-            public void onProgressUpdateImpl(float f2) {
+            public void onProgressUpdateImpl(float f) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeF(1048579, this, f2) == null) {
-                    this.this$0.setProgress(f2);
+                if (interceptable2 == null || interceptable2.invokeF(1048579, this, f) == null) {
+                    this.this$0.setProgress(f);
                 }
             }
         } : (Consumer) invokeV.objValue;

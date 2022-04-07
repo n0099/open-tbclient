@@ -13,17 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TriangleShapeView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Paint a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Path f35091b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f35092c;
+    public Path b;
+    public int c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TriangleShapeView(Context context) {
@@ -43,7 +39,7 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f35092c = R.color.CAM_X0205;
+        this.c = R.color.CAM_X0205;
     }
 
     public final void a() {
@@ -54,7 +50,7 @@ public class TriangleShapeView extends View {
             }
             this.a.setAntiAlias(true);
             this.a.setStyle(Paint.Style.FILL);
-            this.a.setColor(SkinManager.getColor(this.f35092c));
+            this.a.setColor(SkinManager.getColor(this.c));
         }
     }
 
@@ -69,23 +65,23 @@ public class TriangleShapeView extends View {
                 return;
             }
             a();
-            if (this.f35091b == null) {
-                this.f35091b = new Path();
+            if (this.b == null) {
+                this.b = new Path();
             }
-            float f2 = height;
-            this.f35091b.moveTo(0.0f, f2);
-            float f3 = width;
-            this.f35091b.lineTo(f3 / 2.0f, 0.0f);
-            this.f35091b.lineTo(f3, f2);
-            this.f35091b.close();
-            canvas.drawPath(this.f35091b, this.a);
+            float f = height;
+            this.b.moveTo(0.0f, f);
+            float f2 = width;
+            this.b.lineTo(f2 / 2.0f, 0.0f);
+            this.b.lineTo(f2, f);
+            this.b.close();
+            canvas.drawPath(this.b, this.a);
         }
     }
 
     public void setColorId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f35092c = i;
+            this.c = i;
         }
     }
 
@@ -108,7 +104,7 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f35092c = R.color.CAM_X0205;
+        this.c = R.color.CAM_X0205;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -130,6 +126,6 @@ public class TriangleShapeView extends View {
                 return;
             }
         }
-        this.f35092c = R.color.CAM_X0205;
+        this.c = R.color.CAM_X0205;
     }
 }

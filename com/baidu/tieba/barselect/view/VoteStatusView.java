@@ -8,7 +8,6 @@ import android.graphics.Path;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.p0.e0.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -16,32 +15,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fw5;
+/* loaded from: classes3.dex */
 public class VoteStatusView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f31614b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f31615c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Shader f31616d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f31617e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f31618f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f31619g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Path f31620h;
+    public boolean b;
+    public Paint c;
+    public Shader d;
+    public int e;
+    public int f;
+    public int g;
+    public Path h;
     public Path i;
     public Path j;
     public Path k;
@@ -71,15 +57,15 @@ public class VoteStatusView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31619g = SkinManager.getColor(R.color.CAM_X0204);
-            this.f31617e = SkinManager.getColor(R.color.CAM_X0303);
-            this.f31618f = SkinManager.getColor(R.color.CAM_X0302);
+            this.g = SkinManager.getColor(R.color.CAM_X0204);
+            this.e = SkinManager.getColor(R.color.CAM_X0303);
+            this.f = SkinManager.getColor(R.color.CAM_X0302);
             Paint paint = new Paint();
-            this.f31615c = paint;
+            this.c = paint;
             paint.setAntiAlias(true);
-            this.f31615c.setStyle(Paint.Style.FILL);
-            this.f31615c.setColor(this.f31619g);
-            this.f31620h = new Path();
+            this.c.setStyle(Paint.Style.FILL);
+            this.c.setColor(this.g);
+            this.h = new Path();
             this.i = new Path();
             this.j = new Path();
             this.k = new Path();
@@ -90,10 +76,10 @@ public class VoteStatusView extends View {
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f31617e = SkinManager.getColor(i, (int) R.color.CAM_X0303);
-            this.f31618f = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            this.f31619g = SkinManager.getColor(i, (int) R.color.CAM_X0204);
-            this.f31614b = true;
+            this.e = SkinManager.getColor(i, (int) R.color.CAM_X0303);
+            this.f = SkinManager.getColor(i, (int) R.color.CAM_X0302);
+            this.g = SkinManager.getColor(i, (int) R.color.CAM_X0204);
+            this.b = true;
             invalidate();
         }
     }
@@ -108,36 +94,36 @@ public class VoteStatusView extends View {
                 height = width / 6;
             }
             int i = height / 2;
-            float f2 = i;
-            this.f31620h.addCircle(f2, f2, f2, Path.Direction.CW);
-            float f3 = width / 2;
-            this.i.addCircle(f3, f2, f2, Path.Direction.CW);
-            float f4 = width - i;
-            this.j.addCircle(f4, f2, f2, Path.Direction.CW);
-            float f5 = (height * 9) / 26;
-            float f6 = (height * 17) / 26;
-            this.k.addRect(f2, f5, f3, f6, Path.Direction.CW);
-            this.l.addRect(f3, f5, f4, f6, Path.Direction.CW);
-            this.f31615c.setColor(this.f31619g);
-            this.f31615c.setShader(null);
-            if (this.f31616d == null || this.f31614b) {
-                this.f31616d = new LinearGradient(f2, 0.0f, f4, 0.0f, this.f31617e, this.f31618f, Shader.TileMode.CLAMP);
-                this.f31614b = false;
+            float f = i;
+            this.h.addCircle(f, f, f, Path.Direction.CW);
+            float f2 = width / 2;
+            this.i.addCircle(f2, f, f, Path.Direction.CW);
+            float f3 = width - i;
+            this.j.addCircle(f3, f, f, Path.Direction.CW);
+            float f4 = (height * 9) / 26;
+            float f5 = (height * 17) / 26;
+            this.k.addRect(f, f4, f2, f5, Path.Direction.CW);
+            this.l.addRect(f2, f4, f3, f5, Path.Direction.CW);
+            this.c.setColor(this.g);
+            this.c.setShader(null);
+            if (this.d == null || this.b) {
+                this.d = new LinearGradient(f, 0.0f, f3, 0.0f, this.e, this.f, Shader.TileMode.CLAMP);
+                this.b = false;
             }
-            if (this.a == c.f13761c) {
-                this.f31615c.setShader(this.f31616d);
+            if (this.a == fw5.c) {
+                this.c.setShader(this.d);
             }
-            canvas.drawPath(this.l, this.f31615c);
-            canvas.drawPath(this.j, this.f31615c);
-            if (this.a == c.f13760b) {
-                this.f31615c.setShader(this.f31616d);
+            canvas.drawPath(this.l, this.c);
+            canvas.drawPath(this.j, this.c);
+            if (this.a == fw5.b) {
+                this.c.setShader(this.d);
             }
-            canvas.drawPath(this.k, this.f31615c);
-            canvas.drawPath(this.i, this.f31615c);
-            if (this.a == c.a) {
-                this.f31615c.setShader(this.f31616d);
+            canvas.drawPath(this.k, this.c);
+            canvas.drawPath(this.i, this.c);
+            if (this.a == fw5.a) {
+                this.c.setShader(this.d);
             }
-            canvas.drawPath(this.f31620h, this.f31615c);
+            canvas.drawPath(this.h, this.c);
         }
     }
 
@@ -169,7 +155,7 @@ public class VoteStatusView extends View {
             }
         }
         this.a = -1;
-        this.f31614b = true;
+        this.b = true;
         a();
     }
 }

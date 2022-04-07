@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class EdifactEncoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,15 +25,15 @@ public final class EdifactEncoder implements Encoder {
         }
     }
 
-    public static void encodeChar(char c2, StringBuilder sb) {
+    public static void encodeChar(char c, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2), sb}) == null) {
-            if (c2 >= ' ' && c2 <= '?') {
-                sb.append(c2);
-            } else if (c2 >= '@' && c2 <= '^') {
-                sb.append((char) (c2 - '@'));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c), sb}) == null) {
+            if (c >= ' ' && c <= '?') {
+                sb.append(c);
+            } else if (c >= '@' && c <= '^') {
+                sb.append((char) (c - '@'));
             } else {
-                HighLevelEncoder.illegalCharacter(c2);
+                HighLevelEncoder.illegalCharacter(c);
             }
         }
     }
@@ -45,15 +45,15 @@ public final class EdifactEncoder implements Encoder {
             int length = charSequence.length() - i;
             if (length != 0) {
                 int charAt = (charSequence.charAt(i) << 18) + ((length >= 2 ? charSequence.charAt(i + 1) : (char) 0) << '\f') + ((length >= 3 ? charSequence.charAt(i + 2) : (char) 0) << 6) + (length >= 4 ? charSequence.charAt(i + 3) : (char) 0);
-                char c2 = (char) ((charAt >> 8) & 255);
-                char c3 = (char) (charAt & 255);
+                char c = (char) ((charAt >> 8) & 255);
+                char c2 = (char) (charAt & 255);
                 StringBuilder sb = new StringBuilder(3);
                 sb.append((char) ((charAt >> 16) & 255));
                 if (length >= 2) {
-                    sb.append(c2);
+                    sb.append(c);
                 }
                 if (length >= 3) {
-                    sb.append(c3);
+                    sb.append(c2);
                 }
                 return sb.toString();
             }

@@ -20,7 +20,7 @@ import com.google.zxing.qrcode.decoder.Version;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Encoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ALPHANUMERIC_TABLE;
@@ -28,7 +28,7 @@ public final class Encoder {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.qrcode.encoder.Encoder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$qrcode$decoder$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -102,11 +102,11 @@ public final class Encoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, str, bitArray, str2) == null) {
             try {
-                for (byte b2 : str.getBytes(str2)) {
-                    bitArray.appendBits(b2, 8);
+                for (byte b : str.getBytes(str2)) {
+                    bitArray.appendBits(b, 8);
                 }
-            } catch (UnsupportedEncodingException e2) {
-                throw new WriterException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new WriterException(e);
             }
         }
     }
@@ -195,8 +195,8 @@ public final class Encoder {
                     if (i == -1) {
                     }
                 }
-            } catch (UnsupportedEncodingException e2) {
-                throw new WriterException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new WriterException(e);
             }
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AR_SDK_SALT_FIGURE = "777078ec21930de508131ba36035de6b";
@@ -175,8 +175,8 @@ public class ARConfig {
                 if (TextUtils.isEmpty(getARKey()) && string3 != null) {
                     try {
                         setARKey(new JSONObject(string3).optString("content_id"));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
                 if (jSONObject.has(ARConfigKey.AR_FROM)) {
@@ -188,8 +188,8 @@ public class ARConfig {
                 if (jSONObject.has(ARConfigKey.EXTRA_INFO)) {
                     setARExtraInfo(jSONObject.getString(ARConfigKey.EXTRA_INFO));
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -221,8 +221,8 @@ public class ARConfig {
                     return false;
                 }
                 return Long.parseLong(str) > 10000;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }

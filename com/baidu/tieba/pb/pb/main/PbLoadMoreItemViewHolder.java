@@ -5,7 +5,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -20,35 +19,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f34963b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f34964c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ProgressBar f34965d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f34966e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f34967f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f34968g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f34969h;
+    public LinearLayout b;
+    public TextView c;
+    public ProgressBar d;
+    public ImageView e;
+    public View f;
+    public String g;
+    public int h;
     public CustomMessageListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,13 +76,13 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbLoadMoreItemViewHolder(View view, BdUniqueId bdUniqueId) {
-        super(view);
+    public PbLoadMoreItemViewHolder(View view2, BdUniqueId bdUniqueId) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, bdUniqueId};
+            Object[] objArr = {view2, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,14 +94,14 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.i = new a(this, 2921471);
-        this.a = view;
-        this.f34963b = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f0916f0);
-        this.f34964c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0916ed);
-        this.f34966e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091583);
-        this.f34969h = n.f(this.a.getContext(), R.dimen.tbds156);
-        this.f34967f = this.a.findViewById(R.id.obfuscated_res_0x7f0908c1);
-        this.f34965d = (ProgressBar) view.findViewById(R.id.obfuscated_res_0x7f091929);
-        this.f34963b.setVisibility(0);
+        this.a = view2;
+        this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916ed);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916ea);
+        this.e = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09157e);
+        this.h = oi.f(this.a.getContext(), R.dimen.tbds156);
+        this.f = this.a.findViewById(R.id.obfuscated_res_0x7f0908c9);
+        this.d = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09191c);
+        this.b.setVisibility(0);
         this.i.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.i);
         d();
@@ -124,12 +110,12 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f34965d.setVisibility(8);
-            String str = this.f34968g;
+            this.d.setVisibility(8);
+            String str = this.g;
             if (str != null) {
-                this.f34964c.setText(str);
+                this.c.setText(str);
             } else {
-                this.f34964c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0da7));
+                this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0daa));
             }
         }
     }
@@ -137,8 +123,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f34964c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
-            this.f34963b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
+            this.c.setTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
+            this.b.setBackgroundResource(R.drawable.pb_foot_more_trans_selector);
         }
     }
 
@@ -152,38 +138,38 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     public void f(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            this.f34968g = str;
-            this.f34964c.setText(str);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f34963b.getLayoutParams();
+            this.g = str;
+            this.c.setText(str);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
             layoutParams.height = i;
             layoutParams.bottomMargin = 0;
-            this.f34963b.setLayoutParams(layoutParams);
-            this.f34966e.setVisibility(8);
-            this.f34967f.setVisibility(8);
+            this.b.setLayoutParams(layoutParams);
+            this.e.setVisibility(8);
+            this.f.setVisibility(8);
         }
     }
 
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f34964c.setText(str);
-            this.f34966e.setVisibility(0);
-            this.f34966e.setImageResource(PbListView.new_pic_emotion_03);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f34966e.getLayoutParams();
-            layoutParams.topMargin = this.f34969h;
-            this.f34966e.setLayoutParams(layoutParams);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.f34967f.getLayoutParams());
-            layoutParams2.height = this.f34969h;
-            this.f34967f.setLayoutParams(layoutParams2);
-            this.f34967f.setVisibility(0);
+            this.c.setText(str);
+            this.e.setVisibility(0);
+            this.e.setImageResource(PbListView.new_pic_emotion_03);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.e.getLayoutParams();
+            layoutParams.topMargin = this.h;
+            this.e.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(this.f.getLayoutParams());
+            layoutParams2.height = this.h;
+            this.f.setLayoutParams(layoutParams2);
+            this.f.setVisibility(0);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f34965d.setVisibility(0);
-            this.f34964c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a2e));
+            this.d.setVisibility(0);
+            this.c.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.obfuscated_res_0x7f0f0a2e));
         }
     }
 }

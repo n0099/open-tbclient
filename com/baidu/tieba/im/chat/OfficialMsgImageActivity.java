@@ -1,12 +1,12 @@
 package com.baidu.tieba.im.chat;
 
-import c.a.p0.u1.s.a;
-import c.a.p0.u1.s.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.s77;
+import com.repackage.u77;
+/* loaded from: classes3.dex */
 public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,10 +26,10 @@ public class OfficialMsgImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void queryAllBigImageUrls(String str, c cVar) {
+    public void queryAllBigImageUrls(String str, u77 u77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
-            a.j().o(str, cVar);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, u77Var) == null) {
+            s77.j().o(str, u77Var);
         }
     }
 }

@@ -91,12 +91,12 @@ public class WebViewCompat {
                 Method declaredMethod = WebView.class.getDeclaredMethod("checkThread", new Class[0]);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(webView, new Object[0]);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 throw new RuntimeException(e3);
-            } catch (InvocationTargetException e4) {
-                throw new RuntimeException(e4);
             }
         }
     }

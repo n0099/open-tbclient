@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SysUpdateObservable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SysUpdateObservable a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<SysUpdateObserver> f26899b;
+    public List<SysUpdateObserver> b;
 
     public SysUpdateObservable() {
         Interceptable interceptable = $ic;
@@ -31,8 +29,8 @@ public class SysUpdateObservable {
                 return;
             }
         }
-        this.f26899b = null;
-        this.f26899b = new ArrayList();
+        this.b = null;
+        this.b = new ArrayList();
     }
 
     public static SysUpdateObservable getInstance() {
@@ -54,14 +52,14 @@ public class SysUpdateObservable {
     public void addObserver(SysUpdateObserver sysUpdateObserver) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sysUpdateObserver) == null) {
-            this.f26899b.add(sysUpdateObserver);
+            this.b.add(sysUpdateObserver);
         }
     }
 
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
+            for (SysUpdateObserver sysUpdateObserver : this.b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.init();
                 }
@@ -72,7 +70,7 @@ public class SysUpdateObservable {
     public void updateNetworkInfo(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
+            for (SysUpdateObserver sysUpdateObserver : this.b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkInfo(context);
                 }
@@ -83,7 +81,7 @@ public class SysUpdateObservable {
     public void updateNetworkProxy(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
+            for (SysUpdateObserver sysUpdateObserver : this.b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updateNetworkProxy(context);
                 }
@@ -94,7 +92,7 @@ public class SysUpdateObservable {
     public void updatePhoneInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (SysUpdateObserver sysUpdateObserver : this.f26899b) {
+            for (SysUpdateObserver sysUpdateObserver : this.b) {
                 if (sysUpdateObserver != null) {
                     sysUpdateObserver.updatePhoneInfo();
                 }

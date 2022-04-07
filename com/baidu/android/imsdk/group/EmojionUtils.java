@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class EmojionUtils {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<Integer> emojionlist;
@@ -181,9 +181,9 @@ public class EmojionUtils {
         return invokeL.booleanValue;
     }
 
-    public static boolean isEmojiCharacter(char c2) {
+    public static boolean isEmojiCharacter(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c2)})) == null) ? emojionlist.contains(Character.valueOf(c2)) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Character.valueOf(c)})) == null) ? emojionlist.contains(Character.valueOf(c)) : invokeCommon.booleanValue;
     }
 }

@@ -25,31 +25,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static CyberPlayerCoreProvider a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f25342b = false;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f25343c = false;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f25344d = "com.baidu.media.duplayer";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f25345e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f25346f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f25347g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static Class<?> f25348h;
+    public static volatile boolean b = false;
+    public static volatile boolean c = false;
+    public static String d = "com.baidu.media.duplayer";
+    public static final String e;
+    public static final String f;
+    public static final String g;
+    public static Class<?> h;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,9 +51,9 @@ public class d {
                 return;
             }
         }
-        f25345e = f25344d + ".CyberVRRenderProviderImpl";
-        f25346f = f25344d + ".MediaInstanceManagerImpl";
-        f25347g = f25344d + ".CyberPlayerCoreImpl";
+        e = d + ".CyberVRRenderProviderImpl";
+        f = d + ".MediaInstanceManagerImpl";
+        g = d + ".CyberPlayerCoreImpl";
     }
 
     public static int a(String str, int i, int i2, int i3, Map<String, String> map) {
@@ -80,15 +66,15 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f25348h == null) {
+            if (h == null) {
                 try {
-                    f25348h = Class.forName(f25345e, false, context.getClassLoader());
+                    h = Class.forName(e, false, context.getClassLoader());
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    f25348h = null;
+                    h = null;
                 }
             }
-            Class<?> cls = f25348h;
+            Class<?> cls = h;
             if (cls != null) {
                 try {
                     return (CyberVRRenderProvider) cls.getConstructor(Context.class).newInstance(context);
@@ -180,7 +166,7 @@ public class d {
             synchronized (d.class) {
                 if (a == null) {
                     try {
-                        CyberPlayerCoreProvider cyberPlayerCoreProvider = (CyberPlayerCoreProvider) Class.forName(f25347g, true, classLoader).newInstance();
+                        CyberPlayerCoreProvider cyberPlayerCoreProvider = (CyberPlayerCoreProvider) Class.forName(g, true, classLoader).newInstance();
                         a = cyberPlayerCoreProvider;
                         cyberPlayerCoreProvider.init(context, str);
                         a.setInstallListener(installListener2);
@@ -455,25 +441,25 @@ public class d {
 
     public static void l() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65572, null) == null) || f25342b || !a(1) || CyberPlayerManager.getNetHandleListener() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65572, null) == null) || b || !a(1) || CyberPlayerManager.getNetHandleListener() == null) {
             return;
         }
         long longValue = CyberPlayerManager.getNetHandleListener().getKerNetHandle().longValue();
         if (longValue == 0 || a.kernelNetInit(longValue) != 0) {
             return;
         }
-        f25342b = true;
+        b = true;
     }
 
     public static void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65573, null) == null) || f25343c || !a(1) || CyberPlayerManager.getNetHandleListener() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65573, null) == null) || c || !a(1) || CyberPlayerManager.getNetHandleListener() == null) {
             return;
         }
         long longValue = CyberPlayerManager.getNetHandleListener().getPcdnNetHandle().longValue();
         if (longValue == 0 || a.pcdnNetInit(longValue) != 0) {
             return;
         }
-        f25343c = true;
+        c = true;
     }
 }

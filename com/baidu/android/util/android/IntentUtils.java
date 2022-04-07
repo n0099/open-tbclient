@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IntentUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -101,9 +101,9 @@ public class IntentUtils {
                             context.grantUriPermission(str, uriForFile, 1);
                         }
                     }
-                } catch (IllegalArgumentException e2) {
+                } catch (IllegalArgumentException e) {
                     if (DEBUG) {
-                        throw e2;
+                        throw e;
                     }
                     return false;
                 }

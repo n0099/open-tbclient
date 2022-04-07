@@ -13,7 +13,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,34 +24,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class EmotionButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static int q;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f36837b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36838c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f36839d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f36840e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f36841f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f36842g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextPaint f36843h;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public Paint g;
+    public TextPaint h;
     public RectF i;
     public int j;
     public int k;
@@ -61,7 +47,7 @@ public class EmotionButton extends View {
     public String n;
     public float o;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,10 +72,10 @@ public class EmotionButton extends View {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
                     int unused = EmotionButton.q = motionEvent.getAction();
                     this.a.invalidate();
@@ -114,7 +100,7 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        p = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        p = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
         q = 1;
     }
 
@@ -142,8 +128,8 @@ public class EmotionButton extends View {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f36842g.setShader(this.l);
-            this.f36842g.setShadowLayer(p, 2.0f, 2.0f, this.a);
+            this.g.setShader(this.l);
+            this.g.setShadowLayer(p, 2.0f, 2.0f, this.a);
             if (this.i == null) {
                 this.i = new RectF();
             }
@@ -152,20 +138,20 @@ public class EmotionButton extends View {
             rectF.top = 10.0f;
             rectF.right = this.j - 5;
             rectF.bottom = this.k - 10;
-            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.f36842g);
+            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.g);
             if (TextUtils.isEmpty(this.n)) {
                 return;
             }
-            Paint.FontMetrics fontMetrics = this.f36843h.getFontMetrics();
-            canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.f36843h);
+            Paint.FontMetrics fontMetrics = this.h.getFontMetrics();
+            canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.h);
         }
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.f36842g.setShader(this.m);
-            this.f36842g.setShadowLayer(p, 2.0f, 2.0f, this.f36839d);
+            this.g.setShader(this.m);
+            this.g.setShadowLayer(p, 2.0f, 2.0f, this.d);
             if (this.i == null) {
                 this.i = new RectF();
             }
@@ -174,12 +160,12 @@ public class EmotionButton extends View {
             rectF.top = 10.0f;
             rectF.right = this.j - 5;
             rectF.bottom = this.k - 10;
-            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.f36842g);
+            canvas.drawRoundRect(rectF, 15.0f, 15.0f, this.g);
             if (TextUtils.isEmpty(this.n)) {
                 return;
             }
-            Paint.FontMetrics fontMetrics = this.f36843h.getFontMetrics();
-            canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.f36843h);
+            Paint.FontMetrics fontMetrics = this.h.getFontMetrics();
+            canvas.drawText(this.n, this.i.centerX(), (int) ((this.i.centerY() - (fontMetrics.top / 2.0f)) - (fontMetrics.bottom / 2.0f)), this.h);
         }
     }
 
@@ -187,20 +173,20 @@ public class EmotionButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f36837b = SkinManager.getColor(R.color.CAM_X0302);
-            this.f36838c = SkinManager.getColor(R.color.CAM_X0303);
-            this.f36839d = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f36840e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f36841f = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
+            this.b = SkinManager.getColor(R.color.CAM_X0302);
+            this.c = SkinManager.getColor(R.color.CAM_X0303);
+            this.d = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
             Paint paint = new Paint();
-            this.f36842g = paint;
+            this.g = paint;
             paint.setStyle(Paint.Style.FILL);
             TextPaint textPaint = new TextPaint(1);
-            this.f36843h = textPaint;
+            this.h = textPaint;
             textPaint.setTextSize(this.o);
-            this.f36843h.setStyle(Paint.Style.FILL);
-            this.f36843h.setTextAlign(Paint.Align.CENTER);
-            this.f36843h.setColor(SkinManager.getColor(R.color.CAM_X0101));
+            this.h.setStyle(Paint.Style.FILL);
+            this.h.setTextAlign(Paint.Align.CENTER);
+            this.h.setColor(SkinManager.getColor(R.color.CAM_X0101));
             setOnTouchListener(new a(this));
         }
     }
@@ -243,8 +229,8 @@ public class EmotionButton extends View {
             super.onSizeChanged(i, i2, i3, i4);
             this.j = i;
             this.k = i2;
-            this.l = new LinearGradient(5.0f, 10.0f, this.j - 5, this.k - 10, this.f36838c, this.f36837b, Shader.TileMode.MIRROR);
-            this.m = new LinearGradient(5.0f, 10.0f, this.j - 5, this.k - 10, this.f36841f, this.f36840e, Shader.TileMode.MIRROR);
+            this.l = new LinearGradient(5.0f, 10.0f, this.j - 5, this.k - 10, this.c, this.b, Shader.TileMode.MIRROR);
+            this.m = new LinearGradient(5.0f, 10.0f, this.j - 5, this.k - 10, this.f, this.e, Shader.TileMode.MIRROR);
         }
     }
 
@@ -275,9 +261,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401d2, R.attr.obfuscated_res_0x7f0405f8});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04020e, R.attr.obfuscated_res_0x7f040636});
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, n.f(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, oi.f(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }
@@ -301,9 +287,9 @@ public class EmotionButton extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401d2, R.attr.obfuscated_res_0x7f0405f8});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04020e, R.attr.obfuscated_res_0x7f040636});
         this.n = obtainStyledAttributes.getString(1);
-        this.o = obtainStyledAttributes.getDimension(0, n.f(context, R.dimen.tbds44));
+        this.o = obtainStyledAttributes.getDimension(0, oi.f(context, R.dimen.tbds44));
         obtainStyledAttributes.recycle();
         d(context);
     }

@@ -30,7 +30,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -44,13 +44,13 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public boolean sharedElementReenterTransitionEnabled;
     public boolean transparentWindowBackgroundEnabled;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface ShapeProvider {
         @Nullable
-        ShapeAppearanceModel provideShape(@NonNull View view);
+        ShapeAppearanceModel provideShape(@NonNull View view2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ShapeableViewShapeProvider implements ShapeProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,12 +71,12 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
         @Override // com.google.android.material.transition.platform.MaterialContainerTransformSharedElementCallback.ShapeProvider
         @Nullable
-        public ShapeAppearanceModel provideShape(@NonNull View view) {
+        public ShapeAppearanceModel provideShape(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (view instanceof Shapeable) {
-                    return ((Shapeable) view).getShapeAppearanceModel();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (view2 instanceof Shapeable) {
+                    return ((Shapeable) view2).getShapeAppearanceModel();
                 }
                 return null;
             }
@@ -208,11 +208,11 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
                     @Override // com.google.android.material.transition.platform.TransitionListenerAdapter, android.transition.Transition.TransitionListener
                     public void onTransitionEnd(Transition transition) {
-                        View view;
+                        View view2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
-                            if (MaterialContainerTransformSharedElementCallback.capturedSharedElement != null && (view = (View) MaterialContainerTransformSharedElementCallback.capturedSharedElement.get()) != null) {
-                                view.setAlpha(1.0f);
+                            if (MaterialContainerTransformSharedElementCallback.capturedSharedElement != null && (view2 = (View) MaterialContainerTransformSharedElementCallback.capturedSharedElement.get()) != null) {
+                                view2.setAlpha(1.0f);
                                 WeakReference unused = MaterialContainerTransformSharedElementCallback.capturedSharedElement = null;
                             }
                             this.val$activity.finish();
@@ -288,12 +288,12 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
     @Override // android.app.SharedElementCallback
     @Nullable
-    public Parcelable onCaptureSharedElementSnapshot(@NonNull View view, @NonNull Matrix matrix, @NonNull RectF rectF) {
+    public Parcelable onCaptureSharedElementSnapshot(@NonNull View view2, @NonNull Matrix matrix, @NonNull RectF rectF) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, view, matrix, rectF)) == null) {
-            capturedSharedElement = new WeakReference<>(view);
-            return super.onCaptureSharedElementSnapshot(view, matrix, rectF);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, view2, matrix, rectF)) == null) {
+            capturedSharedElement = new WeakReference<>(view2);
+            return super.onCaptureSharedElementSnapshot(view2, matrix, rectF);
         }
         return (Parcelable) invokeLLL.objValue;
     }
@@ -303,13 +303,13 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public View onCreateSnapshotView(@NonNull Context context, @Nullable Parcelable parcelable) {
         InterceptResult invokeLL;
         WeakReference<View> weakReference;
-        View view;
+        View view2;
         ShapeAppearanceModel provideShape;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, parcelable)) == null) {
             View onCreateSnapshotView = super.onCreateSnapshotView(context, parcelable);
-            if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view = weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view)) != null) {
-                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f09146c, provideShape);
+            if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view2 = weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view2)) != null) {
+                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f091465, provideShape);
             }
             return onCreateSnapshotView;
         }
@@ -318,10 +318,10 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
 
     @Override // android.app.SharedElementCallback
     public void onMapSharedElements(@NonNull List<String> list, @NonNull Map<String, View> map) {
-        View view;
+        View view2;
         Activity activity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, list, map) == null) || list.isEmpty() || map.isEmpty() || (view = map.get(list.get(0))) == null || (activity = ContextUtils.getActivity(view.getContext())) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, list, map) == null) || list.isEmpty() || map.isEmpty() || (view2 = map.get(list.get(0))) == null || (activity = ContextUtils.getActivity(view2.getContext())) == null) {
             return;
         }
         Window window = activity.getWindow();
@@ -336,8 +336,8 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public void onSharedElementEnd(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, list, list2, list3) == null) {
-            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f09146c) instanceof View)) {
-                list2.get(0).setTag(R.id.obfuscated_res_0x7f09146c, null);
+            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f091465) instanceof View)) {
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f091465, null);
             }
             if (!this.entering && !list2.isEmpty()) {
                 this.returnEndBounds = TransitionUtils.getRelativeBoundsRect(list2.get(0));
@@ -351,15 +351,15 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, list, list2, list3) == null) {
             if (!list2.isEmpty() && !list3.isEmpty()) {
-                list2.get(0).setTag(R.id.obfuscated_res_0x7f09146c, list3.get(0));
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f091465, list3.get(0));
             }
             if (this.entering || list2.isEmpty() || this.returnEndBounds == null) {
                 return;
             }
-            View view = list2.get(0);
-            view.measure(View.MeasureSpec.makeMeasureSpec(this.returnEndBounds.width(), 1073741824), View.MeasureSpec.makeMeasureSpec(this.returnEndBounds.height(), 1073741824));
+            View view2 = list2.get(0);
+            view2.measure(View.MeasureSpec.makeMeasureSpec(this.returnEndBounds.width(), 1073741824), View.MeasureSpec.makeMeasureSpec(this.returnEndBounds.height(), 1073741824));
             Rect rect = this.returnEndBounds;
-            view.layout(rect.left, rect.top, rect.right, rect.bottom);
+            view2.layout(rect.left, rect.top, rect.right, rect.bottom);
         }
     }
 

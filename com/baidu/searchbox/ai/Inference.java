@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Inference implements AutoCloseable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +64,8 @@ public class Inference implements AutoCloseable {
                 this.dataType = i;
                 this.hasInited = true;
                 return true;
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -95,15 +95,15 @@ public class Inference implements AutoCloseable {
 
     public static native long innerInit(int i, int i2, String str);
 
-    public static native Object innerPredictForClassArray(long j, int i, float f2, int i2, long j2, int i3);
+    public static native Object innerPredictForClassArray(long j, int i, float f, int i2, long j2, int i3);
 
-    public static native int innerPredictForClassId(long j, int i, float f2, int i2, long j2, int i3);
+    public static native int innerPredictForClassId(long j, int i, float f, int i2, long j2, int i3);
 
-    public static native String innerPredictForClassName(long j, int i, float f2, int i2, long j2, int i3);
+    public static native String innerPredictForClassName(long j, int i, float f, int i2, long j2, int i3);
 
-    public static native Object innerPredictForRegressorTarget(long j, int i, float f2, int i2, long j2, int i3);
+    public static native Object innerPredictForRegressorTarget(long j, int i, float f, int i2, long j2, int i3);
 
-    public static native Object innerPredictForRegressorTargetArray(long j, int i, float f2, int i2, long j2, int i3);
+    public static native Object innerPredictForRegressorTargetArray(long j, int i, float f, int i2, long j2, int i3);
 
     @Override // java.lang.AutoCloseable
     public void close() {
@@ -111,23 +111,23 @@ public class Inference implements AutoCloseable {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 delete(this.nativeHandle, this.dataType, this.algorithm);
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             }
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v7, resolved type: T[] */
     /* JADX WARN: Multi-variable type inference failed */
-    public <T> T[] predictForClassArray(Tensor tensor, float f2, Class<T> cls) throws InferenceException {
+    public <T> T[] predictForClassArray(Tensor tensor, float f, Class<T> cls) throws InferenceException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tensor, Float.valueOf(f2), cls})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
             if (tensor != null) {
                 checkInit(tensor.getDataType().value());
                 long j = this.nativeHandle;
                 if (j != 0) {
-                    Object innerPredictForClassArray = innerPredictForClassArray(j, this.algorithm, f2, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
+                    Object innerPredictForClassArray = innerPredictForClassArray(j, this.algorithm, f, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
                     if (innerPredictForClassArray != null) {
                         if (innerPredictForClassArray.getClass().isArray()) {
                             int length = Array.getLength(innerPredictForClassArray);
@@ -153,15 +153,15 @@ public class Inference implements AutoCloseable {
         return (T[]) ((Object[]) invokeCommon.objValue);
     }
 
-    public int predictForClassId(Tensor tensor, float f2) {
+    public int predictForClassId(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, tensor, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, tensor, f)) == null) {
             if (tensor != null) {
                 checkInit(tensor.getDataType().value());
                 long j = this.nativeHandle;
                 if (j != 0) {
-                    return innerPredictForClassId(j, this.algorithm, f2, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
+                    return innerPredictForClassId(j, this.algorithm, f, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
                 }
                 throw new IllegalStateException("not init!!!");
             }
@@ -170,15 +170,15 @@ public class Inference implements AutoCloseable {
         return invokeLF.intValue;
     }
 
-    public String predictForClassName(Tensor tensor, float f2) {
+    public String predictForClassName(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, tensor, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, tensor, f)) == null) {
             if (tensor != null) {
                 checkInit(tensor.getDataType().value());
                 long j = this.nativeHandle;
                 if (j != 0) {
-                    return innerPredictForClassName(j, this.algorithm, f2, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
+                    return innerPredictForClassName(j, this.algorithm, f, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
                 }
                 throw new IllegalStateException("not init!!!");
             }
@@ -187,15 +187,15 @@ public class Inference implements AutoCloseable {
         return (String) invokeLF.objValue;
     }
 
-    public <T> T predictForRegressorTarget(Tensor tensor, float f2, Class<T> cls) throws InferenceException {
+    public <T> T predictForRegressorTarget(Tensor tensor, float f, Class<T> cls) throws InferenceException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{tensor, Float.valueOf(f2), cls})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{tensor, Float.valueOf(f), cls})) == null) {
             if (tensor != null) {
                 checkInit(tensor.getDataType().value());
                 long j = this.nativeHandle;
                 if (j != 0) {
-                    Object innerPredictForRegressorTarget = innerPredictForRegressorTarget(j, this.algorithm, f2, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
+                    Object innerPredictForRegressorTarget = innerPredictForRegressorTarget(j, this.algorithm, f, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value());
                     if (innerPredictForRegressorTarget != null) {
                         if (innerPredictForRegressorTarget.getClass().isArray() && Array.getLength(innerPredictForRegressorTarget) > 0) {
                             T t = (T) Array.get(innerPredictForRegressorTarget, 0);
@@ -214,15 +214,15 @@ public class Inference implements AutoCloseable {
         return (T) invokeCommon.objValue;
     }
 
-    public <T> T[] predictForRegressorTargetArray(Tensor tensor, float f2) {
+    public <T> T[] predictForRegressorTargetArray(Tensor tensor, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, tensor, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048581, this, tensor, f)) == null) {
             if (tensor != null) {
                 checkInit(tensor.getDataType().value());
                 long j = this.nativeHandle;
                 if (j != 0) {
-                    return (T[]) ((Object[]) innerPredictForRegressorTargetArray(j, this.algorithm, f2, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value()));
+                    return (T[]) ((Object[]) innerPredictForRegressorTargetArray(j, this.algorithm, f, tensor.getDataType().value(), tensor.getNativeHandle(), tensor.getDataType().value()));
                 }
                 throw new IllegalStateException("not init!!!");
             }

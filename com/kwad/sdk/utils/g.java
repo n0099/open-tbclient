@@ -7,23 +7,21 @@ import androidx.annotation.Nullable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static HashMap<String, ArrayList<String>> a = new HashMap<>();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f41388b;
+    public static String b;
 
     @Nullable
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f41388b)) {
+        if (TextUtils.isEmpty(b)) {
             ArrayList<String> a2 = a(context, "SHA1");
             if (a2 != null && a2.size() != 0) {
-                f41388b = a2.get(0);
+                b = a2.get(0);
             }
-            return f41388b;
+            return b;
         }
-        return f41388b;
+        return b;
     }
 
     public static String a(Signature signature, String str) {
@@ -40,8 +38,8 @@ public class g {
                 return sb.substring(0, sb.length() - 1);
             }
             return "error!";
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.e("AppSigningUtil", e2.getMessage());
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.e("AppSigningUtil", e.getMessage());
             return "error!";
         }
     }
@@ -71,8 +69,8 @@ public class g {
                     }
                     arrayList.add(str2);
                 }
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.e("AppSigningUtil", "签名信息列表获取失败 " + e2.getMessage());
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.e("AppSigningUtil", "签名信息列表获取失败 " + e.getMessage());
             }
             a.put(str, arrayList);
         }
@@ -82,8 +80,8 @@ public class g {
     public static Signature[] b(Context context, String str) {
         try {
             return context.getPackageManager().getPackageInfo(str, 64).signatures;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.e("AppSigningUtil", e2.getMessage());
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.e("AppSigningUtil", e.getMessage());
             return null;
         }
     }

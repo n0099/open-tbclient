@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DuPaBManualMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String B_CALLBACK_KEY = "callback_key";
@@ -87,8 +87,8 @@ public class DuPaBManualMsg extends ChatMsg {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(B_CALLBACK_KEY, this.callbackKey);
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getManualContentJson :", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getManualContentJson :", e);
             }
             return jSONObject.toString();
         }
@@ -133,8 +133,8 @@ public class DuPaBManualMsg extends ChatMsg {
                     this.title = jSONObject.optString("title");
                     this.callbackKey = jSONObject.optString(B_CALLBACK_KEY);
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "parse json err!", e);
                 }
             }
             return false;

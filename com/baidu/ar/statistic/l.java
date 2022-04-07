@@ -21,13 +21,13 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class l extends AsyncTask<String, Void, List<String>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a wP;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         void onPerformanceRequestFinished(List<String> list);
     }
@@ -72,8 +72,8 @@ public class l extends AsyncTask<String, Void, List<String>> {
                     }
                     return arrayList;
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return null;
         }
@@ -116,8 +116,8 @@ public class l extends AsyncTask<String, Void, List<String>> {
                 if (execute.isSuccess()) {
                     return aL(execute.getContent());
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return null;
         }

@@ -2,7 +2,7 @@ package com.baidu.sapi2.callback;
 
 import com.baidu.sapi2.share.ShareStorage;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ShareModelResultCallback {
     void onFailure(int i, String str);
 

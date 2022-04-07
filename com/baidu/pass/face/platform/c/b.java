@@ -26,33 +26,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b implements IDetectStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.baidu.pass.face.platform.c.b";
     public static volatile int p;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f28078b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Rect f28079c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Rect f28080d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public IDetectStrategyCallback f28081e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ISecurityCallback f28082f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f28083g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final com.baidu.pass.face.platform.b.a f28084h;
+    public Context b;
+    public Rect c;
+    public Rect d;
+    public IDetectStrategyCallback e;
+    public ISecurityCallback f;
+    public int g;
+    public final com.baidu.pass.face.platform.b.a h;
     public boolean i;
     public volatile boolean j;
     public volatile boolean k;
@@ -66,14 +52,12 @@ public class b implements IDetectStrategy {
     public HashMap<String, ImageInfo> t;
     public HashMap<String, ImageInfo> u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public byte[] f28085b;
+        public byte[] b;
 
         public a(b bVar, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -91,14 +75,14 @@ public class b implements IDetectStrategy {
                 }
             }
             this.a = bVar;
-            this.f28085b = bArr;
+            this.b = bArr;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b(this.f28085b);
+                this.a.b(this.b);
                 b.a();
             }
         }
@@ -146,10 +130,10 @@ public class b implements IDetectStrategy {
         com.baidu.pass.face.platform.a.a.b("ca", "Baidu-IDL-FaceSDK4.1.1");
         com.baidu.pass.face.platform.a.a.b("version", "4.1.1");
         com.baidu.pass.face.platform.a.a.b("stm", Long.valueOf(System.currentTimeMillis()));
-        this.f28078b = context;
+        this.b = context;
         this.n = new com.baidu.pass.face.platform.c.a();
         this.o = new com.baidu.pass.face.platform.a.b(context);
-        this.f28084h = new com.baidu.pass.face.platform.b.a();
+        this.h = new com.baidu.pass.face.platform.b.a();
     }
 
     public static /* synthetic */ int a() {
@@ -166,8 +150,8 @@ public class b implements IDetectStrategy {
                 return null;
             }
             com.baidu.pass.face.platform.model.a aVar = new com.baidu.pass.face.platform.model.a();
-            FaceExtInfo[] a2 = this.f28084h.a(faceInfoArr);
-            aVar.a(this.n.a(a2, this.f28080d, false, this.l));
+            FaceExtInfo[] a2 = this.h.a(faceInfoArr);
+            aVar.a(this.n.a(a2, this.d, false, this.l));
             aVar.a(a2);
             aVar.a(System.currentTimeMillis());
             return aVar;
@@ -184,7 +168,7 @@ public class b implements IDetectStrategy {
                 return this.s.get(faceStatusNewEnum);
             }
             int tipsId = FaceEnvironment.getTipsId(faceStatusNewEnum);
-            if (tipsId <= 0 || (context = this.f28078b) == null) {
+            if (tipsId <= 0 || (context = this.b) == null) {
                 return "";
             }
             String string = context.getResources().getString(tipsId);
@@ -194,14 +178,14 @@ public class b implements IDetectStrategy {
         return (String) invokeL.objValue;
     }
 
-    private void a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f2) {
+    private void a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f) {
         ArrayList<ImageInfo> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f2)}) == null) || (a2 = this.f28084h.a(faceExtInfo, bDFaceImageInstance)) == null || a2.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f)}) == null) || (a2 = this.h.a(faceExtInfo, bDFaceImageInstance)) == null || a2.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.t;
-        hashMap.put("bestCropDetectImage_" + i + "_" + f2 + "_" + System.currentTimeMillis(), a2.get(0));
+        hashMap.put("bestCropDetectImage_" + i + "_" + f + "_" + System.currentTimeMillis(), a2.get(0));
     }
 
     /* JADX WARN: Removed duplicated region for block: B:68:0x00f4  */
@@ -324,15 +308,15 @@ public class b implements IDetectStrategy {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, this, bDFaceImageInstance, faceExtInfo, i)) == null) {
-            float b2 = this.n.b();
-            this.f28084h.a(this.l);
-            BDFaceImageInstance b3 = FaceSDKManager.getInstance().b(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.l.getCropHeight(), this.l.getCropWidth());
-            if (b3 == null) {
+            float b = this.n.b();
+            this.h.a(this.l);
+            BDFaceImageInstance b2 = FaceSDKManager.getInstance().b(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.l.getCropHeight(), this.l.getCropWidth());
+            if (b2 == null) {
                 return false;
             }
-            a(faceExtInfo, b3, i, b2);
-            b3.destory();
-            b(faceExtInfo, bDFaceImageInstance, i, b2);
+            a(faceExtInfo, b2, i, b);
+            b2.destory();
+            b(faceExtInfo, bDFaceImageInstance, i, b);
             return true;
         }
         return invokeLLI.booleanValue;
@@ -345,7 +329,7 @@ public class b implements IDetectStrategy {
                 com.baidu.pass.face.platform.a.a.a("etm", Long.valueOf(System.currentTimeMillis()));
                 com.baidu.pass.face.platform.a.a.a();
             }
-            IDetectStrategyCallback iDetectStrategyCallback = this.f28081e;
+            IDetectStrategyCallback iDetectStrategyCallback = this.e;
             if (iDetectStrategyCallback != null) {
                 if (faceStatusNewEnum != FaceStatusNewEnum.OK) {
                     iDetectStrategyCallback.onDetectCompletion(faceStatusNewEnum, a(faceStatusNewEnum), null, null);
@@ -356,19 +340,19 @@ public class b implements IDetectStrategy {
                 com.baidu.pass.face.platform.a.a.a("etm", Long.valueOf(System.currentTimeMillis()));
                 com.baidu.pass.face.platform.a.a.a("finish", 1);
                 com.baidu.pass.face.platform.a.a.a();
-                this.f28081e.onDetectCompletion(faceStatusNewEnum, a(faceStatusNewEnum), this.t, this.u);
+                this.e.onDetectCompletion(faceStatusNewEnum, a(faceStatusNewEnum), this.t, this.u);
             }
         }
     }
 
-    private void b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f2) {
-        ArrayList<ImageInfo> b2;
+    private void b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f) {
+        ArrayList<ImageInfo> b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f2)}) == null) || (b2 = this.f28084h.b(faceExtInfo, bDFaceImageInstance)) == null || b2.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f)}) == null) || (b = this.h.b(faceExtInfo, bDFaceImageInstance)) == null || b.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.u;
-        hashMap.put("bestSrcDetectImage_" + i + "_" + f2 + "_" + System.currentTimeMillis(), b2.get(0));
+        hashMap.put("bestSrcDetectImage_" + i + "_" + f + "_" + System.currentTimeMillis(), b.get(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -376,11 +360,11 @@ public class b implements IDetectStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, bArr) == null) {
             try {
-                BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.f28079c.width(), this.f28079c.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.f28083g, 1);
+                BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.c.width(), this.c.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.g, 1);
                 FaceInfo[] a2 = FaceSDKManager.getInstance().a(bDFaceImageInstance);
                 com.baidu.pass.face.platform.model.a a3 = a(a2, bDFaceImageInstance);
-                if (this.f28082f != null) {
-                    this.f28082f.getFaceInfoForSecurity(a2);
+                if (this.f != null) {
+                    this.f.getFaceInfoForSecurity(a2);
                 }
                 a(a3, bDFaceImageInstance);
             } catch (Throwable th) {
@@ -436,9 +420,9 @@ public class b implements IDetectStrategy {
     public void setDetectStrategyConfig(Rect rect, Rect rect2, IDetectStrategyCallback iDetectStrategyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, rect, rect2, iDetectStrategyCallback) == null) {
-            this.f28079c = rect;
-            this.f28080d = rect2;
-            this.f28081e = iDetectStrategyCallback;
+            this.c = rect;
+            this.d = rect2;
+            this.e = iDetectStrategyCallback;
         }
     }
 
@@ -454,7 +438,7 @@ public class b implements IDetectStrategy {
     public void setISecurityCallback(ISecurityCallback iSecurityCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, iSecurityCallback) == null) {
-            this.f28082f = iSecurityCallback;
+            this.f = iSecurityCallback;
         }
     }
 
@@ -462,7 +446,7 @@ public class b implements IDetectStrategy {
     public void setPreviewDegree(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f28083g = i;
+            this.g = i;
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class TbEditVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENTER_ANIM_VALUES = "enter_anim_values";
@@ -111,10 +111,10 @@ public class TbEditVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void setVideoRatio(float f2) {
+    public void setVideoRatio(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            getIntent().putExtra(KEY_EDIT_VIDEO_RATIO, f2);
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            getIntent().putExtra(KEY_EDIT_VIDEO_RATIO, f);
         }
     }
 }

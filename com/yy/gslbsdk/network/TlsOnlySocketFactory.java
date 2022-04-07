@@ -28,7 +28,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TlsOnlySocketFactory extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TlsOnlySocketFactory";
@@ -37,13 +37,13 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
     public final SSLSocketFactory delegate;
 
     /* renamed from: com.yy.gslbsdk.network.TlsOnlySocketFactory$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class DelegateSSLSocket extends SSLSocket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -544,7 +544,7 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class TlsOnlySSLSocket extends DelegateSSLSocket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -657,10 +657,10 @@ public class TlsOnlySocketFactory extends SSLSocketFactory {
             sSLContext.init(null, null, null);
             this.delegate = sSLContext.getSocketFactory();
             this.compatible = false;
-        } catch (KeyManagementException e2) {
+        } catch (KeyManagementException e) {
+            throw new IllegalArgumentException(e);
+        } catch (NoSuchAlgorithmException e2) {
             throw new IllegalArgumentException(e2);
-        } catch (NoSuchAlgorithmException e3) {
-            throw new IllegalArgumentException(e3);
         }
     }
 

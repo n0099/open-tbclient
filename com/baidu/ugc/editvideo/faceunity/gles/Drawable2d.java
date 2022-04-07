@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Drawable2d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FloatBuffer FULL_RECTANGLE_BUF;
@@ -41,7 +41,7 @@ public class Drawable2d {
     public int mVertexStride;
 
     /* renamed from: com.baidu.ugc.editvideo.faceunity.gles.Drawable2d$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Drawable2d$Prefab;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public class Drawable2d {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Prefab {
         public static final /* synthetic */ Prefab[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -264,41 +264,41 @@ public class Drawable2d {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mVertexStride : invokeV.intValue;
     }
 
-    public void setScale(float f2, float f3) {
+    public void setScale(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            float f4 = f3 * (-1.0f);
-            float f5 = (-1.0f) * f2;
-            float f6 = f3 * 1.0f;
-            float f7 = f2 * 1.0f;
-            this.mVertexArray.put(new float[]{f4, f5, f6, f5, f4, f7, f6, f7});
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            float f3 = f2 * (-1.0f);
+            float f4 = (-1.0f) * f;
+            float f5 = f2 * 1.0f;
+            float f6 = f * 1.0f;
+            this.mVertexArray.put(new float[]{f3, f4, f5, f4, f3, f6, f5, f6});
             this.mVertexArray.position(0);
         }
     }
 
-    public void setScaleAndTranslate(float f2, float f3, float f4, float f5) {
+    public void setScaleAndTranslate(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             float[] fArr = new float[8];
-            float f6 = f2 * (-1.0f);
-            fArr[0] = f6;
-            float f7 = (-1.0f) * f3;
-            fArr[1] = f7;
+            float f5 = f * (-1.0f);
+            fArr[0] = f5;
+            float f6 = (-1.0f) * f2;
+            fArr[1] = f6;
+            float f7 = f * 1.0f;
+            fArr[2] = f7;
+            fArr[3] = f6;
+            fArr[4] = f5;
             float f8 = f2 * 1.0f;
-            fArr[2] = f8;
-            fArr[3] = f7;
-            fArr[4] = f6;
-            float f9 = f3 * 1.0f;
-            fArr[5] = f9;
-            fArr[6] = f8;
-            fArr[7] = f9;
+            fArr[5] = f8;
+            fArr[6] = f7;
+            fArr[7] = f8;
             for (int i = 0; i < 8; i++) {
                 if (i % 2 == 0) {
-                    fArr[i] = fArr[i] + f4;
+                    fArr[i] = fArr[i] + f3;
                 } else if (i != 1 && i != 3) {
-                    fArr[i] = fArr[i] + f5;
+                    fArr[i] = fArr[i] + f4;
                 } else {
-                    fArr[i] = fArr[i] + f5;
+                    fArr[i] = fArr[i] + f4;
                 }
             }
             this.mVertexArray.put(fArr);

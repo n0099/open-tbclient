@@ -1,7 +1,6 @@
 package com.baidu.searchbox.cloudcontrol.processor;
 
 import android.text.TextUtils;
-import c.a.p0.s3.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
@@ -11,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qf8;
 import java.util.HashMap;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DataProcessors {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class DataProcessors {
     private ICloudControlRegister getCloudControlRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? d.a() : (ICloudControlRegister) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? qf8.a() : (ICloudControlRegister) invokeV.objValue;
     }
 
     public void addProcessor(String str, ICloudControlProcessor iCloudControlProcessor) {

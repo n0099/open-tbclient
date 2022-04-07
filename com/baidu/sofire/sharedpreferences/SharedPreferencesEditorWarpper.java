@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SharedPreferencesEditorWarpper implements SharedPreferences.Editor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,20 +128,20 @@ public class SharedPreferencesEditorWarpper implements SharedPreferences.Editor 
     }
 
     @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putFloat(String str, float f2) {
+    public SharedPreferences.Editor putFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
             try {
                 if (this.mIsMainProcess == 1 && (!this.mIsPlatformShared || TextUtils.isEmpty(this.mHandleSharedPlatformName))) {
                     if (this.mBase != null && this.mBase != null) {
-                        this.mBase.putFloat(str, f2);
+                        this.mBase.putFloat(str, f);
                     }
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("operation", SharedPreferenceManager.OPERATION_PUT_FLOAT);
                     bundle.putString("key", str);
-                    bundle.putFloat("value", f2);
+                    bundle.putFloat("value", f);
                     callProviderPut(bundle);
                 }
             } catch (Throwable th) {

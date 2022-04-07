@@ -19,7 +19,7 @@ import java.io.File;
 import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ZwCrashpad {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ZwCrashpad CRASHPAD";
@@ -336,8 +336,8 @@ public class ZwCrashpad {
             if (!TextUtils.isEmpty(optString3)) {
                 mDumpCopyDir = optString3;
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         String str3 = "0";
         try {
@@ -517,9 +517,9 @@ public class ZwCrashpad {
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             try {
                 return new String[]{mAppPackageName, mAppVersion, Integer.toString(mAppVersionCode), mZeusVersion, mCyberVersion, mLocation, mIMEI, Build.MODEL.replace(WebvttCueParser.CHAR_SPACE, '_').replace(SignatureImpl.SEP, '_'), Build.VERSION.RELEASE, mCPU, mCuid, mStatisticParam, mEmulator, mCallback, "", "", mChannel, mBaseBand, Build.DISPLAY, mProcessType, mWebviewNumber, mUploadCrashLogFailedEncrypt, mHandlerDir, String.valueOf(Build.VERSION.SDK_INT), Build.FINGERPRINT.substring(0, Math.min(Build.FINGERPRINT.length(), 128)), mDumpCopyDir};
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 Log.e(TAG, "newInfos error maybe BUILD get errors");
-                Log.e(TAG, "", e2);
+                Log.e(TAG, "", e);
                 return new String[0];
             }
         }

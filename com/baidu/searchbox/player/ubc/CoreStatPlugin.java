@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CoreStatPlugin extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
@@ -90,8 +90,8 @@ public class CoreStatPlugin extends AbsPlugin {
                 j = currentTimeMillis - parseLong;
                 sb.append(j);
                 BdVideoLog.d(TAG, sb.toString());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (parseLong > 0) {
                 return j;
@@ -116,8 +116,8 @@ public class CoreStatPlugin extends AbsPlugin {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("type", this.mIsShowFirstFrame ? "hasPlay" : "prepare");
             this.mLoadingFlow.uploadFlow(this.mUBCContent, null, jSONObject);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -144,8 +144,8 @@ public class CoreStatPlugin extends AbsPlugin {
                 extStatisticsLogClone.putOpt(next, jSONObject.optString(next));
             }
             this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_CARLTON, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, jSONObject));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -159,8 +159,8 @@ public class CoreStatPlugin extends AbsPlugin {
                 extStatisticsLogClone.putOpt("sub_errorNo", Integer.valueOf(i));
                 extStatisticsLogClone.putOpt("errorInfo", str);
                 this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, bDVideoPlayerUbcContent, (JSONObject) null));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -187,8 +187,8 @@ public class CoreStatPlugin extends AbsPlugin {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.putOpt("type", "first_frame");
                 this.mUBCService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, BDVideoPlayerUbcHelper.getUbcContent(bDVideoPlayerUbcContent, jSONObject));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -196,7 +196,7 @@ public class CoreStatPlugin extends AbsPlugin {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
     public void onVideoEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
             super.onVideoEventNotify(videoEvent);
@@ -204,72 +204,72 @@ public class CoreStatPlugin extends AbsPlugin {
             switch (action.hashCode()) {
                 case -2127352417:
                     if (action.equals(StatisticsEvent.ACTION_UPDATE_CONTENT)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1771982113:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY)) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -545382619:
                     if (action.equals(StatisticsEvent.ACTION_BUFFER_START)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -192759714:
                     if (action.equals(StatisticsEvent.ACTION_BUFFER_END)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -168110661:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_COMPLETE)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1537938041:
                     if (action.equals("statistics_player_carlton")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2082163910:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_ERROR)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2095136544:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_START)) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2145795460:
                     if (action.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     this.mUBCContent = (BDVideoPlayerUbcContent) videoEvent.getExtra(13);
                     return;

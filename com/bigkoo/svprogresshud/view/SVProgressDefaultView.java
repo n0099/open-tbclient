@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SVProgressDefaultView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,10 +48,10 @@ public class SVProgressDefaultView extends LinearLayout {
                 return;
             }
         }
-        this.resBigLoading = R.drawable.obfuscated_res_0x7f08065f;
-        this.resInfo = R.drawable.obfuscated_res_0x7f08065e;
-        this.resSuccess = R.drawable.obfuscated_res_0x7f080660;
-        this.resError = R.drawable.obfuscated_res_0x7f08065d;
+        this.resBigLoading = R.drawable.obfuscated_res_0x7f08065e;
+        this.resInfo = R.drawable.obfuscated_res_0x7f08065d;
+        this.resSuccess = R.drawable.obfuscated_res_0x7f08065f;
+        this.resError = R.drawable.obfuscated_res_0x7f08065c;
         initViews();
         init();
     }
@@ -79,11 +79,11 @@ public class SVProgressDefaultView extends LinearLayout {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a5, (ViewGroup) this, true);
-            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbc);
-            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbd);
-            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f09064b);
-            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09216d);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089b, (ViewGroup) this, true);
+            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb6);
+            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fb7);
+            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f090655);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f092152);
         }
     }
 

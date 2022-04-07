@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d extends ExtractorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class d extends ExtractorProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC1749a.a(g.a().b());
+            com.baidu.cyberplayer.sdk.remote.a a = a.AbstractBinderC0089a.a(g.a().b());
             if (a != null) {
                 return new d(a);
             }
@@ -61,8 +61,8 @@ public class d extends ExtractorProvider {
         }
         try {
             aVar.a(new e(uri, map));
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
@@ -77,8 +77,8 @@ public class d extends ExtractorProvider {
             }
             try {
                 return aVar.a();
-            } catch (RemoteException e2) {
-                e2.printStackTrace();
+            } catch (RemoteException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -97,8 +97,8 @@ public class d extends ExtractorProvider {
             try {
                 try {
                     aVar.b();
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                 }
             } finally {
                 this.a = null;
@@ -146,8 +146,8 @@ public class d extends ExtractorProvider {
         }
         try {
             aVar.a(i, str, j);
-        } catch (RemoteException e2) {
-            e2.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 }

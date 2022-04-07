@@ -1,9 +1,6 @@
 package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
-import c.a.o0.k0.c.a;
-import c.a.p0.i0.a.b;
-import c.a.p0.i0.a.c.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -15,8 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements a {
+import com.repackage.i65;
+import com.repackage.py5;
+import com.repackage.r65;
+import com.repackage.s65;
+import com.repackage.ty5;
+/* loaded from: classes3.dex */
+public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> implements r65 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_ID_PICTURE_CLICK = 4096;
     public static final int EVENT_ID_RELOAD_DATA = 4100;
@@ -27,7 +29,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     public static final int EVENT_ID_UNLIKE_RESULT = 4102;
     public transient /* synthetic */ FieldHolder $fh;
     public ChosenPostModelController mModelController;
-    public b mViewController;
+    public py5 mViewController;
     public ViewEventCenter mViewEventController;
 
     public ChosenPostActivity() {
@@ -44,12 +46,12 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         }
     }
 
-    private void handlePictureClick(c.a.o0.k0.c.b bVar) {
+    private void handlePictureClick(s65 s65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            c.a.o0.k0.b.a a = bVar.a();
-            if (a instanceof d) {
-                sendMessage(((d) a).a(getPageContext().getPageActivity()));
+        if (interceptable == null || interceptable.invokeL(65537, this, s65Var) == null) {
+            i65 a = s65Var.a();
+            if (a instanceof ty5) {
+                sendMessage(((ty5) a).a(getPageContext().getPageActivity()));
             }
         }
     }
@@ -78,19 +80,19 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (ChosenPostModelController) invokeV.objValue;
     }
 
-    public b getViewController() {
+    public py5 getViewController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mViewController == null) {
-                this.mViewController = new b(this);
+                this.mViewController = new py5(this);
             }
             return this.mViewController;
         }
-        return (b) invokeV.objValue;
+        return (py5) invokeV.objValue;
     }
 
-    @Override // c.a.o0.k0.c.a
+    @Override // com.repackage.r65
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,22 +126,22 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
             } else {
                 this.mModelController.D(null);
             }
-            setContentView(this.mViewController.q());
-            this.mViewController.s();
+            setContentView(this.mViewController.r());
+            this.mViewController.t();
             this.mViewController.p(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             adjustResizeForSoftInput();
         }
     }
 
-    @Override // c.a.o0.k0.c.a
-    public boolean onEventDispatch(c.a.o0.k0.c.b bVar) {
+    @Override // com.repackage.r65
+    public boolean onEventDispatch(s65 s65Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
-            if (bVar.b() == 4096) {
-                handlePictureClick(bVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, s65Var)) == null) {
+            if (s65Var.b() == 4096) {
+                handlePictureClick(s65Var);
             }
-            return getViewController().r(bVar) || getModelController().F(bVar);
+            return getViewController().s(s65Var) || getModelController().F(s65Var);
         }
         return invokeL.booleanValue;
     }

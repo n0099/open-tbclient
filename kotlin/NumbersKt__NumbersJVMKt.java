@@ -34,18 +34,18 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
     }
 
     @InlineOnly
-    public static final boolean isFinite(double d2) {
-        return (Double.isInfinite(d2) || Double.isNaN(d2)) ? false : true;
+    public static final boolean isFinite(double d) {
+        return (Double.isInfinite(d) || Double.isNaN(d)) ? false : true;
     }
 
     @InlineOnly
-    public static final boolean isInfinite(double d2) {
-        return Double.isInfinite(d2);
+    public static final boolean isInfinite(double d) {
+        return Double.isInfinite(d);
     }
 
     @InlineOnly
-    public static final boolean isNaN(double d2) {
-        return Double.isNaN(d2);
+    public static final boolean isNaN(double d) {
+        return Double.isNaN(d);
     }
 
     @SinceKotlin(version = "1.3")
@@ -78,14 +78,14 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final long toBits(double d2) {
-        return Double.doubleToLongBits(d2);
+    public static final long toBits(double d) {
+        return Double.doubleToLongBits(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final long toRawBits(double d2) {
-        return Double.doubleToRawLongBits(d2);
+    public static final long toRawBits(double d) {
+        return Double.doubleToRawLongBits(d);
     }
 
     @SinceKotlin(version = "1.4")
@@ -116,18 +116,18 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
     }
 
     @InlineOnly
-    public static final boolean isFinite(float f2) {
-        return (Float.isInfinite(f2) || Float.isNaN(f2)) ? false : true;
+    public static final boolean isFinite(float f) {
+        return (Float.isInfinite(f) || Float.isNaN(f)) ? false : true;
     }
 
     @InlineOnly
-    public static final boolean isInfinite(float f2) {
-        return Float.isInfinite(f2);
+    public static final boolean isInfinite(float f) {
+        return Float.isInfinite(f);
     }
 
     @InlineOnly
-    public static final boolean isNaN(float f2) {
-        return Float.isNaN(f2);
+    public static final boolean isNaN(float f) {
+        return Float.isNaN(f);
     }
 
     @SinceKotlin(version = "1.3")
@@ -160,13 +160,13 @@ public class NumbersKt__NumbersJVMKt extends NumbersKt__FloorDivModKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final int toBits(float f2) {
-        return Float.floatToIntBits(f2);
+    public static final int toBits(float f) {
+        return Float.floatToIntBits(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final int toRawBits(float f2) {
-        return Float.floatToRawIntBits(f2);
+    public static final int toRawBits(float f) {
+        return Float.floatToRawIntBits(f);
     }
 }

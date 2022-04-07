@@ -17,31 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "f";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f26875d;
+    public static HandlerThread d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public int c;
+    public com.baidu.mapsdkplatform.comapi.synchronization.render.b e;
+    public com.baidu.mapsdkplatform.comapi.synchronization.data.g f;
+    public i g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f26876b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f26877c;
-
-    /* renamed from: e  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.render.b f26878e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.synchronization.data.g f26879f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public i f26880g;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +63,7 @@ public class f {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.j();
                 f fVar = this.a;
-                fVar.e(fVar.f26876b);
+                fVar.e(fVar.b);
             }
         }
 
@@ -88,7 +76,7 @@ public class f {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final f a;
@@ -139,8 +127,8 @@ public class f {
                 return;
             }
         }
-        this.f26876b = 0;
-        this.f26877c = 5;
+        this.b = 0;
+        this.c = 5;
     }
 
     public /* synthetic */ f(g gVar) {
@@ -171,14 +159,14 @@ public class f {
     private void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65545, this, i) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncRenderHandler is null");
                 return;
             }
             Message obtainMessage = bVar.obtainMessage();
             obtainMessage.what = i;
-            this.f26878e.sendMessage(obtainMessage);
+            this.e.sendMessage(obtainMessage);
         }
     }
 
@@ -186,13 +174,13 @@ public class f {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            RoleOptions e2 = this.f26879f.e();
-            DisplayOptions f2 = this.f26879f.f();
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            RoleOptions e = this.f.e();
+            DisplayOptions f = this.f.f();
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncRenderHandler is null");
             } else {
-                bVar.a(e2, f2, (SyncResponseResult) null, this.f26877c);
+                bVar.a(e, f, (SyncResponseResult) null, this.c);
             }
         }
     }
@@ -202,19 +190,19 @@ public class f {
         SyncResponseResult syncResponseResult;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            RoleOptions e2 = this.f26879f.e();
-            DisplayOptions f2 = this.f26879f.f();
+            RoleOptions e = this.f.e();
+            DisplayOptions f = this.f.f();
             try {
-                syncResponseResult = this.f26879f.g().take();
-            } catch (InterruptedException e3) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Get result when InterruptedException happened.", e3);
+                syncResponseResult = this.f.g().take();
+            } catch (InterruptedException e2) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Get result when InterruptedException happened.", e2);
                 syncResponseResult = null;
             }
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncRenderHandler is null");
             } else {
-                bVar.a(e2, f2, syncResponseResult, this.f26877c);
+                bVar.a(e, f, syncResponseResult, this.c);
             }
         }
     }
@@ -222,7 +210,7 @@ public class f {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.f26876b = i;
+            this.b = i;
             e(i);
         }
     }
@@ -230,7 +218,7 @@ public class f {
     public void a(int i, int i2, int i3, int i4) {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.a(i, i2, i3, i4);
@@ -239,23 +227,23 @@ public class f {
     public void a(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, baiduMap) == null) {
-            this.f26879f = com.baidu.mapsdkplatform.comapi.synchronization.data.g.a();
+            this.f = com.baidu.mapsdkplatform.comapi.synchronization.data.g.a();
             a aVar = new a(this, null);
-            this.f26880g = aVar;
-            this.f26879f.a(aVar);
+            this.g = aVar;
+            this.f.a(aVar);
             HandlerThread handlerThread = new HandlerThread("SynchronizationRenderStrategy");
-            f26875d = handlerThread;
+            d = handlerThread;
             handlerThread.start();
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = new com.baidu.mapsdkplatform.comapi.synchronization.render.b(f26875d.getLooper());
-            this.f26878e = bVar;
-            bVar.a(baiduMap, this.f26879f.e(), this.f26879f.f());
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = new com.baidu.mapsdkplatform.comapi.synchronization.render.b(d.getLooper());
+            this.e = bVar;
+            bVar.a(baiduMap, this.f.e(), this.f.f());
         }
     }
 
     public void a(d dVar) {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.a(dVar);
@@ -265,7 +253,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncRenderHandler created failed");
                 return null;
@@ -278,7 +266,7 @@ public class f {
     public void b(int i) {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.a(i);
@@ -288,7 +276,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncRenderHandler created failed");
                 return null;
@@ -301,7 +289,7 @@ public class f {
     public void c(int i) {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.b(i);
@@ -311,7 +299,7 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncRenderHandler created failed");
                 return null;
@@ -324,14 +312,14 @@ public class f {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f26877c = i;
+            this.c = i;
         }
     }
 
     public void e() {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.d();
@@ -340,7 +328,7 @@ public class f {
     public void f() {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.e();
@@ -349,28 +337,28 @@ public class f {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            com.baidu.mapsdkplatform.comapi.synchronization.data.g gVar = this.f26879f;
+            com.baidu.mapsdkplatform.comapi.synchronization.data.g gVar = this.f;
             if (gVar != null) {
                 gVar.c();
             }
-            if (this.f26880g != null) {
-                this.f26880g = null;
+            if (this.g != null) {
+                this.g = null;
             }
-            com.baidu.mapsdkplatform.comapi.synchronization.data.g gVar2 = this.f26879f;
+            com.baidu.mapsdkplatform.comapi.synchronization.data.g gVar2 = this.f;
             if (gVar2 != null) {
                 gVar2.h();
-                this.f26879f = null;
+                this.f = null;
             }
-            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.f26878e;
+            com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar = this.e;
             if (bVar != null) {
                 bVar.f();
-                this.f26878e.removeCallbacksAndMessages(null);
-                this.f26878e = null;
+                this.e.removeCallbacksAndMessages(null);
+                this.e = null;
             }
-            HandlerThread handlerThread = f26875d;
+            HandlerThread handlerThread = d;
             if (handlerThread != null) {
                 handlerThread.quit();
-                f26875d = null;
+                d = null;
             }
         }
     }
@@ -378,7 +366,7 @@ public class f {
     public void h() {
         com.baidu.mapsdkplatform.comapi.synchronization.render.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (bVar = this.f26878e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (bVar = this.e) == null) {
             return;
         }
         bVar.g();

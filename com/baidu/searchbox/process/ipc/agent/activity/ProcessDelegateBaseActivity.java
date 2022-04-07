@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Modifier;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ProcessDelegateBaseActivity extends Activity implements Agent, DelegateDef {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -72,14 +72,14 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
                 }
                 exitByIllegalDelegationClass("Illegal action class, modifiers=" + modifiers);
                 return false;
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                exitByIllegalDelegationClass(e.toString());
+                return false;
+            } catch (IllegalAccessException e2) {
                 exitByIllegalDelegationClass(e2.toString());
                 return false;
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 exitByIllegalDelegationClass(e3.toString());
-                return false;
-            } catch (InstantiationException e4) {
-                exitByIllegalDelegationClass(e4.toString());
                 return false;
             }
         }

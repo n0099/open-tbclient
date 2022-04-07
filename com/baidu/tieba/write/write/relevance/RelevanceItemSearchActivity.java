@@ -5,7 +5,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import c.a.o0.x0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -14,7 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.h95;
+/* loaded from: classes4.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public h95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
@@ -70,21 +70,21 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.mSearchView = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (b) invokeLL.objValue;
+        return (h95) invokeLL.objValue;
     }
 
-    public boolean isShouldHideInput(View view, MotionEvent motionEvent) {
+    public boolean isShouldHideInput(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, motionEvent)) == null) {
-            if (view == null || !(view instanceof EditText)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, motionEvent)) == null) {
+            if (view2 == null || !(view2 instanceof EditText)) {
                 return false;
             }
             int[] iArr = {0, 0};
-            view.getLocationInWindow(iArr);
+            view2.getLocationInWindow(iArr);
             int i = iArr[0];
             int i2 = iArr[1];
-            return motionEvent.getX() <= ((float) i) || motionEvent.getX() >= ((float) (view.getWidth() + i)) || motionEvent.getY() <= ((float) i2) || motionEvent.getY() >= ((float) (view.getHeight() + i2));
+            return motionEvent.getX() <= ((float) i) || motionEvent.getX() >= ((float) (view2.getWidth() + i)) || motionEvent.getY() <= ((float) i2) || motionEvent.getY() >= ((float) (view2.getHeight() + i2));
         }
         return invokeLL.booleanValue;
     }

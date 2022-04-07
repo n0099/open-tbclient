@@ -76,8 +76,8 @@ public class MediaButtonReceiver extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     new MediaControllerCompat(this.mContext, this.mMediaBrowser.getSessionToken()).dispatchMediaButtonEvent((KeyEvent) this.mIntent.getParcelableExtra("android.intent.extra.KEY_EVENT"));
-                } catch (RemoteException e2) {
-                    Log.e(MediaButtonReceiver.TAG, "Failed to create a media controller", e2);
+                } catch (RemoteException e) {
+                    Log.e(MediaButtonReceiver.TAG, "Failed to create a media controller", e);
                 }
                 finish();
             }

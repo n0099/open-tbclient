@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NewUid {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXT_FILE = ".icosc";

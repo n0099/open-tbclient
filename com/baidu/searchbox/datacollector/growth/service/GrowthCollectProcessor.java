@@ -30,7 +30,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GrowthCollectProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -79,7 +79,7 @@ public class GrowthCollectProcessor {
         if (interceptable == null || interceptable.invokeLLL(65547, this, activeData, context, str) == null) {
             String type = activeData.getType();
             if (TextUtils.isEmpty(type)) {
-                type = GrowthConstant.UBC_VALUE_TYPE_DEFAULT;
+                type = "active";
             }
             String firstInstallTime = PackageUtil.getFirstInstallTime(context);
             String lastUpdateTime = PackageUtil.getLastUpdateTime(context);
@@ -99,9 +99,9 @@ public class GrowthCollectProcessor {
                     Log.d(TAG, "active content: " + jSONObject);
                 }
                 this.ubcManager.onEvent(GrowthConstant.UBC_ID_ACTIVE, jSONObject);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -115,9 +115,9 @@ public class GrowthCollectProcessor {
             try {
                 jSONObject.put("imei", DeviceUtil.getIMei(context));
                 jSONObject.put("oaid", str);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             return jSONObject.toString();
@@ -136,9 +136,9 @@ public class GrowthCollectProcessor {
                 jSONObject.put("channel", channel);
                 jSONObject.put("imei", iMei);
                 jSONObject.put("oaid", str);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             return jSONObject.toString();
@@ -168,9 +168,9 @@ public class GrowthCollectProcessor {
                 if (DEBUG) {
                     Log.d(TAG, "update device record time: " + currentTimeMillis);
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }
@@ -278,9 +278,9 @@ public class GrowthCollectProcessor {
                 Log.d(TAG, "channel content: " + jSONObject);
             }
             this.ubcManager.onEvent(GrowthConstant.UBC_ID_CHANNEL, jSONObject);
-        } catch (JSONException e2) {
+        } catch (JSONException e) {
             if (DEBUG) {
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }
@@ -306,9 +306,9 @@ public class GrowthCollectProcessor {
                 Log.d(TAG, "clip board content: " + jSONObject);
             }
             this.ubcManager.onEvent(GrowthConstant.UBC_ID_CLIP_BOARD, jSONObject);
-        } catch (JSONException e2) {
+        } catch (JSONException e) {
             if (DEBUG) {
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

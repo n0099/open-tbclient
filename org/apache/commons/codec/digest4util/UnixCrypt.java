@@ -95,10 +95,10 @@ public class UnixCrypt {
         return (int[]) invokeLII.objValue;
     }
 
-    public static int byteToUnsigned(byte b2) {
+    public static int byteToUnsigned(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) ? b2 < 0 ? b2 + 256 : b2 : invokeB.intValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b)) == null) ? b < 0 ? b + 256 : b : invokeB.intValue;
     }
 
     public static String crypt(byte[] bArr) {

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AudioEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "audio/mp4a-latm";
@@ -47,8 +47,8 @@ public class AudioEncoderCore {
         createAudioFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
         try {
             this.mEncoder = MediaCodec.createEncoderByType("audio/mp4a-latm");
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         this.mEncoder.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
         this.mEncoder.start();
@@ -80,8 +80,8 @@ public class AudioEncoderCore {
                             while (!this.mMuxer.isStarted()) {
                                 try {
                                     this.mMuxer.wait(100L);
-                                } catch (InterruptedException e2) {
-                                    e2.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
                                 }
                             }
                         }
@@ -155,8 +155,8 @@ public class AudioEncoderCore {
                     this.mMuxer.stop();
                     this.mMuxer = null;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

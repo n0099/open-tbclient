@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Filter extends BaseBeautyItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_TYPE_DU_SINGLE = 1;
@@ -103,10 +103,10 @@ public class Filter extends BaseBeautyItem {
         }
     }
 
-    public void setLevel(float f2) {
+    public void setLevel(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.mLevel = f2;
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.mLevel = f;
         }
     }
 

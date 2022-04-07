@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.WeakHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DrawableAlphaProperty extends Property<Drawable, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public static final Property<Drawable, Integer> DRAWABLE_ALPHA_COMPAT;

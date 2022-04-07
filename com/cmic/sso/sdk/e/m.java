@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +25,8 @@ public class m {
             try {
                 connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
                 activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                 int type = activeNetworkInfo.getType();

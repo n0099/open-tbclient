@@ -87,7 +87,7 @@ public abstract class ActionMode {
         return invokeV.booleanValue;
     }
 
-    public abstract void setCustomView(View view);
+    public abstract void setCustomView(View view2);
 
     public abstract void setSubtitle(int i);
 

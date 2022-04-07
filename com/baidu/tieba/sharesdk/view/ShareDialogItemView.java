@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -22,33 +21,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class ShareDialogItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f35935f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f35936g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f35937h;
+    public static final int f;
+    public static final int g;
+    public static final int h;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f35938b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public EMTextView f35939c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout.LayoutParams f35940d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public LinearLayout.LayoutParams f35941e;
+    public ImageView b;
+    public EMTextView c;
+    public LinearLayout.LayoutParams d;
+    public LinearLayout.LayoutParams e;
 
     static {
         InterceptResult invokeClinit;
@@ -63,10 +49,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        f35935f = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        f35936g = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        f35937h = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        i = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        f = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        g = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        h = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        i = oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -95,8 +81,8 @@ public class ShareDialogItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             setOrientation(1);
-            addView(this.f35938b, this.f35940d);
-            addView(this.f35939c, this.f35941e);
+            addView(this.b, this.d);
+            addView(this.c, this.e);
             return this;
         }
         return (ShareDialogItemView) invokeV.objValue;
@@ -105,11 +91,11 @@ public class ShareDialogItemView extends LinearLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = f35935f;
+            int i2 = f;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
-            this.f35940d = layoutParams;
-            layoutParams.topMargin = f35936g;
-            layoutParams.bottomMargin = f35937h;
+            this.d = layoutParams;
+            layoutParams.topMargin = g;
+            layoutParams.bottomMargin = h;
             layoutParams.gravity = 1;
         }
     }
@@ -117,20 +103,20 @@ public class ShareDialogItemView extends LinearLayout {
     public void c(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.f35938b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
+            this.b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
         }
     }
 
     public void setItemIcon(AbsSvgType absSvgType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, absSvgType) == null) {
-            this.f35938b = new ImageView(this.a);
+            this.b = new ImageView(this.a);
             setTag(Integer.valueOf(absSvgType.drawableId));
             if (absSvgType instanceof SvgPureType) {
-                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f35938b);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.b);
             }
-            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.f35938b.setImageDrawable(absSvgType.getDrawable());
+            this.b.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.b.setImageDrawable(absSvgType.getDrawable());
             b();
         }
     }
@@ -139,12 +125,12 @@ public class ShareDialogItemView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             EMTextView eMTextView = new EMTextView(this.a);
-            this.f35939c = eMTextView;
+            this.c = eMTextView;
             eMTextView.setTextSize(0, i);
-            this.f35939c.setText(i2);
-            SkinManager.setViewTextColor(this.f35939c, (int) R.color.CAM_X0107);
+            this.c.setText(i2);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            this.f35941e = layoutParams;
+            this.e = layoutParams;
             layoutParams.gravity = 1;
         }
     }
@@ -195,11 +181,11 @@ public class ShareDialogItemView extends LinearLayout {
     public void setItemIcon(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.f35938b = new ImageView(this.a);
+            this.b = new ImageView(this.a);
             setTag(Integer.valueOf(i2));
-            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f35938b);
-            this.f35938b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
+            this.b.setScaleType(ImageView.ScaleType.FIT_XY);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.b);
+            this.b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
             b();
         }
     }
@@ -207,14 +193,14 @@ public class ShareDialogItemView extends LinearLayout {
     public void setItemIcon(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048580, this, i2, i3, i4) == null) {
-            this.f35938b = new ImageView(this.a);
+            this.b = new ImageView(this.a);
             setTag(Integer.valueOf(i4));
-            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f35938b);
+            this.b.setScaleType(ImageView.ScaleType.FIT_XY);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.b);
             if (i3 == 0) {
-                this.f35938b.setImageDrawable(WebPManager.getMaskDrawable(i2, true));
+                this.b.setImageDrawable(WebPManager.getMaskDrawable(i2, true));
             } else {
-                this.f35938b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
+                this.b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
             }
             b();
         }
@@ -223,13 +209,13 @@ public class ShareDialogItemView extends LinearLayout {
     public void setItemIcon(AbsSvgType absSvgType, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, absSvgType, i2) == null) {
-            this.f35938b = new ImageView(this.a);
+            this.b = new ImageView(this.a);
             setTag(Integer.valueOf(i2));
             if (absSvgType instanceof SvgPureType) {
-                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f35938b);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.b);
             }
-            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.f35938b.setImageDrawable(absSvgType.getDrawable());
+            this.b.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.b.setImageDrawable(absSvgType.getDrawable());
             b();
         }
     }

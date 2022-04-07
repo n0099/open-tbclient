@@ -8,7 +8,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,37 +25,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
+import com.repackage.qm6;
 import java.util.List;
 import tbclient.GameCodeList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GameCodeListDialog extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public GameCodeListView a;
+    public FrameLayout b;
+    public final Animation c;
+    public final Animation d;
+    public final AlphaAnimation e;
+    public final AlphaAnimation f;
+    public final CustomMessageListener g;
+    public CustomMessageListener h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f32750b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Animation f32751c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Animation f32752d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final AlphaAnimation f32753e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final AlphaAnimation f32754f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f32755g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public CustomMessageListener f32756h;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,11 +77,11 @@ public class GameCodeListDialog extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.a.a == null) {
                 return;
             }
-            this.a.a.b((c.a.p0.f1.d2.h.a) customResponsedMessage.getData());
+            this.a.a.b((qm6) customResponsedMessage.getData());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +118,7 @@ public class GameCodeListDialog extends FrameLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,14 +143,14 @@ public class GameCodeListDialog extends FrameLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,15 +175,15 @@ public class GameCodeListDialog extends FrameLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.c();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,7 +246,7 @@ public class GameCodeListDialog extends FrameLayout {
                 return;
             }
         }
-        i = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
+        i = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds161);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -280,34 +267,34 @@ public class GameCodeListDialog extends FrameLayout {
                 return;
             }
         }
-        this.f32755g = new a(this, 2921640);
-        this.f32756h = new b(this, 2921642);
+        this.g = new a(this, 2921640);
+        this.h = new b(this, 2921642);
         FrameLayout frameLayout = new FrameLayout(context);
-        this.f32750b = frameLayout;
+        this.b = frameLayout;
         frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-        this.f32750b.setOnClickListener(new c(this));
-        addView(this.f32750b);
-        GameCodeListView gameCodeListView = new GameCodeListView(context, n.i(context) - i);
+        this.b.setOnClickListener(new c(this));
+        addView(this.b);
+        GameCodeListView gameCodeListView = new GameCodeListView(context, oi.i(context) - i);
         this.a = gameCodeListView;
         gameCodeListView.setCancelClickListener(new d(this));
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 80;
         addView(this.a, layoutParams);
-        this.f32751c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ab);
-        this.f32752d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ac);
-        this.f32751c.setDuration(330L);
-        this.f32752d.setDuration(330L);
-        this.f32753e = new AlphaAnimation(0.0f, 1.0f);
-        this.f32754f = new AlphaAnimation(1.0f, 0.0f);
-        this.f32753e.setDuration(330L);
-        this.f32754f.setDuration(330L);
-        this.f32754f.setAnimationListener(new e(this));
+        this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b0);
+        this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b1);
+        this.c.setDuration(330L);
+        this.d.setDuration(330L);
+        this.e = new AlphaAnimation(0.0f, 1.0f);
+        this.f = new AlphaAnimation(1.0f, 0.0f);
+        this.e.setDuration(330L);
+        this.f.setDuration(330L);
+        this.f.setAnimationListener(new e(this));
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f32750b.clearAnimation();
+            this.b.clearAnimation();
             this.a.clearAnimation();
         }
     }
@@ -320,15 +307,15 @@ public class GameCodeListDialog extends FrameLayout {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921641, Boolean.FALSE));
         b();
         g();
-        MessageManager.getInstance().unRegisterListener(this.f32755g);
-        MessageManager.getInstance().unRegisterListener(this.f32756h);
+        MessageManager.getInstance().unRegisterListener(this.g);
+        MessageManager.getInstance().unRegisterListener(this.h);
         i();
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.f32750b, R.color.black_alpha60);
+            SkinManager.setBackgroundColor(this.b, R.color.black_alpha60);
             this.a.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -350,8 +337,8 @@ public class GameCodeListDialog extends FrameLayout {
         if (getParent() != null) {
             ((ViewGroup) getParent()).removeView(this);
         }
-        MessageManager.getInstance().registerListener(this.f32755g);
-        MessageManager.getInstance().registerListener(this.f32756h);
+        MessageManager.getInstance().registerListener(this.g);
+        MessageManager.getInstance().registerListener(this.h);
         e();
         d();
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921641, Boolean.TRUE));
@@ -363,16 +350,16 @@ public class GameCodeListDialog extends FrameLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f32750b.startAnimation(this.f32754f);
-            this.a.startAnimation(this.f32752d);
+            this.b.startAnimation(this.f);
+            this.a.startAnimation(this.d);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f32750b.startAnimation(this.f32753e);
-            this.a.startAnimation(this.f32751c);
+            this.b.startAnimation(this.e);
+            this.a.startAnimation(this.c);
         }
     }
 

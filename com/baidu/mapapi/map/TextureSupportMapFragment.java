@@ -16,17 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TextureSupportMapFragment extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextureMapView f26306b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public BaiduMapOptions f26307c;
+    public TextureMapView b;
+    public BaiduMapOptions c;
 
     static {
         InterceptResult invokeClinit;
@@ -73,7 +69,7 @@ public class TextureSupportMapFragment extends Fragment {
                 return;
             }
         }
-        this.f26307c = baiduMapOptions;
+        this.c = baiduMapOptions;
     }
 
     public static TextureSupportMapFragment newInstance() {
@@ -92,7 +88,7 @@ public class TextureSupportMapFragment extends Fragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            TextureMapView textureMapView = this.f26306b;
+            TextureMapView textureMapView = this.b;
             if (textureMapView == null) {
                 return null;
             }
@@ -104,7 +100,7 @@ public class TextureSupportMapFragment extends Fragment {
     public TextureMapView getMapView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26306b : (TextureMapView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (TextureMapView) invokeV.objValue;
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -144,8 +140,8 @@ public class TextureSupportMapFragment extends Fragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            TextureMapView textureMapView = new TextureMapView(getActivity(), this.f26307c);
-            this.f26306b = textureMapView;
+            TextureMapView textureMapView = new TextureMapView(getActivity(), this.c);
+            this.b = textureMapView;
             return textureMapView;
         }
         return (View) invokeLLL.objValue;
@@ -164,7 +160,7 @@ public class TextureSupportMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroyView();
-            this.f26306b.onDestroy();
+            this.b.onDestroy();
         }
     }
 
@@ -181,7 +177,7 @@ public class TextureSupportMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            this.f26306b.onPause();
+            this.b.onPause();
         }
     }
 
@@ -190,7 +186,7 @@ public class TextureSupportMapFragment extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
-            this.f26306b.onResume();
+            this.b.onResume();
         }
     }
 
@@ -219,10 +215,10 @@ public class TextureSupportMapFragment extends Fragment {
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
+    public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, view, bundle) == null) {
-            super.onViewCreated(view, bundle);
+        if (interceptable == null || interceptable.invokeLL(1048591, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
         }
     }
 

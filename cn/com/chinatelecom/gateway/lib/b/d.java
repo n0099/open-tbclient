@@ -17,13 +17,11 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f23658b;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +37,7 @@ public class d {
                 return;
             }
         }
-        f23658b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
+        b = new byte[]{15, 31, 94, 10, 90, 15, 91, 24, 10, 30, 88, 7, 89, 10, 95, 30};
     }
 
     public d() {
@@ -61,38 +59,38 @@ public class d {
         if (interceptable == null || interceptable.invokeLI(65541, null, context, i) == null) {
             try {
                 cn.com.chinatelecom.gateway.lib.c.b.a(context, "key_c_l_l_v", i);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
     public static void a(Context context, String str) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
             int hashCode = str.hashCode();
             int i = 0;
             if (hashCode == 64897) {
                 if (str.equals("ALL")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 78159) {
                 if (hashCode == 66247144 && str.equals("ERROR")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("OFF")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 == 1) {
+            if (c != 0) {
+                if (c == 1) {
                     i = -1;
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     i = -2;
                 }
             }
@@ -140,8 +138,8 @@ public class d {
                 for (String str : queue) {
                     try {
                         jSONArray.put(new JSONObject(str));
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -151,14 +149,14 @@ public class d {
             String jSONArray3 = jSONArray.toString();
             if (!TextUtils.isEmpty(jSONArray3)) {
                 try {
-                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(f23658b)));
-                } catch (Exception e3) {
-                    e = e3;
+                    a2 = cn.com.chinatelecom.gateway.lib.a.b.a(cn.com.chinatelecom.gateway.lib.a.a.b(jSONArray3, f.a(b)));
+                } catch (Exception e2) {
+                    e = e2;
                 }
                 try {
                     jSONArray2 = URLEncoder.encode(a2, "UTF-8");
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     jSONArray2 = a2;
                     e.printStackTrace();
                     return b(context, jSONArray2);
@@ -176,12 +174,8 @@ public class d {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ List f23659b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f23660c;
+                public final /* synthetic */ List b;
+                public final /* synthetic */ int c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -199,8 +193,8 @@ public class d {
                         }
                     }
                     this.a = context;
-                    this.f23659b = list;
-                    this.f23660c = i;
+                    this.b = list;
+                    this.c = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -208,11 +202,11 @@ public class d {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            Queue c2 = d.c(this.a, this.f23659b, this.f23660c);
-                            if (c2.isEmpty()) {
+                            Queue c = d.c(this.a, this.b, this.c);
+                            if (c.isEmpty()) {
                                 return;
                             }
-                            String b2 = d.b(this.a, c2);
+                            String b2 = d.b(this.a, c);
                             JSONObject jSONObject = null;
                             int i2 = -1;
                             try {
@@ -221,25 +215,25 @@ public class d {
                                     try {
                                         i2 = jSONObject2.getInt("code");
                                         jSONObject = jSONObject2;
-                                    } catch (Exception e2) {
-                                        e = e2;
+                                    } catch (Exception e) {
+                                        e = e;
                                         jSONObject = jSONObject2;
                                         e.printStackTrace();
                                         if (jSONObject != null) {
                                         }
-                                        d.b(this.a, c2, this.f23660c);
+                                        d.b(this.a, c, this.c);
                                         return;
                                     }
                                 }
-                            } catch (Exception e3) {
-                                e = e3;
+                            } catch (Exception e2) {
+                                e = e2;
                             }
                             if (jSONObject != null || i2 != 0) {
-                                d.b(this.a, c2, this.f23660c);
+                                d.b(this.a, c, this.c);
                                 return;
                             }
                             d.c(this.a);
-                            c2.clear();
+                            c.clear();
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
@@ -260,8 +254,8 @@ public class d {
                 for (String str2 : queue) {
                     try {
                         jSONObject = new JSONObject(str2);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     if (i != -1 || jSONObject.getInt("rt") != 0) {
                         jSONArray.put(jSONObject);
@@ -274,9 +268,9 @@ public class d {
             }
             if (jSONArray.length() > 0) {
                 try {
-                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(f23658b));
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                    str = cn.com.chinatelecom.gateway.lib.a.a.a(jSONArray.toString(), f.a(b));
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     str = null;
                 }
             } else {
@@ -299,7 +293,7 @@ public class d {
                 String a2 = c.a(context);
                 if (!TextUtils.isEmpty(a2)) {
                     try {
-                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(f23658b)));
+                        JSONArray jSONArray = new JSONArray(cn.com.chinatelecom.gateway.lib.a.a.c(a2, f.a(b)));
                         int length = jSONArray.length();
                         for (int i2 = 0; i2 < length && i2 <= 10; i2++) {
                             JSONObject jSONObject = jSONArray.getJSONObject(i2);
@@ -308,8 +302,8 @@ public class d {
                             }
                         }
                         c.a(context, "");
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 if (i == -1) {
@@ -318,8 +312,8 @@ public class d {
                             if (new JSONObject(str).getInt("rt") != 0) {
                                 concurrentLinkedQueue.add(str);
                             }
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                     }
                 } else if (i == 0) {

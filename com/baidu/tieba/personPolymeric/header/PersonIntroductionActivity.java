@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,7 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERSON_INTRODUCTION = "person_introduction";
@@ -27,7 +27,7 @@ public class PersonIntroductionActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public View mRootView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public class PersonIntroductionActivity extends BaseActivity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
@@ -78,7 +78,7 @@ public class PersonIntroductionActivity extends BaseActivity {
 
     public static void startPersonIntroductionActivity(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || m.isEmpty(str) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || ni.isEmpty(str) || context == null) {
             return;
         }
         Intent intent = new Intent();
@@ -103,16 +103,16 @@ public class PersonIntroductionActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06c8);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917ed);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            setContentView(R.layout.obfuscated_res_0x7f0d06c5);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917e9);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1a));
-            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08a8, (View.OnClickListener) null);
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1e));
+            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d089e, (View.OnClickListener) null);
             this.mBackImg = imageView;
             imageView.setOnClickListener(this.mClickListener);
             SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ec);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917e8);
             this.mIntroView = textView;
             textView.setText(getIntent().getStringExtra(PERSON_INTRODUCTION));
         }

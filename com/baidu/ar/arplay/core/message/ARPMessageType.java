@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPMessageType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_ALL = 0;
@@ -79,7 +79,7 @@ public class ARPMessageType {
     public static final int MSG_USR_INTERACTION_CONFIG = 11;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ARPLuaSdkBridgeMessageType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_TYPE_SDK_LUA_GAME_CONFIG = 1001;
@@ -101,7 +101,7 @@ public class ARPMessageType {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class ARPMessageParamKeys {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MAP_NPC_KEY_NAME = "script";

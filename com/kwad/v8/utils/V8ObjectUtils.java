@@ -21,14 +21,14 @@ import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8ObjectUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter DEFAULT_TYPE_ADAPTER;
     public static final Object IGNORE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultTypeAdapter implements TypeAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class V8ObjectUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class ListWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -637,9 +637,9 @@ public class V8ObjectUtils {
             for (int i = 0; i < list.size(); i++) {
                 try {
                     pushValue(v8, v8Array, list.get(i), map);
-                } catch (IllegalStateException e2) {
+                } catch (IllegalStateException e) {
                     v8Array.close();
-                    throw e2;
+                    throw e;
                 }
             }
             return v8Array;
@@ -691,9 +691,9 @@ public class V8ObjectUtils {
                     setValue(v8, v8Object, entry.getKey(), entry.getValue(), map2);
                 }
                 return v8Object;
-            } catch (IllegalStateException e2) {
+            } catch (IllegalStateException e) {
                 v8Object.close();
-                throw e2;
+                throw e;
             }
         }
         return (V8Object) invokeLLL.objValue;

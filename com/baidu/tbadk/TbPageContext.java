@@ -6,45 +6,45 @@ import android.content.res.Resources;
 import android.graphics.drawable.Animatable;
 import android.view.View;
 import android.view.animation.Animation;
-import c.a.d.a.f;
-import c.a.d.c.g.a;
-import c.a.o0.r.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-/* loaded from: classes4.dex */
-public interface TbPageContext<T> extends f<T> {
-    @Override // c.a.d.a.f
+import com.repackage.b9;
+import com.repackage.tm4;
+import com.repackage.wa;
+/* loaded from: classes2.dex */
+public interface TbPageContext<T> extends b9<T> {
+    @Override // com.repackage.b9
     /* synthetic */ Context getContext();
 
-    c getLayoutMode();
+    tm4 getLayoutMode();
 
-    @Override // c.a.d.a.f
+    @Override // com.repackage.b9
     /* synthetic */ T getOrignalPage();
 
-    @Override // c.a.d.a.f
+    @Override // com.repackage.b9
     /* synthetic */ Activity getPageActivity();
 
-    @Override // c.a.d.a.f
+    @Override // com.repackage.b9
     /* synthetic */ Resources getResources();
 
-    @Override // c.a.d.a.f
+    @Override // com.repackage.b9
     /* synthetic */ String getString(int i);
 
-    @Override // c.a.d.a.f
+    @Override // com.repackage.b9
     /* synthetic */ BdUniqueId getUniqueId();
-
-    /* synthetic */ void registerListener(int i, a aVar);
 
     /* synthetic */ void registerListener(int i, MessageListener<?> messageListener);
 
-    /* synthetic */ void registerListener(a aVar);
+    /* synthetic */ void registerListener(int i, wa waVar);
 
-    @Override // c.a.d.a.f
+    @Override // com.repackage.b9
     /* synthetic */ void registerListener(MessageListener<?> messageListener);
 
-    @Override // c.a.d.a.f
+    /* synthetic */ void registerListener(wa waVar);
+
+    @Override // com.repackage.b9
     /* synthetic */ void sendMessage(Message<?> message);
 
     /* synthetic */ void sendMessage(NetMessage netMessage);
@@ -59,5 +59,5 @@ public interface TbPageContext<T> extends f<T> {
 
     void startAnimatable(Animatable animatable);
 
-    void startAnimation(View view, Animation animation, Animation.AnimationListener animationListener);
+    void startAnimation(View view2, Animation animation, Animation.AnimationListener animationListener);
 }

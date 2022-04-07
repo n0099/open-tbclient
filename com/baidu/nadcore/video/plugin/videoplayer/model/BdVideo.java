@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 @SuppressLint({"KotlinPropertyAccess"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdVideo implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_LOGO_DOWNLOAD_TOAST = 123;
@@ -516,8 +516,8 @@ public class BdVideo implements Serializable, Cloneable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
                 return (BdVideo) super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return null;
             }
         }

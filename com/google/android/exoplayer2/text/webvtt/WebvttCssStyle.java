@@ -14,7 +14,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebvttCssStyle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FONT_SIZE_UNIT_EM = 2;
@@ -46,12 +46,12 @@ public final class WebvttCssStyle {
     public int underline;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface FontSizeUnit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface StyleFlags {
     }
 
@@ -284,11 +284,11 @@ public final class WebvttCssStyle {
         return (WebvttCssStyle) invokeL.objValue;
     }
 
-    public WebvttCssStyle setFontSize(float f2) {
+    public WebvttCssStyle setFontSize(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f2)) == null) {
-            this.fontSize = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f)) == null) {
+            this.fontSize = f;
             return this;
         }
         return (WebvttCssStyle) invokeF.objValue;

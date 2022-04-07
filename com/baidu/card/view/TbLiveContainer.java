@@ -10,9 +10,6 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.o0.r.v.c;
-import c.a.p0.c3.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -35,35 +32,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public class TbLiveContainer extends FrameLayout implements e {
+import com.repackage.oi;
+import com.repackage.p68;
+import com.repackage.ur4;
+import com.repackage.wr4;
+/* loaded from: classes.dex */
+public class TbLiveContainer extends FrameLayout implements p68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveCyberView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RoundRelativeLayout f25193b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f25194c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f25195d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ThreadData f25196e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f25197f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f25198g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f25199h;
+    public RoundRelativeLayout b;
+    public ViewGroup c;
+    public boolean d;
+    public ThreadData e;
+    public long f;
+    public String g;
+    public String h;
     public final CustomMessageListener i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +87,7 @@ public class TbLiveContainer extends FrameLayout implements e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b implements TbLiveCyberView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,10 +122,10 @@ public class TbLiveContainer extends FrameLayout implements e {
         @Override // com.baidu.tieba.ala.TbLiveCyberView.b
         public void onPrepared() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.f25193b == null) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a.b == null) {
                 return;
             }
-            this.a.f25193b.setVisibility(0);
+            this.a.b.setVisibility(0);
         }
     }
 
@@ -160,7 +147,7 @@ public class TbLiveContainer extends FrameLayout implements e {
                 return;
             }
         }
-        this.f25195d = false;
+        this.d = false;
         this.i = new a(this, 2000994);
         c();
     }
@@ -168,50 +155,50 @@ public class TbLiveContainer extends FrameLayout implements e {
     private void setLayout(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, alaInfoData) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f25193b.getLayoutParams();
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.f25194c.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             int i = 0;
             if (alaInfoData.isVertialLive()) {
-                layoutParams.height = (((n.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (n.f(getContext(), R.dimen.M_H_X003) * 2);
-                layoutParams.width = (this.f25193b.getLayoutParams().height * 9) / 16;
-                layoutParams2.rightMargin = n.f(getContext(), R.dimen.M_W_X004);
-                i = n.f(getContext(), R.dimen.L_X02);
+                layoutParams.height = (((oi.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (oi.f(getContext(), R.dimen.M_H_X003) * 2);
+                layoutParams.width = (this.b.getLayoutParams().height * 9) / 16;
+                layoutParams2.rightMargin = oi.f(getContext(), R.dimen.M_W_X004);
+                i = oi.f(getContext(), R.dimen.L_X02);
             } else {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
                 layoutParams2.rightMargin = 0;
             }
-            this.f25194c.setPadding(i, i, i, i);
+            this.c.setPadding(i, i, i, i);
         }
     }
 
     public void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.f25193b.setVisibility(8);
+            this.b.setVisibility(8);
             if (threadData == null || threadData.getThreadAlaInfo() == null) {
                 return;
             }
-            this.f25196e = threadData;
+            this.e = threadData;
             AlaInfoData threadAlaInfo = threadData.getThreadAlaInfo();
-            if (!this.f25195d) {
+            if (!this.d) {
                 setLayout(threadAlaInfo);
-                this.f25195d = true;
+                this.d = true;
             }
-            this.f25199h = threadAlaInfo.hls_url;
+            this.h = threadAlaInfo.hls_url;
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089b, (ViewGroup) null);
-            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091efc);
-            this.f25193b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090aaf);
-            this.f25194c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091db7);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) null);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee8);
+            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090ab1);
+            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091da3);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.f25193b.setRoundLayoutRadius(c.a.o0.r.v.a.y(R.string.J_X05));
-            this.f25193b.setVisibility(8);
+            this.b.setRoundLayoutRadius(ur4.y(R.string.J_X05));
+            this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
     }
@@ -219,28 +206,28 @@ public class TbLiveContainer extends FrameLayout implements e {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            c d2 = c.d(this.f25194c);
-            d2.n(R.string.J_X05);
-            d2.f(R.color.CAM_X0201);
+            wr4 d = wr4.d(this.c);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0201);
         }
     }
 
     public void e() {
         ThreadData threadData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (threadData = this.f25196e) == null || threadData.getThreadAlaInfo() == null || this.f25197f == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (threadData = this.e) == null || threadData.getThreadAlaInfo() == null || this.f == 0) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.f25197f;
+        long currentTimeMillis = System.currentTimeMillis() - this.f;
         StatisticItem statisticItem = new StatisticItem("c14355");
         statisticItem.param(TiebaStatic.Params.OBJ_DURATION, currentTimeMillis);
-        statisticItem.param("tid", this.f25196e.getTid());
+        statisticItem.param("tid", this.e.getTid());
         statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("obj_locate", this.f25198g);
-        statisticItem.param("fid", this.f25196e.getFid());
-        statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.f25196e.statFloor);
+        statisticItem.param("obj_locate", this.g);
+        statisticItem.param("fid", this.e.getFid());
+        statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.e.statFloor);
         statisticItem.param("end_type", getEndType());
-        AlaInfoData threadAlaInfo = this.f25196e.getThreadAlaInfo();
+        AlaInfoData threadAlaInfo = this.e.getThreadAlaInfo();
         if (threadAlaInfo.isLegalYYLiveData()) {
             String str = StringUtils.isNull(threadAlaInfo.appId) ? null : threadAlaInfo.appId;
             if (threadAlaInfo.mYyExtData != null) {
@@ -253,7 +240,7 @@ public class TbLiveContainer extends FrameLayout implements e {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -274,21 +261,21 @@ public class TbLiveContainer extends FrameLayout implements e {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getOriginUrl() : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -298,14 +285,14 @@ public class TbLiveContainer extends FrameLayout implements e {
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -315,29 +302,29 @@ public class TbLiveContainer extends FrameLayout implements e {
     public void setStaticsLocationPage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f25198g = str;
+            this.g = str;
         }
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.a.setVideoPath(this.f25199h);
+            this.a.setVideoPath(this.h);
             this.a.start();
-            this.f25197f = System.currentTimeMillis();
+            this.f = System.currentTimeMillis();
             MessageManager.getInstance().registerListener(this.i);
         }
     }
 
-    @Override // c.a.p0.c3.e
+    @Override // com.repackage.p68
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.a.stop();
             e();
-            this.f25197f = 0L;
-            this.f25193b.setVisibility(8);
+            this.f = 0L;
+            this.b.setVisibility(8);
             MessageManager.getInstance().unRegisterListener(this.i);
         }
     }
@@ -361,7 +348,7 @@ public class TbLiveContainer extends FrameLayout implements e {
                 return;
             }
         }
-        this.f25195d = false;
+        this.d = false;
         this.i = new a(this, 2000994);
         c();
     }
@@ -385,7 +372,7 @@ public class TbLiveContainer extends FrameLayout implements e {
                 return;
             }
         }
-        this.f25195d = false;
+        this.d = false;
         this.i = new a(this, 2000994);
         c();
     }

@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.R$styleable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +88,7 @@ public final class GradientColorInflaterCompat {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, resources, xmlPullParser, attributeSet, theme)) == null) {
             String name = xmlPullParser.getName();
-            if (name.equals("gradient")) {
+            if (name.equals(NativeConstants.GRADIENT)) {
                 TypedArray obtainAttributes = TypedArrayUtils.obtainAttributes(resources, theme, attributeSet, R$styleable.GradientColor);
                 float namedFloat = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "startX", R$styleable.GradientColor_android_startX, 0.0f);
                 float namedFloat2 = TypedArrayUtils.getNamedFloat(obtainAttributes, xmlPullParser, "startY", R$styleable.GradientColor_android_startY, 0.0f);
@@ -146,10 +147,10 @@ public final class GradientColorInflaterCompat {
                         break;
                     }
                     int color = obtainAttributes.getColor(R$styleable.GradientColorItem_android_color, 0);
-                    float f2 = obtainAttributes.getFloat(R$styleable.GradientColorItem_android_offset, 0.0f);
+                    float f = obtainAttributes.getFloat(R$styleable.GradientColorItem_android_offset, 0.0f);
                     obtainAttributes.recycle();
                     arrayList2.add(Integer.valueOf(color));
-                    arrayList.add(Float.valueOf(f2));
+                    arrayList.add(Float.valueOf(f));
                 }
             }
             if (arrayList2.size() > 0) {

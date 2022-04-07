@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ShareUrlSearch extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.platform.core.e.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26515b;
+    public boolean b;
 
     public ShareUrlSearch() {
         Interceptable interceptable = $ic;
@@ -34,7 +32,7 @@ public class ShareUrlSearch extends l {
                 return;
             }
         }
-        this.f26515b = false;
+        this.b = false;
         this.a = new h();
     }
 
@@ -64,10 +62,10 @@ public class ShareUrlSearch extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26515b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
             return;
         }
-        this.f26515b = true;
+        this.b = true;
         this.a.a();
         BMapManager.destroy();
     }

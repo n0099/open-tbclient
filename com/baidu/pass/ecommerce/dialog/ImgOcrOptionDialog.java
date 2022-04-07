@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public OptionOnClickListener optionOnClickListener;
     public TextView takePhotoTv;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OptionOnClickListener {
         public static final int OPTION_CHOOSE_IMG_TYPE = 1002;
         public static final int OPTION_TAKE_PHOTO_TYPE = 1001;
@@ -55,18 +55,18 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04d5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04d0 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.optionOnClickListener != null) {
-                int id = view.getId();
-                if (id == R.id.obfuscated_res_0x7f091bd1) {
+                int id = view2.getId();
+                if (id == R.id.obfuscated_res_0x7f091bc0) {
                     this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091b7b) {
+                } else if (id == R.id.obfuscated_res_0x7f091b6a) {
                     this.optionOnClickListener.onOptionClick(1002);
                 }
             }
@@ -75,22 +75,22 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     }
 
     @Override // androidx.fragment.app.Fragment
-    public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, bundle) == null) {
-            super.onViewCreated(view, bundle);
-            this.takePhotoTv = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091bd1);
-            this.chooseImgTv = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091b7b);
-            this.cancelTv = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091bbb);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
+            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bc0);
+            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b6a);
+            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091baa);
             if (this.isDarkMode) {
-                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081056);
-                this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06099e));
-                view.findViewById(R.id.obfuscated_res_0x7f091bd2).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060918));
-                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081054);
-                this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06099e));
-                view.findViewById(R.id.obfuscated_res_0x7f091b7c).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060943));
-                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081054);
-                this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06099e));
+                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105d);
+                this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ad));
+                view2.findViewById(R.id.obfuscated_res_0x7f091bc1).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060927));
+                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105b);
+                this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ad));
+                view2.findViewById(R.id.obfuscated_res_0x7f091b6b).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060952));
+                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105b);
+                this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609ad));
             }
             this.takePhotoTv.setOnClickListener(this);
             this.chooseImgTv.setOnClickListener(this);

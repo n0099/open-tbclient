@@ -9,7 +9,7 @@ import com.kwad.sdk.utils.t;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AppRunningInfoNative extends NativeObject implements b<AppRunningInfoNative> {
     public static SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd:HH:mm:ss");
 

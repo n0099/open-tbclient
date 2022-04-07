@@ -13,23 +13,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f44627b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f44628c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f44629d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f44630e;
+    public a b;
+    public com.yxcorp.kuaishou.addfp.a.b.b c;
+    public CountDownLatch d;
+    public ServiceConnection e;
 
     public e(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         Interceptable interceptable = $ic;
@@ -47,19 +39,19 @@ public final class e {
             }
         }
         this.a = null;
-        this.f44629d = new CountDownLatch(1);
-        this.f44630e = new f(this);
+        this.d = new CountDownLatch(1);
+        this.e = new f(this);
         try {
             this.a = context;
-            this.f44628c = bVar;
+            this.c = bVar;
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (!this.a.bindService(intent, this.f44630e, 1)) {
+            if (!this.a.bindService(intent, this.e, 1)) {
                 a(false);
                 return;
             }
-            this.f44629d.await(10L, TimeUnit.SECONDS);
-            if (this.f44627b != null) {
+            this.d.await(10L, TimeUnit.SECONDS);
+            if (this.b != null) {
                 a(true);
             } else {
                 a(false);
@@ -75,9 +67,9 @@ public final class e {
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             if (z) {
                 try {
-                    String c2 = c();
-                    if (!TextUtils.isEmpty(c2)) {
-                        this.f44628c.a(c2);
+                    String c = c();
+                    if (!TextUtils.isEmpty(c)) {
+                        this.c.a(c);
                         return;
                     }
                 } catch (Throwable th) {
@@ -85,7 +77,7 @@ public final class e {
                     return;
                 }
             }
-            this.f44628c.e();
+            this.c.e();
         }
     }
 
@@ -94,8 +86,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
-                if (this.f44627b != null) {
-                    return this.f44627b.a();
+                if (this.b != null) {
+                    return this.b.a();
                 }
                 return null;
             } catch (Throwable th) {
@@ -124,11 +116,11 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                this.a.unbindService(this.f44630e);
+                this.a.unbindService(this.e);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.f44627b = null;
+            this.b = null;
         }
     }
 }

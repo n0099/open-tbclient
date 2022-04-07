@@ -23,13 +23,11 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 /* loaded from: classes7.dex */
 public class DownloadTaskDeleteActivity extends Activity {
     public k a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Intent f43113b;
+    public Intent b;
 
     private void b() {
         Intent intent;
-        if (this.a != null || (intent = this.f43113b) == null) {
+        if (this.a != null || (intent = this.b) == null) {
             return;
         }
         try {
@@ -95,8 +93,8 @@ public class DownloadTaskDeleteActivity extends Activity {
                 });
                 this.a = a2.a();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -115,7 +113,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f43113b = getIntent();
+        this.b = getIntent();
         b();
         k kVar = this.a;
         if (kVar != null && !kVar.b()) {
@@ -134,9 +132,9 @@ public class DownloadTaskDeleteActivity extends Activity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(DownloadInfo downloadInfo, int i) {
-        com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
-        if (b2 != null) {
-            b2.a(downloadInfo);
+        com.ss.android.socialbase.appdownloader.c.d b = d.j().b();
+        if (b != null) {
+            b.a(downloadInfo);
         }
         z downloadNotificationEventListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getDownloadNotificationEventListener(i);
         if (downloadNotificationEventListener != null) {

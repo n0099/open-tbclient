@@ -9,10 +9,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import c.a.d.f.m.h;
-import c.a.d.f.p.o;
-import c.a.d.f.p.t;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,6 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
+import com.repackage.pi;
+import com.repackage.sg;
+import com.repackage.ui;
+import com.repackage.wt4;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,7 +33,7 @@ import java.util.zip.ZipInputStream;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PullViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CLOSE_PULLVIEW_DELAYED_TIME = 0;
@@ -55,12 +56,12 @@ public class PullViewHelper {
     public int pullview_backgroundColor_day;
     public int pullview_backgroundColor_night;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface CallBack {
         void result(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class PullViewDrawable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +101,7 @@ public class PullViewHelper {
         this.pullview_backgroundColor_night = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
         this.nightColorSkin = new PorterDuffColorFilter(IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
         this.defaultResources = new int[]{R.drawable.listview_pull_refresh01, R.drawable.listview_pull_refresh02};
-        setShouldShowLoadingView(b.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
+        setShouldShowLoadingView(wt4.k().h("pullview_should_show_3d_loading", this.defaultShouldShowLoadingView));
     }
 
     private Drawable buildDrawable(File[] fileArr, String str) {
@@ -142,11 +143,11 @@ public class PullViewHelper {
     public void buildDrawables() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            String q = b.k().q("pull_image_url", "");
+            String q = wt4.k().q("pull_image_url", "");
             boolean z = false;
-            int l = b.k().l("pull_image_num", 0);
-            this.pullview_backgroundColor_day = b.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-            this.pullview_backgroundColor_night = b.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+            int l = wt4.k().l("pull_image_num", 0);
+            this.pullview_backgroundColor_day = wt4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+            this.pullview_backgroundColor_night = wt4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             if (!TextUtils.isEmpty(q)) {
                 if (l > 0 && isImagesExist(l)) {
                     this.drawables = new Drawable[l];
@@ -196,31 +197,31 @@ public class PullViewHelper {
             try {
                 try {
                     fileInputStream = new FileInputStream(file);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
             }
             try {
-                String b2 = t.b(fileInputStream);
-                if (!TextUtils.isEmpty(b2)) {
-                    if (b2.equalsIgnoreCase(str)) {
-                        o.e(fileInputStream);
+                String b = ui.b(fileInputStream);
+                if (!TextUtils.isEmpty(b)) {
+                    if (b.equalsIgnoreCase(str)) {
+                        pi.e(fileInputStream);
                         return true;
                     }
                 }
-                o.e(fileInputStream);
-            } catch (Exception e3) {
-                e = e3;
+                pi.e(fileInputStream);
+            } catch (Exception e2) {
+                e = e2;
                 fileInputStream2 = fileInputStream;
                 e.printStackTrace();
-                o.e(fileInputStream2);
+                pi.e(fileInputStream2);
                 return false;
             } catch (Throwable th2) {
                 th = th2;
                 fileInputStream2 = fileInputStream;
-                o.e(fileInputStream2);
+                pi.e(fileInputStream2);
                 throw th;
             }
             return false;
@@ -261,24 +262,24 @@ public class PullViewHelper {
                                 }
                             }
                         } else {
-                            o.e(zipInputStream2);
+                            pi.e(zipInputStream2);
                             return;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         zipInputStream = zipInputStream2;
                         e.printStackTrace();
-                        o.e(zipInputStream);
+                        pi.e(zipInputStream);
                         return;
                     } catch (Throwable th) {
                         th = th;
                         zipInputStream = zipInputStream2;
-                        o.e(zipInputStream);
+                        pi.e(zipInputStream);
                         throw th;
                     }
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
         } catch (Throwable th2) {
             th = th2;
@@ -327,8 +328,8 @@ public class PullViewHelper {
                     if (execute.getStatusLine().getStatusCode() == 200) {
                         saveZip(execute.getEntity().getContent());
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 defaultHttpClient.getConnectionManager().shutdown();
@@ -434,8 +435,8 @@ public class PullViewHelper {
         try {
             try {
                 fileOutputStream = new FileOutputStream(file);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
         } catch (Throwable th) {
             th = th;
@@ -447,19 +448,19 @@ public class PullViewHelper {
                 if (read != -1) {
                     fileOutputStream.write(bArr, 0, read);
                 } else {
-                    o.f(fileOutputStream);
+                    pi.f(fileOutputStream);
                     return;
                 }
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
-            o.f(fileOutputStream2);
+            pi.f(fileOutputStream2);
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream2 = fileOutputStream;
-            o.f(fileOutputStream2);
+            pi.f(fileOutputStream2);
             throw th;
         }
     }
@@ -485,15 +486,15 @@ public class PullViewHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65563, this, str, str2, i) == null) {
             deletePullDir();
-            b.k().D("pull_image_url");
-            b.k().D("pull_image_num");
-            b.k().D("pullview_background_color_day");
-            b.k().D("pullview_background_color_night");
+            wt4.k().D("pull_image_url");
+            wt4.k().D("pull_image_num");
+            wt4.k().D("pullview_background_color_day");
+            wt4.k().D("pullview_background_color_night");
             downloadZipFile(str);
             File zipFile = getZipFile();
             if (checkFileMd5(zipFile, str2)) {
-                b.k().y("pull_image_url", str);
-                b.k().w("pull_image_num", i);
+                wt4.k().y("pull_image_url", str);
+                wt4.k().w("pull_image_num", i);
                 decompressZipFile(zipFile);
                 buildDrawables();
                 return;
@@ -505,7 +506,7 @@ public class PullViewHelper {
     private void startDownloadAsync(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65564, this, str, str2, i) == null) {
-            h.a().c(new Runnable(this, str, str2, i) { // from class: com.baidu.tbadk.core.util.PullViewHelper.4
+            sg.a().c(new Runnable(this, str, str2, i) { // from class: com.baidu.tbadk.core.util.PullViewHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullViewHelper this$0;
@@ -548,7 +549,7 @@ public class PullViewHelper {
     public void buildDrawablesAsync() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.3
+            sg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullViewHelper this$0;
@@ -679,8 +680,8 @@ public class PullViewHelper {
             int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
             int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
-                int l = b.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                int l2 = b.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                int l = wt4.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                int l2 = wt4.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
                     i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
@@ -690,20 +691,20 @@ public class PullViewHelper {
                 } catch (Exception unused2) {
                 }
                 if (l != i2 || i != l2) {
-                    b.k().w("pullview_background_color_day", i2);
-                    b.k().w("pullview_background_color_night", i);
+                    wt4.k().w("pullview_background_color_day", i2);
+                    wt4.k().w("pullview_background_color_night", i);
                     this.pullview_backgroundColor_day = i2;
                     this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
-                b.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
-                b.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
+                wt4.k().w("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
+                wt4.k().w("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
             }
             if (TextUtils.isEmpty(str)) {
-                b.k().u("pullview_should_show_3d_loading", true);
+                wt4.k().u("pullview_should_show_3d_loading", true);
                 setShouldShowLoadingView(true);
-                h.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
+                sg.a().c(new Runnable(this) { // from class: com.baidu.tbadk.core.util.PullViewHelper.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ PullViewHelper this$0;
@@ -730,10 +731,10 @@ public class PullViewHelper {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.k().D("pull_image_url");
-                            b.k().D("pull_image_num");
-                            b.k().D("pullview_background_color_day");
-                            b.k().D("pullview_background_color_night");
+                            wt4.k().D("pull_image_url");
+                            wt4.k().D("pull_image_num");
+                            wt4.k().D("pullview_background_color_day");
+                            wt4.k().D("pullview_background_color_night");
                             this.this$0.deletePullDir();
                             this.this$0.buildDrawables();
                         }
@@ -741,16 +742,16 @@ public class PullViewHelper {
                 });
                 return;
             }
-            b.k().u("pullview_should_show_3d_loading", false);
+            wt4.k().u("pullview_should_show_3d_loading", false);
             setShouldShowLoadingView(false);
-            String q = b.k().q("pull_image_url", "");
-            int e2 = c.a.d.f.m.b.e(str3, 0);
+            String q = wt4.k().q("pull_image_url", "");
+            int e = mg.e(str3, 0);
             if (str.equals(q)) {
-                if (isImagesExist(e2)) {
+                if (isImagesExist(e)) {
                     buildDrawablesAsync();
                     return;
                 } else if (isZipFileExist()) {
-                    h.a().c(new Runnable(this, str2, e2, str) { // from class: com.baidu.tbadk.core.util.PullViewHelper.2
+                    sg.a().c(new Runnable(this, str2, e, str) { // from class: com.baidu.tbadk.core.util.PullViewHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ PullViewHelper this$0;
@@ -763,7 +764,7 @@ public class PullViewHelper {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, str2, Integer.valueOf(e2), str};
+                                Object[] objArr = {this, str2, Integer.valueOf(e), str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i3 = newInitContext.flag;
                                 if ((i3 & 1) != 0) {
@@ -775,7 +776,7 @@ public class PullViewHelper {
                             }
                             this.this$0 = this;
                             this.val$md5 = str2;
-                            this.val$picNumInteger = e2;
+                            this.val$picNumInteger = e;
                             this.val$pullImageUrl = str;
                         }
 
@@ -798,11 +799,11 @@ public class PullViewHelper {
                     });
                     return;
                 } else {
-                    startDownloadAsync(str, str2, e2);
+                    startDownloadAsync(str, str2, e);
                     return;
                 }
             }
-            startDownloadAsync(str, str2, c.a.d.f.m.b.e(str3, 0));
+            startDownloadAsync(str, str2, mg.e(str3, 0));
         }
     }
 

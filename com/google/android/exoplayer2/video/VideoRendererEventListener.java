@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface VideoRendererEventListener {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -289,12 +289,12 @@ public interface VideoRendererEventListener {
             });
         }
 
-        public void videoSizeChanged(int i, int i2, int i3, float f2) {
+        public void videoSizeChanged(int i, int i2, int i3, float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i, i2, i3, f2) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.5
+            this.handler.post(new Runnable(this, i, i2, i3, f) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -308,7 +308,7 @@ public interface VideoRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)};
+                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i4 = newInitContext.flag;
                         if ((i4 & 1) != 0) {
@@ -322,7 +322,7 @@ public interface VideoRendererEventListener {
                     this.val$width = i;
                     this.val$height = i2;
                     this.val$unappliedRotationDegrees = i3;
-                    this.val$pixelWidthHeightRatio = f2;
+                    this.val$pixelWidthHeightRatio = f;
                 }
 
                 @Override // java.lang.Runnable
@@ -348,5 +348,5 @@ public interface VideoRendererEventListener {
 
     void onVideoInputFormatChanged(Format format);
 
-    void onVideoSizeChanged(int i, int i2, int i3, float f2);
+    void onVideoSizeChanged(int i, int i2, int i3, float f);
 }

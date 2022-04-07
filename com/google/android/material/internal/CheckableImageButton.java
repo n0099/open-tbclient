@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CheckableImageButton extends AppCompatImageButton implements Checkable {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] DRAWABLE_STATE_CHECKED;
@@ -35,7 +35,7 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
     public boolean checked;
     public boolean pressable;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -366,19 +366,19 @@ public class CheckableImageButton extends AppCompatImageButton implements Checka
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityEvent(View view, @NonNull AccessibilityEvent accessibilityEvent) {
+            public void onInitializeAccessibilityEvent(View view2, @NonNull AccessibilityEvent accessibilityEvent) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view, accessibilityEvent) == null) {
-                    super.onInitializeAccessibilityEvent(view, accessibilityEvent);
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityEvent) == null) {
+                    super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
                     accessibilityEvent.setChecked(this.this$0.isChecked());
                 }
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, accessibilityNodeInfoCompat) == null) {
-                    super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, accessibilityNodeInfoCompat) == null) {
+                    super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                     accessibilityNodeInfoCompat.setCheckable(this.this$0.isCheckable());
                     accessibilityNodeInfoCompat.setChecked(this.this$0.isChecked());
                 }

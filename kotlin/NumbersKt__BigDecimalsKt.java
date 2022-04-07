@@ -105,25 +105,25 @@ public class NumbersKt__BigDecimalsKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(float f2) {
-        return new BigDecimal(String.valueOf(f2));
+    public static final BigDecimal toBigDecimal(float f) {
+        return new BigDecimal(String.valueOf(f));
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(float f2, MathContext mathContext) {
-        return new BigDecimal(String.valueOf(f2), mathContext);
+    public static final BigDecimal toBigDecimal(float f, MathContext mathContext) {
+        return new BigDecimal(String.valueOf(f), mathContext);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(double d2) {
-        return new BigDecimal(String.valueOf(d2));
+    public static final BigDecimal toBigDecimal(double d) {
+        return new BigDecimal(String.valueOf(d));
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(double d2, MathContext mathContext) {
-        return new BigDecimal(String.valueOf(d2), mathContext);
+    public static final BigDecimal toBigDecimal(double d, MathContext mathContext) {
+        return new BigDecimal(String.valueOf(d), mathContext);
     }
 }

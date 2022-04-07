@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,8 +23,8 @@ public class a extends d {
                 return;
             }
         }
-        this.f26697c = 10;
-        this.f26696b = "heatmap";
-        this.f26698d = TiebaStatic.MAX_COST_VALUE;
+        this.c = 10;
+        this.b = "heatmap";
+        this.d = TiebaStatic.MAX_COST_VALUE;
     }
 }

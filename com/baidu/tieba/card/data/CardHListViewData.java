@@ -1,7 +1,5 @@
 package com.baidu.tieba.card.data;
 
-import c.a.d.f.p.m;
-import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -13,12 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
+import com.repackage.uo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;
@@ -26,7 +26,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static final BdUniqueId TYPE;
     public static final long serialVersionUID = 6577771607010727691L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<n> mList;
+    public final List<uo> mList;
     public boolean showBottomDivider;
     public boolean showTopDivider;
     public String threadId;
@@ -66,13 +66,13 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         this.mList = new ArrayList();
     }
 
-    public final List<n> getDataList() {
+    public final List<uo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         }
         this.mList.clear();
         for (GuessLikeThreadInfo guessLikeThreadInfo : list) {
-            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !m.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !m.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
+            if (guessLikeThreadInfo != null && guessLikeThreadInfo.thread_id.longValue() >= 0 && !ni.isEmptyStringAfterTrim(guessLikeThreadInfo.recom_cover) && !ni.isEmptyStringAfterTrim(guessLikeThreadInfo.title)) {
                 CardHListViewNormalItemData cardHListViewNormalItemData = new CardHListViewNormalItemData();
                 cardHListViewNormalItemData.parseProtobuf(guessLikeThreadInfo);
                 this.mList.add(cardHListViewNormalItemData);

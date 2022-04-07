@@ -6,8 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.e0.b;
-import c.a.a0.h.a;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,14 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hi0;
+import com.repackage.t01;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdNetUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class NetStatus {
         public static final /* synthetic */ NetStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -104,11 +104,11 @@ public class BdNetUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            NetworkInfo b2 = b();
-            if (b2 == null) {
+            NetworkInfo b = b();
+            if (b == null) {
                 return NetStatus.NET_DOWN;
             }
-            if (1 == b2.getType()) {
+            if (1 == b.getType()) {
                 return NetStatus.NET_WIFI;
             }
             return NetStatus.NET_MOBILE;
@@ -122,7 +122,7 @@ public class BdNetUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                return ((ConnectivityManager) a.b().getSystemService("connectivity")).getActiveNetworkInfo();
+                return ((ConnectivityManager) hi0.b().getSystemService("connectivity")).getActiveNetworkInfo();
             } catch (Exception unused) {
                 return null;
             }
@@ -143,11 +143,11 @@ public class BdNetUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            NetworkInfo b2 = b();
-            if (b2 == null) {
+            NetworkInfo b = b();
+            if (b == null) {
                 return false;
             }
-            return !"wifi".equals(b2.getTypeName().toLowerCase(Locale.getDefault()));
+            return !"wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
         }
         return invokeV.booleanValue;
     }
@@ -168,11 +168,11 @@ public class BdNetUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            NetworkInfo b2 = b();
-            if (b2 == null) {
+            NetworkInfo b = b();
+            if (b == null) {
                 return false;
             }
-            return "wifi".equals(b2.getTypeName().toLowerCase(Locale.getDefault()));
+            return "wifi".equals(b.getTypeName().toLowerCase(Locale.getDefault()));
         }
         return invokeV.booleanValue;
     }
@@ -186,14 +186,14 @@ public class BdNetUtils {
     public static void i(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, context, str) == null) {
-            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bad));
+            StringBuilder sb = new StringBuilder(context.getString(R.string.obfuscated_res_0x7f0f0bb0));
             if (!TextUtils.isEmpty(str)) {
                 sb.append("，\n");
-                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0be2));
+                sb.append(context.getString(R.string.obfuscated_res_0x7f0f0be5));
                 sb.append(str);
                 sb.append("MB");
             }
-            b.a().a(context, sb.toString());
+            t01.a().a(context, sb.toString());
         }
     }
 }

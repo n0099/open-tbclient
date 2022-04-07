@@ -7,29 +7,29 @@ public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countLeadingZeroBits(byte b2) {
-        return Integer.numberOfLeadingZeros(b2 & 255) - 24;
+    public static final int countLeadingZeroBits(byte b) {
+        return Integer.numberOfLeadingZeros(b & 255) - 24;
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countOneBits(byte b2) {
-        return Integer.bitCount(b2 & 255);
+    public static final int countOneBits(byte b) {
+        return Integer.bitCount(b & 255);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final int countTrailingZeroBits(byte b2) {
-        return Integer.numberOfTrailingZeros(b2 | 256);
+    public static final int countTrailingZeroBits(byte b) {
+        return Integer.numberOfTrailingZeros(b | 256);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
-    public static final byte rotateLeft(byte b2, int i) {
+    public static final byte rotateLeft(byte b, int i) {
         int i2 = i & 7;
-        return (byte) (((b2 & 255) >>> (8 - i2)) | (b2 << i2));
+        return (byte) (((b & 255) >>> (8 - i2)) | (b << i2));
     }
 
     @SinceKotlin(version = "1.3")
@@ -41,9 +41,9 @@ public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
 
     @SinceKotlin(version = "1.3")
     @ExperimentalStdlibApi
-    public static final byte rotateRight(byte b2, int i) {
+    public static final byte rotateRight(byte b, int i) {
         int i2 = i & 7;
-        return (byte) (((b2 & 255) >>> i2) | (b2 << (8 - i2)));
+        return (byte) (((b & 255) >>> i2) | (b << (8 - i2)));
     }
 
     @SinceKotlin(version = "1.3")
@@ -56,15 +56,15 @@ public class NumbersKt__NumbersKt extends NumbersKt__NumbersJVMKt {
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final byte takeHighestOneBit(byte b2) {
-        return (byte) Integer.highestOneBit(b2 & 255);
+    public static final byte takeHighestOneBit(byte b) {
+        return (byte) Integer.highestOneBit(b & 255);
     }
 
     @SinceKotlin(version = "1.4")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static final byte takeLowestOneBit(byte b2) {
-        return (byte) Integer.lowestOneBit(b2);
+    public static final byte takeLowestOneBit(byte b) {
+        return (byte) Integer.lowestOneBit(b);
     }
 
     @SinceKotlin(version = "1.4")

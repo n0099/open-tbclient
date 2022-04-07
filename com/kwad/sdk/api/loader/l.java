@@ -5,20 +5,16 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.view.ContextThemeWrapper;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class l extends ContextThemeWrapper implements ResContext {
     public final ContextThemeWrapper a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f39139b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f39140c;
+    public Resources.Theme b;
+    public int c;
 
     public l(ContextThemeWrapper contextThemeWrapper) {
         super(contextThemeWrapper, 0);
         this.a = contextThemeWrapper;
-        this.f39140c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
+        this.c = ((Integer) Reflect.a(contextThemeWrapper).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -56,15 +52,15 @@ public class l extends ContextThemeWrapper implements ResContext {
         Resources.Theme theme;
         try {
             theme = super.getTheme();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             theme = null;
         }
-        Resources.Theme theme2 = this.f39139b;
+        Resources.Theme theme2 = this.b;
         if (theme2 == null || theme2 == theme) {
-            this.f39139b = Wrapper.replaceTheme(theme, this.f39139b, this.f39140c);
+            this.b = Wrapper.replaceTheme(theme, this.b, this.c);
         }
-        return this.f39139b;
+        return this.b;
     }
 
     @Override // android.content.Context
@@ -74,7 +70,7 @@ public class l extends ContextThemeWrapper implements ResContext {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public void setTheme(int i) {
-        this.f39140c = i;
+        this.c = i;
         super.setTheme(i);
     }
 

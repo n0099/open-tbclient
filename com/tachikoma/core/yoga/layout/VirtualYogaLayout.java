@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class VirtualYogaLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,11 +96,11 @@ public class VirtualYogaLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, layoutParams) == null) {
-            if (view instanceof VirtualYogaLayout) {
-                VirtualYogaLayout virtualYogaLayout = (VirtualYogaLayout) view;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
+            if (view2 instanceof VirtualYogaLayout) {
+                VirtualYogaLayout virtualYogaLayout = (VirtualYogaLayout) view2;
                 virtualYogaLayout.transferChildren(this);
                 YogaNode yogaNode = virtualYogaLayout.getYogaNode();
                 YogaNode yogaNode2 = this.mYogaNode;
@@ -108,20 +108,20 @@ public class VirtualYogaLayout extends ViewGroup {
                 return;
             }
             YogaNodeJNIFinalizer yogaNodeJNIFinalizer = new YogaNodeJNIFinalizer();
-            YogaLayout.applyLayoutParams(new YogaLayout.LayoutParams(layoutParams), yogaNodeJNIFinalizer, view);
-            yogaNodeJNIFinalizer.setData(view);
+            YogaLayout.applyLayoutParams(new YogaLayout.LayoutParams(layoutParams), yogaNodeJNIFinalizer, view2);
+            yogaNodeJNIFinalizer.setData(view2);
             yogaNodeJNIFinalizer.setMeasureFunction(new YogaLayout.ViewMeasureFunction());
             YogaNode yogaNode3 = this.mYogaNode;
             yogaNode3.addChildAt(yogaNodeJNIFinalizer, yogaNode3.getChildCount());
-            addView(view, yogaNodeJNIFinalizer);
+            addView(view2, yogaNodeJNIFinalizer);
         }
     }
 
-    public void addView(View view, YogaNode yogaNode) {
+    public void addView(View view2, YogaNode yogaNode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, yogaNode) == null) {
-            this.mChildren.add(view);
-            this.mYogaNodes.put(view, yogaNode);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, yogaNode) == null) {
+            this.mChildren.add(view2);
+            this.mYogaNodes.put(view2, yogaNode);
         }
     }
 
@@ -171,14 +171,14 @@ public class VirtualYogaLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup) == null) {
             if (viewGroup instanceof VirtualYogaLayout) {
-                for (View view : this.mChildren) {
-                    ((VirtualYogaLayout) viewGroup).addView(view, this.mYogaNodes.get(view));
+                for (View view2 : this.mChildren) {
+                    ((VirtualYogaLayout) viewGroup).addView(view2, this.mYogaNodes.get(view2));
                 }
             } else if (!(viewGroup instanceof YogaLayout)) {
                 throw new RuntimeException("VirtualYogaLayout cannot transfer children to ViewGroup of type " + viewGroup.getClass().getCanonicalName() + ".  Must either be a VirtualYogaLayout or a YogaLayout.");
             } else {
-                for (View view2 : this.mChildren) {
-                    ((YogaLayout) viewGroup).addView(view2, this.mYogaNodes.get(view2));
+                for (View view3 : this.mChildren) {
+                    ((YogaLayout) viewGroup).addView(view3, this.mYogaNodes.get(view3));
                 }
             }
             this.mChildren.clear();

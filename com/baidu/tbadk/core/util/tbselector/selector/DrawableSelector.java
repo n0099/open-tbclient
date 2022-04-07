@@ -11,7 +11,6 @@ import androidx.annotation.DimenRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a4.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,9 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zi8;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DrawableSelector extends AbsDrawableSelector implements ISelector<StateListDrawable, View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BL_TR = "BL_TR";
@@ -81,11 +81,11 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     public int width;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public @interface GradientOrientation {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public @interface Shape {
     }
 
@@ -128,7 +128,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     private GradientDrawable.Orientation createGradientOrientation() {
         InterceptResult invokeV;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             GradientDrawable.Orientation orientation = GradientDrawable.Orientation.TOP_BOTTOM;
@@ -136,65 +136,65 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             switch (str.hashCode()) {
                 case -1196165855:
                     if (str.equals(BOTTOM_TOP)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -873241494:
                     if (str.equals(RIGHT_LEFT)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -434150460:
                     if (str.equals(LEFT_RIGHT)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 63310483:
                     if (str.equals(BL_TR)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 63489223:
                     if (str.equals(BR_TL)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 79933303:
                     if (str.equals(TL_BR)) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 80112043:
                     if (str.equals(TR_BL)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1982197877:
                     if (str.equals(TOP_BOTTOM)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     return GradientDrawable.Orientation.TOP_BOTTOM;
                 case 1:
@@ -253,11 +253,11 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             if (i6 > 0) {
                 gradientDrawable.setCornerRadius(i6);
             } else if (this.isRadius) {
-                float f2 = this.topLeftRadius;
-                float f3 = this.topRightRadius;
-                float f4 = this.bottomRightRadius;
-                float f5 = this.bottomLeftRadius;
-                gradientDrawable.setCornerRadii(new float[]{f2, f2, f3, f3, f4, f4, f5, f5});
+                float f = this.topLeftRadius;
+                float f2 = this.topRightRadius;
+                float f3 = this.bottomRightRadius;
+                float f4 = this.bottomLeftRadius;
+                gradientDrawable.setCornerRadii(new float[]{f, f, f2, f2, f3, f3, f4, f4});
             }
             int i7 = this.width;
             if (i7 > 0 && (i5 = this.height) > 0) {
@@ -280,7 +280,7 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
             this.gradientColors = r1;
             int[] iArr = {0, SelectorHelper.getColor(i)};
             int[] iArr2 = this.gradientColors;
-            iArr2[0] = c.c(iArr2[1]);
+            iArr2[0] = zi8.c(iArr2[1]);
             this.gradientType = 0;
             this.gradientOrientation = TOP_BOTTOM;
             return this;
@@ -288,23 +288,23 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector blRadius(float f2) {
+    public DrawableSelector blRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
             this.isRadius = true;
-            this.bottomLeftRadius = f2;
+            this.bottomLeftRadius = f;
             return this;
         }
         return (DrawableSelector) invokeF.objValue;
     }
 
-    public DrawableSelector brRadius(float f2) {
+    public DrawableSelector brRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f)) == null) {
             this.isRadius = true;
-            this.bottomRightRadius = f2;
+            this.bottomRightRadius = f;
             return this;
         }
         return (DrawableSelector) invokeF.objValue;
@@ -353,14 +353,14 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (StateListDrawable) invokeV.objValue;
     }
 
-    public DrawableSelector dashLine(@ColorRes int i, int i2, float f2, float f3) {
+    public DrawableSelector dashLine(@ColorRes int i, int i2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
             this.isDashLine = true;
             this.dashLineWidth = i2;
-            this.dashWidth = f2;
-            this.dashGap = f3;
+            this.dashWidth = f;
+            this.dashGap = f2;
             this.dashLineColor = SelectorHelper.getColor(i);
             return this;
         }
@@ -630,13 +630,13 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector gradientRadial(float f2, int... iArr) {
+    public DrawableSelector gradientRadial(float f, int... iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Float.valueOf(f2), iArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{Float.valueOf(f), iArr})) == null) {
             this.isGradient = true;
             this.gradientType = 1;
-            this.radialRadius = f2;
+            this.radialRadius = f;
             if (iArr.length > 1) {
                 this.gradientColors = new int[iArr.length];
                 for (int i = 0; i < iArr.length; i++) {
@@ -668,19 +668,19 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
     }
 
     @Override // com.baidu.tbadk.core.util.tbselector.interfaces.ISelector
-    public void into(View view) {
+    public void into(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048619, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048619, this, view2) == null) || view2 == null) {
             return;
         }
         build();
         int i = this.mType;
         if (i == 2) {
-            if (view instanceof ImageView) {
-                ((ImageView) view).setImageDrawable(this.mStateListDrawable);
+            if (view2 instanceof ImageView) {
+                ((ImageView) view2).setImageDrawable(this.mStateListDrawable);
             }
         } else if (i == 1) {
-            view.setBackgroundDrawable(this.mStateListDrawable);
+            view2.setBackgroundDrawable(this.mStateListDrawable);
         }
     }
 
@@ -775,15 +775,15 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector radius(float f2) {
+    public DrawableSelector radius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048632, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048632, this, f)) == null) {
             this.isRadius = true;
-            this.topRightRadius = f2;
-            this.topLeftRadius = f2;
-            this.bottomRightRadius = f2;
-            this.bottomLeftRadius = f2;
+            this.topRightRadius = f;
+            this.topLeftRadius = f;
+            this.bottomRightRadius = f;
+            this.bottomLeftRadius = f;
             return this;
         }
         return (DrawableSelector) invokeF.objValue;
@@ -835,12 +835,12 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector setGradientCenter(float f2, float f3) {
+    public DrawableSelector setGradientCenter(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.centerX = f2;
-            this.centerY = f3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.centerX = f;
+            this.centerY = f2;
             return this;
         }
         return (DrawableSelector) invokeCommon.objValue;
@@ -897,23 +897,23 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector tlRadius(float f2) {
+    public DrawableSelector tlRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048646, this, f)) == null) {
             this.isRadius = true;
-            this.topLeftRadius = f2;
+            this.topLeftRadius = f;
             return this;
         }
         return (DrawableSelector) invokeF.objValue;
     }
 
-    public DrawableSelector trRadius(float f2) {
+    public DrawableSelector trRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048647, this, f)) == null) {
             this.isRadius = true;
-            this.topRightRadius = f2;
+            this.topRightRadius = f;
             return this;
         }
         return (DrawableSelector) invokeF.objValue;
@@ -957,11 +957,11 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i)) == null) ? selectedDrawable(SelectorHelper.getDrawable(i)) : (DrawableSelector) invokeI.objValue;
     }
 
-    public DrawableSelector disabledColor(@ColorRes int i, float f2) {
+    public DrawableSelector disabledColor(@ColorRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
-            this.mDisabledBgColor = SelectorHelper.getColor(i, f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            this.mDisabledBgColor = SelectorHelper.getColor(i, f);
             this.hasSetDisabledBgColor = true;
             this.isSolid = true;
             return this;
@@ -1005,11 +1005,11 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector pressedColor(@ColorRes int i, float f2) {
+    public DrawableSelector pressedColor(@ColorRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
-            this.mPressedBgColor = SelectorHelper.getColor(i, f2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            this.mPressedBgColor = SelectorHelper.getColor(i, f);
             this.hasSetPressedBgColor = true;
             this.isSolid = true;
             return this;
@@ -1053,14 +1053,14 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector dashLine(String str, int i, float f2, float f3) {
+    public DrawableSelector dashLine(String str, int i, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)})) == null) {
             this.isDashLine = true;
             this.dashLineWidth = i;
-            this.dashWidth = f2;
-            this.dashGap = f3;
+            this.dashWidth = f;
+            this.dashGap = f2;
             this.dashLineColor = SelectorHelper.parseColor(str);
             return this;
         }
@@ -1143,13 +1143,13 @@ public class DrawableSelector extends AbsDrawableSelector implements ISelector<S
         return (DrawableSelector) invokeL.objValue;
     }
 
-    public DrawableSelector gradientRadial(float f2, String... strArr) {
+    public DrawableSelector gradientRadial(float f, String... strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f2), strArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f), strArr})) == null) {
             this.isGradient = true;
             this.gradientType = 1;
-            this.radialRadius = f2;
+            this.radialRadius = f;
             if (strArr.length > 1) {
                 this.gradientColors = new int[strArr.length];
                 for (int i = 0; i < strArr.length; i++) {

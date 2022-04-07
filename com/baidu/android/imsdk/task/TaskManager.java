@@ -17,7 +17,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TaskManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE;
@@ -30,7 +30,7 @@ public class TaskManager {
     public ThreadPoolExecutor service;
     public ExecutorService singleThreadService;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Task implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,8 +153,8 @@ public class TaskManager {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
             try {
                 this.singleThreadService.submit(runnable);
-            } catch (Exception e2) {
-                LogUtils.e("TaskManager", "Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e("TaskManager", "Exception ", e);
             }
         }
     }

@@ -6,33 +6,27 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.t;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e extends b<a> {
     public final String a;
+    public String b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f39340b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f39341b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f39342c;
+        public String b;
+        public String c;
 
         public a() {
             this.a = "";
-            this.f39341b = "";
-            this.f39342c = "";
+            this.b = "";
+            this.c = "";
         }
 
         public a(String str, String str2, String str3) {
             this.a = str;
-            this.f39341b = str2;
-            this.f39342c = str3;
+            this.b = str2;
+            this.c = str3;
         }
 
         @Override // com.kwad.sdk.core.b
@@ -41,16 +35,16 @@ public class e extends b<a> {
                 return;
             }
             this.a = jSONObject.optString("iconUrl", this.a);
-            this.f39341b = jSONObject.optString("nightIconUrl", this.f39341b);
-            this.f39342c = jSONObject.optString("desc", this.f39342c);
+            this.b = jSONObject.optString("nightIconUrl", this.b);
+            this.c = jSONObject.optString("desc", this.c);
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "icon", this.a);
-            t.a(jSONObject, "nightIconUrl", this.f39341b);
-            t.a(jSONObject, "desc", this.f39342c);
+            t.a(jSONObject, "nightIconUrl", this.b);
+            t.a(jSONObject, "desc", this.c);
             return jSONObject;
         }
     }
@@ -62,23 +56,23 @@ public class e extends b<a> {
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences.Editor editor) {
-        editor.putString(b(), this.f39340b);
+        editor.putString(b(), this.b);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences sharedPreferences) {
         String string = sharedPreferences.getString(b(), null);
-        this.f39340b = string;
+        this.b = string;
         if (TextUtils.isEmpty(string)) {
             return;
         }
         try {
-            JSONObject jSONObject = new JSONObject(this.f39340b);
+            JSONObject jSONObject = new JSONObject(this.b);
             a aVar = new a();
             aVar.parseJson(jSONObject);
             a((e) aVar);
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 
@@ -88,7 +82,7 @@ public class e extends b<a> {
         if (optJSONObject == null) {
             return;
         }
-        this.f39340b = optJSONObject.toString();
+        this.b = optJSONObject.toString();
         a aVar = new a();
         aVar.parseJson(optJSONObject);
         a((e) aVar);

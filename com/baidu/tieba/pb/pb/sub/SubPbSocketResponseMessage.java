@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.sub;
 
-import c.a.p0.w2.i.u;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.os7;
 import com.squareup.wire.Wire;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u pbFloorData;
+    public os7 pbFloorData;
     public boolean treatDelPage;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,13 +53,13 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
             if (extra != null && (extra instanceof SubPbRequestMessage)) {
                 this.treatDelPage = ((SubPbRequestMessage) extra).isTreatDelPage();
             }
-            u uVar = null;
+            os7 os7Var = null;
             try {
                 PbFloorResIdl pbFloorResIdl = (PbFloorResIdl) new Wire(new Class[0]).parseFrom(bArr, PbFloorResIdl.class);
                 if (pbFloorResIdl != null && pbFloorResIdl.data != null) {
-                    uVar = u.w(pbFloorResIdl.data);
-                    if (uVar != null) {
-                        uVar.m = pbFloorResIdl.error;
+                    os7Var = os7.w(pbFloorResIdl.data);
+                    if (os7Var != null) {
+                        os7Var.m = pbFloorResIdl.error;
                     } else if (pbFloorResIdl.error != null) {
                         if (pbFloorResIdl.error.errorno != null) {
                             setError(pbFloorResIdl.error.errorno.intValue());
@@ -67,10 +67,10 @@ public class SubPbSocketResponseMessage extends SocketResponsedMessage {
                         setErrorString(pbFloorResIdl.error.errmsg);
                     }
                 }
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            this.pbFloorData = uVar;
+            this.pbFloorData = os7Var;
         }
     }
 }

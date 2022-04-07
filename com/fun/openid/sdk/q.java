@@ -16,31 +16,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public static Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f38671b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static s f38672c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static Object f38673d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f38674e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static Handler f38675f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f38676g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f38677h;
+    public static boolean b;
+    public static s c;
+    public static Object d;
+    public static HandlerThread e;
+    public static Handler f;
+    public static String g;
+    public static String h;
     public static volatile q i;
     public static volatile o j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +44,7 @@ public class q {
                 return;
             }
         }
-        f38673d = new Object();
+        d = new Object();
     }
 
     public q() {
@@ -86,13 +72,13 @@ public class q {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     str = "0";
-                    f38671b = "1".equals(str);
+                    b = "1".equals(str);
                 }
             } catch (Throwable unused) {
                 str = "0";
-                f38671b = "1".equals(str);
+                b = "1".equals(str);
             }
-            f38671b = "1".equals(str);
+            b = "1".equals(str);
         }
     }
 
@@ -110,9 +96,9 @@ public class q {
                 synchronized (q.class) {
                     a = context.getApplicationContext();
                     HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-                    f38674e = handlerThread;
+                    e = handlerThread;
                     handlerThread.start();
-                    f38675f = new p(f38674e.getLooper());
+                    f = new p(e.getLooper());
                     j = new o(a);
                     a();
                 }
@@ -125,8 +111,8 @@ public class q {
     public void a(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-            synchronized (f38673d) {
-                Message obtainMessage = f38675f.obtainMessage();
+            synchronized (d) {
+                Message obtainMessage = f.obtainMessage();
                 obtainMessage.what = 11;
                 Bundle bundle = new Bundle();
                 bundle.putInt("type", i2);
@@ -134,29 +120,29 @@ public class q {
                     bundle.putString("appid", str);
                 }
                 obtainMessage.setData(bundle);
-                f38675f.sendMessage(obtainMessage);
+                f.sendMessage(obtainMessage);
                 long uptimeMillis = SystemClock.uptimeMillis();
                 try {
-                    f38673d.wait(2000L);
+                    d.wait(2000L);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
                 if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
                     if (i2 == 0) {
-                        f38677h = f38676g;
+                        h = g;
                     } else if (i2 != 1) {
                         if (i2 != 2) {
                             if (i2 != 4) {
                             }
-                        } else if (f38676g != null) {
-                            f38676g = null;
+                        } else if (g != null) {
+                            g = null;
                         } else {
                             Log.e("VMS_IDLG_SDK_Client", "get aaid failed");
                         }
-                    } else if (f38676g == null) {
+                    } else if (g == null) {
                         Log.e("VMS_IDLG_SDK_Client", "get vaid failed");
                     }
-                    f38676g = null;
+                    g = null;
                 } else {
                     Log.d("VMS_IDLG_SDK_Client", "query timeout");
                 }

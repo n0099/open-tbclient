@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, classLoader, str)) == null) {
             try {
                 return classLoader.loadClass(str);
-            } catch (ClassNotFoundException e2) {
-                l1.a(e2);
+            } catch (ClassNotFoundException e) {
+                l1.a(e);
                 return null;
             }
         }
@@ -59,8 +59,8 @@ public class e {
                     Field declaredField = cls.getDeclaredField(str);
                     declaredField.setAccessible(true);
                     return declaredField;
-                } catch (NoSuchFieldException e2) {
-                    l1.a(e2);
+                } catch (NoSuchFieldException e) {
+                    l1.a(e);
                     cls = cls.getSuperclass();
                 }
             }
@@ -86,8 +86,8 @@ public class e {
                     Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
                     declaredMethod.setAccessible(true);
                     return declaredMethod;
-                } catch (NoSuchMethodException e2) {
-                    l1.a(e2);
+                } catch (NoSuchMethodException e) {
+                    l1.a(e);
                     cls = cls.getSuperclass();
                 }
             }
@@ -149,8 +149,8 @@ public class e {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, str)) == null) {
             try {
                 return a(cls, str);
-            } catch (NoSuchFieldException e2) {
-                l1.a(e2);
+            } catch (NoSuchFieldException e) {
+                l1.a(e);
                 return null;
             }
         }
@@ -166,13 +166,13 @@ public class e {
                 method = a(cls, str, clsArr);
                 try {
                     method.setAccessible(true);
-                } catch (NoSuchMethodException e2) {
-                    e = e2;
+                } catch (NoSuchMethodException e) {
+                    e = e;
                     l1.a(e);
                     return method;
                 }
-            } catch (NoSuchMethodException e3) {
-                e = e3;
+            } catch (NoSuchMethodException e2) {
+                e = e2;
                 method = null;
             }
             return method;

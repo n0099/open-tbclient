@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GeneratedTexture {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK = 0;
@@ -34,7 +34,7 @@ public class GeneratedTexture {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.faceunity.gles.GeneratedTexture$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$GeneratedTexture$Image;
         public static /* synthetic */ Interceptable $ic;
@@ -67,7 +67,7 @@ public class GeneratedTexture {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Image {
         public static final /* synthetic */ Image[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,10 +168,10 @@ public class GeneratedTexture {
                     int i12 = ((i8 & i7) ^ (i10 & i7)) == 0 ? i5 : i6;
                     int i13 = i12 & 255;
                     int i14 = (i12 >> 24) & 255;
-                    float f2 = i14 / 255.0f;
-                    bArr[i11] = (byte) (i13 * f2);
-                    bArr[i11 + 1] = (byte) (((i12 >> 8) & 255) * f2);
-                    bArr[i11 + 2] = (byte) (((i12 >> 16) & 255) * f2);
+                    float f = i14 / 255.0f;
+                    bArr[i11] = (byte) (i13 * f);
+                    bArr[i11 + 1] = (byte) (((i12 >> 8) & 255) * f);
+                    bArr[i11 + 2] = (byte) (((i12 >> 16) & 255) * f);
                     bArr[i11 + 3] = (byte) i14;
                 }
             }
@@ -209,10 +209,10 @@ public class GeneratedTexture {
                 }
                 int i4 = i3 & 255;
                 int i5 = (i3 >> 24) & 255;
-                float f2 = i5 / 255.0f;
-                bArr[i] = (byte) (i4 * f2);
-                bArr[i + 1] = (byte) (((i3 >> 8) & 255) * f2);
-                bArr[i + 2] = (byte) (((i3 >> 16) & 255) * f2);
+                float f = i5 / 255.0f;
+                bArr[i] = (byte) (i4 * f);
+                bArr[i + 1] = (byte) (((i3 >> 8) & 255) * f);
+                bArr[i + 2] = (byte) (((i3 >> 16) & 255) * f);
                 bArr[i + 3] = (byte) i5;
             }
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(16384);

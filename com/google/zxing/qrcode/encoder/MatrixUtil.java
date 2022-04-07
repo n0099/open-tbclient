@@ -15,7 +15,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitArray;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import com.google.zxing.qrcode.decoder.Version;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class MatrixUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] POSITION_ADJUSTMENT_PATTERN;

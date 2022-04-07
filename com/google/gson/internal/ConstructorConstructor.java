@@ -31,7 +31,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentNavigableMap;
 import java.util.concurrent.ConcurrentSkipListMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class ConstructorConstructor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,12 +100,12 @@ public final class ConstructorConstructor {
                         if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                             try {
                                 return this.val$constructor.newInstance(null);
-                            } catch (IllegalAccessException e2) {
-                                throw new AssertionError(e2);
-                            } catch (InstantiationException e3) {
-                                throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e3);
-                            } catch (InvocationTargetException e4) {
-                                throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e4.getTargetException());
+                            } catch (IllegalAccessException e) {
+                                throw new AssertionError(e);
+                            } catch (InstantiationException e2) {
+                                throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e2);
+                            } catch (InvocationTargetException e3) {
+                                throw new RuntimeException("Failed to invoke " + this.val$constructor + " with no args", e3.getTargetException());
                             }
                         }
                         return invokeV.objValue;
@@ -521,8 +521,8 @@ public final class ConstructorConstructor {
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     try {
                         return this.unsafeAllocator.newInstance(this.val$rawType);
-                    } catch (Exception e2) {
-                        throw new RuntimeException("Unable to invoke no-args constructor for " + this.val$type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e2);
+                    } catch (Exception e) {
+                        throw new RuntimeException("Unable to invoke no-args constructor for " + this.val$type + ". Registering an InstanceCreator with Gson for this type may fix this problem.", e);
                     }
                 }
                 return invokeV.objValue;

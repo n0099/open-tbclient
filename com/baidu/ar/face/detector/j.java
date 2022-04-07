@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class j extends com.baidu.ar.d.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -206,24 +206,24 @@ public class j extends com.baidu.ar.d.h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.pm : invokeV.intValue;
     }
 
-    public void setTrackingMouthThreshold(float f2) {
+    public void setTrackingMouthThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
-            this.pp = f2;
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            this.pp = f;
         }
     }
 
-    public void setTrackingSmoothAlpha(float f2) {
+    public void setTrackingSmoothAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.pn = f2;
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.pn = f;
         }
     }
 
-    public void setTrackingSmoothThreshold(float f2) {
+    public void setTrackingSmoothThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048602, this, f2) == null) {
-            this.po = f2;
+        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
+            this.po = f;
         }
     }
 }

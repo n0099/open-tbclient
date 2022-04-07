@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CharCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,13 +63,13 @@ public class CharCache {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new String(this.cache, 0, this.pos) : (String) invokeV.objValue;
     }
 
-    public void append(char c2) {
+    public void append(char c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) == null) {
             int i = this.pos;
             char[] cArr = this.cache;
             if (i < cArr.length - 1) {
-                cArr[i] = c2;
+                cArr[i] = c;
                 this.pos = i + 1;
             }
         }

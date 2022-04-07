@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDEmotionBagLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKGROUND_COLOR = -1;
@@ -51,7 +51,7 @@ public class BDEmotionBagLayout extends LinearLayout {
     public PagerAdapter mPagerAdapter;
     public ViewPager mViewPager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class EmotionGridViewAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,23 +99,23 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             LinearLayout linearLayout;
             Bitmap emotionBitmapByName;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view, viewGroup)) == null) {
-                if (view == null) {
-                    linearLayout = (LinearLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d025c, viewGroup, false);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
+                    linearLayout = (LinearLayout) this.mInflater.inflate(R.layout.obfuscated_res_0x7f0d025d, viewGroup, false);
                     ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
                     layoutParams.height = (int) UIUtils.dp2px(this.mContext, 48.0f);
                     linearLayout.setLayoutParams(layoutParams);
                 } else {
-                    linearLayout = (LinearLayout) view;
+                    linearLayout = (LinearLayout) view2;
                 }
-                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090eba);
+                ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090eb5);
                 if (i == getCount() - 1) {
-                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080554);
+                    imageView.setImageResource(R.drawable.obfuscated_res_0x7f080552);
                 } else if (i < this.mList.size() && (emotionBitmapByName = EmotionUtils.getInstance().getEmotionBitmapByName(EmotionType.EMOTION_CLASSIC_TYPE, this.mList.get(i))) != null) {
                     imageView.setImageBitmap(emotionBitmapByName);
                 }
@@ -139,7 +139,7 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class EmotionPagerAdapter extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,10 +192,10 @@ public class BDEmotionBagLayout extends LinearLayout {
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public boolean isViewFromObject(View view, Object obj) {
+        public boolean isViewFromObject(View view2, Object obj) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
         }
     }
 

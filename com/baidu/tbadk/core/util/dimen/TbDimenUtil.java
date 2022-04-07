@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbDimenUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,13 +24,13 @@ public class TbDimenUtil {
         }
     }
 
-    public static void setDensity(DisplayMetrics displayMetrics, float f2, int i) {
+    public static void setDensity(DisplayMetrics displayMetrics, float f, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{displayMetrics, Float.valueOf(f2), Integer.valueOf(i)}) == null) || displayMetrics == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{displayMetrics, Float.valueOf(f), Integer.valueOf(i)}) == null) || displayMetrics == null) {
             return;
         }
-        displayMetrics.density = f2;
+        displayMetrics.density = f;
         displayMetrics.densityDpi = i;
-        displayMetrics.scaledDensity = f2;
+        displayMetrics.scaledDensity = f;
     }
 }

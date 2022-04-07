@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ParsableBitArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -249,9 +249,9 @@ public final class ParsableBitArray {
                 int i4 = this.byteOffset;
                 int i5 = i4 + 1;
                 this.byteOffset = i5;
-                byte b2 = bArr2[i4];
+                byte b = bArr2[i4];
                 int i6 = this.bitOffset;
-                bArr[i] = (byte) (b2 << i6);
+                bArr[i] = (byte) (b << i6);
                 bArr[i] = (byte) (((255 & bArr2[i5]) >> (8 - i6)) | bArr[i]);
                 i++;
             }
@@ -262,11 +262,11 @@ public final class ParsableBitArray {
             bArr[i3] = (byte) (bArr[i3] & (255 >> i7));
             int i8 = this.bitOffset;
             if (i8 + i7 > 8) {
-                byte b3 = bArr[i3];
+                byte b2 = bArr[i3];
                 byte[] bArr3 = this.data;
                 int i9 = this.byteOffset;
                 this.byteOffset = i9 + 1;
-                bArr[i3] = (byte) (b3 | ((byte) ((bArr3[i9] & 255) << i8)));
+                bArr[i3] = (byte) (b2 | ((byte) ((bArr3[i9] & 255) << i8)));
                 this.bitOffset = i8 - 8;
             }
             int i10 = this.bitOffset + i7;

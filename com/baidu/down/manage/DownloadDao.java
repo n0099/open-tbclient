@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DownloadDao {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS downloads (_id  INTEGER PRIMARY KEY AUTOINCREMENT ,URI  TEXT,_DATA  TEXT,SAVED_PATH_FOR_USER  TEXT,MIMETYPE  TEXT,ETAG  TEXT,STATUS  INTEGER,TOTAL_BYTES  INTEGER,CURRENT_BYTES  INTEGER,NOTIFICATIONNEEDED  INTEGER,FAILEDREASON  TEXT,PROGRESSMAP  TEXT,URI_HOST  TEXT,CONTROL_FLAG  INTEGER,FAILED_TYPE  INTEGER,DOWNLOAD_PRIORITY INTEGER, SAVED_SOURCE_KEY_USER TEXT,DOWN_DIR TEXT,FROM_PARAM TEXT,REAL_URI TEXT); ";
@@ -132,10 +132,10 @@ public final class DownloadDao {
                 SQLiteDatabase writableDatabase = this.db.getWritableDatabase();
                 writableDatabase.delete("downloads", "_id =? ", new String[]{j + ""});
                 return true;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
-                    throw e2;
+                    e.printStackTrace();
+                    throw e;
                 }
                 return false;
             }
@@ -151,10 +151,10 @@ public final class DownloadDao {
             try {
                 try {
                     j = this.db.getWritableDatabase().insert("downloads", null, createContentValues(download, true));
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
-                        throw e2;
+                        e.printStackTrace();
+                        throw e;
                     }
                 }
                 return j;
@@ -176,10 +176,10 @@ public final class DownloadDao {
                 }
                 writableDatabase.endTransaction();
                 writableDatabase.setTransactionSuccessful();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
-                    throw e2;
+                    e.printStackTrace();
+                    throw e;
                 }
             }
         }
@@ -214,15 +214,15 @@ public final class DownloadDao {
             try {
                 try {
                     cursor = this.db.getReadableDatabase().rawQuery(str, strArr);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
-                        throw e2;
+                        e.printStackTrace();
+                        throw e;
                     } else if (cursor != null) {
                         try {
                             cursor.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }
@@ -242,8 +242,8 @@ public final class DownloadDao {
                 if (cursor != null) {
                     try {
                         cursor.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
                     }
                 }
                 throw th;
@@ -297,10 +297,10 @@ public final class DownloadDao {
                 sb.append(download.getId());
                 sb.append("");
                 return writableDatabase.update("downloads", createContentValues, "_id = ?", new String[]{sb.toString()}) > 0;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
-                    throw e2;
+                    e.printStackTrace();
+                    throw e;
                 }
                 return false;
             }

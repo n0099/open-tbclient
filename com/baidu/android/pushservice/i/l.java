@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,8 +28,8 @@ public class l {
                 intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, context.getPackageName());
                 intent.putExtra("method_version", "V2");
                 intent.putExtra(!m.o(context) ? "priority2" : "priority3", 0);
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
             return intent;
         }
@@ -41,15 +41,13 @@ public class l {
         if (interceptable == null || interceptable.invokeLI(65537, null, context, i) == null) {
             com.baidu.android.pushservice.b.d.a(context).d();
             if (!com.baidu.android.pushservice.b.d.q(context) || com.baidu.android.pushservice.b.d.c(context)) {
-                int b2 = i.b(context, "key_push_launch_task_level", 0);
-                if (!com.baidu.android.pushservice.job.a.a() && !m.g(context) && ((Build.VERSION.SDK_INT > 22 || (!m.f() && !m.i())) && b2 != 1)) {
+                int b = i.b(context, "key_push_launch_task_level", 0);
+                if (!com.baidu.android.pushservice.job.a.a() && !m.g(context) && ((Build.VERSION.SDK_INT > 22 || (!m.f() && !m.i())) && b != 1)) {
                     new Handler(context.getMainLooper()).postDelayed(new Runnable(context, i) { // from class: com.baidu.android.pushservice.i.l.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ int f24739b;
+                        public final /* synthetic */ int b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -67,7 +65,7 @@ public class l {
                                 }
                             }
                             this.a = context;
-                            this.f24739b = i;
+                            this.b = i;
                         }
 
                         @Override // java.lang.Runnable
@@ -75,7 +73,7 @@ public class l {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 com.baidu.android.pushservice.job.a.a(this.a);
-                                com.baidu.android.pushservice.job.a.a(this.a, true, this.f24739b);
+                                com.baidu.android.pushservice.job.a.a(this.a, true, this.b);
                             }
                         }
                     }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -84,9 +82,7 @@ public class l {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ Context a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ int f24740b;
+                    public final /* synthetic */ int b;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -108,14 +104,14 @@ public class l {
                             }
                         }
                         this.a = r10;
-                        this.f24740b = i;
+                        this.b = i;
                     }
 
                     @Override // com.baidu.android.pushservice.g.c
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.a(this.a, new Intent(), this.f24740b);
+                            l.a(this.a, new Intent(), this.b);
                         }
                     }
                 });
@@ -157,24 +153,24 @@ public class l {
                     com.baidu.android.pushservice.f.a.a("ServiceUtils", "startPushService by startService", context.getApplicationContext());
                     return true;
                 }
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.f.a.b("ServiceUtils", "START SERVICE E: " + e2, context.getApplicationContext());
+            } catch (Exception e) {
+                com.baidu.android.pushservice.f.a.b("ServiceUtils", "START SERVICE E: " + e, context.getApplicationContext());
                 if (com.baidu.android.pushservice.a.a(context.getPackageName())) {
                     return false;
                 }
             }
             if (!m.p(context) && m.e(context, str)) {
                 try {
-                    String b2 = m.b(context, str, intent.getAction());
-                    if (!TextUtils.isEmpty(b2)) {
-                        intent.setClassName(str, b2);
+                    String b = m.b(context, str, intent.getAction());
+                    if (!TextUtils.isEmpty(b)) {
+                        intent.setClassName(str, b);
                         context.sendBroadcast(intent);
                         com.baidu.android.pushservice.f.a.a("ServiceUtils", "startPushService by sendBroadcast", context.getApplicationContext());
                         return true;
                     }
-                } catch (Exception e3) {
-                    com.baidu.android.pushservice.f.a.b("ServiceUtils", "START SERVICE E-2: " + e3, context.getApplicationContext());
-                    new b.c(context).a(Log.getStackTraceString(e3)).a();
+                } catch (Exception e2) {
+                    com.baidu.android.pushservice.f.a.b("ServiceUtils", "START SERVICE E-2: " + e2, context.getApplicationContext());
+                    new b.c(context).a(Log.getStackTraceString(e2)).a();
                 }
                 return false;
             }

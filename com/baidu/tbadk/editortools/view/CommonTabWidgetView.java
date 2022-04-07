@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.w.b0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
@@ -17,20 +16,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i05;
+import com.repackage.u25;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CommonTabWidgetView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CommonTabHorizonScrollView a;
+    public ImageView b;
+    public EditorTools c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f30562b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public EditorTools f30563c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,16 +52,16 @@ public class CommonTabWidgetView extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f30563c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null) {
                 return;
             }
-            this.a.f30563c.A(new c.a.o0.w.a(3, 3, null));
+            this.a.c.A(new i05(3, 3, null));
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i);
     }
@@ -91,7 +88,7 @@ public class CommonTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(a.b bVar) {
+    public void b(u25.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.a.b(bVar);
@@ -103,10 +100,10 @@ public class CommonTabWidgetView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setVisibility(8);
             removeAllViews();
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) this, true);
-            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091910);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09190e);
-            this.f30562b = imageView;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f6, (ViewGroup) this, true);
+            this.a = (CommonTabHorizonScrollView) findViewById(R.id.obfuscated_res_0x7f091903);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091901);
+            this.b = imageView;
             imageView.setOnClickListener(new a(this));
         }
     }
@@ -116,8 +113,8 @@ public class CommonTabWidgetView extends LinearLayout {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.common_color_10223, i);
             this.a.e(i);
-            SkinManager.setImageResource(this.f30562b, R.drawable.but_face_close, i);
-            SkinManager.setBackgroundColor(this.f30562b, R.color.common_color_10224, i);
+            SkinManager.setImageResource(this.b, R.drawable.but_face_close, i);
+            SkinManager.setBackgroundColor(this.b, R.color.common_color_10224, i);
         }
     }
 
@@ -135,7 +132,7 @@ public class CommonTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<c.a.o0.w.b0.a> arrayList) {
+    public void setDatas(ArrayList<u25> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);
@@ -150,7 +147,7 @@ public class CommonTabWidgetView extends LinearLayout {
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, editorTools) == null) {
-            this.f30563c = editorTools;
+            this.c = editorTools;
         }
     }
 
@@ -165,9 +162,9 @@ public class CommonTabWidgetView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                this.f30562b.setVisibility(0);
+                this.b.setVisibility(0);
             } else {
-                this.f30562b.setVisibility(8);
+                this.b.setVisibility(8);
             }
         }
     }

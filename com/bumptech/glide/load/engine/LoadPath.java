@@ -15,7 +15,7 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LoadPath<Data, ResourceType, Transcode> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class LoadPath<Data, ResourceType, Transcode> {
             for (int i3 = 0; i3 < size; i3++) {
                 try {
                     resource = this.decodePaths.get(i3).decode(dataRewinder, i, i2, options, decodeCallback);
-                } catch (GlideException e2) {
-                    list.add(e2);
+                } catch (GlideException e) {
+                    list.add(e);
                 }
                 if (resource != null) {
                     break;

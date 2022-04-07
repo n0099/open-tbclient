@@ -25,7 +25,7 @@ import com.xiaomi.push.iv;
 import com.xiaomi.push.service.av;
 import java.nio.ByteBuffer;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public final class y {
             try {
                 ip.a(ibVar, bArr);
                 return a(m.a((Context) xMPushService), xMPushService, ibVar);
-            } catch (iv e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (iv e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
             }
         }
@@ -59,12 +59,12 @@ public final class y {
                 String str = lVar.f943a;
                 ibVar.f614a.f539a = str.substring(0, str.indexOf("@"));
                 ibVar.f614a.f543c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f44582c);
+                faVar.a(ip.a(ibVar), lVar.c);
                 faVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m112a("try send mi push message. packagename:" + ibVar.f619b + " action:" + ibVar.f612a);
+                com.xiaomi.channel.commonutils.logger.b.m108a("try send mi push message. packagename:" + ibVar.f619b + " action:" + ibVar.f612a);
                 return faVar;
-            } catch (NullPointerException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (NullPointerException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
             }
         }
@@ -155,16 +155,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, ibVar) == null) {
             cy.a(ibVar.b(), xMPushService.getApplicationContext(), ibVar, -1);
-            fl m602a = xMPushService.m602a();
-            if (m602a == null) {
+            fl m598a = xMPushService.m598a();
+            if (m598a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m602a.m365a()) {
+            if (!m598a.m361a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a = a(m.a((Context) xMPushService), xMPushService, ibVar);
             if (a != null) {
-                m602a.b(a);
+                m598a.b(a);
             }
         }
     }
@@ -188,16 +188,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             cy.a(str, xMPushService.getApplicationContext(), bArr);
-            fl m602a = xMPushService.m602a();
-            if (m602a == null) {
+            fl m598a = xMPushService.m598a();
+            if (m598a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m602a.m365a()) {
+            if (!m598a.m361a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a = a(xMPushService, bArr);
             if (a != null) {
-                m602a.b(a);
+                m598a.b(a);
             } else {
                 p.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }

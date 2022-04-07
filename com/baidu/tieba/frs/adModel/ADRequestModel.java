@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.adModel;
 
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -13,17 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+import com.repackage.dk8;
+import com.repackage.wa;
+/* loaded from: classes3.dex */
 public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final wa b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final c.a.d.c.g.a f32394b;
-
-    /* loaded from: classes5.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes3.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ADRequestModel a;
@@ -50,7 +50,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             this.a = aDRequestModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -67,7 +67,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(ADSocketResponseMessage aDSocketResponseMessage);
 
@@ -86,16 +86,16 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32394b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        c.a.p0.a4.g0.a.h(309611, ADSocketResponseMessage.class, false, false);
-        c.a.p0.a4.g0.a.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
-        registerListener(this.f32394b);
+        this.b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
+        dk8.h(309611, ADSocketResponseMessage.class, false, false);
+        dk8.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        registerListener(this.b);
     }
 
     public void A(b bVar) {
@@ -128,7 +128,7 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f32394b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 

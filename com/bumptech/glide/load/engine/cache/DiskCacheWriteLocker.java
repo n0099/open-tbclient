@@ -13,14 +13,14 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DiskCacheWriteLocker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, WriteLock> locks;
     public final WriteLockPool writeLockPool;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class WriteLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public final class DiskCacheWriteLocker {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class WriteLockPool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_POOL_SIZE = 10;

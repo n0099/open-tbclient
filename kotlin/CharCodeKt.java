@@ -15,13 +15,13 @@ public final class CharCodeKt {
         return (char) i;
     }
 
-    public static final int getCode(char c2) {
-        return c2;
+    public static final int getCode(char c) {
+        return c;
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalStdlibApi.class})
     @InlineOnly
-    public static /* synthetic */ void getCode$annotations(char c2) {
+    public static /* synthetic */ void getCode$annotations(char c) {
     }
 }

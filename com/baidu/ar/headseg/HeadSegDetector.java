@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HeadSegDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HeadSegDetector";
@@ -107,7 +107,7 @@ public class HeadSegDetector extends com.baidu.ar.b.a.a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
                     String str = aVar.tw[0];
-                    return aVar.f24836tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
+                    return aVar.f986tv ? ARMdlInterfaceJNI.initHeadSegFromAsset(str) : ARMdlInterfaceJNI.initHeadSeg(str);
                 }
                 return invokeL2.intValue;
             }

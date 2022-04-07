@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.samsung.android.deviceidservice.IDeviceIdService;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class u extends l implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,11 +55,11 @@ public class u extends l implements ServiceConnection {
                     b();
                 } else {
                     a();
-                    a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                    a(this.c, this.d, this.e, this.f, this.g);
                 }
             } catch (Exception unused) {
                 a();
-                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                a(this.c, this.d, this.e, this.f, this.g);
             }
         }
     }
@@ -84,28 +84,28 @@ public class u extends l implements ServiceConnection {
         this.m = asInterface;
         if (asInterface != null) {
             try {
-                this.f37986f = true;
+                this.f = true;
                 String oaid = this.m.getOAID();
                 String vaid = this.m.getVAID(this.k);
                 String aaid = this.m.getAAID(this.k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f37983c = oaid;
+                this.c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f37984d = vaid;
+                this.d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f37985e = aaid;
-                this.f37987g = false;
+                this.e = aaid;
+                this.g = false;
             } catch (Exception unused) {
                 a();
             }
         }
-        a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+        a(this.c, this.d, this.e, this.f, this.g);
     }
 
     @Override // android.content.ServiceConnection

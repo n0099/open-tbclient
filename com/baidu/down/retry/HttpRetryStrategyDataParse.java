@@ -21,7 +21,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpRetryStrategyDataParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -55,7 +55,7 @@ public class HttpRetryStrategyDataParse {
     public long mFetchServerDataElapsedTime;
     public Timer mFetchServerDataOverTime;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnFetchRetryDataRequestListener {
         void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i);
     }
@@ -110,8 +110,8 @@ public class HttpRetryStrategyDataParse {
                 httpDNSCacheInfo.mRequestTime = SystemClock.elapsedRealtime();
             }
             httpDNSCacheInfo.mStatus = optInt;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -279,8 +279,8 @@ public class HttpRetryStrategyDataParse {
                                     }
                                 }
                             }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                     OnFetchRetryDataRequestListener onFetchRetryDataRequestListener2 = this.val$onRequestListener;

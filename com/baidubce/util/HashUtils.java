@@ -16,7 +16,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HashUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset UTF8;
@@ -70,8 +70,8 @@ public class HashUtils {
                     try {
                         inputStream.close();
                         return digest;
-                    } catch (Exception e2) {
-                        throw new BceClientException("Fail to close InputStream.", e2);
+                    } catch (Exception e) {
+                        throw new BceClientException("Fail to close InputStream.", e);
                     }
                 }
             }
@@ -79,8 +79,8 @@ public class HashUtils {
             try {
                 inputStream.close();
                 throw th;
-            } catch (Exception e3) {
-                throw new BceClientException("Fail to close InputStream.", e3);
+            } catch (Exception e2) {
+                throw new BceClientException("Fail to close InputStream.", e2);
             }
         }
     }
@@ -105,8 +105,8 @@ public class HashUtils {
                 Mac mac = Mac.getInstance("HmacSHA256");
                 mac.init(new SecretKeySpec(str.getBytes(UTF8), "HmacSHA256"));
                 return new String(ConvertUtils.encodeHex(mac.doFinal(str2.getBytes(UTF8))));
-            } catch (Exception e2) {
-                throw new BceClientException("Fail to generate the signature", e2);
+            } catch (Exception e) {
+                throw new BceClientException("Fail to generate the signature", e);
             }
         }
         return (String) invokeLL.objValue;

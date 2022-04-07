@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaDeleteSessionRequest";
@@ -112,8 +112,8 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
                 }
                 jSONObject.put("lastmsg_time", this.mLastTime);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "getRequestParameter Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "getRequestParameter Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }
@@ -148,8 +148,8 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
                 if (i2 == 0 && this.mContactorType == 2) {
                     ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, this.mContacter));
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "IMMediaDeleteSessionRequest JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "IMMediaDeleteSessionRequest JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

@@ -7,5 +7,5 @@ public interface ResponseCallback<E> {
 
     void onSuccess(RequestResult requestResult);
 
-    void onSuccess(E e2);
+    void onSuccess(E e);
 }

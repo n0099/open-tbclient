@@ -3,7 +3,6 @@ package com.baidu.searchbox.block.impl;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -19,8 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tb1;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BlockContext {
     public static /* synthetic */ Interceptable $ic;
     public static final IBlockContext BLOCK_CONTEXT;
@@ -64,7 +64,7 @@ public class BlockContext {
                     if (AppConfig.isDebug()) {
                         Log.d(BlockMonitor.TAG, "onAppBlock");
                     }
-                    d<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
+                    tb1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
                     if (iBlockUploadList == null || iBlockUploadList.getList() == null || blockInfo == null) {
                         return;
                     }

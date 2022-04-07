@@ -20,55 +20,27 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r implements Handler.Callback, a.InterfaceC2053a {
+public class r implements Handler.Callback, a.InterfaceC0597a {
     public static volatile r a;
     public static b i;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final boolean f43446e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f43447f;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ConnectivityManager f43449h;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Handler f43444c = new Handler(Looper.getMainLooper(), this);
-
-    /* renamed from: d  reason: collision with root package name */
-    public final SparseArray<a> f43445d = new SparseArray<>();
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f43448g = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Context f43443b = com.ss.android.socialbase.downloader.downloader.c.N();
+    public final boolean e;
+    public long f;
+    public ConnectivityManager h;
+    public final Handler c = new Handler(Looper.getMainLooper(), this);
+    public final SparseArray<a> d = new SparseArray<>();
+    public int g = 0;
+    public final Context b = com.ss.android.socialbase.downloader.downloader.c.N();
 
     /* loaded from: classes7.dex */
     public static class a {
         public final int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f43453b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final int f43454c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final int f43455d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final int f43456e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final boolean f43457f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final int[] f43458g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f43459h;
+        public final int b;
+        public final int c;
+        public final int d;
+        public final int e;
+        public final boolean f;
+        public final int[] g;
+        public int h;
         public int i;
         public boolean j;
         public long k;
@@ -78,30 +50,30 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
             i4 = i4 < 3000 ? 3000 : i4;
             i5 = i5 < 5000 ? 5000 : i5;
             this.a = i;
-            this.f43453b = i2;
-            this.f43454c = i3;
-            this.f43455d = i4;
-            this.f43456e = i5;
-            this.f43457f = z;
-            this.f43458g = iArr;
-            this.f43459h = i4;
+            this.b = i2;
+            this.c = i3;
+            this.d = i4;
+            this.e = i5;
+            this.f = z;
+            this.g = iArr;
+            this.h = i4;
         }
 
         public void c() {
-            this.f43459h = this.f43455d;
+            this.h = this.d;
         }
 
         public int d() {
-            return this.f43459h;
+            return this.h;
         }
 
         public boolean a(long j, int i, int i2, boolean z) {
             if (!this.l) {
                 com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "canRetry: mIsWaitingRetry is false, return false!!!");
                 return false;
-            } else if (this.f43453b >= i && this.i < this.f43454c) {
+            } else if (this.b >= i && this.i < this.c) {
                 if (!this.j || i2 == 2) {
-                    return z || j - this.k >= ((long) this.f43455d);
+                    return z || j - this.k >= ((long) this.d);
                 }
                 return false;
             } else {
@@ -114,7 +86,7 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
         }
 
         public synchronized void a() {
-            this.f43459h += this.f43456e;
+            this.h += this.e;
         }
 
         public synchronized void a(long j) {
@@ -129,7 +101,7 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
 
     public r() {
         f();
-        this.f43446e = com.ss.android.socialbase.downloader.i.f.c();
+        this.e = com.ss.android.socialbase.downloader.i.f.c();
         com.ss.android.socialbase.downloader.a.a.a().a(this);
     }
 
@@ -141,19 +113,19 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (r.this.f43443b == null || Build.VERSION.SDK_INT < 21) {
+                    if (r.this.b == null || Build.VERSION.SDK_INT < 21) {
                         return;
                     }
-                    r.this.f43449h = (ConnectivityManager) r.this.f43443b.getApplicationContext().getSystemService("connectivity");
-                    r.this.f43449h.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback() { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
+                    r.this.h = (ConnectivityManager) r.this.b.getApplicationContext().getSystemService("connectivity");
+                    r.this.h.registerNetworkCallback(new NetworkRequest.Builder().build(), new ConnectivityManager.NetworkCallback() { // from class: com.ss.android.socialbase.downloader.impls.r.1.1
                         @Override // android.net.ConnectivityManager.NetworkCallback
                         public void onAvailable(Network network) {
                             com.ss.android.socialbase.downloader.c.a.b("RetryScheduler", "network onAvailable: ");
                             r.this.a(1, true);
                         }
                     });
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -162,10 +134,10 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
     /* JADX INFO: Access modifiers changed from: private */
     public int g() {
         try {
-            if (this.f43449h == null) {
-                this.f43449h = (ConnectivityManager) this.f43443b.getApplicationContext().getSystemService("connectivity");
+            if (this.h == null) {
+                this.h = (ConnectivityManager) this.b.getApplicationContext().getSystemService("connectivity");
             }
-            NetworkInfo activeNetworkInfo = this.f43449h.getActiveNetworkInfo();
+            NetworkInfo activeNetworkInfo = this.h.getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                 return activeNetworkInfo.getType() == 1 ? 2 : 1;
             }
@@ -189,16 +161,16 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
         com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.downloader.impls.r.2
             @Override // java.lang.Runnable
             public void run() {
-                int g2;
+                int g;
                 try {
-                    if (r.this.f43448g > 0 && (g2 = r.this.g()) != 0) {
-                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + r.this.f43448g);
+                    if (r.this.g > 0 && (g = r.this.g()) != 0) {
+                        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doScheduleAllTaskRetry: mWaitingRetryTasksCount = " + r.this.g);
                         long currentTimeMillis = System.currentTimeMillis();
                         ArrayList<a> arrayList = new ArrayList();
-                        synchronized (r.this.f43445d) {
-                            for (int i3 = 0; i3 < r.this.f43445d.size(); i3++) {
-                                a aVar = (a) r.this.f43445d.valueAt(i3);
-                                if (aVar != null && aVar.a(currentTimeMillis, i2, g2, z)) {
+                        synchronized (r.this.d) {
+                            for (int i3 = 0; i3 < r.this.d.size(); i3++) {
+                                a aVar = (a) r.this.d.valueAt(i3);
+                                if (aVar != null && aVar.a(currentTimeMillis, i2, g, z)) {
                                     if (z) {
                                         aVar.c();
                                     }
@@ -208,7 +180,7 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
                         }
                         if (arrayList.size() > 0) {
                             for (a aVar2 : arrayList) {
-                                r.this.a(aVar2.a, g2, false);
+                                r.this.a(aVar2.a, g, false);
                             }
                         }
                     }
@@ -219,8 +191,8 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
     }
 
     private void c(int i2) {
-        synchronized (this.f43445d) {
-            this.f43445d.remove(i2);
+        synchronized (this.d) {
+            this.d.remove(i2);
         }
     }
 
@@ -232,16 +204,16 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
         com.ss.android.socialbase.downloader.g.a a2 = com.ss.android.socialbase.downloader.g.a.a(i2);
         boolean z2 = false;
         int a3 = a2.a("retry_schedule", 0);
-        JSONObject d2 = a2.d("retry_schedule_config");
+        JSONObject d = a2.d("retry_schedule_config");
         int i5 = 60;
-        if (d2 != null) {
-            int optInt = d2.optInt("max_count", 60);
-            int optInt2 = d2.optInt("interval_sec", 60);
-            int optInt3 = d2.optInt("interval_sec_acceleration", 60);
-            if (Build.VERSION.SDK_INT >= 21 && i != null && d2.optInt("use_job_scheduler", 0) == 1) {
+        if (d != null) {
+            int optInt = d.optInt("max_count", 60);
+            int optInt2 = d.optInt("interval_sec", 60);
+            int optInt3 = d.optInt("interval_sec_acceleration", 60);
+            if (Build.VERSION.SDK_INT >= 21 && i != null && d.optInt("use_job_scheduler", 0) == 1) {
                 z2 = true;
             }
-            iArr = a(d2.optString("allow_error_code"));
+            iArr = a(d.optString("allow_error_code"));
             i3 = optInt3;
             z = z2;
             i4 = optInt;
@@ -260,14 +232,14 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
     }
 
     private a b(int i2) {
-        a aVar = this.f43445d.get(i2);
+        a aVar = this.d.get(i2);
         if (aVar == null) {
-            synchronized (this.f43445d) {
-                aVar = this.f43445d.get(i2);
+            synchronized (this.d) {
+                aVar = this.d.get(i2);
                 if (aVar == null) {
                     aVar = d(i2);
                 }
-                this.f43445d.put(i2, aVar);
+                this.d.put(i2, aVar);
             }
         }
         return aVar;
@@ -284,12 +256,12 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
         return a;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
     public void c() {
         a(3, false);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
     public void b() {
         a(4, false);
     }
@@ -315,8 +287,8 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
             return;
         }
         a b2 = b(downloadInfo.getId());
-        if (b2.i > b2.f43454c) {
-            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "tryStartScheduleRetry, id = " + b2.a + ", mRetryCount = " + b2.i + ", maxCount = " + b2.f43454c);
+        if (b2.i > b2.c) {
+            com.ss.android.socialbase.downloader.c.a.d("RetryScheduler", "tryStartScheduleRetry, id = " + b2.a + ", mRetryCount = " + b2.i + ", maxCount = " + b2.c);
             return;
         }
         int errorCode = failedException.getErrorCode();
@@ -327,20 +299,20 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
             com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "allow error code, id = " + b2.a + ", error code = " + errorCode);
         }
         b2.j = z;
-        synchronized (this.f43445d) {
+        synchronized (this.d) {
             if (!b2.l) {
                 b2.l = true;
-                this.f43448g++;
+                this.g++;
             }
         }
-        int d2 = b2.d();
-        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "tryStartScheduleRetry: id = " + b2.a + ", delayTimeMills = " + d2 + ", mWaitingRetryTasks = " + this.f43448g);
-        if (!b2.f43457f) {
+        int d = b2.d();
+        com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "tryStartScheduleRetry: id = " + b2.a + ", delayTimeMills = " + d + ", mWaitingRetryTasks = " + this.g);
+        if (!b2.f) {
             if (z) {
                 return;
             }
-            this.f43444c.removeMessages(downloadInfo.getId());
-            this.f43444c.sendEmptyMessageDelayed(downloadInfo.getId(), d2);
+            this.c.removeMessages(downloadInfo.getId());
+            this.c.sendEmptyMessageDelayed(downloadInfo.getId(), d);
             return;
         }
         if (i2 == 0) {
@@ -348,9 +320,9 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
         }
         b bVar = i;
         if (bVar != null) {
-            bVar.a(downloadInfo, d2, z, i2);
+            bVar.a(downloadInfo, d, z, i2);
         }
-        if (this.f43446e) {
+        if (this.e) {
             b2.a(System.currentTimeMillis());
             b2.b();
             b2.a();
@@ -359,26 +331,26 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2, boolean z) {
-        if (this.f43448g <= 0) {
+        if (this.g <= 0) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this) {
             if (!z) {
-                if (currentTimeMillis - this.f43447f < 10000) {
+                if (currentTimeMillis - this.f < 10000) {
                     return;
                 }
             }
-            this.f43447f = currentTimeMillis;
+            this.f = currentTimeMillis;
             com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "scheduleAllTaskRetry, level = [" + i2 + "], force = [" + z + PreferencesUtil.RIGHT_MOUNT);
             if (z) {
-                this.f43444c.removeMessages(0);
+                this.c.removeMessages(0);
             }
             Message obtain = Message.obtain();
             obtain.what = 0;
             obtain.arg1 = i2;
             obtain.arg2 = z ? 1 : 0;
-            this.f43444c.sendMessageDelayed(obtain, 2000L);
+            this.c.sendMessageDelayed(obtain, 2000L);
         }
     }
 
@@ -388,8 +360,8 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
             public void run() {
                 try {
                     r.this.a(i2, r.this.g(), true);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         });
@@ -399,25 +371,25 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
     public void a(int i2, int i3, boolean z) {
         com.ss.android.socialbase.downloader.downloader.r reserveWifiStatusListener;
         boolean z2;
-        Context context = this.f43443b;
+        Context context = this.b;
         if (context == null) {
             return;
         }
-        synchronized (this.f43445d) {
-            a aVar = this.f43445d.get(i2);
+        synchronized (this.d) {
+            a aVar = this.d.get(i2);
             if (aVar == null) {
                 return;
             }
             boolean z3 = true;
             if (aVar.l) {
                 aVar.l = false;
-                int i4 = this.f43448g - 1;
-                this.f43448g = i4;
+                int i4 = this.g - 1;
+                this.g = i4;
                 if (i4 < 0) {
-                    this.f43448g = 0;
+                    this.g = 0;
                 }
             }
-            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + aVar.i + ", mWaitingRetryTasksCount = " + this.f43448g);
+            com.ss.android.socialbase.downloader.c.a.c("RetryScheduler", "doSchedulerRetryInSubThread: downloadId = " + i2 + ", retryCount = " + aVar.i + ", mWaitingRetryTasksCount = " + this.g);
             DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
             if (downloadInfo == null) {
                 c(i2);
@@ -441,7 +413,7 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
                 } else {
                     if (i3 != 0) {
                         z2 = true;
-                    } else if (!aVar.f43457f) {
+                    } else if (!aVar.f) {
                         return;
                     } else {
                         z2 = false;
@@ -479,7 +451,7 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
     }
 
     private boolean a(a aVar, int i2) {
-        int[] iArr = aVar.f43458g;
+        int[] iArr = aVar.g;
         if (iArr != null && iArr.length != 0) {
             for (int i3 : iArr) {
                 if (i3 == i2) {
@@ -514,8 +486,8 @@ public class r implements Handler.Callback, a.InterfaceC2053a {
         long totalBytes;
         try {
             j = com.ss.android.socialbase.downloader.i.f.d(downloadInfo.getTempPath());
-        } catch (BaseException e2) {
-            e2.printStackTrace();
+        } catch (BaseException e) {
+            e.printStackTrace();
             j = 0;
         }
         if (baseException instanceof com.ss.android.socialbase.downloader.exception.d) {

@@ -6,8 +6,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.p0.n4.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,8 +24,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
+import com.repackage.ts8;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbLiveCyberView extends CyberVideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class TbLiveCyberView extends CyberVideoView {
     public b L;
     public final CustomMessageListener M;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class TbLiveCyberView extends CyberVideoView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onError();
 
@@ -127,8 +127,8 @@ public class TbLiveCyberView extends CyberVideoView {
                 if (this.K != null && this.K.isHeld()) {
                     this.K.release();
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
             MessageManager.getInstance().unRegisterListener(this.M);
         }
@@ -138,7 +138,7 @@ public class TbLiveCyberView extends CyberVideoView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!m.isEmpty(str) && h.c().d()) {
+            if (!ni.isEmpty(str) && ts8.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -159,12 +159,12 @@ public class TbLiveCyberView extends CyberVideoView {
                     this.K = newWakeLock;
                     newWakeLock.setReferenceCounted(false);
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
             new WeakReference(TbadkCoreApplication.getInst());
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
-            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: c.a.p0.c0.a
+            setOnErrorListener(new CyberPlayerManager.OnErrorListener() { // from class: com.repackage.mn5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -175,7 +175,7 @@ public class TbLiveCyberView extends CyberVideoView {
                     return (interceptable2 == null || (invokeIIL = interceptable2.invokeIIL(1048576, this, i, i2, obj)) == null) ? TbLiveCyberView.this.t(i, i2, obj) : invokeIIL.booleanValue;
                 }
             });
-            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: c.a.p0.c0.b
+            setOnPreparedListener(new CyberPlayerManager.OnPreparedListener() { // from class: com.repackage.nn5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -200,7 +200,7 @@ public class TbLiveCyberView extends CyberVideoView {
     @Override // com.baidu.cyberplayer.sdk.CyberVideoView
     public void setVideoPath(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || m.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || ni.isEmpty(str)) {
             return;
         }
         this.J = str;
@@ -222,8 +222,8 @@ public class TbLiveCyberView extends CyberVideoView {
                 return;
             }
             this.K.acquire();
-        } catch (Exception e2) {
-            BdLog.e(e2);
+        } catch (Exception e) {
+            BdLog.e(e);
         }
     }
 
@@ -234,8 +234,8 @@ public class TbLiveCyberView extends CyberVideoView {
                 if (this.K != null && this.K.isHeld()) {
                     this.K.release();
                 }
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
             stopPlayback();
         }

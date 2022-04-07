@@ -26,7 +26,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.CertificatePinner;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SSLSocketClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -107,8 +107,8 @@ public class SSLSocketClient {
                 SSLContext sSLContext = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
                 sSLContext.init(null, null, new SecureRandom());
                 return sSLContext.getSocketFactory();
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         return (SSLSocketFactory) invokeV.objValue;

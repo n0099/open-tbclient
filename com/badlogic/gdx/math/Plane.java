@@ -11,18 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Plane implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -1240652082930747866L;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f23782d;
+    public float d;
     public final Vector3 normal;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class PlaneSide {
         public static final /* synthetic */ PlaneSide[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -97,19 +95,19 @@ public class Plane implements Serializable {
             }
         }
         this.normal = new Vector3();
-        this.f23782d = 0.0f;
+        this.d = 0.0f;
     }
 
     public float distance(Vector3 vector3) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vector3)) == null) ? this.normal.dot(vector3) + this.f23782d : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vector3)) == null) ? this.normal.dot(vector3) + this.d : invokeL.floatValue;
     }
 
     public float getD() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23782d : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.floatValue;
     }
 
     public Vector3 getNormal() {
@@ -128,7 +126,7 @@ public class Plane implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vector3, vector32, vector33) == null) {
             this.normal.set(vector3).sub(vector32).crs(vector32.x - vector33.x, vector32.y - vector33.y, vector32.z - vector33.z).m20nor();
-            this.f23782d = -vector3.dot(this.normal);
+            this.d = -vector3.dot(this.normal);
         }
     }
 
@@ -136,7 +134,7 @@ public class Plane implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, vector3)) == null) {
-            float dot = this.normal.dot(vector3) + this.f23782d;
+            float dot = this.normal.dot(vector3) + this.d;
             if (dot == 0.0f) {
                 return PlaneSide.OnPlane;
             }
@@ -152,25 +150,25 @@ public class Plane implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.normal.toString() + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.f23782d;
+            return this.normal.toString() + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public void set(float f2, float f3, float f4, float f5) {
+    public void set(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.normal.set(f2, f3, f4);
-            this.f23782d = f5;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.normal.set(f, f2, f3);
+            this.d = f4;
         }
     }
 
-    public Plane(Vector3 vector3, float f2) {
+    public Plane(Vector3 vector3, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vector3, Float.valueOf(f2)};
+            Object[] objArr = {vector3, Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -182,24 +180,24 @@ public class Plane implements Serializable {
         }
         Vector3 vector32 = new Vector3();
         this.normal = vector32;
-        this.f23782d = 0.0f;
+        this.d = 0.0f;
         vector32.set(vector3).m20nor();
-        this.f23782d = f2;
+        this.d = f;
     }
 
     public void set(Vector3 vector3, Vector3 vector32) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, vector3, vector32) == null) {
             this.normal.set(vector32);
-            this.f23782d = -vector3.dot(vector32);
+            this.d = -vector3.dot(vector32);
         }
     }
 
-    public PlaneSide testPoint(float f2, float f3, float f4) {
+    public PlaneSide testPoint(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float dot = this.normal.dot(f2, f3, f4) + this.f23782d;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float dot = this.normal.dot(f, f2, f3) + this.d;
             if (dot == 0.0f) {
                 return PlaneSide.OnPlane;
             }
@@ -211,11 +209,11 @@ public class Plane implements Serializable {
         return (PlaneSide) invokeCommon.objValue;
     }
 
-    public void set(float f2, float f3, float f4, float f5, float f6, float f7) {
+    public void set(float f, float f2, float f3, float f4, float f5, float f6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)}) == null) {
-            this.normal.set(f5, f6, f7);
-            this.f23782d = -((f2 * f5) + (f3 * f6) + (f4 * f7));
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)}) == null) {
+            this.normal.set(f4, f5, f6);
+            this.d = -((f * f4) + (f2 * f5) + (f3 * f6));
         }
     }
 
@@ -236,16 +234,16 @@ public class Plane implements Serializable {
         }
         Vector3 vector33 = new Vector3();
         this.normal = vector33;
-        this.f23782d = 0.0f;
+        this.d = 0.0f;
         vector33.set(vector3).m20nor();
-        this.f23782d = -this.normal.dot(vector32);
+        this.d = -this.normal.dot(vector32);
     }
 
     public void set(Plane plane) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, plane) == null) {
             this.normal.set(plane.normal);
-            this.f23782d = plane.f23782d;
+            this.d = plane.d;
         }
     }
 
@@ -265,7 +263,7 @@ public class Plane implements Serializable {
             }
         }
         this.normal = new Vector3();
-        this.f23782d = 0.0f;
+        this.d = 0.0f;
         set(vector3, vector32, vector33);
     }
 }

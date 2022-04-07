@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class PreloadTarget<Z> extends SimpleTarget<Z> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Handler HANDLER;

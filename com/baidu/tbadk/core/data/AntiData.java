@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
 import tbclient.BlockPopInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AntiData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2355009973517935888L;
@@ -240,8 +240,8 @@ public class AntiData implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -437,8 +437,8 @@ public class AntiData implements Serializable {
                 jSONObject.put("is_sexyforum", this.isSexyForum);
                 jSONObject.put("teenmode_interval", this.teenModeInterval);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
                 return null;
             }
         }
@@ -488,8 +488,8 @@ public class AntiData implements Serializable {
             this.pollLevel = jSONObject.optInt("poll_level", 0);
             this.isSexyForum = jSONObject.optBoolean("is_sexyforum", false);
             this.teenModeInterval = jSONObject.optString("teenmode_interval", "");
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

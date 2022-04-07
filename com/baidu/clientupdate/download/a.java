@@ -21,14 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f25265b;
+    public Context b;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +62,7 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f25265b = context;
+        this.b = context;
     }
 
     public static synchronized a a(Context context) {
@@ -131,13 +129,13 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("ug", aVar.f25228b);
+            contentValues.put("ug", aVar.b);
             contentValues.put("sessioninfo", aVar.a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
-            contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.f25229c);
-            contentValues.put("stm", aVar.f25231e.toString());
-            contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f25232f.toString());
-            contentValues.put("etm", aVar.f25233g.toString());
-            contentValues.put("mg", aVar.f25234h.toString());
+            contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.c);
+            contentValues.put("stm", aVar.e.toString());
+            contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f.toString());
+            contentValues.put("etm", aVar.g.toString());
+            contentValues.put("mg", aVar.h.toString());
             contentValues.put(Config.EXCEPTION_PART, aVar.i.toString());
             return contentValues;
         }
@@ -188,14 +186,14 @@ public class a extends SQLiteOpenHelper {
                 return 0;
             }
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 i = writableDatabase.delete("downloads", b(jArr), c(jArr));
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
                 return i;
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 return i;
             }
         }
@@ -208,16 +206,16 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
             long j = -1;
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
-                ContentValues c2 = c(aVar);
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
+                ContentValues c = c(aVar);
                 writableDatabase.beginTransaction();
-                j = writableDatabase.insert("logs", null, c2);
-                com.baidu.util.a.a(this.f25265b).b("lcsdk_xml", "time", System.currentTimeMillis());
+                j = writableDatabase.insert("logs", null, c);
+                com.baidu.util.a.a(this.b).b("lcsdk_xml", "time", System.currentTimeMillis());
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
                 return j;
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 return j;
             }
         }
@@ -230,16 +228,16 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, download)) == null) {
             long j = -1;
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
-                ContentValues c2 = c(download);
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
+                ContentValues c = c(download);
                 writableDatabase.beginTransaction();
-                j = writableDatabase.insert("downloads", null, c2);
+                j = writableDatabase.insert("downloads", null, c);
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
                 download.mId = j;
                 return j;
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 return j;
             }
         }
@@ -252,14 +250,14 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("downloads", null, null, null, null, null, null);
                 readableDatabase.setTransactionSuccessful();
                 readableDatabase.endTransaction();
                 return cursor;
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 if (cursor != null) {
                     cursor.close();
                     return cursor;
@@ -276,24 +274,24 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{str}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
                 readableDatabase.endTransaction();
                 return cursor;
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 if (cursor != null) {
                     cursor.close();
                 }
                 b();
                 return cursor;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 if (cursor != null) {
                     cursor.close();
                 }
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
                 return cursor;
             }
         }
@@ -306,14 +304,14 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             int i = 0;
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 i = writableDatabase.delete("logs", null, null);
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
                 return i;
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 return i;
             }
         }
@@ -324,17 +322,17 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
-                writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.f25229c});
-                com.baidu.util.a.a(this.f25265b).b("lcsdk_xml", "time", System.currentTimeMillis());
+                writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.c});
+                com.baidu.util.a.a(this.b).b("lcsdk_xml", "time", System.currentTimeMillis());
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 b();
-            } catch (Exception e3) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+            } catch (Exception e2) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
             }
         }
     }
@@ -343,13 +341,13 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, download) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 writableDatabase.update("downloads", c(download), "_id = ?", new String[]{Long.toString(download.mId)});
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
             }
         }
     }
@@ -360,14 +358,14 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int i = 0;
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 i = writableDatabase.delete("logs", "flag=?", new String[]{"1"});
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
                 return i;
-            } catch (Exception e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 return i;
             }
         }
@@ -378,18 +376,18 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("flag", "1");
                 writableDatabase.update("logs", contentValues, null, null);
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 b();
-            } catch (Exception e3) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+            } catch (Exception e2) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
             }
         }
     }
@@ -398,18 +396,18 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("flag", "0");
                 writableDatabase.update("logs", contentValues, null, null);
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 b();
-            } catch (Exception e3) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+            } catch (Exception e2) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
             }
         }
     }
@@ -420,21 +418,21 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, null, null, null, null, null);
                 readableDatabase.setTransactionSuccessful();
                 readableDatabase.endTransaction();
                 return cursor;
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 if (cursor != null) {
                     cursor.close();
                 }
                 b();
                 return cursor;
-            } catch (Exception e3) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+            } catch (Exception e2) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
                 if (cursor != null) {
                     cursor.close();
                     return cursor;
@@ -462,7 +460,7 @@ public class a extends SQLiteOpenHelper {
         Cursor cursor = null;
         try {
             try {
-                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{"a6"}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -472,11 +470,11 @@ public class a extends SQLiteOpenHelper {
                         z = true;
                     }
                 }
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 b();
-            } catch (Exception e3) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+            } catch (Exception e2) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
                 if (cursor != null) {
                 }
                 return z;
@@ -505,7 +503,7 @@ public class a extends SQLiteOpenHelper {
         Cursor cursor = null;
         try {
             try {
-                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{"a9"}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -515,11 +513,11 @@ public class a extends SQLiteOpenHelper {
                         z = true;
                     }
                 }
-            } catch (IllegalStateException e2) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
+            } catch (IllegalStateException e) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e));
                 b();
-            } catch (Exception e3) {
-                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e3));
+            } catch (Exception e2) {
+                LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
                 if (cursor != null) {
                 }
                 return z;

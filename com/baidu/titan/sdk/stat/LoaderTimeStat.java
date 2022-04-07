@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LoaderTimeStat {
     public static final String TITAN_APPLY = "titanApply";
     public static final String TITAN_CREATE_LAODER_HEAD = "titanCreateLoaderHead";
@@ -57,8 +57,8 @@ public class LoaderTimeStat {
             jSONObject.put("newLoader", this.newLoader);
             jSONObject.put("apply", this.apply);
             jSONObject.put("verifySignature", this.verifySignature);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return jSONObject.toString();
     }

@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.NumberUtil;
 import com.yy.hiidostatis.inner.util.ProcessUtil;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KVIO {
     public static /* synthetic */ Interceptable $ic;
     public static KVIO kvio;
@@ -146,16 +146,16 @@ public class KVIO {
         return (byte[]) invokeLL.objValue;
     }
 
-    public double decodeDouble(String str, double d2) {
+    public double decodeDouble(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Double.valueOf(d2)})) == null) ? this.cache.getLong(str, (long) d2) : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Double.valueOf(d)})) == null) ? this.cache.getLong(str, (long) d) : invokeCommon.doubleValue;
     }
 
-    public float decodeFloat(String str, float f2) {
+    public float decodeFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f2)) == null) ? this.cache.getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) ? this.cache.getFloat(str, f) : invokeLF.floatValue;
     }
 
     public int decodeInt(String str, int i) {
@@ -208,21 +208,21 @@ public class KVIO {
         return invokeLJ.booleanValue;
     }
 
-    public boolean encode(String str, float f2) {
+    public boolean encode(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048594, this, str, f2)) == null) {
-            this.editor.putFloat(str, f2).apply();
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048594, this, str, f)) == null) {
+            this.editor.putFloat(str, f).apply();
             return true;
         }
         return invokeLF.booleanValue;
     }
 
-    public boolean encode(String str, double d2) {
+    public boolean encode(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{str, Double.valueOf(d2)})) == null) {
-            this.editor.putLong(str, (long) d2).apply();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{str, Double.valueOf(d)})) == null) {
+            this.editor.putLong(str, (long) d).apply();
             return true;
         }
         return invokeCommon.booleanValue;

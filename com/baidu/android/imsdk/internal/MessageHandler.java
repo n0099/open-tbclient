@@ -36,7 +36,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageHandler extends IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final HostnameVerifier HOSTNAME_VERIFIER;
@@ -159,8 +159,8 @@ public class MessageHandler extends IMessageHandler {
                             i2++;
                         }
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "createSocketOnLine", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "createSocketOnLine", e);
                 }
             }
             LogUtils.e(TAG, "createSocketOnLine request ip = " + str);
@@ -288,8 +288,8 @@ public class MessageHandler extends IMessageHandler {
                         return true;
                     }
                     return true;
-                } catch (IOException e2) {
-                    LogUtils.e(TAG, "destroy:" + e2.getMessage(), e2);
+                } catch (IOException e) {
+                    LogUtils.e(TAG, "destroy:" + e.getMessage(), e);
                     return false;
                 }
             }

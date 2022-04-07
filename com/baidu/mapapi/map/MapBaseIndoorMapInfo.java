@@ -9,23 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MapBaseIndoorMapInfo {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f26191d = "MapBaseIndoorMapInfo";
+    public static final String d = "MapBaseIndoorMapInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26192b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f26193c;
+    public String b;
+    public ArrayList<String> c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class SwitchFloorError {
         public static /* synthetic */ Interceptable $ic;
         public static final SwitchFloorError FLOOR_INFO_ERROR;
@@ -135,8 +129,8 @@ public final class MapBaseIndoorMapInfo {
             }
         }
         this.a = mapBaseIndoorMapInfo.a;
-        this.f26192b = mapBaseIndoorMapInfo.f26192b;
-        this.f26193c = mapBaseIndoorMapInfo.f26193c;
+        this.b = mapBaseIndoorMapInfo.b;
+        this.c = mapBaseIndoorMapInfo.c;
     }
 
     public MapBaseIndoorMapInfo(String str, String str2, ArrayList<String> arrayList) {
@@ -155,20 +149,20 @@ public final class MapBaseIndoorMapInfo {
             }
         }
         this.a = str;
-        this.f26192b = str2;
-        this.f26193c = arrayList;
+        this.b = str2;
+        this.c = arrayList;
     }
 
     public String getCurFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f26192b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public ArrayList<String> getFloors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26193c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
     }
 
     public String getID() {

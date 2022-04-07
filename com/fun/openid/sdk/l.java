@@ -15,16 +15,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import com.samsung.android.deviceidservice.IDeviceIdService;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class l implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedBlockingQueue<IBinder> a;
+    public ServiceConnection b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ServiceConnection f38668b;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +52,8 @@ public class l implements f {
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 try {
                     this.a.a.put(iBinder);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -82,7 +80,7 @@ public class l implements f {
             }
         }
         this.a = new LinkedBlockingQueue<>(1);
-        this.f38668b = new a(this);
+        this.b = new a(this);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:30:0x0081, code lost:
@@ -111,7 +109,7 @@ public class l implements f {
             }
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (context.bindService(intent, this.f38668b, 1)) {
+            if (context.bindService(intent, this.b, 1)) {
                 try {
                     IBinder take = this.a.take();
                     Parcel obtain = Parcel.obtain();
@@ -124,9 +122,9 @@ public class l implements f {
                     obtain.recycle();
                     aVar.a(true, readString);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (FunOpenIDSdk.isLogEnabled()) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                         Log.e(FunOpenIDSdk.TAG, "===========获取OAID出错，需重试");
                     }
                     aVar.a(true, null);

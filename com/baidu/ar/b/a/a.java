@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class a extends j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,13 +115,13 @@ public abstract class a extends j {
     @Override // com.baidu.ar.d.j
     public boolean c(FramePixels framePixels) {
         InterceptResult invokeL;
-        com.baidu.ar.b.b.c d2;
+        com.baidu.ar.b.b.c d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, framePixels)) == null) {
-            if (!com.baidu.ar.b.a.as().c(au()) || framePixels == null || (d2 = d(framePixels)) == null) {
+            if (!com.baidu.ar.b.a.as().c(au()) || framePixels == null || (d = d(framePixels)) == null) {
                 return false;
             }
-            return c.cd().c((com.baidu.ar.c.a) d2);
+            return c.cd().c((com.baidu.ar.c.a) d);
         }
         return invokeL.booleanValue;
     }

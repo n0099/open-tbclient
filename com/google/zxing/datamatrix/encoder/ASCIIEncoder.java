@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ASCIIEncoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,14 +25,14 @@ public final class ASCIIEncoder implements Encoder {
         }
     }
 
-    public static char encodeASCIIDigits(char c2, char c3) {
+    public static char encodeASCIIDigits(char c, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2), Character.valueOf(c3)})) == null) {
-            if (HighLevelEncoder.isDigit(c2) && HighLevelEncoder.isDigit(c3)) {
-                return (char) (((c2 - '0') * 10) + (c3 - '0') + 130);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c), Character.valueOf(c2)})) == null) {
+            if (HighLevelEncoder.isDigit(c) && HighLevelEncoder.isDigit(c2)) {
+                return (char) (((c - '0') * 10) + (c2 - '0') + 130);
             }
-            throw new IllegalArgumentException("not digits: " + c2 + c3);
+            throw new IllegalArgumentException("not digits: " + c + c2);
         }
         return invokeCommon.charValue;
     }

@@ -10,7 +10,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.j.f.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -22,10 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zl;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes3.dex */
-public class ServiceProxy extends Service implements c {
+/* loaded from: classes.dex */
+public class ServiceProxy extends Service implements zl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginBaseService mEntity;
@@ -91,7 +91,7 @@ public class ServiceProxy extends Service implements c {
         return (Resources) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public Service getService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,12 +113,12 @@ public class ServiceProxy extends Service implements c {
                 pluginBaseService.setServiceProxy(this);
                 this.mEntity.setPluginPackageName(stringExtra);
                 this.mEntity.onCreate();
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 e3.printStackTrace();
-            } catch (InstantiationException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -239,7 +239,7 @@ public class ServiceProxy extends Service implements c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -253,7 +253,7 @@ public class ServiceProxy extends Service implements c {
         return invokeLLI.booleanValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048590, this, fileDescriptor, printWriter, strArr) == null) {
@@ -261,7 +261,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyFinalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -269,21 +269,21 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public PackageManager proxyGetPackageManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? super.getPackageManager() : (PackageManager) invokeV.objValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public SharedPreferences proxyGetSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i)) == null) ? super.getSharedPreferences(str, i) : (SharedPreferences) invokeLI.objValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyOnConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) {
@@ -291,7 +291,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyOnDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -299,7 +299,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyOnLowMemory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -307,7 +307,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyOnRebind(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, intent) == null) {
@@ -315,7 +315,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyOnStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, intent, i) == null) {
@@ -323,21 +323,21 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public int proxyOnStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLII = interceptable.invokeLII(1048599, this, intent, i, i2)) == null) ? super.onStartCommand(intent, i, i2) : invokeLII.intValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public boolean proxyOnUnbind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, intent)) == null) ? super.onUnbind(intent) : invokeL.booleanValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public void proxyStartActivity(Intent intent) {
         Plugin plugin2;
         Interceptable interceptable = $ic;
@@ -349,7 +349,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public ComponentName proxyStartService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -363,7 +363,7 @@ public class ServiceProxy extends Service implements c {
         return (ComponentName) invokeL.objValue;
     }
 
-    @Override // c.a.d.j.f.c
+    @Override // com.repackage.zl
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

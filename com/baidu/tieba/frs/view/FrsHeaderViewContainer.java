@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsHeaderViewContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,17 +37,17 @@ public class FrsHeaderViewContainer extends LinearLayout {
         c();
     }
 
-    public void a(View view) {
+    public void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            addView(view, new LinearLayout.LayoutParams(-1, -2));
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            addView(view2, new LinearLayout.LayoutParams(-1, -2));
         }
     }
 
-    public void b(View view, int i) {
+    public void b(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) {
-            addView(view, i, new LinearLayout.LayoutParams(-1, -2));
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            addView(view2, i, new LinearLayout.LayoutParams(-1, -2));
         }
     }
 
@@ -58,10 +58,10 @@ public class FrsHeaderViewContainer extends LinearLayout {
         }
     }
 
-    public void d(View view) {
+    public void d(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            removeView(view);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            removeView(view2);
         }
     }
 

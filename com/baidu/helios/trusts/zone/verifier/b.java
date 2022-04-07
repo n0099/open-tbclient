@@ -10,6 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
+import com.repackage.r60;
+import com.repackage.w50;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -49,25 +51,25 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class C1756b implements c {
+    /* loaded from: classes2.dex */
+    public static final class C0096b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
 
-        public C1756b(ByteBuffer byteBuffer) {
+        public C0096b(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,24 +113,20 @@ public class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         long a();
 
         void a(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FileChannel a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final long f25580b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final long f25581c;
+        public final long b;
+        public final long c;
 
         public d(FileChannel fileChannel, long j, long j2) {
             Interceptable interceptable = $ic;
@@ -146,22 +144,22 @@ public class b {
                 }
             }
             this.a = fileChannel;
-            this.f25580b = j;
-            this.f25581c = j2;
+            this.b = j;
+            this.c = j2;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25581c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public void a(MessageDigest[] messageDigestArr, long j, int i) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{messageDigestArr, Long.valueOf(j), Integer.valueOf(i)}) == null) {
-                MappedByteBuffer map = this.a.map(FileChannel.MapMode.READ_ONLY, this.f25580b + j, i);
+                MappedByteBuffer map = this.a.map(FileChannel.MapMode.READ_ONLY, this.b + j, i);
                 for (MessageDigest messageDigest : messageDigestArr) {
                     map.position(0);
                     messageDigest.update(map);
@@ -170,23 +168,15 @@ public class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final long f25582b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final long f25583c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final long f25584d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final ByteBuffer f25585e;
+        public final long b;
+        public final long c;
+        public final long d;
+        public final ByteBuffer e;
 
         public e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
             Interceptable interceptable = $ic;
@@ -204,10 +194,10 @@ public class b {
                 }
             }
             this.a = byteBuffer;
-            this.f25582b = j;
-            this.f25583c = j2;
-            this.f25584d = j3;
-            this.f25585e = byteBuffer2;
+            this.b = j;
+            this.c = j2;
+            this.d = j3;
+            this.e = byteBuffer2;
         }
 
         public /* synthetic */ e(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2, a aVar) {
@@ -215,7 +205,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class f extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long a = 1;
@@ -263,13 +253,11 @@ public class b {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class g extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: b  reason: collision with root package name */
-        public byte[] f25586b;
+        public byte[] b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(X509Certificate x509Certificate, byte[] bArr) {
@@ -289,18 +277,18 @@ public class b {
                     return;
                 }
             }
-            this.f25586b = bArr;
+            this.b = bArr;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.h, java.security.cert.Certificate
         public byte[] getEncoded() throws CertificateEncodingException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25586b : (byte[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (byte[]) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class h extends X509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -547,9 +535,9 @@ public class b {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j)) == null) {
-            long j2 = c.a.p.l.a.d.a.j(byteBuffer);
+            long j2 = r60.j(byteBuffer);
             if (j2 < j) {
-                if (c.a.p.l.a.d.a.k(byteBuffer) + j2 == j) {
+                if (r60.k(byteBuffer) + j2 == j) {
                     return j2;
                 }
                 throw new f("ZIP Central Directory is not immediately followed by End of Central Directory");
@@ -602,7 +590,7 @@ public class b {
             Pair<ByteBuffer, Long> q = q(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) q.first;
             long longValue = ((Long) q.second).longValue();
-            if (c.a.p.l.a.d.a.g(randomAccessFile, longValue)) {
+            if (r60.g(randomAccessFile, longValue)) {
                 throw new f("ZIP64 APK not supported");
             }
             long c2 = c(byteBuffer, longValue);
@@ -703,29 +691,29 @@ public class b {
     }
 
     public static void k(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
-        c c1756b;
-        c c1756b2;
+        c c0096b;
+        c c0096b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{map, randomAccessFile, fileDescriptor, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer}) == null) {
             if (map.isEmpty()) {
                 throw new SecurityException("No digests provided");
             }
             if (j > 1048576) {
-                c1756b = new d(randomAccessFile.getChannel(), 0L, j);
-                c1756b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
+                c0096b = new d(randomAccessFile.getChannel(), 0L, j);
+                c0096b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
             } else {
                 ByteBuffer allocate = ByteBuffer.allocate((int) j);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(0L);
                     randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                    c1756b = new C1756b(allocate);
+                    c0096b = new C0096b(allocate);
                     ByteBuffer allocate2 = ByteBuffer.allocate((int) (j3 - j2));
                     allocate2.order(ByteOrder.LITTLE_ENDIAN);
                     try {
                         randomAccessFile.seek(j2);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        c1756b2 = new C1756b(allocate2);
+                        c0096b2 = new C0096b(allocate2);
                     } catch (IOException e2) {
                         throw new SecurityException("Failed to get apk contents", e2);
                     }
@@ -735,8 +723,8 @@ public class b {
             }
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            c.a.p.l.a.d.a.f(duplicate, j);
-            C1756b c1756b3 = new C1756b(duplicate);
+            r60.f(duplicate, j);
+            C0096b c0096b3 = new C0096b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
             int i = 0;
@@ -745,7 +733,7 @@ public class b {
                 i++;
             }
             try {
-                byte[][] m = m(iArr, new c[]{c1756b, c1756b2, c1756b3});
+                byte[][] m = m(iArr, new c[]{c0096b, c0096b2, c0096b3});
                 for (int i2 = 0; i2 < size; i2++) {
                     int i3 = iArr[i2];
                     if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), m[i2])) {
@@ -986,7 +974,7 @@ public class b {
                         if (hashMap.isEmpty()) {
                             throw new SecurityException("No content digests found");
                         }
-                        k(hashMap, randomAccessFile, fileDescriptor, eVar.f25582b, eVar.f25583c, eVar.f25584d, eVar.f25585e);
+                        k(hashMap, randomAccessFile, fileDescriptor, eVar.b, eVar.c, eVar.d, eVar.e);
                         return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
                     }
                     throw new SecurityException("No signers found");
@@ -1025,9 +1013,9 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> b2 = c.a.p.l.a.d.a.b(randomAccessFile);
-            if (b2 != null) {
-                return b2;
+            Pair<ByteBuffer, Long> b = r60.b(randomAccessFile);
+            if (b != null) {
+                return b;
             }
             throw new f("Not an APK file: ZIP End of Central Directory record not found");
         }
@@ -1073,7 +1061,7 @@ public class b {
             try {
                 return v(randomAccessFile);
             } finally {
-                c.a.p.h.c.a.c.c(randomAccessFile);
+                w50.c(randomAccessFile);
             }
         }
         return (X509Certificate[][]) invokeL.objValue;

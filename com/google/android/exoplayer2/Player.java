@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface Player {
     public static final int DISCONTINUITY_REASON_INTERNAL = 3;
     public static final int DISCONTINUITY_REASON_PERIOD_TRANSITION = 0;
@@ -25,7 +25,7 @@ public interface Player {
     public static final int STATE_IDLE = 1;
     public static final int STATE_READY = 3;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class DefaultEventListener implements EventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,11 +116,11 @@ public interface Player {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface DiscontinuityReason {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface EventListener {
         void onLoadingChanged(boolean z);
 
@@ -144,7 +144,7 @@ public interface Player {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface RepeatMode {
     }
 

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class bp {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
@@ -48,7 +48,7 @@ public final class bp {
 
     public static byte[] a(byte[] bArr, int i) {
         InterceptResult invokeLI;
-        byte b2;
+        byte b;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
@@ -60,10 +60,10 @@ public final class bp {
             int i4 = i;
             int i5 = 0;
             while (true) {
-                byte b3 = bArr[i4 - 1];
-                b2 = 10;
-                if (b3 != 10 && b3 != 13 && b3 != 32 && b3 != 9) {
-                    if (b3 != 61) {
+                byte b2 = bArr[i4 - 1];
+                b = 10;
+                if (b2 != 10 && b2 != 13 && b2 != 32 && b2 != 9) {
+                    if (b2 != 61) {
                         break;
                     }
                     i5++;
@@ -75,17 +75,17 @@ public final class bp {
             int i8 = 0;
             int i9 = 0;
             while (i6 < i4) {
-                byte b4 = bArr[i6];
-                if (b4 != b2 && b4 != 13 && b4 != 32 && b4 != 9) {
-                    if (b4 >= 65 && b4 <= 90) {
-                        i2 = b4 - 65;
-                    } else if (b4 >= 97 && b4 <= 122) {
-                        i2 = b4 - 71;
-                    } else if (b4 >= 48 && b4 <= 57) {
-                        i2 = b4 + 4;
-                    } else if (b4 == 43) {
+                byte b3 = bArr[i6];
+                if (b3 != b && b3 != 13 && b3 != 32 && b3 != 9) {
+                    if (b3 >= 65 && b3 <= 90) {
+                        i2 = b3 - 65;
+                    } else if (b3 >= 97 && b3 <= 122) {
+                        i2 = b3 - 71;
+                    } else if (b3 >= 48 && b3 <= 57) {
+                        i2 = b3 + 4;
+                    } else if (b3 == 43) {
                         i2 = 62;
-                    } else if (b4 != 47) {
+                    } else if (b3 != 47) {
                         return null;
                     } else {
                         i2 = 63;
@@ -102,7 +102,7 @@ public final class bp {
                     i9++;
                 }
                 i6++;
-                b2 = 10;
+                b = 10;
             }
             if (i5 > 0) {
                 int i12 = i7 << (i5 * 6);

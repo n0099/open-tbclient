@@ -22,7 +22,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class GlideException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final StackTraceElement[] EMPTY_ELEMENTS;
@@ -89,8 +89,8 @@ public final class GlideException extends Exception {
         if (interceptable == null || interceptable.invokeLL(65541, null, list, appendable) == null) {
             try {
                 appendCausesWrapped(list, appendable);
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -292,7 +292,7 @@ public final class GlideException extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class IndentedAppendable implements Appendable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EMPTY_SEQUENCE = "";
@@ -328,16 +328,16 @@ public final class GlideException extends Exception {
         }
 
         @Override // java.lang.Appendable
-        public Appendable append(char c2) throws IOException {
+        public Appendable append(char c) throws IOException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)})) == null) {
                 if (this.printedNewLine) {
                     this.printedNewLine = false;
                     this.appendable.append(INDENT);
                 }
-                this.printedNewLine = c2 == '\n';
-                this.appendable.append(c2);
+                this.printedNewLine = c == '\n';
+                this.appendable.append(c);
                 return this;
             }
             return (Appendable) invokeCommon.objValue;

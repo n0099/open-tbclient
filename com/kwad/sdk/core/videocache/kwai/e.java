@@ -4,38 +4,36 @@ import java.io.File;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class e implements com.kwad.sdk.core.videocache.kwai.a {
     public final ExecutorService a = com.kwad.sdk.core.i.b.b();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements Callable<Void> {
-
-        /* renamed from: b  reason: collision with root package name */
-        public final File f39963b;
+        public final File b;
 
         public a(File file) {
-            this.f39963b = file;
+            this.b = file;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
         public Void call() {
-            e.this.b(this.f39963b);
+            e.this.b(this.b);
             return null;
         }
     }
 
     private void a(List<File> list) {
-        long b2 = b(list);
+        long b = b(list);
         int size = list.size();
         for (File file : list) {
-            if (!a(file, b2, size)) {
+            if (!a(file, b, size)) {
                 long length = file.length();
                 if (file.delete()) {
                     size--;
-                    b2 -= length;
+                    b -= length;
                 } else {
                     com.kwad.sdk.core.d.a.e("LruDiskUsage", "Error deleting file " + file + " for trimming cache");
                 }

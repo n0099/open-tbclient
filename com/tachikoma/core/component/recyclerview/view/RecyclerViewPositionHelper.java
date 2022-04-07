@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecyclerViewPositionHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class RecyclerViewPositionHelper {
             int startAfterPadding = createVerticalHelper.getStartAfterPadding();
             int endAfterPadding = createVerticalHelper.getEndAfterPadding();
             int i3 = i2 > i ? 1 : -1;
-            View view = null;
+            View view2 = null;
             while (i != i2) {
                 View childAt = this.layoutManager.getChildAt(i);
                 int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
@@ -67,13 +67,13 @@ public class RecyclerViewPositionHelper {
                     if (decoratedStart >= startAfterPadding && decoratedEnd <= endAfterPadding) {
                         return childAt;
                     }
-                    if (z2 && view == null) {
-                        view = childAt;
+                    if (z2 && view2 == null) {
+                        view2 = childAt;
                     }
                 }
                 i += i3;
             }
-            return view;
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

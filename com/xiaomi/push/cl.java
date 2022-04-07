@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.text.SimpleDateFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cl {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -49,7 +49,7 @@ public class cl {
             hjVar.b(str);
             hjVar.a(true);
             hjVar.b(System.currentTimeMillis());
-            hjVar.g(bu.a(context).m234a());
+            hjVar.g(bu.a(context).m230a());
             hjVar.e("com.xiaomi.xmsf");
             hjVar.f("");
             hjVar.c("push_stat");

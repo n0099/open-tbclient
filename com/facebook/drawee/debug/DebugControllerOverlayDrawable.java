@@ -18,7 +18,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_SIZE_THRESHOLD_NOT_OK = 0.5f;
@@ -135,19 +135,19 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                     width = Math.min(width, (int) this.mRectF.width());
                     height = Math.min(height, (int) this.mRectF.height());
                 }
-                float f2 = width;
-                float f3 = f2 * 0.1f;
-                float f4 = f2 * 0.5f;
-                float f5 = height;
-                float f6 = 0.1f * f5;
-                float f7 = f5 * 0.5f;
+                float f = width;
+                float f2 = f * 0.1f;
+                float f3 = f * 0.5f;
+                float f4 = height;
+                float f5 = 0.1f * f4;
+                float f6 = f4 * 0.5f;
                 int abs = Math.abs(i - width);
                 int abs2 = Math.abs(i2 - height);
-                float f8 = abs;
-                if (f8 < f3 && abs2 < f6) {
+                float f7 = abs;
+                if (f7 < f2 && abs2 < f5) {
                     return OVERLAY_COLOR_IMAGE_OK;
                 }
-                if (f8 < f4 && abs2 < f7) {
+                if (f7 < f3 && abs2 < f6) {
                     return OVERLAY_COLOR_IMAGE_ALMOST_OK;
                 }
             }

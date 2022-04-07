@@ -15,14 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class FunNativeView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NativeAdContainer a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f38522b;
+    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeView(@NonNull Context context) {
@@ -56,12 +54,12 @@ public final class FunNativeView extends FrameLayout {
         return (FunNativeView) invokeLI.objValue;
     }
 
-    public static FunNativeView inflate(Context context, View view) {
+    public static FunNativeView inflate(Context context, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, view2)) == null) {
             FunNativeView funNativeView = new FunNativeView(context);
-            funNativeView.a.addView(view);
+            funNativeView.a.addView(view2);
             return funNativeView;
         }
         return (FunNativeView) invokeLL.objValue;
@@ -69,7 +67,7 @@ public final class FunNativeView extends FrameLayout {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f38522b) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b) {
             IllegalStateException illegalStateException = new IllegalStateException("Forbid add/rm view from FunNativeAdView.");
             if (FunAdSdk.isLogEnabled()) {
                 throw illegalStateException;
@@ -84,16 +82,16 @@ public final class FunNativeView extends FrameLayout {
             NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
             this.a = nativeAdContainer;
             addView(nativeAdContainer);
-            this.f38522b = true;
+            this.b = true;
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, layoutParams) == null) {
             a();
-            super.addView(view, i, layoutParams);
+            super.addView(view2, i, layoutParams);
         }
     }
 
@@ -122,11 +120,11 @@ public final class FunNativeView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void removeView(View view) {
+    public void removeView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
             a();
-            super.removeView(view);
+            super.removeView(view2);
         }
     }
 
@@ -140,11 +138,11 @@ public final class FunNativeView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewInLayout(View view) {
+    public void removeViewInLayout(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             a();
-            super.removeViewInLayout(view);
+            super.removeViewInLayout(view2);
         }
     }
 

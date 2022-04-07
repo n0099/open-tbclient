@@ -76,11 +76,11 @@ public final class Base64 {
             int i = 0;
             int i2 = 0;
             int i3 = 0;
-            for (byte b2 : bArr) {
-                byte b3 = codes[b2 & 255];
-                if (b3 >= 0) {
+            for (byte b : bArr) {
+                byte b2 = codes[b & 255];
+                if (b2 >= 0) {
                     i3 += 6;
-                    i2 = (i2 << 6) | b3;
+                    i2 = (i2 << 6) | b2;
                     if (i3 >= 8) {
                         i3 -= 8;
                         bArr2[i] = (byte) ((i2 >> i3) & 255);

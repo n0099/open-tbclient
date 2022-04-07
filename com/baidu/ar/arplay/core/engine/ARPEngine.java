@@ -26,7 +26,7 @@ import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPEngine implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENGINE_3D_CLASS_NAME = "com.baidu.ar.arplay.core.engine3d.ARPEngine3D";
@@ -85,12 +85,12 @@ public class ARPEngine implements c {
         initEngine3DInstance();
     }
 
-    private boolean createApp(int i, int i2, int i3, int i4, float f2, String str) {
+    private boolean createApp(int i, int i2, int i3, int i4, float f, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), str})) == null) {
             com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i + "*" + i2 + PreferencesUtil.RIGHT_MOUNT);
-            boolean nativeCreateApp = nativeCreateApp(i, i2, i3, i4, f2, str);
+            boolean nativeCreateApp = nativeCreateApp(i, i2, i3, i4, f, str);
             this.mIsEngineCreated = true;
             ARPContent aRPContent = this.mARPContent;
             if (aRPContent != null) {
@@ -125,12 +125,12 @@ public class ARPEngine implements c {
                 if (newInstance instanceof IARPEngine3D) {
                     this.mARPEngine3D = (AbstractARPEngine3D) newInstance;
                 }
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 e3.printStackTrace();
-            } catch (InstantiationException e4) {
-                e4.printStackTrace();
             }
         }
     }
@@ -183,13 +183,13 @@ public class ARPEngine implements c {
         aRPFilter.adjustFilterWithFloatArrayParam(str, str2, fArr, j);
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f, long j) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Float.valueOf(f), Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
             return;
         }
-        aRPFilter.adjustFilterWithFloatParam(str, str2, f2, j);
+        aRPFilter.adjustFilterWithFloatParam(str, str2, f, j);
     }
 
     public void adjustFilterWithIntParam(String str, String str2, int i, long j) {
@@ -454,7 +454,7 @@ public class ARPEngine implements c {
         return invokeJL.longValue;
     }
 
-    public native boolean nativeCreateApp(int i, int i2, int i3, int i4, float f2, String str);
+    public native boolean nativeCreateApp(int i, int i2, int i3, int i4, float f, String str);
 
     public native void nativeDestroyEngine();
 
@@ -499,19 +499,19 @@ public class ARPEngine implements c {
         aRPContent.onCaseUnloadCompleted();
     }
 
-    public void onGestureUpdate(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10) {
+    public void onGestureUpdate(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-            aRPDataInteraction.onGestureUpdate(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10);
+        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i3), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Integer.valueOf(i4), Float.valueOf(f9)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.onGestureUpdate(i, j, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, i4, f9);
         }
     }
 
-    public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10, boolean z) {
+    public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f, float f2, float f3, float f4, int i3, float f5, float f6, float f7, float f8, int i4, float f9, boolean z) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10), Boolean.valueOf(z)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-            aRPDataInteraction.onGestureUpdateWithScaleFinish(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10, z);
+        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i3), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Integer.valueOf(i4), Float.valueOf(f9), Boolean.valueOf(z)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.onGestureUpdateWithScaleFinish(i, j, i2, f, f2, f3, f4, i3, f5, f6, f7, f8, i4, f9, z);
         }
     }
 
@@ -532,11 +532,11 @@ public class ARPEngine implements c {
         }
     }
 
-    public void onTouchUpdate(int i, float f2, float f3, float f4, float f5, long j, int i2, float f6) {
+    public void onTouchUpdate(int i, float f, float f2, float f3, float f4, long j, int i2, float f5) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f6)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-            aRPDataInteraction.onTouchUpdate(i, f2, f3, f4, f5, j, i2, f6);
+        if ((interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f5)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.onTouchUpdate(i, f, f2, f3, f4, j, i2, f5);
         }
     }
 

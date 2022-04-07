@@ -26,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -81,9 +81,9 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 file = new File(SchemeConfig.getAppContext().getFilesDir(), KEY_DESC_PATCH_DATA);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             if (!file.exists()) {

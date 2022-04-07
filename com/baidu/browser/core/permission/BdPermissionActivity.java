@@ -3,8 +3,6 @@ package com.baidu.browser.core.permission;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.k.a.j.a;
-import c.a.k.a.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.permissionhelper.app.ActivityCompat;
@@ -12,7 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.by;
+import com.repackage.cy;
+/* loaded from: classes.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class BdPermissionActivity extends Activity {
         }
         if (z) {
             ActivityCompat.requestPermissions(this, this.mPermissions, this.mReqCode);
-        } else if (b.c(this, this.mReqCode)) {
+        } else if (cy.c(this, this.mReqCode)) {
             ActivityCompat.requestPermissions(this, this.mPermissions, this.mReqCode);
         } else {
             onRequestPermissionsResult(this.mReqCode, this.mPermissions, new int[0]);
@@ -75,9 +75,9 @@ public class BdPermissionActivity extends Activity {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c2 = a.b().c(this.mReqCode);
-            if (c2 != null) {
-                c2.onRequestPermissionsResult(i, strArr, iArr);
+            ActivityCompat.OnRequestPermissionsResultCallback c = by.b().c(this.mReqCode);
+            if (c != null) {
+                c.onRequestPermissionsResult(i, strArr, iArr);
             }
             finish();
         }

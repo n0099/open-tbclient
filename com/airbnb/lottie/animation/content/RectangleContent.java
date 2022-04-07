@@ -15,7 +15,7 @@ import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RectangleContent implements BaseKeyframeAnimation.AnimationListener, KeyPathElementContent, PathContent {
     public final BaseKeyframeAnimation<?, Float> cornerRadiusAnimation;
     public final boolean hidden;
@@ -75,51 +75,51 @@ public class RectangleContent implements BaseKeyframeAnimation.AnimationListener
             return this.path;
         }
         PointF value = this.sizeAnimation.getValue();
-        float f2 = value.x / 2.0f;
-        float f3 = value.y / 2.0f;
+        float f = value.x / 2.0f;
+        float f2 = value.y / 2.0f;
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation = this.cornerRadiusAnimation;
         float floatValue = baseKeyframeAnimation == null ? 0.0f : ((FloatKeyframeAnimation) baseKeyframeAnimation).getFloatValue();
-        float min = Math.min(f2, f3);
+        float min = Math.min(f, f2);
         if (floatValue > min) {
             floatValue = min;
         }
         PointF value2 = this.positionAnimation.getValue();
-        this.path.moveTo(value2.x + f2, (value2.y - f3) + floatValue);
-        this.path.lineTo(value2.x + f2, (value2.y + f3) - floatValue);
+        this.path.moveTo(value2.x + f, (value2.y - f2) + floatValue);
+        this.path.lineTo(value2.x + f, (value2.y + f2) - floatValue);
         int i = (floatValue > 0.0f ? 1 : (floatValue == 0.0f ? 0 : -1));
         if (i > 0) {
             RectF rectF = this.rect;
-            float f4 = value2.x;
-            float f5 = floatValue * 2.0f;
-            float f6 = value2.y;
-            rectF.set((f4 + f2) - f5, (f6 + f3) - f5, f4 + f2, f6 + f3);
+            float f3 = value2.x;
+            float f4 = floatValue * 2.0f;
+            float f5 = value2.y;
+            rectF.set((f3 + f) - f4, (f5 + f2) - f4, f3 + f, f5 + f2);
             this.path.arcTo(this.rect, 0.0f, 90.0f, false);
         }
-        this.path.lineTo((value2.x - f2) + floatValue, value2.y + f3);
+        this.path.lineTo((value2.x - f) + floatValue, value2.y + f2);
         if (i > 0) {
             RectF rectF2 = this.rect;
-            float f7 = value2.x;
-            float f8 = value2.y;
-            float f9 = floatValue * 2.0f;
-            rectF2.set(f7 - f2, (f8 + f3) - f9, (f7 - f2) + f9, f8 + f3);
+            float f6 = value2.x;
+            float f7 = value2.y;
+            float f8 = floatValue * 2.0f;
+            rectF2.set(f6 - f, (f7 + f2) - f8, (f6 - f) + f8, f7 + f2);
             this.path.arcTo(this.rect, 90.0f, 90.0f, false);
         }
-        this.path.lineTo(value2.x - f2, (value2.y - f3) + floatValue);
+        this.path.lineTo(value2.x - f, (value2.y - f2) + floatValue);
         if (i > 0) {
             RectF rectF3 = this.rect;
-            float f10 = value2.x;
-            float f11 = value2.y;
-            float f12 = floatValue * 2.0f;
-            rectF3.set(f10 - f2, f11 - f3, (f10 - f2) + f12, (f11 - f3) + f12);
+            float f9 = value2.x;
+            float f10 = value2.y;
+            float f11 = floatValue * 2.0f;
+            rectF3.set(f9 - f, f10 - f2, (f9 - f) + f11, (f10 - f2) + f11);
             this.path.arcTo(this.rect, 180.0f, 90.0f, false);
         }
-        this.path.lineTo((value2.x + f2) - floatValue, value2.y - f3);
+        this.path.lineTo((value2.x + f) - floatValue, value2.y - f2);
         if (i > 0) {
             RectF rectF4 = this.rect;
-            float f13 = value2.x;
-            float f14 = floatValue * 2.0f;
-            float f15 = value2.y;
-            rectF4.set((f13 + f2) - f14, f15 - f3, f13 + f2, (f15 - f3) + f14);
+            float f12 = value2.x;
+            float f13 = floatValue * 2.0f;
+            float f14 = value2.y;
+            rectF4.set((f12 + f) - f13, f14 - f2, f12 + f, (f14 - f2) + f13);
             this.path.arcTo(this.rect, 270.0f, 90.0f, false);
         }
         this.path.close();

@@ -21,7 +21,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapterFactory FACTORY;
@@ -103,8 +103,8 @@ public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
                 }
                 try {
                     return new Date(this.format.parse(jsonReader.nextString()).getTime());
-                } catch (ParseException e2) {
-                    throw new JsonSyntaxException(e2);
+                } catch (ParseException e) {
+                    throw new JsonSyntaxException(e);
                 }
             }
         }

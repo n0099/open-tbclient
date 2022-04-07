@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] ZXS_LIST;
@@ -66,15 +66,15 @@ public class Utility {
             if (!TextUtils.isEmpty(optString2) && TextUtils.isDigitsOnly(optString2)) {
                 try {
                     chatUser.setSex(Integer.valueOf(optString2).intValue());
-                } catch (Exception e2) {
-                    LogUtils.e("Utility", "contructChatUser sex:", e2);
+                } catch (Exception e) {
+                    LogUtils.e("Utility", "contructChatUser sex:", e);
                 }
             }
             if (!TextUtils.isEmpty(optString5) && TextUtils.isDigitsOnly(optString5)) {
                 try {
                     chatUser.setPhone(Long.valueOf(optString5).longValue());
-                } catch (Exception e3) {
-                    LogUtils.e("Utility", "contructChatUser phone:", e3);
+                } catch (Exception e2) {
+                    LogUtils.e("Utility", "contructChatUser phone:", e2);
                 }
             }
             chatUser.setAccountType(optInt);
@@ -102,15 +102,15 @@ public class Utility {
             if (!TextUtils.isEmpty(optString2) && TextUtils.isDigitsOnly(optString2)) {
                 try {
                     chatUser.setSex(Integer.valueOf(optString2).intValue());
-                } catch (Exception e2) {
-                    LogUtils.e("Utility", "contructChatUserFormUid sex:", e2);
+                } catch (Exception e) {
+                    LogUtils.e("Utility", "contructChatUserFormUid sex:", e);
                 }
             }
             if (!TextUtils.isEmpty(optString5) && TextUtils.isDigitsOnly(optString5)) {
                 try {
                     chatUser.setPhone(Long.valueOf(optString5).longValue());
-                } catch (Exception e3) {
-                    LogUtils.e("Utility", "contructChatUserFormUid phone:", e3);
+                } catch (Exception e2) {
+                    LogUtils.e("Utility", "contructChatUserFormUid phone:", e2);
                 }
             }
             chatUser.setAccountType(optInt);

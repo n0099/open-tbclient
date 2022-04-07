@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AudioPlayData implements Parcelable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AudioPlayData> CREATOR;
@@ -81,13 +81,13 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AudioPlayData(String str, int i, int i2, float f2) {
-        this(str, i, i2, f2, 1.0f);
+    public AudioPlayData(String str, int i, int i2, float f) {
+        this(str, i, i2, f, 1.0f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -153,13 +153,13 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AudioPlayData(String str, int i, int i2, float f2, float f3) {
-        this(str, i, i2, f2, f3, null);
+    public AudioPlayData(String str, int i, int i2, float f, float f2) {
+        this(str, i, i2, f, f2, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -175,26 +175,26 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AudioPlayData m95clone() {
+    public AudioPlayData m91clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return (AudioPlayData) super.clone();
-            } catch (CloneNotSupportedException e2) {
-                e2.printStackTrace();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
                 return null;
             }
         }
         return (AudioPlayData) invokeV.objValue;
     }
 
-    public AudioPlayData(String str, int i, int i2, float f2, float f3, int[] iArr) {
+    public AudioPlayData(String str, int i, int i2, float f, float f2, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), iArr};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), iArr};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -208,11 +208,11 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
         this.audioPath = str;
         this.start = i;
         this.end = i2;
-        this.volume = f2;
+        this.volume = f;
         if (i2 < i) {
             this.end = i;
         }
-        this.mSpeed = f3;
+        this.mSpeed = f2;
         this.mSoundTypes = iArr;
     }
 

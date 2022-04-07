@@ -1,12 +1,6 @@
 package com.baidu.tbadk.mvc.message;
 
 import android.text.TextUtils;
-import c.a.d.f.d.l;
-import c.a.d.f.j.b.f;
-import c.a.o0.k0.b.d;
-import c.a.o0.k0.b.e;
-import c.a.o0.k0.b.h;
-import c.a.o0.r.s.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,10 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
+import com.repackage.l65;
+import com.repackage.m65;
+import com.repackage.of;
+import com.repackage.p65;
+import com.repackage.qe;
 import java.io.UnsupportedEncodingException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMessage<D> {
+/* loaded from: classes3.dex */
+public class MvcJsonHttpResponsedMessage<D extends p65> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -49,20 +49,20 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048580, this, i, jSONObject) == null) && (getOrginalMessage() instanceof MvcHttpMessage)) {
             Object createData = createData(((MvcHttpMessage) getOrginalMessage()).getResponseDataClass());
-            if (createData instanceof h) {
-                D d2 = (D) createData;
-                this.data = d2;
-                d2.initByJson(jSONObject);
+            if (createData instanceof p65) {
+                D d = (D) createData;
+                this.data = d;
+                d.initByJson(jSONObject);
             }
         }
     }
 
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, f fVar) {
+    public void logStatInBackground(int i, of ofVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, fVar) == null) {
-            super.logStatInBackground(i, fVar);
-            TiebaStatic.netJson(fVar, getError(), getErrorString());
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, ofVar) == null) {
+            super.logStatInBackground(i, ofVar);
+            TiebaStatic.netJson(ofVar, getError(), getErrorString());
         }
     }
 
@@ -77,23 +77,23 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
                 try {
                     errorData = new ErrorData();
                     jSONObject = new JSONObject(str);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
                 try {
                     errorData.parserJson(str);
                     setError(errorData.getError_code());
                     if (getError() == -1) {
-                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0598));
+                        setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059f));
                     } else if (getError() != 0) {
                         setErrorString(errorData.getError_msg());
                     }
                     return jSONObject;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     jSONObject2 = jSONObject;
                     BdLog.e(e.getMessage());
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0598));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059f));
                     return jSONObject2;
                 }
             }
@@ -110,31 +110,31 @@ public class MvcJsonHttpResponsedMessage<D extends h> extends MvcHttpResponsedMe
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof d)) {
-                    d dVar = (d) mvcHttpMessage.getRequestData();
-                    String cacheKey = dVar.getCacheKey();
-                    String x = dVar.x();
-                    String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof l65)) {
+                    l65 l65Var = (l65) mvcHttpMessage.getRequestData();
+                    String cacheKey = l65Var.getCacheKey();
+                    String x = l65Var.x();
+                    String currentAccount = l65Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                     if (cacheKey == null || TextUtils.isEmpty(x) || bArr == null) {
                         return;
                     }
-                    if (dVar.n()) {
-                        a.f();
-                        l<byte[]> e2 = a.e(x, currentAccount);
-                        if (e2 == null) {
+                    if (l65Var.n()) {
+                        cr4.f();
+                        qe<byte[]> e = cr4.e(x, currentAccount);
+                        if (e == null) {
                             return;
                         }
-                        e2.g(cacheKey, bArr);
-                    } else if (mvcHttpMessage.getRequestData() instanceof e) {
-                        a.f();
-                        l<String> h2 = a.h(x, currentAccount);
-                        if (h2 == null) {
+                        e.g(cacheKey, bArr);
+                    } else if (mvcHttpMessage.getRequestData() instanceof m65) {
+                        cr4.f();
+                        qe<String> h = cr4.h(x, currentAccount);
+                        if (h == null) {
                             return;
                         }
                         try {
-                            h2.g(cacheKey, new String(bArr, "UTF-8"));
-                        } catch (UnsupportedEncodingException e3) {
-                            e3.printStackTrace();
+                            h.g(cacheKey, new String(bArr, "UTF-8"));
+                        } catch (UnsupportedEncodingException e2) {
+                            e2.printStackTrace();
                         }
                     }
                 }

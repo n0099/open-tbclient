@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LaunchSpeedReadUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CACHE_EXPIRE_TIME = 604800000;

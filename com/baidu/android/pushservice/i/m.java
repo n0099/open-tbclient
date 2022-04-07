@@ -74,16 +74,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f24741b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f24742c = -1;
+    public static final String[] b;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -99,7 +95,7 @@ public final class m {
                 return;
             }
         }
-        f24741b = new String[]{"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
+        b = new String[]{"android.permission.INTERNET", "android.permission.ACCESS_NETWORK_STATE"};
     }
 
     public static boolean A(Context context) {
@@ -130,8 +126,8 @@ public final class m {
                 }
                 Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushInfoProvider bdpush authority is required, please check !");
                 return false;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }
@@ -157,8 +153,8 @@ public final class m {
                     return true;
                 }
                 return true;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }
@@ -385,8 +381,8 @@ public final class m {
                     return;
                 }
                 String str3 = intent.getStringExtra("message_id") + " reflectrecevier=" + str2;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }
@@ -569,9 +565,9 @@ public final class m {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{context, str, str2, str3, str4, str5})) == null) {
-            String d2 = PushSettings.d(context);
-            if (!TextUtils.isEmpty(d2)) {
-                str2 = d2;
+            String d = PushSettings.d(context);
+            if (!TextUtils.isEmpty(d)) {
+                str2 = d;
             }
             if (str == null) {
                 str = "";
@@ -599,9 +595,9 @@ public final class m {
             intent.setPackage(context.getPackageName());
             try {
                 packageManager = context.getPackageManager();
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.f.a.b("Utility", "error  " + e2.getMessage(), context);
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                com.baidu.android.pushservice.f.a.b("Utility", "error  " + e.getMessage(), context);
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
             if (packageManager == null) {
                 return false;
@@ -717,8 +713,8 @@ public final class m {
             intent.setPackage(str);
             try {
                 packageManager = context.getPackageManager();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 list = null;
             }
             if (packageManager == null) {
@@ -778,9 +774,7 @@ public final class m {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f24743b;
+                public final /* synthetic */ boolean b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -798,7 +792,7 @@ public final class m {
                         }
                     }
                     this.a = context;
-                    this.f24743b = z;
+                    this.b = z;
                 }
 
                 @Override // com.vivo.push.IPushActionListener
@@ -807,7 +801,7 @@ public final class m {
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         if (i == 101) {
                             com.baidu.android.pushservice.e.c(this.a, 0);
-                            if (this.f24743b) {
+                            if (this.b) {
                                 return;
                             }
                             com.baidu.android.pushservice.a.a(this.a, true);
@@ -818,7 +812,7 @@ public final class m {
                         }
                         if (i == 0 || i == 1) {
                             i.a(this.a, "vi_push_proxy_mode", 1);
-                            if (!this.f24743b && !com.baidu.android.pushservice.b.d.c(this.a)) {
+                            if (!this.b && !com.baidu.android.pushservice.b.d.c(this.a)) {
                                 com.baidu.android.pushservice.a.a(this.a, false);
                             }
                             String regId = PushClient.getInstance(this.a).getRegId();
@@ -1158,15 +1152,15 @@ public final class m {
                         try {
                             Log.e("BDPushSDK-Utility", str + " is disable, please check!");
                             return z3;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             z = z3;
                             new b.c(context).a(Log.getStackTraceString(e)).a();
                             return z;
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     z = false;
                     new b.c(context).a(Log.getStackTraceString(e)).a();
                     return z;
@@ -1174,8 +1168,8 @@ public final class m {
             }
             Log.e("BDPushSDK-Utility", str + " did not declared com.baidu.android.pushservice.action.MESSAGE or com.baidu.android.pushservice.action.RECEIVE");
             return false;
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Exception e3) {
+            e = e3;
         }
     }
 
@@ -1189,8 +1183,8 @@ public final class m {
             intent.setPackage(str);
             try {
                 packageManager = context.getPackageManager();
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 list = null;
             }
             if (packageManager == null) {
@@ -1226,10 +1220,10 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65591, null, context, str)) == null) {
             if (PushSocket.a()) {
-                String f2 = f(context);
-                if (!TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2)) {
-                    Log.e("BDPushSDK-Utility", f2);
-                    return f2;
+                String f = f(context);
+                if (!TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f)) {
+                    Log.e("BDPushSDK-Utility", f);
+                    return f;
                 } else if (a(str)) {
                     if (!e(context)) {
                         Log.e("BDPushSDK-Utility", "check SelfConfiged Receiver failed");
@@ -1289,8 +1283,8 @@ public final class m {
                     }
                 }
                 return a2;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return -1;
             }
         }
@@ -1333,8 +1327,8 @@ public final class m {
                     }
                     return !z;
                 }
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
             return false;
         }
@@ -1387,14 +1381,14 @@ public final class m {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65599, null, context, str)) == null) {
             try {
                 parseLong = Long.parseLong(str);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 try {
                     if (str.length() > 0) {
                         str = str.substring(1);
                     }
                     parseLong = Long.parseLong(str);
                 } catch (Exception unused) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                     return 0;
                 }
             }
@@ -1513,8 +1507,8 @@ public final class m {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65607, null, context, str)) == null) {
             try {
                 return context.getPackageManager().checkPermission(str, context.getPackageName()) == 0;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }
@@ -1572,8 +1566,8 @@ public final class m {
             return invokeLL.booleanValue;
         }
         try {
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e) {
+            e = e;
             z = false;
         }
         if (TextUtils.isEmpty(str)) {
@@ -1582,8 +1576,8 @@ public final class m {
         z = com.baidu.android.pushservice.c.a.a(context, str);
         try {
             z2 = j(context, str);
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             new b.c(context).a(Log.getStackTraceString(e)).a();
             z2 = false;
             return z ? false : false;
@@ -1603,8 +1597,8 @@ public final class m {
                     return a2.applicationInfo.targetSdkVersion;
                 }
                 return 0;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return 0;
             }
         }
@@ -1717,11 +1711,11 @@ public final class m {
                 return null;
             }
             try {
-                String e2 = com.baidu.android.pushservice.c.c.e(context);
-                if (TextUtils.isEmpty(e2)) {
+                String e = com.baidu.android.pushservice.c.c.e(context);
+                if (TextUtils.isEmpty(e)) {
                     return null;
                 }
-                ArrayList<com.baidu.android.pushservice.a.e> c2 = com.baidu.android.pushservice.a.b.a(context).c(b(e2));
+                ArrayList<com.baidu.android.pushservice.a.e> c2 = com.baidu.android.pushservice.a.b.a(context).c(b(e));
                 if (c2 != null) {
                     Iterator<com.baidu.android.pushservice.a.e> it = c2.iterator();
                     while (it.hasNext()) {
@@ -1733,8 +1727,8 @@ public final class m {
                     return null;
                 }
                 return null;
-            } catch (Exception e3) {
-                new b.c(context).a(Log.getStackTraceString(e3)).a();
+            } catch (Exception e2) {
+                new b.c(context).a(Log.getStackTraceString(e2)).a();
                 return null;
             }
         }
@@ -1762,8 +1756,8 @@ public final class m {
                         str = str.substring(i2);
                         continue;
                     }
-                } catch (Exception e2) {
-                    new b.c(context).a(Log.getStackTraceString(e2)).a();
+                } catch (Exception e) {
+                    new b.c(context).a(Log.getStackTraceString(e)).a();
                     return i;
                 }
             } while (indexOf != -1);
@@ -1782,8 +1776,8 @@ public final class m {
                     return false;
                 }
                 return a2.applicationInfo.targetSdkVersion >= 24;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }
@@ -1795,11 +1789,11 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65619, null, context, str)) == null) {
             try {
-                String d2 = com.baidu.android.pushservice.c.c.d(context);
-                if (TextUtils.isEmpty(d2)) {
+                String d = com.baidu.android.pushservice.c.c.d(context);
+                if (TextUtils.isEmpty(d)) {
                     return 0;
                 }
-                ArrayList<com.baidu.android.pushservice.a.e> c2 = com.baidu.android.pushservice.a.b.a(context).c(b(d2));
+                ArrayList<com.baidu.android.pushservice.a.e> c2 = com.baidu.android.pushservice.a.b.a(context).c(b(d));
                 if (c2 != null) {
                     Iterator<com.baidu.android.pushservice.a.e> it = c2.iterator();
                     while (it.hasNext()) {
@@ -1811,8 +1805,8 @@ public final class m {
                     return 0;
                 }
                 return 0;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return 0;
             }
         }
@@ -1901,7 +1895,7 @@ public final class m {
                     Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
                     return "permission Push-SDK for oppo proxy need is not exist !";
                 } else {
-                    for (String str : f24741b) {
+                    for (String str : b) {
                         if (!a(str, strArr2)) {
                             String str2 = str + " permission Push-SDK need is not exist !";
                             Log.e("BDPushSDK-Utility", str2);
@@ -1910,8 +1904,8 @@ public final class m {
                     }
                     return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
                 }
-            } catch (Exception e2) {
-                return "checkSDKPermissions exception " + e2.getMessage();
+            } catch (Exception e) {
+                return "checkSDKPermissions exception " + e.getMessage();
             }
         }
         return (String) invokeL.objValue;
@@ -1927,8 +1921,8 @@ public final class m {
             intent.setPackage(context.getPackageName());
             try {
                 packageManager = context.getPackageManager();
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.f.a.b("Utility", "error  " + e2.getMessage(), context);
+            } catch (Exception e) {
+                com.baidu.android.pushservice.f.a.b("Utility", "error  " + e.getMessage(), context);
             }
             if (packageManager == null) {
                 return false;
@@ -1958,8 +1952,8 @@ public final class m {
                 }
                 boolean z = serviceInfo.exported;
                 return true;
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }

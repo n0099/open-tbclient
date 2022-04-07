@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,16 +54,16 @@ public final class c extends g {
             } else if (str.startsWith("tel:")) {
                 try {
                     context.startActivity(new Intent("android.intent.action.DIAL", Uri.parse(str)));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 return true;
             } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
                 String str4 = null;
                 try {
                     indexOf = str.indexOf("?");
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     str2 = null;
                 }
                 if (indexOf == -1) {
@@ -81,8 +81,8 @@ public final class c extends g {
                     if (query != null && query.startsWith("body=")) {
                         str4 = query.substring(5);
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     e.printStackTrace();
                     str3 = str2;
                     if (context != null) {

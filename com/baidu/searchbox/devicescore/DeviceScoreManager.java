@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, IDeviceScoreConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -118,13 +118,13 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            float f2 = this.mDynamicScore;
-            if (f2 >= 0.0f) {
-                return f2;
+            float f = this.mDynamicScore;
+            if (f >= 0.0f) {
+                return f;
             }
-            float f3 = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_DYNAMIC_SCORE, -1.0f);
-            this.mDynamicScore = f3;
-            return f3;
+            float f2 = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_DYNAMIC_SCORE, -1.0f);
+            this.mDynamicScore = f2;
+            return f2;
         }
         return invokeL.floatValue;
     }
@@ -155,9 +155,9 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
                 }
                 return this.mFloatFinalScore;
             }
-            float f2 = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_SCORE_FLOAT, -1.0f);
-            this.mFloatFinalScore = f2;
-            if (Float.compare(f2, 0.0f) >= 0) {
+            float f = QuickPersistConfig.getInstance().getFloat(SP_KEY_FINAL_SCORE_FLOAT, -1.0f);
+            this.mFloatFinalScore = f;
+            if (Float.compare(f, 0.0f) >= 0) {
                 if (DEBUG) {
                     Log.d(TAG, "getFloatFinalScore from sp:" + this.mFloatFinalScore);
                 }
@@ -193,9 +193,9 @@ public class DeviceScoreManager implements IDeviceScore, IScoreMetaDataCollect, 
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            float f2 = this.mStaticScore;
-            if (f2 >= 0.0f) {
-                return f2;
+            float f = this.mStaticScore;
+            if (f >= 0.0f) {
+                return f;
             }
             float staticScoreFloat = getStaticScoreFloat(context);
             this.mStaticScore = staticScoreFloat;

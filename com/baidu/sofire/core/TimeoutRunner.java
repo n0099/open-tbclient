@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TimeoutRunner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class TimeoutRunner {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             try {
-                D d2 = D.getInstance(context);
+                D d = D.getInstance(context);
                 ForHostApp forHostApp = ForHostApp.getInstance(context);
-                for (ApkInfo apkInfo : d2.getAllPlugins()) {
+                for (ApkInfo apkInfo : d.getAllPlugins()) {
                     if (apkInfo.duration != 0 && apkInfo.startTime + (apkInfo.duration * 60 * 1000) < System.currentTimeMillis()) {
                         forHostApp.unloadPlugin(apkInfo.packageName);
                     }

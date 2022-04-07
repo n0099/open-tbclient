@@ -13,8 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.p0.l3.a0;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,7 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ga8;
+import com.repackage.oi;
+import com.repackage.qd0;
+/* loaded from: classes2.dex */
 public class McnVideoAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
@@ -35,34 +36,20 @@ public class McnVideoAdView extends FrameLayout {
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f26935b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f26936c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f26937d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Animation f26938e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Animation f26939f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f26940g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f26941h;
+    public TbImageView b;
+    public TextView c;
+    public TextView d;
+    public Animation e;
+    public Animation f;
+    public float g;
+    public float h;
     public boolean i;
-    public c.a.x.a j;
+    public qd0 j;
     public c k;
     public final Handler l;
     public ViewParent m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +96,7 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,13 +131,13 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface c {
-        void a(c.a.x.a aVar);
+        void a(qd0 qd0Var);
 
-        void b(c.a.x.a aVar);
+        void b(qd0 qd0Var);
 
-        void c(c.a.x.a aVar);
+        void c(qd0 qd0Var);
     }
 
     static {
@@ -195,20 +182,20 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
-    private void setData(c.a.x.a aVar) {
+    private void setData(qd0 qd0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65543, this, qd0Var) == null) || qd0Var == null) {
             return;
         }
-        this.j = aVar;
-        this.f26935b.J(aVar.a, 10, false);
-        if (!StringUtils.isNull(aVar.f21975b)) {
-            this.f26936c.setText(aVar.f21975b);
+        this.j = qd0Var;
+        this.b.K(qd0Var.a, 10, false);
+        if (!StringUtils.isNull(qd0Var.b)) {
+            this.c.setText(qd0Var.b);
         }
-        if (StringUtils.isNull(aVar.f21976c)) {
+        if (StringUtils.isNull(qd0Var.c)) {
             return;
         }
-        this.f26937d.setText(aVar.f21976c);
+        this.d.setText(qd0Var.c);
     }
 
     public final void d() {
@@ -220,13 +207,13 @@ public class McnVideoAdView extends FrameLayout {
 
     public final void e() {
         Context context;
-        c.a.x.a aVar;
+        qd0 qd0Var;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (aVar = this.j) == null || (str = aVar.f21977d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (qd0Var = this.j) == null || (str = qd0Var.d) == null) {
             return;
         }
-        a0.d(context, str, null, null, null);
+        ga8.d(context, str, null, null, null);
         c cVar = this.k;
         if (cVar != null) {
             cVar.b(this.j);
@@ -235,11 +222,11 @@ public class McnVideoAdView extends FrameLayout {
 
     public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f26939f == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f == null) {
             return;
         }
         clearAnimation();
-        startAnimation(this.f26939f);
+        startAnimation(this.f);
     }
 
     public void g() {
@@ -252,17 +239,17 @@ public class McnVideoAdView extends FrameLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053e, this);
-            this.f26935b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e32);
-            this.f26936c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e34);
-            this.f26937d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e33);
-            this.f26935b.setConrers(5);
-            this.f26935b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d48);
-            this.f26935b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d48);
-            this.f26935b.setRadius(n.f(this.a, R.dimen.tbds20));
-            this.f26938e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010093);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010092);
-            this.f26939f = loadAnimation;
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0539, this);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e30);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e32);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e31);
+            this.b.setConrers(5);
+            this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080d49);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080d49);
+            this.b.setRadius(oi.f(this.a, R.dimen.tbds20));
+            this.e = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010094);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010093);
+            this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
         }
     }
@@ -290,22 +277,22 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void l(c.a.x.a aVar, ViewGroup viewGroup) {
+    public void l(qd0 qd0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar, viewGroup) == null) {
-            m(aVar, viewGroup);
-            if (this.f26938e != null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qd0Var, viewGroup) == null) {
+            m(qd0Var, viewGroup);
+            if (this.e != null) {
                 clearAnimation();
-                startAnimation(this.f26938e);
+                startAnimation(this.e);
             }
         }
     }
 
-    public void m(c.a.x.a aVar, ViewGroup viewGroup) {
+    public void m(qd0 qd0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, aVar, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, qd0Var, viewGroup) == null) {
             this.i = true;
-            setData(aVar);
+            setData(qd0Var);
             viewGroup.removeView(this);
             viewGroup.addView(this);
             if (viewGroup instanceof FrameLayout) {
@@ -322,7 +309,7 @@ public class McnVideoAdView extends FrameLayout {
             }
             c cVar = this.k;
             if (cVar != null) {
-                cVar.c(aVar);
+                cVar.c(qd0Var);
             }
         }
     }
@@ -334,8 +321,8 @@ public class McnVideoAdView extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f26940g = motionEvent.getX();
-                this.f26941h = motionEvent.getY();
+                this.g = motionEvent.getX();
+                this.h = motionEvent.getY();
                 ViewParent parent = getParent();
                 this.m = parent;
                 if (parent != null) {
@@ -343,14 +330,14 @@ public class McnVideoAdView extends FrameLayout {
                 }
             } else if (action == 1) {
                 d();
-                if (Math.abs(motionEvent.getX() - this.f26940g) < 5.0f && Math.abs(motionEvent.getY() - this.f26941h) < 5.0f) {
+                if (Math.abs(motionEvent.getX() - this.g) < 5.0f && Math.abs(motionEvent.getY() - this.h) < 5.0f) {
                     e();
                 }
             } else if (action != 2) {
                 if (action == 3) {
                     d();
                 }
-            } else if (motionEvent.getX() - this.f26940g > 10.0f && this.i) {
+            } else if (motionEvent.getX() - this.g > 10.0f && this.i) {
                 f();
                 c cVar = this.k;
                 if (cVar != null) {

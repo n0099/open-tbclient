@@ -32,7 +32,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WebChromeClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -55,12 +55,12 @@ public class WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
     public WebView mWebView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class FileChooserParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MODE_OPEN = 0;
@@ -147,8 +147,8 @@ public class WebChromeClient {
                     bdJsCheckPolicy = (BdJsCheckPolicy) staticWebSeting;
                 }
             }
-        } catch (UnsatisfiedLinkError e2) {
-            e2.printStackTrace();
+        } catch (UnsatisfiedLinkError e) {
+            e.printStackTrace();
         } catch (Throwable th) {
             Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
         }
@@ -180,9 +180,9 @@ public class WebChromeClient {
                 clsArr2[0] = BdJsCallInfo.class;
                 try {
                     return obj.getClass().getMethod(str, clsArr2);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.e(LOG_TAG, e2.toString());
+                        Log.e(LOG_TAG, e.toString());
                     }
                 }
             }
@@ -214,9 +214,9 @@ public class WebChromeClient {
                 if (i == 0 && str2 != null) {
                     jSONObject.put("result", str2);
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    Log.e(LOG_TAG, e2.toString());
+                    Log.e(LOG_TAG, e.toString());
                 }
             }
             return jSONObject.toString();
@@ -238,8 +238,8 @@ public class WebChromeClient {
                         webView.execJavaScriptExt(optString2 + "(" + CommonUtils.getVersionName(this.mWebView.getContext()) + SmallTailInfo.EMOTION_SUFFIX, new String[0]);
                         return true;
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return false;
@@ -354,10 +354,10 @@ public class WebChromeClient {
                     }
                     jsPromptResult.confirm(obj2);
                     return true;
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
                     if (DEBUG) {
                         str3 = LOG_TAG;
-                        invocationTargetException = e2.toString();
+                        invocationTargetException = e.toString();
                         Log.e(str3, invocationTargetException);
                         return false;
                     }
@@ -367,10 +367,10 @@ public class WebChromeClient {
                         jsPromptResult.cancel();
                     }
                     return true;
-                } catch (IllegalArgumentException e3) {
+                } catch (IllegalArgumentException e2) {
                     if (DEBUG) {
                         str3 = LOG_TAG;
-                        invocationTargetException = e3.toString();
+                        invocationTargetException = e2.toString();
                         Log.e(str3, invocationTargetException);
                         return false;
                     }
@@ -400,10 +400,10 @@ public class WebChromeClient {
                         jsPromptResult.cancel();
                     }
                     return true;
-                } catch (InvocationTargetException e4) {
+                } catch (InvocationTargetException e3) {
                     if (DEBUG) {
                         str3 = LOG_TAG;
-                        invocationTargetException = e4.toString();
+                        invocationTargetException = e3.toString();
                         Log.e(str3, invocationTargetException);
                         return false;
                     }
@@ -514,9 +514,9 @@ public class WebChromeClient {
                     }
                 }
                 return invokeJSInterfaceMethod(webView, jsPromptResult, z, string, optString, objArr);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    Log.e(LOG_TAG, e2.toString());
+                    Log.e(LOG_TAG, e.toString());
                     return false;
                 }
                 jsPromptResult.cancel();
@@ -706,9 +706,9 @@ public class WebChromeClient {
         }
     }
 
-    public void onOffsetsForFullscreenChanged(float f2, float f3, float f4) {
+    public void onOffsetsForFullscreenChanged(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
         }
     }
 
@@ -777,15 +777,15 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onShowCustomView(View view, int i, CustomViewCallback customViewCallback) {
+    public void onShowCustomView(View view2, int i, CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048616, this, view, i, customViewCallback) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048616, this, view2, i, customViewCallback) == null) {
         }
     }
 
-    public void onShowCustomView(View view, CustomViewCallback customViewCallback) {
+    public void onShowCustomView(View view2, CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048617, this, view, customViewCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048617, this, view2, customViewCallback) == null) {
         }
     }
 

@@ -1,7 +1,6 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
-import c.a.p0.a0.a.d.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,13 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
+import com.repackage.al5;
+import com.repackage.rl5;
 import java.io.Serializable;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -93,8 +94,8 @@ public class AdInfo implements Serializable {
                 for (String str2 : str.split(",")) {
                     try {
                         arrayList.add(URLDecoder.decode(str2, IMAudioTransRequest.CHARSET));
-                    } catch (Exception e2) {
-                        BdLog.e("decode 监测地址失败" + e2);
+                    } catch (Exception e) {
+                        BdLog.e("decode 监测地址失败" + e);
                     }
                 }
             }
@@ -114,8 +115,8 @@ public class AdInfo implements Serializable {
             JSONObject jSONObject = null;
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             adInfo.parseFromJson(jSONObject);
             return adInfo;
@@ -174,10 +175,10 @@ public class AdInfo implements Serializable {
                     }
                 }
             }
-        } catch (NullPointerException e2) {
-            BdLog.e("服务端获取数据为空" + e2);
-        } catch (JSONException e3) {
-            BdLog.e("解析服务端json数据异常" + e3);
+        } catch (NullPointerException e) {
+            BdLog.e("服务端获取数据为空" + e);
+        } catch (JSONException e2) {
+            BdLog.e("解析服务端json数据异常" + e2);
         }
     }
 
@@ -185,11 +186,11 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b b2 = b.b(c.a.p0.a0.a.i.b.d());
-            if (TextUtils.isEmpty(b2.f11897d)) {
+            al5 b = al5.b(rl5.d());
+            if (TextUtils.isEmpty(b.d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b2.f11896c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f11896c.equals(this.adVideoUrl);
+            return TextUtils.isEmpty(b.c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b.c.equals(this.adVideoUrl);
         }
         return invokeV.booleanValue;
     }

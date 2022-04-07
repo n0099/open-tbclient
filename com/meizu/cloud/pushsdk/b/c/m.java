@@ -9,21 +9,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class m {
     public static final byte[] a = new byte[0];
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f41992b = new String[0];
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Charset f41993c = Charset.forName("UTF-8");
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f41994d = TimeZone.getTimeZone("GMT");
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f41995e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final String[] b = new String[0];
+    public static final Charset c = Charset.forName("UTF-8");
+    public static final TimeZone d = TimeZone.getTimeZone("GMT");
+    public static final Pattern e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
     public static int a(String str, int i, int i2) {
         while (i < i2) {

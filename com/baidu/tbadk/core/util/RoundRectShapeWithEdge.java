@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RoundRectShapeWithEdge extends RectShape {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,12 +51,12 @@ public class RoundRectShapeWithEdge extends RectShape {
     }
 
     @Override // android.graphics.drawable.shapes.RectShape, android.graphics.drawable.shapes.Shape
-    public void onResize(float f2, float f3) {
+    public void onResize(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             RectF rect = rect();
             int i = this.edge;
-            rect.set(i, i, f2 - i, f3 - i);
+            rect.set(i, i, f - i, f2 - i);
             this.mPath.reset();
             float[] fArr = this.mOuterRadii;
             if (fArr != null) {

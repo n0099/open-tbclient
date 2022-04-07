@@ -2,8 +2,6 @@ package com.baidu.swan.config.core;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.d.g.a;
-import c.a.n0.d.g.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,8 +11,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
+import com.repackage.ik3;
+import com.repackage.jk3;
+import com.repackage.kk3;
+import com.repackage.lk3;
+import com.repackage.mk3;
+import com.repackage.nk3;
+import com.repackage.pk3;
+import com.repackage.qk3;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ConfigNode {
     public static final /* synthetic */ ConfigNode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -40,10 +46,10 @@ public final class ConfigNode {
                 return;
             }
         }
-        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", a.class, b.class);
-        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", c.a.n0.d.f.a.class, c.a.n0.d.f.b.class);
-        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, c.a.n0.d.e.a.class, c.a.n0.d.e.b.class);
-        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", c.a.n0.d.h.a.class, c.a.n0.d.h.b.class);
+        HOST_INFO = new ConfigNode("HOST_INFO", 0, "host_info", mk3.class, nk3.class);
+        FRAMEWORK = new ConfigNode("FRAMEWORK", 1, "framework", kk3.class, lk3.class);
+        EXTENSION = new ConfigNode("EXTENSION", 2, ETAG.KEY_EXTENSION, ik3.class, jk3.class);
+        ConfigNode configNode = new ConfigNode("TIP_MSG", 3, "tipmsgs", pk3.class, qk3.class);
         TIP_MSG = configNode;
         $VALUES = new ConfigNode[]{HOST_INFO, FRAMEWORK, EXTENSION, configNode};
     }

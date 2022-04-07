@@ -10,17 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class TbTabItem extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CharSequence a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Drawable f24017b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final int f24018c;
+    public final Drawable b;
+    public final int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbTabItem(Context context) {
@@ -65,8 +61,8 @@ public final class TbTabItem extends View {
         }
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, new int[]{16842754, 16842994, 16843087});
         this.a = obtainStyledAttributes.getText(2);
-        this.f24017b = obtainStyledAttributes.getDrawable(0);
-        this.f24018c = obtainStyledAttributes.getResourceId(1, 0);
+        this.b = obtainStyledAttributes.getDrawable(0);
+        this.c = obtainStyledAttributes.getResourceId(1, 0);
         obtainStyledAttributes.recycle();
     }
 }

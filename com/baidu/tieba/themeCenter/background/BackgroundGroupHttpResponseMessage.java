@@ -1,7 +1,5 @@
 package com.baidu.tieba.themeCenter.background;
 
-import c.a.p0.f4.e.b;
-import c.a.p0.f4.h.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -10,6 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fr8;
+import com.repackage.iq8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +17,12 @@ import tbclient.Error;
 import tbclient.GetBgByCategory.DataRes;
 import tbclient.GetBgByCategory.GetBgByCategoryResIdl;
 import tbclient.GetBgByCategory.ThemeBgInMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b> mBackgroundGroupList;
-    public e mRecommand;
+    public List<iq8> mBackgroundGroupList;
+    public fr8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundGroupHttpResponseMessage(int i) {
@@ -44,16 +44,16 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<b> getGroupList() {
+    public List<iq8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBackgroundGroupList : (List) invokeV.objValue;
     }
 
-    public e getRecommand() {
+    public fr8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (fr8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class BackgroundGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBgByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                e eVar = new e();
-                this.mRecommand = eVar;
-                eVar.d(getBgByCategoryResIdl.data.recommend);
+                fr8 fr8Var = new fr8();
+                this.mRecommand = fr8Var;
+                fr8Var.d(getBgByCategoryResIdl.data.recommend);
             }
             if (getBgByCategoryResIdl.data.bgs != null) {
                 this.mBackgroundGroupList = new ArrayList();
                 for (ThemeBgInMain themeBgInMain : getBgByCategoryResIdl.data.bgs) {
                     if (themeBgInMain != null && !StringUtils.isNull(themeBgInMain.bg_category)) {
-                        b bVar = new b();
-                        bVar.c(themeBgInMain);
-                        this.mBackgroundGroupList.add(bVar);
+                        iq8 iq8Var = new iq8();
+                        iq8Var.c(themeBgInMain);
+                        this.mBackgroundGroupList.add(iq8Var);
                     }
                 }
             }

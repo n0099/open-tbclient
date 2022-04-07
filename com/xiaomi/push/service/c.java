@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fa;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,9 @@ public class c extends XMPushService.i {
                 if (this.f926a != null) {
                     this.a.a(this.f926a);
                 }
-            } catch (fw e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.a.a(10, e2);
+            } catch (fw e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.a.a(10, e);
             }
         }
     }

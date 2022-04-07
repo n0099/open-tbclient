@@ -11,7 +11,7 @@ import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Function;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
 import com.tachikoma.core.utility.V8Proxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FunctionCallImpl implements IFunction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

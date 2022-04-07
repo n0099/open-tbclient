@@ -15,10 +15,10 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static final c a = new c();
     }
@@ -36,8 +36,8 @@ public class c {
                 return (X509TrustManager) trustManagers[0];
             }
             throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
-        } catch (GeneralSecurityException e2) {
-            throw new IOException("No System TLS", e2);
+        } catch (GeneralSecurityException e) {
+            throw new IOException("No System TLS", e);
         }
     }
 
@@ -93,8 +93,8 @@ public class c {
                         }
                         return str2;
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     e.printStackTrace();
                 }
             } catch (Throwable th) {
@@ -108,8 +108,8 @@ public class c {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             httpsURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
@@ -158,8 +158,8 @@ public class c {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
             sSLContext.init(null, new TrustManager[]{x509TrustManager}, null);
             return sSLContext.getSocketFactory();
-        } catch (GeneralSecurityException e2) {
-            throw new IOException("No System TLS", e2);
+        } catch (GeneralSecurityException e) {
+            throw new IOException("No System TLS", e);
         }
     }
 }

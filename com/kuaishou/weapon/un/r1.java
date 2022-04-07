@@ -7,31 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class r1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "123456";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f38969b = "2.8.3";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final boolean f38970c = false;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f38971d = "com.kuaishou.weapon";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f38972e = "com.kuaishou.weapon";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f38973f = ".WeaponEngineImpl";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f38974g = ".WeaponExt";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f38975h = "wp_local.cfg";
+    public static final String b = "2.8.3";
+    public static final boolean c = false;
+    public static final String d = "com.kuaishou.weapon";
+    public static final String e = "com.kuaishou.weapon";
+    public static final String f = ".WeaponEngineImpl";
+    public static final String g = ".WeaponExt";
+    public static final String h = "wp_local.cfg";
     public static final String i = ".tmp";
     public static final String j = ".bud";
     public static final String k = "/.";

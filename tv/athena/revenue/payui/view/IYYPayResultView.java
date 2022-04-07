@@ -8,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r6a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-/* loaded from: classes8.dex */
-public interface IYYPayResultView extends h.a.a.e.i.a {
+/* loaded from: classes9.dex */
+public interface IYYPayResultView extends r6a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class Result {
         public static final /* synthetic */ Result[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,27 +75,21 @@ public interface IYYPayResultView extends h.a.a.e.i.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
 
         boolean b();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Result a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f45833b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f45834c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f45835d;
+        public CurrencyChargeMessage b;
+        public int c;
+        public String d;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
             Interceptable interceptable = $ic;
@@ -112,32 +107,30 @@ public interface IYYPayResultView extends h.a.a.e.i.a {
                 }
             }
             this.a = result;
-            this.f45833b = currencyChargeMessage;
+            this.b = currencyChargeMessage;
         }
 
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.f45834c = i;
+                this.c = i;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f45835d = str;
+                this.d = str;
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f45836b;
+        public AbsViewEventHandler b;
 
         public c() {
             Interceptable interceptable = $ic;

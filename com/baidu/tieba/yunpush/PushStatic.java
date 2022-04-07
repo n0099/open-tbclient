@@ -21,39 +21,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.wt4;
+import com.repackage.ya;
+import com.repackage.z29;
+import com.repackage.zx4;
+/* loaded from: classes4.dex */
 public class PushStatic {
     public static /* synthetic */ Interceptable $ic;
     public static CustomMessageListener a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static CustomMessageListener f37626b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static CustomMessageListener f37627c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static c.a.d.c.g.c f37628d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static CustomMessageListener f37629e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static CustomMessageListener f37630f;
+    public static CustomMessageListener b;
+    public static CustomMessageListener c;
+    public static ya d;
+    public static CustomMessageListener e;
+    public static CustomMessageListener f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.yunpush.PushStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC1903a implements Runnable {
+        /* loaded from: classes4.dex */
+        public class RunnableC0243a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC1903a(a aVar) {
+            public RunnableC0243a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -103,12 +97,12 @@ public class PushStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-                new Thread(new RunnableC1903a(this)).start();
+                new Thread(new RunnableC0243a(this)).start();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +138,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,8 +174,8 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class d extends c.a.d.c.g.c {
+    /* loaded from: classes4.dex */
+    public static class d extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -215,7 +209,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +244,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -285,7 +279,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class g implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -312,7 +306,7 @@ public class PushStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class h implements UploadDataListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,18 +347,18 @@ public class PushStatic {
             }
         }
         a = new a(0);
-        f37626b = new b(2921613);
-        f37627c = new c(2005016);
-        f37628d = new d(1001);
-        f37629e = new e(2921631);
-        f37630f = new f(2921660);
+        b = new b(2921613);
+        c = new c(2005016);
+        d = new d(1001);
+        e = new e(2921631);
+        f = new f(2921660);
         MessageManager.getInstance().registerListener(2007015, a);
         MessageManager.getInstance().registerListener(2921644, a);
-        MessageManager.getInstance().registerListener(f37626b);
-        MessageManager.getInstance().registerListener(f37627c);
-        MessageManager.getInstance().registerListener(f37629e);
-        MessageManager.getInstance().registerListener(f37630f);
-        MessageManager.getInstance().registerListener(f37628d);
+        MessageManager.getInstance().registerListener(b);
+        MessageManager.getInstance().registerListener(c);
+        MessageManager.getInstance().registerListener(e);
+        MessageManager.getInstance().registerListener(f);
+        MessageManager.getInstance().registerListener(d);
     }
 
     public PushStatic() {
@@ -385,7 +379,7 @@ public class PushStatic {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled();
-            boolean k = TbadkCoreApplication.isLogin() ? c.a.o0.s.d.d.d().k() : false;
+            boolean k = TbadkCoreApplication.isLogin() ? zx4.d().k() : false;
             if (areNotificationsEnabled && k) {
                 k(true);
             } else {
@@ -429,7 +423,7 @@ public class PushStatic {
             }
             PushManager.enableMeizuProxy(context, true, "111848", "39e9cd05b2294f848dd1c10993e76b59");
             PushManager.enableVivoProxy(context, true);
-            PushManager.startWork(context, 0, c.a.p0.t4.a.a(context, Constants.API_KEY));
+            PushManager.startWork(context, 0, z29.a(context, Constants.API_KEY));
             e();
         }
     }
@@ -437,7 +431,7 @@ public class PushStatic {
     public static void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            c.a.o0.r.j0.b k = c.a.o0.r.j0.b.k();
+            wt4 k = wt4.k();
             if (k.h(TbConfig.getVersion() + BaiduYunPushMessageReceiver.KEY_SHAREDPRE_PUSH_STARTWORK, false)) {
                 PushManager.stopWork(context);
             }
@@ -465,7 +459,7 @@ public class PushStatic {
     public static void m() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && TbadkCoreApplication.isLogin()) {
-            boolean l = c.a.o0.s.d.d.d().l();
+            boolean l = zx4.d().l();
             PushManager.uploadNotifyStatus(TbadkCoreApplication.getInst(), l ? 1 : 0, new h());
         }
     }

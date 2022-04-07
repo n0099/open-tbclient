@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.model.AssetUriLoader;
 import java.io.IOException;
 import java.lang.ref.SoftReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPFilter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ARPFilter";
@@ -59,7 +59,7 @@ public class ARPFilter {
 
     private native void nativeAdjustFilterWithFloatArrayParam(String str, String str2, float[] fArr);
 
-    private native void nativeAdjustFilterWithFloatParam(String str, String str2, float f2);
+    private native void nativeAdjustFilterWithFloatParam(String str, String str2, float f);
 
     private native void nativeAdjustFilterWithIntParam(String str, String str2, int i);
 
@@ -88,10 +88,10 @@ public class ARPFilter {
         }
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) {
-            nativeAdjustFilterWithFloatParam(str, str2, f2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Float.valueOf(f), Long.valueOf(j)}) == null) {
+            nativeAdjustFilterWithFloatParam(str, str2, f);
         }
     }
 
@@ -119,8 +119,8 @@ public class ARPFilter {
             Bitmap bitmap = null;
             try {
                 bitmap = BitmapFactory.decodeStream(this.softContext.get().getAssets().open(str3.substring(str3.lastIndexOf(AssetUriLoader.ASSET_PATH_SEGMENT) + 13 + 1)));
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             if (bitmap != null) {
                 String str4 = "texture_width";

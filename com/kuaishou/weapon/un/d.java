@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.k;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String A = "wpcf";
@@ -74,28 +74,18 @@ public class d {
     public static final String b1 = "a1_l_s_p_s_c_b";
     public static final String c0 = "plc001_pd_cb_ps";
     public static final String c1 = "plc001_nc_w";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f38802d = "w_t";
+    public static final String d = "w_t";
     public static final String d0 = "plc001_pd_pg_ps";
     public static final String d1 = "plc001_ac_a";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String f38803e = "w_t_r";
+    public static final String e = "w_t_r";
     public static final String e0 = "plc001_pd_pt_pi";
     public static final String e1 = "plc001_ac_r";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String f38804f = "w_t_u";
+    public static final String f = "w_t_u";
     public static final String f0 = "plc001_pd_pk_pc";
     public static final String f1 = "plc001_pd_bss";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f38805g = "w_t_d";
+    public static final String g = "w_t_d";
     public static final String g0 = "plc001_pd_ph_ps";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final String f38806h = "w_t_d_n";
+    public static final String h = "w_t_d_n";
     public static final String h0 = "wlpit";
     public static final String i = "wwv";
     public static final String i0 = "l_p_i_s";
@@ -135,12 +125,8 @@ public class d {
     public static final String z0 = "plc001_b_bcl_n_s";
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f38807b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f38808c;
+    public SharedPreferences.Editor b;
+    public Context c;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -160,8 +146,8 @@ public class d {
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences(r1.o, 4);
             this.a = sharedPreferences;
-            this.f38807b = sharedPreferences.edit();
-            this.f38808c = context;
+            this.b = sharedPreferences.edit();
+            this.c = context;
         } catch (Throwable th) {
             l1.a(th);
         }
@@ -183,10 +169,10 @@ public class d {
             }
         }
         try {
-            this.f38808c = context;
+            this.c = context;
             SharedPreferences sharedPreferences = context.getSharedPreferences(str, 4);
             this.a = sharedPreferences;
-            this.f38807b = sharedPreferences.edit();
+            this.b = sharedPreferences.edit();
         } catch (Throwable unused) {
         }
     }
@@ -228,16 +214,16 @@ public class d {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f38807b.putInt(X0, i2);
-            this.f38807b.apply();
+            this.b.putInt(X0, i2);
+            this.b.apply();
         }
     }
 
     public void a(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.f38807b.putLong(U0, j2);
-            this.f38807b.apply();
+            this.b.putLong(U0, j2);
+            this.b.apply();
         }
     }
 
@@ -253,8 +239,8 @@ public class d {
     public void a(String str, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j2) == null) {
-            this.f38807b.putLong(str, j2);
-            this.f38807b.apply();
+            this.b.putLong(str, j2);
+            this.b.apply();
         }
     }
 
@@ -295,24 +281,24 @@ public class d {
                         c(t0, kVar.c().d());
                         c(u0, kVar.c().a());
                         c(v0, kVar.c().c());
-                        k.b.a b2 = kVar.c().b();
-                        if (b2 != null) {
-                            c(w0, b2.d());
-                            c(x0, b2.k());
-                            c(y0, b2.c());
-                            c(z0, b2.j());
-                            c(B0, b2.p());
-                            c(A0, b2.m());
-                            c(C0, b2.o());
-                            c(D0, b2.a());
-                            c(E0, b2.f());
-                            c(F0, b2.h());
-                            c(G0, b2.e());
-                            c(H0, b2.b());
-                            c(I0, b2.i());
-                            c(J0, b2.l());
-                            c(K0, b2.n());
-                            c(L0, b2.g());
+                        k.b.a b = kVar.c().b();
+                        if (b != null) {
+                            c(w0, b.d());
+                            c(x0, b.k());
+                            c(y0, b.c());
+                            c(z0, b.j());
+                            c(B0, b.p());
+                            c(A0, b.m());
+                            c(C0, b.o());
+                            c(D0, b.a());
+                            c(E0, b.f());
+                            c(F0, b.h());
+                            c(G0, b.e());
+                            c(H0, b.b());
+                            c(I0, b.i());
+                            c(J0, b.l());
+                            c(K0, b.n());
+                            c(L0, b.g());
                         }
                     }
                 }
@@ -330,9 +316,9 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, bool) == null) {
             try {
-                if (this.f38807b != null) {
-                    this.f38807b.putBoolean(str, bool.booleanValue());
-                    this.f38807b.apply();
+                if (this.b != null) {
+                    this.b.putBoolean(str, bool.booleanValue());
+                    this.b.apply();
                 }
             } catch (Exception unused) {
             }
@@ -343,7 +329,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
             if (list == null || list.size() == 0) {
-                this.f38807b.putString(y, "");
+                this.b.putString(y, "");
             } else {
                 StringBuilder sb = new StringBuilder();
                 for (int i2 = 0; i2 < list.size(); i2++) {
@@ -352,17 +338,17 @@ public class d {
                         sb.append("-");
                     }
                 }
-                this.f38807b.putString("glspk", sb.toString());
+                this.b.putString("glspk", sb.toString());
             }
-            this.f38807b.apply();
+            this.b.apply();
         }
     }
 
     public void a(boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z2) == null) {
-            this.f38807b.putBoolean(n, z2);
-            this.f38807b.apply();
+            this.b.putBoolean(n, z2);
+            this.b.apply();
         }
     }
 
@@ -370,7 +356,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, iArr) == null) {
             if (iArr == null || iArr.length == 0) {
-                this.f38807b.putString(x, "");
+                this.b.putString(x, "");
             } else {
                 StringBuilder sb = new StringBuilder();
                 for (int i2 = 0; i2 < iArr.length; i2++) {
@@ -379,9 +365,9 @@ public class d {
                         sb.append("-");
                     }
                 }
-                this.f38807b.putString("hcpk", sb.toString());
+                this.b.putString("hcpk", sb.toString());
             }
-            this.f38807b.apply();
+            this.b.apply();
         }
     }
 
@@ -422,8 +408,8 @@ public class d {
     public void b(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.f38807b.putLong(V0, j2);
-            this.f38807b.apply();
+            this.b.putLong(V0, j2);
+            this.b.apply();
         }
     }
 
@@ -441,8 +427,8 @@ public class d {
         if (!(interceptable == null || interceptable.invokeLL(1048594, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f38807b.putString(str, str2);
-        this.f38807b.apply();
+        this.b.putString(str, str2);
+        this.b.apply();
     }
 
     public void b(String str, String str2, boolean z2) {
@@ -453,8 +439,8 @@ public class d {
         if (z2) {
             str2 = k1.c(str2.getBytes(), 2);
         }
-        this.f38807b.putString(str, str2);
-        this.f38807b.apply();
+        this.b.putString(str, str2);
+        this.b.apply();
     }
 
     public boolean b(String str) {
@@ -478,8 +464,8 @@ public class d {
     public void c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.f38807b.putLong(W0, j2);
-            this.f38807b.apply();
+            this.b.putLong(W0, j2);
+            this.b.apply();
         }
     }
 
@@ -487,8 +473,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048600, this, str, i2) == null) {
             try {
-                this.f38807b.putInt(str, i2);
-                this.f38807b.apply();
+                this.b.putInt(str, i2);
+                this.b.apply();
             } catch (Throwable unused) {
             }
         }
@@ -497,9 +483,9 @@ public class d {
     public void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
-            SharedPreferences.Editor editor = this.f38807b;
+            SharedPreferences.Editor editor = this.b;
             editor.putString("as", str + "-" + str2);
-            this.f38807b.apply();
+            this.b.apply();
         }
     }
 
@@ -512,8 +498,8 @@ public class d {
     public void d(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
-            this.f38807b.putLong(Y0, j2);
-            this.f38807b.apply();
+            this.b.putLong(Y0, j2);
+            this.b.apply();
         }
     }
 
@@ -545,8 +531,8 @@ public class d {
     public void e(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.f38807b.putLong(S0, j2);
-            this.f38807b.apply();
+            this.b.putLong(S0, j2);
+            this.b.apply();
         }
     }
 
@@ -559,8 +545,8 @@ public class d {
     public void f(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048609, this, j2) == null) {
-            this.f38807b.putLong(T0, j2);
-            this.f38807b.apply();
+            this.b.putLong(T0, j2);
+            this.b.apply();
         }
     }
 
@@ -632,7 +618,7 @@ public class d {
     public SharedPreferences.Editor l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.f38807b : (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) ? this.b : (SharedPreferences.Editor) invokeV.objValue;
     }
 
     public SharedPreferences m() {

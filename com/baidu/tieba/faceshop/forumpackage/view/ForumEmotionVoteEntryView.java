@@ -18,23 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ForumEmotionVoteEntryView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f32172b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f32173c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32174d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f32175e;
+    public int b;
+    public LinearLayout c;
+    public TextView d;
+    public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumEmotionVoteEntryView(Context context) {
@@ -60,12 +52,12 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b6, this);
-            this.f32173c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a9f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b7, this);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090aa1);
             this.a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225);
-            this.f32172b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.f32174d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a38);
-            this.f32175e = findViewById(R.id.obfuscated_res_0x7f090aa0);
+            this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a3f);
+            this.e = findViewById(R.id.obfuscated_res_0x7f090aa2);
         }
     }
 
@@ -73,16 +65,16 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.f32173c, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f32174d, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundColor(this.f32175e, R.color.common_color_10312);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.e, R.color.common_color_10312);
         }
     }
 
     public void setAvatarList(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.f32173c.removeAllViews();
+            this.c.removeAllViews();
             if (list == null || list.isEmpty()) {
                 return;
             }
@@ -94,10 +86,10 @@ public class ForumEmotionVoteEntryView extends RelativeLayout {
                     tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     int i = this.a;
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i);
-                    layoutParams.leftMargin = this.f32172b;
+                    layoutParams.leftMargin = this.b;
                     layoutParams.gravity = 17;
-                    tbImageView.J(str, 10, false);
-                    this.f32173c.addView(tbImageView, layoutParams);
+                    tbImageView.K(str, 10, false);
+                    this.c.addView(tbImageView, layoutParams);
                 }
             }
         }

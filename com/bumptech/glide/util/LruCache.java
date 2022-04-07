@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LruCache<T, Y> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -181,12 +181,12 @@ public class LruCache<T, Y> {
         return (Y) invokeL.objValue;
     }
 
-    public synchronized void setSizeMultiplier(float f2) {
+    public synchronized void setSizeMultiplier(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
             synchronized (this) {
-                if (f2 >= 0.0f) {
-                    this.maxSize = Math.round(((float) this.initialMaxSize) * f2);
+                if (f >= 0.0f) {
+                    this.maxSize = Math.round(((float) this.initialMaxSize) * f);
                     evict();
                 } else {
                     throw new IllegalArgumentException("Multiplier must be >= 0");

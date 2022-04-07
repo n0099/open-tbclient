@@ -12,11 +12,9 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class b implements g {
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Map<String, String> f39575b = new HashMap();
+    public final Map<String, String> b = new HashMap();
     public final JSONObject a = new JSONObject();
 
     public b() {
@@ -26,9 +24,9 @@ public abstract class b implements g {
         if (a != null && ((Boolean) a.getValue()).booleanValue()) {
             a("x-ksad-ignore-decrypt", String.valueOf(true));
         }
-        String b2 = e.a().b();
-        if (!TextUtils.isEmpty(b2)) {
-            a("cookie", b2);
+        String b = e.a().b();
+        if (!TextUtils.isEmpty(b)) {
+            a("cookie", b);
         }
         com.kwad.sdk.core.a.d.a(c());
     }
@@ -36,8 +34,8 @@ public abstract class b implements g {
     @Override // com.kwad.sdk.core.network.g
     public abstract String a();
 
-    public void a(String str, double d2) {
-        t.a(this.a, str, d2);
+    public void a(String str, double d) {
+        t.a(this.a, str, d);
     }
 
     public void a(String str, int i) {
@@ -53,7 +51,7 @@ public abstract class b implements g {
     }
 
     public void a(String str, String str2) {
-        this.f39575b.put(str, str2);
+        this.b.put(str, str2);
     }
 
     public void a(String str, List<? extends com.kwad.sdk.core.b> list) {
@@ -84,7 +82,7 @@ public abstract class b implements g {
 
     @Override // com.kwad.sdk.core.network.g
     public Map<String, String> c() {
-        return this.f39575b;
+        return this.b;
     }
 
     @Override // com.kwad.sdk.core.network.g

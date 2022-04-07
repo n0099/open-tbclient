@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DownloadDBHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static int DATA_VERSION = 0;
@@ -66,8 +66,8 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeLLL(65538, this, sQLiteDatabase, str, str2) == null) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE downloads ADD COLUMN " + str + " " + str2);
-            } catch (SQLException e2) {
-                Log.e(TAG, "couldn't add column: " + e2.toString());
+            } catch (SQLException e) {
+                Log.e(TAG, "couldn't add column: " + e.toString());
             }
         }
     }
@@ -97,8 +97,8 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
                 try {
                     sQLiteDatabase.execSQL(DownloadDao.CREATE_TABLE_SQL);
                     sQLiteDatabase.setTransactionSuccessful();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 sQLiteDatabase.endTransaction();
@@ -116,8 +116,8 @@ public final class DownloadDBHelper extends SQLiteOpenHelper {
                     sQLiteDatabase.execSQL(DownloadDao.DROP_TABLE_SQL);
                     sQLiteDatabase.execSQL(DownloadDao.CREATE_TABLE_SQL);
                     sQLiteDatabase.setTransactionSuccessful();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 sQLiteDatabase.endTransaction();

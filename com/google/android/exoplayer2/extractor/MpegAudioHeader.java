@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MpegAudioHeader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BITRATE_V1_L1;

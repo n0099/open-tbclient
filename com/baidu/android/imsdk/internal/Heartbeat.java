@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -18,7 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.p70;
+/* loaded from: classes.dex */
 public class Heartbeat {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ALARM_TIMEOUT = 60000;
@@ -30,7 +30,7 @@ public class Heartbeat {
     public Handler mHandler;
     public HeartbeatOpearation mOperator;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class BoxHeartbeat implements HeartbeatOpearation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,17 +108,17 @@ public class Heartbeat {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, a.class);
+                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, p70.class);
                                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                                         intent.setPackage(this.this$2.this$1.this$0.mContext.getPackageName());
-                                        a.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
+                                        p70.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
                                         this.this$2.this$1.this$0.mHandler.postDelayed(this.this$2.this$1.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                                     }
                                 }
                             });
-                        } catch (Exception e2) {
-                            if (e2 instanceof SecurityException) {
-                                LogUtils.e("BoxHeartbeat", "box SecurityException!!", e2);
+                        } catch (Exception e) {
+                            if (e instanceof SecurityException) {
+                                LogUtils.e("BoxHeartbeat", "box SecurityException!!", e);
                             }
                         }
                     }
@@ -132,8 +132,8 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     this.this$0.mHandler.removeCallbacks(this.startIMServiceTask);
-                } catch (Exception e2) {
-                    LogUtils.e("Heartbeat", e2.getMessage());
+                } catch (Exception e) {
+                    LogUtils.e("Heartbeat", e.getMessage());
                 }
             }
         }
@@ -145,14 +145,14 @@ public class Heartbeat {
                 try {
                     this.this$0.mHandler.removeCallbacks(this.startIMServiceTask);
                     this.this$0.mHandler.postDelayed(this.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
-                } catch (Exception e2) {
-                    LogUtils.e("Heartbeat", e2.getMessage());
+                } catch (Exception e) {
+                    LogUtils.e("Heartbeat", e.getMessage());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class NormalHeartbeat implements HeartbeatOpearation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,7 +182,7 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, a.class);
+                intent.setClass(this.this$0.mContext, p70.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, LaunchTaskConstants.OTHER_PROCESS));
             }
@@ -195,7 +195,7 @@ public class Heartbeat {
                 cancelHearbeat();
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, a.class);
+                intent.setClass(this.this$0.mContext, p70.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, LaunchTaskConstants.OTHER_PROCESS);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);

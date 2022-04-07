@@ -8,8 +8,6 @@ import android.content.res.Resources;
 import android.net.Uri;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.c;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,15 +21,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.NTLMEngineImpl;
+import com.repackage.ng;
+import com.repackage.wt4;
 import java.util.Calendar;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
     public static TbadkApplication sApp;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] mPatchWhiteList;
-    public c resourcesWrapper;
+    public ng resourcesWrapper;
     public String tShopUrl;
 
     static {
@@ -112,7 +112,7 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().getIsPluginResourcOpen()) {
                 if (this.resourcesWrapper == null && super.getResources() != null) {
-                    this.resourcesWrapper = new c(super.getResources());
+                    this.resourcesWrapper = new ng(super.getResources());
                 }
                 return this.resourcesWrapper;
             }
@@ -198,7 +198,7 @@ public class TbadkApplication extends TbadkCoreApplication {
     public void loginShareRemove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            b.k().D("account_share");
+            wt4.k().D("account_share");
         }
     }
 

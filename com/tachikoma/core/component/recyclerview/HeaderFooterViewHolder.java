@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.yoga.YogaUnit;
 import com.kwad.yoga.YogaValue;
 import com.tachikoma.core.yoga.layout.YogaLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,13 +18,13 @@ public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
     public YogaValue mOriginWidth;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeaderFooterViewHolder(@NonNull View view, YogaValue yogaValue, YogaValue yogaValue2) {
-        super(view);
+    public HeaderFooterViewHolder(@NonNull View view2, YogaValue yogaValue, YogaValue yogaValue2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, yogaValue, yogaValue2};
+            Object[] objArr = {view2, yogaValue, yogaValue2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,10 +42,10 @@ public class HeaderFooterViewHolder extends RecyclerView.ViewHolder {
     public void maybeReset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View view = this.itemView;
-            if (view instanceof YogaLayout) {
+            View view2 = this.itemView;
+            if (view2 instanceof YogaLayout) {
                 if (this.mOriginWidth.unit == YogaUnit.AUTO) {
-                    ((YogaLayout) view).getYogaNode().setWidthAuto();
+                    ((YogaLayout) view2).getYogaNode().setWidthAuto();
                 }
                 if (this.mOriginHeight.unit == YogaUnit.AUTO) {
                     ((YogaLayout) this.itemView).getYogaNode().setHeightAuto();

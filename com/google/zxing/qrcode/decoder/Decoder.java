@@ -15,7 +15,7 @@ import com.google.zxing.common.reedsolomon.GenericGF;
 import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Decoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,15 +88,15 @@ public final class Decoder {
 
     public DecoderResult decode(BitMatrix bitMatrix, Map<DecodeHintType, ?> map) throws FormatException, ChecksumException {
         InterceptResult invokeLL;
-        ChecksumException e2;
+        ChecksumException e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitMatrix, map)) == null) {
             BitMatrixParser bitMatrixParser = new BitMatrixParser(bitMatrix);
             FormatException formatException = null;
             try {
                 return decode(bitMatrixParser, map);
-            } catch (ChecksumException e3) {
-                e2 = e3;
+            } catch (ChecksumException e2) {
+                e = e2;
                 try {
                     bitMatrixParser.remask();
                     bitMatrixParser.setMirror(true);
@@ -106,18 +106,18 @@ public final class Decoder {
                     DecoderResult decode = decode(bitMatrixParser, map);
                     decode.setOther(new QRCodeDecoderMetaData(true));
                     return decode;
-                } catch (ChecksumException | FormatException e4) {
+                } catch (ChecksumException | FormatException e3) {
                     if (formatException == null) {
-                        if (e2 != null) {
-                            throw e2;
+                        if (e != null) {
+                            throw e;
                         }
-                        throw e4;
+                        throw e3;
                     }
                     throw formatException;
                 }
-            } catch (FormatException e5) {
-                e2 = null;
-                formatException = e5;
+            } catch (FormatException e4) {
+                e = null;
+                formatException = e4;
                 bitMatrixParser.remask();
                 bitMatrixParser.setMirror(true);
                 bitMatrixParser.readVersion();

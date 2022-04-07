@@ -1,8 +1,5 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.a0.h.b;
-import c.a.p.g.a.a;
-import c.a.r0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -14,7 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.f40;
+import com.repackage.ii0;
+import com.repackage.s49;
+import com.repackage.ub1;
+/* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                b.c();
+                ii0.c();
             }
         }
     }
@@ -45,7 +46,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            a.C0889a.c(TbadkCoreApplication.getInst()).b().t();
+            f40.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -53,8 +54,8 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (c.a.g0.b.a.a.g()) {
-                c0.a();
+            if (ub1.g()) {
+                s49.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }

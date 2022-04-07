@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMUnBindPushMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMUnBindPushMsg";
@@ -81,9 +81,9 @@ public class IMUnBindPushMsg extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("device_id", this.mDeviceId);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "buildBody", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "buildBody", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

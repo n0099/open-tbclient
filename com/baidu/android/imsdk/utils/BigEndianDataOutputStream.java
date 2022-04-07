@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BigEndianDataOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,11 +48,11 @@ public class BigEndianDataOutputStream {
         }
     }
 
-    public final void writeByte(byte b2) throws IOException {
+    public final void writeByte(byte b) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
+        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
             byte[] bArr = this.buff;
-            bArr[0] = b2;
+            bArr[0] = b;
             this.mDos.write(bArr, 0, 1);
         }
     }

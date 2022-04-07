@@ -26,7 +26,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlinx.coroutines.CoroutineScope;
 @Metadata(d1 = {"\u0000\n\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\u00020\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlinx/coroutines/CoroutineScope;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tun2tornadolite.booster.sclient.SClient$loop$2", f = "SClient.kt", i = {}, l = {}, m = "invokeSuspend", n = {}, s = {})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SClient$loop$2 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,16 +105,16 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                             createPacketByHeader.encodeHeader2Buffer(byteBuffer);
                             byteBuffer2 = SClient.bodyBuffer;
                             byteBuffer2.clear();
-                            int m85getBodyLengthpVg5ArA = createPacketByHeader.m85getBodyLengthpVg5ArA();
+                            int m81getBodyLengthpVg5ArA = createPacketByHeader.m81getBodyLengthpVg5ArA();
                             int i = 0;
                             int i2 = 0;
                             int i3 = 0;
                             while (true) {
-                                if (i >= createPacketByHeader.m85getBodyLengthpVg5ArA()) {
+                                if (i >= createPacketByHeader.m81getBodyLengthpVg5ArA()) {
                                     break;
                                 }
                                 byteBuffer4 = SClient.bodyBuffer;
-                                int read = dataInputStream.read(byteBuffer4.array(), i2, m85getBodyLengthpVg5ArA);
+                                int read = dataInputStream.read(byteBuffer4.array(), i2, m81getBodyLengthpVg5ArA);
                                 if (read < 0) {
                                     SClient sClient = SClient.INSTANCE;
                                     SClient.looping = false;
@@ -122,7 +122,7 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                                 }
                                 i += read;
                                 i2 += read;
-                                m85getBodyLengthpVg5ArA -= read;
+                                m81getBodyLengthpVg5ArA -= read;
                                 LogTo logTo = LogTo.INSTANCE;
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("[Socket ");
@@ -134,14 +134,14 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                                 sb.append(" offset:");
                                 sb.append(i2);
                                 sb.append(" left:");
-                                sb.append(m85getBodyLengthpVg5ArA);
+                                sb.append(m81getBodyLengthpVg5ArA);
                                 sb.append(" all:");
-                                sb.append(createPacketByHeader.m85getBodyLengthpVg5ArA());
+                                sb.append(createPacketByHeader.m81getBodyLengthpVg5ArA());
                                 sb.append(" from:");
                                 str = SClient.address;
                                 sb.append((Object) str);
                                 logTo.d("*****", sb.toString());
-                                if (m85getBodyLengthpVg5ArA == 0) {
+                                if (m81getBodyLengthpVg5ArA == 0) {
                                     break;
                                 }
                                 i3++;
@@ -150,19 +150,19 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                             createPacketByHeader.writeBodyBuffer(byteBuffer3);
                             SClient.INSTANCE.processPacket(j, createPacketByHeader);
                             j++;
-                        } catch (EOFException e2) {
+                        } catch (EOFException e) {
                             SClient sClient2 = SClient.INSTANCE;
                             SClient.looping = false;
                             TornadoLiteRuntime.INSTANCE.onEvent$tun2tornadolite_release(41L, "服务器断开连接");
-                            e2.printStackTrace();
-                        } catch (Exception e3) {
+                            e.printStackTrace();
+                        } catch (Exception e2) {
                             SClient sClient3 = SClient.INSTANCE;
                             SClient.looping = false;
-                            e3.printStackTrace();
+                            e2.printStackTrace();
                         }
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
                     SClient sClient4 = SClient.INSTANCE;
                     SClient.looping = false;
                 }

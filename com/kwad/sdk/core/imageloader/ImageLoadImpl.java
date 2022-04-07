@@ -27,7 +27,7 @@ import com.kwad.sdk.core.network.m;
 import com.kwad.sdk.utils.aq;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ImageLoadImpl implements IImageLoader {
     private DisplayImageOptions adapter(DisplayImageOptionsCompat displayImageOptionsCompat) {
         BitmapDisplayer roundedBitmapDisplayer;
@@ -122,8 +122,8 @@ public class ImageLoadImpl implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f2) {
-        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(drawable).showImageOnFail(drawable2).displayer(new RoundedBitmapDisplayer(a.a(imageView.getContext(), f2))).build());
+    public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f) {
+        ImageLoader.getInstance().displayImage(str, imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(drawable).showImageOnFail(drawable2).displayer(new RoundedBitmapDisplayer(a.a(imageView.getContext(), f))).build());
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader

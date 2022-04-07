@@ -23,7 +23,7 @@ import java.util.Scanner;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CpuMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_STAT_LOG_PERIOD_MS = 6000;
@@ -48,7 +48,7 @@ public class CpuMonitor {
     public final MovingAverage totalCpuUsage;
     public final MovingAverage userCpuUsage;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MovingAverage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,19 +81,19 @@ public class CpuMonitor {
             throw new AssertionError("Size value in MovingAverage ctor should be positive.");
         }
 
-        public void addValue(double d2) {
+        public void addValue(double d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
-                double d3 = this.sum;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)}) == null) {
+                double d2 = this.sum;
                 double[] dArr = this.circBuffer;
                 int i = this.circBufferIndex;
-                double d4 = d3 - dArr[i];
-                this.sum = d4;
+                double d3 = d2 - dArr[i];
+                this.sum = d3;
                 int i2 = i + 1;
                 this.circBufferIndex = i2;
-                dArr[i] = d2;
-                this.currentValue = d2;
-                this.sum = d4 + d2;
+                dArr[i] = d;
+                this.currentValue = d;
+                this.sum = d3 + d;
                 if (i2 >= this.size) {
                     this.circBufferIndex = 0;
                 }
@@ -123,7 +123,7 @@ public class CpuMonitor {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ProcStat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,10 +186,10 @@ public class CpuMonitor {
         }
     }
 
-    private int doubleToPercent(double d2) {
+    private int doubleToPercent(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Double.valueOf(d2)})) == null) ? (int) ((d2 * 100.0d) + 0.5d) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d * 100.0d) + 0.5d) : invokeCommon.intValue;
     }
 
     private int getBatteryLevel() {
@@ -295,8 +295,8 @@ public class CpuMonitor {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             try {
                 return Long.parseLong(str);
-            } catch (NumberFormatException e2) {
-                Log.e(TAG, "parseLong error.", e2);
+            } catch (NumberFormatException e) {
+                Log.e(TAG, "parseLong error.", e);
                 return 0L;
             }
         }
@@ -344,17 +344,17 @@ public class CpuMonitor {
                         j = j + parseLong(split[6]) + parseLong(split[7]);
                     }
                     return new ProcStat(j3, j, j2);
-                } catch (Exception e2) {
-                    Log.e(TAG, "Problems parsing /proc/stat", e2);
+                } catch (Exception e) {
+                    Log.e(TAG, "Problems parsing /proc/stat", e);
                     return null;
                 } finally {
                     bufferedReader.close();
                 }
-            } catch (FileNotFoundException e3) {
-                Log.e(TAG, "Cannot open /proc/stat for reading", e3);
+            } catch (FileNotFoundException e2) {
+                Log.e(TAG, "Cannot open /proc/stat for reading", e2);
                 return null;
-            } catch (IOException e4) {
-                Log.e(TAG, "Problems reading /proc/stat", e4);
+            } catch (IOException e3) {
+                Log.e(TAG, "Problems reading /proc/stat", e3);
                 return null;
             }
         }
@@ -416,11 +416,11 @@ public class CpuMonitor {
                     }
                 }
                 if (j != 0 && j2 != 0) {
-                    double d2 = j / j2;
+                    double d = j / j2;
                     if (this.frequencyScale.getCurrent() > 0.0d) {
-                        d2 = 0.5d * (this.frequencyScale.getCurrent() + d2);
+                        d = 0.5d * (this.frequencyScale.getCurrent() + d);
                     }
-                    this.frequencyScale.addValue(d2);
+                    this.frequencyScale.addValue(d);
                     if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT <= 24) {
                         ProcStat readProcStat = readProcStat();
                         if (readProcStat == null) {
@@ -429,13 +429,13 @@ public class CpuMonitor {
                         long j4 = readProcStat.userTime - this.lastProcStat.userTime;
                         long j5 = readProcStat.systemTime - this.lastProcStat.systemTime;
                         long j6 = j4 + j5 + (readProcStat.idleTime - this.lastProcStat.idleTime);
-                        if (d2 != 0.0d && j6 != 0) {
-                            double d3 = j6;
-                            double d4 = j4 / d3;
-                            this.userCpuUsage.addValue(d4);
-                            double d5 = j5 / d3;
-                            this.systemCpuUsage.addValue(d5);
-                            this.totalCpuUsage.addValue((d4 + d5) * d2);
+                        if (d != 0.0d && j6 != 0) {
+                            double d2 = j6;
+                            double d3 = j4 / d2;
+                            this.userCpuUsage.addValue(d3);
+                            double d4 = j5 / d2;
+                            this.systemCpuUsage.addValue(d4);
+                            this.totalCpuUsage.addValue((d3 + d4) * d);
                             this.lastProcStat = readProcStat;
                             return true;
                         }

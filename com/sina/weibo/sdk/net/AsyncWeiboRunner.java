@@ -63,9 +63,9 @@ public class AsyncWeiboRunner {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     return new AsyncTaskResult<>(HttpManager.openUrl(this.mContext, this.mUrl, this.mHttpMethod, this.mParams));
-                } catch (WeiboException e2) {
-                    LogUtil.e("ContentValues", e2.getMessage());
-                    return new AsyncTaskResult<>(e2);
+                } catch (WeiboException e) {
+                    LogUtil.e("ContentValues", e.getMessage());
+                    return new AsyncTaskResult<>(e);
                 }
             }
             return (AsyncTaskResult) invokeL.objValue;
@@ -167,9 +167,9 @@ public class AsyncWeiboRunner {
                             if (this.val$listener != null) {
                                 this.val$listener.onComplete(openRedirectUrl4LocationUri);
                             }
-                        } catch (WeiboException e2) {
+                        } catch (WeiboException e) {
                             if (this.val$listener != null) {
-                                this.val$listener.onWeiboException(e2);
+                                this.val$listener.onWeiboException(e);
                             }
                         }
                     }
@@ -230,9 +230,9 @@ public class AsyncWeiboRunner {
                             if (this.val$listener != null) {
                                 this.val$listener.onComplete(openUrl);
                             }
-                        } catch (WeiboException e2) {
+                        } catch (WeiboException e) {
                             if (this.val$listener != null) {
-                                this.val$listener.onWeiboException(e2);
+                                this.val$listener.onWeiboException(e);
                             }
                         }
                     }

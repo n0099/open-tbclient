@@ -15,8 +15,8 @@ public class d {
             }
             jSONObject.put("show_toast", z);
             jSONObject.put(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE, str3);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return jSONObject.toString();
     }

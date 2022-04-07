@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AdjustedCornerSize implements CornerSize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float adjustment;
     public final CornerSize other;
 
-    public AdjustedCornerSize(float f2, @NonNull CornerSize cornerSize) {
+    public AdjustedCornerSize(float f, @NonNull CornerSize cornerSize) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), cornerSize};
+            Object[] objArr = {Float.valueOf(f), cornerSize};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,10 +35,10 @@ public final class AdjustedCornerSize implements CornerSize {
         }
         while (cornerSize instanceof AdjustedCornerSize) {
             cornerSize = ((AdjustedCornerSize) cornerSize).other;
-            f2 += ((AdjustedCornerSize) cornerSize).adjustment;
+            f += ((AdjustedCornerSize) cornerSize).adjustment;
         }
         this.other = cornerSize;
-        this.adjustment = f2;
+        this.adjustment = f;
     }
 
     public boolean equals(Object obj) {

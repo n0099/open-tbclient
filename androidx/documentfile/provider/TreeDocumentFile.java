@@ -53,8 +53,8 @@ public class TreeDocumentFile extends DocumentFile {
         }
         try {
             autoCloseable.close();
-        } catch (RuntimeException e2) {
-            throw e2;
+        } catch (RuntimeException e) {
+            throw e;
         } catch (Exception unused) {
         }
     }
@@ -198,8 +198,8 @@ public class TreeDocumentFile extends DocumentFile {
                     while (cursor.moveToNext()) {
                         arrayList.add(DocumentsContract.buildDocumentUriUsingTree(this.mUri, cursor.getString(0)));
                     }
-                } catch (Exception e2) {
-                    Log.w("DocumentFile", "Failed query: " + e2);
+                } catch (Exception e) {
+                    Log.w("DocumentFile", "Failed query: " + e);
                 }
                 Uri[] uriArr = (Uri[]) arrayList.toArray(new Uri[arrayList.size()]);
                 DocumentFile[] documentFileArr = new DocumentFile[uriArr.length];

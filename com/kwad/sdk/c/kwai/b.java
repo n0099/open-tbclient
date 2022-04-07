@@ -1,17 +1,9 @@
 package com.kwad.sdk.c.kwai;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends com.kwad.sdk.core.response.kwai.a {
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f39174b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f39175c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f39176d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f39177e;
+    public String b;
+    public String c;
+    public String d;
+    public a e;
 }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewDragHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_SETTLE_DURATION = 256;
@@ -66,7 +66,7 @@ public class ViewDragHelper {
     public int mTrackingEdges;
     public VelocityTracker mVelocityTracker;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,19 +85,19 @@ public class ViewDragHelper {
             }
         }
 
-        public int clampViewPositionHorizontal(View view, int i, int i2) {
+        public int clampViewPositionHorizontal(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i, i2)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view2, i, i2)) == null) {
                 return 0;
             }
             return invokeLII.intValue;
         }
 
-        public int clampViewPositionVertical(View view, int i, int i2) {
+        public int clampViewPositionVertical(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i, i2)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, i2)) == null) {
                 return 0;
             }
             return invokeLII.intValue;
@@ -109,19 +109,19 @@ public class ViewDragHelper {
             return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.intValue;
         }
 
-        public int getViewHorizontalDragRange(View view) {
+        public int getViewHorizontalDragRange(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
                 return 0;
             }
             return invokeL.intValue;
         }
 
-        public int getViewVerticalDragRange(View view) {
+        public int getViewVerticalDragRange(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
                 return 0;
             }
             return invokeL.intValue;
@@ -150,9 +150,9 @@ public class ViewDragHelper {
             }
         }
 
-        public void onViewCaptured(View view, int i) {
+        public void onViewCaptured(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, view, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) {
             }
         }
 
@@ -162,19 +162,19 @@ public class ViewDragHelper {
             }
         }
 
-        public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
+        public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
         }
 
-        public void onViewReleased(View view, float f2, float f3) {
+        public void onViewReleased(View view2, float f, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             }
         }
 
-        public abstract boolean tryCaptureView(View view, int i);
+        public abstract boolean tryCaptureView(View view2, int i);
     }
 
     static {
@@ -209,12 +209,12 @@ public class ViewDragHelper {
             }
 
             @Override // android.animation.TimeInterpolator
-            public float getInterpolation(float f2) {
+            public float getInterpolation(float f) {
                 InterceptResult invokeF;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeF = interceptable2.invokeF(1048576, this, f2)) == null) {
-                    float f3 = f2 - 1.0f;
-                    return (f3 * f3 * f3 * f3 * f3) + 1.0f;
+                if (interceptable2 == null || (invokeF = interceptable2.invokeF(1048576, this, f)) == null) {
+                    float f2 = f - 1.0f;
+                    return (f2 * f2 * f2 * f2 * f2) + 1.0f;
                 }
                 return invokeF.floatValue;
             }
@@ -285,12 +285,12 @@ public class ViewDragHelper {
         throw new IllegalArgumentException("Callback may not be null");
     }
 
-    private boolean checkNewEdgeDrag(float f2, float f3, int i, int i2) {
+    private boolean checkNewEdgeDrag(float f, float f2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            float abs = Math.abs(f2);
-            float abs2 = Math.abs(f3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            float abs = Math.abs(f);
+            float abs2 = Math.abs(f2);
             if ((this.mInitialEdgesTouched[i] & i2) != i2 || (this.mTrackingEdges & i2) == 0 || (this.mEdgeDragsLocked[i] & i2) == i2 || (this.mEdgeDragsInProgress[i] & i2) == i2) {
                 return false;
             }
@@ -308,20 +308,20 @@ public class ViewDragHelper {
         return invokeCommon.booleanValue;
     }
 
-    private boolean checkTouchSlop(View view, float f2, float f3) {
+    private boolean checkTouchSlop(View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (view2 == null) {
                 return false;
             }
-            boolean z = this.mCallback.getViewHorizontalDragRange(view) > 0;
-            boolean z2 = this.mCallback.getViewVerticalDragRange(view) > 0;
+            boolean z = this.mCallback.getViewHorizontalDragRange(view2) > 0;
+            boolean z2 = this.mCallback.getViewVerticalDragRange(view2) > 0;
             if (!z || !z2) {
-                return z ? Math.abs(f2) > ((float) this.mTouchSlop) : z2 && Math.abs(f3) > ((float) this.mTouchSlop);
+                return z ? Math.abs(f) > ((float) this.mTouchSlop) : z2 && Math.abs(f2) > ((float) this.mTouchSlop);
             }
             int i = this.mTouchSlop;
-            return (f2 * f2) + (f3 * f3) > ((float) (i * i));
+            return (f * f) + (f2 * f2) > ((float) (i * i));
         }
         return invokeCommon.booleanValue;
     }
@@ -364,8 +364,8 @@ public class ViewDragHelper {
                 return 0;
             }
             int width = this.mParentView.getWidth();
-            float f2 = width / 2;
-            float distanceInfluenceForSnapDuration = f2 + (distanceInfluenceForSnapDuration(Math.min(1.0f, Math.abs(i) / width)) * f2);
+            float f = width / 2;
+            float distanceInfluenceForSnapDuration = f + (distanceInfluenceForSnapDuration(Math.min(1.0f, Math.abs(i) / width)) * f);
             int abs2 = Math.abs(i2);
             if (abs2 > 0) {
                 abs = Math.round(Math.abs(distanceInfluenceForSnapDuration / abs2) * 1000.0f) * 4;
@@ -377,14 +377,14 @@ public class ViewDragHelper {
         return invokeIII.intValue;
     }
 
-    private int computeSettleDuration(View view, int i, int i2, int i3, int i4) {
+    private int computeSettleDuration(View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
+        float f;
         float f2;
         float f3;
         float f4;
-        float f5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             int clampMag = clampMag(i3, (int) this.mMinVelocity, (int) this.mMaxVelocity);
             int clampMag2 = clampMag(i4, (int) this.mMinVelocity, (int) this.mMaxVelocity);
             int abs = Math.abs(i);
@@ -394,21 +394,21 @@ public class ViewDragHelper {
             int i5 = abs3 + abs4;
             int i6 = abs + abs2;
             if (clampMag != 0) {
-                f2 = abs3;
-                f3 = i5;
+                f = abs3;
+                f2 = i5;
             } else {
-                f2 = abs;
-                f3 = i6;
+                f = abs;
+                f2 = i6;
             }
-            float f6 = f2 / f3;
+            float f5 = f / f2;
             if (clampMag2 != 0) {
-                f4 = abs4;
-                f5 = i5;
+                f3 = abs4;
+                f4 = i5;
             } else {
-                f4 = abs2;
-                f5 = i6;
+                f3 = abs2;
+                f4 = i6;
             }
-            return (int) ((computeAxisDuration(i, clampMag, this.mCallback.getViewHorizontalDragRange(view)) * f6) + (computeAxisDuration(i2, clampMag2, this.mCallback.getViewVerticalDragRange(view)) * (f4 / f5)));
+            return (int) ((computeAxisDuration(i, clampMag, this.mCallback.getViewHorizontalDragRange(view2)) * f5) + (computeAxisDuration(i2, clampMag2, this.mCallback.getViewVerticalDragRange(view2)) * (f3 / f4)));
         }
         return invokeCommon.intValue;
     }
@@ -419,11 +419,11 @@ public class ViewDragHelper {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, viewGroup, callback)) == null) ? new ViewDragHelper(viewGroup.getContext(), viewGroup, callback) : (ViewDragHelper) invokeLL.objValue;
     }
 
-    private void dispatchViewReleased(float f2, float f3) {
+    private void dispatchViewReleased(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             this.mReleaseInProgress = true;
-            this.mCallback.onViewReleased(this.mCapturedView, f2, f3);
+            this.mCallback.onViewReleased(this.mCapturedView, f, f2);
             this.mReleaseInProgress = false;
             if (this.mDragState == 1) {
                 setDragState(0);
@@ -431,10 +431,10 @@ public class ViewDragHelper {
         }
     }
 
-    private float distanceInfluenceForSnapDuration(float f2) {
+    private float distanceInfluenceForSnapDuration(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65549, this, f2)) == null) ? (float) Math.sin((float) ((f2 - 0.5f) * 0.4712389167638204d)) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65549, this, f)) == null) ? (float) Math.sin((float) ((f - 0.5f) * 0.4712389167638204d)) : invokeF.floatValue;
     }
 
     private void dragTo(int i, int i2, int i3, int i4) {
@@ -575,17 +575,17 @@ public class ViewDragHelper {
         }
     }
 
-    private void reportNewEdgeDrags(float f2, float f3, int i) {
+    private void reportNewEdgeDrags(float f, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)}) == null) {
-            int i2 = checkNewEdgeDrag(f2, f3, i, 1) ? 1 : 0;
-            if (checkNewEdgeDrag(f3, f2, i, 4)) {
+        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+            int i2 = checkNewEdgeDrag(f, f2, i, 1) ? 1 : 0;
+            if (checkNewEdgeDrag(f2, f, i, 4)) {
                 i2 |= 4;
             }
-            if (checkNewEdgeDrag(f2, f3, i, 2)) {
+            if (checkNewEdgeDrag(f, f2, i, 2)) {
                 i2 |= 2;
             }
-            if (checkNewEdgeDrag(f3, f2, i, 8)) {
+            if (checkNewEdgeDrag(f2, f, i, 8)) {
                 i2 |= 8;
             }
             if (i2 != 0) {
@@ -596,17 +596,17 @@ public class ViewDragHelper {
         }
     }
 
-    private void saveInitialMotion(float f2, float f3, int i) {
+    private void saveInitialMotion(float f, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65558, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             ensureMotionHistorySizeForId(i);
             float[] fArr = this.mInitialMotionX;
-            this.mLastMotionX[i] = f2;
-            fArr[i] = f2;
+            this.mLastMotionX[i] = f;
+            fArr[i] = f;
             float[] fArr2 = this.mInitialMotionY;
-            this.mLastMotionY[i] = f3;
-            fArr2[i] = f3;
-            this.mInitialEdgesTouched[i] = getEdgesTouched((int) f2, (int) f3);
+            this.mLastMotionY[i] = f2;
+            fArr2[i] = f2;
+            this.mInitialEdgesTouched[i] = getEdgesTouched((int) f, (int) f2);
             this.mPointersDown |= 1 << i;
         }
     }
@@ -644,15 +644,15 @@ public class ViewDragHelper {
         }
     }
 
-    public boolean canScroll(View view, boolean z, int i, int i2, int i3, int i4) {
+    public boolean canScroll(View view2, boolean z, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
-                int scrollX = view.getScrollX();
-                int scrollY = view.getScrollY();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                int scrollX = view2.getScrollX();
+                int scrollY = view2.getScrollY();
                 for (int childCount = viewGroup.getChildCount() - 1; childCount >= 0; childCount--) {
                     View childAt = viewGroup.getChildAt(childCount);
                     int i6 = i3 + scrollX;
@@ -661,7 +661,7 @@ public class ViewDragHelper {
                     }
                 }
             }
-            return z && (ViewCompat.canScrollHorizontally(view, -i) || ViewCompat.canScrollVertically(view, -i2));
+            return z && (ViewCompat.canScrollHorizontally(view2, -i) || ViewCompat.canScrollVertically(view2, -i2));
         }
         return invokeCommon.booleanValue;
     }
@@ -679,13 +679,13 @@ public class ViewDragHelper {
         }
     }
 
-    public void captureChildView(View view, int i) {
+    public void captureChildView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i) == null) {
-            if (view.getParent() == this.mParentView) {
-                this.mCapturedView = view;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
+            if (view2.getParent() == this.mParentView) {
+                this.mCapturedView = view2;
                 this.mActivePointerId = i;
-                this.mCallback.onViewCaptured(view, i);
+                this.mCallback.onViewCaptured(view2, i);
                 setDragState(1);
                 return;
             }
@@ -819,10 +819,10 @@ public class ViewDragHelper {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) ? ((1 << i) & this.mPointersDown) != 0 : invokeI.booleanValue;
     }
 
-    public boolean isViewUnder(View view, int i, int i2) {
+    public boolean isViewUnder(View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048595, this, view, i, i2)) == null) ? view != null && i >= view.getLeft() && i < view.getRight() && i2 >= view.getTop() && i2 < view.getBottom() : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048595, this, view2, i, i2)) == null) ? view2 != null && i >= view2.getLeft() && i < view2.getRight() && i2 >= view2.getTop() && i2 < view2.getBottom() : invokeLII.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:46:0x007b, code lost:
@@ -887,12 +887,12 @@ public class ViewDragHelper {
                     float motionEventX2 = getMotionEventX(motionEvent, i2);
                     float motionEventY2 = getMotionEventY(motionEvent, i2);
                     if (motionEventX2 != -1.0f && motionEventY2 != -1.0f) {
-                        float f2 = motionEventX2 - this.mInitialMotionX[pointerId2];
-                        float f3 = motionEventY2 - this.mInitialMotionY[pointerId2];
-                        reportNewEdgeDrags(f2, f3, pointerId2);
+                        float f = motionEventX2 - this.mInitialMotionX[pointerId2];
+                        float f2 = motionEventY2 - this.mInitialMotionY[pointerId2];
+                        reportNewEdgeDrags(f, f2, pointerId2);
                         if (this.mDragState != 1) {
                             View findTopChildUnder2 = findTopChildUnder((int) motionEventX2, (int) motionEventY2);
-                            if (checkTouchSlop(findTopChildUnder2, f2, f3) && tryCaptureViewForDrag(findTopChildUnder2, pointerId2)) {
+                            if (checkTouchSlop(findTopChildUnder2, f, f2) && tryCaptureViewForDrag(findTopChildUnder2, pointerId2)) {
                                 break;
                             }
                             i2++;
@@ -943,8 +943,8 @@ public class ViewDragHelper {
                             float motionEventY4 = getMotionEventY(motionEvent, i2);
                             if (motionEventX4 != -1.0f && motionEventY4 != -1.0f) {
                                 View findTopChildUnder3 = findTopChildUnder((int) motionEventX4, (int) motionEventY4);
-                                View view = this.mCapturedView;
-                                if (findTopChildUnder3 == view && tryCaptureViewForDrag(view, pointerId5)) {
+                                View view2 = this.mCapturedView;
+                                if (findTopChildUnder3 == view2 && tryCaptureViewForDrag(view2, pointerId5)) {
                                     i = this.mActivePointerId;
                                     break;
                                 }
@@ -979,10 +979,10 @@ public class ViewDragHelper {
         }
     }
 
-    public void setMinVelocity(float f2) {
+    public void setMinVelocity(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            this.mMinVelocity = f2;
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            this.mMinVelocity = f;
         }
     }
 
@@ -1021,7 +1021,7 @@ public class ViewDragHelper {
             boolean z = false;
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
-                    float f2 = -1.0f;
+                    float f = -1.0f;
                     if (actionMasked == 2) {
                         int pointerCount = MotionEventCompat.getPointerCount(motionEvent);
                         int i = 0;
@@ -1029,17 +1029,17 @@ public class ViewDragHelper {
                             int pointerId = MotionEventCompat.getPointerId(motionEvent, i);
                             float motionEventX = getMotionEventX(motionEvent, i);
                             float motionEventY = getMotionEventY(motionEvent, i);
-                            if (motionEventX != f2 && motionEventY != f2) {
-                                float f3 = motionEventX - this.mInitialMotionX[pointerId];
-                                float f4 = motionEventY - this.mInitialMotionY[pointerId];
+                            if (motionEventX != f && motionEventY != f) {
+                                float f2 = motionEventX - this.mInitialMotionX[pointerId];
+                                float f3 = motionEventY - this.mInitialMotionY[pointerId];
                                 View findTopChildUnder2 = findTopChildUnder((int) motionEventX, (int) motionEventY);
-                                boolean z2 = findTopChildUnder2 != null && checkTouchSlop(findTopChildUnder2, f3, f4);
+                                boolean z2 = findTopChildUnder2 != null && checkTouchSlop(findTopChildUnder2, f2, f3);
                                 if (z2) {
                                     int left = findTopChildUnder2.getLeft();
-                                    int i2 = (int) f3;
+                                    int i2 = (int) f2;
                                     int clampViewPositionHorizontal = this.mCallback.clampViewPositionHorizontal(findTopChildUnder2, left + i2, i2);
                                     int top = findTopChildUnder2.getTop();
-                                    int i3 = (int) f4;
+                                    int i3 = (int) f3;
                                     int clampViewPositionVertical = this.mCallback.clampViewPositionVertical(findTopChildUnder2, top + i3, i3);
                                     int viewHorizontalDragRange = this.mCallback.getViewHorizontalDragRange(findTopChildUnder2);
                                     int viewVerticalDragRange = this.mCallback.getViewVerticalDragRange(findTopChildUnder2);
@@ -1055,13 +1055,13 @@ public class ViewDragHelper {
                                         break;
                                     }
                                 }
-                                reportNewEdgeDrags(f3, f4, pointerId);
+                                reportNewEdgeDrags(f2, f3, pointerId);
                                 if (this.mDragState == 1 || (z2 && tryCaptureViewForDrag(findTopChildUnder2, pointerId))) {
                                     break;
                                 }
                                 i++;
                                 z = false;
-                                f2 = -1.0f;
+                                f = -1.0f;
                             } else {
                                 return z;
                             }
@@ -1112,11 +1112,11 @@ public class ViewDragHelper {
         return invokeL.booleanValue;
     }
 
-    public boolean smoothSlideViewTo(View view, int i, int i2) {
+    public boolean smoothSlideViewTo(View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048602, this, view, i, i2)) == null) {
-            this.mCapturedView = view;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048602, this, view2, i, i2)) == null) {
+            this.mCapturedView = view2;
             this.mActivePointerId = -1;
             boolean forceSettleCapturedViewAt = forceSettleCapturedViewAt(i, i2, 0, 0);
             if (!forceSettleCapturedViewAt && this.mDragState == 0 && this.mCapturedView != null) {
@@ -1127,42 +1127,42 @@ public class ViewDragHelper {
         return invokeLII.booleanValue;
     }
 
-    public boolean tryCaptureViewForDrag(View view, int i) {
+    public boolean tryCaptureViewForDrag(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048603, this, view, i)) == null) {
-            if (view == this.mCapturedView && this.mActivePointerId == i) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048603, this, view2, i)) == null) {
+            if (view2 == this.mCapturedView && this.mActivePointerId == i) {
                 return true;
             }
-            if (view == null || !this.mCallback.tryCaptureView(view, i)) {
+            if (view2 == null || !this.mCallback.tryCaptureView(view2, i)) {
                 return false;
             }
             this.mActivePointerId = i;
-            captureChildView(view, i);
+            captureChildView(view2, i);
             return true;
         }
         return invokeLI.booleanValue;
     }
 
-    private float clampMag(float f2, float f3, float f4) {
+    private float clampMag(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float abs = Math.abs(f2);
-            if (abs < f3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float abs = Math.abs(f);
+            if (abs < f2) {
                 return 0.0f;
             }
-            return abs > f4 ? f2 > 0.0f ? f4 : -f4 : f2;
+            return abs > f3 ? f > 0.0f ? f3 : -f3 : f;
         }
         return invokeCommon.floatValue;
     }
 
-    public static ViewDragHelper create(ViewGroup viewGroup, float f2, Callback callback) {
+    public static ViewDragHelper create(ViewGroup viewGroup, float f, Callback callback) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{viewGroup, Float.valueOf(f2), callback})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{viewGroup, Float.valueOf(f), callback})) == null) {
             ViewDragHelper create = create(viewGroup, callback);
-            create.mTouchSlop = (int) (create.mTouchSlop * (1.0f / f2));
+            create.mTouchSlop = (int) (create.mTouchSlop * (1.0f / f));
             return create;
         }
         return (ViewDragHelper) invokeCommon.objValue;
@@ -1196,13 +1196,13 @@ public class ViewDragHelper {
             if (isPointerDown(i2)) {
                 boolean z = (i & 1) == 1;
                 boolean z2 = (i & 2) == 2;
-                float f2 = this.mLastMotionX[i2] - this.mInitialMotionX[i2];
-                float f3 = this.mLastMotionY[i2] - this.mInitialMotionY[i2];
+                float f = this.mLastMotionX[i2] - this.mInitialMotionX[i2];
+                float f2 = this.mLastMotionY[i2] - this.mInitialMotionY[i2];
                 if (!z || !z2) {
-                    return z ? Math.abs(f2) > ((float) this.mTouchSlop) : z2 && Math.abs(f3) > ((float) this.mTouchSlop);
+                    return z ? Math.abs(f) > ((float) this.mTouchSlop) : z2 && Math.abs(f2) > ((float) this.mTouchSlop);
                 }
                 int i3 = this.mTouchSlop;
-                return (f2 * f2) + (f3 * f3) > ((float) (i3 * i3));
+                return (f * f) + (f2 * f2) > ((float) (i3 * i3));
             }
             return false;
         }

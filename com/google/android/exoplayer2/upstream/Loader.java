@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Loader implements LoaderErrorThrower {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DONT_RETRY = 2;
@@ -29,7 +29,7 @@ public final class Loader implements LoaderErrorThrower {
     public final ExecutorService downloadExecutorService;
     public IOException fatalError;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Callback<T extends Loadable> {
         void onLoadCanceled(T t, long j, long j2, boolean z);
 
@@ -39,7 +39,7 @@ public final class Loader implements LoaderErrorThrower {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class LoadTask<T extends Loadable> extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CANCEL = 1;
@@ -152,9 +152,9 @@ public final class Loader implements LoaderErrorThrower {
                 } else if (i2 == 2) {
                     try {
                         this.callback.onLoadCompleted(this.loadable, elapsedRealtime, j);
-                    } catch (RuntimeException e2) {
-                        Log.e(TAG, "Unexpected exception handling load completed", e2);
-                        this.this$0.fatalError = new UnexpectedLoaderException(e2);
+                    } catch (RuntimeException e) {
+                        Log.e(TAG, "Unexpected exception handling load completed", e);
+                        this.this$0.fatalError = new UnexpectedLoaderException(e);
                     }
                 } else if (i2 != 3) {
                 } else {
@@ -201,35 +201,35 @@ public final class Loader implements LoaderErrorThrower {
                         return;
                     }
                     sendEmptyMessage(2);
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     if (this.released) {
                         return;
                     }
-                    obtainMessage(3, e2).sendToTarget();
-                } catch (Error e3) {
-                    Log.e(TAG, "Unexpected error loading stream", e3);
+                    obtainMessage(3, e).sendToTarget();
+                } catch (Error e2) {
+                    Log.e(TAG, "Unexpected error loading stream", e2);
                     if (!this.released) {
-                        obtainMessage(4, e3).sendToTarget();
+                        obtainMessage(4, e2).sendToTarget();
                     }
-                    throw e3;
+                    throw e2;
                 } catch (InterruptedException unused) {
                     Assertions.checkState(this.loadable.isLoadCanceled());
                     if (this.released) {
                         return;
                     }
                     sendEmptyMessage(2);
-                } catch (Exception e4) {
-                    Log.e(TAG, "Unexpected exception loading stream", e4);
+                } catch (Exception e3) {
+                    Log.e(TAG, "Unexpected exception loading stream", e3);
+                    if (this.released) {
+                        return;
+                    }
+                    obtainMessage(3, new UnexpectedLoaderException(e3)).sendToTarget();
+                } catch (OutOfMemoryError e4) {
+                    Log.e(TAG, "OutOfMemory error loading stream", e4);
                     if (this.released) {
                         return;
                     }
                     obtainMessage(3, new UnexpectedLoaderException(e4)).sendToTarget();
-                } catch (OutOfMemoryError e5) {
-                    Log.e(TAG, "OutOfMemory error loading stream", e5);
-                    if (this.released) {
-                        return;
-                    }
-                    obtainMessage(3, new UnexpectedLoaderException(e5)).sendToTarget();
                 }
             }
         }
@@ -248,7 +248,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Loadable {
         void cancelLoad();
 
@@ -257,12 +257,12 @@ public final class Loader implements LoaderErrorThrower {
         void load() throws IOException, InterruptedException;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ReleaseCallback {
         void onLoaderReleased();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ReleaseTask extends Handler implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,7 +303,7 @@ public final class Loader implements LoaderErrorThrower {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class UnexpectedLoaderException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

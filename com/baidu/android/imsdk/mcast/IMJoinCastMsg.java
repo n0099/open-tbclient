@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMJoinCastMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMJoinCastMsg";
@@ -77,9 +77,9 @@ public class IMJoinCastMsg extends Message {
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("is_reliable", this.mIsReliable);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(IMJoinCastMsg.class.getSimpleName(), "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(IMJoinCastMsg.class.getSimpleName(), "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -135,7 +135,7 @@ public class IMJoinCastMsg extends Message {
             if (r3 <= 0) goto L61
             int r3 = r3 * 1000
             com.baidu.android.imsdk.internal.Heartbeat.ALARM_TIMEOUT = r3     // Catch: java.lang.Exception -> Ld4
-            boolean r9 = c.a.s.a.f21228e     // Catch: java.lang.Exception -> Ld4
+            boolean r9 = com.repackage.p70.e     // Catch: java.lang.Exception -> Ld4
             if (r9 == 0) goto L68
             com.baidu.android.imsdk.conversation.ConversationStudioManImpl.mCastHeartBeatTime = r3     // Catch: java.lang.Exception -> Ld4
             goto L68

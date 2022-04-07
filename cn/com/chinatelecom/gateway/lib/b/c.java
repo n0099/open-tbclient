@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,13 +35,13 @@ public class c {
         InputStreamReader inputStreamReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            File c2 = c(context);
+            File c = c(context);
             StringBuilder sb = new StringBuilder();
-            if (c2 == null || !c2.exists()) {
+            if (c == null || !c.exists()) {
                 return "";
             }
             try {
-                fileInputStream = new FileInputStream(c2);
+                fileInputStream = new FileInputStream(c);
                 try {
                     inputStreamReader = new InputStreamReader(fileInputStream);
                     try {
@@ -54,8 +54,8 @@ public class c {
                                 } else {
                                     try {
                                         break;
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                     }
                                 }
                             } catch (Throwable th2) {
@@ -66,22 +66,22 @@ public class c {
                                     if (bufferedReader != null) {
                                         try {
                                             bufferedReader.close();
-                                        } catch (Exception e3) {
-                                            e3.printStackTrace();
+                                        } catch (Exception e2) {
+                                            e2.printStackTrace();
                                         }
                                     }
                                     if (inputStreamReader != 0) {
                                         try {
                                             inputStreamReader.close();
-                                        } catch (Exception e4) {
-                                            e4.printStackTrace();
+                                        } catch (Exception e3) {
+                                            e3.printStackTrace();
                                         }
                                     }
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
-                                        } catch (Exception e5) {
-                                            e5.printStackTrace();
+                                        } catch (Exception e4) {
+                                            e4.printStackTrace();
                                         }
                                     }
                                 }
@@ -90,8 +90,8 @@ public class c {
                         bufferedReader.close();
                         try {
                             inputStreamReader.close();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
                         }
                     } catch (Throwable th3) {
                         bufferedReader = null;
@@ -117,11 +117,11 @@ public class c {
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
-            File c2 = c(context);
-            if (c2 == null || !c2.exists()) {
+            File c = c(context);
+            if (c == null || !c.exists()) {
                 a(b(context), str);
             } else {
-                a(c2, str);
+                a(c, str);
             }
         }
     }
@@ -133,7 +133,7 @@ public class c {
     */
     public static void a(File file, String str) {
         FileWriter fileWriter;
-        Exception e2;
+        Exception e;
         Throwable th;
         BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
@@ -141,8 +141,8 @@ public class c {
             BufferedWriter bufferedWriter2 = null;
             try {
                 fileWriter = new FileWriter(file, false);
-            } catch (Exception e3) {
-                e2 = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileWriter = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -150,8 +150,8 @@ public class c {
             }
             try {
                 bufferedWriter = new BufferedWriter(fileWriter);
-            } catch (Exception e4) {
-                e2 = e4;
+            } catch (Exception e3) {
+                e = e3;
             } catch (Throwable th3) {
                 th = th3;
                 if (bufferedWriter2 != null) {
@@ -169,19 +169,19 @@ public class c {
                     bufferedWriter.flush();
                     try {
                         bufferedWriter.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                     }
-                } catch (Exception e6) {
-                    e2 = e6;
+                } catch (Exception e5) {
+                    e = e5;
                     bufferedWriter2 = bufferedWriter;
                     try {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                         if (bufferedWriter2 != null) {
                             try {
                                 bufferedWriter2.close();
-                            } catch (Exception e7) {
-                                e7.printStackTrace();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
                             }
                         }
                         if (fileWriter == null) {
@@ -194,15 +194,15 @@ public class c {
                         if (bufferedWriter2 != null) {
                             try {
                                 bufferedWriter2.close();
-                            } catch (Exception e8) {
-                                e8.printStackTrace();
+                            } catch (Exception e7) {
+                                e7.printStackTrace();
                             }
                         }
                         if (fileWriter != null) {
                             try {
                                 fileWriter.close();
-                            } catch (Exception e9) {
-                                e9.printStackTrace();
+                            } catch (Exception e8) {
+                                e8.printStackTrace();
                             }
                         }
                         throw th;
@@ -218,8 +218,8 @@ public class c {
                     throw th;
                 }
                 fileWriter.close();
-            } catch (Exception e10) {
-                e10.printStackTrace();
+            } catch (Exception e9) {
+                e9.printStackTrace();
             }
         }
     }
@@ -243,8 +243,8 @@ public class c {
                     }
                     file2.createNewFile();
                     return file2;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -271,8 +271,8 @@ public class c {
                         return null;
                     }
                     return null;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return null;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DefaultConfig implements IIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TOKEN_SEPARATOR = ".";
@@ -164,9 +164,9 @@ public class DefaultConfig implements IIMConfig {
                     return new ChatObject(context, Integer.parseInt(tokens[0]), Long.parseLong(tokens[1]), -1L, Integer.parseInt(tokens[2]));
                 }
                 return null;
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e("CRMConfig", "parseTokenToChatObject", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e("CRMConfig", "parseTokenToChatObject", e);
                 return null;
             }
         }

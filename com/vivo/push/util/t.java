@@ -13,7 +13,6 @@ import android.database.Cursor;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,13 +23,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f43965b;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -50,76 +47,76 @@ public final class t {
 
     public static com.vivo.push.model.b a(Context context) {
         InterceptResult invokeL;
-        com.vivo.push.model.b f2;
+        com.vivo.push.model.b f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             Context applicationContext = ContextDelegate.getContext(context).getApplicationContext();
-            com.vivo.push.model.b d2 = d(applicationContext);
-            if (d2 != null) {
-                p.d("PushPackageUtils", "get system push info :".concat(String.valueOf(d2)));
-                return d2;
+            com.vivo.push.model.b d = d(applicationContext);
+            if (d != null) {
+                p.d("PushPackageUtils", "get system push info :".concat(String.valueOf(d)));
+                return d;
             }
-            List<String> e2 = e(applicationContext);
-            com.vivo.push.model.b f3 = f(applicationContext, applicationContext.getPackageName());
-            if (e2.size() <= 0) {
-                if (f3 != null && f3.d()) {
-                    d2 = f3;
+            List<String> e = e(applicationContext);
+            com.vivo.push.model.b f2 = f(applicationContext, applicationContext.getPackageName());
+            if (e.size() <= 0) {
+                if (f2 != null && f2.d()) {
+                    d = f2;
                 }
                 p.a("PushPackageUtils", "findAllPushPackages error: find no package!");
             } else {
                 com.vivo.push.model.b bVar = null;
                 String a2 = z.b(applicationContext).a("com.vivo.push.cur_pkg", null);
                 com.vivo.push.model.b bVar2 = (TextUtils.isEmpty(a2) || !a(applicationContext, a2, "com.vivo.pushservice.action.METHOD") || (bVar2 = f(applicationContext, a2)) == null || !bVar2.d()) ? null : null;
-                f3 = (f3 == null || !f3.d()) ? null : null;
+                f2 = (f2 == null || !f2.d()) ? null : null;
                 if (bVar2 == null) {
                     bVar2 = null;
                 }
-                if (f3 == null || (bVar2 != null && (!f3.c() ? !(bVar2.c() || f3.b() > bVar2.b()) : !(bVar2.c() && f3.b() > bVar2.b())))) {
-                    f3 = bVar2;
+                if (f2 == null || (bVar2 != null && (!f2.c() ? !(bVar2.c() || f2.b() > bVar2.b()) : !(bVar2.c() && f2.b() > bVar2.b())))) {
+                    f2 = bVar2;
                 }
                 HashMap hashMap = new HashMap();
-                if (f3 == null) {
-                    f3 = null;
-                } else if (f3.c()) {
-                    bVar = f3;
-                    f3 = null;
+                if (f2 == null) {
+                    f2 = null;
+                } else if (f2.c()) {
+                    bVar = f2;
+                    f2 = null;
                 }
-                int size = e2.size();
+                int size = e.size();
                 for (int i = 0; i < size; i++) {
-                    String str = e2.get(i);
-                    if (!TextUtils.isEmpty(str) && (f2 = f(applicationContext, str)) != null) {
-                        hashMap.put(str, f2);
-                        if (f2.d()) {
-                            if (f2.c()) {
-                                if (bVar == null || f2.b() > bVar.b()) {
-                                    bVar = f2;
+                    String str = e.get(i);
+                    if (!TextUtils.isEmpty(str) && (f = f(applicationContext, str)) != null) {
+                        hashMap.put(str, f);
+                        if (f.d()) {
+                            if (f.c()) {
+                                if (bVar == null || f.b() > bVar.b()) {
+                                    bVar = f;
                                 }
-                            } else if (f3 == null || f2.b() > f3.b()) {
-                                f3 = f2;
+                            } else if (f2 == null || f.b() > f2.b()) {
+                                f2 = f;
                             }
                         }
                     }
                 }
-                if (f3 != null) {
-                    d2 = f3;
+                if (f2 != null) {
+                    d = f2;
                 } else {
                     p.d("PushPackageUtils", "findSuitablePushPackage, all push app in balck list.");
-                    d2 = bVar;
+                    d = bVar;
                 }
             }
-            if (d2 != null) {
-                if (d2.c()) {
-                    p.a(applicationContext, "查找最优包为:" + d2.a() + "(" + d2.b() + ", Black)");
-                    p.d("PushPackageUtils", "finSuitablePushPackage" + d2.a() + "(" + d2.b() + ", Black)");
+            if (d != null) {
+                if (d.c()) {
+                    p.a(applicationContext, "查找最优包为:" + d.a() + "(" + d.b() + ", Black)");
+                    p.d("PushPackageUtils", "finSuitablePushPackage" + d.a() + "(" + d.b() + ", Black)");
                 } else {
-                    p.a(applicationContext, "查找最优包为:" + d2.a() + "(" + d2.b() + SmallTailInfo.EMOTION_SUFFIX);
-                    p.d("PushPackageUtils", "finSuitablePushPackage" + d2.a() + "(" + d2.b() + SmallTailInfo.EMOTION_SUFFIX);
+                    p.a(applicationContext, "查找最优包为:" + d.a() + "(" + d.b() + SmallTailInfo.EMOTION_SUFFIX);
+                    p.d("PushPackageUtils", "finSuitablePushPackage" + d.a() + "(" + d.b() + SmallTailInfo.EMOTION_SUFFIX);
                 }
             } else {
                 p.b(applicationContext, "查找最优包为空!");
                 p.d("PushPackageUtils", "finSuitablePushPackage is null");
             }
-            return d2;
+            return d;
         }
         return (com.vivo.push.model.b) invokeL.objValue;
     }
@@ -132,19 +129,19 @@ public final class t {
         if (interceptable != null && (invokeL = interceptable.invokeL(65542, null, context)) != null) {
             return (String) invokeL.objValue;
         }
-        if (!TextUtils.isEmpty(f43965b)) {
-            return f43965b;
+        if (!TextUtils.isEmpty(b)) {
+            return b;
         }
         Cursor cursor = null;
         try {
             try {
                 try {
                     query = context.getContentResolver().query(com.vivo.push.p.a, null, null, null, null);
-                } catch (Exception e2) {
-                    p.a("PushPackageUtils", IntentConfig.CLOSE, e2);
+                } catch (Exception e) {
+                    p.a("PushPackageUtils", "close", e);
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 str = null;
             }
             try {
@@ -154,13 +151,13 @@ public final class t {
                         if (query != null) {
                             try {
                                 query.close();
-                            } catch (Exception e4) {
-                                p.a("PushPackageUtils", IntentConfig.CLOSE, e4);
+                            } catch (Exception e3) {
+                                p.a("PushPackageUtils", "close", e3);
                             }
                         }
                         return null;
-                    } catch (Exception e5) {
-                        e = e5;
+                    } catch (Exception e4) {
+                        e = e4;
                         str = null;
                     }
                 } else {
@@ -173,17 +170,17 @@ public final class t {
                             } else if ("pushEnable".equals(query.getString(query.getColumnIndex("name")))) {
                                 z = Boolean.parseBoolean(query.getString(query.getColumnIndex("value")));
                             }
-                        } catch (Exception e6) {
-                            e = e6;
+                        } catch (Exception e5) {
+                            e = e5;
                         }
                     }
-                    f43965b = str;
+                    b = str;
                     if (TextUtils.isEmpty(str)) {
                         if (query != null) {
                             try {
                                 query.close();
-                            } catch (Exception e7) {
-                                p.a("PushPackageUtils", IntentConfig.CLOSE, e7);
+                            } catch (Exception e6) {
+                                p.a("PushPackageUtils", "close", e6);
                             }
                         }
                         return null;
@@ -196,8 +193,8 @@ public final class t {
                         if (query != null) {
                             try {
                                 query.close();
-                            } catch (Exception e8) {
-                                p.a("PushPackageUtils", IntentConfig.CLOSE, e8);
+                            } catch (Exception e7) {
+                                p.a("PushPackageUtils", "close", e7);
                             }
                         }
                         return null;
@@ -214,8 +211,8 @@ public final class t {
                 if (cursor != null) {
                     try {
                         cursor.close();
-                    } catch (Exception e9) {
-                        p.a("PushPackageUtils", IntentConfig.CLOSE, e9);
+                    } catch (Exception e8) {
+                        p.a("PushPackageUtils", "close", e8);
                     }
                 }
                 throw th;
@@ -255,8 +252,8 @@ public final class t {
                 bVar.a(a(context, bVar.b()));
                 bVar.b(a(context, b2));
                 return bVar;
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 p.d("PushPackageUtils", "PackageManager NameNotFoundException is null");
                 return null;
             }
@@ -288,8 +285,8 @@ public final class t {
                         if (applicationInfo != null) {
                             bVar.a(aa.a(context, str));
                         }
-                    } catch (PackageManager.NameNotFoundException e2) {
-                        p.a("PushPackageUtils", "getPushPackageInfo exception: ", e2);
+                    } catch (PackageManager.NameNotFoundException e) {
+                        p.a("PushPackageUtils", "getPushPackageInfo exception: ", e);
                     }
                     bVar.b(a(context, str));
                     bVar.a(a(context, bVar.b()));
@@ -317,8 +314,8 @@ public final class t {
                         stringBuffer.append(upperCase);
                     }
                     return stringBuffer.toString();
-                } catch (Exception e2) {
-                    p.a("PushPackageUtils", e2);
+                } catch (Exception e) {
+                    p.a("PushPackageUtils", e);
                 }
             }
             return null;

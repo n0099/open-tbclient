@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InputFormView extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LENGTH = 1000;
@@ -63,12 +63,12 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c7, (ViewGroup) this, true);
-            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091b9b);
-            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b9d);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091b9e);
-            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091b99);
-            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091b9a);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04c2, (ViewGroup) this, true);
+            this.mEditText = (LengthLimitEditText) inflate.findViewById(R.id.obfuscated_res_0x7f091b8a);
+            this.mImg = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b8c);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091b8d);
+            this.mCleanEtBtn = inflate.findViewById(R.id.obfuscated_res_0x7f091b88);
+            this.mCleanEtBtnDarkShape = inflate.findViewById(R.id.obfuscated_res_0x7f091b89);
             this.mCleanEtBtn.setOnClickListener(this);
             this.mEditText.setOnFocusChangeListener(this);
             this.mEditText.setLengthLimit(this.mMaxLength);
@@ -115,18 +115,18 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view.getId() == R.id.obfuscated_res_0x7f091b99) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091b88) {
             this.mEditText.setText("");
             this.mCleanEtBtn.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view, boolean z) {
+    public void onFocusChange(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, view2, z) == null) {
             if (z) {
                 this.mCleanEtBtn.setVisibility(TextUtils.isEmpty(this.mEditText.getText().toString()) ? 8 : 0);
                 return;
@@ -140,9 +140,9 @@ public class InputFormView extends RelativeLayout implements View.OnClickListene
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.isDarkMode = z;
             if (z) {
-                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091a));
-                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06091e));
-                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060918));
+                this.mEditText.setHintTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060929));
+                this.mEditText.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06092d));
+                this.mBottomLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060927));
             }
         }
     }

@@ -18,7 +18,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class PluginService extends Service implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginService";
@@ -48,8 +48,8 @@ public abstract class PluginService extends Service implements a {
                 FieldUtils.writeField(this, "mClassName", getClass().getName());
                 FieldUtils.writeField(this, "mApplication", Zeus.getAppApplication());
                 FieldUtils.writeField(this, "mStartCompatibility", Boolean.valueOf(getApplicationInfo().targetSdkVersion < 5));
-            } catch (Exception e2) {
-                ZeusLogger.e(ZeusLogger.TAG_SERVICE, "hook activityManager failed!", e2);
+            } catch (Exception e) {
+                ZeusLogger.e(ZeusLogger.TAG_SERVICE, "hook activityManager failed!", e);
             }
         }
     }
@@ -83,33 +83,33 @@ public abstract class PluginService extends Service implements a {
             @Override // java.lang.reflect.InvocationHandler
             public final Object invoke(Object obj, Method method, Object[] objArr) {
                 InterceptResult invokeLLL;
-                char c2;
+                char c;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeLLL = interceptable2.invokeLLL(1048576, this, obj, method, objArr)) == null) {
                     String name = method.getName();
                     int hashCode = name.hashCode();
                     if (hashCode == 39551382) {
                         if (name.equals("setServiceForeground")) {
-                            c2 = 1;
+                            c = 1;
                         }
-                        c2 = 65535;
+                        c = 65535;
                     } else if (hashCode != 690954390) {
                         if (hashCode == 1930712422 && name.equals("stopServiceToken")) {
-                            c2 = 0;
+                            c = 0;
                         }
-                        c2 = 65535;
+                        c = 65535;
                     } else {
                         if (name.equals("getForegroundServiceType")) {
-                            c2 = 2;
+                            c = 2;
                         }
-                        c2 = 65535;
+                        c = 65535;
                     }
-                    if (c2 != 0) {
-                        return c2 != 2 ? null : 0;
+                    if (c != 0) {
+                        return c != 2 ? null : 0;
                     }
-                    com.bytedance.pangle.service.a.a b2 = com.bytedance.pangle.service.a.a.b();
+                    com.bytedance.pangle.service.a.a b = com.bytedance.pangle.service.a.a.b();
                     PluginService pluginService = this.a;
-                    return Boolean.valueOf(b2.a(new ComponentName(pluginService, pluginService.getClass().getName())));
+                    return Boolean.valueOf(b.a(new ComponentName(pluginService, pluginService.getClass().getName())));
                 }
                 return invokeLLL.objValue;
             }

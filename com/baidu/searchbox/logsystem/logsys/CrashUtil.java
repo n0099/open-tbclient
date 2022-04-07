@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CrashUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CRASH_TAG = null;
     public static final String SEPERATOR = "#";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class CrashpadConstant {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FULL_BDMP_PERFIX = "fullbdmp-";
@@ -83,7 +83,7 @@ public class CrashUtil {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class CrashTAG {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,8 +120,8 @@ public class CrashUtil {
                 }
                 try {
                     j = Long.valueOf(split[1]).longValue();
-                } catch (NumberFormatException e2) {
-                    e2.printStackTrace();
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
                     j = 0;
                 }
                 if (j <= 0) {

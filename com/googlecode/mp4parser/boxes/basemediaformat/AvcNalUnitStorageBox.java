@@ -16,7 +16,7 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AvcNalUnitStorageBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "avcn";

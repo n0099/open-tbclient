@@ -27,7 +27,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RsaCipher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RSA_PADDING = "RSA/ECB/PKCS1Padding";
@@ -88,10 +88,10 @@ public class RsaCipher {
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
                         return Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                    } catch (NoSuchAlgorithmException e2) {
+                    } catch (NoSuchAlgorithmException e) {
+                        throw new RuntimeException(e);
+                    } catch (NoSuchPaddingException e2) {
                         throw new RuntimeException(e2);
-                    } catch (NoSuchPaddingException e3) {
-                        throw new RuntimeException(e3);
                     }
                 }
                 return (Cipher) invokeV.objValue;
@@ -140,13 +140,13 @@ public class RsaCipher {
                             if (bArr.length - i2 > this.private_m_flen) {
                                 length = decrypt.length;
                             } else if (i % this.private_m_tail != 0) {
-                                byte b2 = decrypt[this.private_m_tail - 1];
-                                int i5 = this.private_m_tail - b2;
+                                byte b = decrypt[this.private_m_tail - 1];
+                                int i5 = this.private_m_tail - b;
                                 while (i5 < this.private_m_tail && decrypt[i5] == 0) {
                                     i5++;
                                 }
                                 if (i5 == this.private_m_tail - 1) {
-                                    length = decrypt.length - b2;
+                                    length = decrypt.length - b;
                                 } else {
                                     length = decrypt.length;
                                 }
@@ -162,8 +162,8 @@ public class RsaCipher {
                     } else {
                         throw new Exception("Wrong rsa block ,decrypt result is null.");
                     }
-                } catch (InvalidKeyException e2) {
-                    throw new Exception(e2);
+                } catch (InvalidKeyException e) {
+                    throw new Exception(e);
                 }
             }
             byte[] bArr3 = new byte[i3];
@@ -290,8 +290,8 @@ public class RsaCipher {
                 loadPrivateKey(fileInputStream);
                 try {
                     fileInputStream.close();
-                } catch (Exception e2) {
-                    L.debug(this, e2.getMessage(), new Object[0]);
+                } catch (Exception e) {
+                    L.debug(this, e.getMessage(), new Object[0]);
                 }
             } catch (Throwable th2) {
                 th = th2;
@@ -299,8 +299,8 @@ public class RsaCipher {
                 if (fileInputStream2 != null) {
                     try {
                         fileInputStream2.close();
-                    } catch (Exception e3) {
-                        L.debug(this, e3.getMessage(), new Object[0]);
+                    } catch (Exception e2) {
+                        L.debug(this, e2.getMessage(), new Object[0]);
                     }
                 }
                 throw th;

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoSystemHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoSystemHelper";
@@ -102,7 +102,7 @@ public class VideoSystemHelper {
                 return 0;
             }
             Resources resources = appContext.getResources();
-            return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android"));
+            return resources.getDimensionPixelSize(resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android"));
         }
         return invokeV.intValue;
     }
@@ -116,7 +116,7 @@ public class VideoSystemHelper {
             if (appContext == null) {
                 return 0;
             }
-            int identifier = appContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = appContext.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 try {
                     i = appContext.getResources().getDimensionPixelSize(identifier);

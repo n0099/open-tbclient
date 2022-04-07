@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -106,10 +106,10 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f2) {
+    public float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) ? this.mSp.getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) ? this.mSp.getFloat(str, f) : invokeLF.floatValue;
     }
 
     @Override // android.content.SharedPreferences
@@ -147,10 +147,10 @@ public class SharedPrefsWrapper implements SharedPreferences {
         }
     }
 
-    public void putFloat(String str, float f2) {
+    public void putFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048586, this, str, f2) == null) {
-            this.mSp.edit().putFloat(str, f2).apply();
+        if (interceptable == null || interceptable.invokeLF(1048586, this, str, f) == null) {
+            this.mSp.edit().putFloat(str, f).apply();
         }
     }
 

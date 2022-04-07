@@ -9,35 +9,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GodHeadImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32194b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32195c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32196d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f32197e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f32198f;
+    public TextView b;
+    public TextView c;
+    public TextView d;
+    public View e;
+    public int f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ManitoMemberItemViewHolder(View view) {
-        super(view);
+    public ManitoMemberItemViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,15 +38,15 @@ public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f32198f = 3;
-        GodHeadImageView godHeadImageView = (GodHeadImageView) view.findViewById(R.id.obfuscated_res_0x7f090f75);
+        this.f = 3;
+        GodHeadImageView godHeadImageView = (GodHeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f6f);
         this.a = godHeadImageView;
         godHeadImageView.setShapeType(0);
         this.a.setShowType(1);
         this.a.setRadius(14);
-        this.f32194b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f84);
-        this.f32195c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f83);
-        this.f32196d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f82);
-        this.f32197e = view.findViewById(R.id.obfuscated_res_0x7f0907f4);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f7e);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f7d);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f7c);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907fd);
     }
 }

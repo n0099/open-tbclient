@@ -110,8 +110,8 @@ public class TwilightManager {
                     return this.mLocationManager.getLastKnownLocation(str);
                 }
                 return null;
-            } catch (Exception e2) {
-                Log.d(TAG, "Failed to get last known location", e2);
+            } catch (Exception e) {
+                Log.d(TAG, "Failed to get last known location", e);
                 return null;
             }
         }

@@ -17,42 +17,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.o6a;
+import com.repackage.s6a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import h.a.a.e.h.o;
-import h.a.a.e.i.b;
 import java.util.ArrayList;
 import java.util.List;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
-/* loaded from: classes8.dex */
-public class YYPayAmountCampaignView extends LinearLayout implements b {
+/* loaded from: classes9.dex */
+public class YYPayAmountCampaignView extends LinearLayout implements s6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Activity a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RecyclerView f45842b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f45843c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public GiftBagsInfo f45844d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public PayUIKitConfig f45845e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<GiftBagItemInfo> f45846f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public PayAmountCampaignListAdapter f45847g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayoutManager f45848h;
+    public RecyclerView b;
+    public RelativeLayout c;
+    public GiftBagsInfo d;
+    public PayUIKitConfig e;
+    public List<GiftBagItemInfo> f;
+    public PayAmountCampaignListAdapter g;
+    public LinearLayoutManager h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public YYPayAmountCampaignView(Activity activity, int i, int i2, PayUIKitConfig payUIKitConfig) {
@@ -72,59 +58,59 @@ public class YYPayAmountCampaignView extends LinearLayout implements b {
                 return;
             }
         }
-        this.f45846f = new ArrayList();
+        this.f = new ArrayList();
         this.a = activity;
-        this.f45845e = payUIKitConfig;
+        this.e = payUIKitConfig;
         a(activity);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(new ContextThemeWrapper(context, o.a.a(this.f45845e))).inflate(R.layout.obfuscated_res_0x7f0d0668, (ViewGroup) this, true);
-            this.f45842b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091b06);
-            this.f45843c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ac8);
-            this.f45848h = new LinearLayoutManager(context, 0, false);
-            this.f45847g = new PayAmountCampaignListAdapter(this.a, this.f45846f, this.f45845e);
-            this.f45842b.setLayoutManager(this.f45848h);
-            this.f45842b.addItemDecoration(new PayCampaignListItemDecoration());
-            this.f45842b.setAdapter(this.f45847g);
+            LayoutInflater.from(new ContextThemeWrapper(context, o6a.a.a(this.e))).inflate(R.layout.obfuscated_res_0x7f0d0664, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091af5);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ab8);
+            this.h = new LinearLayoutManager(context, 0, false);
+            this.g = new PayAmountCampaignListAdapter(this.a, this.f, this.e);
+            this.b.setLayoutManager(this.h);
+            this.b.addItemDecoration(new PayCampaignListItemDecoration());
+            this.b.setAdapter(this.g);
         }
     }
 
-    @Override // h.a.a.e.i.a
+    @Override // com.repackage.r6a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // h.a.a.e.i.a
+    @Override // com.repackage.r6a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            GiftBagsInfo giftBagsInfo = this.f45844d;
+            GiftBagsInfo giftBagsInfo = this.d;
             if (giftBagsInfo == null) {
                 RLog.error("YYPayAmountCampaignView", "refreshView error mGiftBagsInfo null", new Object[0]);
                 return;
             }
             List<GiftBagItemInfo> list = giftBagsInfo.giftbag;
             if (list != null && !list.isEmpty()) {
-                this.f45846f.clear();
-                this.f45846f.addAll(this.f45844d.giftbag);
-                this.f45847g.notifyDataSetChanged();
+                this.f.clear();
+                this.f.addAll(this.d.giftbag);
+                this.g.notifyDataSetChanged();
                 return;
             }
             RLog.error("YYPayAmountCampaignView", "refreshView error giftbag null", new Object[0]);
         }
     }
 
-    @Override // h.a.a.e.i.b
+    @Override // com.repackage.s6a
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, giftBagsInfo) == null) {
             RLog.info("YYPayAmountCampaignView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
-            this.f45844d = giftBagsInfo;
+            this.d = giftBagsInfo;
         }
     }
 }

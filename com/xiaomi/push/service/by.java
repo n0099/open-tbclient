@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class by extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public class by extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m598f;
+        boolean m594f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             super.onChange(z);
-            m598f = this.a.m598f();
-            com.xiaomi.channel.commonutils.logger.b.m112a("ExtremePowerMode:" + m598f);
-            if (!m598f) {
+            m594f = this.a.m594f();
+            com.xiaomi.channel.commonutils.logger.b.m108a("ExtremePowerMode:" + m594f);
+            if (!m594f) {
                 this.a.a(true);
                 return;
             }

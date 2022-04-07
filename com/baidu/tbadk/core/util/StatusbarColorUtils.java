@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class StatusbarColorUtils {
     public static /* synthetic */ Interceptable $ic;
     public static int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -87,14 +87,14 @@ public class StatusbarColorUtils {
                     return true;
                 }
                 return false;
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return false;
+            } catch (IllegalArgumentException e2) {
                 e2.printStackTrace();
                 return false;
-            } catch (IllegalArgumentException e3) {
+            } catch (NoSuchFieldException e3) {
                 e3.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e4) {
-                e4.printStackTrace();
                 return false;
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -121,8 +121,8 @@ public class StatusbarColorUtils {
                         mStatusBarColorFiled.set(attributes, Integer.valueOf(i));
                         window.setAttributes(attributes);
                     }
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -136,11 +136,11 @@ public class StatusbarColorUtils {
                 try {
                     method.invoke(activity, Integer.valueOf(i));
                     return;
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                     return;
-                } catch (InvocationTargetException e3) {
-                    e3.printStackTrace();
+                } catch (InvocationTargetException e2) {
+                    e2.printStackTrace();
                     return;
                 }
             }
@@ -168,8 +168,8 @@ public class StatusbarColorUtils {
                 if (Build.VERSION.SDK_INT > 22) {
                     setStatusBarDarkIcon(window.getDecorView(), true);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -181,18 +181,18 @@ public class StatusbarColorUtils {
         }
     }
 
-    public static void setStatusBarDarkIcon(View view, boolean z) {
+    public static void setStatusBarDarkIcon(View view2, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65544, null, view, z) == null) {
-            int systemUiVisibility = view.getSystemUiVisibility();
+        if (interceptable == null || interceptable.invokeLZ(65544, null, view2, z) == null) {
+            int systemUiVisibility = view2.getSystemUiVisibility();
             if (z) {
                 i = SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | systemUiVisibility;
             } else {
                 i = (~SYSTEM_UI_FLAG_LIGHT_STATUS_BAR) & systemUiVisibility;
             }
             if (i != systemUiVisibility) {
-                view.setSystemUiVisibility(i);
+                view2.setSystemUiVisibility(i);
             }
         }
     }
@@ -225,10 +225,10 @@ public class StatusbarColorUtils {
             }
             try {
                 method.invoke(activity, Boolean.valueOf(z));
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e2) {
                 e2.printStackTrace();
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
             }
         }
     }

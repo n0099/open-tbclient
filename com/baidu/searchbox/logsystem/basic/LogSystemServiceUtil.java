@@ -7,7 +7,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b.a.a;
 import com.baidu.searchbox.logsystem.basic.LokiService;
 import com.baidu.searchbox.logsystem.logsys.CrashUtil;
 import com.baidu.searchbox.logsystem.logsys.LogExtra;
@@ -20,8 +19,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ub1;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogSystemServiceUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogSystemServiceUtil";
@@ -69,9 +69,9 @@ public class LogSystemServiceUtil {
                 } else {
                     startService(context, logType, str, null, file, logExtra);
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (LLog.sDebug) {
-                    Log.d(TAG, Log.getStackTraceString(e2));
+                    Log.d(TAG, Log.getStackTraceString(e));
                 }
             }
         }
@@ -85,7 +85,7 @@ public class LogSystemServiceUtil {
             }
             Intent intent = new Intent();
             intent.setClass(context, LokiService.class);
-            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, a.b());
+            intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, ub1.b());
             intent.putExtra("logtype", logType);
             if (str != null) {
                 intent.putExtra(LokiService.Constant.LOG_BASIC_DATA, str);
@@ -110,7 +110,7 @@ public class LogSystemServiceUtil {
     public static void tranLogHandlerAction(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(65543, null, context, logType, str, file, logExtra) == null) {
-            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(a.b());
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(ub1.b());
             if (!obtainFileDirWithProcessName.exists()) {
                 obtainFileDirWithProcessName.mkdirs();
             }
@@ -143,9 +143,9 @@ public class LogSystemServiceUtil {
                 if (LLog.sDebug) {
                     throw new RuntimeException("basicDataFile should exist and be a file.");
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (LLog.sDebug) {
-                    Log.d(TAG, Log.getStackTraceString(e2));
+                    Log.d(TAG, Log.getStackTraceString(e));
                 }
             }
         }
@@ -166,9 +166,9 @@ public class LogSystemServiceUtil {
                 intent.setClass(context, LokiService.class);
                 intent.putExtra("logtype", LogType.NONE);
                 context.startService(intent);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (LLog.sDebug) {
-                    Log.d(TAG, Log.getStackTraceString(e2));
+                    Log.d(TAG, Log.getStackTraceString(e));
                 }
             }
         }

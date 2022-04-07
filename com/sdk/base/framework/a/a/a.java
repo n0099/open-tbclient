@@ -18,9 +18,7 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Boolean f42481b;
+    public static Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +34,7 @@ public class a {
                 return;
             }
         }
-        f42481b = Boolean.valueOf(f.f42567b);
+        b = Boolean.valueOf(f.b);
     }
 
     public a() {
@@ -78,7 +76,7 @@ public class a {
                         String b3 = b(b2);
                         String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                         if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                            c.a(a, "can use cache", f42481b);
+                            c.a(a, "can use cache", b);
                             JSONObject jSONObject = new JSONObject(a3);
                             if (i == 1) {
                                 jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
@@ -89,7 +87,7 @@ public class a {
                             sb.append(b3);
                             return sb.toString();
                         }
-                        c.a(a, "OutDate cache invalid", f42481b);
+                        c.a(a, "OutDate cache invalid", b);
                     }
                 }
                 return null;
@@ -117,7 +115,7 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            c.a(a, "cache clear", f42481b);
+            c.a(a, "cache clear", b);
             com.sdk.base.framework.f.b.a.d(context, YYInnerSSOLoginActivity.o);
         }
     }
@@ -141,7 +139,7 @@ public class a {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            c.a(a, "oauth cache clear", f42481b);
+            c.a(a, "oauth cache clear", b);
             com.sdk.base.framework.f.b.a.d(context, "accessCode1");
         }
     }

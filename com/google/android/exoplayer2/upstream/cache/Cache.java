@@ -9,10 +9,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.NavigableSet;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface Cache {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CacheException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public interface Cache {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Listener {
         void onSpanAdded(Cache cache, CacheSpan cacheSpan);
 

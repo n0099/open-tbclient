@@ -281,8 +281,8 @@ public final class PublicSuffixDatabase {
                         break;
                     } catch (InterruptedIOException unused) {
                         z = true;
-                    } catch (IOException e2) {
-                        Platform.get().log(5, "Failed to read public suffix list", e2);
+                    } catch (IOException e) {
+                        Platform.get().log(5, "Failed to read public suffix list", e);
                         if (z) {
                             Thread.currentThread().interrupt();
                             return;

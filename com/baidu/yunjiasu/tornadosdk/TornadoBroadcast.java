@@ -20,7 +20,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0000\u0018\u0000 \t2\u00020\u0001:\u0001\tB\u0005¢\u0006\u0002\u0010\u0002J\u001c\u0010\u0003\u001a\u00020\u00042\b\u0010\u0005\u001a\u0004\u0018\u00010\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016¨\u0006\n"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast;", "Landroid/content/BroadcastReceiver;", "()V", "onReceive", "", "context", "Landroid/content/Context;", "intent", "Landroid/content/Intent;", "Companion", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TornadoBroadcast extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
@@ -28,7 +28,7 @@ public final class TornadoBroadcast extends BroadcastReceiver {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ\u0016\u0010\t\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rJ\u000e\u0010\u000e\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000bJ\u0016\u0010\u000f\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0010"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TornadoBroadcast$Companion;", "", "()V", "TAG", "", "onReceiveT2T", "", "intent", "Landroid/content/Intent;", MiPushClient.COMMAND_REGISTER, "c", "Landroid/content/Context;", "broadcastReceiver", "Landroid/content/BroadcastReceiver;", "sendPing", "unRegister", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,10 +108,10 @@ public final class TornadoBroadcast extends BroadcastReceiver {
             }
         }
 
-        public final void register(Context c2, BroadcastReceiver broadcastReceiver) {
+        public final void register(Context c, BroadcastReceiver broadcastReceiver) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c2, broadcastReceiver) == null) {
-                Intrinsics.checkNotNullParameter(c2, "c");
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c, broadcastReceiver) == null) {
+                Intrinsics.checkNotNullParameter(c, "c");
                 Intrinsics.checkNotNullParameter(broadcastReceiver, "broadcastReceiver");
                 LogTo.INSTANCE.i(TornadoBroadcast.TAG, "register() --");
                 try {
@@ -119,29 +119,29 @@ public final class TornadoBroadcast extends BroadcastReceiver {
                     for (String str : IAction.T2T.INSTANCE.getActionMap().values()) {
                         intentFilter.addAction(str);
                     }
-                    c2.registerReceiver(broadcastReceiver, intentFilter);
-                } catch (Exception e2) {
-                    LogTo.INSTANCE.e(TornadoBroadcast.TAG, Intrinsics.stringPlus("register(): Exception: ", e2.getMessage()));
+                    c.registerReceiver(broadcastReceiver, intentFilter);
+                } catch (Exception e) {
+                    LogTo.INSTANCE.e(TornadoBroadcast.TAG, Intrinsics.stringPlus("register(): Exception: ", e.getMessage()));
                 }
             }
         }
 
-        public final void sendPing(Context c2) {
+        public final void sendPing(Context c) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2) == null) {
-                Intrinsics.checkNotNullParameter(c2, "c");
-                c2.sendBroadcast(new Intent(IAction.VPN.PING));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c) == null) {
+                Intrinsics.checkNotNullParameter(c, "c");
+                c.sendBroadcast(new Intent(IAction.VPN.PING));
             }
         }
 
-        public final void unRegister(Context c2, BroadcastReceiver broadcastReceiver) {
+        public final void unRegister(Context c, BroadcastReceiver broadcastReceiver) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, c2, broadcastReceiver) == null) {
-                Intrinsics.checkNotNullParameter(c2, "c");
+            if (interceptable == null || interceptable.invokeLL(1048579, this, c, broadcastReceiver) == null) {
+                Intrinsics.checkNotNullParameter(c, "c");
                 Intrinsics.checkNotNullParameter(broadcastReceiver, "broadcastReceiver");
                 LogTo.INSTANCE.i(TornadoBroadcast.TAG, "unRegister() --");
                 try {
-                    c2.unregisterReceiver(broadcastReceiver);
+                    c.unregisterReceiver(broadcastReceiver);
                 } catch (Exception unused) {
                 }
             }

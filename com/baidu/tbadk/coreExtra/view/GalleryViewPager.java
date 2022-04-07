@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GalleryViewPager extends BaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class GalleryViewPager extends BaseViewPager {
                 return null;
             } else if (action == 1 || action == 2) {
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
-                float f2 = pointF.x;
+                float f = pointF.x;
                 PointF pointF2 = this.i;
-                return new float[]{f2 - pointF2.x, pointF.y - pointF2.y};
+                return new float[]{f - pointF2.x, pointF.y - pointF2.y};
             } else {
                 return null;
             }
@@ -74,7 +74,7 @@ public class GalleryViewPager extends BaseViewPager {
             if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
                 super.onInterceptTouchEvent(motionEvent);
             }
-            float[] e2 = e(motionEvent);
+            float[] e = e(motionEvent);
             DragImageView dragImageView = this.j;
             if (dragImageView == null) {
                 return super.onInterceptTouchEvent(motionEvent);
@@ -82,13 +82,13 @@ public class GalleryViewPager extends BaseViewPager {
             if (dragImageView.f0()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e2 != null && this.j.e0() && e2[0] < 0.0f) {
+            if (e != null && this.j.e0() && e[0] < 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e2 != null && this.j.d0() && e2[0] > 0.0f) {
+            if (e != null && this.j.d0() && e[0] > 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e2 == null && (this.j.d0() || this.j.e0())) {
+            if (e == null && (this.j.d0() || this.j.e0())) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -111,17 +111,17 @@ public class GalleryViewPager extends BaseViewPager {
             if (this.j == null) {
                 return super.onTouchEvent(motionEvent);
             }
-            float[] e2 = e(motionEvent);
+            float[] e = e(motionEvent);
             if (this.j.f0()) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e2 != null && this.j.e0() && e2[0] < 0.0f) {
+            if (e != null && this.j.e0() && e[0] < 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e2 != null && this.j.d0() && e2[0] > 0.0f) {
+            if (e != null && this.j.d0() && e[0] > 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e2 == null && (this.j.d0() || this.j.e0())) {
+            if (e == null && (this.j.d0() || this.j.e0())) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;

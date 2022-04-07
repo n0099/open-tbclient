@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.gamesubpb.model;
 
-import c.a.p0.f1.y1.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -9,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.zk6;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c mData;
+    public zk6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsSelectSubCommentReponseMessage() {
@@ -42,13 +42,13 @@ public class FrsSelectSubCommentReponseMessage extends JsonHttpResponsedMessage 
             if (hasError() || jSONObject == null) {
                 return;
             }
-            this.mData = new c(jSONObject.optJSONObject("data"));
+            this.mData = new zk6(jSONObject.optJSONObject("data"));
         }
     }
 
-    public c getSelectSubCommentData() {
+    public zk6 getSelectSubCommentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (zk6) invokeV.objValue;
     }
 }

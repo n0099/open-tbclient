@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class R$attr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int alpha = 2130968711;
-    public static final int font = 2130969114;
-    public static final int fontProviderAuthority = 2130969116;
-    public static final int fontProviderCerts = 2130969117;
-    public static final int fontProviderFetchStrategy = 2130969159;
-    public static final int fontProviderFetchTimeout = 2130969168;
-    public static final int fontProviderPackage = 2130969169;
-    public static final int fontProviderQuery = 2130969170;
-    public static final int fontStyle = 2130969171;
-    public static final int fontVariationSettings = 2130969172;
-    public static final int fontWeight = 2130969174;
-    public static final int ttcIndex = 2130970220;
+    public static final int font = 2130969236;
+    public static final int fontProviderAuthority = 2130969238;
+    public static final int fontProviderCerts = 2130969239;
+    public static final int fontProviderFetchStrategy = 2130969240;
+    public static final int fontProviderFetchTimeout = 2130969241;
+    public static final int fontProviderPackage = 2130969242;
+    public static final int fontProviderQuery = 2130969243;
+    public static final int fontStyle = 2130969244;
+    public static final int fontVariationSettings = 2130969245;
+    public static final int fontWeight = 2130969246;
+    public static final int ttcIndex = 2130970282;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$attr() {

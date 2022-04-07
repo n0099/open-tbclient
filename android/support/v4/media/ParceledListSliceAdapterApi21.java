@@ -34,8 +34,8 @@ public class ParceledListSliceAdapterApi21 {
         }
         try {
             sConstructor = Class.forName("android.content.pm.ParceledListSlice").getConstructor(List.class);
-        } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            e2.printStackTrace();
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            e.printStackTrace();
         }
     }
 
@@ -59,8 +59,8 @@ public class ParceledListSliceAdapterApi21 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             try {
                 return sConstructor.newInstance(list);
-            } catch (IllegalAccessException | InstantiationException | InvocationTargetException e2) {
-                e2.printStackTrace();
+            } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
+                e.printStackTrace();
                 return null;
             }
         }

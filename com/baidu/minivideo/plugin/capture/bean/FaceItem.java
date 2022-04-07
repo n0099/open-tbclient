@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceItem implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIR_STICKER = "sticker";
@@ -105,8 +105,8 @@ public class FaceItem implements Jsonable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
                 str = Uri.parse(this.file).getPath();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 str = null;
             }
             if (TextUtils.isEmpty(str) && (indexOf = this.file.indexOf(63)) > 0) {
@@ -199,8 +199,8 @@ public class FaceItem implements Jsonable {
                 jSONObject.put("file", this.file);
                 jSONObject.put("sk", this.sk);
                 jSONObject.put("tip", this.tip);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

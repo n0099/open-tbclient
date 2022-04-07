@@ -14,9 +14,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ URL a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f42485b;
+    public /* synthetic */ a b;
 
     public b(a aVar, URL url) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
                 return;
             }
         }
-        this.f42485b = aVar;
+        this.b = aVar;
         this.a = url;
     }
 
@@ -43,7 +41,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             super.onAvailable(network);
             try {
-                this.f42485b.f42480c = (HttpURLConnection) network.openConnection(this.a);
+                this.b.c = (HttpURLConnection) network.openConnection(this.a);
             } catch (IOException unused) {
             }
         }

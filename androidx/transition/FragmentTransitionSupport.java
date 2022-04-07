@@ -45,12 +45,12 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
-    public void addTarget(Object obj, View view) {
+    public void addTarget(Object obj, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, obj, view) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, obj, view2) == null) || obj == null) {
             return;
         }
-        ((Transition) obj).addTarget(view);
+        ((Transition) obj).addTarget(view2);
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
@@ -153,12 +153,12 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
-    public void removeTarget(Object obj, View view) {
+    public void removeTarget(Object obj, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, obj, view) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, obj, view2) == null) || obj == null) {
             return;
         }
-        ((Transition) obj).removeTarget(view);
+        ((Transition) obj).removeTarget(view2);
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
@@ -191,10 +191,10 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
-    public void scheduleHideFragmentView(Object obj, View view, ArrayList<View> arrayList) {
+    public void scheduleHideFragmentView(Object obj, View view2, ArrayList<View> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, obj, view, arrayList) == null) {
-            ((Transition) obj).addListener(new Transition.TransitionListener(this, view, arrayList) { // from class: androidx.transition.FragmentTransitionSupport.2
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, obj, view2, arrayList) == null) {
+            ((Transition) obj).addListener(new Transition.TransitionListener(this, view2, arrayList) { // from class: androidx.transition.FragmentTransitionSupport.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FragmentTransitionSupport this$0;
@@ -206,7 +206,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view, arrayList};
+                        Object[] objArr = {this, view2, arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -217,7 +217,7 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
                         }
                     }
                     this.this$0 = this;
-                    this.val$fragmentView = view;
+                    this.val$fragmentView = view2;
                     this.val$exitingViews = arrayList;
                 }
 
@@ -335,13 +335,13 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
-    public void setEpicenter(Object obj, View view) {
+    public void setEpicenter(Object obj, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, obj, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, obj, view2) == null) || view2 == null) {
             return;
         }
         Rect rect = new Rect();
-        getBoundsOnScreen(view, rect);
+        getBoundsOnScreen(view2, rect);
         ((Transition) obj).setEpicenterCallback(new Transition.EpicenterCallback(this, rect) { // from class: androidx.transition.FragmentTransitionSupport.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -377,9 +377,9 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
     }
 
     @Override // androidx.fragment.app.FragmentTransitionImpl
-    public void setSharedElementTargets(Object obj, View view, ArrayList<View> arrayList) {
+    public void setSharedElementTargets(Object obj, View view2, ArrayList<View> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, obj, view, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048589, this, obj, view2, arrayList) == null) {
             TransitionSet transitionSet = (TransitionSet) obj;
             List<View> targets = transitionSet.getTargets();
             targets.clear();
@@ -387,8 +387,8 @@ public class FragmentTransitionSupport extends FragmentTransitionImpl {
             for (int i = 0; i < size; i++) {
                 FragmentTransitionImpl.bfsAddViewChildren(targets, arrayList.get(i));
             }
-            targets.add(view);
-            arrayList.add(view);
+            targets.add(view2);
+            arrayList.add(view2);
             addTargets(transitionSet, arrayList);
         }
     }

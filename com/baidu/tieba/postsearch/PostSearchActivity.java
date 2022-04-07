@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.p0.g3.b;
-import c.a.p0.g3.d;
-import c.a.p0.g3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.h88;
+import com.repackage.j88;
+import com.repackage.m88;
+/* loaded from: classes3.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_SEARCH_CLICK = "c12842";
@@ -27,12 +27,12 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String mForumId;
     public String mForumName;
-    public d mModel;
+    public j88 mModel;
     public ViewPager.OnPageChangeListener mOnPageChangeListener;
     public String mSearchKey;
-    public g mView;
+    public m88 mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i, float f, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
             }
         }
 
@@ -125,16 +125,16 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public d getModel() {
+    public j88 getModel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mModel : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mModel : (j88) invokeV.objValue;
     }
 
-    public g getPostSearchView() {
+    public m88 getPostSearchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mView : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mView : (m88) invokeV.objValue;
     }
 
     public void hideSoftKeyPad() {
@@ -163,12 +163,12 @@ public class PostSearchActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            g gVar = new g(this);
-            this.mView = gVar;
-            gVar.e();
+            m88 m88Var = new m88(this);
+            this.mView = m88Var;
+            m88Var.e();
             this.mView.l(this.mOnPageChangeListener);
             addGlobalLayoutListener();
-            this.mModel = new d(this);
+            this.mModel = new j88(this);
             initData();
         }
     }
@@ -177,9 +177,9 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            g gVar = this.mView;
-            if (gVar != null) {
-                gVar.h();
+            m88 m88Var = this.mView;
+            if (m88Var != null) {
+                m88Var.h();
             }
             super.onDestroy();
         }
@@ -192,17 +192,17 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public void refreshResultListByTab(int i, b bVar, boolean z) {
+    public void refreshResultListByTab(int i, h88 h88Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), bVar, Boolean.valueOf(z)}) == null) {
-            if (i == 1 && (bVar == null || !bVar.a())) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), h88Var, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (h88Var == null || !h88Var.a())) {
                 this.mView.c();
                 this.mView.n();
                 return;
             }
             this.mView.c();
             this.mView.b();
-            this.mView.j(i, bVar, z);
+            this.mView.j(i, h88Var, z);
         }
     }
 

@@ -282,7 +282,7 @@ public class Optimizer {
         float margin;
         int height;
         int height2;
-        float f2;
+        float f;
         ConstraintWidget constraintWidget;
         boolean z4;
         int height3;
@@ -295,7 +295,7 @@ public class Optimizer {
         ConstraintWidget constraintWidget4 = chainHead.mFirstVisibleWidget;
         ConstraintWidget constraintWidget5 = chainHead.mLastVisibleWidget;
         ConstraintWidget constraintWidget6 = chainHead.mHead;
-        float f3 = chainHead.mTotalWeight;
+        float f2 = chainHead.mTotalWeight;
         ConstraintWidget constraintWidget7 = chainHead.mFirstMatchConstraintWidget;
         ConstraintWidget constraintWidget8 = chainHead.mLastMatchConstraintWidget;
         ConstraintWidget.DimensionBehaviour dimensionBehaviour = constraintWidgetContainer.mListDimensionBehaviors[i];
@@ -311,8 +311,8 @@ public class Optimizer {
         int i3 = 0;
         boolean z5 = false;
         int i4 = 0;
+        float f3 = 0.0f;
         float f4 = 0.0f;
-        float f5 = 0.0f;
         while (!z5) {
             if (constraintWidget9.getVisibility() != 8) {
                 i4++;
@@ -321,14 +321,14 @@ public class Optimizer {
                 } else {
                     height3 = constraintWidget9.getHeight();
                 }
-                f4 += height3;
+                f3 += height3;
                 if (constraintWidget9 != constraintWidget4) {
-                    f4 += constraintWidget9.mListAnchors[i2].getMargin();
+                    f3 += constraintWidget9.mListAnchors[i2].getMargin();
                 }
                 if (constraintWidget9 != constraintWidget5) {
-                    f4 += constraintWidget9.mListAnchors[i2 + 1].getMargin();
+                    f3 += constraintWidget9.mListAnchors[i2 + 1].getMargin();
                 }
-                f5 = f5 + constraintWidget9.mListAnchors[i2].getMargin() + constraintWidget9.mListAnchors[i2 + 1].getMargin();
+                f4 = f4 + constraintWidget9.mListAnchors[i2].getMargin() + constraintWidget9.mListAnchors[i2 + 1].getMargin();
             }
             ConstraintAnchor constraintAnchor = constraintWidget9.mListAnchors[i2];
             if (constraintWidget9.getVisibility() != 8 && constraintWidget9.mListDimensionBehaviors[i] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
@@ -391,13 +391,13 @@ public class Optimizer {
         } else {
             margin = 0.0f;
         }
-        float f6 = resolutionNode.target.resolvedOffset;
-        float f7 = resolutionNode2.target.resolvedOffset;
-        float f8 = (f6 < f7 ? f7 - f6 : f6 - f7) - f4;
+        float f5 = resolutionNode.target.resolvedOffset;
+        float f6 = resolutionNode2.target.resolvedOffset;
+        float f7 = (f5 < f6 ? f6 - f5 : f5 - f6) - f3;
         if (i3 > 0 && i3 == i4) {
             if (constraintWidget9.getParent() == null || constraintWidget9.getParent().mListDimensionBehaviors[i] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT) {
-                float f9 = (f8 + f4) - f5;
-                float f10 = f6;
+                float f8 = (f7 + f3) - f4;
+                float f9 = f5;
                 ConstraintWidget constraintWidget11 = constraintWidget2;
                 while (constraintWidget11 != null) {
                     Metrics metrics = LinearSystem.sMetrics;
@@ -408,35 +408,35 @@ public class Optimizer {
                     }
                     ConstraintWidget constraintWidget12 = constraintWidget11.mNextChainWidget[i];
                     if (constraintWidget12 != null || constraintWidget11 == constraintWidget3) {
-                        float f11 = f9 / i3;
-                        if (f3 > 0.0f) {
+                        float f10 = f8 / i3;
+                        if (f2 > 0.0f) {
                             float[] fArr = constraintWidget11.mWeight;
                             if (fArr[i] != -1.0f) {
-                                f11 = (fArr[i] * f9) / f3;
+                                f10 = (fArr[i] * f8) / f2;
                             } else {
-                                f2 = 0.0f;
+                                f = 0.0f;
                                 if (constraintWidget11.getVisibility() == 8) {
-                                    f2 = 0.0f;
+                                    f = 0.0f;
                                 }
-                                float margin2 = f10 + constraintWidget11.mListAnchors[i2].getMargin();
+                                float margin2 = f9 + constraintWidget11.mListAnchors[i2].getMargin();
                                 constraintWidget11.mListAnchors[i2].getResolutionNode().resolve(resolutionNode.resolvedTarget, margin2);
-                                float f12 = margin2 + f2;
-                                constraintWidget11.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f12);
+                                float f11 = margin2 + f;
+                                constraintWidget11.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f11);
                                 constraintWidget11.mListAnchors[i2].getResolutionNode().addResolvedValue(linearSystem);
                                 constraintWidget11.mListAnchors[i5].getResolutionNode().addResolvedValue(linearSystem);
-                                f10 = f12 + constraintWidget11.mListAnchors[i5].getMargin();
+                                f9 = f11 + constraintWidget11.mListAnchors[i5].getMargin();
                             }
                         }
-                        f2 = f11;
+                        f = f10;
                         if (constraintWidget11.getVisibility() == 8) {
                         }
-                        float margin22 = f10 + constraintWidget11.mListAnchors[i2].getMargin();
+                        float margin22 = f9 + constraintWidget11.mListAnchors[i2].getMargin();
                         constraintWidget11.mListAnchors[i2].getResolutionNode().resolve(resolutionNode.resolvedTarget, margin22);
-                        float f122 = margin22 + f2;
-                        constraintWidget11.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f122);
+                        float f112 = margin22 + f;
+                        constraintWidget11.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f112);
                         constraintWidget11.mListAnchors[i2].getResolutionNode().addResolvedValue(linearSystem);
                         constraintWidget11.mListAnchors[i5].getResolutionNode().addResolvedValue(linearSystem);
-                        f10 = f122 + constraintWidget11.mListAnchors[i5].getMargin();
+                        f9 = f112 + constraintWidget11.mListAnchors[i5].getMargin();
                     }
                     constraintWidget11 = constraintWidget12;
                 }
@@ -444,14 +444,14 @@ public class Optimizer {
             }
             return false;
         }
-        if (f8 < 0.0f) {
+        if (f7 < 0.0f) {
             z3 = true;
             z = false;
             z2 = false;
         }
         if (z3) {
             ConstraintWidget constraintWidget13 = constraintWidget2;
-            float biasPercent = f6 + ((f8 - margin) * constraintWidget13.getBiasPercent(i));
+            float biasPercent = f5 + ((f7 - margin) * constraintWidget13.getBiasPercent(i));
             while (true) {
                 ConstraintWidget constraintWidget14 = constraintWidget13;
                 if (constraintWidget14 == null) {
@@ -472,11 +472,11 @@ public class Optimizer {
                     }
                     float margin3 = biasPercent + constraintWidget14.mListAnchors[i2].getMargin();
                     constraintWidget14.mListAnchors[i2].getResolutionNode().resolve(resolutionNode.resolvedTarget, margin3);
-                    float f13 = margin3 + height2;
-                    constraintWidget14.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f13);
+                    float f12 = margin3 + height2;
+                    constraintWidget14.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f12);
                     constraintWidget14.mListAnchors[i2].getResolutionNode().addResolvedValue(linearSystem);
                     constraintWidget14.mListAnchors[i5].getResolutionNode().addResolvedValue(linearSystem);
-                    biasPercent = f13 + constraintWidget14.mListAnchors[i5].getMargin();
+                    biasPercent = f12 + constraintWidget14.mListAnchors[i5].getMargin();
                 }
             }
         } else {
@@ -485,18 +485,18 @@ public class Optimizer {
                 return true;
             }
             if (z || z2) {
-                f8 -= margin;
+                f7 -= margin;
             }
-            float f14 = f8 / (i4 + 1);
+            float f13 = f7 / (i4 + 1);
             if (z2) {
-                f14 = f8 / (i4 > 1 ? i4 - 1 : 2.0f);
+                f13 = f7 / (i4 > 1 ? i4 - 1 : 2.0f);
             }
-            float f15 = constraintWidget15.getVisibility() != 8 ? f6 + f14 : f6;
+            float f14 = constraintWidget15.getVisibility() != 8 ? f5 + f13 : f5;
             if (z2 && i4 > 1) {
-                f15 = constraintWidget4.mListAnchors[i2].getMargin() + f6;
+                f14 = constraintWidget4.mListAnchors[i2].getMargin() + f5;
             }
             if (z && constraintWidget4 != null) {
-                f15 += constraintWidget4.mListAnchors[i2].getMargin();
+                f14 += constraintWidget4.mListAnchors[i2].getMargin();
             }
             while (true) {
                 ConstraintWidget constraintWidget16 = constraintWidget15;
@@ -516,18 +516,18 @@ public class Optimizer {
                     } else {
                         height = constraintWidget16.getHeight();
                     }
-                    float f16 = height;
+                    float f15 = height;
                     if (constraintWidget16 != constraintWidget4) {
-                        f15 += constraintWidget16.mListAnchors[i2].getMargin();
+                        f14 += constraintWidget16.mListAnchors[i2].getMargin();
                     }
-                    constraintWidget16.mListAnchors[i2].getResolutionNode().resolve(resolutionNode.resolvedTarget, f15);
-                    constraintWidget16.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f15 + f16);
+                    constraintWidget16.mListAnchors[i2].getResolutionNode().resolve(resolutionNode.resolvedTarget, f14);
+                    constraintWidget16.mListAnchors[i5].getResolutionNode().resolve(resolutionNode.resolvedTarget, f14 + f15);
                     constraintWidget16.mListAnchors[i2].getResolutionNode().addResolvedValue(linearSystem);
                     constraintWidget16.mListAnchors[i5].getResolutionNode().addResolvedValue(linearSystem);
-                    f15 += f16 + constraintWidget16.mListAnchors[i5].getMargin();
+                    f14 += f15 + constraintWidget16.mListAnchors[i5].getMargin();
                     if (constraintWidget15 != null) {
                         if (constraintWidget15.getVisibility() != 8) {
-                            f15 += f14;
+                            f14 += f13;
                         }
                     }
                 }

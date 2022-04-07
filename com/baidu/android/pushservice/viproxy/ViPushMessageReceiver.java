@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,8 +63,8 @@ public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
             intent.putExtra("extra_extra_custom_content", optString4);
             m.a(intent, context.getApplicationContext());
             b.a().a(context, false, 1, optString4);
-        } catch (Exception e2) {
-            new b.c(context).a(Log.getStackTraceString(e2)).a();
+        } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
     }
 

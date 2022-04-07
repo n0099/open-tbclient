@@ -7,13 +7,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class FunNativeViewInflater extends CustomInflater {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public FunNativeView f38523b;
+    public FunNativeView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeViewInflater(FunNativeAd2 funNativeAd2) {
@@ -40,7 +38,7 @@ public abstract class FunNativeViewInflater extends CustomInflater {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FunNativeView funNativeView = this.f38523b;
+            FunNativeView funNativeView = this.b;
             if (funNativeView != null) {
                 return funNativeView.a;
             }
@@ -55,7 +53,7 @@ public abstract class FunNativeViewInflater extends CustomInflater {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            FunNativeView funNativeView = this.f38523b;
+            FunNativeView funNativeView = this.b;
             if (funNativeView != null) {
                 return funNativeView;
             }
@@ -67,7 +65,7 @@ public abstract class FunNativeViewInflater extends CustomInflater {
     public void setFunNativeView(FunNativeView funNativeView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, funNativeView) == null) {
-            this.f38523b = funNativeView;
+            this.b = funNativeView;
         }
     }
 }

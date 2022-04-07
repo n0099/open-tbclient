@@ -30,34 +30,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c implements ILivenessStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "c";
     public static volatile int u;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f28086b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Rect f28087c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Rect f28088d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public com.baidu.pass.face.platform.c.a f28089e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public d f28090f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public com.baidu.pass.face.platform.b.a f28091g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ILivenessStrategyCallback f28092h;
+    public Context b;
+    public Rect c;
+    public Rect d;
+    public com.baidu.pass.face.platform.c.a e;
+    public d f;
+    public com.baidu.pass.face.platform.b.a g;
+    public ILivenessStrategyCallback h;
     public ILivenessViewCallback i;
     public ISecurityCallback j;
     public volatile boolean k;
@@ -72,18 +58,16 @@ public class c implements ILivenessStrategy {
     public FaceConfig t;
     public long v;
     public boolean w;
-    public volatile EnumC1778c x;
+    public volatile EnumC0119c x;
     public long y;
     public int z;
 
     /* renamed from: com.baidu.pass.face.platform.c.c$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ int[] f28093b;
+        public static final /* synthetic */ int[] b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -99,18 +83,18 @@ public class c implements ILivenessStrategy {
                     return;
                 }
             }
-            int[] iArr = new int[EnumC1778c.values().length];
-            f28093b = iArr;
+            int[] iArr = new int[EnumC0119c.values().length];
+            b = iArr;
             try {
-                iArr[EnumC1778c.a.ordinal()] = 1;
+                iArr[EnumC0119c.a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f28093b[EnumC1778c.f28096b.ordinal()] = 2;
+                b[EnumC0119c.b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f28093b[EnumC1778c.f28097c.ordinal()] = 3;
+                b[EnumC0119c.c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[FaceStatusNewEnum.values().length];
@@ -122,14 +106,12 @@ public class c implements ILivenessStrategy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public byte[] f28094b;
+        public byte[] b;
 
         public a(c cVar, byte[] bArr) {
             Interceptable interceptable = $ic;
@@ -147,27 +129,25 @@ public class c implements ILivenessStrategy {
                 }
             }
             this.a = cVar;
-            this.f28094b = bArr;
+            this.b = bArr;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b(this.f28094b);
+                this.a.b(this.b);
                 c.a();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Bitmap f28095b;
+        public Bitmap b;
 
         public b(c cVar, Bitmap bitmap) {
             Interceptable interceptable = $ic;
@@ -185,14 +165,14 @@ public class c implements ILivenessStrategy {
                 }
             }
             this.a = cVar;
-            this.f28095b = bitmap;
+            this.b = bitmap;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b(this.f28095b);
+                this.a.b(this.b);
                 c.a();
             }
         }
@@ -200,25 +180,15 @@ public class c implements ILivenessStrategy {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.pass.face.platform.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static final class EnumC1778c {
+    /* loaded from: classes2.dex */
+    public static final class EnumC0119c {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC1778c a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final EnumC1778c f28096b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final EnumC1778c f28097c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final EnumC1778c f28098d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final EnumC1778c f28099e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ EnumC1778c[] f28100f;
+        public static final EnumC0119c a;
+        public static final EnumC0119c b;
+        public static final EnumC0119c c;
+        public static final EnumC0119c d;
+        public static final EnumC0119c e;
+        public static final /* synthetic */ EnumC0119c[] f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -234,16 +204,16 @@ public class c implements ILivenessStrategy {
                     return;
                 }
             }
-            a = new EnumC1778c("LivenessReady", 0);
-            f28096b = new EnumC1778c("LivenessTips", 1);
-            f28097c = new EnumC1778c("LivenessOK", 2);
-            f28098d = new EnumC1778c("LivenessCourse", 3);
-            EnumC1778c enumC1778c = new EnumC1778c("LivenessCrop", 4);
-            f28099e = enumC1778c;
-            f28100f = new EnumC1778c[]{a, f28096b, f28097c, f28098d, enumC1778c};
+            a = new EnumC0119c("LivenessReady", 0);
+            b = new EnumC0119c("LivenessTips", 1);
+            c = new EnumC0119c("LivenessOK", 2);
+            d = new EnumC0119c("LivenessCourse", 3);
+            EnumC0119c enumC0119c = new EnumC0119c("LivenessCrop", 4);
+            e = enumC0119c;
+            f = new EnumC0119c[]{a, b, c, d, enumC0119c};
         }
 
-        public EnumC1778c(String str, int i) {
+        public EnumC0119c(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -262,16 +232,16 @@ public class c implements ILivenessStrategy {
             }
         }
 
-        public static EnumC1778c valueOf(String str) {
+        public static EnumC0119c valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC1778c) Enum.valueOf(EnumC1778c.class, str) : (EnumC1778c) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0119c) Enum.valueOf(EnumC0119c.class, str) : (EnumC0119c) invokeL.objValue;
         }
 
-        public static EnumC1778c[] values() {
+        public static EnumC0119c[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC1778c[]) f28100f.clone() : (EnumC1778c[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0119c[]) f.clone() : (EnumC0119c[]) invokeV.objValue;
         }
     }
 
@@ -311,16 +281,16 @@ public class c implements ILivenessStrategy {
         this.r = new HashMap<>();
         this.s = new HashMap<>();
         this.v = 0L;
-        this.x = EnumC1778c.f28099e;
+        this.x = EnumC0119c.e;
         this.y = -1L;
         com.baidu.pass.face.platform.a.a.b();
         com.baidu.pass.face.platform.a.a.b("ca", "Baidu-IDL-FaceSDK4.1.1");
         com.baidu.pass.face.platform.a.a.b("version", "4.1.1");
         com.baidu.pass.face.platform.a.a.b("stm", Long.valueOf(System.currentTimeMillis()));
-        this.f28086b = context;
-        this.f28089e = new com.baidu.pass.face.platform.c.a();
-        this.f28090f = new d();
-        this.f28091g = new com.baidu.pass.face.platform.b.a();
+        this.b = context;
+        this.e = new com.baidu.pass.face.platform.c.a();
+        this.f = new d();
+        this.g = new com.baidu.pass.face.platform.b.a();
         this.l = new com.baidu.pass.face.platform.a.b(context);
     }
 
@@ -334,10 +304,10 @@ public class c implements ILivenessStrategy {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, faceInfoArr)) == null) {
-            FaceExtInfo[] a2 = this.f28091g.a(faceInfoArr);
+            FaceExtInfo[] a2 = this.g.a(faceInfoArr);
             com.baidu.pass.face.platform.model.a aVar = new com.baidu.pass.face.platform.model.a();
             aVar.a(a2);
-            aVar.a(this.f28089e.a(this.f28088d, a2, this.t));
+            aVar.a(this.e.a(this.d, a2, this.t));
             aVar.a(System.currentTimeMillis());
             return aVar;
         }
@@ -353,7 +323,7 @@ public class c implements ILivenessStrategy {
                 return this.q.get(faceStatusNewEnum);
             }
             int tipsId = FaceEnvironment.getTipsId(faceStatusNewEnum);
-            if (tipsId <= 0 || (context = this.f28086b) == null) {
+            if (tipsId <= 0 || (context = this.b) == null) {
                 return "";
             }
             String string = context.getResources().getString(tipsId);
@@ -372,24 +342,24 @@ public class c implements ILivenessStrategy {
         new b(this, bitmap).run();
     }
 
-    private void a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f2) {
+    private void a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f) {
         ArrayList<ImageInfo> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f2)}) == null) || (a2 = this.f28091g.a(faceExtInfo, bDFaceImageInstance)) == null || a2.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f)}) == null) || (a2 = this.g.a(faceExtInfo, bDFaceImageInstance)) == null || a2.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.r;
-        hashMap.put("bestCropImage_" + i + "_" + f2 + "_" + System.currentTimeMillis(), a2.get(0));
+        hashMap.put("bestCropImage_" + i + "_" + f + "_" + System.currentTimeMillis(), a2.get(0));
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:88:0x019c, code lost:
-        if (r11.f28090f.e() != false) goto L19;
+        if (r11.f.e() != false) goto L19;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(com.baidu.pass.face.platform.model.a aVar, BDFaceImageInstance bDFaceImageInstance) {
-        EnumC1778c enumC1778c;
+        EnumC0119c enumC0119c;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65545, this, aVar, bDFaceImageInstance) == null) || bDFaceImageInstance == null) {
             return;
@@ -398,7 +368,7 @@ public class c implements ILivenessStrategy {
             bDFaceImageInstance.destory();
         } else if (aVar == null || aVar.b() == null || aVar.b().length == 0) {
             bDFaceImageInstance.destory();
-            com.baidu.pass.face.platform.c.a aVar2 = this.f28089e;
+            com.baidu.pass.face.platform.c.a aVar2 = this.e;
             if (aVar2 != null) {
                 aVar2.c();
             }
@@ -406,12 +376,12 @@ public class c implements ILivenessStrategy {
             FaceStatusNewEnum a2 = aVar.a();
             FaceExtInfo faceExtInfo = aVar.b()[0];
             if (a2 != FaceStatusNewEnum.OK) {
-                if (!this.f28089e.a()) {
+                if (!this.e.a()) {
                     if (AnonymousClass1.a[a2.ordinal()] != 1) {
                         bDFaceImageInstance.destory();
                         a(a2, faceExtInfo);
-                        this.f28089e.c();
-                        this.f28090f.j();
+                        this.e.c();
+                        this.f.j();
                         return;
                     }
                     if (this.v == 0) {
@@ -424,8 +394,8 @@ public class c implements ILivenessStrategy {
                         }
                         this.w = false;
                         bDFaceImageInstance.destory();
-                        this.f28089e.c();
-                        this.f28090f.j();
+                        this.e.c();
+                        this.f.j();
                         a(a2, (FaceExtInfo) null);
                         return;
                     }
@@ -434,19 +404,19 @@ public class c implements ILivenessStrategy {
                 return;
             } else {
                 this.i.setFaceInfo(faceExtInfo);
-                if (this.x == EnumC1778c.f28099e) {
+                if (this.x == EnumC0119c.e) {
                     if (this.z >= this.t.getCacheImageNum()) {
-                        this.x = EnumC1778c.a;
-                    } else if (a(bDFaceImageInstance, faceExtInfo, this.f28090f.a(), this.z)) {
+                        this.x = EnumC0119c.a;
+                    } else if (a(bDFaceImageInstance, faceExtInfo, this.f.a(), this.z)) {
                         this.z++;
                     }
                 }
-                if (this.x == EnumC1778c.a || this.x == EnumC1778c.f28096b) {
+                if (this.x == EnumC0119c.a || this.x == EnumC0119c.b) {
                     if (faceExtInfo.getFaceId() != this.y) {
-                        this.f28090f.i();
+                        this.f.i();
                         FaceSDKManager.getInstance().a();
                         if (this.y != -1) {
-                            this.x = EnumC1778c.f28099e;
+                            this.x = EnumC0119c.e;
                             this.z = 0;
                             HashMap<String, ImageInfo> hashMap = this.r;
                             if (hashMap != null) {
@@ -460,15 +430,15 @@ public class c implements ILivenessStrategy {
                         this.i.viewReset();
                         this.y = faceExtInfo.getFaceId();
                     }
-                    this.f28090f.a(faceExtInfo, bDFaceImageInstance, this.f28087c);
+                    this.f.a(faceExtInfo, bDFaceImageInstance, this.c);
                 }
                 this.v = 0L;
                 com.baidu.pass.face.platform.a.a.a("btm", Long.valueOf(System.currentTimeMillis()));
-                int i = AnonymousClass1.f28093b[this.x.ordinal()];
+                int i = AnonymousClass1.b[this.x.ordinal()];
                 if (i == 1) {
-                    if (a(this.f28090f.b(), faceExtInfo)) {
-                        enumC1778c = EnumC1778c.f28096b;
-                        this.x = enumC1778c;
+                    if (a(this.f.b(), faceExtInfo)) {
+                        enumC0119c = EnumC0119c.b;
+                        this.x = enumC0119c;
                     }
                     bDFaceImageInstance.destory();
                     return;
@@ -477,23 +447,23 @@ public class c implements ILivenessStrategy {
                         if (!this.w) {
                             this.w = true;
                         }
-                        if (this.f28090f.f()) {
-                            this.f28090f.h();
-                            enumC1778c = EnumC1778c.a;
-                            this.x = enumC1778c;
-                        } else if (this.f28090f.c()) {
+                        if (this.f.f()) {
+                            this.f.h();
+                            enumC0119c = EnumC0119c.a;
+                            this.x = enumC0119c;
+                        } else if (this.f.c()) {
                             b(FaceStatusNewEnum.OK, faceExtInfo);
                         }
                     }
                     bDFaceImageInstance.destory();
                     return;
-                } else if (this.f28090f.d()) {
-                    enumC1778c = EnumC1778c.f28097c;
-                    this.x = enumC1778c;
+                } else if (this.f.d()) {
+                    enumC0119c = EnumC0119c.c;
+                    this.x = enumC0119c;
                     bDFaceImageInstance.destory();
                     return;
                 } else {
-                    a(this.f28090f.b(), faceExtInfo);
+                    a(this.f.b(), faceExtInfo);
                     b();
                 }
             }
@@ -536,16 +506,16 @@ public class c implements ILivenessStrategy {
         FaceStatusNewEnum a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65548, this, bDFaceImageInstance, faceExtInfo, livenessTypeEnum, i)) == null) {
-            FaceStatusNewEnum a3 = this.f28089e.a(faceExtInfo, this.t);
+            FaceStatusNewEnum a3 = this.e.a(faceExtInfo, this.t);
             if (a3 != FaceStatusNewEnum.OK) {
-                this.f28092h.onLivenessCompletion(a3, a(a3), null, null, 0);
+                this.h.onLivenessCompletion(a3, a(a3), null, null, 0);
                 return false;
             } else if (this.t.isNoBlackCropImage() && (a2 = FaceSDKManager.getInstance().a(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.t.getCropHeight(), this.t.getCropWidth())) != FaceStatusNewEnum.OK) {
-                this.f28092h.onLivenessCompletion(a2, a(a2), null, null, 0);
+                this.h.onLivenessCompletion(a2, a(a2), null, null, 0);
                 return false;
             } else {
-                float b2 = this.f28089e.b();
-                this.f28091g.a(this.t);
+                float b2 = this.e.b();
+                this.g.a(this.t);
                 BDFaceImageInstance b3 = FaceSDKManager.getInstance().b(bDFaceImageInstance, faceExtInfo.getmLandmarks(), this.t.getCropHeight(), this.t.getCropWidth());
                 if (b3 == null) {
                     return false;
@@ -561,10 +531,10 @@ public class c implements ILivenessStrategy {
 
     private void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.f28090f.a(this.t) && !this.A) {
+        if ((interceptable == null || interceptable.invokeV(65549, this) == null) && this.f.a(this.t) && !this.A) {
             ILivenessViewCallback iLivenessViewCallback = this.i;
             if (iLivenessViewCallback != null) {
-                iLivenessViewCallback.setCurrentLiveType(this.f28090f.a());
+                iLivenessViewCallback.setCurrentLiveType(this.f.a());
             }
             b(FaceStatusNewEnum.FaceLivenessActionCodeTimeout, null);
             this.A = true;
@@ -593,7 +563,7 @@ public class c implements ILivenessStrategy {
         FaceStatusNewEnum faceStatusNewEnum2;
         HashMap<String, ImageInfo> hashMap;
         HashMap<String, ImageInfo> hashMap2;
-        int g2;
+        int g;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65551, this, faceStatusNewEnum, faceExtInfo) == null) {
             if (faceStatusNewEnum == FaceStatusNewEnum.DetectRemindCodeTimeout) {
@@ -606,24 +576,24 @@ public class c implements ILivenessStrategy {
                 com.baidu.pass.face.platform.a.a.a("etm", Long.valueOf(System.currentTimeMillis()));
                 com.baidu.pass.face.platform.a.a.a("finish", 1);
                 com.baidu.pass.face.platform.a.a.a();
-                iLivenessStrategyCallback = this.f28092h;
+                iLivenessStrategyCallback = this.h;
                 if (iLivenessStrategyCallback == null) {
                     return;
                 }
             } else if (faceStatusNewEnum != FaceStatusNewEnum.FaceLivenessActionComplete) {
-                iLivenessStrategyCallback = this.f28092h;
+                iLivenessStrategyCallback = this.h;
                 if (iLivenessStrategyCallback != null) {
                     a2 = a(faceStatusNewEnum);
                     HashMap<String, ImageInfo> hashMap3 = this.r;
                     faceStatusNewEnum2 = faceStatusNewEnum;
                     hashMap = hashMap3;
                     hashMap2 = this.s;
-                    g2 = this.f28090f.g() - 1;
-                    iLivenessStrategyCallback.onLivenessCompletion(faceStatusNewEnum2, a2, hashMap, hashMap2, g2);
+                    g = this.f.g() - 1;
+                    iLivenessStrategyCallback.onLivenessCompletion(faceStatusNewEnum2, a2, hashMap, hashMap2, g);
                 }
                 return;
             } else {
-                iLivenessStrategyCallback = this.f28092h;
+                iLivenessStrategyCallback = this.h;
                 if (iLivenessStrategyCallback == null) {
                     return;
                 }
@@ -631,20 +601,20 @@ public class c implements ILivenessStrategy {
             a2 = a(faceStatusNewEnum);
             hashMap = this.r;
             hashMap2 = this.s;
-            g2 = this.f28090f.g();
+            g = this.f.g();
             faceStatusNewEnum2 = faceStatusNewEnum;
-            iLivenessStrategyCallback.onLivenessCompletion(faceStatusNewEnum2, a2, hashMap, hashMap2, g2);
+            iLivenessStrategyCallback.onLivenessCompletion(faceStatusNewEnum2, a2, hashMap, hashMap2, g);
         }
     }
 
-    private void b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f2) {
+    private void b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance, int i, float f) {
         ArrayList<ImageInfo> b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f2)}) == null) || (b2 = this.f28091g.b(faceExtInfo, bDFaceImageInstance)) == null || b2.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{faceExtInfo, bDFaceImageInstance, Integer.valueOf(i), Float.valueOf(f)}) == null) || (b2 = this.g.b(faceExtInfo, bDFaceImageInstance)) == null || b2.size() <= 0) {
             return;
         }
         HashMap<String, ImageInfo> hashMap = this.s;
-        hashMap.put("bestSrcImage_" + i + "_" + f2 + "_" + System.currentTimeMillis(), b2.get(0));
+        hashMap.put("bestSrcImage_" + i + "_" + f + "_" + System.currentTimeMillis(), b2.get(0));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -652,7 +622,7 @@ public class c implements ILivenessStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, bArr) == null) {
             try {
-                BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.f28087c.width(), this.f28087c.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.m, 1);
+                BDFaceImageInstance bDFaceImageInstance = new BDFaceImageInstance(bArr, this.c.width(), this.c.height(), BDFaceSDKCommon.BDFaceImageType.BDFACE_IMAGE_TYPE_YUV_NV21, 360 - this.m, 1);
                 FaceInfo[] a2 = FaceSDKManager.getInstance().a(bDFaceImageInstance);
                 if (this.j != null) {
                     this.j.getFaceInfoForSecurity(a2);
@@ -711,7 +681,7 @@ public class c implements ILivenessStrategy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             FaceSDKManager.getInstance().a();
-            d dVar = this.f28090f;
+            d dVar = this.f;
             if (dVar != null) {
                 dVar.i();
             }
@@ -744,10 +714,10 @@ public class c implements ILivenessStrategy {
     public void setLivenessStrategyConfig(List<LivenessTypeEnum> list, Rect rect, Rect rect2, ILivenessStrategyCallback iLivenessStrategyCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, list, rect, rect2, iLivenessStrategyCallback) == null) {
-            this.f28090f.a(list);
-            this.f28087c = rect;
-            this.f28088d = rect2;
-            this.f28092h = iLivenessStrategyCallback;
+            this.f.a(list);
+            this.c = rect;
+            this.d = rect2;
+            this.h = iLivenessStrategyCallback;
         }
     }
 

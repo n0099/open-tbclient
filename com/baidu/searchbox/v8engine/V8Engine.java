@@ -13,7 +13,6 @@ import android.text.TextUtils;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import androidx.core.view.InputDeviceCompat;
-import c.a.j0.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
@@ -30,6 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ge1;
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
@@ -40,7 +40,7 @@ import java.util.Vector;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class V8Engine implements JSRuntime {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_CONSTRUCTOR_DONE = "v8_constructor_done";
@@ -127,13 +127,13 @@ public class V8Engine implements JSRuntime {
     public long mV8ThreadId;
     public WorkerFactory mWorkerFactoryDelegate;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface JavaScriptExceptionDelegate {
         void onV8ExceptionCallBack(V8ExceptionInfo v8ExceptionInfo);
     }
 
     @NotProguard
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MemoryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public class V8Engine implements JSRuntime {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface V8EngineConsole {
         void onDebugConsole(String str);
 
@@ -198,7 +198,7 @@ public class V8Engine implements JSRuntime {
         void onWarnConsole(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface V8StatusListener {
         void onPause();
 
@@ -207,7 +207,7 @@ public class V8Engine implements JSRuntime {
         void onResume();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface WorkerFactory {
         V8Engine onCreateWorker();
     }
@@ -371,8 +371,8 @@ public class V8Engine implements JSRuntime {
                 checkValid(this.mNativeV8Engine, this.mV8ThreadId);
                 try {
                     runnable.run();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -511,7 +511,7 @@ public class V8Engine implements JSRuntime {
                     if (str == null) {
                         str = getBuildInV8BinPath();
                     }
-                    if (str != null && a.b(str)) {
+                    if (str != null && ge1.b(str)) {
                         this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
                         AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
                     }
@@ -1933,8 +1933,8 @@ public class V8Engine implements JSRuntime {
         if (interceptable == null || interceptable.invokeV(1048643, this) == null) {
             Log.i(TAG, "[V8Dispose][mario] java version = 1.3.6.1, nativeVersion = " + nativeGetVersionName());
             try {
-            } catch (Exception e2) {
-                Log.e(TAG, Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                Log.e(TAG, Log.getStackTraceString(e));
             }
             if (!checkVersion()) {
                 throw new Exception("[mario] java version and native version dismatch  version: 1.3.6.1 nativeVersion: " + nativeGetVersionName());

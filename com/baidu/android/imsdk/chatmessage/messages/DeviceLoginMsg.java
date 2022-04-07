@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<DeviceLoginMsg> CREATOR;
@@ -112,8 +112,8 @@ public class DeviceLoginMsg extends FlashMsg implements Parcelable, NoProGuard {
                 this.time = jSONObject.optLong("time");
                 this.deviceType = jSONObject.optString(HttpConstants.DEVICE_TYPE);
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 return false;
             }
         }

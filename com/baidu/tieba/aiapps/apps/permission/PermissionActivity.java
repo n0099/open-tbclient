@@ -2,7 +2,6 @@ package com.baidu.tieba.aiapps.apps.permission;
 
 import android.app.Activity;
 import android.os.Bundle;
-import c.a.p0.b0.b.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
@@ -10,7 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mm5;
+/* loaded from: classes3.dex */
 public class PermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PERMISSION_REQUEST_CODE = 999;
@@ -33,8 +33,8 @@ public class PermissionActivity extends Activity {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0049);
-            a.d(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d004b);
+            mm5.d(this);
         }
     }
 
@@ -59,7 +59,7 @@ public class PermissionActivity extends Activity {
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) || a.b(this, i, strArr, iArr)) {
+        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) || mm5.b(this, i, strArr, iArr)) {
             return;
         }
         super.onRequestPermissionsResult(i, strArr, iArr);

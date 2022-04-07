@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.e;
-import c.a.o0.r.l0.f;
-import c.a.p0.a1.l;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -17,19 +14,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.a9;
+import com.repackage.du4;
+import com.repackage.h96;
+import com.repackage.mi;
+/* loaded from: classes3.dex */
 public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecordsActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ST_TYPE = "st_type";
     public transient /* synthetic */ FieldHolder $fh;
-    public e mLoadDataCallBack;
+    public a9 mLoadDataCallBack;
     public FacePurchaseRecordsModel mModel;
     public NoNetworkView.b mNetworkChangeListener;
     public String mStType;
-    public l mView;
+    public h96 mView;
 
-    /* loaded from: classes5.dex */
-    public class a implements f.g {
+    /* loaded from: classes3.dex */
+    public class a implements du4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePurchaseRecordsActivity a;
@@ -52,7 +53,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
             this.a = facePurchaseRecordsActivity;
         }
 
-        @Override // c.a.o0.r.l0.f.g
+        @Override // com.repackage.du4.g
         public void onListPullRefresh(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -61,8 +62,8 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends e {
+    /* loaded from: classes3.dex */
+    public class b extends a9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePurchaseRecordsActivity a;
@@ -85,7 +86,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
             this.a = facePurchaseRecordsActivity;
         }
 
-        @Override // c.a.d.a.e
+        @Override // com.repackage.a9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -106,12 +107,12 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +137,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void f(boolean z) {
+        public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
@@ -188,9 +189,9 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            l lVar = new l(getPageContext());
-            this.mView = lVar;
-            lVar.i(new a(this));
+            h96 h96Var = new h96(getPageContext());
+            this.mView = h96Var;
+            h96Var.i(new a(this));
             this.mView.h(this);
             addNetWorkStateChangeListener();
         }
@@ -200,7 +201,7 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
     public void refresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65542, this, z) == null) {
-            if (c.a.d.f.p.l.z()) {
+            if (mi.z()) {
                 if (z) {
                     showProgressBar();
                 }
@@ -220,12 +221,12 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
-        l lVar;
+        h96 h96Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (lVar = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (h96Var = this.mView) == null) {
             return;
         }
-        lVar.e(i);
+        h96Var.e(i);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -253,15 +254,15 @@ public class FacePurchaseRecordsActivity extends BaseActivity<FacePurchaseRecord
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        l lVar;
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        h96 h96Var;
         FacePurchasePackageData facePurchasePackageData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (lVar = this.mView) == null || lVar.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.mView.d().getItem(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (h96Var = this.mView) == null || h96Var.d() == null || (facePurchasePackageData = (FacePurchasePackageData) this.mView.d().getItem(i)) == null) {
             return;
         }
         sendMessage(new CustomMessage(2002001, new FacePackageDetailActivityConfig(getPageContext().getPageActivity(), String.valueOf(facePurchasePackageData.pid), false, "purchase_record")));
-        super.onItemClick(adapterView, view, i, j);
+        super.onItemClick(adapterView, view2, i, j);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

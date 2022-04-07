@@ -6,23 +6,21 @@ import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.compatible.menukey.MenuKeyUtils;
-/* loaded from: classes6.dex */
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    public Rect b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Rect f36904b;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(boolean z);
     }
@@ -46,7 +44,7 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
                 return;
             }
         }
-        this.f36904b = new Rect();
+        this.b = new Rect();
     }
 
     @Override // android.widget.LinearLayout, android.view.View
@@ -55,11 +53,11 @@ public class LinearLayoutDetectsSoftKeyboard extends LinearLayout {
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             int size = View.MeasureSpec.getSize(i2);
             Activity activity = (Activity) getContext();
-            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.f36904b);
-            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.f36904b.top) - size;
+            activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.b);
+            int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
             if (this.a != null) {
                 boolean z = true;
-                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= n.d(activity, 48.0f) + 128) {
+                if (!MenuKeyUtils.hasSmartBar() ? height <= 128 : height <= oi.d(activity, 48.0f) + 128) {
                     z = false;
                 }
                 this.a.a(z);

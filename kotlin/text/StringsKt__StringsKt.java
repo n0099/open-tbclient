@@ -140,16 +140,16 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return true;
     }
 
-    public static final boolean endsWith(CharSequence endsWith, char c2, boolean z) {
+    public static final boolean endsWith(CharSequence endsWith, char c, boolean z) {
         Intrinsics.checkNotNullParameter(endsWith, "$this$endsWith");
-        return endsWith.length() > 0 && CharsKt__CharKt.equals(endsWith.charAt(getLastIndex(endsWith)), c2, z);
+        return endsWith.length() > 0 && CharsKt__CharKt.equals(endsWith.charAt(getLastIndex(endsWith)), c, z);
     }
 
-    public static /* synthetic */ boolean endsWith$default(CharSequence charSequence, char c2, boolean z, int i, Object obj) {
+    public static /* synthetic */ boolean endsWith$default(CharSequence charSequence, char c, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        return endsWith(charSequence, c2, z);
+        return endsWith(charSequence, c, z);
     }
 
     public static final Pair<Integer, String> findAnyOf(CharSequence findAnyOf, Collection<String> strings, int i, boolean z) {
@@ -277,24 +277,24 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
     /* JADX WARN: Multi-variable type inference failed */
     @SinceKotlin(version = "1.3")
     @InlineOnly
-    public static final <C extends CharSequence & R, R> R ifBlank(C c2, Function0<? extends R> function0) {
-        return StringsKt__StringsJVMKt.isBlank(c2) ? function0.invoke() : c2;
+    public static final <C extends CharSequence & R, R> R ifBlank(C c, Function0<? extends R> function0) {
+        return StringsKt__StringsJVMKt.isBlank(c) ? function0.invoke() : c;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: C extends java.lang.CharSequence & R */
     /* JADX WARN: Multi-variable type inference failed */
     @SinceKotlin(version = "1.3")
     @InlineOnly
-    public static final <C extends CharSequence & R, R> R ifEmpty(C c2, Function0<? extends R> function0) {
-        return c2.length() == 0 ? function0.invoke() : c2;
+    public static final <C extends CharSequence & R, R> R ifEmpty(C c, Function0<? extends R> function0) {
+        return c.length() == 0 ? function0.invoke() : c;
     }
 
-    public static final int indexOf(CharSequence indexOf, char c2, int i, boolean z) {
+    public static final int indexOf(CharSequence indexOf, char c, int i, boolean z) {
         Intrinsics.checkNotNullParameter(indexOf, "$this$indexOf");
         if (!z && (indexOf instanceof String)) {
-            return ((String) indexOf).indexOf(c2, i);
+            return ((String) indexOf).indexOf(c, i);
         }
-        return indexOfAny(indexOf, new char[]{c2}, i, z);
+        return indexOfAny(indexOf, new char[]{c}, i, z);
     }
 
     public static final int indexOf$StringsKt__StringsKt(CharSequence charSequence, CharSequence charSequence2, int i, int i2, boolean z, boolean z2) {
@@ -346,14 +346,14 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return indexOf$StringsKt__StringsKt(charSequence, charSequence2, i, i2, z, (i3 & 16) != 0 ? false : z2);
     }
 
-    public static /* synthetic */ int indexOf$default(CharSequence charSequence, char c2, int i, boolean z, int i2, Object obj) {
+    public static /* synthetic */ int indexOf$default(CharSequence charSequence, char c, int i, boolean z, int i2, Object obj) {
         if ((i2 & 2) != 0) {
             i = 0;
         }
         if ((i2 & 4) != 0) {
             z = false;
         }
-        return indexOf(charSequence, c2, i, z);
+        return indexOf(charSequence, c, i, z);
     }
 
     public static final int indexOfAny(CharSequence indexOfAny, char[] chars, int i, boolean z) {
@@ -448,22 +448,22 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         };
     }
 
-    public static final int lastIndexOf(CharSequence lastIndexOf, char c2, int i, boolean z) {
+    public static final int lastIndexOf(CharSequence lastIndexOf, char c, int i, boolean z) {
         Intrinsics.checkNotNullParameter(lastIndexOf, "$this$lastIndexOf");
         if (!z && (lastIndexOf instanceof String)) {
-            return ((String) lastIndexOf).lastIndexOf(c2, i);
+            return ((String) lastIndexOf).lastIndexOf(c, i);
         }
-        return lastIndexOfAny(lastIndexOf, new char[]{c2}, i, z);
+        return lastIndexOfAny(lastIndexOf, new char[]{c}, i, z);
     }
 
-    public static /* synthetic */ int lastIndexOf$default(CharSequence charSequence, char c2, int i, boolean z, int i2, Object obj) {
+    public static /* synthetic */ int lastIndexOf$default(CharSequence charSequence, char c, int i, boolean z, int i2, Object obj) {
         if ((i2 & 2) != 0) {
             i = getLastIndex(charSequence);
         }
         if ((i2 & 4) != 0) {
             z = false;
         }
-        return lastIndexOf(charSequence, c2, i, z);
+        return lastIndexOf(charSequence, c, i, z);
     }
 
     public static final int lastIndexOfAny(CharSequence lastIndexOfAny, char[] chars, int i, boolean z) {
@@ -524,7 +524,7 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return str != null ? str : "";
     }
 
-    public static final CharSequence padEnd(CharSequence padEnd, int i, char c2) {
+    public static final CharSequence padEnd(CharSequence padEnd, int i, char c) {
         Intrinsics.checkNotNullParameter(padEnd, "$this$padEnd");
         if (i >= 0) {
             if (i <= padEnd.length()) {
@@ -536,7 +536,7 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
             int i2 = 1;
             if (1 <= length) {
                 while (true) {
-                    sb.append(c2);
+                    sb.append(c);
                     if (i2 == length) {
                         break;
                     }
@@ -548,14 +548,14 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         throw new IllegalArgumentException("Desired length " + i + " is less than zero.");
     }
 
-    public static /* synthetic */ CharSequence padEnd$default(CharSequence charSequence, int i, char c2, int i2, Object obj) {
+    public static /* synthetic */ CharSequence padEnd$default(CharSequence charSequence, int i, char c, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            c2 = WebvttCueParser.CHAR_SPACE;
+            c = WebvttCueParser.CHAR_SPACE;
         }
-        return padEnd(charSequence, i, c2);
+        return padEnd(charSequence, i, c);
     }
 
-    public static final CharSequence padStart(CharSequence padStart, int i, char c2) {
+    public static final CharSequence padStart(CharSequence padStart, int i, char c) {
         Intrinsics.checkNotNullParameter(padStart, "$this$padStart");
         if (i >= 0) {
             if (i <= padStart.length()) {
@@ -566,7 +566,7 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
             int i2 = 1;
             if (1 <= length) {
                 while (true) {
-                    sb.append(c2);
+                    sb.append(c);
                     if (i2 == length) {
                         break;
                     }
@@ -579,11 +579,11 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         throw new IllegalArgumentException("Desired length " + i + " is less than zero.");
     }
 
-    public static /* synthetic */ CharSequence padStart$default(CharSequence charSequence, int i, char c2, int i2, Object obj) {
+    public static /* synthetic */ CharSequence padStart$default(CharSequence charSequence, int i, char c, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            c2 = WebvttCueParser.CHAR_SPACE;
+            c = WebvttCueParser.CHAR_SPACE;
         }
-        return padStart(charSequence, i, c2);
+        return padStart(charSequence, i, c);
     }
 
     public static final Sequence<IntRange> rangesDelimitedBy$StringsKt__StringsKt(CharSequence charSequence, char[] cArr, int i, boolean z, int i2) {
@@ -667,19 +667,19 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return regex.replace(charSequence, str);
     }
 
-    public static final String replaceAfter(String replaceAfter, char c2, String replacement, String missingDelimiterValue) {
+    public static final String replaceAfter(String replaceAfter, char c, String replacement, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(replaceAfter, "$this$replaceAfter");
         Intrinsics.checkNotNullParameter(replacement, "replacement");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int indexOf$default = indexOf$default((CharSequence) replaceAfter, c2, 0, false, 6, (Object) null);
+        int indexOf$default = indexOf$default((CharSequence) replaceAfter, c, 0, false, 6, (Object) null);
         return indexOf$default == -1 ? missingDelimiterValue : replaceRange((CharSequence) replaceAfter, indexOf$default + 1, replaceAfter.length(), (CharSequence) replacement).toString();
     }
 
-    public static /* synthetic */ String replaceAfter$default(String str, char c2, String str2, String str3, int i, Object obj) {
+    public static /* synthetic */ String replaceAfter$default(String str, char c, String str2, String str3, int i, Object obj) {
         if ((i & 4) != 0) {
             str3 = str;
         }
-        return replaceAfter(str, c2, str2, str3);
+        return replaceAfter(str, c, str2, str3);
     }
 
     public static final String replaceAfterLast(String replaceAfterLast, String delimiter, String replacement, String missingDelimiterValue) {
@@ -698,34 +698,34 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return replaceAfterLast(str, str2, str3, str4);
     }
 
-    public static final String replaceBefore(String replaceBefore, char c2, String replacement, String missingDelimiterValue) {
+    public static final String replaceBefore(String replaceBefore, char c, String replacement, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(replaceBefore, "$this$replaceBefore");
         Intrinsics.checkNotNullParameter(replacement, "replacement");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int indexOf$default = indexOf$default((CharSequence) replaceBefore, c2, 0, false, 6, (Object) null);
+        int indexOf$default = indexOf$default((CharSequence) replaceBefore, c, 0, false, 6, (Object) null);
         return indexOf$default == -1 ? missingDelimiterValue : replaceRange((CharSequence) replaceBefore, 0, indexOf$default, (CharSequence) replacement).toString();
     }
 
-    public static /* synthetic */ String replaceBefore$default(String str, char c2, String str2, String str3, int i, Object obj) {
+    public static /* synthetic */ String replaceBefore$default(String str, char c, String str2, String str3, int i, Object obj) {
         if ((i & 4) != 0) {
             str3 = str;
         }
-        return replaceBefore(str, c2, str2, str3);
+        return replaceBefore(str, c, str2, str3);
     }
 
-    public static final String replaceBeforeLast(String replaceBeforeLast, char c2, String replacement, String missingDelimiterValue) {
+    public static final String replaceBeforeLast(String replaceBeforeLast, char c, String replacement, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(replaceBeforeLast, "$this$replaceBeforeLast");
         Intrinsics.checkNotNullParameter(replacement, "replacement");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int lastIndexOf$default = lastIndexOf$default((CharSequence) replaceBeforeLast, c2, 0, false, 6, (Object) null);
+        int lastIndexOf$default = lastIndexOf$default((CharSequence) replaceBeforeLast, c, 0, false, 6, (Object) null);
         return lastIndexOf$default == -1 ? missingDelimiterValue : replaceRange((CharSequence) replaceBeforeLast, 0, lastIndexOf$default, (CharSequence) replacement).toString();
     }
 
-    public static /* synthetic */ String replaceBeforeLast$default(String str, char c2, String str2, String str3, int i, Object obj) {
+    public static /* synthetic */ String replaceBeforeLast$default(String str, char c, String str2, String str3, int i, Object obj) {
         if ((i & 4) != 0) {
             str3 = str;
         }
-        return replaceBeforeLast(str, c2, str2, str3);
+        return replaceBeforeLast(str, c, str2, str3);
     }
 
     @InlineOnly
@@ -857,16 +857,16 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return splitToSequence(charSequence, strArr, z, i);
     }
 
-    public static final boolean startsWith(CharSequence startsWith, char c2, boolean z) {
+    public static final boolean startsWith(CharSequence startsWith, char c, boolean z) {
         Intrinsics.checkNotNullParameter(startsWith, "$this$startsWith");
-        return startsWith.length() > 0 && CharsKt__CharKt.equals(startsWith.charAt(0), c2, z);
+        return startsWith.length() > 0 && CharsKt__CharKt.equals(startsWith.charAt(0), c, z);
     }
 
-    public static /* synthetic */ boolean startsWith$default(CharSequence charSequence, char c2, boolean z, int i, Object obj) {
+    public static /* synthetic */ boolean startsWith$default(CharSequence charSequence, char c, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        return startsWith(charSequence, c2, z);
+        return startsWith(charSequence, c, z);
     }
 
     public static final CharSequence subSequence(CharSequence subSequence, IntRange range) {
@@ -890,10 +890,10 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return charSequence.subSequence(i, i2).toString();
     }
 
-    public static final String substringAfter(String substringAfter, char c2, String missingDelimiterValue) {
+    public static final String substringAfter(String substringAfter, char c, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(substringAfter, "$this$substringAfter");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int indexOf$default = indexOf$default((CharSequence) substringAfter, c2, 0, false, 6, (Object) null);
+        int indexOf$default = indexOf$default((CharSequence) substringAfter, c, 0, false, 6, (Object) null);
         if (indexOf$default == -1) {
             return missingDelimiterValue;
         }
@@ -902,17 +902,17 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return substring;
     }
 
-    public static /* synthetic */ String substringAfter$default(String str, char c2, String str2, int i, Object obj) {
+    public static /* synthetic */ String substringAfter$default(String str, char c, String str2, int i, Object obj) {
         if ((i & 2) != 0) {
             str2 = str;
         }
-        return substringAfter(str, c2, str2);
+        return substringAfter(str, c, str2);
     }
 
-    public static final String substringAfterLast(String substringAfterLast, char c2, String missingDelimiterValue) {
+    public static final String substringAfterLast(String substringAfterLast, char c, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(substringAfterLast, "$this$substringAfterLast");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int lastIndexOf$default = lastIndexOf$default((CharSequence) substringAfterLast, c2, 0, false, 6, (Object) null);
+        int lastIndexOf$default = lastIndexOf$default((CharSequence) substringAfterLast, c, 0, false, 6, (Object) null);
         if (lastIndexOf$default == -1) {
             return missingDelimiterValue;
         }
@@ -921,17 +921,17 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return substring;
     }
 
-    public static /* synthetic */ String substringAfterLast$default(String str, char c2, String str2, int i, Object obj) {
+    public static /* synthetic */ String substringAfterLast$default(String str, char c, String str2, int i, Object obj) {
         if ((i & 2) != 0) {
             str2 = str;
         }
-        return substringAfterLast(str, c2, str2);
+        return substringAfterLast(str, c, str2);
     }
 
-    public static final String substringBefore(String substringBefore, char c2, String missingDelimiterValue) {
+    public static final String substringBefore(String substringBefore, char c, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(substringBefore, "$this$substringBefore");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int indexOf$default = indexOf$default((CharSequence) substringBefore, c2, 0, false, 6, (Object) null);
+        int indexOf$default = indexOf$default((CharSequence) substringBefore, c, 0, false, 6, (Object) null);
         if (indexOf$default == -1) {
             return missingDelimiterValue;
         }
@@ -940,17 +940,17 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return substring;
     }
 
-    public static /* synthetic */ String substringBefore$default(String str, char c2, String str2, int i, Object obj) {
+    public static /* synthetic */ String substringBefore$default(String str, char c, String str2, int i, Object obj) {
         if ((i & 2) != 0) {
             str2 = str;
         }
-        return substringBefore(str, c2, str2);
+        return substringBefore(str, c, str2);
     }
 
-    public static final String substringBeforeLast(String substringBeforeLast, char c2, String missingDelimiterValue) {
+    public static final String substringBeforeLast(String substringBeforeLast, char c, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(substringBeforeLast, "$this$substringBeforeLast");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int lastIndexOf$default = lastIndexOf$default((CharSequence) substringBeforeLast, c2, 0, false, 6, (Object) null);
+        int lastIndexOf$default = lastIndexOf$default((CharSequence) substringBeforeLast, c, 0, false, 6, (Object) null);
         if (lastIndexOf$default == -1) {
             return missingDelimiterValue;
         }
@@ -959,11 +959,11 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return substring;
     }
 
-    public static /* synthetic */ String substringBeforeLast$default(String str, char c2, String str2, int i, Object obj) {
+    public static /* synthetic */ String substringBeforeLast$default(String str, char c, String str2, int i, Object obj) {
         if ((i & 2) != 0) {
             str2 = str;
         }
-        return substringBeforeLast(str, c2, str2);
+        return substringBeforeLast(str, c, str2);
     }
 
     @SinceKotlin(version = "1.5")
@@ -1041,11 +1041,11 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return "";
     }
 
-    public static /* synthetic */ boolean contains$default(CharSequence charSequence, char c2, boolean z, int i, Object obj) {
+    public static /* synthetic */ boolean contains$default(CharSequence charSequence, char c, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        return contains(charSequence, c2, z);
+        return contains(charSequence, c, z);
     }
 
     public static final boolean endsWith(CharSequence endsWith, CharSequence suffix, boolean z) {
@@ -1104,18 +1104,18 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return lastIndexOfAny(charSequence, collection, i, z);
     }
 
-    public static /* synthetic */ String padEnd$default(String str, int i, char c2, int i2, Object obj) {
+    public static /* synthetic */ String padEnd$default(String str, int i, char c, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            c2 = WebvttCueParser.CHAR_SPACE;
+            c = WebvttCueParser.CHAR_SPACE;
         }
-        return padEnd(str, i, c2);
+        return padEnd(str, i, c);
     }
 
-    public static /* synthetic */ String padStart$default(String str, int i, char c2, int i2, Object obj) {
+    public static /* synthetic */ String padStart$default(String str, int i, char c, int i2, Object obj) {
         if ((i2 & 2) != 0) {
-            c2 = WebvttCueParser.CHAR_SPACE;
+            c = WebvttCueParser.CHAR_SPACE;
         }
-        return padStart(str, i, c2);
+        return padStart(str, i, c);
     }
 
     public static /* synthetic */ Sequence rangesDelimitedBy$StringsKt__StringsKt$default(CharSequence charSequence, String[] strArr, int i, boolean z, int i2, int i3, Object obj) {
@@ -1143,11 +1143,11 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return replaceAfter(str, str2, str3, str4);
     }
 
-    public static /* synthetic */ String replaceAfterLast$default(String str, char c2, String str2, String str3, int i, Object obj) {
+    public static /* synthetic */ String replaceAfterLast$default(String str, char c, String str2, String str3, int i, Object obj) {
         if ((i & 4) != 0) {
             str3 = str;
         }
-        return replaceAfterLast(str, c2, str2, str3);
+        return replaceAfterLast(str, c, str2, str3);
     }
 
     public static /* synthetic */ String replaceBefore$default(String str, String str2, String str3, String str4, int i, Object obj) {
@@ -1259,11 +1259,11 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return indexOf$default == -1 ? missingDelimiterValue : replaceRange((CharSequence) replaceAfter, indexOf$default + delimiter.length(), replaceAfter.length(), (CharSequence) replacement).toString();
     }
 
-    public static final String replaceAfterLast(String replaceAfterLast, char c2, String replacement, String missingDelimiterValue) {
+    public static final String replaceAfterLast(String replaceAfterLast, char c, String replacement, String missingDelimiterValue) {
         Intrinsics.checkNotNullParameter(replaceAfterLast, "$this$replaceAfterLast");
         Intrinsics.checkNotNullParameter(replacement, "replacement");
         Intrinsics.checkNotNullParameter(missingDelimiterValue, "missingDelimiterValue");
-        int lastIndexOf$default = lastIndexOf$default((CharSequence) replaceAfterLast, c2, 0, false, 6, (Object) null);
+        int lastIndexOf$default = lastIndexOf$default((CharSequence) replaceAfterLast, c, 0, false, 6, (Object) null);
         return lastIndexOf$default == -1 ? missingDelimiterValue : replaceRange((CharSequence) replaceAfterLast, lastIndexOf$default + 1, replaceAfterLast.length(), (CharSequence) replacement).toString();
     }
 
@@ -1371,9 +1371,9 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return substring;
     }
 
-    public static final boolean contains(CharSequence contains, char c2, boolean z) {
+    public static final boolean contains(CharSequence contains, char c, boolean z) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return indexOf$default(contains, c2, 0, z, 2, (Object) null) >= 0;
+        return indexOf$default(contains, c, 0, z, 2, (Object) null) >= 0;
     }
 
     public static final int indexOf(CharSequence indexOf, String string, int i, boolean z) {
@@ -1590,14 +1590,14 @@ public class StringsKt__StringsKt extends StringsKt__StringsJVMKt {
         return first.intValue();
     }
 
-    public static final String padEnd(String padEnd, int i, char c2) {
+    public static final String padEnd(String padEnd, int i, char c) {
         Intrinsics.checkNotNullParameter(padEnd, "$this$padEnd");
-        return padEnd((CharSequence) padEnd, i, c2).toString();
+        return padEnd((CharSequence) padEnd, i, c).toString();
     }
 
-    public static final String padStart(String padStart, int i, char c2) {
+    public static final String padStart(String padStart, int i, char c) {
         Intrinsics.checkNotNullParameter(padStart, "$this$padStart");
-        return padStart((CharSequence) padStart, i, c2).toString();
+        return padStart((CharSequence) padStart, i, c).toString();
     }
 
     @InlineOnly

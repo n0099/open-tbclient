@@ -3,7 +3,7 @@ package com.kwad.sdk.core.b.kwai;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.kwad.sdk.core.webview.jshandler.b;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d implements com.kwad.sdk.core.d<b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,12 +11,12 @@ public class d implements com.kwad.sdk.core.d<b.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f40011b = jSONObject.optBoolean("clickActionButton");
-        aVar.f40012c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C1973b c1973b = new b.C1973b();
-        aVar.f40013d = c1973b;
-        c1973b.parseJson(jSONObject.optJSONObject("logParam"));
-        aVar.f40014e = jSONObject.optLong("creativeId", new Long("-1").longValue());
+        aVar.b = jSONObject.optBoolean("clickActionButton");
+        aVar.c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        b.C0313b c0313b = new b.C0313b();
+        aVar.d = c0313b;
+        c0313b.parseJson(jSONObject.optJSONObject("logParam"));
+        aVar.e = jSONObject.optLong("creativeId", new Long("-1").longValue());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -25,10 +25,10 @@ public class d implements com.kwad.sdk.core.d<b.a> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.f40011b);
-        com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f40012c);
-        com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f40013d);
-        com.kwad.sdk.utils.t.a(jSONObject, "creativeId", aVar.f40014e);
+        com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.c);
+        com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.d);
+        com.kwad.sdk.utils.t.a(jSONObject, "creativeId", aVar.e);
         return jSONObject;
     }
 }

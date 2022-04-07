@@ -9,24 +9,20 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.e0.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.g81;
+/* loaded from: classes2.dex */
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f28263b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Animation f28264c;
+    public TextView b;
+    public Animation c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -62,9 +58,9 @@ public class TipView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a6, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09201f);
-            this.f28263b = (TextView) findViewById(R.id.obfuscated_res_0x7f092023);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089c, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092006);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09200a);
         }
     }
 
@@ -72,17 +68,17 @@ public class TipView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             setVisibility(0);
-            if (this.f28264c == null) {
-                this.f28264c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008f);
+            if (this.c == null) {
+                this.c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010090);
             }
-            this.f28263b.setText(str);
+            this.b.setText(str);
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
                 int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c6);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            this.a.startAnimation(this.f28264c);
+            this.a.startAnimation(this.c);
         }
     }
 
@@ -93,12 +89,12 @@ public class TipView extends LinearLayout {
             this.a.clearAnimation();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070584);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07058f);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            b.b().a(this.a, str);
-            this.f28263b.setText(str2);
+            g81.b().a(this.a, str);
+            this.b.setText(str2);
         }
     }
 

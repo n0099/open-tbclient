@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.Stack;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultEbmlReader implements EbmlReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ELEMENT_STATE_READ_CONTENT = 2;
@@ -33,13 +33,13 @@ public final class DefaultEbmlReader implements EbmlReader {
     public final VarintReader varintReader;
 
     /* renamed from: com.google.android.exoplayer2.extractor.mkv.DefaultEbmlReader$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MasterElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

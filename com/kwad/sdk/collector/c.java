@@ -3,10 +3,10 @@ package com.kwad.sdk.collector;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.collector.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(int i, String str);
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class c extends OrientationEventListener {
     public int dt;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a du;
@@ -198,8 +198,8 @@ public class c extends OrientationEventListener {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
                 disable();
-            } catch (RuntimeException e2) {
-                e2.printStackTrace();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
             }
             this.dt = 0;
         }
@@ -210,8 +210,8 @@ public class c extends OrientationEventListener {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 enable();
-            } catch (RuntimeException e2) {
-                e2.printStackTrace();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
             }
         }
     }

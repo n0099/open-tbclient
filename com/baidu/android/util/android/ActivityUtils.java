@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class ActivityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -106,9 +106,9 @@ public final class ActivityUtils {
                             context.grantUriPermission(str, uriForFile, 1);
                         }
                     }
-                } catch (IllegalArgumentException e2) {
+                } catch (IllegalArgumentException e) {
                     if (DEBUG) {
-                        throw e2;
+                        throw e;
                     }
                     return false;
                 }
@@ -159,12 +159,12 @@ public final class ActivityUtils {
                     return false;
                 }
                 return false;
-            } catch (SecurityException e2) {
+            } catch (SecurityException e) {
                 if (z2) {
                     Toast.makeText(activity, (int) R.string.obfuscated_res_0x7f0f008b, 0).show();
                 }
                 if (DEBUG) {
-                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
+                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
                     return false;
                 }
                 return false;
@@ -195,18 +195,18 @@ public final class ActivityUtils {
                     return false;
                 }
                 return false;
-            } catch (SecurityException e2) {
+            } catch (SecurityException e) {
                 if (z2) {
                     Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f008b, 0).show();
                 }
                 if (DEBUG) {
-                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e2);
+                    Log.e(TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
                     return false;
                 }
                 return false;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 if (DEBUG) {
-                    Log.d(TAG, e3.getMessage());
+                    Log.d(TAG, e2.getMessage());
                     return false;
                 }
                 return false;

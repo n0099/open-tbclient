@@ -17,7 +17,7 @@ import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OnLineConfigController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREF_KEY_ONLINE_CONFIG_DATA = "PREF_KEY_ONLINE_CONFIG_DATA";
@@ -160,8 +160,8 @@ public class OnLineConfigController {
                                 }
                                 try {
                                     jSONObject = this.this$0.getOnlineParamsJSON(this.val$context);
-                                } catch (JSONException e2) {
-                                    L.debug(this, "get getOnlineParamsJSON error! %s", e2);
+                                } catch (JSONException e) {
+                                    L.debug(this, "get getOnlineParamsJSON error! %s", e);
                                 }
                                 if (jSONObject == null) {
                                     jSONObject = new JSONObject();
@@ -172,8 +172,8 @@ public class OnLineConfigController {
                                 if (this.this$0.onLineConfigListener != null) {
                                     try {
                                         jSONObject = this.this$0.getOnlineParamsJSON(this.val$context);
-                                    } catch (JSONException e3) {
-                                        L.debug(this, "get getOnlineParamsJSON error! %s", e3);
+                                    } catch (JSONException e2) {
+                                        L.debug(this, "get getOnlineParamsJSON error! %s", e2);
                                     }
                                     if (jSONObject == null) {
                                         jSONObject = new JSONObject();
@@ -187,8 +187,8 @@ public class OnLineConfigController {
                         if (this.this$0.onLineConfigListener != null) {
                             try {
                                 jSONObject = this.this$0.getOnlineParamsJSON(this.val$context);
-                            } catch (JSONException e4) {
-                                L.debug(this, "get getOnlineParamsJSON error! %s", e4);
+                            } catch (JSONException e3) {
+                                L.debug(this, "get getOnlineParamsJSON error! %s", e3);
                             }
                             if (jSONObject == null) {
                                 jSONObject = new JSONObject();

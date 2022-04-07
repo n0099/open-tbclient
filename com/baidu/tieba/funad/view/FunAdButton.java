@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -20,32 +19,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class FunAdButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f33081b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f33082c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f33083d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final int f33084e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f33085f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f33086g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f33087h;
+    public int b;
+    public int c;
+    public int d;
+    public final int e;
+    public int f;
+    public int g;
+    public int h;
     public int i;
     public Paint j;
     public TextPaint k;
@@ -91,8 +77,8 @@ public class FunAdButton extends View {
             rectF.top = i;
             rectF.right = getMeasuredWidth() - this.s;
             this.q.bottom = getMeasuredHeight() - this.s;
-            float f2 = this.f33086g / (this.o + 0.0f);
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.m, 0}, new float[]{f2, f2 + 0.001f}, Shader.TileMode.CLAMP);
+            float f = this.g / (this.o + 0.0f);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), 0.0f, new int[]{this.m, 0}, new float[]{f, f + 0.001f}, Shader.TileMode.CLAMP);
             this.r = linearGradient;
             this.j.setShader(linearGradient);
             RectF rectF2 = this.q;
@@ -106,11 +92,11 @@ public class FunAdButton extends View {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.s = getResources().getDimensionPixelSize(R.dimen.tbds1);
             this.m = getResources().getColor(R.color.CAM_X0302);
-            this.f33087h = getResources().getColor(R.color.CAM_X0101);
+            this.h = getResources().getColor(R.color.CAM_X0101);
             this.i = getResources().getColor(R.color.CAM_X0302);
             this.o = 100;
-            this.f33086g = 0;
-            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00aa);
+            this.g = 0;
+            this.n = getResources().getString(R.string.obfuscated_res_0x7f0f00ab);
             this.l = getResources().getDimension(R.dimen.T_X08);
             this.p = getResources().getDimensionPixelSize(R.dimen.tbds42);
             this.q = new RectF();
@@ -139,7 +125,7 @@ public class FunAdButton extends View {
                 textPaint.setAntiAlias(true);
                 this.k.setTextSize(this.l);
             }
-            int i = this.f33086g > 0 ? this.f33087h : this.i;
+            int i = this.g > 0 ? this.h : this.i;
             if (i != this.k.getColor()) {
                 this.k.setColor(i);
             }
@@ -160,7 +146,7 @@ public class FunAdButton extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return View.MeasureSpec.getMode(i) == Integer.MIN_VALUE ? Math.max((this.f33084e * 2) + ((int) this.k.measureText(this.n)), this.f33085f) : View.MeasureSpec.getSize(i);
+            return View.MeasureSpec.getMode(i) == Integer.MIN_VALUE ? Math.max((this.e * 2) + ((int) this.k.measureText(this.n)), this.f) : View.MeasureSpec.getSize(i);
         }
         return invokeI.intValue;
     }
@@ -168,10 +154,10 @@ public class FunAdButton extends View {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            SkinManager.setBackgroundResource(this, this.f33083d);
-            this.f33087h = SkinManager.getColor(this.a);
-            this.i = SkinManager.getColor(this.f33081b);
-            this.m = SkinManager.getColor(this.f33082c);
+            SkinManager.setBackgroundResource(this, this.d);
+            this.h = SkinManager.getColor(this.a);
+            this.i = SkinManager.getColor(this.b);
+            this.m = SkinManager.getColor(this.c);
         }
     }
 
@@ -184,7 +170,7 @@ public class FunAdButton extends View {
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f33086g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : invokeV.intValue;
     }
 
     public void h() {
@@ -198,7 +184,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f33086g > 0) {
+            if (this.g > 0) {
                 a(canvas);
             }
             if (TextUtils.isEmpty(this.n)) {
@@ -206,8 +192,8 @@ public class FunAdButton extends View {
             }
             d();
             Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
-            float f2 = fontMetrics.descent;
-            canvas.drawText(this.n, (getMeasuredWidth() - this.k.measureText(this.n)) / 2.0f, ((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f), this.k);
+            float f = fontMetrics.descent;
+            canvas.drawText(this.n, (getMeasuredWidth() - this.k.measureText(this.n)) / 2.0f, ((getHeight() / 2) - f) + ((f - fontMetrics.ascent) / 2.0f), this.k);
         }
     }
 
@@ -223,7 +209,7 @@ public class FunAdButton extends View {
     public void setBackgroundSkin(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.f33083d = i;
+            this.d = i;
         }
     }
 
@@ -231,7 +217,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.i = i;
-            this.f33087h = i;
+            this.h = i;
             postInvalidate();
         }
     }
@@ -239,7 +225,7 @@ public class FunAdButton extends View {
     public void setButtonTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.l = n.d(getContext(), i);
+            this.l = oi.d(getContext(), i);
             postInvalidate();
         }
     }
@@ -264,8 +250,8 @@ public class FunAdButton extends View {
         if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || i > this.o) {
             return;
         }
-        this.f33086g = i;
-        this.n = this.f33086g + "%";
+        this.g = i;
+        this.n = this.g + "%";
         postInvalidate();
     }
 
@@ -273,7 +259,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             this.n = str;
-            this.f33086g = 0;
+            this.g = 0;
             postInvalidate();
         }
     }
@@ -281,7 +267,7 @@ public class FunAdButton extends View {
     public void setTextColorInitSkin(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
-            this.f33081b = i;
+            this.b = i;
         }
     }
 
@@ -326,16 +312,16 @@ public class FunAdButton extends View {
             }
         }
         this.a = R.color.CAM_X0101;
-        this.f33081b = R.color.CAM_X0304;
-        this.f33082c = R.color.CAM_X0302;
-        this.f33083d = R.drawable.obfuscated_res_0x7f0800c2;
-        this.f33084e = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
-        this.f33085f = getResources().getDimensionPixelSize(R.dimen.tbds198);
-        this.f33086g = 0;
-        this.f33087h = SkinManager.getColor(this.a);
-        this.i = SkinManager.getColor(this.f33081b);
+        this.b = R.color.CAM_X0304;
+        this.c = R.color.CAM_X0302;
+        this.d = R.drawable.obfuscated_res_0x7f0800c2;
+        this.e = getResources().getDimensionPixelSize(R.dimen.M_W_X006);
+        this.f = getResources().getDimensionPixelSize(R.dimen.tbds198);
+        this.g = 0;
+        this.h = SkinManager.getColor(this.a);
+        this.i = SkinManager.getColor(this.b);
         this.l = 10.0f;
-        this.m = SkinManager.getColor(this.f33082c);
+        this.m = SkinManager.getColor(this.c);
         this.o = 100;
         this.p = 0;
         this.s = 0;
@@ -346,7 +332,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.n = getContext().getString(i);
-            this.f33086g = 0;
+            this.g = 0;
             postInvalidate();
         }
     }
@@ -355,7 +341,7 @@ public class FunAdButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, str, i) == null) {
             this.n = str;
-            this.f33086g = i;
+            this.g = i;
             postInvalidate();
         }
     }

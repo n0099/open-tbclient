@@ -90,8 +90,8 @@ public final class Factory {
     public static /* synthetic */ Class class$(String str) {
         try {
             return Class.forName(str);
-        } catch (ClassNotFoundException e2) {
-            throw new NoClassDefFoundError(e2.getMessage());
+        } catch (ClassNotFoundException e) {
+            throw new NoClassDefFoundError(e.getMessage());
         }
     }
 

@@ -2,7 +2,6 @@ package com.baidu.tieba.homepage.tabfeed.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uo;
 import tbclient.ActivityPage.SpecialColumn;
-/* loaded from: classes5.dex */
-public class SpecialColumnItemData implements n, Parcelable {
+/* loaded from: classes3.dex */
+public class SpecialColumnItemData implements uo, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnItemData> CREATOR;
     public static final BdUniqueId TYPE;
@@ -32,7 +32,7 @@ public class SpecialColumnItemData implements n, Parcelable {
     public long threadId;
     public String title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements Parcelable.Creator<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public class SpecialColumnItemData implements n, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.o.e.n
+    @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

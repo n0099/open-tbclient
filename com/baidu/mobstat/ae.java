@@ -12,13 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ae extends bn {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "baidu_mtj_sdk_record";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static ae f27164b;
+    public static ae b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +32,7 @@ public class ae extends bn {
                 return;
             }
         }
-        f27164b = new ae();
+        b = new ae();
     }
 
     public ae() {
@@ -54,7 +52,7 @@ public class ae extends bn {
     public static ae a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27164b : (ae) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (ae) invokeV.objValue;
     }
 
     public Long b(Context context) {

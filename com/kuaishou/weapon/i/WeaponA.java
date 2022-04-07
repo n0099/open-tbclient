@@ -13,7 +13,7 @@ import com.kuaishou.weapon.un.n;
 import com.kuaishou.weapon.un.o;
 import com.kuaishou.weapon.un.r;
 import com.kuaishou.weapon.un.x;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class WeaponA implements WeaponAI {
     public static /* synthetic */ Interceptable $ic;
     public static WeaponA sInstance;
@@ -61,9 +61,9 @@ public class WeaponA implements WeaponAI {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            o c2 = o.c();
-            if (c2 != null) {
-                return c2.c(str);
+            o c = o.c();
+            if (c != null) {
+                return c.c(str);
             }
             return null;
         }
@@ -77,11 +77,11 @@ public class WeaponA implements WeaponAI {
             return;
         }
         try {
-            o c2 = o.c();
-            if (c2 == null) {
+            o c = o.c();
+            if (c == null) {
                 return;
             }
-            c2.a(new r(str, str2, str3, intentFilter));
+            c.a(new r(str, str2, str3, intentFilter));
         } catch (Throwable th) {
             l1.a(th);
         }
@@ -124,11 +124,11 @@ public class WeaponA implements WeaponAI {
             return;
         }
         try {
-            o c2 = o.c();
-            if (c2 == null) {
+            o c = o.c();
+            if (c == null) {
                 return;
             }
-            c2.b(new r(str, str2, str3, intentFilter));
+            c.b(new r(str, str2, str3, intentFilter));
         } catch (Throwable th) {
             l1.a(th);
         }

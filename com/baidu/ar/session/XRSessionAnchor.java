@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 import android.view.OrientationEventListener;
 import android.view.WindowManager;
-import c.a.j0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.plugin.PluginManager;
 import com.baidu.searchbox.v8engine.NotProguard;
@@ -19,9 +18,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.ArCoreApk;
+import com.repackage.ae1;
 import java.io.File;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class XRSessionAnchor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XRSessionAnchor";
@@ -124,7 +124,7 @@ public class XRSessionAnchor {
     public void requestCameraPermission() {
         PermissionProxy permissionProxy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (permissionProxy = a.o) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (permissionProxy = ae1.o) == null) {
             return;
         }
         permissionProxy.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.2
@@ -183,7 +183,7 @@ public class XRSessionAnchor {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Context appContext = V8Engine.getAppContext();
             this.mContext = appContext;
-            this.mRotation = a.p;
+            this.mRotation = ae1.p;
             if (appContext != null) {
                 str = this.mContext.getFilesDir() + "/aigames_folder/game_ar_resource/arcore";
                 Log.i(TAG, "apk path is:" + str);
@@ -237,10 +237,10 @@ public class XRSessionAnchor {
                             if (installPackage != 1 && installPackage != -1) {
                                 this.this$0.xRSessionCreateFail(this.this$0.mNativeSessionHandle, 1003);
                             }
-                            if (a.o == null) {
-                                this.this$0.xRSessionCreateSuccess(this.this$0.mNativeSessionHandle, a.p);
+                            if (ae1.o == null) {
+                                this.this$0.xRSessionCreateSuccess(this.this$0.mNativeSessionHandle, ae1.p);
                             } else {
-                                a.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
+                                ae1.o.requestPermission(PermissionProxy.SCOPE_ID_CAMERA, new PermissionListener(this) { // from class: com.baidu.ar.session.XRSessionAnchor.3.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass3 this$1;
@@ -270,7 +270,7 @@ public class XRSessionAnchor {
                                             if (i == 0) {
                                                 Log.i(XRSessionAnchor.TAG, "Permission ok!@ permissionState:" + i);
                                                 XRSessionAnchor xRSessionAnchor = this.this$1.this$0;
-                                                xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, a.p);
+                                                xRSessionAnchor.xRSessionCreateSuccess(xRSessionAnchor.mNativeSessionHandle, ae1.p);
                                                 this.this$1.this$0.mOrientationEventListener.enable();
                                                 return;
                                             }

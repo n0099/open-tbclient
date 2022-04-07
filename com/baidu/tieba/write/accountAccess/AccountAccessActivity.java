@@ -2,8 +2,6 @@ package com.baidu.tieba.write.accountAccess;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.p0.s4.j.a;
-import c.a.p0.s4.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -16,7 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.ez8;
+import com.repackage.fz8;
+/* loaded from: classes4.dex */
 public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ACCESS_CANCEL = "http://tieba.baidu.com/account/access/cancel";
@@ -27,8 +27,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String ACCOUNT_ACCESS_VALID_SUCCESS = "http://tieba.baidu.com/account/access/valid_success";
     public transient /* synthetic */ FieldHolder $fh;
     public AccessState mAccessState;
-    public a mPresenter;
-    public b mView;
+    public ez8 mPresenter;
+    public fz8 mView;
     public WriteData mWriteData;
     public NewWriteModel mWriteModel;
 
@@ -96,7 +96,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new b(this);
+            this.mView = new fz8(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -111,9 +111,9 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                 if (this.mWriteData.getWriteImagesInfo() != null) {
                     this.mWriteModel.i0(this.mWriteData.getWriteImagesInfo().size() > 0);
                 }
-                a aVar = new a(this.mView, this.mWriteModel);
-                this.mPresenter = aVar;
-                this.mView.l(aVar);
+                ez8 ez8Var = new ez8(this.mView, this.mWriteModel);
+                this.mPresenter = ez8Var;
+                this.mView.l(ez8Var);
                 this.mPresenter.h(joinStrsForH5());
                 return;
             }

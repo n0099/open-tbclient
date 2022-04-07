@@ -50,14 +50,14 @@ public class ViewUtilsApi23 extends ViewUtilsApi22 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void setTransitionVisibility(@NonNull View view, int i) {
+    public void setTransitionVisibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
             if (Build.VERSION.SDK_INT == 28) {
-                super.setTransitionVisibility(view, i);
+                super.setTransitionVisibility(view2, i);
             } else if (sTryHiddenSetTransitionVisibility) {
                 try {
-                    view.setTransitionVisibility(i);
+                    view2.setTransitionVisibility(i);
                 } catch (NoSuchMethodError unused) {
                     sTryHiddenSetTransitionVisibility = false;
                 }

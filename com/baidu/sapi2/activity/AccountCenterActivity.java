@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AccountCenterActivity extends SlideActiviy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_LOAD_WEIXIN = "extra_load_weixin";
@@ -269,7 +269,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -451,9 +451,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AccountCenterCallback a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f28398b;
+                public final /* synthetic */ AccountCenterActivity b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -470,7 +468,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f28398b = this;
+                    this.b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -508,10 +506,10 @@ public class AccountCenterActivity extends SlideActiviy {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         super.loginSuc();
-                                        this.a.f28398b.D = SapiContext.getInstance().getCurrentAccount().bduss;
-                                        AccountCenterActivity accountCenterActivity = this.a.f28398b;
+                                        this.a.b.D = SapiContext.getInstance().getCurrentAccount().bduss;
+                                        AccountCenterActivity accountCenterActivity = this.a.b;
                                         accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
-                                        this.a.f28398b.loginStatusChange = true;
+                                        this.a.b.loginStatusChange = true;
                                     }
                                 }
                             };
@@ -527,7 +525,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             this.a.onFinish(accountCenterResult);
                             return;
                         }
-                        Intent intent = new Intent(this.f28398b, LoginActivity.class);
+                        Intent intent = new Intent(this.b, LoginActivity.class);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
                         int i = result.switchAccountType;
                         if (i == 1) {
@@ -544,7 +542,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             }
                             intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f28398b.startActivityForResult(intent, 1004);
+                        this.b.startActivityForResult(intent, 1004);
                     }
                 }
             });
@@ -622,9 +620,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AccountCenterCallback a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f28399b;
+                public final /* synthetic */ AccountCenterActivity b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -641,7 +637,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f28399b = this;
+                    this.b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -800,7 +796,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.obfuscated_res_0x7f0f1045);
+                setTitleText(R.string.obfuscated_res_0x7f0f104d);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);
@@ -810,25 +806,23 @@ public class AccountCenterActivity extends SlideActiviy {
                 SapiConfiguration sapiConfiguration = this.configuration;
                 if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
                     if (this.useTitle) {
-                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060900));
-                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060900));
-                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060902));
-                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060900));
+                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f06090f));
+                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f06090f));
+                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060911));
+                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06090f));
                     }
                 } else if (this.useTitle) {
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060902));
-                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0608ff));
-                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060901));
-                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0608ff));
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060911));
+                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f06090e));
+                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060910));
+                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06090e));
                 }
             }
             this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AccountCenterCallback a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f28397b;
+                public final /* synthetic */ AccountCenterActivity b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -845,7 +839,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             return;
                         }
                     }
-                    this.f28397b = this;
+                    this.b = this;
                     this.a = accountCenterCallback;
                 }
 

@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SimpleCache implements Cache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleCache";
@@ -109,8 +109,8 @@ public final class SimpleCache implements Cache {
             this.index.removeEmpty();
             try {
                 this.index.store();
-            } catch (Cache.CacheException e2) {
-                Log.e(TAG, "Storing index file failed", e2);
+            } catch (Cache.CacheException e) {
+                Log.e(TAG, "Storing index file failed", e);
             }
         }
     }

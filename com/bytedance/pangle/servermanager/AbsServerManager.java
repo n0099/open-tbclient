@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AbsServerManager extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_QUERY_BINDER = "activity";
@@ -86,23 +86,23 @@ public abstract class AbsServerManager extends ContentProvider {
 
     public IBinder onBind(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             int hashCode = str.hashCode();
             if (hashCode != -807062458) {
                 if (hashCode == 1984153269 && str.equals("service")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("package")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
+            if (c != 0) {
+                if (c != 1) {
                     return null;
                 }
                 return com.bytedance.pangle.service.a.a.b();

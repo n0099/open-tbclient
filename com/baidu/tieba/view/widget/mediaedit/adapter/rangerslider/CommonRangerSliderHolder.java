@@ -11,23 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final View f37175b;
+    public final View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonRangerSliderHolder(View view) {
-        super(view);
+    public CommonRangerSliderHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,8 +36,8 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.f37175b = view;
-        this.a = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092370);
+        this.b = view2;
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09234d);
     }
 
     public void a(Bitmap bitmap) {
@@ -53,6 +51,6 @@ public class CommonRangerSliderHolder extends RecyclerView.ViewHolder {
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37175b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 }

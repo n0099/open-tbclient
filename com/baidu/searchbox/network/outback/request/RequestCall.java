@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RequestCall implements Cancelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -200,8 +200,8 @@ public class RequestCall implements Cancelable {
                 }
             }
             DoRecordManager.getInstance().doRecord(response.getStatRecord(), DoRecordManager.SUCCESSFUL_MSG);
-        } catch (Exception e2) {
-            sendFailResult(handler, responseCallback, e2);
+        } catch (Exception e) {
+            sendFailResult(handler, responseCallback, e);
         }
     }
 
@@ -277,8 +277,8 @@ public class RequestCall implements Cancelable {
                     }
                 });
                 return this;
-            } catch (IOException e2) {
-                sendFailResult(handler, responseCallback, e2);
+            } catch (IOException e) {
+                sendFailResult(handler, responseCallback, e);
                 return this;
             }
         }
@@ -347,8 +347,8 @@ public class RequestCall implements Cancelable {
                     }
                 });
                 return this;
-            } catch (IOException e2) {
-                sendFailResult(handler, responseCallback, e2);
+            } catch (IOException e) {
+                sendFailResult(handler, responseCallback, e);
                 return this;
             }
         }
@@ -371,13 +371,13 @@ public class RequestCall implements Cancelable {
                         i = DoRecordManager.SUCCESSFUL_MSG;
                     }
                     return execute;
-                } catch (Exception e2) {
-                    Exception wrapNoNetworkExceptionWithDetail = ConnectManager.isNetworkConnected(getContext()) ? e2 : ResponseException.wrapNoNetworkExceptionWithDetail(e2);
+                } catch (Exception e) {
+                    Exception wrapNoNetworkExceptionWithDetail = ConnectManager.isNetworkConnected(getContext()) ? e : ResponseException.wrapNoNetworkExceptionWithDetail(e);
                     wrapNoNetworkExceptionWithDetail.printStackTrace();
                     this.request.onException4NetworkStatRecord(wrapNoNetworkExceptionWithDetail);
                     this.request.getNetworkStatRecord();
                     int i2 = DoRecordManager.FAILED_MSG;
-                    throw new RequestCallException(TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage()) ? Log.getStackTraceString(e2) : wrapNoNetworkExceptionWithDetail.getMessage(), wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord());
+                    throw new RequestCallException(TextUtils.isEmpty(wrapNoNetworkExceptionWithDetail.getMessage()) ? Log.getStackTraceString(e) : wrapNoNetworkExceptionWithDetail.getMessage(), wrapNoNetworkExceptionWithDetail, this.request.getNetworkStatRecord());
                 }
             } finally {
                 DoRecordManager.getInstance().doRecord(networkStatRecord, i);

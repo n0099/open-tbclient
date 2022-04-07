@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,16 +45,16 @@ public class e {
 
     public static boolean b(Context context) {
         InterceptResult invokeL;
-        String b2;
+        String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             try {
                 if (Build.VERSION.SDK_INT > 8) {
-                    b2 = a(context, "mml_framework");
+                    b = a(context, "mml_framework");
                 } else {
-                    b2 = b(context, "mml_framework");
+                    b = b(context, "mml_framework");
                 }
-                if (TextUtils.isEmpty(b2)) {
+                if (TextUtils.isEmpty(b)) {
                     Log.e("CheckDefaultSoExist", "mml_framework so is not exist ,please put the mml_framework so file in the right folder");
                     return false;
                 }
@@ -94,8 +94,8 @@ public class e {
                     if (invoke instanceof String) {
                         return (String) invoke;
                     }
-                } catch (Exception e2) {
-                    Log.e("findLibrary1", e2.toString());
+                } catch (Exception e) {
+                    Log.e("findLibrary1", e.toString());
                     return "catch Exception";
                 }
             }
@@ -119,8 +119,8 @@ public class e {
                     if (invoke instanceof String) {
                         return (String) invoke;
                     }
-                } catch (Exception e2) {
-                    Log.e("findLibrary2", e2.toString());
+                } catch (Exception e) {
+                    Log.e("findLibrary2", e.toString());
                     return "catch Exception";
                 }
             }

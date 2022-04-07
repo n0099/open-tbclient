@@ -69,11 +69,11 @@ public class Guideline extends View {
         }
     }
 
-    public void setGuidelinePercent(float f2) {
+    public void setGuidelinePercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) getLayoutParams();
-            layoutParams.guidePercent = f2;
+            layoutParams.guidePercent = f;
             setLayoutParams(layoutParams);
         }
     }

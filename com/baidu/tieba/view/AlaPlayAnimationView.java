@@ -10,17 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AlaPlayAnimationView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ObjectAnimator a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f36797b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f36798c;
+    public boolean b;
+    public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
@@ -40,8 +36,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f36797b = false;
-        this.f36798c = false;
+        this.b = false;
+        this.c = false;
         a();
     }
 
@@ -54,16 +50,16 @@ public class AlaPlayAnimationView extends ImageView {
             this.a.setRepeatCount(-1);
             this.a.setDuration(700L);
             setVisibility(8);
-            this.f36797b = false;
+            this.b = false;
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f36797b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b) {
             return;
         }
-        this.f36797b = true;
+        this.b = true;
         if (this.a != null) {
             setVisibility(0);
             this.a.start();
@@ -79,7 +75,7 @@ public class AlaPlayAnimationView extends ImageView {
                 this.a.cancel();
                 clearAnimation();
             }
-            this.f36797b = false;
+            this.b = false;
             setVisibility(8);
         }
     }
@@ -89,7 +85,7 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onAttachedToWindow();
-            if (this.f36798c) {
+            if (this.c) {
                 b();
             }
         }
@@ -107,7 +103,7 @@ public class AlaPlayAnimationView extends ImageView {
     public void setAutoStartPlay(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f36798c = z;
+            this.c = z;
         }
     }
 
@@ -130,8 +126,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f36797b = false;
-        this.f36798c = false;
+        this.b = false;
+        this.c = false;
         a();
     }
 }

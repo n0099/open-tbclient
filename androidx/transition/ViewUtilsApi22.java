@@ -49,11 +49,11 @@ public class ViewUtilsApi22 extends ViewUtilsApi21 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void setLeftTopRightBottom(@NonNull View view, int i, int i2, int i3, int i4) {
+    public void setLeftTopRightBottom(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && sTryHiddenSetLeftTopRightBottom) {
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && sTryHiddenSetLeftTopRightBottom) {
             try {
-                view.setLeftTopRightBottom(i, i2, i3, i4);
+                view2.setLeftTopRightBottom(i, i2, i3, i4);
             } catch (NoSuchMethodError unused) {
                 sTryHiddenSetLeftTopRightBottom = false;
             }

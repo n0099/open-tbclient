@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.Item;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,10 +93,10 @@ public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializabl
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mTitle : (String) invokeV.objValue;
     }
 
-    public void setIconSize(double d2) {
+    public void setIconSize(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mIconSize = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mIconSize = d;
         }
     }
 
@@ -121,10 +121,10 @@ public class TbRichTextEvaluateItemInfo extends OrmObject implements Serializabl
         }
     }
 
-    public void setScore(double d2) {
+    public void setScore(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mScore = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mScore = d;
         }
     }
 

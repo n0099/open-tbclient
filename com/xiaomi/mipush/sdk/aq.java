@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bg;
 import com.xiaomi.push.service.bc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class aq extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class aq extends ContentObserver {
                 context2.getContentResolver().unregisterContentObserver(this);
                 context3 = this.a.f48a;
                 if (bg.b(context3)) {
-                    this.a.m150c();
+                    this.a.m146c();
                 }
             }
         }

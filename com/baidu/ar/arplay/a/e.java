@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -39,11 +39,11 @@ public class e {
     public Map<String, Integer> dF;
     public com.baidu.ar.arplay.c.a dG;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -289,8 +289,8 @@ public class e {
                                         com.baidu.ar.arplay.c.b.b(e.TAG, "mMediaPlayer start");
                                         this.dI.df.start();
                                         this.dI.dg.dZ = "playing";
-                                    } catch (Exception e2) {
-                                        e2.fillInStackTrace();
+                                    } catch (Exception e) {
+                                        e.fillInStackTrace();
                                     }
                                 }
                             }
@@ -385,8 +385,8 @@ public class e {
                         this.dE.put(str, bVar2);
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -519,8 +519,8 @@ public class e {
                 } else {
                     bVar2.ec = (bVar.df.getCurrentPosition() * 1.0f) / bVar2.dV;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } else if (str == "finished") {
             bVar2.ec = 1.0f;
@@ -728,8 +728,8 @@ public class e {
                 com.baidu.ar.arplay.c.b.b(TAG, "mMediaPlayer pause");
                 B.pause();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

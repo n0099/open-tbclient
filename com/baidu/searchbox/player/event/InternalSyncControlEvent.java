@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InternalSyncControlEvent extends ControlEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERNAL_ACTION_PAUSE = "internal_sync_control_event_pause";

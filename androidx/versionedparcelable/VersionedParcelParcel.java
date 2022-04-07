@@ -245,18 +245,18 @@ public class VersionedParcelParcel extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeDouble(double d2) {
+    public void writeDouble(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mParcel.writeDouble(d2);
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mParcel.writeDouble(d);
         }
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeFloat(float f2) {
+    public void writeFloat(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
-            this.mParcel.writeFloat(f2);
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.mParcel.writeFloat(f);
         }
     }
 

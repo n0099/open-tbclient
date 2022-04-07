@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.kwad.sdk.core.imageloader.core.assist.ViewScaleType;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ImageViewAware extends ViewAware {
     public ImageViewAware(ImageView imageView) {
         super(imageView);
@@ -58,13 +58,13 @@ public class ImageViewAware extends ViewAware {
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ViewAware
-    public void setImageBitmapInto(Bitmap bitmap, View view) {
-        ((ImageView) view).setImageBitmap(bitmap);
+    public void setImageBitmapInto(Bitmap bitmap, View view2) {
+        ((ImageView) view2).setImageBitmap(bitmap);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ViewAware
-    public void setImageDrawableInto(Drawable drawable, View view) {
-        ((ImageView) view).setImageDrawable(drawable);
+    public void setImageDrawableInto(Drawable drawable, View view2) {
+        ((ImageView) view2).setImageDrawable(drawable);
         if (drawable instanceof AnimationDrawable) {
             ((AnimationDrawable) drawable).start();
         }

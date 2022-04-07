@@ -19,7 +19,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTE_COMPACTION = 1;
@@ -70,9 +70,9 @@ public final class PDF417HighLevelEncoder {
             if (i2 >= bArr.length) {
                 break;
             }
-            byte b2 = bArr[i2];
-            if (b2 > 0) {
-                MIXED[b2] = (byte) i2;
+            byte b = bArr[i2];
+            if (b > 0) {
+                MIXED[b] = (byte) i2;
             }
             i2++;
         }
@@ -82,9 +82,9 @@ public final class PDF417HighLevelEncoder {
             if (i >= bArr2.length) {
                 return;
             }
-            byte b3 = bArr2[i];
-            if (b3 > 0) {
-                PUNCTUATION[b3] = (byte) i;
+            byte b2 = bArr2[i];
+            if (b2 > 0) {
+                PUNCTUATION[b2] = (byte) i;
             }
             i++;
         }
@@ -405,17 +405,17 @@ public final class PDF417HighLevelEncoder {
                 }
             }
             int length = sb2.length();
-            char c2 = 0;
+            char c = 0;
             for (int i8 = 0; i8 < length; i8++) {
                 if (i8 % 2 != 0) {
-                    c2 = (char) ((c2 * DecodedBitStreamParser.RS) + sb2.charAt(i8));
-                    sb.append(c2);
+                    c = (char) ((c * DecodedBitStreamParser.RS) + sb2.charAt(i8));
+                    sb.append(c);
                 } else {
-                    c2 = sb2.charAt(i8);
+                    c = sb2.charAt(i8);
                 }
             }
             if (length % 2 != 0) {
-                sb.append((char) ((c2 * DecodedBitStreamParser.RS) + 29));
+                sb.append((char) ((c * DecodedBitStreamParser.RS) + 29));
             }
             return i4;
         }
@@ -441,56 +441,56 @@ public final class PDF417HighLevelEncoder {
         }
     }
 
-    public static boolean isAlphaLower(char c2) {
+    public static boolean isAlphaLower(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 != ' ') {
-                return c2 >= 'a' && c2 <= 'z';
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != ' ') {
+                return c >= 'a' && c <= 'z';
             }
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isAlphaUpper(char c2) {
+    public static boolean isAlphaUpper(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 != ' ') {
-                return c2 >= 'A' && c2 <= 'Z';
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != ' ') {
+                return c >= 'A' && c <= 'Z';
             }
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isDigit(char c2) {
+    public static boolean isDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 >= '0' && c2 <= '9' : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) ? c >= '0' && c <= '9' : invokeCommon.booleanValue;
     }
 
-    public static boolean isMixed(char c2) {
+    public static boolean isMixed(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c2)})) == null) ? MIXED[c2] != -1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c)})) == null) ? MIXED[c] != -1 : invokeCommon.booleanValue;
     }
 
-    public static boolean isPunctuation(char c2) {
+    public static boolean isPunctuation(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c2)})) == null) ? PUNCTUATION[c2] != -1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c)})) == null) ? PUNCTUATION[c] != -1 : invokeCommon.booleanValue;
     }
 
-    public static boolean isText(char c2) {
+    public static boolean isText(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 == '\t' || c2 == '\n' || c2 == '\r') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c == '\t' || c == '\n' || c == '\r') {
                 return true;
             }
-            return c2 >= ' ' && c2 <= '~';
+            return c >= ' ' && c <= '~';
         }
         return invokeCommon.booleanValue;
     }

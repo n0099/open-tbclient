@@ -29,7 +29,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, ClassLoader> sPluginClassLoaderCache;
@@ -167,8 +167,8 @@ public class PluginManager {
             try {
                 Utils.writeToFile(file, signature.toByteArray());
                 i++;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 file.delete();
                 Utils.deleteDir(PluginDirHelper.getPluginSignatureDir(this.mContext, packageInfo.packageName));
                 return;
@@ -210,11 +210,11 @@ public class PluginManager {
                 hookPackageManager(pluginPackageParser);
                 this.mPluginCache.put(pluginPackageParser.getPackageName(), pluginPackageParser);
                 return 1;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (0 != 0) {
                     new File((String) null).delete();
                 }
-                e2.printStackTrace();
+                e.printStackTrace();
                 return -110;
             }
         }

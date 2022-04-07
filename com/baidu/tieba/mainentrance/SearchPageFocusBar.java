@@ -17,23 +17,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchPageFocusBar extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f34341b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbPageContext<?> f34342c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Context f34343d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34344e;
+    public TextView b;
+    public TbPageContext<?> c;
+    public Context d;
+    public TextView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPageFocusBar(Context context) {
@@ -59,29 +51,29 @@ public class SearchPageFocusBar extends RelativeLayout implements View.OnClickLi
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f34343d = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03a2, this);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0909e9);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ea);
-            this.f34344e = textView;
+            this.d = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d039f, this);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0909f0);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f1);
+            this.e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
-            this.f34344e.setVisibility(8);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ec);
-            this.f34341b = textView2;
+            this.e.setVisibility(8);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0909f3);
+            this.b = textView2;
             SkinManager.setViewTextColor(textView2, R.color.CAM_X0302, 1);
-            this.f34341b.setVisibility(8);
+            this.b.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view instanceof TextView)) {
-            String charSequence = ((TextView) view).getText().toString();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && (view2 instanceof TextView)) {
+            String charSequence = ((TextView) view2).getText().toString();
             if (StringUtils.isNull(charSequence)) {
                 return;
             }
-            this.f34342c.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f34342c.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
+            this.c.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.c.getPageActivity()).createNormalCfg(charSequence, FrsActivityConfig.FRS_FROM_SEARCH)));
         }
     }
 

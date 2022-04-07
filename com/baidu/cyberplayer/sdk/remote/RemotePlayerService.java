@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RemotePlayerService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,8 +60,8 @@ public class RemotePlayerService extends Service {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
             try {
                 CyberPlayerManager.install(getApplicationContext(), intent.getStringExtra("clientID"), (String) null, intent.getIntExtra("installType", 1), (Class<?>) null, (Map<String, String>) intent.getSerializableExtra("installOpts"), (CyberPlayerManager.InstallListener2) null);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return new g.a(this);
         }

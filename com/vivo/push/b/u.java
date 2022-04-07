@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class u extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f43850b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u() {
@@ -40,7 +38,7 @@ public final class u extends v {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("undo_msg_v1", this.a);
-            aVar.a("undo_msg_type_v1", this.f43850b);
+            aVar.a("undo_msg_type_v1", this.b);
         }
     }
 
@@ -76,7 +74,7 @@ public final class u extends v {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.b("undo_msg_v1", this.a);
-            this.f43850b = aVar.b("undo_msg_type_v1", 0);
+            this.b = aVar.b("undo_msg_type_v1", 0);
         }
     }
 }

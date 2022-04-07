@@ -14,7 +14,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +53,8 @@ public class b {
                     throw new Exception("密文数据已损坏");
                 } catch (IllegalBlockSizeException unused4) {
                     throw new Exception("密文长度非法");
-                } catch (NoSuchPaddingException e2) {
-                    e2.printStackTrace();
+                } catch (NoSuchPaddingException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }

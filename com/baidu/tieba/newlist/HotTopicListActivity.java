@@ -2,8 +2,6 @@ package com.baidu.tieba.newlist;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.d.o.e.n;
-import c.a.p0.t2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -16,13 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uo;
+import com.repackage.zp7;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
+/* loaded from: classes3.dex */
+public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements zp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
-    public List<n> curDataList;
+    public List<uo> curDataList;
     public HotTopicListModel mModel;
     public HotTopicListView mView;
 
@@ -54,14 +54,14 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.t2.b
+    @Override // com.repackage.zp7
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -82,8 +82,8 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // c.a.p0.t2.b
-    public void netCallback(int i, List<n> list) {
+    @Override // com.repackage.zp7
+    public void netCallback(int i, List<uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
             this.mView.m();

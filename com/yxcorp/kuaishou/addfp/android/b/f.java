@@ -10,26 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Context f44670b;
+    public static Context b;
     public transient /* synthetic */ FieldHolder $fh;
     public h a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Class f44671c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public i f44672d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String[] f44673e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String[] f44674f;
+    public final Class c;
+    public i d;
+    public String[] e;
+    public String[] f;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -44,11 +34,11 @@ public final class f {
                 return;
             }
         }
-        this.f44673e = null;
-        this.f44674f = null;
-        this.f44671c = b();
+        this.e = null;
+        this.f = null;
+        this.c = b();
         this.a = new h(this);
-        this.f44672d = new i(this);
+        this.d = new i(this);
     }
 
     public /* synthetic */ f(byte b2) {
@@ -65,7 +55,7 @@ public final class f {
             String a = a(str);
             if (a != null && str2 != null) {
                 try {
-                    obj = this.f44671c.getDeclaredMethod("getService", String.class).invoke(null, str);
+                    obj = this.c.getDeclaredMethod("getService", String.class).invoke(null, str);
                     try {
                         Field declaredField = Class.forName(a + "$Stub").getDeclaredField(str2);
                         declaredField.setAccessible(true);
@@ -103,7 +93,7 @@ public final class f {
         f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            f44670b = context;
+            b = context;
             fVar = g.a;
             return fVar;
         }
@@ -120,7 +110,7 @@ public final class f {
             Parcel obtain2 = Parcel.obtain();
             String str2 = null;
             try {
-                ((IBinder) this.f44671c.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+                ((IBinder) this.c.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
                 str2 = obtain2.readString();
             } finally {
                 try {
@@ -139,8 +129,8 @@ public final class f {
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             try {
                 return Class.forName("android.os.ServiceManager");
-            } catch (ClassNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
                 return null;
             }
         }

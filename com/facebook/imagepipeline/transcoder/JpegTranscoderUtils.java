@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JpegTranscoderUtils {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -74,15 +74,15 @@ public class JpegTranscoderUtils {
             if (resizeOptions == null) {
                 return 1.0f;
             }
-            float f2 = i;
-            float f3 = i2;
-            float max = Math.max(resizeOptions.width / f2, resizeOptions.height / f3);
-            float f4 = resizeOptions.maxBitmapSize;
-            if (f2 * max > f4) {
-                max = f4 / f2;
+            float f = i;
+            float f2 = i2;
+            float max = Math.max(resizeOptions.width / f, resizeOptions.height / f2);
+            float f3 = resizeOptions.maxBitmapSize;
+            if (f * max > f3) {
+                max = f3 / f;
             }
-            float f5 = resizeOptions.maxBitmapSize;
-            return f3 * max > f5 ? f5 / f3 : max;
+            float f4 = resizeOptions.maxBitmapSize;
+            return f2 * max > f4 ? f4 / f2 : max;
         }
         return invokeLII.floatValue;
     }
@@ -223,9 +223,9 @@ public class JpegTranscoderUtils {
     }
 
     @VisibleForTesting
-    public static int roundNumerator(float f2, float f3) {
+    public static int roundNumerator(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (int) (f3 + (f2 * 8.0f)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? (int) (f2 + (f * 8.0f)) : invokeCommon.intValue;
     }
 }

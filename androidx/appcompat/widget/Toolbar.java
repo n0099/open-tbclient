@@ -133,9 +133,9 @@ public class Toolbar extends ViewGroup {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, menuBuilder, menuItemImpl)) == null) {
-                View view = this.this$0.mExpandedActionView;
-                if (view instanceof CollapsibleActionView) {
-                    ((CollapsibleActionView) view).onActionViewCollapsed();
+                View view2 = this.this$0.mExpandedActionView;
+                if (view2 instanceof CollapsibleActionView) {
+                    ((CollapsibleActionView) view2).onActionViewCollapsed();
                 }
                 Toolbar toolbar = this.this$0;
                 toolbar.removeView(toolbar.mExpandedActionView);
@@ -186,9 +186,9 @@ public class Toolbar extends ViewGroup {
                 this.this$0.removeChildrenForExpandedActionView();
                 this.this$0.requestLayout();
                 menuItemImpl.setActionViewExpanded(true);
-                View view = this.this$0.mExpandedActionView;
-                if (view instanceof CollapsibleActionView) {
-                    ((CollapsibleActionView) view).onActionViewExpanded();
+                View view2 = this.this$0.mExpandedActionView;
+                if (view2 instanceof CollapsibleActionView) {
+                    ((CollapsibleActionView) view2).onActionViewExpanded();
                 }
                 return true;
             }
@@ -502,11 +502,11 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    private void addSystemView(View view, boolean z) {
+    private void addSystemView(View view2, boolean z) {
         LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, view, z) == null) {
-            ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, z) == null) {
+            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
             if (layoutParams2 == null) {
                 layoutParams = generateDefaultLayoutParams();
             } else if (!checkLayoutParams(layoutParams2)) {
@@ -516,11 +516,11 @@ public class Toolbar extends ViewGroup {
             }
             layoutParams.mViewType = 1;
             if (z && this.mExpandedActionView != null) {
-                view.setLayoutParams(layoutParams);
-                this.mHiddenViews.add(view);
+                view2.setLayoutParams(layoutParams);
+                this.mHiddenViews.add(view2);
                 return;
             }
-            addView(view, layoutParams);
+            addView(view2, layoutParams);
         }
     }
 
@@ -589,12 +589,12 @@ public class Toolbar extends ViewGroup {
         return invokeI.intValue;
     }
 
-    private int getChildTop(View view, int i) {
+    private int getChildTop(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, this, view, i)) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            int measuredHeight = view.getMeasuredHeight();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, this, view2, i)) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+            int measuredHeight = view2.getMeasuredHeight();
             int i2 = i > 0 ? (measuredHeight - i) / 2 : 0;
             int childVerticalGravity = getChildVerticalGravity(layoutParams.gravity);
             if (childVerticalGravity != 48) {
@@ -632,11 +632,11 @@ public class Toolbar extends ViewGroup {
         return invokeI.intValue;
     }
 
-    private int getHorizontalMargins(View view) {
+    private int getHorizontalMargins(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, view)) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, view2)) == null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
             return MarginLayoutParamsCompat.getMarginStart(marginLayoutParams) + MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
         }
         return invokeL.intValue;
@@ -648,11 +648,11 @@ public class Toolbar extends ViewGroup {
         return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? new SupportMenuInflater(getContext()) : (MenuInflater) invokeV.objValue;
     }
 
-    private int getVerticalMargins(View view) {
+    private int getVerticalMargins(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, view)) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, view2)) == null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
             return marginLayoutParams.topMargin + marginLayoutParams.bottomMargin;
         }
         return invokeL.intValue;
@@ -668,15 +668,15 @@ public class Toolbar extends ViewGroup {
             int i3 = 0;
             int i4 = 0;
             while (i3 < size) {
-                View view = list.get(i3);
-                LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+                View view2 = list.get(i3);
+                LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
                 int i5 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin - i;
                 int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin - i2;
                 int max = Math.max(0, i5);
                 int max2 = Math.max(0, i6);
                 int max3 = Math.max(0, -i5);
                 int max4 = Math.max(0, -i6);
-                i4 += max + view.getMeasuredWidth() + max2;
+                i4 += max + view2.getMeasuredWidth() + max2;
                 i3++;
                 i2 = max4;
                 i = max3;
@@ -686,64 +686,64 @@ public class Toolbar extends ViewGroup {
         return invokeLL.intValue;
     }
 
-    private boolean isChildOrHidden(View view) {
+    private boolean isChildOrHidden(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65553, this, view)) == null) ? view.getParent() == this || this.mHiddenViews.contains(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65553, this, view2)) == null) ? view2.getParent() == this || this.mHiddenViews.contains(view2) : invokeL.booleanValue;
     }
 
-    private int layoutChildLeft(View view, int i, int[] iArr, int i2) {
+    private int layoutChildLeft(View view2, int i, int[] iArr, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{view, Integer.valueOf(i), iArr, Integer.valueOf(i2)})) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{view2, Integer.valueOf(i), iArr, Integer.valueOf(i2)})) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin - iArr[0];
             int max = i + Math.max(0, i3);
             iArr[0] = Math.max(0, -i3);
-            int childTop = getChildTop(view, i2);
-            int measuredWidth = view.getMeasuredWidth();
-            view.layout(max, childTop, max + measuredWidth, view.getMeasuredHeight() + childTop);
+            int childTop = getChildTop(view2, i2);
+            int measuredWidth = view2.getMeasuredWidth();
+            view2.layout(max, childTop, max + measuredWidth, view2.getMeasuredHeight() + childTop);
             return max + measuredWidth + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
         }
         return invokeCommon.intValue;
     }
 
-    private int layoutChildRight(View view, int i, int[] iArr, int i2) {
+    private int layoutChildRight(View view2, int i, int[] iArr, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{view, Integer.valueOf(i), iArr, Integer.valueOf(i2)})) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{view2, Integer.valueOf(i), iArr, Integer.valueOf(i2)})) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin - iArr[1];
             int max = i - Math.max(0, i3);
             iArr[1] = Math.max(0, -i3);
-            int childTop = getChildTop(view, i2);
-            int measuredWidth = view.getMeasuredWidth();
-            view.layout(max - measuredWidth, childTop, max, view.getMeasuredHeight() + childTop);
+            int childTop = getChildTop(view2, i2);
+            int measuredWidth = view2.getMeasuredWidth();
+            view2.layout(max - measuredWidth, childTop, max, view2.getMeasuredHeight() + childTop);
             return max - (measuredWidth + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin);
         }
         return invokeCommon.intValue;
     }
 
-    private int measureChildCollapseMargins(View view, int i, int i2, int i3, int i4, int[] iArr) {
+    private int measureChildCollapseMargins(View view2, int i, int i2, int i3, int i4, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
             int i5 = marginLayoutParams.leftMargin - iArr[0];
             int i6 = marginLayoutParams.rightMargin - iArr[1];
             int max = Math.max(0, i5) + Math.max(0, i6);
             iArr[0] = Math.max(0, -i5);
             iArr[1] = Math.max(0, -i6);
-            view.measure(ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + max + i2, marginLayoutParams.width), ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height));
-            return view.getMeasuredWidth() + max;
+            view2.measure(ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + max + i2, marginLayoutParams.width), ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height));
+            return view2.getMeasuredWidth() + max;
         }
         return invokeCommon.intValue;
     }
 
-    private void measureChildConstrained(View view, int i, int i2, int i3, int i4, int i5) {
+    private void measureChildConstrained(View view2, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
             int childMeasureSpec = ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, marginLayoutParams.width);
             int childMeasureSpec2 = ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height);
             int mode = View.MeasureSpec.getMode(childMeasureSpec2);
@@ -753,7 +753,7 @@ public class Toolbar extends ViewGroup {
                 }
                 childMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i5, 1073741824);
             }
-            view.measure(childMeasureSpec, childMeasureSpec2);
+            view2.measure(childMeasureSpec, childMeasureSpec2);
         }
     }
 
@@ -784,10 +784,10 @@ public class Toolbar extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    private boolean shouldLayout(View view) {
+    private boolean shouldLayout(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65560, this, view)) == null) ? (view == null || view.getParent() != this || view.getVisibility() == 8) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65560, this, view2)) == null) ? (view2 == null || view2.getParent() != this || view2.getVisibility() == 8) ? false : true : invokeL.booleanValue;
     }
 
     public void addChildrenForExpandedActionView() {
@@ -870,9 +870,9 @@ public class Toolbar extends ViewGroup {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.collapseActionView();
                     }
                 }
@@ -1599,8 +1599,8 @@ public class Toolbar extends ViewGroup {
 
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
+        char c;
         char c2;
-        char c3;
         int i3;
         int i4;
         int i5;
@@ -1612,11 +1612,11 @@ public class Toolbar extends ViewGroup {
         if (interceptable == null || interceptable.invokeII(1048627, this, i, i2) == null) {
             int[] iArr = this.mTempMargins;
             if (ViewUtils.isLayoutRtl(this)) {
-                c2 = 1;
-                c3 = 0;
-            } else {
+                c = 1;
                 c2 = 0;
-                c3 = 1;
+            } else {
+                c = 0;
+                c2 = 1;
             }
             if (shouldLayout(this.mNavButtonView)) {
                 measureChildConstrained(this.mNavButtonView, i, 0, i2, 0, this.mMaxButtonHeight);
@@ -1636,7 +1636,7 @@ public class Toolbar extends ViewGroup {
             }
             int currentContentInsetStart = getCurrentContentInsetStart();
             int max = 0 + Math.max(currentContentInsetStart, i3);
-            iArr[c2] = Math.max(0, currentContentInsetStart - i3);
+            iArr[c] = Math.max(0, currentContentInsetStart - i3);
             if (shouldLayout(this.mMenuView)) {
                 measureChildConstrained(this.mMenuView, i, max, i2, 0, this.mMaxButtonHeight);
                 i6 = this.mMenuView.getMeasuredWidth() + getHorizontalMargins(this.mMenuView);
@@ -1647,7 +1647,7 @@ public class Toolbar extends ViewGroup {
             }
             int currentContentInsetEnd = getCurrentContentInsetEnd();
             int max2 = max + Math.max(currentContentInsetEnd, i6);
-            iArr[c3] = Math.max(0, currentContentInsetEnd - i6);
+            iArr[c2] = Math.max(0, currentContentInsetEnd - i6);
             if (shouldLayout(this.mExpandedActionView)) {
                 max2 += measureChildCollapseMargins(this.mExpandedActionView, i, max2, i2, 0, iArr);
                 i4 = Math.max(i4, this.mExpandedActionView.getMeasuredHeight() + getVerticalMargins(this.mExpandedActionView));

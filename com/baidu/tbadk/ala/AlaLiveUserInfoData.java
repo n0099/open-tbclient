@@ -1,17 +1,17 @@
 package com.baidu.tbadk.ala;
 
-import c.a.o0.r.r.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.go4;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes4.dex */
-public class AlaLiveUserInfoData extends p implements Serializable {
+/* loaded from: classes2.dex */
+public class AlaLiveUserInfoData extends go4 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3860430259513905402L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.greatAnchorDescRole = alaUserInfoData.great_anchor_desc_role;
     }
 
-    @Override // c.a.o0.r.r.p
+    @Override // com.repackage.go4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

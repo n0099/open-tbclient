@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
@@ -34,6 +34,7 @@ public class MainTabActivityConfig extends IntentConfig {
     public static final String PUSH_DES_PAGE = "des_page";
     public static final String PUSH_FOLLOW_UP_ACTION = "follow_up_action";
     public static final String TARGET_SCHEME = "target_scheme";
+    public static final String TARGET_SCHEME_BAK = "target_scheme_bak";
     public static final String VIDEOTHREAD_ON_SQUARE_ID = "videothread_on_square_id";
     public static boolean VIDEO_CHANNEL_TAB_AVAILABLE = true;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +105,7 @@ public class MainTabActivityConfig extends IntentConfig {
             if (i >= 0) {
                 intent.putExtra("locate_type", i);
             }
-            intent.putExtra("is_new_user", z);
+            intent.putExtra(IS_NEW_USER, z);
             intent.putExtra("close_dialog", true);
             intent.putExtra(NEED_CLOSE_MENU, z2);
             return this;
@@ -151,9 +152,17 @@ public class MainTabActivityConfig extends IntentConfig {
         return (MainTabActivityConfig) invokeL.objValue;
     }
 
+    public void setBottomTab(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || getIntent() == null || i < 0) {
+            return;
+        }
+        getIntent().putExtra("locate_type", i);
+    }
+
     public void setPushDesPage(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(PUSH_DES_PAGE, str);
@@ -161,7 +170,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setPushFollowUpAction(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
@@ -169,7 +178,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setSubTab(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) || getIntent() == null) {
             return;
         }
         if (str == null) {
@@ -181,7 +190,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setSubTabName(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("sub_tab_name", str);
@@ -189,7 +198,7 @@ public class MainTabActivityConfig extends IntentConfig {
 
     public void setTargetScheme(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             getIntent().putExtra(TARGET_SCHEME, str);
         }
     }

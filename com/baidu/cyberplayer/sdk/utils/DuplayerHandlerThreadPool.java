@@ -21,45 +21,33 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DuplayerHandlerThreadPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_CHECK_IDLE_LONG_TIME_OUT = 100;
     public static final int MSG_CHECK_IDLE_SHORT_TIME_OUT = 101;
     public static final String TAG = "DuplayerHandlerThreadPool";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Object f25476b;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ArrayList<DuplayerHandlerThread> f25477c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ArrayList<DuplayerHandlerThread> f25478d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c f25479e;
+    public ArrayList<DuplayerHandlerThread> c;
+    public ArrayList<DuplayerHandlerThread> d;
+    public c e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.utils.DuplayerHandlerThreadPool$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final AtomicInteger a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final String f25480b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f25481c;
+        public final String b;
+        public int c;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -77,24 +65,24 @@ public class DuplayerHandlerThreadPool {
                 }
             }
             this.a = new AtomicInteger(1);
-            this.f25481c = 5;
-            this.f25480b = str + "-";
-            this.f25481c = 5;
+            this.c = 5;
+            this.b = str + "-";
+            this.c = 5;
         }
 
         public DuplayerHandlerThread a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.f25480b + this.a.getAndIncrement());
-                duplayerHandlerThread.setPriority(this.f25481c);
+                DuplayerHandlerThread duplayerHandlerThread = new DuplayerHandlerThread(this.b + this.a.getAndIncrement());
+                duplayerHandlerThread.setPriority(this.c);
                 return duplayerHandlerThread;
             }
             return (DuplayerHandlerThread) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static DuplayerHandlerThreadPool a;
@@ -117,7 +105,7 @@ public class DuplayerHandlerThreadPool {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class c extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -174,7 +162,7 @@ public class DuplayerHandlerThreadPool {
                 return;
             }
         }
-        f25476b = new Object();
+        b = new Object();
     }
 
     public DuplayerHandlerThreadPool() {
@@ -190,10 +178,10 @@ public class DuplayerHandlerThreadPool {
                 return;
             }
         }
-        this.f25477c = new ArrayList<>();
-        this.f25478d = new ArrayList<>();
+        this.c = new ArrayList<>();
+        this.d = new ArrayList<>();
         this.a = new a("duplayer-t");
-        this.f25479e = new c(Looper.getMainLooper(), null);
+        this.e = new c(Looper.getMainLooper(), null);
     }
 
     public /* synthetic */ DuplayerHandlerThreadPool(AnonymousClass1 anonymousClass1) {
@@ -235,12 +223,12 @@ public class DuplayerHandlerThreadPool {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            synchronized (f25476b) {
-                int size = this.f25477c.size();
+            synchronized (b) {
+                int size = this.c.size();
                 CyberLog.d(TAG, "checkIdlePoolShortTimeNoUse size:" + size);
                 if (size > 3) {
                     int i = size - 3;
-                    Iterator<DuplayerHandlerThread> it = this.f25477c.iterator();
+                    Iterator<DuplayerHandlerThread> it = this.c.iterator();
                     while (it.hasNext() && i > 0) {
                         DuplayerHandlerThread next = it.next();
                         if (next != null) {
@@ -269,12 +257,12 @@ public class DuplayerHandlerThreadPool {
     public void checkIdlePoolLongTimeNoUse() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (f25476b) {
-                if (this.f25477c.size() <= 0) {
+            synchronized (b) {
+                if (this.c.size() <= 0) {
                     return;
                 }
-                CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse called size:" + this.f25477c.size());
-                Iterator<DuplayerHandlerThread> it = this.f25477c.iterator();
+                CyberLog.d(TAG, "checkIdlePoolLongTimeNoUse called size:" + this.c.size());
+                Iterator<DuplayerHandlerThread> it = this.c.iterator();
                 while (it.hasNext()) {
                     DuplayerHandlerThread next = it.next();
                     if (next != null) {
@@ -303,21 +291,21 @@ public class DuplayerHandlerThreadPool {
         DuplayerHandlerThread duplayerHandlerThread;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (f25476b) {
-                if (this.f25477c.size() != 0) {
-                    int size = this.f25477c.size() - 1;
-                    DuplayerHandlerThread duplayerHandlerThread2 = this.f25477c.get(size);
-                    this.f25477c.remove(size);
+            synchronized (b) {
+                if (this.c.size() != 0) {
+                    int size = this.c.size() - 1;
+                    DuplayerHandlerThread duplayerHandlerThread2 = this.c.get(size);
+                    this.c.remove(size);
                     if (duplayerHandlerThread2 != null) {
                         duplayerHandlerThread = duplayerHandlerThread2;
                         duplayerHandlerThread.setRunState(1);
                         duplayerHandlerThread.setIdleBeginTime(-1L);
-                        this.f25478d.add(duplayerHandlerThread);
-                        if (this.f25477c.size() <= 0) {
-                            this.f25479e.removeMessages(100);
+                        this.d.add(duplayerHandlerThread);
+                        if (this.c.size() <= 0) {
+                            this.e.removeMessages(100);
                         }
-                        if (this.f25477c.size() <= 3) {
-                            this.f25479e.removeMessages(101);
+                        if (this.c.size() <= 3) {
+                            this.e.removeMessages(101);
                         }
                         CyberLog.d(TAG, " obtain handlerThread:" + duplayerHandlerThread);
                         print();
@@ -326,10 +314,10 @@ public class DuplayerHandlerThreadPool {
                 duplayerHandlerThread = a();
                 duplayerHandlerThread.setRunState(1);
                 duplayerHandlerThread.setIdleBeginTime(-1L);
-                this.f25478d.add(duplayerHandlerThread);
-                if (this.f25477c.size() <= 0) {
+                this.d.add(duplayerHandlerThread);
+                if (this.c.size() <= 0) {
                 }
-                if (this.f25477c.size() <= 3) {
+                if (this.c.size() <= 3) {
                 }
                 CyberLog.d(TAG, " obtain handlerThread:" + duplayerHandlerThread);
                 print();
@@ -342,16 +330,16 @@ public class DuplayerHandlerThreadPool {
     public void print() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (f25476b) {
-                int size = this.f25477c.size();
+            synchronized (b) {
+                int size = this.c.size();
                 CyberLog.d(TAG, "-- mIdlePool size:" + size + "--");
                 for (int i = 0; i < size; i++) {
-                    CyberLog.d(TAG, "-- mIdlePool i:" + i + " " + this.f25477c.get(i) + " --");
+                    CyberLog.d(TAG, "-- mIdlePool i:" + i + " " + this.c.get(i) + " --");
                 }
-                int size2 = this.f25478d.size();
+                int size2 = this.d.size();
                 CyberLog.d(TAG, "-- mBusyPool size:" + size2 + " --");
                 for (int i2 = 0; i2 < size2; i2++) {
-                    CyberLog.d(TAG, "-- mBusyPool i:" + i2 + " " + this.f25478d.get(i2) + " --");
+                    CyberLog.d(TAG, "-- mBusyPool i:" + i2 + " " + this.d.get(i2) + " --");
                 }
             }
         }
@@ -363,16 +351,16 @@ public class DuplayerHandlerThreadPool {
             return;
         }
         CyberLog.d(TAG, " recycle handlerThread:" + duplayerHandlerThread);
-        synchronized (f25476b) {
+        synchronized (b) {
             duplayerHandlerThread.setIdleBeginTime(SystemClock.uptimeMillis());
             duplayerHandlerThread.setRunState(0);
-            this.f25478d.remove(duplayerHandlerThread);
-            this.f25477c.add(duplayerHandlerThread);
-            if (this.f25477c.size() > 0) {
-                this.f25479e.sendEmptyMessageDelayed(100, 900000L);
+            this.d.remove(duplayerHandlerThread);
+            this.c.add(duplayerHandlerThread);
+            if (this.c.size() > 0) {
+                this.e.sendEmptyMessageDelayed(100, 900000L);
             }
-            if (this.f25477c.size() > 3) {
-                this.f25479e.sendEmptyMessageDelayed(101, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
+            if (this.c.size() > 3) {
+                this.e.sendEmptyMessageDelayed(101, AppConfig.TIMESTAMP_AVAILABLE_DURATION);
             }
             print();
         }

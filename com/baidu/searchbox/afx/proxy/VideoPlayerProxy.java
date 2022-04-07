@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoPlayerProxy";
@@ -36,7 +36,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public final VideoPlayer mVideoPlayer;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.VideoPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
@@ -373,9 +373,9 @@ public class VideoPlayerProxy extends PlayerProxy {
                 }
 
                 @Override // com.baidu.searchbox.afx.recode.Mp4Composer.Listener
-                public void onProgress(float f2) {
+                public void onProgress(float f) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
                     }
                 }
             });
@@ -429,8 +429,8 @@ public class VideoPlayerProxy extends PlayerProxy {
                 if (this.mVideoPlayer != null) {
                     this.mVideoPlayer.setDataSource(fileDescriptor);
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -475,8 +475,8 @@ public class VideoPlayerProxy extends PlayerProxy {
                 if (this.mVideoPlayer != null) {
                     this.mVideoPlayer.setDataSource(fileDescriptor, j, j2);
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

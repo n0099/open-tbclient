@@ -4,7 +4,6 @@ import android.graphics.PointF;
 import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,10 +19,11 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.a;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
+import com.repackage.yb9;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnMediaPreviewTouchEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DELETE = 106;
@@ -83,61 +83,61 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         this.mEditButtonPosition = "right_top";
     }
 
-    private void handleTouchDrag(float f2, float f3, float f4, float f5) {
-        MultiMediaData b2;
+    private void handleTouchDrag(float f, float f2, float f3, float f4) {
+        MultiMediaData b;
         GLViewPortLocation gLViewPortLocation;
         GLViewPortLocation gLViewPortLocation2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) || this.mCurrentItem == null || (b2 = this.mCurrentItem.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || this.mCurrentItem == null || (b = this.mCurrentItem.b()) == null) {
             return;
         }
-        float f6 = b2.x;
-        float f7 = b2.y;
+        float f5 = b.x;
+        float f6 = b.y;
         int i = this.mSelectStatus;
         if (104 == i || 103 == i) {
-            float f8 = b2.angle + f5;
-            b2.angle = f8;
-            b2.angle = f8 % 360.0f;
-            b2.scaleX *= f4;
-            b2.scaleY *= f4;
+            float f7 = b.angle + f4;
+            b.angle = f7;
+            b.angle = f7 % 360.0f;
+            b.scaleX *= f3;
+            b.scaleY *= f3;
         } else {
-            b2.x = f6 + f2;
-            b2.y = f7 + f3;
-            if (f2 > 0.0f || f3 > 0.0f) {
+            b.x = f5 + f;
+            b.y = f6 + f2;
+            if (f > 0.0f || f2 > 0.0f) {
                 this.mSelectStatus = 107;
                 this.mChangeMoveProperty = true;
             }
         }
         int i2 = this.mSelectStatus;
         if (103 == i2 || 104 == i2) {
-            float min = Math.min(b2.scaleX, this.mMaxScale);
-            b2.scaleX = min;
-            b2.scaleX = Math.max(min, this.mMinScale);
-            float min2 = Math.min(b2.scaleY, this.mMaxScale);
-            b2.scaleY = min2;
-            b2.scaleY = Math.max(min2, this.mMinScale);
+            float min = Math.min(b.scaleX, this.mMaxScale);
+            b.scaleX = min;
+            b.scaleX = Math.max(min, this.mMinScale);
+            float min2 = Math.min(b.scaleY, this.mMaxScale);
+            b.scaleY = min2;
+            b.scaleY = Math.max(min2, this.mMinScale);
         }
         if (107 == this.mSelectStatus && this.mCheckMoveBounds && (gLViewPortLocation2 = this.mGLViewPortLocation) != null) {
-            float min3 = Math.min(b2.x, gLViewPortLocation2.width - (b2.width / 2.0f));
-            b2.x = min3;
-            b2.x = Math.max(min3, (-b2.width) / 2.0f);
-            float min4 = Math.min(b2.y, this.mGLViewPortLocation.height - (b2.height / 2.0f));
-            b2.y = min4;
-            b2.y = Math.max(min4, (-b2.height) / 2.0f);
+            float min3 = Math.min(b.x, gLViewPortLocation2.width - (b.width / 2.0f));
+            b.x = min3;
+            b.x = Math.max(min3, (-b.width) / 2.0f);
+            float min4 = Math.min(b.y, this.mGLViewPortLocation.height - (b.height / 2.0f));
+            b.y = min4;
+            b.y = Math.max(min4, (-b.height) / 2.0f);
         }
         if (checkForSubline() && (gLViewPortLocation = this.mGLViewPortLocation) != null) {
-            float f9 = (gLViewPortLocation.width - b2.width) / 2.0f;
-            float f10 = (gLViewPortLocation.height - b2.height) / 2.0f;
+            float f8 = (gLViewPortLocation.width - b.width) / 2.0f;
+            float f9 = (gLViewPortLocation.height - b.height) / 2.0f;
             boolean z = false;
-            if (Math.abs(f9 - b2.x) <= 5.0f) {
-                b2.x = f9;
-                if (Math.abs(f9 - f6) > 5.0f) {
+            if (Math.abs(f8 - b.x) <= 5.0f) {
+                b.x = f8;
+                if (Math.abs(f8 - f5) > 5.0f) {
                     z = true;
                 }
             }
-            if (Math.abs(f10 - b2.y) <= 5.0f) {
-                b2.y = f10;
-                if (Math.abs(f10 - f7) > 5.0f) {
+            if (Math.abs(f9 - b.y) <= 5.0f) {
+                b.y = f9;
+                if (Math.abs(f9 - f6) > 5.0f) {
                     z = true;
                 }
             }
@@ -153,11 +153,11 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         this.mInnerOnChangeStickerListener.onChangeSticker(this.mSelectStatus, this.mCurrentItem.b(), this.mEditTrackType);
     }
 
-    private boolean handleTouchPress(float f2, float f3, float f4, float f5) {
+    private boolean handleTouchPress(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             this.mChangeMoveProperty = false;
             if (this.mSelectStatus == 100 || this.mCurrentItem == null) {
                 List<a> list = this.mVisibleStickerItems;
@@ -168,7 +168,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                     }
                     a previous = listIterator.previous();
                     if (previous != null && previous.a()) {
-                        if (previous.a(f2, f3)) {
+                        if (previous.a(f, f2)) {
                             this.mSelectStatus = 101;
                             setCurrentItem(previous);
                             break;
@@ -177,19 +177,19 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                     }
                 }
             } else {
-                if (this.mCurrentItem.c(f2, f3)) {
+                if (this.mCurrentItem.c(f, f2)) {
                     i = 106;
-                } else if (this.mCurrentItem.b(f2, f3)) {
+                } else if (this.mCurrentItem.b(f, f2)) {
                     i = 104;
-                } else if (this.mCurrentItem.d(f2, f3)) {
+                } else if (this.mCurrentItem.d(f, f2)) {
                     i = 105;
                 } else {
-                    if (this.mCurrentItem.a(f2, f3)) {
+                    if (this.mCurrentItem.a(f, f2)) {
                         this.mSelectStatus = 101;
                     } else {
                         this.mSelectStatus = 102;
                     }
-                    if (this.mCurrentItem != null && f4 > -2.1474836E9f && f5 > -2.1474836E9f) {
+                    if (this.mCurrentItem != null && f3 > -2.1474836E9f && f4 > -2.1474836E9f) {
                         this.mSelectStatus = 103;
                     }
                 }
@@ -203,9 +203,9 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         return invokeCommon.booleanValue;
     }
 
-    private void handleTouchUp(float f2, float f3) {
+    private void handleTouchUp(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             if (this.mCurrentItem == null) {
                 this.mChangeMoveProperty = false;
                 this.mSelectStatus = 100;
@@ -218,7 +218,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
                     if (onChangeStickerListener != null) {
                         onChangeStickerListener.onEditSticker(this.mCurrentItem.b(), this.mEditTrackType);
                     }
-                } else if (this.mChangeMoveProperty || !this.mCurrentItem.a(f2, f3)) {
+                } else if (this.mChangeMoveProperty || !this.mCurrentItem.a(f, f2)) {
                     int i2 = this.mSelectStatus;
                     if (i2 == 102) {
                         if (this.mCurrentItem != null && this.mInnerOnChangeStickerListener != null) {
@@ -293,7 +293,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     public void deleteCurrentStickerItem(a aVar, String str, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || h.e(this.mStickerItems)) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048579, this, aVar, str, z) == null) || aVar == null || yb9.e(this.mStickerItems)) {
             return;
         }
         if (TextUtils.equals(SubtitleLog.TAG, str)) {
@@ -301,7 +301,7 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         } else {
             i = this.mStickerItems.indexOf(aVar);
             this.mStickerItems.remove(aVar);
-            if (!h.e(this.mVisibleStickerItems)) {
+            if (!yb9.e(this.mVisibleStickerItems)) {
                 this.mVisibleStickerItems.remove(aVar);
             }
         }
@@ -313,13 +313,13 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
     }
 
     public void deleteStickerData(MultiMediaData multiMediaData, String str) {
-        MultiMediaData b2;
+        MultiMediaData b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, multiMediaData, str) == null) || multiMediaData == null || TextUtils.isEmpty(str)) {
             return;
         }
         a aVar = null;
-        for (int i = 0; i < this.mStickerItems.size() && ((aVar = this.mStickerItems.get(i)) == null || (b2 = aVar.b()) == null || !b2.uuid.equals(multiMediaData.uuid)); i++) {
+        for (int i = 0; i < this.mStickerItems.size() && ((aVar = this.mStickerItems.get(i)) == null || (b = aVar.b()) == null || !b.uuid.equals(multiMediaData.uuid)); i++) {
         }
         if (aVar == null) {
             return;
@@ -415,25 +415,25 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         }
     }
 
-    public boolean onTouchDown(float f2, float f3, float f4, float f5) {
+    public boolean onTouchDown(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? handleTouchPress(f2, f3, f4, f5) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? handleTouchPress(f, f2, f3, f4) : invokeCommon.booleanValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
-    public void onTouchMove(float f2, float f3, float f4, float f5) {
+    public void onTouchMove(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            handleTouchDrag(f2, f3, f4, f5);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            handleTouchDrag(f, f2, f3, f4);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
-    public void onTouchUp(float f2, float f3) {
+    public void onTouchUp(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            handleTouchUp(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            handleTouchUp(f, f2);
         }
     }
 
@@ -475,17 +475,17 @@ public class MultiMediaEditBaseRenderer extends MediaBaseRenderer implements OnM
         this.mEditButtonPosition = str2;
     }
 
-    public void setStickerMaxScale(float f2) {
+    public void setStickerMaxScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            this.mMaxScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            this.mMaxScale = f;
         }
     }
 
-    public void setStickerMinScale(float f2) {
+    public void setStickerMinScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
-            this.mMinScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.mMinScale = f;
         }
     }
 

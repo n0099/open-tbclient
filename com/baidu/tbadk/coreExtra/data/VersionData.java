@@ -3,7 +3,6 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
@@ -14,9 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VersionData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FORCE_UPDATE = 1;
@@ -189,7 +189,7 @@ public class VersionData implements Serializable {
             this.newVer = jSONObject.optString("new_version", null);
             this.size = jSONObject.optString("size", null);
             String optString = jSONObject.optString("new_four_version", null);
-            if (!m.isEmpty(optString)) {
+            if (!ni.isEmpty(optString)) {
                 this.newVer = optString;
             }
             this.url = jSONObject.optString("new_version_url");
@@ -207,8 +207,8 @@ public class VersionData implements Serializable {
                 this.hasNewVer = 1;
                 this.newFile = "tieba_" + this.newVer + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
             }
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 

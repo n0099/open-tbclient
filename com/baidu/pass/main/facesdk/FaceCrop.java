@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceCrop {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceCrop";
@@ -78,13 +78,13 @@ public class FaceCrop {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native BDFaceImageInstance nativeCropFaceByBox(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, int[] iArr);
+    private native BDFaceImageInstance nativeCropFaceByBox(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f, int[] iArr);
 
     private native BDFaceIsOutBoundary nativeCropFaceByBoxIsOutofBoundary(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
 
     private native BDFaceImageInstance nativeCropFaceByBoxParam(long j, BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, BDFaceCropParam bDFaceCropParam);
 
-    private native BDFaceImageInstance nativeCropFaceByLandmark(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f2, boolean z, int[] iArr);
+    private native BDFaceImageInstance nativeCropFaceByLandmark(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f, boolean z, int[] iArr);
 
     private native BDFaceIsOutBoundary nativeCropFaceByLandmarkIsOutofBoundary(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr, BDFaceCropParam bDFaceCropParam);
 
@@ -99,10 +99,10 @@ public class FaceCrop {
 
     private native int nativeUnInitCropImage(long j);
 
-    public BDFaceImageInstance cropFaceByBox(BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f2, AtomicInteger atomicInteger) {
+    public BDFaceImageInstance cropFaceByBox(BDFaceImageInstance bDFaceImageInstance, FaceInfo faceInfo, float f, AtomicInteger atomicInteger) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bDFaceImageInstance, faceInfo, Float.valueOf(f2), atomicInteger})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bDFaceImageInstance, faceInfo, Float.valueOf(f), atomicInteger})) == null) {
             if (bDFaceImageInstance == null || faceInfo == null || atomicInteger == null) {
                 Log.v(TAG, "Parameter is null");
                 return null;
@@ -112,7 +112,7 @@ public class FaceCrop {
                 return null;
             }
             int[] iArr = new int[1];
-            BDFaceImageInstance nativeCropFaceByBox = nativeCropFaceByBox(index, bDFaceImageInstance, faceInfo, f2, iArr);
+            BDFaceImageInstance nativeCropFaceByBox = nativeCropFaceByBox(index, bDFaceImageInstance, faceInfo, f, iArr);
             atomicInteger.set(iArr[0]);
             return nativeCropFaceByBox;
         }
@@ -159,10 +159,10 @@ public class FaceCrop {
         return (BDFaceImageInstance) invokeLLL.objValue;
     }
 
-    public BDFaceImageInstance cropFaceByLandmark(BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f2, boolean z, AtomicInteger atomicInteger) {
+    public BDFaceImageInstance cropFaceByLandmark(BDFaceImageInstance bDFaceImageInstance, float[] fArr, float f, boolean z, AtomicInteger atomicInteger) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bDFaceImageInstance, fArr, Float.valueOf(f2), Boolean.valueOf(z), atomicInteger})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bDFaceImageInstance, fArr, Float.valueOf(f), Boolean.valueOf(z), atomicInteger})) == null) {
             if (bDFaceImageInstance == null || atomicInteger == null || fArr.length < 0) {
                 Log.v(TAG, "Parameter is null");
                 return null;
@@ -172,7 +172,7 @@ public class FaceCrop {
                 return null;
             }
             int[] iArr = new int[1];
-            BDFaceImageInstance nativeCropFaceByLandmark = nativeCropFaceByLandmark(index, bDFaceImageInstance, fArr, f2, z, iArr);
+            BDFaceImageInstance nativeCropFaceByLandmark = nativeCropFaceByLandmark(index, bDFaceImageInstance, fArr, f, z, iArr);
             atomicInteger.set(iArr[0]);
             return nativeCropFaceByLandmark;
         }

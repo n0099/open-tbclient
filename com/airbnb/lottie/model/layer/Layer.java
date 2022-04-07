@@ -11,7 +11,7 @@ import com.airbnb.lottie.model.content.Mask;
 import com.airbnb.lottie.value.Keyframe;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Layer {
     public final LottieComposition composition;
     public final boolean hidden;
@@ -40,7 +40,7 @@ public class Layer {
     public final float timeStretch;
     public final AnimatableTransform transform;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum LayerType {
         PRE_COMP,
         SOLID,
@@ -51,7 +51,7 @@ public class Layer {
         UNKNOWN
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum MatteType {
         NONE,
         ADD,
@@ -61,7 +61,7 @@ public class Layer {
         UNKNOWN
     }
 
-    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i, int i2, int i3, float f2, float f3, int i4, int i5, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
+    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i, int i2, int i3, float f, float f2, int i4, int i5, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
         this.shapes = list;
         this.composition = lottieComposition;
         this.layerName = str;
@@ -74,8 +74,8 @@ public class Layer {
         this.solidWidth = i;
         this.solidHeight = i2;
         this.solidColor = i3;
-        this.timeStretch = f2;
-        this.startFrame = f3;
+        this.timeStretch = f;
+        this.startFrame = f2;
         this.preCompWidth = i4;
         this.preCompHeight = i5;
         this.text = animatableTextFrame;

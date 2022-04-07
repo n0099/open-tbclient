@@ -29,7 +29,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetOneInfoRequest";
@@ -138,9 +138,9 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                 if (AccountManager.isCuidLogin(this.mContext)) {
                     jSONObject.put("token", AccountManager.getToken(this.mContext));
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
             return jSONObject.toString().getBytes();
         }
@@ -178,8 +178,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
             jSONObject = new JSONObject(str2);
             i2 = jSONObject.getInt("error_code");
             str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-        } catch (JSONException e2) {
-            e = e2;
+        } catch (JSONException e) {
+            e = e;
             arrayList = null;
         }
         if (i2 != 0) {
@@ -214,8 +214,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                         if (!TextUtils.isEmpty(optString)) {
                             try {
                                 paInfo2.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                            } catch (JSONException e3) {
-                                LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e3);
+                            } catch (JSONException e2) {
+                                LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
                             }
                         }
                         paInfo2.setVipId(jSONObject2.optString("vip"));
@@ -233,8 +233,8 @@ public class IMPaGetOneInfoRequest extends PaBaseHttpRequest {
                         }
                         arrayList.add(paInfo2);
                     }
-                } catch (JSONException e4) {
-                    e = e4;
+                } catch (JSONException e3) {
+                    e = e3;
                     LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
                     i2 = 1010;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();

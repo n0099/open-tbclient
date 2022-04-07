@@ -111,8 +111,8 @@ public final class InflaterSource implements Source {
                     } else if (refill) {
                         throw new EOFException("source exhausted prematurely");
                     }
-                } catch (DataFormatException e2) {
-                    throw new IOException(e2);
+                } catch (DataFormatException e) {
+                    throw new IOException(e);
                 }
             }
         } else {

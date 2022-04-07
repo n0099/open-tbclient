@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.n;
-import c.a.p0.q1.l.b.c.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -23,35 +21,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.g27;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public TextView b;
+    public RecyclerView c;
+    public TopicTimelineAdapter d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f33554b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RecyclerView f33555c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TopicTimelineAdapter f33556d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends RecyclerView.ItemDecoration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f33557b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f33558c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ TopicTimelineView f33559d;
+        public int b;
+        public int c;
+        public final /* synthetic */ TopicTimelineView d;
 
         public a(TopicTimelineView topicTimelineView, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -68,36 +56,36 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
                     return;
                 }
             }
-            this.f33559d = topicTimelineView;
+            this.d = topicTimelineView;
             this.a = i;
-            this.f33557b = i2;
-            this.f33558c = i3;
+            this.b = i2;
+            this.c = i3;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+        public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
                 LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
                 if (linearLayoutManager.getOrientation() == 1) {
-                    if (recyclerView.getChildAdapterPosition(view) == 0) {
+                    if (recyclerView.getChildAdapterPosition(view2) == 0) {
                         rect.top = this.a;
                     } else {
-                        rect.top = this.f33557b;
+                        rect.top = this.b;
                     }
-                    if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                        rect.bottom = this.f33558c;
+                    if (recyclerView.getChildAdapterPosition(view2) == linearLayoutManager.getItemCount() - 1) {
+                        rect.bottom = this.c;
                         return;
                     }
                     return;
                 }
-                if (recyclerView.getChildAdapterPosition(view) == 0) {
+                if (recyclerView.getChildAdapterPosition(view2) == 0) {
                     rect.left = this.a;
                 } else {
-                    rect.left = this.f33557b;
+                    rect.left = this.b;
                 }
-                if (recyclerView.getChildAdapterPosition(view) == linearLayoutManager.getItemCount() - 1) {
-                    rect.right = this.f33558c;
+                if (recyclerView.getChildAdapterPosition(view2) == linearLayoutManager.getItemCount() - 1) {
+                    rect.right = this.c;
                 }
             }
         }
@@ -129,15 +117,15 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d084a, (ViewGroup) this, true);
-            this.f33554b = (TextView) findViewById(R.id.obfuscated_res_0x7f09212a);
-            this.f33555c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092129);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0841, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09210f);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09210e);
             TopicTimelineAdapter topicTimelineAdapter = new TopicTimelineAdapter(context);
-            this.f33556d = topicTimelineAdapter;
-            this.f33555c.setAdapter(topicTimelineAdapter);
-            this.f33555c.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f33555c.setItemAnimator(new DefaultItemAnimator());
-            this.f33555c.addItemDecoration(new a(this, n.f(context, R.dimen.tbds44), n.f(context, R.dimen.tbds20), n.f(context, R.dimen.tbds44)));
+            this.d = topicTimelineAdapter;
+            this.c.setAdapter(topicTimelineAdapter);
+            this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.c.setItemAnimator(new DefaultItemAnimator());
+            this.c.addItemDecoration(new a(this, oi.f(context, R.dimen.tbds44), oi.f(context, R.dimen.tbds20), oi.f(context, R.dimen.tbds44)));
             b();
         }
     }
@@ -149,18 +137,18 @@ public class TopicTimelineView extends ForbidParentSwipeBackLinearLayout {
             return;
         }
         this.a = skinType;
-        SkinManager.setViewTextColor(this.f33554b, (int) R.color.CAM_X0105);
-        this.f33556d.notifyDataSetChanged();
+        SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+        this.d.notifyDataSetChanged();
     }
 
-    public void setData(f fVar) {
+    public void setData(g27 g27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar) == null) {
-            if (fVar != null && !ListUtils.isEmpty(fVar.f17574b)) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g27Var) == null) {
+            if (g27Var != null && !ListUtils.isEmpty(g27Var.b)) {
                 setVisibility(0);
-                this.f33554b.setText(fVar.a);
-                this.f33556d.setData(fVar.f17574b);
-                this.f33556d.notifyDataSetChanged();
+                this.b.setText(g27Var.a);
+                this.d.setData(g27Var.b);
+                this.d.notifyDataSetChanged();
                 return;
             }
             setVisibility(8);

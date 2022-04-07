@@ -5,20 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ d a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SearchResult f28185b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Object f28186c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ a f28187d;
+    public final /* synthetic */ SearchResult b;
+    public final /* synthetic */ Object c;
+    public final /* synthetic */ a d;
 
     public c(a aVar, d dVar, SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
@@ -35,10 +29,10 @@ public class c implements Runnable {
                 return;
             }
         }
-        this.f28187d = aVar;
+        this.d = aVar;
         this.a = dVar;
-        this.f28185b = searchResult;
-        this.f28186c = obj;
+        this.b = searchResult;
+        this.c = obj;
     }
 
     @Override // java.lang.Runnable
@@ -47,11 +41,11 @@ public class c implements Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
             return;
         }
-        this.f28187d.a.lock();
+        this.d.a.lock();
         try {
-            this.a.a(this.f28185b, this.f28186c);
+            this.a.a(this.b, this.c);
         } finally {
-            this.f28187d.a.unlock();
+            this.d.a.unlock();
         }
     }
 }

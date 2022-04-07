@@ -18,7 +18,6 @@ import android.widget.FrameLayout;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
@@ -27,7 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.oi;
+/* loaded from: classes.dex */
 public class SwipeBackLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_POINTER = -1;
@@ -70,18 +70,18 @@ public class SwipeBackLayout extends FrameLayout {
     public int mViewWidth;
     public float mXVelocity;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float a;
 
-        public a(float f2) {
+        public a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2)};
+                Object[] objArr = {Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,32 +91,32 @@ public class SwipeBackLayout extends FrameLayout {
                     return;
                 }
             }
-            this.a = f2;
+            this.a = f;
         }
 
         @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f2) {
+        public float getInterpolation(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                float f3 = f2 * this.a;
-                if (f3 > 0.9d) {
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                float f2 = f * this.a;
+                if (f2 > 0.9d) {
                     return 1.0f;
                 }
-                return f3;
+                return f2;
             }
             return invokeF.floatValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface b {
         void a(boolean z);
 
         void b();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface c {
         void disableSwipeBack();
 
@@ -183,11 +183,11 @@ public class SwipeBackLayout extends FrameLayout {
                 return;
             }
             float x = MotionEventCompat.getX(motionEvent, pointerIndex);
-            float f2 = x - this.mLastMotionX;
-            float abs = Math.abs(f2);
+            float f = x - this.mLastMotionX;
+            float abs = Math.abs(f);
             float y = MotionEventCompat.getY(motionEvent, pointerIndex);
             float abs2 = Math.abs(y - this.mLastMotionY);
-            if (f2 <= 0.0f || abs <= this.mMoveDistance || abs <= abs2) {
+            if (f <= 0.0f || abs <= this.mMoveDistance || abs <= abs2) {
                 return;
             }
             this.mIsSilding = true;
@@ -245,7 +245,7 @@ public class SwipeBackLayout extends FrameLayout {
             this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
             this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
             this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-            this.mFlingDistance = n.k(context) / 4;
+            this.mFlingDistance = oi.k(context) / 4;
         }
     }
 
@@ -320,9 +320,9 @@ public class SwipeBackLayout extends FrameLayout {
                 addView(this.mRealContentView);
                 this.mContentView = (View) this.mRealContentView.getParent();
                 viewGroup.addView(this);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 this.mIsSwipeBackEnabled = false;
-                BdLog.e(e2);
+                BdLog.e(e);
             }
         }
     }
@@ -364,10 +364,10 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            View view = this.mContentView;
-            if (view != null) {
+            View view2 = this.mContentView;
+            if (view2 != null) {
                 int i = this.mCurMotionX;
-                int bottom = view.getBottom();
+                int bottom = view2.getBottom();
                 Rect rect = this.mColorRect;
                 rect.top = 0;
                 rect.bottom = bottom;
@@ -414,13 +414,13 @@ public class SwipeBackLayout extends FrameLayout {
             if (this.isTransparent) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (!this.mIsSupportNight) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa4);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab3);
             } else if (i == 1) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa3);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab2);
             } else if (i == 4) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa2);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab1);
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa4);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab3);
             }
         }
     }
@@ -443,13 +443,13 @@ public class SwipeBackLayout extends FrameLayout {
             if (this.isTransparent) {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (!this.mIsSupportNight) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa4);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab3);
             } else if (i == 1) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa3);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab2);
             } else if (i == 4) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa2);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab1);
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa4);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab3);
             }
         }
     }
@@ -513,7 +513,7 @@ public class SwipeBackLayout extends FrameLayout {
                 this.mVelocityTracker.addMovement(motionEvent);
                 int action = motionEvent.getAction() & 255;
                 if (action != 0) {
-                    float f2 = 0.0f;
+                    float f = 0.0f;
                     if (action == 1) {
                         VelocityTracker velocityTracker = this.mVelocityTracker;
                         velocityTracker.computeCurrentVelocity(1000, this.mMaximumVelocity);
@@ -563,17 +563,17 @@ public class SwipeBackLayout extends FrameLayout {
                             int pointerIndex = getPointerIndex(motionEvent, this.mActivePointerId);
                             if (!isInvalidEvent(motionEvent, pointerIndex, this.mActivePointerId)) {
                                 float x = MotionEventCompat.getX(motionEvent, pointerIndex);
-                                float f3 = this.mLastMotionX - x;
+                                float f2 = this.mLastMotionX - x;
                                 this.mLastMotionX = x;
-                                float scrollX = getScrollX() + f3;
-                                float f4 = -this.mViewWidth;
-                                if (scrollX < f4) {
-                                    f2 = f4;
+                                float scrollX = getScrollX() + f2;
+                                float f3 = -this.mViewWidth;
+                                if (scrollX < f3) {
+                                    f = f3;
                                 } else if (scrollX <= 0.0f) {
-                                    f2 = scrollX;
+                                    f = scrollX;
                                 }
-                                int i = (int) f2;
-                                this.mLastMotionX += f2 - i;
+                                int i = (int) f;
+                                this.mLastMotionX += f - i;
                                 this.mCurMotionX = i;
                                 this.mContentView.scrollTo(i, getScrollY());
                             }
@@ -619,7 +619,7 @@ public class SwipeBackLayout extends FrameLayout {
                 if (this.isTransparent) {
                     this.mRealContentView.setBackgroundResource(R.color.transparent);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060aa4);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060ab3);
                 }
             }
             this.mIsSupportNight = z;
@@ -640,11 +640,11 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    public void swipeBackControl(double d2) {
+    public void swipeBackControl(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d2)}) == null) {
-            if (d2 != 1.0d) {
-                if (d2 == 2.0d) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d)}) == null) {
+            if (d != 1.0d) {
+                if (d == 2.0d) {
                     this.mIsFinish = true;
                     scrollRight();
                     return;

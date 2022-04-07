@@ -3,16 +3,16 @@ package com.kwad.sdk.core.imageloader.core.assist.deque;
 import java.util.Iterator;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface BlockingDeque<E> extends Deque<E>, BlockingQueue<E> {
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.Queue, java.util.Collection, java.util.concurrent.BlockingQueue
-    boolean add(E e2);
+    boolean add(E e);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    void addFirst(E e2);
+    void addFirst(E e);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    void addLast(E e2);
+    void addLast(E e);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.Collection, java.util.concurrent.BlockingQueue
     boolean contains(Object obj);
@@ -24,20 +24,20 @@ public interface BlockingDeque<E> extends Deque<E>, BlockingQueue<E> {
     Iterator<E> iterator();
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.Queue, java.util.concurrent.BlockingQueue
-    boolean offer(E e2);
+    boolean offer(E e);
 
     @Override // java.util.concurrent.BlockingQueue
-    boolean offer(E e2, long j, TimeUnit timeUnit);
+    boolean offer(E e, long j, TimeUnit timeUnit);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    boolean offerFirst(E e2);
+    boolean offerFirst(E e);
 
-    boolean offerFirst(E e2, long j, TimeUnit timeUnit);
+    boolean offerFirst(E e, long j, TimeUnit timeUnit);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    boolean offerLast(E e2);
+    boolean offerLast(E e);
 
-    boolean offerLast(E e2, long j, TimeUnit timeUnit);
+    boolean offerLast(E e, long j, TimeUnit timeUnit);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.Queue
     E peek();
@@ -53,14 +53,14 @@ public interface BlockingDeque<E> extends Deque<E>, BlockingQueue<E> {
     E pollLast(long j, TimeUnit timeUnit);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
-    void push(E e2);
+    void push(E e);
 
     @Override // java.util.concurrent.BlockingQueue
-    void put(E e2);
+    void put(E e);
 
-    void putFirst(E e2);
+    void putFirst(E e);
 
-    void putLast(E e2);
+    void putLast(E e);
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque, java.util.Queue
     E remove();

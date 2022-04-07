@@ -41,7 +41,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebViewFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
@@ -94,7 +94,7 @@ public final class WebViewFactory {
     public static boolean sforceMainProcessNoZeus;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -141,7 +141,7 @@ public final class WebViewFactory {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
             if (c.a(mContext).a.a()) {
-                String str = aVar.f37850d + "libzeuswebviewchromium.so";
+                String str = aVar.d + "libzeuswebviewchromium.so";
                 try {
                     j = new File(str).length();
                 } catch (Throwable th) {
@@ -172,13 +172,13 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.f37850d);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.d);
                 LoadErrorCode.getInstance().trace(LoadErrorCode.MSG_SDK_LIB_DISMATCH);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                loadErrorCode.trace("521:" + e2.toString());
+                loadErrorCode.trace("521:" + e.toString());
                 throw new Exception("sdk and zeus jar dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + "9.0.0.0");
             }
         }
@@ -199,9 +199,9 @@ public final class WebViewFactory {
                 }
                 EngineManager.getInstance().resetZeus();
                 Log.i(TAG, "checkWaitRevertUpdateZeus clear so files.");
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                loadErrorCode.trace("519:" + e2.toString());
+                loadErrorCode.trace("519:" + e.toString());
             }
         }
     }
@@ -301,8 +301,8 @@ public final class WebViewFactory {
                         declaredMethod.setAccessible(isAccessible);
                         try {
                             mPackageInfo = (PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, null);
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     } else {
                         mPackageInfo = mContext.getPackageManager().getPackageInfo((String) Class.forName("android.webkit.WebViewFactory").getMethod("getWebViewPackageName", new Class[0]).invoke(null, null), 0);
@@ -372,8 +372,8 @@ public final class WebViewFactory {
                     mIsZeusProvideInit = true;
                     z = zeusProviderImpl != null;
                     StrictMode.setThreadPolicy(allowThreadDiskReads);
-                } catch (Exception e2) {
-                    throw new AndroidRuntimeException(e2);
+                } catch (Exception e) {
+                    throw new AndroidRuntimeException(e);
                 }
             }
             return z;
@@ -536,8 +536,8 @@ public final class WebViewFactory {
                             PackageInfo packageInfo = null;
                             try {
                                 i2 = this.val$type;
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                             if (i2 != 1) {
                                 if (i2 == 2) {
@@ -605,7 +605,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f37850d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -710,8 +710,8 @@ public final class WebViewFactory {
                             }
                             StrictMode.setThreadPolicy(allowThreadDiskReads);
                             return providerImpl;
-                        } catch (Exception e2) {
-                            throw new AndroidRuntimeException(e2);
+                        } catch (Exception e) {
+                            throw new AndroidRuntimeException(e);
                         }
                     }
                     throw new AndroidRuntimeException("WebViewFactory.setContext must be called before getProvider(), or invoke getProvider() on MainThread.");
@@ -891,8 +891,8 @@ public final class WebViewFactory {
                     fetchSystemPackageInfo();
                     try {
                         webViewFactoryProvider2 = null;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         webViewFactoryProvider2 = null;
                     }
                     try {
@@ -901,8 +901,8 @@ public final class WebViewFactory {
                         if (webViewFactoryProvider4 != null) {
                             mEngineType.set(0);
                         }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         mProvider = webViewFactoryProvider2;
                         if (!isRendererProcess()) {
                             LoadErrorCode.Statistics.record();
@@ -982,8 +982,8 @@ public final class WebViewFactory {
                             fetchSystemPackageInfo();
                             try {
                                 webViewFactoryProvider = null;
-                            } catch (Exception e4) {
-                                e = e4;
+                            } catch (Exception e3) {
+                                e = e3;
                                 webViewFactoryProvider = null;
                             }
                             try {
@@ -992,8 +992,8 @@ public final class WebViewFactory {
                                 if (webViewFactoryProvider5 != null) {
                                     mEngineType.set(0);
                                 }
-                            } catch (Exception e5) {
-                                e = e5;
+                            } catch (Exception e4) {
+                                e = e4;
                                 mProvider = webViewFactoryProvider;
                                 if (!isRendererProcess()) {
                                     LoadErrorCode.Statistics.record();
@@ -1357,8 +1357,8 @@ public final class WebViewFactory {
                     return (applicationInfo.flags & 2) != 0;
                 }
                 return false;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -1430,8 +1430,8 @@ public final class WebViewFactory {
                     return processSuffix.indexOf(VodClient.PATH_MEDIA) >= 0;
                 }
                 return false;
-            } catch (Exception e2) {
-                Log.e(TAG, "failed to get process info", e2);
+            } catch (Exception e) {
+                Log.e(TAG, "failed to get process info", e);
                 return false;
             }
         }
@@ -1477,7 +1477,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f37850d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;
@@ -1537,8 +1537,8 @@ public final class WebViewFactory {
                         }
                     }
                     z2 = z;
-                } catch (Exception e2) {
-                    Log.w(TAG, "failed to get process info", e2);
+                } catch (Exception e) {
+                    Log.w(TAG, "failed to get process info", e);
                 }
                 sIsRendererProcess = Boolean.valueOf(z2);
                 return z2;
@@ -1588,8 +1588,8 @@ public final class WebViewFactory {
                     return processSuffix.indexOf("swan") >= 0;
                 }
                 return false;
-            } catch (Exception e2) {
-                Log.e(TAG, "failed to get process info", e2);
+            } catch (Exception e) {
+                Log.e(TAG, "failed to get process info", e);
                 return false;
             }
         }

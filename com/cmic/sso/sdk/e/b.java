@@ -27,7 +27,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] a;
@@ -58,8 +58,8 @@ public class b {
                 if (keyStore.getKey("CMCC_SDK_V1", null) != null) {
                     return true;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (z) {
                 return a(context);
@@ -76,9 +76,9 @@ public class b {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            byte[] b2 = b(context);
-            if (b2 != null) {
-                return a.b(b2, str, a);
+            byte[] b = b(context);
+            if (b != null) {
+                return a.b(b, str, a);
             }
             a();
             return null;
@@ -104,14 +104,14 @@ public class b {
                     KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
                     keyStore.load(null);
                     if (a(context, false)) {
-                        String b2 = b();
-                        if (TextUtils.isEmpty(b2)) {
+                        String b = b();
+                        if (TextUtils.isEmpty(b)) {
                             doFinal = q.a();
                             a = q.a();
                             Key key = keyStore.getKey("CMCC_SDK_V1", null);
                             if (key instanceof SecretKey) {
                                 c.b("KeystoreUtil", "随机生成aes秘钥");
-                                cipher2 = Cipher.getInstance(i1.f38835c);
+                                cipher2 = Cipher.getInstance(i1.c);
                                 cipher2.init(1, key, new IvParameterSpec(a));
                             } else if (!(key instanceof PrivateKey)) {
                                 return null;
@@ -130,13 +130,13 @@ public class b {
                             k.a(hashMap);
                         } else {
                             a = Base64.decode(c(), 0);
-                            byte[] decode = Base64.decode(b2, 0);
+                            byte[] decode = Base64.decode(b, 0);
                             Key key2 = keyStore.getKey("CMCC_SDK_V1", null);
                             if (key2 == null) {
                                 return null;
                             }
                             if (key2 instanceof SecretKey) {
-                                cipher = Cipher.getInstance(i1.f38835c);
+                                cipher = Cipher.getInstance(i1.c);
                                 cipher.init(2, key2, new IvParameterSpec(a));
                                 c.b("KeystoreUtil", "使用aes");
                             } else if (!(key2 instanceof PrivateKey)) {
@@ -155,8 +155,8 @@ public class b {
                         return doFinal;
                     }
                     return null;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -175,8 +175,8 @@ public class b {
                     Thread.sleep(1000L);
                     keyGenerator.generateKey();
                     return true;
-                } catch (Exception e2) {
-                    c.a("KeystoreUtil", e2.getMessage());
+                } catch (Exception e) {
+                    c.a("KeystoreUtil", e.getMessage());
                     return false;
                 }
             }
@@ -193,8 +193,8 @@ public class b {
                     return true;
                 }
                 return false;
-            } catch (Exception e3) {
-                c.a("KeystoreUtil", e3.getMessage());
+            } catch (Exception e2) {
+                c.a("KeystoreUtil", e2.getMessage());
                 return false;
             }
         }
@@ -206,9 +206,9 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             a();
-            byte[] b2 = b(context);
-            if (b2 != null) {
-                return a.a(b2, str, a);
+            byte[] b = b(context);
+            if (b != null) {
+                return a.a(b, str, a);
             }
             a();
             return null;

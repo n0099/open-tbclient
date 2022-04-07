@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DuDelayProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class DuDelayProcess {
 
     private native long nativeInitDelay(int i, int i2);
 
-    private native void nativeSetDelayDecrease(long j, float f2);
+    private native void nativeSetDelayDecrease(long j, float f);
 
     private native void nativeSetDelayInterval(long j, int i, int[] iArr);
 
@@ -108,10 +108,10 @@ public class DuDelayProcess {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, bArr, i)) == null) ? nativeDelayReceiveBytes(this.a, bArr, i) : invokeLI.intValue;
     }
 
-    public void f(float f2) {
+    public void f(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            nativeSetDelayDecrease(this.a, f2);
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            nativeSetDelayDecrease(this.a, f);
         }
     }
 

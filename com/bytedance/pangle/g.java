@@ -17,20 +17,14 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static volatile g f38132d;
+    public static volatile g d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ZeusParam f38133b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<ZeusPluginStateListener> f38134c;
+    public ZeusParam b;
+    public List<ZeusPluginStateListener> c;
 
     public g() {
         Interceptable interceptable = $ic;
@@ -45,21 +39,21 @@ public class g {
                 return;
             }
         }
-        this.f38134c = Collections.emptyList();
+        this.c = Collections.emptyList();
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f38132d == null) {
+            if (d == null) {
                 synchronized (g.class) {
-                    if (f38132d == null) {
-                        f38132d = new g();
+                    if (d == null) {
+                        d = new g();
                     }
                 }
             }
-            return f38132d;
+            return d;
         }
         return (g) invokeV.objValue;
     }
@@ -82,8 +76,8 @@ public class g {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -99,10 +93,10 @@ public class g {
                         zeusParam = new ZeusParam.Builder().build();
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
                     }
-                    this.f38133b = zeusParam;
+                    this.b = zeusParam;
                     ZeusLogger.setDebug(zeusParam.isDebug());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f38133b);
-                    if (!this.f38133b.isCloseDefaultReport()) {
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.b);
+                    if (!this.b.isCloseDefaultReport()) {
                         com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
                     }
                     com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
@@ -140,7 +134,7 @@ public class g {
                     synchronized (a.a) {
                         a.a.add(aVar);
                     }
-                    if (this.f38133b.isEnable()) {
+                    if (this.b.isEnable()) {
                         b.a();
                         if (com.bytedance.pangle.util.g.e()) {
                             com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
@@ -182,14 +176,14 @@ public class g {
                             try {
                                 FieldUtils.writeField(com.bytedance.pangle.helper.a.a(), "mHiddenApiWarningShown", Boolean.TRUE);
                                 ZeusLogger.w(ZeusLogger.TAG_INIT, "ZeusManager disableApiWarningShownForAndroidP, true");
-                            } catch (Exception e2) {
-                                ZeusLogger.e(ZeusLogger.TAG_INIT, "disableApiWarningShownForAndroidP failed", e2);
+                            } catch (Exception e) {
+                                ZeusLogger.e(ZeusLogger.TAG_INIT, "disableApiWarningShownForAndroidP failed", e);
                             }
                         }
                         b();
                         ContentProviderManager.getInstance().initSystemContentProviderInfo();
                         if (com.bytedance.pangle.helper.c.b(application)) {
-                            if (this.f38133b.autoFetch()) {
+                            if (this.b.autoFetch()) {
                                 com.bytedance.pangle.download.f.a();
                                 com.bytedance.pangle.download.f.b();
                             }

@@ -15,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -35,48 +34,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.h95;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageChangeListener {
+/* loaded from: classes4.dex */
+public class RelevanceItemSearchView implements h95, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final LinearLayout f37460b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final NavigationBar f37461c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final RelevanceItemSearchActivity f37462d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TbTabLayout f37463e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public CustomViewPager f37464f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public FragmentAdapter f37465g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f37466h;
+    public final LinearLayout b;
+    public final NavigationBar c;
+    public final RelevanceItemSearchActivity d;
+    public TbTabLayout e;
+    public CustomViewPager f;
+    public FragmentAdapter g;
+    public View h;
     public EditText i;
     public ImageView j;
     public List<c> k;
     public CustomMessageListener l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FragmentAdapter extends FragmentPagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<c> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Long f37467b;
+        public Long b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public FragmentAdapter(FragmentManager fragmentManager) {
@@ -102,7 +87,7 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         public void b(List<c> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f37467b = Long.valueOf(System.currentTimeMillis());
+                this.b = Long.valueOf(System.currentTimeMillis());
                 this.a.clear();
                 if (!ListUtils.isEmpty(list)) {
                     this.a.addAll(list);
@@ -136,7 +121,7 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? super.getItemId(i) + this.f37467b.longValue() : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? super.getItemId(i) + this.b.longValue() : invokeI.longValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
@@ -146,13 +131,13 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
                 c cVar = this.a.get(i);
-                return cVar != null ? cVar.f37468b : "";
+                return cVar != null ? cVar.b : "";
             }
             return (CharSequence) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,7 +170,7 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof EvaluateRelevanceItemUpdatedMessage)) {
                 EvaluateRelevanceItemUpdatedMessage evaluateRelevanceItemUpdatedMessage = (EvaluateRelevanceItemUpdatedMessage) customResponsedMessage;
-                this.a.f37462d.hideLoadingView(this.a.f37460b);
+                this.a.d.hideLoadingView(this.a.b);
                 if (ListUtils.isEmpty(evaluateRelevanceItemUpdatedMessage.tabs)) {
                     return;
                 }
@@ -199,7 +184,7 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -246,14 +231,12 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public RelevanceItemListFragment a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f37468b;
+        public String b;
 
         public c(RelevanceItemSearchView relevanceItemSearchView) {
             Interceptable interceptable = $ic;
@@ -290,9 +273,9 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         this.a = new String[]{"游戏", "数码"};
         this.k = new ArrayList();
         this.l = new a(this, 2921522);
-        this.f37460b = linearLayout;
-        this.f37461c = navigationBar;
-        this.f37462d = relevanceItemSearchActivity;
+        this.b = linearLayout;
+        this.c = navigationBar;
+        this.d = relevanceItemSearchActivity;
         n();
         j();
         i();
@@ -305,7 +288,7 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         }
     }
 
-    @Override // c.a.o0.x0.b
+    @Override // com.repackage.h95
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -326,21 +309,21 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.k.clear();
-            this.f37463e.B();
+            this.e.B();
             for (String str : this.a) {
-                this.f37463e.d(this.f37463e.z());
+                this.e.d(this.e.z());
                 c cVar = new c(this);
                 RelevanceItemListFragment relevanceItemListFragment = new RelevanceItemListFragment();
                 cVar.a = relevanceItemListFragment;
-                relevanceItemListFragment.I0(str);
-                cVar.f37468b = str;
+                relevanceItemListFragment.H0(str);
+                cVar.b = str;
                 this.k.add(cVar);
             }
-            this.f37465g.b(this.k);
+            this.g.b(this.k);
         }
     }
 
-    @Override // c.a.o0.x0.b
+    @Override // com.repackage.h95
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -350,7 +333,7 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.o0.x0.b
+    @Override // com.repackage.h95
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -370,19 +353,19 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f37461c.setCenterTextTitle(this.f37460b.getResources().getString(R.string.obfuscated_res_0x7f0f0f6a));
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f37461c.getLayoutParams();
-            layoutParams.height = n.f(this.f37460b.getContext(), R.dimen.tbds60);
-            layoutParams.topMargin = n.f(this.f37460b.getContext(), R.dimen.tbds15);
+            this.c.setCenterTextTitle(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0f6f));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = oi.f(this.b.getContext(), R.dimen.tbds60);
+            layoutParams.topMargin = oi.f(this.b.getContext(), R.dimen.tbds15);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f37466h = this.f37460b.findViewById(R.id.obfuscated_res_0x7f091c23);
-            this.j = (ImageView) this.f37460b.findViewById(R.id.obfuscated_res_0x7f091c35);
-            EditText editText = (EditText) this.f37460b.findViewById(R.id.obfuscated_res_0x7f091c4b);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091c12);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091c24);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091c3a);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -391,19 +374,19 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.f37460b.findViewById(R.id.obfuscated_res_0x7f091e5a);
-            this.f37463e = tbTabLayout;
-            tbTabLayout.setTabTextSize(n.f(this.f37462d, R.dimen.tbds46));
-            this.f37463e.setSelectedTabTextSize(n.f(this.f37462d, R.dimen.tbds52));
-            this.f37463e.setSelectedIndicatorBottomMargin(n.f(this.f37462d, R.dimen.tbds11));
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091e46);
+            this.e = tbTabLayout;
+            tbTabLayout.setTabTextSize(oi.f(this.d, R.dimen.tbds46));
+            this.e.setSelectedTabTextSize(oi.f(this.d, R.dimen.tbds52));
+            this.e.setSelectedIndicatorBottomMargin(oi.f(this.d, R.dimen.tbds11));
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            LayoutInflater.from(this.f37460b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0736, (ViewGroup) this.f37460b, true);
-            this.f37462d.showLoadingView(this.f37460b);
+            LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d072d, (ViewGroup) this.b, true);
+            this.d.showLoadingView(this.b);
             l();
             k();
             m();
@@ -414,13 +397,13 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.f37460b.findViewById(R.id.obfuscated_res_0x7f0923e5);
-            this.f37464f = customViewPager;
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0923c0);
+            this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
-            FragmentAdapter fragmentAdapter = new FragmentAdapter(this.f37462d.getSupportFragmentManager());
-            this.f37465g = fragmentAdapter;
-            this.f37464f.setAdapter(fragmentAdapter);
-            this.f37463e.setupWithViewPager(this.f37464f);
+            FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
+            this.g = fragmentAdapter;
+            this.f.setAdapter(fragmentAdapter);
+            this.e.setupWithViewPager(this.f);
         }
     }
 
@@ -439,9 +422,9 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f2, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
         }
     }
 
@@ -452,13 +435,13 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
         }
     }
 
-    @Override // c.a.o0.x0.b
+    @Override // com.repackage.h95
     public void onViewChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f37466h, R.drawable.enter_forum_search_bg);
+            SkinManager.setBackgroundResource(this.h, R.drawable.enter_forum_search_bg);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
             if (i == 2) {
                 this.i.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
@@ -466,9 +449,9 @@ public class RelevanceItemSearchView implements c.a.o0.x0.b, ViewPager.OnPageCha
                 this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
             }
             SkinManager.setNavbarTitleColor(this.i, R.color.CAM_X0105, R.color.s_navbar_title_color);
-            this.f37463e.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
-            this.f37463e.setSelectedTabTextBlod(true);
-            this.f37463e.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
+            this.e.setTabTextColors(SkinManager.getColor(R.color.CAM_X0108), SkinManager.getColor(R.color.CAM_X0105));
+            this.e.setSelectedTabTextBlod(true);
+            this.e.setSelectedTabIndicatorColor(SkinManager.getColor(R.color.CAM_X0302));
         }
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQuitStarGroupRequest";
@@ -35,7 +35,7 @@ public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
     public String mGroupId;
     public String mKey;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,10 +73,10 @@ public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                     i = 1010;
-                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 if (i == 0) {
@@ -86,10 +86,10 @@ public class IMQuitStarGroupRequest extends GroupBaseHttpRequest {
                         int delete = DialogRecordDBManager.getInstance(this.this$0.mContext).delete(1, Long.valueOf(this.this$0.mGroupId).longValue());
                         String str2 = IMQuitStarGroupRequest.TAG;
                         LogUtils.d(str2, "quit group, delete dialog record " + delete);
-                    } catch (NumberFormatException e3) {
+                    } catch (NumberFormatException e2) {
                         String str3 = IMQuitStarGroupRequest.TAG;
-                        LogUtils.e(str3, "groupid " + this.this$0.mGroupId, e3);
-                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e3)).build();
+                        LogUtils.e(str3, "groupid " + this.this$0.mGroupId, e2);
+                        new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     }
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);

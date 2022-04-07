@@ -3,7 +3,6 @@ package com.baidu.swan.ubc;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.u.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
@@ -12,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pf4;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OpenStatisticIPCManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,8 +115,8 @@ public class OpenStatisticIPCManager {
                     }
                     try {
                         flow.startSlot(str, new JSONObject(str2));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
 
@@ -124,14 +124,14 @@ public class OpenStatisticIPCManager {
                 public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
                     InterceptResult invokeLLI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) ? e.e(str, str2, i) : (Flow) invokeLLI.objValue;
+                    return (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, i)) == null) ? pf4.e(str, str2, i) : (Flow) invokeLLI.objValue;
                 }
 
                 @Override // com.baidu.swan.ubc.IRemoteUBCService
                 public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLI(1048585, this, str, str2, i) == null) {
-                        e.i(str, str2, i);
+                        pf4.i(str, str2, i);
                     }
                 }
             }, false);

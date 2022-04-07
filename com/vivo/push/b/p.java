@@ -8,23 +8,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class p extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43843b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public byte[] f43844c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f43845d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public InsideNotificationItem f43846e;
+    public String b;
+    public byte[] c;
+    public long d;
+    public InsideNotificationItem e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(String str, long j, InsideNotificationItem insideNotificationItem) {
@@ -45,8 +37,8 @@ public final class p extends com.vivo.push.o {
             }
         }
         this.a = str;
-        this.f43845d = j;
-        this.f43846e = insideNotificationItem;
+        this.d = j;
+        this.e = insideNotificationItem;
     }
 
     @Override // com.vivo.push.o
@@ -54,10 +46,10 @@ public final class p extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             aVar.a("package_name", this.a);
-            aVar.a("notify_id", this.f43845d);
-            aVar.a("notification_v1", com.vivo.push.util.q.b(this.f43846e));
-            aVar.a("open_pkg_name", this.f43843b);
-            aVar.a("open_pkg_name_encode", this.f43844c);
+            aVar.a("notify_id", this.d);
+            aVar.a("notification_v1", com.vivo.push.util.q.b(this.e));
+            aVar.a("open_pkg_name", this.b);
+            aVar.a("open_pkg_name_encode", this.c);
         }
     }
 
@@ -70,13 +62,13 @@ public final class p extends com.vivo.push.o {
     public final long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43845d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.longValue;
     }
 
     public final InsideNotificationItem f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43846e : (InsideNotificationItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (InsideNotificationItem) invokeV.objValue;
     }
 
     @Override // com.vivo.push.o
@@ -91,16 +83,16 @@ public final class p extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.a = aVar.a("package_name");
-            this.f43845d = aVar.b("notify_id", -1L);
-            this.f43843b = aVar.a("open_pkg_name");
-            this.f43844c = aVar.b("open_pkg_name_encode");
+            this.d = aVar.b("notify_id", -1L);
+            this.b = aVar.a("open_pkg_name");
+            this.c = aVar.b("open_pkg_name_encode");
             String a = aVar.a("notification_v1");
             if (!TextUtils.isEmpty(a)) {
-                this.f43846e = com.vivo.push.util.q.a(a);
+                this.e = com.vivo.push.util.q.a(a);
             }
-            InsideNotificationItem insideNotificationItem = this.f43846e;
+            InsideNotificationItem insideNotificationItem = this.e;
             if (insideNotificationItem != null) {
-                insideNotificationItem.setMsgId(this.f43845d);
+                insideNotificationItem.setMsgId(this.d);
             }
         }
     }

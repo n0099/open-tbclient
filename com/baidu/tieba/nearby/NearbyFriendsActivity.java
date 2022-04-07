@@ -1,7 +1,6 @@
 package com.baidu.tieba.nearby;
 
 import android.os.Bundle;
-import c.a.o0.w.v.e;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,16 +11,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.n15;
+import com.repackage.o15;
+import com.repackage.ym7;
+import com.repackage.zm7;
+/* loaded from: classes3.dex */
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener mCompleteInfoListener;
     public CustomMessageListener mLocalInputListener;
     public NearbyFriendsModel mModel;
-    public c.a.p0.p2.d.a mView;
+    public ym7 mView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +61,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,12 +95,12 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            c.a.o0.w.v.f.a aVar = customResponsedMessage.getData() instanceof c.a.o0.w.v.f.a ? (c.a.o0.w.v.f.a) customResponsedMessage.getData() : null;
-            if (aVar == null || aVar.b() != 1) {
+            o15 o15Var = customResponsedMessage.getData() instanceof o15 ? (o15) customResponsedMessage.getData() : null;
+            if (o15Var == null || o15Var.b() != 1) {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new e(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091532), aVar).m();
+            new n15(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f09152d), o15Var).m();
         }
     }
 
@@ -140,11 +143,11 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0044);
+            setContentView(R.layout.obfuscated_res_0x7f0d0046);
             initListeners();
-            c.a.p0.p2.d.b bVar = new c.a.p0.p2.d.b(this);
-            this.mView = bVar;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(bVar, getUniqueId());
+            zm7 zm7Var = new zm7(this);
+            this.mView = zm7Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(zm7Var, getUniqueId());
             this.mModel = nearbyFriendsModel;
             nearbyFriendsModel.G(getIntent());
             this.mView.l(this.mModel);
@@ -166,7 +169,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.mView.c();
+            this.mView.d();
         }
     }
 }

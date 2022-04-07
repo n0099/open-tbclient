@@ -1,14 +1,14 @@
 package com.baidu.tieba.im.chat.officialBar;
 
-import c.a.p0.u1.s.c;
 import com.baidu.tieba.im.chat.AbsMsgImageActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.u77;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class OfficialHistoryImageActivity extends AbsMsgImageActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,10 +28,10 @@ public class OfficialHistoryImageActivity extends AbsMsgImageActivity {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsgImageActivity
-    public void queryAllBigImageUrls(String str, c cVar) {
+    public void queryAllBigImageUrls(String str, u77 u77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) {
-            cVar.a(new LinkedHashMap<>(), new HashMap<>());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, u77Var) == null) {
+            u77Var.a(new LinkedHashMap<>(), new HashMap<>());
         }
     }
 }

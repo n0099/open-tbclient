@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DataCacheMgr {
     public static final /* synthetic */ DataCacheMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -270,8 +270,8 @@ public final class DataCacheMgr {
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             try {
                 this.mHttpDNSCache.remove(str);
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
         }
     }
@@ -401,8 +401,8 @@ public final class DataCacheMgr {
                     return null;
                 }
                 return null;
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return null;
             }
         }
@@ -532,8 +532,8 @@ public final class DataCacheMgr {
                 try {
                     this.mHttpDNSCache.put(resultTB.getHost(), resultTB);
                     return 0;
-                } catch (Exception e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (Exception e) {
+                    LogTools.printWarning(TAG, e);
                     return 0;
                 }
             }

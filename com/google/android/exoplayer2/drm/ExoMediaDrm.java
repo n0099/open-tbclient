@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface ExoMediaDrm<T extends ExoMediaCrypto> {
     public static final int EVENT_KEY_EXPIRED = 3;
     public static final int EVENT_KEY_REQUIRED = 2;
@@ -25,7 +25,7 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
     public static final int KEY_TYPE_RELEASE = 3;
     public static final int KEY_TYPE_STREAMING = 1;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DefaultKeyRequest implements KeyRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DefaultKeyStatus implements KeyStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +107,7 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DefaultProvisionRequest implements ProvisionRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,31 +148,31 @@ public interface ExoMediaDrm<T extends ExoMediaCrypto> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface KeyRequest {
         byte[] getData();
 
         String getDefaultUrl();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface KeyStatus {
         byte[] getKeyId();
 
         int getStatusCode();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnEventListener<T extends ExoMediaCrypto> {
         void onEvent(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, int i, int i2, byte[] bArr2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnKeyStatusChangeListener<T extends ExoMediaCrypto> {
         void onKeyStatusChange(ExoMediaDrm<? extends T> exoMediaDrm, byte[] bArr, List<KeyStatus> list, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ProvisionRequest {
         byte[] getData();
 

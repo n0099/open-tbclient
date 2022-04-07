@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class RawCcExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_ID;

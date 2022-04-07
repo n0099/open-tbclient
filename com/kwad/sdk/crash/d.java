@@ -5,24 +5,20 @@ import android.os.SystemClock;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.crash.b;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class d {
     public com.kwad.sdk.crash.a.b a;
+    public b b;
+    public long c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f40177b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f40178c;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static final d a = new d();
     }
 
     public d() {
         this.a = new com.kwad.sdk.crash.a.b();
-        this.f40177b = new b.a().a();
+        this.b = new b.a().a();
     }
 
     public static d a() {
@@ -30,16 +26,16 @@ public final class d {
     }
 
     public void a(int i, ExceptionMessage exceptionMessage) {
-        e a2 = this.f40177b.a();
+        e a2 = this.b.a();
         if (a2 != null) {
             a2.a(i, exceptionMessage);
         }
     }
 
     public void a(@NonNull b bVar) {
-        this.f40177b = bVar;
-        this.f40178c = SystemClock.elapsedRealtime();
-        this.a.a(bVar.f40150d, bVar.f40151e);
+        this.b = bVar;
+        this.c = SystemClock.elapsedRealtime();
+        this.a.a(bVar.d, bVar.e);
     }
 
     public String[] b() {
@@ -51,26 +47,26 @@ public final class d {
     }
 
     public String d() {
-        return this.f40177b.a.a;
+        return this.b.a.a;
     }
 
     public String e() {
-        return this.f40177b.a.f40183b;
+        return this.b.a.b;
     }
 
     public Context f() {
-        return this.f40177b.f40153g;
+        return this.b.g;
     }
 
     public f g() {
-        return this.f40177b.f40149c;
+        return this.b.c;
     }
 
     public long h() {
-        return SystemClock.elapsedRealtime() - this.f40178c;
+        return SystemClock.elapsedRealtime() - this.c;
     }
 
     public boolean i() {
-        return this.f40177b.b();
+        return this.b.b();
     }
 }

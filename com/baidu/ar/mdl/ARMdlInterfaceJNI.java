@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARMdlInterfaceJNI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class ARMdlInterfaceJNI {
 
     public static native int initBodyKeyPointFromAssetDir(String str);
 
-    public static native int initGesture(String str, String str2, String str3, int i, int i2, float f2, float f3, float f4, int i3);
+    public static native int initGesture(String str, String str2, String str3, int i, int i2, float f, float f2, float f3, int i3);
 
-    public static native int initGestureFromAsset(String str, String str2, String str3, int i, int i2, float f2, float f3, float f4, int i3);
+    public static native int initGestureFromAsset(String str, String str2, String str3, int i, int i2, float f, float f2, float f3, int i3);
 
     public static native int initHairSeg(String str);
 
@@ -74,9 +74,9 @@ public class ARMdlInterfaceJNI {
 
     public static native int initObjDetectFromAsset(String str, String str2);
 
-    public static native int initPose(String str, String str2, String str3, int i, float f2, float[] fArr, float[] fArr2);
+    public static native int initPose(String str, String str2, String str3, int i, float f, float[] fArr, float[] fArr2);
 
-    public static native int initPoseFromAsset(String str, String str2, String str3, int i, float f2, float[] fArr, float[] fArr2);
+    public static native int initPoseFromAsset(String str, String str2, String str3, int i, float f, float[] fArr, float[] fArr2);
 
     public static native int initSkySeg(String str);
 

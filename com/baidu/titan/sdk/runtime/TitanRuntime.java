@@ -11,13 +11,13 @@ import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 @DisableIntercept
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TitanRuntime {
     public static Interceptable $ic;
     public static final ThreadLocal<WeakReference<InterceptResult>> sInterceptStorage = new ThreadLocal<>();
     public static final ThreadLocal<WeakReference<InitContext>> sInitContextStorage = new ThreadLocal<>();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Logging {
         boolean isLoggable(Level level);
 
@@ -29,16 +29,16 @@ public class TitanRuntime {
     public static Object getField(Object obj, Class cls, String str) {
         try {
             return getField(cls, str).get(obj);
-        } catch (IllegalAccessException e2) {
+        } catch (IllegalAccessException e) {
             Log.Logging logging = Log.logging;
             if (logging != null) {
                 Level level = Level.SEVERE;
                 Object[] objArr = new Object[2];
                 objArr[0] = obj == null ? " static" : "";
                 objArr[1] = str;
-                logging.log(level, String.format("Exception during%1$s getField %2$s", objArr), e2);
+                logging.log(level, String.format("Exception during%1$s getField %2$s", objArr), e);
             }
-            throw new RuntimeException(e2);
+            throw new RuntimeException(e);
         }
     }
 
@@ -103,11 +103,11 @@ public class TitanRuntime {
                 return methodByName.invoke(obj, objArr);
             }
             throw new RuntimeException(new NoSuchMethodException(str));
-        } catch (IllegalAccessException e2) {
-            Log.logging.log(Level.SEVERE, String.format("Exception while invoking %s", str), e2);
-            throw new RuntimeException(e2);
-        } catch (InvocationTargetException e3) {
-            throw e3.getCause();
+        } catch (IllegalAccessException e) {
+            Log.logging.log(Level.SEVERE, String.format("Exception while invoking %s", str), e);
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e2) {
+            throw e2.getCause();
         }
     }
 
@@ -123,11 +123,11 @@ public class TitanRuntime {
                 return methodByName.invoke(null, objArr);
             }
             throw new RuntimeException(new NoSuchMethodException(str + " in class " + cls.getName()));
-        } catch (IllegalAccessException e2) {
-            Log.logging.log(Level.SEVERE, String.format("Exception while invoking %s", str), e2);
-            throw new RuntimeException(e2);
-        } catch (InvocationTargetException e3) {
-            throw e3.getCause();
+        } catch (IllegalAccessException e) {
+            Log.logging.log(Level.SEVERE, String.format("Exception while invoking %s", str), e);
+            throw new RuntimeException(e);
+        } catch (InvocationTargetException e2) {
+            throw e2.getCause();
         }
     }
 
@@ -137,18 +137,18 @@ public class TitanRuntime {
             declaredConstructor.setAccessible(true);
             try {
                 return cls.cast(declaredConstructor.newInstance(objArr));
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.logging.log(Level.SEVERE, String.format("Exception while instantiating %s", cls), e);
+                throw new RuntimeException(e);
+            } catch (InstantiationException e2) {
                 Log.logging.log(Level.SEVERE, String.format("Exception while instantiating %s", cls), e2);
                 throw new RuntimeException(e2);
-            } catch (InstantiationException e3) {
-                Log.logging.log(Level.SEVERE, String.format("Exception while instantiating %s", cls), e3);
-                throw new RuntimeException(e3);
-            } catch (InvocationTargetException e4) {
-                throw e4.getCause();
+            } catch (InvocationTargetException e3) {
+                throw e3.getCause();
             }
-        } catch (NoSuchMethodException e5) {
-            Log.logging.log(Level.SEVERE, "Exception while resolving constructor", e5);
-            throw new RuntimeException(e5);
+        } catch (NoSuchMethodException e4) {
+            Log.logging.log(Level.SEVERE, "Exception while resolving constructor", e4);
+            throw new RuntimeException(e4);
         }
     }
 
@@ -163,12 +163,12 @@ public class TitanRuntime {
     public static void setField(Object obj, Object obj2, Class cls, String str) {
         try {
             getField(cls, str).set(obj, obj2);
-        } catch (IllegalAccessException e2) {
+        } catch (IllegalAccessException e) {
             Log.Logging logging = Log.logging;
             if (logging != null) {
-                logging.log(Level.SEVERE, String.format("Exception during setPrivateField %s", str), e2);
+                logging.log(Level.SEVERE, String.format("Exception during setPrivateField %s", str), e);
             }
-            throw new RuntimeException(e2);
+            throw new RuntimeException(e);
         }
     }
 

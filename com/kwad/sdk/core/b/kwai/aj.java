@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.report.p;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class aj implements com.kwad.sdk.core.d<p.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,14 +11,14 @@ public class aj implements com.kwad.sdk.core.d<p.a> {
             return;
         }
         aVar.a = jSONObject.optInt("photoPlaySecond");
-        aVar.f39732b = jSONObject.optInt("itemClickType");
-        aVar.f39733c = jSONObject.optInt("itemCloseType");
-        aVar.f39734d = jSONObject.optInt("elementType");
-        aVar.f39735e = jSONObject.optInt("impFailReason");
-        aVar.f39736f = jSONObject.optInt("winEcpm");
-        aVar.f39738h = jSONObject.optString("payload");
+        aVar.b = jSONObject.optInt("itemClickType");
+        aVar.c = jSONObject.optInt("itemCloseType");
+        aVar.d = jSONObject.optInt("elementType");
+        aVar.e = jSONObject.optInt("impFailReason");
+        aVar.f = jSONObject.optInt("winEcpm");
+        aVar.h = jSONObject.optString("payload");
         if (jSONObject.opt("payload") == JSONObject.NULL) {
-            aVar.f39738h = "";
+            aVar.h = "";
         }
         aVar.i = jSONObject.optInt("deeplinkType");
         aVar.j = jSONObject.optInt("downloadSource");
@@ -61,12 +61,12 @@ public class aj implements com.kwad.sdk.core.d<p.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "photoPlaySecond", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "itemClickType", aVar.f39732b);
-        com.kwad.sdk.utils.t.a(jSONObject, "itemCloseType", aVar.f39733c);
-        com.kwad.sdk.utils.t.a(jSONObject, "elementType", aVar.f39734d);
-        com.kwad.sdk.utils.t.a(jSONObject, "impFailReason", aVar.f39735e);
-        com.kwad.sdk.utils.t.a(jSONObject, "winEcpm", aVar.f39736f);
-        com.kwad.sdk.utils.t.a(jSONObject, "payload", aVar.f39738h);
+        com.kwad.sdk.utils.t.a(jSONObject, "itemClickType", aVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, "itemCloseType", aVar.c);
+        com.kwad.sdk.utils.t.a(jSONObject, "elementType", aVar.d);
+        com.kwad.sdk.utils.t.a(jSONObject, "impFailReason", aVar.e);
+        com.kwad.sdk.utils.t.a(jSONObject, "winEcpm", aVar.f);
+        com.kwad.sdk.utils.t.a(jSONObject, "payload", aVar.h);
         com.kwad.sdk.utils.t.a(jSONObject, "deeplinkType", aVar.i);
         com.kwad.sdk.utils.t.a(jSONObject, "downloadSource", aVar.j);
         com.kwad.sdk.utils.t.a(jSONObject, "isPackageChanged", aVar.k);

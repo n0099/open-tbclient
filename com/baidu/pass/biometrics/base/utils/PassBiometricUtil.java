@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PassBiometricUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_TYPE_ARM64_V8A = "arm64-v8a";
@@ -27,27 +27,13 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_ARMEABI_V7A = "armeabi-v7a";
     public static final String CPU_TYPE_X86 = "x86";
     public static final String a = "PassBiometricUtil";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final int f27928b = 480;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f27929c = 480;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f27930d = 192;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f27931e = 480;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f27932f = 620;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f27933g = 250;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f27934h = 250;
+    public static final int b = 480;
+    public static final int c = 480;
+    public static final int d = 192;
+    public static final int e = 480;
+    public static final int f = 620;
+    public static final int g = 250;
+    public static final int h = 250;
     public static final int i = 728;
     public static final int j = 194;
     public static final int k = 750;
@@ -145,7 +131,7 @@ public class PassBiometricUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, iArr)) == null) {
             if (iArr != null && iArr.length == 2) {
                 int i2 = ((iArr[0] * 480) / 750) / 2;
-                int i3 = ((iArr[1] * f27932f) / 1335) / 2;
+                int i3 = ((iArr[1] * f) / 1335) / 2;
                 Point point = new Point();
                 point.set(iArr[0] / 2, (iArr[1] * i) / 1335);
                 int i4 = point.x;

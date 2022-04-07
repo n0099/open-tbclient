@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public class b extends Handler {
     public void c(g gVar, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, gVar, obj) == null) {
-            c d2 = c.d(gVar, obj);
+            c d = c.d(gVar, obj);
             synchronized (this) {
-                this.kx.c(d2);
+                this.kx.c(d);
                 if (!this.kA) {
                     this.kA = true;
                     if (!sendMessage(obtainMessage())) {

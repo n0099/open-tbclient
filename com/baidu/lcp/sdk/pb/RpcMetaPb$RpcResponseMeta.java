@@ -1,7 +1,6 @@
 package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a.e.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,10 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.o80;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_FIELD_NUMBER = 4;
@@ -45,7 +45,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public long methodId_;
     public long serviceId_;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcResponseMeta> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,26 +74,16 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f25654b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f25655c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f25656d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f25657e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Object f25658f;
+        public long b;
+        public long c;
+        public long d;
+        public int e;
+        public Object f;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -108,7 +98,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                     return;
                 }
             }
-            this.f25658f = "";
+            this.f = "";
             maybeForceBuilderInitialization();
         }
 
@@ -169,26 +159,26 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (e) null);
+                RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this, (o80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                rpcMetaPb$RpcResponseMeta.serviceId_ = this.f25654b;
+                rpcMetaPb$RpcResponseMeta.serviceId_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                rpcMetaPb$RpcResponseMeta.methodId_ = this.f25655c;
+                rpcMetaPb$RpcResponseMeta.methodId_ = this.c;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
-                rpcMetaPb$RpcResponseMeta.logId_ = this.f25656d;
+                rpcMetaPb$RpcResponseMeta.logId_ = this.d;
                 if ((i & 8) == 8) {
                     i2 |= 8;
                 }
-                rpcMetaPb$RpcResponseMeta.errorCode_ = this.f25657e;
+                rpcMetaPb$RpcResponseMeta.errorCode_ = this.e;
                 if ((i & 16) == 16) {
                     i2 |= 16;
                 }
-                rpcMetaPb$RpcResponseMeta.errorText_ = this.f25658f;
+                rpcMetaPb$RpcResponseMeta.errorText_ = this.f;
                 rpcMetaPb$RpcResponseMeta.bitField0_ = i2;
                 return rpcMetaPb$RpcResponseMeta;
             }
@@ -200,19 +190,19 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f25654b = 0L;
+                this.b = 0L;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f25655c = 0L;
+                this.c = 0L;
                 int i2 = i & (-3);
                 this.a = i2;
-                this.f25656d = 0L;
+                this.d = 0L;
                 int i3 = i2 & (-5);
                 this.a = i3;
-                this.f25657e = 0;
+                this.e = 0;
                 int i4 = i3 & (-9);
                 this.a = i4;
-                this.f25658f = "";
+                this.f = "";
                 this.a = i4 & (-17);
                 return this;
             }
@@ -263,7 +253,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                 }
                 if (rpcMetaPb$RpcResponseMeta.hasErrorText()) {
                     this.a |= 16;
-                    this.f25658f = rpcMetaPb$RpcResponseMeta.errorText_;
+                    this.f = rpcMetaPb$RpcResponseMeta.errorText_;
                 }
                 return this;
             }
@@ -286,10 +276,10 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                             s(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta2 = (RpcMetaPb$RpcResponseMeta) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta2 = (RpcMetaPb$RpcResponseMeta) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             rpcMetaPb$RpcResponseMeta = rpcMetaPb$RpcResponseMeta2;
@@ -314,7 +304,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
                 this.a |= 8;
-                this.f25657e = i;
+                this.e = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -325,7 +315,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048599, this, j)) == null) {
                 this.a |= 4;
-                this.f25656d = j;
+                this.d = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -336,7 +326,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
                 this.a |= 2;
-                this.f25655c = j;
+                this.c = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -347,7 +337,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048601, this, j)) == null) {
                 this.a |= 1;
-                this.f25654b = j;
+                this.b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -393,7 +383,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         rpcMetaPb$RpcResponseMeta.initFields();
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, e eVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, o80 o80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -599,7 +589,7 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, e eVar) {
+    public /* synthetic */ RpcMetaPb$RpcResponseMeta(GeneratedMessageLite.Builder builder, o80 o80Var) {
         this(builder);
     }
 
@@ -772,10 +762,10 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                         }
                     }
                     z = true;
-                } catch (InvalidProtocolBufferException e2) {
-                    throw e2.setUnfinishedMessage(this);
-                } catch (IOException e3) {
-                    throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e) {
+                    throw e.setUnfinishedMessage(this);
+                } catch (IOException e2) {
+                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

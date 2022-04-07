@@ -31,7 +31,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupRequest";
@@ -39,7 +39,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public ArrayList<String> mGroupIds;
     public String mKey;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,8 +143,8 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                                 i2 = i4;
                                 optString = str2;
                                 jSONArray = jSONArray2;
-                            } catch (JSONException e2) {
-                                e = e2;
+                            } catch (JSONException e) {
+                                e = e;
                                 arrayList = arrayList2;
                                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                                 i = 1010;
@@ -158,8 +158,8 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                     }
                     i = i2;
                     str = optString;
-                } catch (JSONException e3) {
-                    e = e3;
+                } catch (JSONException e2) {
+                    e = e2;
                 }
                 removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
                 if (removeListener instanceof BIMValueCallBack) {

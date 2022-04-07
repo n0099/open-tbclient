@@ -263,10 +263,10 @@ public class FragmentStateManager {
         Fragment fragment3 = this.mFragment;
         fragment3.mContainer = viewGroup;
         fragment3.performCreateView(fragment3.performGetLayoutInflater(fragment3.mSavedFragmentState), viewGroup, this.mFragment.mSavedFragmentState);
-        View view = this.mFragment.mView;
-        if (view != null) {
+        View view2 = this.mFragment.mView;
+        if (view2 != null) {
             boolean z = false;
-            view.setSaveFromParentEnabled(false);
+            view2.setSaveFromParentEnabled(false);
             Fragment fragment4 = this.mFragment;
             fragment4.mView.setTag(R$id.fragment_container_view_tag, fragment4);
             if (viewGroup != null) {
@@ -352,9 +352,9 @@ public class FragmentStateManager {
                 }
                 Fragment fragment2 = this.mFragment;
                 fragment2.performCreateView(fragment2.performGetLayoutInflater(fragment2.mSavedFragmentState), null, this.mFragment.mSavedFragmentState);
-                View view = this.mFragment.mView;
-                if (view != null) {
-                    view.setSaveFromParentEnabled(false);
+                View view2 = this.mFragment.mView;
+                if (view2 != null) {
+                    view2.setSaveFromParentEnabled(false);
                     Fragment fragment3 = this.mFragment;
                     fragment3.mView.setTag(R$id.fragment_container_view_tag, fragment3);
                     Fragment fragment4 = this.mFragment;

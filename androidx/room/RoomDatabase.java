@@ -666,11 +666,11 @@ public abstract class RoomDatabase {
                         V call = callable.call();
                         setTransactionSuccessful();
                         return call;
-                    } catch (RuntimeException e2) {
-                        throw e2;
+                    } catch (RuntimeException e) {
+                        throw e;
                     }
-                } catch (Exception e3) {
-                    throw new RuntimeException("Exception in transaction", e3);
+                } catch (Exception e2) {
+                    throw new RuntimeException("Exception in transaction", e2);
                 }
             } finally {
                 endTransaction();

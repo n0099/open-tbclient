@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARVOJniClient {
     public static /* synthetic */ Interceptable $ic;
     public static List<String> sModelIds;
@@ -34,10 +34,10 @@ public class ARVOJniClient {
         }
     }
 
-    public static int calModelPosition(float[] fArr, float f2, float[] fArr2, float[] fArr3) {
+    public static int calModelPosition(float[] fArr, float f, float[] fArr2, float[] fArr3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{fArr, Float.valueOf(f2), fArr2, fArr3})) == null) ? ARAlgoJniClient.calModelPosition(fArr, f2, fArr2, fArr3) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{fArr, Float.valueOf(f), fArr2, fArr3})) == null) ? ARAlgoJniClient.calModelPosition(fArr, f, fArr2, fArr3) : invokeCommon.intValue;
     }
 
     public static synchronized ArrayList<TrackModel> fetchModelPose() {
@@ -64,13 +64,13 @@ public class ARVOJniClient {
         return (ArrayList) invokeV.objValue;
     }
 
-    public static synchronized int insertModel(String str, int i, int i2, float[] fArr, float f2) {
+    public static synchronized int insertModel(String str, int i, int i2, float[] fArr, float f) {
         InterceptResult invokeCommon;
         int insertModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f)})) == null) {
             synchronized (ARVOJniClient.class) {
-                insertModel = ARAlgoJniClient.getAlgoInstance().insertModel(sTrackerId, i, i2, str, f2, fArr);
+                insertModel = ARAlgoJniClient.getAlgoInstance().insertModel(sTrackerId, i, i2, str, f, fArr);
                 if (insertModel == 0) {
                     if (sModelIds == null) {
                         sModelIds = new ArrayList();

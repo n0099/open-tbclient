@@ -15,7 +15,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ReadableByteChannel;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Decoder implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteBuffer EMPTY_BUFER;
@@ -27,7 +27,7 @@ public class Decoder implements INoProGuard {
     public final ReadableByteChannel source;
 
     /* renamed from: com.baidu.webkit.internal.brotli.Decoder$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -49,19 +49,19 @@ public class Decoder implements INoProGuard {
             int[] iArr = new int[DecoderJNI.a.values().length];
             a = iArr;
             try {
-                iArr[DecoderJNI.a.f37854b.ordinal()] = 1;
+                iArr[DecoderJNI.a.b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[DecoderJNI.a.f37857e.ordinal()] = 2;
+                a[DecoderJNI.a.e.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[DecoderJNI.a.f37855c.ordinal()] = 3;
+                a[DecoderJNI.a.c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[DecoderJNI.a.f37856d.ordinal()] = 4;
+                a[DecoderJNI.a.d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -118,7 +118,7 @@ public class Decoder implements INoProGuard {
                 wrapper.getInputBuffer().put(bArr);
                 wrapper.push(bArr.length);
                 int i = 0;
-                while (wrapper.getStatus() != DecoderJNI.a.f37854b) {
+                while (wrapper.getStatus() != DecoderJNI.a.b) {
                     int i2 = AnonymousClass1.a[wrapper.getStatus().ordinal()];
                     if (i2 == 2) {
                         wrapper.push(0);
@@ -159,8 +159,8 @@ public class Decoder implements INoProGuard {
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
             try {
                 close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             throw new IOException(str);
         }

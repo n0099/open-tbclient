@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class CalendarParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern DATE_TIME;
@@ -56,13 +56,13 @@ public final class CalendarParsedResult extends ParsedResult {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CalendarParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String[] strArr, String str7, double d2, double d3) {
+    public CalendarParsedResult(String str, String str2, String str3, String str4, String str5, String str6, String[] strArr, String str7, double d, double d2) {
         super(ParsedResultType.CALENDAR);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, strArr, str7, Double.valueOf(d2), Double.valueOf(d3)};
+            Object[] objArr = {str, str2, str3, str4, str5, str6, strArr, str7, Double.valueOf(d), Double.valueOf(d2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,8 +82,8 @@ public final class CalendarParsedResult extends ParsedResult {
             } else {
                 try {
                     this.end = parseDate(str3);
-                } catch (ParseException e2) {
-                    throw new IllegalArgumentException(e2.toString());
+                } catch (ParseException e) {
+                    throw new IllegalArgumentException(e.toString());
                 }
             }
             boolean z = true;
@@ -93,10 +93,10 @@ public final class CalendarParsedResult extends ParsedResult {
             this.organizer = str6;
             this.attendees = strArr;
             this.description = str7;
-            this.latitude = d2;
-            this.longitude = d3;
-        } catch (ParseException e3) {
-            throw new IllegalArgumentException(e3.toString());
+            this.latitude = d;
+            this.longitude = d2;
+        } catch (ParseException e2) {
+            throw new IllegalArgumentException(e2.toString());
         }
     }
 

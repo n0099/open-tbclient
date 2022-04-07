@@ -18,7 +18,7 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UpMessageManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UpMessageManager";
@@ -31,7 +31,7 @@ public class UpMessageManager {
     public boolean onDispath;
     public boolean onTaskRunning;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class EventHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class UpMessageManager {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,9 +215,9 @@ public class UpMessageManager {
                         this.this$0.onTaskRunning = true;
                         try {
                             this.val$request.work();
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             this.this$0.onTaskRunning = false;
-                            LogUtils.e(UpMessageManager.TAG, "request work excepation", e2);
+                            LogUtils.e(UpMessageManager.TAG, "request work excepation", e);
                         }
                         LogUtils.d(UpMessageManager.TAG, "FXF  finish a work task ");
                         this.this$0.mEventHandler.sendMessage(this.this$0.mEventHandler.obtainMessage());

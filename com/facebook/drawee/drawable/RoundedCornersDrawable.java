@@ -21,7 +21,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RoundedCornersDrawable extends ForwardingDrawable implements Rounded {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     public Type mType;
 
     /* renamed from: com.facebook.drawee.drawable.RoundedCornersDrawable$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$drawable$RoundedCornersDrawable$Type;
         public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -184,8 +184,8 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
             this.mBorderPath.reset();
             this.mTempRectangle.set(getBounds());
             RectF rectF = this.mTempRectangle;
-            float f2 = this.mPadding;
-            rectF.inset(f2, f2);
+            float f = this.mPadding;
+            rectF.inset(f, f);
             this.mPath.addRect(this.mTempRectangle, Path.Direction.CW);
             if (this.mIsCircle) {
                 this.mPath.addCircle(this.mTempRectangle.centerX(), this.mTempRectangle.centerY(), Math.min(this.mTempRectangle.width(), this.mTempRectangle.height()) / 2.0f, Path.Direction.CW);
@@ -193,11 +193,11 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
                 this.mPath.addRoundRect(this.mTempRectangle, this.mRadii, Path.Direction.CW);
             }
             RectF rectF2 = this.mTempRectangle;
-            float f3 = this.mPadding;
-            rectF2.inset(-f3, -f3);
+            float f2 = this.mPadding;
+            rectF2.inset(-f2, -f2);
             RectF rectF3 = this.mTempRectangle;
-            float f4 = this.mBorderWidth;
-            rectF3.inset(f4 / 2.0f, f4 / 2.0f);
+            float f3 = this.mBorderWidth;
+            rectF3.inset(f3 / 2.0f, f3 / 2.0f);
             if (this.mIsCircle) {
                 this.mBorderPath.addCircle(this.mTempRectangle.centerX(), this.mTempRectangle.centerY(), Math.min(this.mTempRectangle.width(), this.mTempRectangle.height()) / 2.0f, Path.Direction.CW);
             } else {
@@ -213,8 +213,8 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
                 this.mBorderPath.addRoundRect(this.mTempRectangle, fArr, Path.Direction.CW);
             }
             RectF rectF4 = this.mTempRectangle;
-            float f5 = this.mBorderWidth;
-            rectF4.inset((-f5) / 2.0f, (-f5) / 2.0f);
+            float f4 = this.mBorderWidth;
+            rectF4.inset((-f4) / 2.0f, (-f4) / 2.0f);
         }
     }
 
@@ -240,8 +240,8 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
                         rectF.set(this.mBounds);
                     }
                     RectF rectF2 = this.mInsideBorderBounds;
-                    float f2 = this.mBorderWidth;
-                    rectF2.inset(f2, f2);
+                    float f = this.mBorderWidth;
+                    rectF2.inset(f, f);
                     this.mInsideBorderTransform.setRectToRect(this.mBounds, this.mInsideBorderBounds, Matrix.ScaleToFit.FILL);
                     int save2 = canvas.save();
                     canvas.clipRect(this.mBounds);
@@ -262,21 +262,21 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
                     float height = ((this.mBounds.height() - this.mBounds.width()) + this.mBorderWidth) / 2.0f;
                     if (width > 0.0f) {
                         RectF rectF3 = this.mBounds;
-                        float f3 = rectF3.left;
-                        canvas.drawRect(f3, rectF3.top, f3 + width, rectF3.bottom, this.mPaint);
+                        float f2 = rectF3.left;
+                        canvas.drawRect(f2, rectF3.top, f2 + width, rectF3.bottom, this.mPaint);
                         RectF rectF4 = this.mBounds;
-                        float f4 = rectF4.right;
-                        canvas.drawRect(f4 - width, rectF4.top, f4, rectF4.bottom, this.mPaint);
+                        float f3 = rectF4.right;
+                        canvas.drawRect(f3 - width, rectF4.top, f3, rectF4.bottom, this.mPaint);
                     }
                     if (height > 0.0f) {
                         RectF rectF5 = this.mBounds;
-                        float f5 = rectF5.left;
-                        float f6 = rectF5.top;
-                        canvas.drawRect(f5, f6, rectF5.right, f6 + height, this.mPaint);
+                        float f4 = rectF5.left;
+                        float f5 = rectF5.top;
+                        canvas.drawRect(f4, f5, rectF5.right, f5 + height, this.mPaint);
                         RectF rectF6 = this.mBounds;
-                        float f7 = rectF6.left;
-                        float f8 = rectF6.bottom;
-                        canvas.drawRect(f7, f8 - height, rectF6.right, f8, this.mPaint);
+                        float f6 = rectF6.left;
+                        float f7 = rectF6.bottom;
+                        canvas.drawRect(f6, f7 - height, rectF6.right, f7, this.mPaint);
                     }
                 }
             }
@@ -355,11 +355,11 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i, float f2) {
+    public void setBorder(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             this.mBorderColor = i;
-            this.mBorderWidth = f2;
+            this.mBorderWidth = f;
             updatePath();
             invalidateSelf();
         }
@@ -401,10 +401,10 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setPadding(float f2) {
+    public void setPadding(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.mPadding = f2;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+            this.mPadding = f;
             updatePath();
             invalidateSelf();
         }
@@ -436,10 +436,10 @@ public class RoundedCornersDrawable extends ForwardingDrawable implements Rounde
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            Arrays.fill(this.mRadii, f2);
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            Arrays.fill(this.mRadii, f);
             updatePath();
             invalidateSelf();
         }

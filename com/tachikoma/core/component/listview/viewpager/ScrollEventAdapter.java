@@ -19,7 +19,7 @@ import com.tachikoma.core.component.listview.viewpager.RecyclerViewPager;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_POSITION = -1;
@@ -46,11 +46,11 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     public ScrollEventValues mScrollValues;
     public int mTarget;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface Orientation {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ScrollEventValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface ScrollState {
     }
 
@@ -129,13 +129,13 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         resetState();
     }
 
-    private void dispatchScrolled(int i, float f2, int i2) {
+    private void dispatchScrolled(int i, float f, int i2) {
         RecyclerViewPager.OnPageChangeCallback onPageChangeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
             return;
         }
-        onPageChangeCallback.onPageScrolled(i, f2, i2);
+        onPageChangeCallback.onPageScrolled(i, f, i2);
     }
 
     private void dispatchSelected(int i) {

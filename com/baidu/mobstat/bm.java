@@ -12,12 +12,12 @@ import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class bm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,17 +77,17 @@ public final class bm {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
-                String c2 = c(i, bArr);
-                if (TextUtils.isEmpty(c2)) {
+                String c = c(i, bArr);
+                if (TextUtils.isEmpty(c)) {
                     return "";
                 }
-                return c2 + "|" + i;
+                return c + "|" + i;
             }
             return (String) invokeIL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

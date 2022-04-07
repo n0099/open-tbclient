@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ColorParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<String, Integer> COLOR_MAP;

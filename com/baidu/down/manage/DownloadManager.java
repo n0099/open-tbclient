@@ -39,7 +39,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WEBSUITE_PROGRESS_CHANGE = "com.baidu.appsearch.websuite.download.PROGRESS_CHANGE";
@@ -75,17 +75,17 @@ public final class DownloadManager {
     public IIntercepter mWifiOnlyIntercepter;
     public TaskObserver mtaskObserver;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface DownloadItemFilter {
         boolean filter(Download download);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnProgressChangeListener {
         void onProgressChanged(long j, int i, long j2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnStateChangeListener {
         void onStateChanged(long j, Download download);
     }
@@ -453,10 +453,10 @@ public final class DownloadManager {
             if (download.mNeedDeleteFile) {
                 try {
                     new File(download.getSavedPathForUser(), download.getFileName()).delete();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
                         Log.e("DownloadManager", "delete download file error!!");
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
             }
@@ -688,9 +688,9 @@ public final class DownloadManager {
         if (interceptable == null || interceptable.invokeL(65558, this, runnable) == null) {
             try {
                 this.mExecutor.submit(runnable);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    throw e2;
+                    throw e;
                 }
             }
         }

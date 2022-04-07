@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EmotionClassicFragment extends EmotionBaseFragment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXPRESSION_LAYOUT_HEIGHT = 260;
@@ -39,10 +39,10 @@ public class EmotionClassicFragment extends EmotionBaseFragment {
         this.mBagList = new ArrayList();
     }
 
-    public static int dip2px(Context context, float f2) {
+    public static int dip2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
     private void initData() {

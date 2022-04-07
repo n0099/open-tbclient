@@ -11,16 +11,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AdapterLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Adapter a;
+    public final DataSetObserver b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final DataSetObserver f36796b;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +52,9 @@ public class AdapterLinearLayout extends LinearLayout {
             int childCount = this.a.getChildCount() - count;
             for (int i = 0; i < count; i++) {
                 View childAt = this.a.getChildAt(i);
-                View view = this.a.a.getView(i, childAt, this.a);
-                if (childAt == null && view != null) {
-                    this.a.addView(view);
+                View view2 = this.a.a.getView(i, childAt, this.a);
+                if (childAt == null && view2 != null) {
+                    this.a.addView(view2);
                 }
             }
             if (childCount > 0) {
@@ -91,7 +89,7 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f36796b = new a(this);
+        this.b = new a(this);
     }
 
     public void setAdapter(Adapter adapter) {
@@ -99,11 +97,11 @@ public class AdapterLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, adapter) == null) {
             Adapter adapter2 = this.a;
             if (adapter2 != null) {
-                adapter2.unregisterDataSetObserver(this.f36796b);
+                adapter2.unregisterDataSetObserver(this.b);
             }
             this.a = adapter;
             if (adapter != null) {
-                adapter.registerDataSetObserver(this.f36796b);
+                adapter.registerDataSetObserver(this.b);
             }
         }
     }
@@ -127,7 +125,7 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f36796b = new a(this);
+        this.b = new a(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,6 +147,6 @@ public class AdapterLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f36796b = new a(this);
+        this.b = new a(this);
     }
 }

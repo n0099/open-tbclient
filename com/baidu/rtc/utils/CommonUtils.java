@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
 import org.webrtc.Logging;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommonUtils";
@@ -63,8 +63,8 @@ public class CommonUtils {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return Long.valueOf(str).longValue();
-                } catch (NumberFormatException e2) {
-                    Logging.e("CommonUtils", "number format fault:" + e2.getMessage());
+                } catch (NumberFormatException e) {
+                    Logging.e("CommonUtils", "number format fault:" + e.getMessage());
                 }
             }
             return -1L;

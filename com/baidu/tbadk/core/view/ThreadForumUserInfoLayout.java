@@ -9,8 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.x1;
-import c.a.p0.h0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -29,34 +27,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.cx5;
+import com.repackage.oq4;
+import com.repackage.ru4;
+/* loaded from: classes3.dex */
 public class ThreadForumUserInfoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
+    public TextView b;
+    public TextView c;
+    public ForumLikeBotton d;
+    public ru4 e;
+    public ThreadData f;
+    public View.OnClickListener g;
+    public View.OnClickListener h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f30147b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f30148c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ForumLikeBotton f30149d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.o0.r.l0.o.c.a f30150e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ThreadData f30151f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f30152g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f30153h;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,14 +68,14 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f30151f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.f == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f30151f.getForumData() != null ? this.a.f30151f.getForumData().a() : this.a.f30151f.getForum_name(), m.g())));
-            if (this.a.f30152g != null) {
-                this.a.f30152g.onClick(view);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getContext()).createNormalCfg(this.a.f.getForumData() != null ? this.a.f.getForumData().a() : this.a.f.getForum_name(), cx5.g())));
+            if (this.a.g != null) {
+                this.a.g.onClick(view2);
             }
         }
     }
@@ -117,15 +104,15 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0833, (ViewGroup) this, true);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a1e);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a67);
-            this.f30147b = textView;
-            textView.setOnClickListener(this.f30153h);
-            this.f30148c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922bd);
-            this.f30149d = (ForumLikeBotton) inflate.findViewById(R.id.obfuscated_res_0x7f09124e);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082a, (ViewGroup) this, true);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090a25);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a69);
+            this.b = textView;
+            textView.setOnClickListener(this.h);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09229e);
+            this.d = (ForumLikeBotton) inflate.findViewById(R.id.obfuscated_res_0x7f091243);
             if (context instanceof TbPageContextSupport) {
-                this.f30150e = new c.a.o0.r.l0.o.c.a(((TbPageContextSupport) context).getPageContext(), this.f30149d);
+                this.e = new ru4(((TbPageContextSupport) context).getPageContext(), this.d);
             }
             setGravity(16);
             d();
@@ -139,7 +126,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             return;
         }
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.a.setOnClickListener(this.f30153h);
+        this.a.setOnClickListener(this.h);
     }
 
     public String e(String str) {
@@ -148,12 +135,12 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE) : (String) invokeL.objValue;
     }
 
-    public final void f(x1 x1Var) {
+    public final void f(oq4 oq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, x1Var) == null) {
-            if (x1Var != null && !StringUtils.isNull(x1Var.b())) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, oq4Var) == null) {
+            if (oq4Var != null && !StringUtils.isNull(oq4Var.d())) {
                 this.a.setVisibility(0);
-                this.a.J(x1Var.b(), 10, false);
+                this.a.K(oq4Var.d(), 10, false);
                 this.a.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
                 return;
             }
@@ -161,22 +148,22 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         }
     }
 
-    public void g(x1 x1Var) {
+    public void g(oq4 oq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, x1Var) == null) {
-            if (x1Var != null && !StringUtils.isNull(x1Var.a())) {
-                this.f30147b.setText(StringHelper.cutChineseAndEnglishWithSuffix(x1Var.a(), 14, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f063c));
-                this.f30147b.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048580, this, oq4Var) == null) {
+            if (oq4Var != null && !StringUtils.isNull(oq4Var.a())) {
+                this.b.setText(StringHelper.cutChineseAndEnglishWithSuffix(oq4Var.a(), 14, StringHelper.STRING_MORE) + getResources().getString(R.string.obfuscated_res_0x7f0f0643));
+                this.b.setVisibility(0);
                 return;
             }
-            this.f30147b.setVisibility(4);
+            this.b.setVisibility(4);
         }
     }
 
     public TextView getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30147b : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (TextView) invokeV.objValue;
     }
 
     public TbImageView getHeaderImg() {
@@ -188,35 +175,35 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public ForumLikeBotton getLikeButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30149d : (ForumLikeBotton) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (ForumLikeBotton) invokeV.objValue;
     }
 
     public TextView getUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f30148c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (TextView) invokeV.objValue;
     }
 
-    public void h(x1 x1Var) {
+    public void h(oq4 oq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, x1Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, oq4Var) == null) {
             int i = 8;
-            if (x1Var == null) {
-                this.f30149d.setVisibility(8);
+            if (oq4Var == null) {
+                this.d.setVisibility(8);
                 return;
             }
-            this.f30150e.f(x1Var);
-            this.f30149d.setVisibility((!x1Var.getIsLike() || x1Var.f()) ? 0 : 0);
+            this.e.f(oq4Var);
+            this.d.setVisibility((!oq4Var.getIsLike() || oq4Var.f()) ? 0 : 0);
         }
     }
 
     public void i(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) || threadData == null || StringUtils.isNull(this.f30151f.getAuthor().getName_show())) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) || threadData == null || StringUtils.isNull(this.f.getAuthor().getName_show())) {
             return;
         }
-        this.f30148c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f14aa, e(this.f30151f.getAuthor().getName_show())));
-        this.f30148c.setVisibility(0);
+        this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f14b2, e(this.f.getAuthor().getName_show())));
+        this.c.setVisibility(0);
     }
 
     public void setData(ThreadData threadData) {
@@ -224,7 +211,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, threadData) == null) || threadData == null) {
             return;
         }
-        this.f30151f = threadData;
+        this.f = threadData;
         f(threadData.getForumData());
         g(threadData.getForumData());
         i(threadData);
@@ -234,17 +221,17 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, onClickListener) == null) {
-            this.f30152g = onClickListener;
+            this.g = onClickListener;
         }
     }
 
     public void setLikeButtonAfterClickListener(View.OnClickListener onClickListener) {
-        c.a.o0.r.l0.o.c.a aVar;
+        ru4 ru4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) || (aVar = this.f30150e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) || (ru4Var = this.e) == null) {
             return;
         }
-        aVar.e(onClickListener);
+        ru4Var.e(onClickListener);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
@@ -254,9 +241,9 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             if (tbImageView != null) {
                 tbImageView.setPageId(bdUniqueId);
             }
-            c.a.o0.r.l0.o.c.a aVar = this.f30150e;
-            if (aVar != null) {
-                aVar.g(bdUniqueId);
+            ru4 ru4Var = this.e;
+            if (ru4Var != null) {
+                ru4Var.g(bdUniqueId);
             }
         }
     }
@@ -301,7 +288,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f30153h = new a(this);
+        this.h = new a(this);
         c(getContext());
     }
 }

@@ -83,8 +83,8 @@ public abstract class Random {
         }
 
         @Override // kotlin.random.Random
-        public double nextDouble(double d2) {
-            return Random.defaultRandom.nextDouble(d2);
+        public double nextDouble(double d) {
+            return Random.defaultRandom.nextDouble(d);
         }
 
         @Override // kotlin.random.Random
@@ -104,8 +104,8 @@ public abstract class Random {
         }
 
         @Override // kotlin.random.Random
-        public double nextDouble(double d2, double d3) {
-            return Random.defaultRandom.nextDouble(d2, d3);
+        public double nextDouble(double d, double d2) {
+            return Random.defaultRandom.nextDouble(d, d2);
         }
 
         @Override // kotlin.random.Random
@@ -195,8 +195,8 @@ public abstract class Random {
         return (nextInt() << 32) + nextInt();
     }
 
-    public double nextDouble(double d2) {
-        return nextDouble(0.0d, d2);
+    public double nextDouble(double d) {
+        return nextDouble(0.0d, d);
     }
 
     public int nextInt(int i) {
@@ -212,23 +212,23 @@ public abstract class Random {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public double nextDouble(double d2, double d3) {
+    public double nextDouble(double d, double d2) {
         double nextDouble;
-        RandomKt.checkRangeBounds(d2, d3);
-        double d4 = d3 - d2;
-        if (Double.isInfinite(d4)) {
+        RandomKt.checkRangeBounds(d, d2);
+        double d3 = d2 - d;
+        if (Double.isInfinite(d3)) {
             boolean z = true;
-            if ((Double.isInfinite(d2) || Double.isNaN(d2)) ? false : true) {
-                if ((Double.isInfinite(d3) || Double.isNaN(d3)) ? false : false) {
-                    double d5 = 2;
-                    double nextDouble2 = nextDouble() * ((d3 / d5) - (d2 / d5));
-                    nextDouble = d2 + nextDouble2 + nextDouble2;
-                    return nextDouble < d3 ? Math.nextAfter(d3, Double.NEGATIVE_INFINITY) : nextDouble;
+            if ((Double.isInfinite(d) || Double.isNaN(d)) ? false : true) {
+                if ((Double.isInfinite(d2) || Double.isNaN(d2)) ? false : false) {
+                    double d4 = 2;
+                    double nextDouble2 = nextDouble() * ((d2 / d4) - (d / d4));
+                    nextDouble = d + nextDouble2 + nextDouble2;
+                    return nextDouble < d2 ? Math.nextAfter(d2, Double.NEGATIVE_INFINITY) : nextDouble;
                 }
             }
         }
-        nextDouble = d2 + (nextDouble() * d4);
-        if (nextDouble < d3) {
+        nextDouble = d + (nextDouble() * d3);
+        if (nextDouble < d2) {
         }
     }
 

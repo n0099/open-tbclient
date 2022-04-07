@@ -6,12 +6,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AppScoreView extends LinearLayout {
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f41101b;
+    public ImageView b;
 
     public AppScoreView(Context context) {
         this(context, null);
@@ -27,33 +25,33 @@ public class AppScoreView extends LinearLayout {
     }
 
     private void a() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0424, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091133);
-        this.f41101b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091132);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d041f, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112c);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09112b);
     }
 
-    public void setScore(float f2) {
-        double d2 = f2;
-        if (d2 > 4.5d) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
-            this.f41101b.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
-        } else if (d2 > 4.0d) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
-            this.f41101b.setImageResource(R.drawable.obfuscated_res_0x7f080b92);
+    public void setScore(float f) {
+        double d = f;
+        if (d > 4.5d) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
+        } else if (d > 4.0d) {
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
         } else {
-            if (d2 > 3.5d) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
+            if (d > 3.5d) {
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b94);
             } else {
-                int i = (d2 > 3.0d ? 1 : (d2 == 3.0d ? 0 : -1));
+                int i = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
                 if (i > 0) {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b92);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b93);
                 } else if (i != 0) {
                     return;
                 } else {
-                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b91);
+                    this.a.setImageResource(R.drawable.obfuscated_res_0x7f080b92);
                 }
             }
-            this.f41101b.setImageResource(R.drawable.obfuscated_res_0x7f080b91);
+            this.b.setImageResource(R.drawable.obfuscated_res_0x7f080b92);
         }
     }
 }

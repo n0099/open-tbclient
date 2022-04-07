@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetUserIpLocation extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetUserIpLocation";
@@ -70,9 +70,9 @@ public class IMGetUserIpLocation extends Message {
             if (intExtra == 1) {
                 try {
                     jSONObject.put("type", intExtra);
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "Exception ", e2);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "Exception ", e);
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 }
                 Message.saveCmdMessage(context, iMGetUserIpLocation, jSONObject.toString(), iMGetUserIpLocation.getPriority());
                 return iMGetUserIpLocation;
@@ -100,9 +100,9 @@ public class IMGetUserIpLocation extends Message {
                 jSONObject.put("uk", this.mUk);
                 jSONObject.put("to_users", MsgUtility.listToJsonArray(this.mUids));
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -160,16 +160,16 @@ public class IMGetUserIpLocation extends Message {
                             }
                             updateDB(context, arrayList2);
                             arrayList = arrayList2;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             arrayList = arrayList2;
                             LogUtils.e(TAG, "IMGetUserIpLocation handleMessageResult :", e);
                             super.handleMessageResult(context, jSONObject, i, str);
                             ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
             }
             super.handleMessageResult(context, jSONObject, i, str);

@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class DefaultDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DECODE_BUFFER_SIZE = 16384;
@@ -198,13 +198,13 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                         this.mDecodeBuffers.release(acquire);
                         throw th3;
                     }
-                } catch (RuntimeException e2) {
+                } catch (RuntimeException e) {
                     if (bitmap != null) {
                         this.mBitmapPool.release(bitmap);
                     }
-                    throw e2;
+                    throw e;
                 }
-            } catch (IllegalArgumentException e3) {
+            } catch (IllegalArgumentException e2) {
                 if (bitmap != null) {
                     this.mBitmapPool.release(bitmap);
                 }
@@ -216,9 +216,9 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                         this.mDecodeBuffers.release(acquire);
                         return of;
                     }
-                    throw e3;
+                    throw e2;
                 } catch (IOException unused3) {
-                    throw e3;
+                    throw e2;
                 }
             }
         }
@@ -261,11 +261,11 @@ public abstract class DefaultDecoder implements PlatformDecoder {
             boolean z2 = decodeOptionsForStream.inPreferredConfig != Bitmap.Config.ARGB_8888;
             try {
                 return decodeFromStream(encodedImage.getInputStream(), decodeOptionsForStream, rect, z);
-            } catch (RuntimeException e2) {
+            } catch (RuntimeException e) {
                 if (z2) {
                     return decodeFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, z);
                 }
-                throw e2;
+                throw e;
             }
         }
         return (CloseableReference) invokeCommon.objValue;
@@ -296,11 +296,11 @@ public abstract class DefaultDecoder implements PlatformDecoder {
             boolean z2 = decodeOptionsForStream.inPreferredConfig != Bitmap.Config.ARGB_8888;
             try {
                 return decodeFromStream(inputStream, decodeOptionsForStream, rect, z);
-            } catch (RuntimeException e2) {
+            } catch (RuntimeException e) {
                 if (z2) {
                     return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i, z);
                 }
-                throw e2;
+                throw e;
             }
         }
         return (CloseableReference) invokeCommon.objValue;

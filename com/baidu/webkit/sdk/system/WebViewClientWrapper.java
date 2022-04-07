@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebViewClientWrapper extends WebViewClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -169,10 +169,10 @@ public final class WebViewClientWrapper extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public final void onScaleChanged(WebView webView, float f2, float f3) {
+    public final void onScaleChanged(WebView webView, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{webView, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mClient.onScaleChanged(this.mWebView.getWebView(), f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{webView, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mClient.onScaleChanged(this.mWebView.getWebView(), f, f2);
         }
     }
 

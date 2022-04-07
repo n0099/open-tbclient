@@ -180,27 +180,13 @@ public class DownloadInfo implements Parcelable {
         public long W;
         public boolean X;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f43460b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f43461c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f43462d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f43463e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public boolean f43464f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f43465g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public List<c> f43466h;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public boolean f;
+        public String g;
+        public List<c> h;
         public int i;
         public String[] j;
         public int[] k;
@@ -231,27 +217,27 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a b(String str) {
-            this.f43460b = str;
+            this.b = str;
             return this;
         }
 
         public a c(String str) {
-            this.f43461c = str;
+            this.c = str;
             return this;
         }
 
         public a d(String str) {
-            this.f43462d = str;
+            this.d = str;
             return this;
         }
 
         public a e(String str) {
-            this.f43463e = str;
+            this.e = str;
             return this;
         }
 
         public a f(String str) {
-            this.f43465g = str;
+            this.g = str;
             return this;
         }
 
@@ -336,7 +322,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(boolean z) {
-            this.f43464f = z;
+            this.f = z;
             return this;
         }
 
@@ -396,7 +382,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a a(List<c> list) {
-            this.f43466h = list;
+            this.h = list;
             return this;
         }
 
@@ -451,7 +437,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public a(String str) {
-            this.f43461c = str;
+            this.c = str;
         }
 
         public a a(int[] iArr) {
@@ -541,8 +527,8 @@ public class DownloadInfo implements Parcelable {
                 if (!TextUtils.isEmpty(string)) {
                     try {
                         this.spData = new JSONObject(string);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -573,8 +559,8 @@ public class DownloadInfo implements Parcelable {
                     }
                 }
                 this.backUpUrlsStr = jSONArray.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         if (this.backUpUrlsStr == null) {
@@ -695,8 +681,8 @@ public class DownloadInfo implements Parcelable {
                 }
                 this.backUpUrls = arrayList;
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -718,8 +704,8 @@ public class DownloadInfo implements Parcelable {
                 stringBuffer.append(str);
                 stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -1618,12 +1604,12 @@ public class DownloadInfo implements Parcelable {
     public boolean isChunkBreakpointAvailable() {
         j x;
         if (this.chunkCount > 1 && (x = com.ss.android.socialbase.downloader.downloader.c.x()) != null) {
-            List<b> c2 = x.c(getId());
-            if (c2 == null || c2.size() != this.chunkCount) {
+            List<b> c = x.c(getId());
+            if (c == null || c.size() != this.chunkCount) {
                 return false;
             }
             long j = 0;
-            for (b bVar : c2) {
+            for (b bVar : c) {
                 if (bVar != null) {
                     j += bVar.o();
                 }
@@ -1898,8 +1884,8 @@ public class DownloadInfo implements Parcelable {
             } else {
                 this.errorBytesLog.delete(0, this.errorBytesLog.length()).append(parcel.readString());
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         this.autoResumed = parcel.readByte() != 0;
         this.showNotificationForAutoResumed = parcel.readByte() != 0;
@@ -2063,8 +2049,8 @@ public class DownloadInfo implements Parcelable {
         ensureSpData();
         try {
             this.spData.put("failed_resume_count", i);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -2133,8 +2119,8 @@ public class DownloadInfo implements Parcelable {
         ensureSpData();
         try {
             this.spData.put("last_failed_resume_time", j);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -2155,8 +2141,8 @@ public class DownloadInfo implements Parcelable {
         ensureSpData();
         try {
             this.spData.put("last_unins_resume_time", j);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -2204,8 +2190,8 @@ public class DownloadInfo implements Parcelable {
         ensureSpData();
         try {
             this.spData.put("paused_resume_count", i);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -2247,8 +2233,8 @@ public class DownloadInfo implements Parcelable {
         try {
             this.spData.put(str, str2);
             updateSpData();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -2289,8 +2275,8 @@ public class DownloadInfo implements Parcelable {
         ensureSpData();
         try {
             this.spData.put("unins_resume_count", i);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -2573,9 +2559,9 @@ public class DownloadInfo implements Parcelable {
             return;
         }
         this.name = aVar.a;
-        this.title = aVar.f43460b;
-        this.url = aVar.f43461c;
-        String str = aVar.f43462d;
+        this.title = aVar.b;
+        this.url = aVar.c;
+        String str = aVar.d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = f.e();
@@ -2584,7 +2570,7 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        String str2 = aVar.f43463e;
+        String str2 = aVar.e;
         this.tempPath = str2;
         if (TextUtils.isEmpty(str2) && !f.h(str)) {
             this.tempPath = f.f();
@@ -2599,9 +2585,9 @@ public class DownloadInfo implements Parcelable {
         }
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = aVar.f43465g;
-        this.onlyWifi = aVar.f43464f;
-        this.extraHeaders = aVar.f43466h;
+        this.extra = aVar.g;
+        this.onlyWifi = aVar.f;
+        this.extraHeaders = aVar.h;
         this.maxBytes = aVar.i;
         this.retryCount = aVar.l;
         this.backUpUrlRetryCount = aVar.m;
@@ -2872,8 +2858,8 @@ public class DownloadInfo implements Parcelable {
                 this.taskId = cursor.getString(columnIndex40);
             }
             parseMonitorSetting();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

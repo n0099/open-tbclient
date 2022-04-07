@@ -7,26 +7,20 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f37802b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f37803c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f37804d;
+    public static final String b;
+    public static final String c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class EnumC1906a {
+    /* loaded from: classes4.dex */
+    public static final class EnumC0246a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int aV = 1;
         public static final int aW = 2;
@@ -64,16 +58,16 @@ public final class a {
             }
         }
         a = Environment.getExternalStorageDirectory().getPath();
-        f37802b = a + "/baidu/ab/crash/";
-        f37803c = a + "/baidu/ab/sdklog/";
+        b = a + "/baidu/ab/crash/";
+        c = a + "/baidu/ab/sdklog/";
         String str = a + "/baidu/ab/sdkupdata/" + b() + "/";
-        f37804d = EnumC1906a.aV;
+        d = EnumC0246a.aV;
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? f37804d == EnumC1906a.aV : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? d == EnumC0246a.aV : invokeV.booleanValue;
     }
 
     public static int b() {
@@ -86,8 +80,8 @@ public final class a {
                     return (Integer.parseInt(split[0]) * 100) + (Integer.parseInt(split[1]) * 10);
                 }
                 return 20;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 20;
             }
         }

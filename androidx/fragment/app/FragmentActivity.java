@@ -320,10 +320,10 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Nullable
-    public final View dispatchFragmentsOnCreateView(@Nullable View view, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public final View dispatchFragmentsOnCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view, str, context, attributeSet)) == null) ? this.mFragments.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) ? this.mFragments.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     @Override // android.app.Activity
@@ -457,12 +457,12 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
     @Nullable
-    public View onCreateView(@Nullable View view, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, view, str, context, attributeSet)) == null) {
-            View dispatchFragmentsOnCreateView = dispatchFragmentsOnCreateView(view, str, context, attributeSet);
-            return dispatchFragmentsOnCreateView == null ? super.onCreateView(view, str, context, attributeSet) : dispatchFragmentsOnCreateView;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, view2, str, context, attributeSet)) == null) {
+            View dispatchFragmentsOnCreateView = dispatchFragmentsOnCreateView(view2, str, context, attributeSet);
+            return dispatchFragmentsOnCreateView == null ? super.onCreateView(view2, str, context, attributeSet) : dispatchFragmentsOnCreateView;
         }
         return (View) invokeLLLL.objValue;
     }
@@ -566,21 +566,21 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     @Deprecated
-    public boolean onPrepareOptionsPanel(@Nullable View view, @NonNull Menu menu) {
+    public boolean onPrepareOptionsPanel(@Nullable View view2, @NonNull Menu menu) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view, menu)) == null) ? super.onPreparePanel(0, view, menu) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view2, menu)) == null) ? super.onPreparePanel(0, view2, menu) : invokeLL.booleanValue;
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, @Nullable View view, @NonNull Menu menu) {
+    public boolean onPreparePanel(int i, @Nullable View view2, @NonNull Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, view, menu)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, view2, menu)) == null) {
             if (i == 0) {
-                return onPrepareOptionsPanel(view, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
+                return onPrepareOptionsPanel(view2, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
             }
-            return super.onPreparePanel(i, view, menu);
+            return super.onPreparePanel(i, view2, menu);
         }
         return invokeILL.booleanValue;
     }

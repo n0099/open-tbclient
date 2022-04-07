@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class LatLng implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LatLng> CREATOR;
@@ -38,12 +38,12 @@ public final class LatLng implements Parcelable {
         CREATOR = new a();
     }
 
-    public LatLng(double d2, double d3) {
+    public LatLng(double d, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3)};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,19 +53,19 @@ public final class LatLng implements Parcelable {
                 return;
             }
         }
-        if (Double.isNaN(d2) || Double.isNaN(d3) || Double.isInfinite(d2) || Double.isInfinite(d3)) {
+        if (Double.isNaN(d) || Double.isNaN(d2) || Double.isInfinite(d) || Double.isInfinite(d2)) {
             this.latitudeE6 = 0.0d;
             this.longitudeE6 = 0.0d;
             this.latitude = 0.0d;
             this.longitude = 0.0d;
             return;
         }
+        double d3 = d * 1000000.0d;
         double d4 = d2 * 1000000.0d;
-        double d5 = d3 * 1000000.0d;
-        this.latitudeE6 = d4;
-        this.longitudeE6 = d5;
-        this.latitude = d4 / 1000000.0d;
-        this.longitude = d5 / 1000000.0d;
+        this.latitudeE6 = d3;
+        this.longitudeE6 = d4;
+        this.latitude = d3 / 1000000.0d;
+        this.longitude = d4 / 1000000.0d;
     }
 
     public LatLng(Parcel parcel) {

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwitchAccountActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String w = "https://wappass.baidu.com/v6/changeAccount";
@@ -134,7 +134,7 @@ public class SwitchAccountActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 init();
             } catch (Throwable th) {
                 reportWebviewError(th);
@@ -160,7 +160,7 @@ public class SwitchAccountActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f105b);
+            setTitleText(R.string.obfuscated_res_0x7f0f1063);
             SapiWebView sapiWebView = this.sapiWebView;
             sapiWebView.showSwitchAccount = this.configuration.supportMultipleAccounts;
             sapiWebView.showLinkAccount = this.v.supportQueryAssociatedAccount;
@@ -376,8 +376,8 @@ public class SwitchAccountActivity extends BaseActivity {
             b();
             SapiWebView sapiWebView = this.sapiWebView;
             if (sapiWebView != null && sapiWebView.canGoBack()) {
-                String b2 = b();
-                if (b2 != null && b2.startsWith(w)) {
+                String b = b();
+                if (b != null && b.startsWith(w)) {
                     onClose();
                     return;
                 } else {

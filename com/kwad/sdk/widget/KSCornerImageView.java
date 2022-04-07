@@ -11,7 +11,7 @@ import androidx.annotation.RequiresApi;
 import com.baidu.tieba.R;
 import com.kwad.sdk.widget.i;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KSCornerImageView extends ImageView {
     public i a;
 
@@ -38,7 +38,7 @@ public class KSCornerImageView extends ImageView {
 
     private void a(Context context, @Nullable AttributeSet attributeSet, int i) {
         i.a aVar = new i.a();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040308, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040348});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040346, R.attr.obfuscated_res_0x7f040365, R.attr.obfuscated_res_0x7f04036e, R.attr.obfuscated_res_0x7f040392});
         aVar.a(obtainStyledAttributes.getBoolean(1, true));
         aVar.b(obtainStyledAttributes.getBoolean(3, true));
         aVar.c(obtainStyledAttributes.getBoolean(2, true));
@@ -69,8 +69,8 @@ public class KSCornerImageView extends ImageView {
         this.a.a(i, i2);
     }
 
-    public void setRadius(float f2) {
-        this.a.a(f2);
+    public void setRadius(float f) {
+        this.a.a(f);
         postInvalidate();
     }
 }

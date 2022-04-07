@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PaInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PaInfo> CREATOR;
@@ -298,8 +298,8 @@ public class PaInfo implements Parcelable {
             if (TextUtils.isEmpty(this.mSchema) && !TextUtils.isEmpty(this.mThirdExt)) {
                 try {
                     this.mSchema = new JSONObject(this.mThirdExt).optString("homepage", "");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return this.mSchema;
@@ -368,8 +368,8 @@ public class PaInfo implements Parcelable {
             if (!TextUtils.isEmpty(this.mThirdExt)) {
                 try {
                     return new JSONObject(this.mThirdExt).optString("third_id", "");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return "";
@@ -625,8 +625,8 @@ public class PaInfo implements Parcelable {
             }
             try {
                 setSchema(new JSONObject(str).optString("homepage", ""));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

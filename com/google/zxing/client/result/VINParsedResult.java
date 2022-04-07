@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class VINParsedResult extends ParsedResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,13 +23,13 @@ public final class VINParsedResult extends ParsedResult {
     public final String worldManufacturerID;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VINParsedResult(String str, String str2, String str3, String str4, String str5, String str6, int i, char c2, String str7) {
+    public VINParsedResult(String str, String str2, String str3, String str4, String str5, String str6, int i, char c, String str7) {
         super(ParsedResultType.VIN);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i), Character.valueOf(c2), str7};
+            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i), Character.valueOf(c), str7};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,7 +47,7 @@ public final class VINParsedResult extends ParsedResult {
         this.countryCode = str5;
         this.vehicleAttributes = str6;
         this.modelYear = i;
-        this.plantCode = c2;
+        this.plantCode = c;
         this.sequentialNumber = str7;
     }
 

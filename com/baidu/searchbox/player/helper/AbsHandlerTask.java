@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class AbsHandlerTask implements ITimerTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REFRESH_ACTION = 1;
@@ -17,7 +17,7 @@ public abstract class AbsHandlerTask implements ITimerTask {
     public final PrivateHandler mHandler;
     public int mInterval;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class PrivateHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

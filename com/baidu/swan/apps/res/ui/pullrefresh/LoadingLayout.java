@@ -15,22 +15,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public abstract class LoadingLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final boolean f29162d;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
+    public ILoadingLayout$State b;
+    public ILoadingLayout$State c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ILoadingLayout$State f29163b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ILoadingLayout$State f29164c;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -91,7 +86,7 @@ public abstract class LoadingLayout extends FrameLayout {
                 return;
             }
         }
-        f29162d = c.a.n0.a.a.a;
+        d = tg1.a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -124,7 +119,7 @@ public abstract class LoadingLayout extends FrameLayout {
             View a2 = a(context, this, attributeSet);
             this.a = a2;
             if (a2 == null) {
-                if (f29162d) {
+                if (d) {
                     throw new NullPointerException("Loading view can not be null.");
                 }
                 return;
@@ -140,9 +135,9 @@ public abstract class LoadingLayout extends FrameLayout {
         }
     }
 
-    public void d(float f2) {
+    public void d(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
         }
     }
 
@@ -176,7 +171,7 @@ public abstract class LoadingLayout extends FrameLayout {
     public ILoadingLayout$State getPreState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29164c : (ILoadingLayout$State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (ILoadingLayout$State) invokeV.objValue;
     }
 
     public int getRefreshingHeight() {
@@ -188,7 +183,7 @@ public abstract class LoadingLayout extends FrameLayout {
     public ILoadingLayout$State getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29163b : (ILoadingLayout$State) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (ILoadingLayout$State) invokeV.objValue;
     }
 
     public void h() {
@@ -244,11 +239,11 @@ public abstract class LoadingLayout extends FrameLayout {
     }
 
     public void m(boolean z) {
-        View view;
+        View view2;
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            if (z == (getVisibility() == 0) || (view = this.a) == null || (layoutParams = view.getLayoutParams()) == null) {
+            if (z == (getVisibility() == 0) || (view2 = this.a) == null || (layoutParams = view2.getLayoutParams()) == null) {
                 return;
             }
             if (z) {
@@ -263,30 +258,30 @@ public abstract class LoadingLayout extends FrameLayout {
 
     @Override // android.view.View
     public void setBackgroundColor(int i) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || (view = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || (view2 = this.a) == null) {
             return;
         }
-        view.setBackgroundColor(i);
+        view2.setBackgroundColor(i);
     }
 
     public void setHeaderBackgroundColor(int i) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || (view = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || (view2 = this.a) == null) {
             return;
         }
-        view.setBackgroundColor(i);
+        view2.setBackgroundColor(i);
     }
 
     public void setHeaderBackgroundResource(int i) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || (view = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || (view2 = this.a) == null) {
             return;
         }
-        view.setBackgroundColor(getResources().getColor(i));
+        view2.setBackgroundColor(getResources().getColor(i));
     }
 
     public void setHeaderBigBackground(int i) {
@@ -328,11 +323,11 @@ public abstract class LoadingLayout extends FrameLayout {
     public void setState(ILoadingLayout$State iLoadingLayout$State) {
         ILoadingLayout$State iLoadingLayout$State2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048603, this, iLoadingLayout$State) == null) || (iLoadingLayout$State2 = this.f29163b) == iLoadingLayout$State) {
+        if (!(interceptable == null || interceptable.invokeL(1048603, this, iLoadingLayout$State) == null) || (iLoadingLayout$State2 = this.b) == iLoadingLayout$State) {
             return;
         }
-        this.f29164c = iLoadingLayout$State2;
-        this.f29163b = iLoadingLayout$State;
+        this.c = iLoadingLayout$State2;
+        this.b = iLoadingLayout$State;
         l(iLoadingLayout$State, iLoadingLayout$State2);
     }
 
@@ -377,8 +372,8 @@ public abstract class LoadingLayout extends FrameLayout {
             }
         }
         ILoadingLayout$State iLoadingLayout$State = ILoadingLayout$State.NONE;
-        this.f29163b = iLoadingLayout$State;
-        this.f29164c = iLoadingLayout$State;
+        this.b = iLoadingLayout$State;
+        this.c = iLoadingLayout$State;
         b(context, attributeSet);
     }
 }

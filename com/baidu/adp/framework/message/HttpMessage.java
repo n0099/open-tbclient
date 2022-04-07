@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COOKIE = "Cookie";
@@ -34,7 +34,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
     public String mUserAgent;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class SORT {
         public static final /* synthetic */ SORT[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -95,7 +95,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a implements Comparator<Map.Entry<String, Object>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,8 +171,8 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
                     return null;
                 }
                 return (byte[]) invoke;
-            } catch (Exception e2) {
-                BdLog.detailException((Throwable) e2, true);
+            } catch (Exception e) {
+                BdLog.detailException((Throwable) e, true);
                 return null;
             }
         }
@@ -305,50 +305,29 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         }
     }
 
-    public String removeCookie(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (str == null || !this.mHeaders.containsKey("Cookie")) {
-                return null;
-            }
-            Map<String, String> parseKVString = parseKVString(this.mHeaders.get("Cookie"), ";");
-            String remove = parseKVString.remove(str);
-            addHeader("Cookie", map2KVString(";", parseKVString));
-            return remove;
-        }
-        return (String) invokeL.objValue;
-    }
-
     public String removeHeader(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? this.mHeaders.remove(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.mHeaders.remove(str) : (String) invokeL.objValue;
     }
 
     public Object removeParam(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? this.mParams.remove(str) : invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? this.mParams.remove(str) : invokeL.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.Message
     public void setClientLogID(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
             super.setClientLogID(j);
         }
     }
 
-    public boolean setNeedProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mNeedProgress : invokeV.booleanValue;
-    }
-
     public synchronized void setSort(SORT sort) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, sort) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, sort) == null) {
             synchronized (this) {
                 if (sort == SORT.NONE) {
                     this.mComparator = null;
@@ -361,7 +340,7 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
 
     public void setUserAgent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.mUserAgent = str;
         }
     }
@@ -398,13 +377,6 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
             return arrayList;
         }
         return (List) invokeV.objValue;
-    }
-
-    public void setNeedProgress(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.mNeedProgress = z;
-        }
     }
 
     public Object addParam(String str, Object obj) {

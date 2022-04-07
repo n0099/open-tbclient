@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.Arrays;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class BitArray implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +364,7 @@ public final class BitArray implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BitArray m107clone() {
+    public BitArray m103clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new BitArray((int[]) this.bits.clone(), this.size) : (BitArray) invokeV.objValue;

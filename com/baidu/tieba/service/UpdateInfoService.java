@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.location.Address;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.d.f.i.a;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,14 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.gf;
+import com.repackage.mc8;
+/* loaded from: classes4.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.c locationCallBack;
+    public gf.c locationCallBack;
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements ReportUserInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +72,8 @@ public class UpdateInfoService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements a.c {
+    /* loaded from: classes4.dex */
+    public class b implements gf.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateInfoService a;
@@ -95,15 +96,15 @@ public class UpdateInfoService extends BdBaseService {
             this.a = updateInfoService;
         }
 
-        @Override // c.a.d.f.i.a.c
+        @Override // com.repackage.gf.c
         public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                c.a.p0.l3.k0.a.e().j(String.valueOf(longitude));
-                c.a.p0.l3.k0.a.e().i(String.valueOf(latitude));
-                c.a.p0.l3.k0.a.e().k(System.currentTimeMillis());
+                mc8.e().j(String.valueOf(longitude));
+                mc8.e().i(String.valueOf(latitude));
+                mc8.e().k(System.currentTimeMillis());
                 if (this.a.mModel.z() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.B(1, longitude, latitude);
                     this.a.mModel.C();
@@ -131,14 +132,14 @@ public class UpdateInfoService extends BdBaseService {
     private void findLocationFromLocal() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            c.a.d.f.i.a.n().k(false, this.locationCallBack);
+            gf.n().k(false, this.locationCallBack);
         }
     }
 
     private void unRegisterLocalLocation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            c.a.d.f.i.a.n().s(this.locationCallBack);
+            gf.n().s(this.locationCallBack);
         }
     }
 

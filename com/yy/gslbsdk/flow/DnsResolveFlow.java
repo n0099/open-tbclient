@@ -55,7 +55,7 @@ import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DnsResolveFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsResolveFlow";
@@ -257,8 +257,8 @@ public class DnsResolveFlow {
                 try {
                     LogTools.printDebug(TAG, String.format(Locale.US, "handleDegradation, requestLock wait, host: %s", str));
                     atomicInteger.wait(GlobalTools.LOCALDNS_TIMEOUT);
-                } catch (InterruptedException e2) {
-                    LogTools.printWarning(TAG, e2);
+                } catch (InterruptedException e) {
+                    LogTools.printWarning(TAG, e);
                 }
                 LogTools.printDebug(TAG, String.format(Locale.US, "handleDegradation, end, host: %s", str));
                 if (atomicInteger.get() == -1) {
@@ -576,8 +576,8 @@ public class DnsResolveFlow {
                                     if (requestHttpDnsV2 != null) {
                                         try {
                                             this.val$rsInfo.httpErrCode = Integer.parseInt(requestHttpDnsV2[0]);
-                                        } catch (Exception e2) {
-                                            LogTools.printWarning(DnsResolveFlow.TAG, e2);
+                                        } catch (Exception e) {
+                                            LogTools.printWarning(DnsResolveFlow.TAG, e);
                                         }
                                         this.val$rsInfo.httpErrMsg = requestHttpDnsV2[1];
                                     } else {
@@ -614,14 +614,14 @@ public class DnsResolveFlow {
                 try {
                     LogTools.printDebug(TAG, String.format(Locale.US, "handleHttpDNS, requestLock wait, requestId: %s", str));
                     atomicInteger2 = atomicInteger;
-                } catch (InterruptedException e2) {
-                    e = e2;
+                } catch (InterruptedException e) {
+                    e = e;
                     atomicInteger2 = atomicInteger;
                 }
                 try {
                     atomicInteger2.wait(GlobalTools.HTTPDNS_TIMEOUT);
-                } catch (InterruptedException e3) {
-                    e = e3;
+                } catch (InterruptedException e2) {
+                    e = e2;
                     LogTools.printWarning(TAG, e);
                     LogTools.printDebug(TAG, String.format(Locale.US, "handleHttpDNS, end, requestId: %s", str));
                     if (atomicInteger2.get() != -1) {

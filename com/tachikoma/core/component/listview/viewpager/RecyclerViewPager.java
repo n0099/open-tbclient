@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecyclerViewPager extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class RecyclerViewPager extends RecyclerView {
     public ScrollEventAdapter mScrollEventAdapter;
     public PagerSnapHelper mSnapHelper;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class OnPageChangeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class RecyclerViewPager extends RecyclerView {
             }
         }
 
-        public void onPageScrolled(int i, float f2, @Px int i2) {
+        public void onPageScrolled(int i, float f, @Px int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
             }
         }
 
@@ -68,16 +68,16 @@ public class RecyclerViewPager extends RecyclerView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnPageChangeListener {
         void onPageScrollStateChanged(int i);
 
-        void onPageScrolled(int i, float f2, @Px int i2);
+        void onPageScrolled(int i, float f, @Px int i2);
 
         void onPageSelected(int i, int i2);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SmoothScrollToPosition implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -200,11 +200,11 @@ public class RecyclerViewPager extends RecyclerView {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mCurrentItem : invokeV.intValue;
     }
 
-    public void notifyPageScrolled(int i, float f2, @Px int i2) {
+    public void notifyPageScrolled(int i, float f, @Px int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
             for (OnPageChangeListener onPageChangeListener : this.mPageListeners) {
-                onPageChangeListener.onPageScrolled(i, f2, i2);
+                onPageChangeListener.onPageScrolled(i, f, i2);
             }
         }
     }
@@ -256,22 +256,22 @@ public class RecyclerViewPager extends RecyclerView {
         if (min == this.mCurrentItem && z) {
             return;
         }
-        float f2 = this.mCurrentItem;
+        float f = this.mCurrentItem;
         this.mCurrentItem = min;
         if (!this.mScrollEventAdapter.isIdle()) {
-            f2 = this.mScrollEventAdapter.getRelativeScrollPosition();
+            f = this.mScrollEventAdapter.getRelativeScrollPosition();
         }
         this.mScrollEventAdapter.notifyProgrammaticScroll(min, z);
         if (!z) {
             scrollToPosition(min);
             return;
         }
-        float f3 = min;
-        if (Math.abs(f3 - f2) <= 3.0f) {
+        float f2 = min;
+        if (Math.abs(f2 - f) <= 3.0f) {
             smoothScrollToPosition(min);
             return;
         }
-        scrollToPosition(f3 > f2 ? min - 3 : min + 3);
+        scrollToPosition(f2 > f ? min - 3 : min + 3);
         post(new SmoothScrollToPosition(min, this));
     }
 
@@ -316,11 +316,11 @@ public class RecyclerViewPager extends RecyclerView {
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeCallback
-                public void onPageScrolled(int i2, float f2, int i3) {
+                public void onPageScrolled(int i2, float f, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
-                        super.onPageScrolled(i2, f2, i3);
-                        this.this$0.notifyPageScrolled(i2, f2, i3);
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3)}) == null) {
+                        super.onPageScrolled(i2, f, i3);
+                        this.this$0.notifyPageScrolled(i2, f, i3);
                     }
                 }
 

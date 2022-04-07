@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ApplicationSoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public class ApplicationSoSource extends SoSource {
                 directorySoSource.prepare(this.flags);
                 this.applicationContext = createPackageContext;
                 return true;
-            } catch (PackageManager.NameNotFoundException e2) {
-                throw new RuntimeException(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new RuntimeException(e);
             }
         }
         return invokeV.booleanValue;

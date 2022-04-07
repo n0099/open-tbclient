@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.NalUnitUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class HevcConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,8 +71,8 @@ public final class HevcConfig {
                     }
                 }
                 return new HevcConfig(i == 0 ? null : Collections.singletonList(bArr), readUnsignedByte + 1);
-            } catch (ArrayIndexOutOfBoundsException e2) {
-                throw new ParserException("Error parsing HEVC config", e2);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                throw new ParserException("Error parsing HEVC config", e);
             }
         }
         return (HevcConfig) invokeL.objValue;

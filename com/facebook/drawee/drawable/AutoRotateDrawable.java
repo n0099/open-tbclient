@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEGREES_IN_FULL_ROTATION = 360;
@@ -68,11 +68,11 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
             Rect bounds = getBounds();
             int i = bounds.right - bounds.left;
             int i2 = bounds.bottom - bounds.top;
-            float f2 = this.mRotationAngle;
+            float f = this.mRotationAngle;
             if (!this.mClockwise) {
-                f2 = 360.0f - f2;
+                f = 360.0f - f;
             }
-            canvas.rotate(f2, bounds.left + (i / 2), bounds.top + (i2 / 2));
+            canvas.rotate(f, bounds.left + (i / 2), bounds.top + (i2 / 2));
             super.draw(canvas);
             canvas.restoreToCount(save);
             scheduleNextFrame();

@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class StorageUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -38,7 +38,7 @@ public final class StorageUtils {
     public static final String TAG = "StorageUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class StorageInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,9 +124,9 @@ public final class StorageUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
                 return Environment.getExternalStorageState().equals("mounted");
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    Log.d(TAG, e.getMessage());
                 }
                 return false;
             }
@@ -136,26 +136,26 @@ public final class StorageUtils {
 
     public static String formatSize(long j) {
         InterceptResult invokeJ;
-        double d2;
+        double d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            double d3 = j;
+            double d2 = j;
             String str = "KB";
-            if (d3 >= 1024.0d) {
-                d2 = d3 / 1024.0d;
-                if (d2 >= 1024.0d) {
-                    d2 /= 1024.0d;
-                    if (d2 >= 1024.0d) {
-                        d2 /= 1024.0d;
+            if (d2 >= 1024.0d) {
+                d = d2 / 1024.0d;
+                if (d >= 1024.0d) {
+                    d /= 1024.0d;
+                    if (d >= 1024.0d) {
+                        d /= 1024.0d;
                         str = "GB";
                     } else {
                         str = "MB";
                     }
                 }
             } else {
-                d2 = 0.0d;
+                d = 0.0d;
             }
-            return String.format(Locale.CHINESE, "%.2f%s", Double.valueOf(d2), str);
+            return String.format(Locale.CHINESE, "%.2f%s", Double.valueOf(d), str);
         }
         return (String) invokeJ.objValue;
     }
@@ -177,9 +177,9 @@ public final class StorageUtils {
                         availableBlocks = statFs.getAvailableBlocks();
                     }
                     return availableBlocks * blockSize;
-                } catch (IllegalArgumentException e2) {
+                } catch (IllegalArgumentException e) {
                     if (DEBUG) {
-                        Log.d(TAG, e2.getMessage());
+                        Log.d(TAG, e.getMessage());
                     }
                 }
             }
@@ -204,9 +204,9 @@ public final class StorageUtils {
                     availableBlocks = statFs.getAvailableBlocks();
                 }
                 return availableBlocks * blockSize;
-            } catch (IllegalArgumentException e2) {
+            } catch (IllegalArgumentException e) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    Log.d(TAG, e.getMessage());
                     return -1L;
                 }
                 return -1L;
@@ -231,8 +231,8 @@ public final class StorageUtils {
                     availableBlocks = statFs.getAvailableBlocks();
                 }
                 return availableBlocks * blockSize;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
                 return 0L;
             }
         }
@@ -306,8 +306,8 @@ public final class StorageUtils {
                 try {
                     hashSet = new HashSet();
                     bufferedReader2 = new BufferedReader(new FileReader("/proc/mounts"));
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                     str2 = str2;
                 }
                 try {
@@ -409,8 +409,8 @@ public final class StorageUtils {
                     }
                     bufferedReader2.close();
                     str2 = str2;
-                } catch (FileNotFoundException e3) {
-                    e = e3;
+                } catch (FileNotFoundException e2) {
+                    e = e2;
                     str2 = bufferedReader2;
                     e.printStackTrace();
                     if (str2 != null) {
@@ -418,8 +418,8 @@ public final class StorageUtils {
                         str2 = str2;
                     }
                     return arrayList;
-                } catch (IOException e4) {
-                    e = e4;
+                } catch (IOException e3) {
+                    e = e3;
                     str2 = bufferedReader2;
                     e.printStackTrace();
                     if (str2 != null) {
@@ -433,17 +433,17 @@ public final class StorageUtils {
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (FileNotFoundException e6) {
-                e = e6;
+            } catch (FileNotFoundException e5) {
+                e = e5;
                 str2 = null;
-            } catch (IOException e7) {
-                e = e7;
+            } catch (IOException e6) {
+                e = e6;
                 str2 = null;
             } catch (Throwable th4) {
                 th = th4;
@@ -476,9 +476,9 @@ public final class StorageUtils {
                         blockCount = statFs.getBlockCount();
                     }
                     return blockCount * blockSize;
-                } catch (IllegalArgumentException e2) {
+                } catch (IllegalArgumentException e) {
                     if (DEBUG) {
-                        Log.d(TAG, e2.getMessage());
+                        Log.d(TAG, e.getMessage());
                     }
                 }
             }
@@ -503,9 +503,9 @@ public final class StorageUtils {
                     blockCount = statFs.getBlockCount();
                 }
                 return blockCount * blockSize;
-            } catch (IllegalArgumentException e2) {
+            } catch (IllegalArgumentException e) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    Log.d(TAG, e.getMessage());
                     return -1L;
                 }
                 return -1L;
@@ -531,14 +531,14 @@ public final class StorageUtils {
                         blockCount = statFs.getBlockCount();
                     }
                     return blockCount * blockSize;
-                } catch (IllegalArgumentException e2) {
+                } catch (IllegalArgumentException e) {
                     if (DEBUG) {
-                        Log.d(TAG, e2.getMessage());
+                        Log.d(TAG, e.getMessage());
                     }
                     return 0L;
                 }
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
                 return 0L;
             }
         }
@@ -593,9 +593,9 @@ public final class StorageUtils {
                     Log.d(TAG, "Available size:" + (blockSize * availableBlocks));
                 }
                 return blockSize * availableBlocks > j;
-            } catch (IllegalArgumentException e2) {
+            } catch (IllegalArgumentException e) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    Log.d(TAG, e.getMessage());
                 }
                 return false;
             }

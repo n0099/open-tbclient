@@ -2,7 +2,6 @@ package com.baidu.swan.apps.media.chooser.listener;
 
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.n0.a.z0.d.d.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.adapter.SwanAppThumbnailAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ho2;
 import java.util.Collections;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
+    public ho2 a;
+    public SwanAppThumbnailAdapter b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public SwanAppThumbnailAdapter f28943b;
-
-    public SwanAppThumbnailTouchCallback(f fVar, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
+    public SwanAppThumbnailTouchCallback(ho2 ho2Var, SwanAppThumbnailAdapter swanAppThumbnailAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, swanAppThumbnailAdapter};
+            Object[] objArr = {ho2Var, swanAppThumbnailAdapter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,8 +33,8 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
                 return;
             }
         }
-        this.a = fVar;
-        this.f28943b = swanAppThumbnailAdapter;
+        this.a = ho2Var;
+        this.b = swanAppThumbnailAdapter;
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.Callback
@@ -84,19 +82,19 @@ public class SwanAppThumbnailTouchCallback extends ItemTouchHelper.Callback {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, recyclerView, viewHolder, viewHolder2)) == null) {
-            if (this.f28943b.e() == null) {
+            if (this.b.e() == null) {
                 return false;
             }
             int adapterPosition = viewHolder.getAdapterPosition();
             int adapterPosition2 = viewHolder2.getAdapterPosition();
-            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.f28943b;
+            SwanAppThumbnailAdapter swanAppThumbnailAdapter = this.b;
             if (swanAppThumbnailAdapter != null) {
                 Collections.swap(swanAppThumbnailAdapter.e(), adapterPosition, adapterPosition2);
-                this.f28943b.notifyItemMoved(adapterPosition, adapterPosition2);
+                this.b.notifyItemMoved(adapterPosition, adapterPosition2);
             }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.onMove(adapterPosition, adapterPosition2);
+            ho2 ho2Var = this.a;
+            if (ho2Var != null) {
+                ho2Var.onMove(adapterPosition, adapterPosition2);
                 return true;
             }
             return true;

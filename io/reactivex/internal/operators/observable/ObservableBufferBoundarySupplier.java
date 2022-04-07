@@ -80,9 +80,9 @@ public final class ObservableBufferBoundarySupplier<T, U extends Collection<? su
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(B b2) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2) == null) || this.once) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) || this.once) {
                 return;
             }
             this.once = true;

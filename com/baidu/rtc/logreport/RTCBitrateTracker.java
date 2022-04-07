@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RTCBitrateTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +34,10 @@ public class RTCBitrateTracker {
         this.mPreByteCount = 0L;
     }
 
-    public static String bitrateStringForBitrate(double d2) {
+    public static String bitrateStringForBitrate(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2)})) == null) ? d2 > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(d2 * 1.0E-6d)) : d2 > 1000.0d ? String.format("%.0fKbps", Double.valueOf(d2 * 0.001d)) : String.format("%.0fbps", Double.valueOf(d2)) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) ? d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(d * 1.0E-6d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(d * 0.001d)) : String.format("%.0fbps", Double.valueOf(d)) : (String) invokeCommon.objValue;
     }
 
     public static int bitrateToString(String str) {
@@ -59,8 +59,8 @@ public class RTCBitrateTracker {
                 }
                 Log.e("BRTC", "illegal input num");
                 return -1;
-            } catch (NumberFormatException e2) {
-                Log.e("RTCBitrateTracker", "bitrateToString dataFormat error: " + e2);
+            } catch (NumberFormatException e) {
+                Log.e("RTCBitrateTracker", "bitrateToString dataFormat error: " + e);
                 return -1;
             }
         }

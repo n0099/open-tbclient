@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ZipUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class ZipUtils {
                                     zipOutputStream.write(bArr, 0, read);
                                 }
                                 zipOutputStream2 = fileInputStream;
-                            } catch (FileNotFoundException e2) {
-                                e = e2;
+                            } catch (FileNotFoundException e) {
+                                e = e;
                                 zipOutputStream2 = fileInputStream;
                                 e.printStackTrace();
                                 Closeables.closeSafely(zipOutputStream2);
@@ -81,8 +81,8 @@ public class ZipUtils {
                                 throw th;
                             }
                         }
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
                     }
                     Closeables.closeSafely(zipOutputStream2);
                 } catch (Throwable th3) {
@@ -102,7 +102,7 @@ public class ZipUtils {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ZipSrc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

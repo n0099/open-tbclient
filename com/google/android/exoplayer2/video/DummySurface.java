@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 import org.webrtc.EglBase10;
 @TargetApi(17)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DummySurface extends Surface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_PROTECTED_CONTENT_EXT = 12992;
@@ -40,13 +40,13 @@ public final class DummySurface extends Surface {
     public boolean threadReleased;
 
     /* renamed from: com.google.android.exoplayer2.video.DummySurface$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DummySurfaceThread extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_INIT = 1;
@@ -170,15 +170,15 @@ public final class DummySurface extends Surface {
                         synchronized (this) {
                             notify();
                         }
-                    } catch (Error e2) {
-                        Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e2);
-                        this.initError = e2;
+                    } catch (Error e) {
+                        Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e);
+                        this.initError = e;
                         synchronized (this) {
                             notify();
                         }
-                    } catch (RuntimeException e3) {
-                        Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e3);
-                        this.initException = e3;
+                    } catch (RuntimeException e2) {
+                        Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e2);
+                        this.initException = e2;
                         synchronized (this) {
                             notify();
                         }

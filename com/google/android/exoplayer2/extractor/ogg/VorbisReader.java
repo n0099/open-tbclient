@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class VorbisReader extends StreamReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class VorbisReader extends StreamReader {
     public VorbisUtil.VorbisIdHeader vorbisIdHeader;
     public VorbisSetup vorbisSetup;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class VorbisSetup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,11 +83,11 @@ public final class VorbisReader extends StreamReader {
         }
     }
 
-    public static int decodeBlockSize(byte b2, VorbisSetup vorbisSetup) {
+    public static int decodeBlockSize(byte b, VorbisSetup vorbisSetup) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), vorbisSetup})) == null) {
-            if (!vorbisSetup.modes[readBits(b2, vorbisSetup.iLogModes, 1)].blockFlag) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b), vorbisSetup})) == null) {
+            if (!vorbisSetup.modes[readBits(b, vorbisSetup.iLogModes, 1)].blockFlag) {
                 return vorbisSetup.idHeader.blockSize0;
             }
             return vorbisSetup.idHeader.blockSize1;
@@ -95,10 +95,10 @@ public final class VorbisReader extends StreamReader {
         return invokeCommon.intValue;
     }
 
-    public static int readBits(byte b2, int i, int i2) {
+    public static int readBits(byte b, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (b2 >> i2) & (255 >>> (8 - i)) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Byte.valueOf(b), Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? (b >> i2) & (255 >>> (8 - i)) : invokeCommon.intValue;
     }
 
     public static boolean verifyBitstreamType(ParsableByteArray parsableByteArray) {

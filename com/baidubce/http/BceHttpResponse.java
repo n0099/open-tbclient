@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BceHttpResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,8 +66,8 @@ public class BceHttpResponse {
             }
             try {
                 return Long.valueOf(header).longValue();
-            } catch (Exception e2) {
-                BLog.error("Invalid " + str + ":" + header, (Throwable) e2);
+            } catch (Exception e) {
+                BLog.error("Invalid " + str + ":" + header, (Throwable) e);
                 return -1L;
             }
         }
@@ -84,8 +84,8 @@ public class BceHttpResponse {
             }
             try {
                 return DateUtils.parseRfc822Date(header);
-            } catch (Exception e2) {
-                BLog.error("Invalid " + str + ":" + header, (Throwable) e2);
+            } catch (Exception e) {
+                BLog.error("Invalid " + str + ":" + header, (Throwable) e);
                 return null;
             }
         }

@@ -5,9 +5,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.p0.f1.u1.a.d.a;
-import c.a.p0.f1.u1.a.d.c;
-import c.a.p0.f1.u1.a.d.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
@@ -17,39 +14,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ak6;
+import com.repackage.wj6;
+import com.repackage.yj6;
+/* loaded from: classes3.dex */
 public class FrsGameTabPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final FrsGameStrategyItemListView[] a;
+    public int b;
+    public Context c;
+    public wj6 d;
+    public yj6 e;
+    public FrsGameStrategyItemListView f;
+    public int g;
+    public BdUniqueId h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f32527b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f32528c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f32529d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c f32530e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public FrsGameStrategyItemListView f32531f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f32532g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public BdUniqueId f32533h;
-
-    public FrsGameTabPagerAdapter(Context context, a aVar, c cVar) {
+    public FrsGameTabPagerAdapter(Context context, wj6 wj6Var, yj6 yj6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, aVar, cVar};
+            Object[] objArr = {context, wj6Var, yj6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -60,17 +46,17 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
             }
         }
         this.a = new FrsGameStrategyItemListView[4];
-        this.f32527b = 0;
-        this.f32532g = -1;
-        this.f32528c = context;
-        this.f32529d = aVar;
-        this.f32530e = cVar;
+        this.b = 0;
+        this.g = -1;
+        this.c = context;
+        this.d = wj6Var;
+        this.e = yj6Var;
     }
 
     public FrsGameStrategyItemListView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32531f : (FrsGameStrategyItemListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (FrsGameStrategyItemListView) invokeV.objValue;
     }
 
     public FrsGameStrategyItemListView c(int i, int i2) {
@@ -141,7 +127,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
             if (i < 0) {
                 i = 0;
             }
-            this.f32527b = i;
+            this.b = i;
             notifyDataSetChanged();
         }
     }
@@ -150,13 +136,13 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32527b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public void h(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.f32533h = bdUniqueId;
+            this.h = bdUniqueId;
         }
     }
 
@@ -174,54 +160,54 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
-        e a;
+        ak6 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) {
             int i2 = i % 3;
-            FrsGameStrategyItemListView d2 = d(i2);
-            if (d2 == null) {
-                d2 = new FrsGameStrategyItemListView(this.f32528c, this.f32533h);
-                d2.setFrsGameTabDataLoadListener(this.f32529d);
-                i(i2, d2);
-            } else if (d2 == b()) {
-                d2 = d(3);
-                if (d2 == null) {
-                    d2 = new FrsGameStrategyItemListView(this.f32528c, this.f32533h);
-                    d2.setFrsGameTabDataLoadListener(this.f32529d);
-                    i(3, d2);
-                } else if (d2.getParent() != null) {
-                    viewGroup.removeView(d2);
+            FrsGameStrategyItemListView d = d(i2);
+            if (d == null) {
+                d = new FrsGameStrategyItemListView(this.c, this.h);
+                d.setFrsGameTabDataLoadListener(this.d);
+                i(i2, d);
+            } else if (d == b()) {
+                d = d(3);
+                if (d == null) {
+                    d = new FrsGameStrategyItemListView(this.c, this.h);
+                    d.setFrsGameTabDataLoadListener(this.d);
+                    i(3, d);
+                } else if (d.getParent() != null) {
+                    viewGroup.removeView(d);
                 }
-            } else if (d2.getParent() != null) {
-                viewGroup.removeView(d2);
+            } else if (d.getParent() != null) {
+                viewGroup.removeView(d);
             }
-            viewGroup.addView(d2);
-            c cVar = this.f32530e;
-            if (cVar != null && (a = cVar.a(i)) != null) {
-                Object obj = a.f14714c;
+            viewGroup.addView(d);
+            yj6 yj6Var = this.e;
+            if (yj6Var != null && (a = yj6Var.a(i)) != null) {
+                Object obj = a.c;
                 if (obj instanceof LabelDataList) {
-                    d2.o(a.a, ((LabelDataList) obj).getSelectedLabelId());
+                    d.o(a.a, ((LabelDataList) obj).getSelectedLabelId());
                 }
             }
-            return d2;
+            return d;
         }
         return invokeLI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view2, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, view, obj)) == null) ? (obj instanceof FrsGameStrategyItemListView) && obj == view : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, view2, obj)) == null) ? (obj instanceof FrsGameStrategyItemListView) && obj == view2 : invokeLL.booleanValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048588, this, viewGroup, i, obj) == null) && (obj instanceof FrsGameStrategyItemListView) && this.f32532g != i) {
-            this.f32532g = i;
+        if ((interceptable == null || interceptable.invokeLIL(1048588, this, viewGroup, i, obj) == null) && (obj instanceof FrsGameStrategyItemListView) && this.g != i) {
+            this.g = i;
             FrsGameStrategyItemListView frsGameStrategyItemListView = (FrsGameStrategyItemListView) obj;
-            this.f32531f = frsGameStrategyItemListView;
+            this.f = frsGameStrategyItemListView;
             frsGameStrategyItemListView.r();
         }
     }

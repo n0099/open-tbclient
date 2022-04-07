@@ -25,32 +25,18 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final ExecutorService f38088e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static volatile g f38089f;
+    public static final ExecutorService e;
+    public static volatile g f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<PluginDownloadBean> f38090b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<PluginDownloadBean> f38091c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f38092d;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<PluginDownloadBean> f38093g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Map<String, Long> f38094h;
+    public List<PluginDownloadBean> b;
+    public List<PluginDownloadBean> c;
+    public boolean d;
+    public List<PluginDownloadBean> g;
+    public Map<String, Long> h;
     public Handler i;
     public Runnable j;
 
@@ -67,7 +53,7 @@ public class g {
                 return;
             }
         }
-        f38088e = Executors.newSingleThreadExecutor();
+        e = Executors.newSingleThreadExecutor();
     }
 
     public g() {
@@ -83,27 +69,27 @@ public class g {
                 return;
             }
         }
-        this.f38093g = new CopyOnWriteArrayList();
-        this.f38090b = new CopyOnWriteArrayList();
-        this.f38094h = new ConcurrentHashMap();
-        this.f38091c = new CopyOnWriteArrayList();
+        this.g = new CopyOnWriteArrayList();
+        this.b = new CopyOnWriteArrayList();
+        this.h = new ConcurrentHashMap();
+        this.c = new CopyOnWriteArrayList();
         this.i = new Handler(Looper.getMainLooper());
         this.j = null;
-        this.f38092d = false;
+        this.d = false;
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f38089f == null) {
+            if (f == null) {
                 synchronized (g.class) {
-                    if (f38089f == null) {
-                        f38089f = new g();
+                    if (f == null) {
+                        f = new g();
                     }
                 }
             }
-            return f38089f;
+            return f;
         }
         return (g) invokeV.objValue;
     }
@@ -112,7 +98,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "asyncFetchPlugins start");
-            f38088e.execute(new c(this));
+            e.execute(new c(this));
         }
     }
 
@@ -157,7 +143,7 @@ public class g {
                     plugin2.setHostCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mClientVersionMin, pluginDownloadBean.mClientVersionMax);
                     plugin2.setApiCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mApiVersionMin, pluginDownloadBean.mApiVersionMax);
                 }
-                PluginProvider pluginProvider = com.bytedance.pangle.g.a().f38133b.getPluginProvider();
+                PluginProvider pluginProvider = com.bytedance.pangle.g.a().b.getPluginProvider();
                 if (pluginProvider != null && pluginProvider.useLocalPlugin()) {
                     PluginManager.getInstance().installFromDownloadDir();
                 } else {
@@ -185,7 +171,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
                 Plugin plugin2 = Zeus.getPlugin(str);
-                if (plugin2 != null && !plugin2.isLoaded() && (l = this.f38094h.get(str)) != null) {
+                if (plugin2 != null && !plugin2.isLoaded() && (l = this.h.get(str)) != null) {
                     if (System.currentTimeMillis() - l.longValue() < 5000) {
                     }
                 }
@@ -205,9 +191,7 @@ public class g {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ long a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ g f38095b;
+            public final /* synthetic */ g b;
 
             {
                 Interceptable interceptable = $ic;
@@ -224,7 +208,7 @@ public class g {
                         return;
                     }
                 }
-                this.f38095b = gVar;
+                this.b = gVar;
                 this.a = DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT;
             }
 
@@ -233,9 +217,9 @@ public class g {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (!b.a().a) {
-                        this.f38095b.b();
+                        this.b.b();
                     }
-                    this.f38095b.i.postDelayed(this, this.a * 1000);
+                    this.b.i.postDelayed(this, this.a * 1000);
                 }
             }
         };

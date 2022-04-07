@@ -4,7 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
-/* loaded from: classes7.dex */
+import com.repackage.rm9;
+/* loaded from: classes5.dex */
 public class d extends a<String> {
     public d(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -25,7 +26,7 @@ public class d extends a<String> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        c.h.a.a.a.d("AbstractMessageHandler", "start RegisterMessageHandler match");
+        rm9.d("AbstractMessageHandler", "start RegisterMessageHandler match");
         return PushConstants.MZ_PUSH_ON_REGISTER_ACTION.equals(intent.getAction()) || (PushConstants.REGISTRATION_CALLBACK_INTENT.equals(intent.getAction()) && !TextUtils.isEmpty(intent.getStringExtra("registration_id")));
     }
 

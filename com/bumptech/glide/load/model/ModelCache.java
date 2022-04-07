@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ModelCache<A, B> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 250;
@@ -22,7 +22,7 @@ public class ModelCache<A, B> {
     public final LruCache<ModelKey<A>, B> cache;
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ModelKey<A> {
         public static /* synthetic */ Interceptable $ic;
         public static final Queue<ModelKey<?>> KEY_QUEUE;
@@ -147,17 +147,17 @@ public class ModelCache<A, B> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a, i, i2)) == null) {
             ModelKey<A> modelKey = ModelKey.get(a, i, i2);
-            B b2 = this.cache.get(modelKey);
+            B b = this.cache.get(modelKey);
             modelKey.release();
-            return b2;
+            return b;
         }
         return (B) invokeLII.objValue;
     }
 
-    public void put(A a, int i, int i2, B b2) {
+    public void put(A a, int i, int i2, B b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{a, Integer.valueOf(i), Integer.valueOf(i2), b2}) == null) {
-            this.cache.put(ModelKey.get(a, i, i2), b2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{a, Integer.valueOf(i), Integer.valueOf(i2), b}) == null) {
+            this.cache.put(ModelKey.get(a, i, i2), b);
         }
     }
 
@@ -207,9 +207,9 @@ public class ModelCache<A, B> {
                 onItemEvicted((ModelKey) ((ModelKey) obj), (ModelKey<A>) obj2);
             }
 
-            public void onItemEvicted(@NonNull ModelKey<A> modelKey, @Nullable B b2) {
+            public void onItemEvicted(@NonNull ModelKey<A> modelKey, @Nullable B b) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, modelKey, b2) == null) {
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, modelKey, b) == null) {
                     modelKey.release();
                 }
             }

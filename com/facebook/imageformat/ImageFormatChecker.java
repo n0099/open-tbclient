@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ImageFormatChecker {
     public static /* synthetic */ Interceptable $ic;
     public static ImageFormatChecker sInstance;
@@ -56,8 +56,8 @@ public class ImageFormatChecker {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
             try {
                 return getImageFormat(inputStream);
-            } catch (IOException e2) {
-                throw Throwables.propagate(e2);
+            } catch (IOException e) {
+                throw Throwables.propagate(e);
             }
         }
         return (ImageFormat) invokeL.objValue;

@@ -6,92 +6,78 @@ import com.ss.android.socialbase.downloader.i.i;
 /* loaded from: classes7.dex */
 public class g {
     public final SQLiteDatabase a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final String f43171b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String[] f43172c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final String[] f43173d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public SQLiteStatement f43174e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SQLiteStatement f43175f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public SQLiteStatement f43176g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public SQLiteStatement f43177h;
+    public final String b;
+    public final String[] c;
+    public final String[] d;
+    public SQLiteStatement e;
+    public SQLiteStatement f;
+    public SQLiteStatement g;
+    public SQLiteStatement h;
 
     public g(SQLiteDatabase sQLiteDatabase, String str, String[] strArr, String[] strArr2) {
         this.a = sQLiteDatabase;
-        this.f43171b = str;
-        this.f43172c = strArr;
-        this.f43173d = strArr2;
+        this.b = str;
+        this.c = strArr;
+        this.d = strArr2;
     }
 
     public SQLiteStatement a() {
-        if (this.f43174e == null) {
-            SQLiteStatement compileStatement = this.a.compileStatement(i.a("INSERT INTO ", this.f43171b, this.f43172c));
+        if (this.e == null) {
+            SQLiteStatement compileStatement = this.a.compileStatement(i.a("INSERT INTO ", this.b, this.c));
             synchronized (this) {
-                if (this.f43174e == null) {
-                    this.f43174e = compileStatement;
+                if (this.e == null) {
+                    this.e = compileStatement;
                 }
             }
-            if (this.f43174e != compileStatement) {
+            if (this.e != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f43174e;
+        return this.e;
     }
 
     public SQLiteStatement b() {
-        if (this.f43176g == null) {
-            SQLiteStatement compileStatement = this.a.compileStatement(i.a(this.f43171b, this.f43173d));
+        if (this.g == null) {
+            SQLiteStatement compileStatement = this.a.compileStatement(i.a(this.b, this.d));
             synchronized (this) {
-                if (this.f43176g == null) {
-                    this.f43176g = compileStatement;
+                if (this.g == null) {
+                    this.g = compileStatement;
                 }
             }
-            if (this.f43176g != compileStatement) {
+            if (this.g != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f43176g;
+        return this.g;
     }
 
     public SQLiteStatement c() {
-        if (this.f43175f == null) {
-            SQLiteStatement compileStatement = this.a.compileStatement(i.a(this.f43171b, this.f43172c, this.f43173d));
+        if (this.f == null) {
+            SQLiteStatement compileStatement = this.a.compileStatement(i.a(this.b, this.c, this.d));
             synchronized (this) {
-                if (this.f43175f == null) {
-                    this.f43175f = compileStatement;
+                if (this.f == null) {
+                    this.f = compileStatement;
                 }
             }
-            if (this.f43175f != compileStatement) {
+            if (this.f != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f43175f;
+        return this.f;
     }
 
     public SQLiteStatement d() {
-        if (this.f43177h == null) {
-            SQLiteStatement compileStatement = this.a.compileStatement(i.b(this.f43171b, this.f43172c, this.f43173d));
+        if (this.h == null) {
+            SQLiteStatement compileStatement = this.a.compileStatement(i.b(this.b, this.c, this.d));
             synchronized (this) {
-                if (this.f43177h == null) {
-                    this.f43177h = compileStatement;
+                if (this.h == null) {
+                    this.h = compileStatement;
                 }
             }
-            if (this.f43177h != compileStatement) {
+            if (this.h != compileStatement) {
                 compileStatement.close();
             }
         }
-        return this.f43177h;
+        return this.h;
     }
 }

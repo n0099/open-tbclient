@@ -105,12 +105,12 @@ public final class SavedStateViewModelFactory extends ViewModelProvider.KeyedFac
                 T t = isAssignableFrom ? (T) findMatchingConstructor.newInstance(this.mApplication, create.getHandle()) : (T) findMatchingConstructor.newInstance(create.getHandle());
                 t.setTagIfAbsent("androidx.lifecycle.savedstate.vm.tag", create);
                 return t;
-            } catch (IllegalAccessException e2) {
-                throw new RuntimeException("Failed to access " + cls, e2);
-            } catch (InstantiationException e3) {
-                throw new RuntimeException("A " + cls + " cannot be instantiated.", e3);
-            } catch (InvocationTargetException e4) {
-                throw new RuntimeException("An exception happened in constructor of " + cls, e4.getCause());
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException("Failed to access " + cls, e);
+            } catch (InstantiationException e2) {
+                throw new RuntimeException("A " + cls + " cannot be instantiated.", e2);
+            } catch (InvocationTargetException e3) {
+                throw new RuntimeException("An exception happened in constructor of " + cls, e3.getCause());
             }
         }
         return (T) invokeLL.objValue;

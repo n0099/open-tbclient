@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ExifOrientationStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] EXIF_SEGMENT;

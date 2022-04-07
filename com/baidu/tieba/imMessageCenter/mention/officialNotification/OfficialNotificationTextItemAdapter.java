@@ -2,7 +2,6 @@ package com.baidu.tieba.imMessageCenter.mention.officialNotification;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.p0.v1.b.q.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,8 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a> {
+import com.repackage.sa7;
+/* loaded from: classes3.dex */
+public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<sa7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext s;
@@ -44,37 +44,37 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
-    public /* bridge */ /* synthetic */ View S(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
-        return view;
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.ho
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+        return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<sa7> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.S(i, view, viewGroup, chatMessage, msgViewHolder);
-            a c2 = msgViewHolder.c();
-            c2.b();
-            if (c2 != null) {
-                c2.c(chatMessage);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
+            super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
+            sa7 c = msgViewHolder.c();
+            c.b();
+            if (c != null) {
+                c.c(chatMessage);
             }
-            return view;
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<a> M(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<sa7> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            a aVar = new a(this.s, viewGroup, this.t);
-            return new MsgCommonItemAdapter.MsgViewHolder<>(aVar.a(), aVar);
+            sa7 sa7Var = new sa7(this.s, viewGroup, this.t);
+            return new MsgCommonItemAdapter.MsgViewHolder<>(sa7Var.a(), sa7Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DebugTextViewHelper extends Player.DefaultEventListener implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REFRESH_INTERVAL_MS = 1000;
@@ -69,14 +69,14 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
         return (String) invokeL.objValue;
     }
 
-    public static String getPixelAspectRatioString(float f2) {
+    public static String getPixelAspectRatioString(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f2)) == null) {
-            if (f2 == -1.0f || f2 == 1.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) {
+            if (f == -1.0f || f == 1.0f) {
                 return "";
             }
-            return " par:" + String.format(Locale.US, "%.02f", Float.valueOf(f2));
+            return " par:" + String.format(Locale.US, "%.02f", Float.valueOf(f));
         }
         return (String) invokeF.objValue;
     }

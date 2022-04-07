@@ -25,7 +25,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FH {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVOKE_METHOD_ERROR_DEFULT = -1;
@@ -258,8 +258,8 @@ public class FH {
                     CommonMethods.handleNuLException(th);
                     return new Pair<>(-2, "");
                 }
-            } catch (IllegalArgumentException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (IllegalArgumentException e) {
+                CommonMethods.handleNuLException(e);
                 return new Pair<>(-6, "");
             } catch (Throwable th2) {
                 CommonMethods.handleNuLException(th2);

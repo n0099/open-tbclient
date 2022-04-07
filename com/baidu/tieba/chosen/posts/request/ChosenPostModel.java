@@ -1,8 +1,5 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.o0.k0.b.g;
-import c.a.p0.i0.a.d.a;
-import c.a.p0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,25 +10,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
+import com.repackage.o65;
+import com.repackage.uy5;
+import com.repackage.vy5;
+/* loaded from: classes3.dex */
+public class ChosenPostModel extends NetAutoModel<uy5, vy5, ChosenPostActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, a aVar) {
-        super(tbPageContext, aVar);
+    public ChosenPostModel(TbPageContext<ChosenPostActivity> tbPageContext, uy5 uy5Var) {
+        super(tbPageContext, uy5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, aVar};
+            Object[] objArr = {tbPageContext, uy5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (g) objArr2[1]);
+                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,10 +78,10 @@ public class ChosenPostModel extends NetAutoModel<a, b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<b> getResponseDataClass() {
+    public Class<vy5> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? b.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? vy5.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

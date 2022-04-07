@@ -4,11 +4,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import c.a.o0.r.r.e;
-import c.a.p0.b2.o.c;
-import c.a.p0.l3.j0.b.g;
-import c.a.p0.l3.n;
-import c.a.p0.l3.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
@@ -21,9 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fc8;
+import com.repackage.hc8;
+import com.repackage.t98;
+import com.repackage.uc7;
+import com.repackage.vn4;
+import com.repackage.y98;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
-public class AdCardVideoView extends AdCardBaseView implements s {
+/* loaded from: classes3.dex */
+public class AdCardVideoView extends AdCardBaseView implements y98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IHomeAdVideoView j0;
@@ -34,7 +35,7 @@ public class AdCardVideoView extends AdCardBaseView implements s {
     public int o0;
     public int p0;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +60,13 @@ public class AdCardVideoView extends AdCardBaseView implements s {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int jump2DownloadDetailPage = this.a.j0.jump2DownloadDetailPage();
-                HashMap<String, Object> M = this.a.M("video");
+                HashMap<String, Object> N = this.a.N("video");
                 if (this.a.k != null) {
-                    this.a.k.a(jump2DownloadDetailPage, M);
+                    this.a.k.a(jump2DownloadDetailPage, N);
                 }
             }
         }
@@ -104,12 +105,12 @@ public class AdCardVideoView extends AdCardBaseView implements s {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void O(AdCard adCard) {
+    public void P(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) || adCard == null || adCard.videoInfo == null) {
             return;
         }
-        t0(adCard);
+        v0(adCard);
         this.j0.setPageContext(this.k0);
         this.j0.setVideoTailFrameData(adCard.tailFrame);
         this.j0.setData(adCard.videoInfo, adCard.verticalVideoStyle, this.l0, this.m0, this.n0, this.o0);
@@ -121,10 +122,10 @@ public class AdCardVideoView extends AdCardBaseView implements s {
         if (advertAppInfo != null) {
             int i = -1;
             String pageTypeByBusiness = TextUtils.isEmpty(advertAppInfo.k) ? getPageTypeByBusiness() : advertAppInfo.k;
-            e eVar = advertAppInfo.j;
-            if (eVar != null) {
-                i = eVar.f10837b;
-                pageTypeByBusiness = eVar.a;
+            vn4 vn4Var = advertAppInfo.j;
+            if (vn4Var != null) {
+                i = vn4Var.b;
+                pageTypeByBusiness = vn4Var.a;
             }
             this.j0.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
         }
@@ -132,78 +133,78 @@ public class AdCardVideoView extends AdCardBaseView implements s {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void U(View view) {
+    public void V(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || view2 == null) {
             return;
         }
-        float P = P(R.string.J_X05);
-        XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view;
-        xfremodeRoundLayout.setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
+        float Q = Q(R.string.J_X05);
+        XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view2;
+        xfremodeRoundLayout.setRoundLayoutRadius(new float[]{Q, Q, Q, Q, Q, Q, Q, Q});
         xfremodeRoundLayout.setLayerType(2, null);
-        this.j0 = (IHomeAdVideoView) view.findViewById(R.id.obfuscated_res_0x7f090148);
+        this.j0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f090151);
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.p0 == 2 && VideoCardLazyInitSwitch.getIsOn()) ? R.layout.obfuscated_res_0x7f0d0066 : R.layout.obfuscated_res_0x7f0d0069 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.p0 == 2 && VideoCardLazyInitSwitch.getIsOn()) ? R.layout.obfuscated_res_0x7f0d0068 : R.layout.obfuscated_res_0x7f0d006b : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0178 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d017c : invokeV.intValue;
     }
 
-    @Override // c.a.p0.l3.s
-    public n getVideoOrVrView() {
+    @Override // com.repackage.y98
+    public t98 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j0 : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j0 : (t98) invokeV.objValue;
     }
 
-    public boolean s0(AdCard adCard) {
-        InterceptResult invokeL;
-        g gVar;
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, com.repackage.pd7
+    public void setDownloadAppCallback(uc7 uc7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) ? adCard != null && adCard.goodsStyle == 14 && (gVar = adCard.verticalVideoStyle) != null && gVar.a() : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView, c.a.p0.b2.o.l.e
-    public void setDownloadAppCallback(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            super.setDownloadAppCallback(cVar);
-            this.j0.setDownloadCallback(cVar);
+        if (interceptable == null || interceptable.invokeL(1048581, this, uc7Var) == null) {
+            super.setDownloadAppCallback(uc7Var);
+            this.j0.setDownloadCallback(uc7Var);
         }
     }
 
-    public final void t0(AdCard adCard) {
+    public boolean u0(AdCard adCard) {
+        InterceptResult invokeL;
+        fc8 fc8Var;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, adCard)) == null) ? adCard != null && adCard.goodsStyle == 14 && (fc8Var = adCard.verticalVideoStyle) != null && fc8Var.a() : invokeL.booleanValue;
+    }
+
+    public final void v0(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, adCard) == null) {
             if (adCard.goodsStyle == 14) {
                 int i = this.B / 2;
                 this.l0 = i;
-                this.m0 = c.a.p0.l3.j0.c.a.b(i);
+                this.m0 = hc8.b(i);
             } else {
                 int i2 = this.B;
                 this.l0 = i2;
-                this.m0 = c.a.p0.l3.j0.c.a.a(i2);
+                this.m0 = hc8.a(i2);
             }
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j0.getLayoutParams();
             layoutParams.height = this.m0;
             layoutParams.width = this.l0;
-            if (adCard.goodsStyle == 14 && !s0(adCard)) {
+            if (adCard.goodsStyle == 14 && !u0(adCard)) {
                 int i3 = this.B / 2;
                 this.n0 = i3;
-                this.o0 = c.a.p0.l3.j0.c.a.b(i3);
+                this.o0 = hc8.b(i3);
             } else {
                 int i4 = this.B;
                 this.n0 = i4;
-                this.o0 = c.a.p0.l3.j0.c.a.a(i4);
+                this.o0 = hc8.a(i4);
             }
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
             layoutParams2.width = this.n0;

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.listview.TKRecyclerAdapter;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_FOOTER_VIEW_TYPE = -2048;
@@ -41,7 +41,7 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
     public int mMaxHeaderViewType;
     public boolean mSmoothNotifyChange;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class HeaderFooterViewGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,35 +84,35 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
             this.mViews = new SparseArray<>();
             this.mIndex = 0;
             if (list != null) {
-                for (View view : list) {
+                for (View view2 : list) {
                     SparseArray<View> sparseArray = this.mViews;
                     int i3 = this.mIndex;
                     this.mIndex = i3 + 1;
-                    sparseArray.put(i3, view);
+                    sparseArray.put(i3, view2);
                 }
             }
         }
 
-        public boolean addView(View view) {
+        public boolean addView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (containsView(view)) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (containsView(view2)) {
                     return false;
                 }
                 SparseArray<View> sparseArray = this.mViews;
                 int i = this.mIndex;
                 this.mIndex = i + 1;
-                sparseArray.put(i, view);
+                sparseArray.put(i, view2);
                 return true;
             }
             return invokeL.booleanValue;
         }
 
-        public boolean containsView(View view) {
+        public boolean containsView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? this.mViews.indexOfValue(view) >= 0 : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.mViews.indexOfValue(view2) >= 0 : invokeL.booleanValue;
         }
 
         public View getViewAtPos(int i) {
@@ -151,11 +151,11 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIndex : invokeV.intValue;
         }
 
-        public boolean removeView(View view) {
+        public boolean removeView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view)) == null) {
-                int indexOfValue = this.mViews.indexOfValue(view);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+                int indexOfValue = this.mViews.indexOfValue(view2);
                 if (indexOfValue < 0) {
                     return false;
                 }
@@ -411,12 +411,12 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         }
     }
 
-    private RecyclerView.ViewHolder createHeaderFooterViewHolder(View view) {
+    private RecyclerView.ViewHolder createHeaderFooterViewHolder(View view2) {
         InterceptResult invokeL;
         StaggeredGridLayoutManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, view)) == null) {
-            ViewGroup.LayoutParams layoutParams2 = view.getLayoutParams();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
             int i = layoutParams2 == null ? -1 : layoutParams2.width;
             int i2 = layoutParams2 == null ? -2 : layoutParams2.height;
             if (this.mIsOverrideLayoutParams) {
@@ -427,25 +427,25 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
                 } else {
                     layoutParams = new RecyclerView.LayoutParams(i, i2);
                 }
-                view.setLayoutParams(layoutParams);
+                view2.setLayoutParams(layoutParams);
             }
-            if (view instanceof YogaLayout) {
-                YogaLayout yogaLayout = (YogaLayout) view;
-                return new HeaderFooterViewHolder(view, yogaLayout.getYogaNode().getWidth(), yogaLayout.getYogaNode().getHeight());
+            if (view2 instanceof YogaLayout) {
+                YogaLayout yogaLayout = (YogaLayout) view2;
+                return new HeaderFooterViewHolder(view2, yogaLayout.getYogaNode().getWidth(), yogaLayout.getYogaNode().getHeight());
             }
-            return new RecyclerView.ViewHolder(this, view) { // from class: com.tachikoma.core.component.recyclerview.RecyclerHeaderFooterAdapter.2
+            return new RecyclerView.ViewHolder(this, view2) { // from class: com.tachikoma.core.component.recyclerview.RecyclerHeaderFooterAdapter.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RecyclerHeaderFooterAdapter this$0;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(view);
+                    super(view2);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view};
+                        Object[] objArr = {this, view2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -494,26 +494,26 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void addFooterView(View view) {
+    public void addFooterView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            addFooterView(view, null);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            addFooterView(view2, null);
         }
     }
 
-    public void addFooterView(View view, @Nullable ViewGroup.LayoutParams layoutParams) {
+    public void addFooterView(View view2, @Nullable ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view, layoutParams) == null) {
-            if (view == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, layoutParams) == null) {
+            if (view2 == null) {
                 throw new IllegalArgumentException("the view to add must not be null!");
             }
-            if ((view.getParent() instanceof ViewGroup) && view.getParent() != this.mFooterGroup) {
-                ((ViewGroup) view.getParent()).removeView(view);
+            if ((view2.getParent() instanceof ViewGroup) && view2.getParent() != this.mFooterGroup) {
+                ((ViewGroup) view2.getParent()).removeView(view2);
             }
             if (layoutParams != null) {
-                view.setLayoutParams(layoutParams);
+                view2.setLayoutParams(layoutParams);
             }
-            if (this.mFooterGroup.addView(view)) {
+            if (this.mFooterGroup.addView(view2)) {
                 notifyDataSetChangedCatchException();
             }
         }
@@ -540,34 +540,34 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void addHeaderView(View view) {
+    public void addHeaderView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view) == null) {
-            addHeaderView(view, null);
+        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
+            addHeaderView(view2, null);
         }
     }
 
-    public void addHeaderView(View view, @Nullable ViewGroup.LayoutParams layoutParams) {
+    public void addHeaderView(View view2, @Nullable ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view, layoutParams) == null) {
-            if (view == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, layoutParams) == null) {
+            if (view2 == null) {
                 throw new IllegalArgumentException("the view to add must not be null");
             }
             if (layoutParams != null) {
-                view.setLayoutParams(layoutParams);
+                view2.setLayoutParams(layoutParams);
             }
-            if (this.mHeaderGroup.addView(view)) {
+            if (this.mHeaderGroup.addView(view2)) {
                 notifyDataSetChangedCatchException();
             }
         }
     }
 
-    public int addHeaderViewWithoutNotify(View view) {
+    public int addHeaderViewWithoutNotify(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view)) == null) {
-            if (view != null) {
-                if (this.mHeaderGroup.addView(view)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2)) == null) {
+            if (view2 != null) {
+                if (this.mHeaderGroup.addView(view2)) {
                     return getHeaderCount() - 1;
                 }
                 return -1;
@@ -640,16 +640,16 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public boolean containsFooterView(View view) {
+    public boolean containsFooterView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) ? this.mFooterGroup.containsView(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) ? this.mFooterGroup.containsView(view2) : invokeL.booleanValue;
     }
 
-    public boolean containsHeaderView(View view) {
+    public boolean containsHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, view)) == null) ? this.mHeaderGroup.containsView(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, view2)) == null) ? this.mHeaderGroup.containsView(view2) : invokeL.booleanValue;
     }
 
     public RecyclerView.Adapter getAdapter() {
@@ -1000,11 +1000,11 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public boolean removeFooterView(View view) {
+    public boolean removeFooterView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, view)) == null) {
-            boolean removeView = this.mFooterGroup.removeView(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, view2)) == null) {
+            boolean removeView = this.mFooterGroup.removeView(view2);
             if (removeView) {
                 notifyDataSetChangedCatchException();
             }
@@ -1013,11 +1013,11 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         return invokeL.booleanValue;
     }
 
-    public boolean removeFooterView(View view, boolean z) {
+    public boolean removeFooterView(View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048616, this, view, z)) == null) {
-            boolean removeView = this.mFooterGroup.removeView(view);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048616, this, view2, z)) == null) {
+            boolean removeView = this.mFooterGroup.removeView(view2);
             if (removeView && z) {
                 notifyDataSetChangedCatchException();
             }
@@ -1026,11 +1026,11 @@ public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
         return invokeLZ.booleanValue;
     }
 
-    public boolean removeHeaderView(View view) {
+    public boolean removeHeaderView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, view)) == null) {
-            boolean removeView = this.mHeaderGroup.removeView(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, view2)) == null) {
+            boolean removeView = this.mHeaderGroup.removeView(view2);
             if (removeView) {
                 notifyDataSetChangedCatchException();
             }

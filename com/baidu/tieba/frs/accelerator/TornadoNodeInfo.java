@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TornadoNodeInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,8 +55,8 @@ public class TornadoNodeInfo implements Serializable {
                 for (int i = 0; i < optJSONArray.length(); i++) {
                     try {
                         arrayList.add(NodeInfo.parseJson(optJSONArray.getJSONObject(i)));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
             }

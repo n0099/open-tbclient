@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TransitRoutePlanOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,16 +18,14 @@ public class TransitRoutePlanOption {
     public PlanNode mTo;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TransitPolicy {
         public static /* synthetic */ Interceptable $ic;
         public static final TransitPolicy EBUS_NO_SUBWAY;
         public static final TransitPolicy EBUS_TIME_FIRST;
         public static final TransitPolicy EBUS_TRANSFER_FIRST;
         public static final TransitPolicy EBUS_WALK_FIRST;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ TransitPolicy[] f26503b;
+        public static final /* synthetic */ TransitPolicy[] b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -49,7 +47,7 @@ public class TransitRoutePlanOption {
             EBUS_WALK_FIRST = new TransitPolicy("EBUS_WALK_FIRST", 2, 3);
             TransitPolicy transitPolicy = new TransitPolicy("EBUS_NO_SUBWAY", 3, 4);
             EBUS_NO_SUBWAY = transitPolicy;
-            f26503b = new TransitPolicy[]{EBUS_TIME_FIRST, EBUS_TRANSFER_FIRST, EBUS_WALK_FIRST, transitPolicy};
+            b = new TransitPolicy[]{EBUS_TIME_FIRST, EBUS_TRANSFER_FIRST, EBUS_WALK_FIRST, transitPolicy};
         }
 
         public TransitPolicy(String str, int i, int i2) {
@@ -83,7 +81,7 @@ public class TransitRoutePlanOption {
         public static TransitPolicy[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) f26503b.clone() : (TransitPolicy[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (TransitPolicy[]) b.clone() : (TransitPolicy[]) invokeV.objValue;
         }
 
         public int getInt() {

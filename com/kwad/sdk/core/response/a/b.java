@@ -10,7 +10,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.at;
 import java.util.Random;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static Random a = new Random();
 
@@ -21,8 +21,8 @@ public class b {
                 return a.nextBoolean() ? 1 : 2;
             }
             return i;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
             return 1;
         }
     }
@@ -142,8 +142,8 @@ public class b {
         int i;
         try {
             i = d.j(adTemplate).adMatrixInfo.adDataV2.splashInfo.interactionInfo.shakeInfo.acceleration;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
             i = 7;
         }
         return i;

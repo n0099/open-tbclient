@@ -4,7 +4,7 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NewsInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = 2846473099852025182L;
     public String content;
@@ -17,7 +17,7 @@ public class NewsInfo extends com.kwad.sdk.core.response.kwai.a implements Seria
     public List<ImageInfo> imageInfo = new ArrayList();
     public List<ImageInfo> thumbnailInfo = new ArrayList();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class ImageInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 4257305450674055184L;
         public int height;

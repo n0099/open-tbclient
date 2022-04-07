@@ -249,5 +249,5 @@ public interface AccessibilityViewCommand {
         }
     }
 
-    boolean perform(@NonNull View view, @Nullable CommandArguments commandArguments);
+    boolean perform(@NonNull View view2, @Nullable CommandArguments commandArguments);
 }

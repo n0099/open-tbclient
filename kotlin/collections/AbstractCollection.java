@@ -14,7 +14,7 @@ import kotlin.jvm.internal.markers.KMappedMarker;
 /* loaded from: classes8.dex */
 public abstract class AbstractCollection<E> implements Collection<E>, KMappedMarker {
     @Override // java.util.Collection
-    public boolean add(E e2) {
+    public boolean add(E e) {
         throw new UnsupportedOperationException("Operation is not supported for read-only collection");
     }
 
@@ -33,8 +33,8 @@ public abstract class AbstractCollection<E> implements Collection<E>, KMappedMar
         if (isEmpty()) {
             return false;
         }
-        for (E e2 : this) {
-            if (Intrinsics.areEqual(e2, obj)) {
+        for (E e : this) {
+            if (Intrinsics.areEqual(e, obj)) {
                 return true;
             }
         }

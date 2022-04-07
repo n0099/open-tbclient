@@ -18,12 +18,10 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class b {
     public c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f40189b = "";
+    public String b = "";
 
     private String a(String str) {
         return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
@@ -64,8 +62,8 @@ public abstract class b {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 ThreadInfo threadInfo = new ThreadInfo();
@@ -93,8 +91,8 @@ public abstract class b {
                 exceptionMessage.mMemoryInfo = memoryInfo.toJson().toString();
                 com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                 bufferedReader2 = readLine;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 bufferedReader2 = bufferedReader;
                 com.kwad.sdk.core.d.a.b(e);
                 com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
@@ -105,8 +103,8 @@ public abstract class b {
                 com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader2);
                 throw th;
             }
-        } catch (Exception e4) {
-            com.kwad.sdk.core.d.a.b(e4);
+        } catch (Exception e3) {
+            com.kwad.sdk.core.d.a.b(e3);
         }
     }
 
@@ -146,7 +144,7 @@ public abstract class b {
                 h.b(file8.getPath());
             }
             h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.b.b.f40162b);
+            f.b(com.kwad.sdk.crash.b.b.b);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
@@ -237,18 +235,18 @@ public abstract class b {
                             exceptionMessage.mJNIError = readLine.substring(readLine.indexOf("JNI DETECTED ERROR IN APPLICATION"));
                             z = true;
                         }
-                    } catch (FileNotFoundException e2) {
-                        e = e2;
+                    } catch (FileNotFoundException e) {
+                        e = e;
                         bufferedReader = bufferedReader2;
-                        str = this.f40189b + e + "\n";
-                        this.f40189b = str;
+                        str = this.b + e + "\n";
+                        this.b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f40189b + e + "\n";
-                        this.f40189b = str;
+                        str = this.b + e + "\n";
+                        this.b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {
@@ -261,10 +259,10 @@ public abstract class b {
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (FileNotFoundException e4) {
+        } catch (FileNotFoundException e3) {
+            e = e3;
+        } catch (IOException e4) {
             e = e4;
-        } catch (IOException e5) {
-            e = e5;
         }
     }
 }

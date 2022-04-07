@@ -6,26 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f25602b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f25603c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f25604d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Hashtable f25605e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f25606f;
+    public final /* synthetic */ boolean b;
+    public final /* synthetic */ String c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ Hashtable e;
+    public final /* synthetic */ LBSAuthManager f;
 
     public j(LBSAuthManager lBSAuthManager, int i, boolean z, String str, String str2, Hashtable hashtable) {
         Interceptable interceptable = $ic;
@@ -42,19 +32,19 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f25606f = lBSAuthManager;
+        this.f = lBSAuthManager;
         this.a = i;
-        this.f25602b = z;
-        this.f25603c = str;
-        this.f25604d = str2;
-        this.f25605e = hashtable;
+        this.b = z;
+        this.c = str;
+        this.d = str2;
+        this.e = hashtable;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        boolean b2;
+        boolean b;
         Context context;
-        boolean b3;
+        boolean b2;
         m mVar;
         m mVar2;
         Interceptable interceptable = $ic;
@@ -63,39 +53,39 @@ public class j implements Runnable {
             sb.append("status = ");
             sb.append(this.a);
             sb.append("; forced = ");
-            sb.append(this.f25602b);
+            sb.append(this.b);
             sb.append("checkAK = ");
-            b2 = this.f25606f.b(this.f25603c);
-            sb.append(b2);
+            b = this.f.b(this.c);
+            sb.append(b);
             a.a(sb.toString());
             int i = this.a;
-            if (i != 601 && !this.f25602b && i != -1) {
-                b3 = this.f25606f.b(this.f25603c);
-                if (!b3) {
+            if (i != 601 && !this.b && i != -1) {
+                b2 = this.f.b(this.c);
+                if (!b2) {
                     if (602 == this.a) {
                         a.a("authenticate wait ");
-                        mVar = LBSAuthManager.f25587d;
+                        mVar = LBSAuthManager.d;
                         if (mVar != null) {
-                            mVar2 = LBSAuthManager.f25587d;
+                            mVar2 = LBSAuthManager.d;
                             mVar2.b();
                         }
                     } else {
                         a.a("authenticate else");
                     }
-                    this.f25606f.a((String) null, this.f25603c);
+                    this.f.a((String) null, this.c);
                     return;
                 }
             }
             a.a("authenticate sendAuthRequest");
             context = LBSAuthManager.a;
-            String[] b4 = b.b(context);
-            a.a("authStrings.length:" + b4.length);
-            if (b4 == null || b4.length <= 1) {
-                this.f25606f.a(this.f25602b, this.f25604d, this.f25605e, this.f25603c);
+            String[] b3 = b.b(context);
+            a.a("authStrings.length:" + b3.length);
+            if (b3 == null || b3.length <= 1) {
+                this.f.a(this.b, this.d, this.e, this.c);
                 return;
             }
             a.a("more sha1 auth");
-            this.f25606f.a(this.f25602b, this.f25604d, this.f25605e, b4, this.f25603c);
+            this.f.a(this.b, this.d, this.e, b3, this.c);
         }
     }
 }

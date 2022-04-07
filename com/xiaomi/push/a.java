@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
@@ -79,7 +79,7 @@ public final class a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m179a() {
+    public byte[] m175a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -126,8 +126,8 @@ public final class a {
             if (i == 0) {
                 byte[] bArr = this.f83a;
                 int length = bArr.length;
-                for (byte b2 : bArr) {
-                    length = (length * 31) + b2;
+                for (byte b : bArr) {
+                    length = (length * 31) + b;
                 }
                 i = length == 0 ? 1 : length;
                 this.f82a = i;

@@ -4,33 +4,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.j;
-import g.o.a.a;
+import com.repackage.az9;
+import com.repackage.pz9;
+import com.repackage.wy9;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
+public final class OperatorBufferWithSize$BufferOverlap<T> extends az9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final j<? super List<T>> f45408e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final int f45409f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final int f45410g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final ArrayDeque<List<T>> f45411h;
+    public final az9<? super List<T>> e;
+    public final int f;
+    public final int g;
+    public final ArrayDeque<List<T>> h;
     public final AtomicLong i;
 
     /* loaded from: classes8.dex */
-    public final class BufferOverlapProducer extends AtomicBoolean implements f {
+    public final class BufferOverlapProducer extends AtomicBoolean implements wy9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4015894850868853147L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,18 +46,18 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             this.this$0 = operatorBufferWithSize$BufferOverlap;
         }
 
-        @Override // g.f
+        @Override // com.repackage.wy9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.f45411h, operatorBufferWithSize$BufferOverlap.f45408e) || j == 0) {
+                if (!pz9.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.h, operatorBufferWithSize$BufferOverlap.e) || j == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.f45410g, j));
+                    operatorBufferWithSize$BufferOverlap.e(pz9.c(operatorBufferWithSize$BufferOverlap.g, j));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.f45410g, j - 1), operatorBufferWithSize$BufferOverlap.f45409f));
+                    operatorBufferWithSize$BufferOverlap.e(pz9.a(pz9.c(operatorBufferWithSize$BufferOverlap.g, j - 1), operatorBufferWithSize$BufferOverlap.f));
                 }
             }
         }

@@ -174,11 +174,11 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     }
 
     @Override // androidx.appcompat.view.ActionMode
-    public void setCustomView(View view) {
+    public void setCustomView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
-            this.mContextView.setCustomView(view);
-            this.mCustomView = view != null ? new WeakReference<>(view) : null;
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+            this.mContextView.setCustomView(view2);
+            this.mCustomView = view2 != null ? new WeakReference<>(view2) : null;
         }
     }
 

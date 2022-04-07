@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class e extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +59,13 @@ public final class e extends g {
                                 return true;
                             }
                         }
-                    } catch (ActivityNotFoundException | Exception e2) {
-                        Log.printStackTrace(e2);
+                    } catch (ActivityNotFoundException | Exception e) {
+                        Log.printStackTrace(e);
                     }
                     return true;
-                } catch (URISyntaxException e3) {
+                } catch (URISyntaxException e2) {
                     String str3 = Log.LOG_TAG;
-                    Log.d(str3, "Bad URI " + str + ": " + e3.getMessage());
+                    Log.d(str3, "Bad URI " + str + ": " + e2.getMessage());
                 }
             }
             return false;

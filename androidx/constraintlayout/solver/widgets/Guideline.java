@@ -482,12 +482,12 @@ public class Guideline extends ConstraintWidget {
         return (ConstraintAnchor) invokeL.objValue;
     }
 
-    public void setGuidePercent(float f2) {
+    public void setGuidePercent(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048596, this, f2) == null) || f2 <= -1.0f) {
+        if (!(interceptable == null || interceptable.invokeF(1048596, this, f) == null) || f <= -1.0f) {
             return;
         }
-        this.mRelativePercent = f2;
+        this.mRelativePercent = f;
         this.mRelativeBegin = -1;
         this.mRelativeEnd = -1;
     }

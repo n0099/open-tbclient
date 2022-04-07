@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -23,8 +22,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 import java.util.Calendar;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BigdayActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,23 +65,23 @@ public class BigdayActivity extends BaseActivity {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view.getId() == this.bigdayImg.getId()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == this.bigdayImg.getId()) {
                 if (StringUtils.isNULL(this.jumpUrl)) {
                     return;
                 }
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{this.jumpUrl});
                 TiebaStatic.log(new StatisticItem("c13112").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));
                 finish();
-            } else if (view.getId() == this.bigdayClose.getId()) {
+            } else if (view2.getId() == this.bigdayClose.getId()) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(11, 23);
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                b.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                wt4.k().x("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -94,13 +94,13 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0159);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09036e);
+            setContentView(R.layout.obfuscated_res_0x7f0d015d);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090379);
             this.bigdayImg = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.bigdayClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036d);
+            this.bigdayClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f090378);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.bigdayClose.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07027e));
+                ((FrameLayout.LayoutParams) this.bigdayClose.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07028a));
             }
             Intent intent = getIntent();
             if (intent != null) {
@@ -109,7 +109,7 @@ public class BigdayActivity extends BaseActivity {
                 this.bigdayId = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
             this.bigdayImg.setTag(getPageContext().getUniqueId());
-            this.bigdayImg.J(this.imgUrl, 41, false);
+            this.bigdayImg.K(this.imgUrl, 41, false);
             this.bigdayImg.setOnClickListener(this);
             this.bigdayClose.setOnClickListener(this);
             TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));

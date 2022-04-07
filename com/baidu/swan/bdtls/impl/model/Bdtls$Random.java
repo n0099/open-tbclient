@@ -20,10 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.mj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Bdtls$Random extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GMTUNIXTIME_FIELD_NUMBER = 1;
@@ -38,7 +39,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
     public int memoizedSerializedSize;
     public ByteString randomBytes_;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<Bdtls$Random> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,17 +68,13 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<Bdtls$Random, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f29404b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ByteString f29405c;
+        public int b;
+        public ByteString c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -92,7 +89,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
                     return;
                 }
             }
-            this.f29405c = ByteString.EMPTY;
+            this.c = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -150,14 +147,14 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (c.a.n0.c.a.i.a) null);
+                Bdtls$Random bdtls$Random = new Bdtls$Random(this, (mj3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                bdtls$Random.gMTUnixTime_ = this.f29404b;
+                bdtls$Random.gMTUnixTime_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                bdtls$Random.randomBytes_ = this.f29405c;
+                bdtls$Random.randomBytes_ = this.c;
                 bdtls$Random.bitField0_ = i2;
                 return bdtls$Random;
             }
@@ -169,10 +166,10 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f29404b = 0;
+                this.b = 0;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f29405c = ByteString.EMPTY;
+                this.c = ByteString.EMPTY;
                 this.a = i & (-3);
                 return this;
             }
@@ -248,10 +245,10 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
                             u(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        Bdtls$Random bdtls$Random2 = (Bdtls$Random) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        Bdtls$Random bdtls$Random2 = (Bdtls$Random) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             bdtls$Random = bdtls$Random2;
@@ -276,7 +273,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
                 this.a |= 1;
-                this.f29404b = i;
+                this.b = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -288,7 +285,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, byteString)) == null) {
                 if (byteString != null) {
                     this.a |= 2;
-                    this.f29405c = byteString;
+                    this.c = byteString;
                     return this;
                 }
                 throw null;
@@ -336,7 +333,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         bdtls$Random.initFields();
     }
 
-    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.n0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Random(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mj3 mj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -465,7 +462,7 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, c.a.n0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$Random(GeneratedMessageLite.Builder builder, mj3 mj3Var) {
         this(builder);
     }
 
@@ -630,11 +627,11 @@ public final class Bdtls$Random extends GeneratedMessageLite implements MessageL
                             }
                         }
                         z = true;
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e) {
+                        throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    throw e3.setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e2) {
+                    throw e2.setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

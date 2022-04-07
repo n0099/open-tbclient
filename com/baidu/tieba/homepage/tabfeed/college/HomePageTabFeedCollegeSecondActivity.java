@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import c.a.d.f.p.n;
-import c.a.o0.m.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.GridSpaceItemDecoration;
@@ -26,24 +24,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lm4;
+import com.repackage.oi;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HomePageTabFeedCollegeSecondListAdapter adapter;
     public BdRecyclerView bdRecyclerView;
     public NavigationBar mNavigationBar;
-    public f<SpecialColumnItemData> mOnItemClickListener;
+    public lm4<SpecialColumnItemData> mOnItemClickListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends GridLayoutManager.SpanSizeLookup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f33432b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -60,7 +58,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f33432b = homePageTabFeedCollegeSecondActivity;
+            this.b = homePageTabFeedCollegeSecondActivity;
             this.a = list;
         }
 
@@ -72,8 +70,8 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements f<SpecialColumnItemData> {
+    /* loaded from: classes3.dex */
+    public class b implements lm4<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HomePageTabFeedCollegeSecondActivity a;
@@ -97,20 +95,20 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.m.f
+        @Override // com.repackage.lm4
         /* renamed from: b */
-        public void c(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
+        public void c(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.m.f
+        @Override // com.repackage.lm4
         /* renamed from: d */
-        public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
+        public void a(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
                 return;
             }
             int i2 = specialColumnItemData.specialType;
@@ -159,12 +157,12 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0061);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f9);
+            setContentView(R.layout.obfuscated_res_0x7f0d0063);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f4);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.showBottomLine();
-            this.bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091287);
+            this.bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09127b);
             SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
             if (specialColumnListData != null) {
                 this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
@@ -177,17 +175,17 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                         gridLayoutManager.setSpanSizeLookup(new a(this, resultData));
                         this.bdRecyclerView.setLayoutManager(gridLayoutManager);
-                        int f2 = n.f(this, R.dimen.tbds44);
-                        int f3 = n.f(this, R.dimen.tbds44);
-                        this.bdRecyclerView.addItemDecoration(new GridSpaceItemDecoration(f2, n.f(this, R.dimen.tbds11), f3));
+                        int f = oi.f(this, R.dimen.tbds44);
+                        int f2 = oi.f(this, R.dimen.tbds44);
+                        this.bdRecyclerView.addItemDecoration(new GridSpaceItemDecoration(f, oi.f(this, R.dimen.tbds11), f2));
                     }
                 }
                 this.adapter = new HomePageTabFeedCollegeSecondListAdapter(this, resultData);
             }
             this.adapter.i(this.mOnItemClickListener);
             this.bdRecyclerView.setAdapter(this.adapter);
-            View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d03ff, (ViewGroup) null);
-            SkinManager.setViewTextColor(inflate.findViewById(R.id.obfuscated_res_0x7f0921ad), R.color.CAM_X0109, 1);
+            View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d03fc, (ViewGroup) null);
+            SkinManager.setViewTextColor(inflate.findViewById(R.id.obfuscated_res_0x7f092190), R.color.CAM_X0109, 1);
             this.bdRecyclerView.r(inflate);
         }
     }

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaSubscribeMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,9 +77,9 @@ public class IMPaSubscribeMsg extends Message {
                     jSONObject.put("origin_id", triggerId);
                 }
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "buildBody:", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "buildBody:", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -97,9 +97,9 @@ public class IMPaSubscribeMsg extends Message {
             if (i == 0) {
                 try {
                     PaInfoDBManager.getInstance(context).subscribePa(this.mPaInfo);
-                } catch (Exception e2) {
-                    LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                } catch (Exception e) {
+                    LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
             super.handleMessageResult(context, jSONObject, i, str);

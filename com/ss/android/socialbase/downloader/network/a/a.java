@@ -5,39 +5,35 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Map<String, c> f43490b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Map<String, d> f43491c;
+    public final Map<String, c> b;
+    public final Map<String, d> c;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static final class C2079a {
+    /* loaded from: classes8.dex */
+    public static final class C0623a {
         public static final a a = new a();
     }
 
     public void a(String str, c cVar) {
-        synchronized (this.f43490b) {
-            this.f43490b.put(str, cVar);
+        synchronized (this.b) {
+            this.b.put(str, cVar);
         }
     }
 
     public d b(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         d remove;
-        synchronized (this.f43491c) {
-            remove = this.f43491c.remove(str);
+        synchronized (this.c) {
+            remove = this.c.remove(str);
         }
         if (remove != null) {
             if (f.a(remove.f(), list)) {
                 try {
                     remove.e();
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 if (remove.h() && remove.g()) {
                     return remove;
@@ -54,8 +50,8 @@ public class a {
     }
 
     public a() {
-        this.f43490b = new HashMap();
-        this.f43491c = new LinkedHashMap(3);
+        this.b = new HashMap();
+        this.c = new LinkedHashMap(3);
         this.a = 3;
     }
 
@@ -65,15 +61,15 @@ public class a {
 
     public c a(String str, List<com.ss.android.socialbase.downloader.model.c> list) {
         c remove;
-        synchronized (this.f43490b) {
-            remove = this.f43490b.remove(str);
+        synchronized (this.b) {
+            remove = this.b.remove(str);
         }
         if (remove != null) {
             if (f.a(remove.h(), list)) {
                 try {
                     remove.d();
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 if (remove.f() && remove.e()) {
                     return remove;
@@ -90,7 +86,7 @@ public class a {
     }
 
     public boolean a(String str) {
-        c cVar = this.f43490b.get(str);
+        c cVar = this.b.get(str);
         if (cVar != null) {
             if (cVar.g()) {
                 return true;
@@ -101,6 +97,6 @@ public class a {
     }
 
     public static a a() {
-        return C2079a.a;
+        return C0623a.a;
     }
 }

@@ -7,14 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.aa;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f43899b;
+    public final /* synthetic */ e b;
 
     public f(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -31,7 +29,7 @@ public final class f implements Runnable {
                 return;
             }
         }
-        this.f43899b = eVar;
+        this.b = eVar;
         this.a = str;
     }
 
@@ -42,14 +40,14 @@ public final class f implements Runnable {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f43899b.f43894h;
+            context = this.b.h;
             if (context == null || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            context2 = this.f43899b.f43894h;
-            context3 = this.f43899b.f43894h;
+            context2 = this.b.h;
+            context3 = this.b.h;
             if (aa.a(context2, context3.getPackageName(), this.a)) {
-                this.f43899b.i();
+                this.b.i();
             }
         }
     }

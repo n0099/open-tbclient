@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_POINTER = -1;
@@ -34,7 +34,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
     @Nullable
     public VelocityTracker velocityTracker;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class FlingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,10 +112,10 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         return invokeL.booleanValue;
     }
 
-    public final boolean fling(CoordinatorLayout coordinatorLayout, @NonNull V v, int i, int i2, float f2) {
+    public final boolean fling(CoordinatorLayout coordinatorLayout, @NonNull V v, int i, int i2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
             Runnable runnable = this.flingRunnable;
             if (runnable != null) {
                 v.removeCallbacks(runnable);
@@ -124,7 +124,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
             if (this.scroller == null) {
                 this.scroller = new OverScroller(v.getContext());
             }
-            this.scroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f2), 0, 0, i, i2);
+            this.scroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f), 0, 0, i, i2);
             if (this.scroller.computeScrollOffset()) {
                 FlingRunnable flingRunnable = new FlingRunnable(this, coordinatorLayout, v);
                 this.flingRunnable = flingRunnable;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMCmdQueueHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMCmdQueueHelper";
@@ -42,9 +42,9 @@ public class IMCmdQueueHelper {
                     return null;
                 }
                 return MessageFactory.getInstance().parseMessage(context, cmdQueueMsg.getMethodId(), cmdQueueMsg.getUuid(), cmdQueueMsg.getBody(), cmdQueueMsg.getExtra());
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "getFirstIdleCmdQueueMsg:", e2);
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(LogUtils.TAG, "getFirstIdleCmdQueueMsg:", e);
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }

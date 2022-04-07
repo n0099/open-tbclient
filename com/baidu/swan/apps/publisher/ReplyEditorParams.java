@@ -4,7 +4,6 @@ import android.app.Application;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.n0.a.p1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -16,12 +15,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mx2;
+import com.repackage.qj2;
+import com.repackage.tg1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ReplyEditorParams implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ReplyEditorParams> CREATOR;
@@ -37,7 +39,7 @@ public class ReplyEditorParams implements Parcelable {
     public final int sendTextColor;
     public List<String> showList;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<ReplyEditorParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,36 +138,36 @@ public class ReplyEditorParams implements Parcelable {
                     }
                 }
             }
-            String c2 = b.c(jSONObject, "sendText", "发表");
-            if (c2.length() > 2) {
-                c2 = c2.substring(0, 2);
+            String c = mx2.c(jSONObject, "sendText", "发表");
+            if (c.length() > 2) {
+                c = c.substring(0, 2);
             }
-            String str = c2;
+            String str = c;
             try {
-                i = SwanAppConfigData.t(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
-            } catch (Exception e2) {
-                if (c.a.n0.a.a.a) {
-                    e2.printStackTrace();
+                i = SwanAppConfigData.t(mx2.c(jSONObject, "sendTextColor", "#FFFFFF"));
+            } catch (Exception e) {
+                if (tg1.a) {
+                    e.printStackTrace();
                 }
                 i = -1;
             }
-            Application c3 = c.a.n0.a.s0.a.c();
-            String c4 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
-            int color = c3.getResources().getColor(R.color.obfuscated_res_0x7f060a75);
+            Application c2 = qj2.c();
+            String c3 = mx2.c(jSONObject, "sendBackgroundColor", "#3388FF");
+            int color = c2.getResources().getColor(R.color.obfuscated_res_0x7f060a84);
             try {
-                i2 = SwanAppConfigData.t(c4);
-            } catch (Exception e3) {
-                if (c.a.n0.a.a.a) {
-                    e3.printStackTrace();
+                i2 = SwanAppConfigData.t(c3);
+            } catch (Exception e2) {
+                if (tg1.a) {
+                    e2.printStackTrace();
                 }
                 i2 = color;
             }
-            String d2 = b.d(jSONObject.optString("contentPlaceholder", c3.getResources().getString(R.string.obfuscated_res_0x7f0f12bd)), 20, StringHelper.STRING_MORE);
+            String d = mx2.d(jSONObject.optString("contentPlaceholder", c2.getResources().getString(R.string.obfuscated_res_0x7f0f12c5)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove(MODULE_EMOJI);
             }
-            return new ReplyEditorParams(d2, optString2, jSONObject.optString("cb"), str, i, i2, arrayList);
+            return new ReplyEditorParams(d, optString2, jSONObject.optString("cb"), str, i, i2, arrayList);
         }
         return (ReplyEditorParams) invokeL.objValue;
     }

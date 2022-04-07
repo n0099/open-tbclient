@@ -16,7 +16,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpsLevelMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpsLevelMgr";
@@ -118,8 +118,8 @@ public class HttpsLevelMgr {
                     return 0;
                 }
                 return 3;
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return 3;
             }
         }

@@ -26,7 +26,7 @@ import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
 import javax.crypto.Cipher;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class RSAUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALGORITHM_RSA = "RSA";
@@ -175,11 +175,11 @@ public final class RSAUtil {
             try {
                 try {
                     return (RSAPrivateKey) KeyFactory.getInstance(ALGORITHM_RSA).generatePrivate(new RSAPrivateKeySpec(bigInteger, bigInteger2));
-                } catch (InvalidKeySpecException e2) {
-                    throw new Exception(e2.getMessage());
+                } catch (InvalidKeySpecException e) {
+                    throw new Exception(e.getMessage());
                 }
-            } catch (NoSuchAlgorithmException e3) {
-                throw new Exception(e3.getMessage());
+            } catch (NoSuchAlgorithmException e2) {
+                throw new Exception(e2.getMessage());
             }
         }
         return (RSAPrivateKey) invokeLL.objValue;
@@ -192,11 +192,11 @@ public final class RSAUtil {
             try {
                 try {
                     return (RSAPublicKey) KeyFactory.getInstance(ALGORITHM_RSA).generatePublic(new RSAPublicKeySpec(bigInteger, bigInteger2));
-                } catch (InvalidKeySpecException e2) {
-                    throw new Exception(e2.getMessage());
+                } catch (InvalidKeySpecException e) {
+                    throw new Exception(e.getMessage());
                 }
-            } catch (NoSuchAlgorithmException e3) {
-                throw new Exception(e3.getMessage());
+            } catch (NoSuchAlgorithmException e2) {
+                throw new Exception(e2.getMessage());
             }
         }
         return (RSAPublicKey) invokeLL.objValue;

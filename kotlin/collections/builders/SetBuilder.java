@@ -18,8 +18,8 @@ public final class SetBuilder<E> extends AbstractMutableSet<E> implements Set<E>
     }
 
     @Override // kotlin.collections.AbstractMutableSet, java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public boolean add(E e2) {
-        return this.backing.addKey$kotlin_stdlib(e2) >= 0;
+    public boolean add(E e) {
+        return this.backing.addKey$kotlin_stdlib(e) >= 0;
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set

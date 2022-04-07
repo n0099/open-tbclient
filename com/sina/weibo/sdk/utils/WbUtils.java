@@ -46,8 +46,8 @@ public class WbUtils {
                     String[] split = str2.split("=");
                     try {
                         bundle.putString(URLDecoder.decode(split[0], "UTF-8"), URLDecoder.decode(split[1], "UTF-8"));
-                    } catch (UnsupportedEncodingException e2) {
-                        e2.printStackTrace();
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
                     }
                 }
             }

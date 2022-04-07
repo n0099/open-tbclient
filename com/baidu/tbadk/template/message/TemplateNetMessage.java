@@ -1,9 +1,6 @@
 package com.baidu.tbadk.template.message;
 
 import android.util.Log;
-import c.a.o0.a1.e.c;
-import c.a.o0.a1.e.d;
-import c.a.o0.a1.e.e;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,22 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oa5;
+import com.repackage.pa5;
+import com.repackage.qa5;
+/* loaded from: classes3.dex */
 public class TemplateNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
-    public c mIReq;
-    public d mIResp;
+    public oa5 mIReq;
+    public pa5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TemplateNetMessage(e eVar, c cVar, d dVar) {
-        super(eVar.e(), eVar.a());
+    public TemplateNetMessage(qa5 qa5Var, oa5 oa5Var, pa5 pa5Var) {
+        super(qa5Var.e(), qa5Var.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {eVar, cVar, dVar};
+            Object[] objArr = {qa5Var, oa5Var, pa5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,8 +39,8 @@ public class TemplateNetMessage extends NetMessage {
             }
         }
         this.isNeedCache = false;
-        this.mIReq = cVar;
-        this.mIResp = dVar;
+        this.mIReq = oa5Var;
+        this.mIResp = pa5Var;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -54,16 +54,16 @@ public class TemplateNetMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public c getIReq() {
+    public oa5 getIReq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIReq : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIReq : (oa5) invokeV.objValue;
     }
 
-    public d getIResp() {
+    public pa5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIResp : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIResp : (pa5) invokeV.objValue;
     }
 
     public boolean isNeedCache() {

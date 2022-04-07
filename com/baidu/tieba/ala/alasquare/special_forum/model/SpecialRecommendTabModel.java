@@ -2,9 +2,6 @@ package com.baidu.tieba.ala.alasquare.special_forum.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.o.e.n;
-import c.a.p0.c0.f.g.c.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -24,38 +21,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lr5;
+import com.repackage.mi;
+import com.repackage.oi;
+import com.repackage.sq5;
+import com.repackage.tn5;
+import com.repackage.uo;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SpecialRecommendTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public TbPageContext b;
+    public b c;
+    public List<uo> d;
+    public List<ThreadData> e;
+    public long f;
+    public int g;
+    public HttpMessageListener h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext f31348b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public b f31349c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<n> f31350d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<ThreadData> f31351e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f31352f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f31353g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public HttpMessageListener f31354h;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,41 +74,41 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            c cVar;
+            sq5 sq5Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021095 && (httpResponsedMessage instanceof AlaSpecialRecommendResponse)) {
                 AlaSpecialRecommendResponse alaSpecialRecommendResponse = (AlaSpecialRecommendResponse) httpResponsedMessage;
                 if (alaSpecialRecommendResponse.isSuccess()) {
                     if (this.a.a == 0) {
                         SpecialLiveFragment.U++;
-                        this.a.f31350d.clear();
-                        this.a.f31351e.clear();
+                        this.a.d.clear();
+                        this.a.e.clear();
                     }
                     boolean z = alaSpecialRecommendResponse.hasMore;
                     if (ListUtils.getCount(alaSpecialRecommendResponse.livesList) > 0) {
                         this.a.I(alaSpecialRecommendResponse.livesList);
                     }
                     SpecialRecommendTabModel specialRecommendTabModel = this.a;
-                    specialRecommendTabModel.F(specialRecommendTabModel.f31351e);
-                    if (this.a.a == 0 && (cVar = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
-                        this.a.G(cVar);
+                    specialRecommendTabModel.F(specialRecommendTabModel.e);
+                    if (this.a.a == 0 && (sq5Var = alaSpecialRecommendResponse.mSpecialActivityListData) != null) {
+                        this.a.G(sq5Var);
                     }
                     SpecialRecommendTabModel.z(this.a);
-                    if (this.a.f31349c != null) {
-                        this.a.f31349c.b(this.a.f31350d, z);
+                    if (this.a.c != null) {
+                        this.a.c.b(this.a.d, z);
                     }
-                } else if (this.a.f31349c != null) {
-                    this.a.f31349c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.a.c != null) {
+                    this.a.c.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i, String str);
 
-        void b(List<n> list, boolean z);
+        void b(List<uo> list, boolean z);
     }
 
     public SpecialRecommendTabModel(TbPageContext tbPageContext) {
@@ -138,12 +127,12 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             }
         }
         this.a = 1;
-        this.f31353g = 60;
-        this.f31354h = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
-        this.f31348b = tbPageContext;
-        this.f31350d = new LinkedList();
-        this.f31351e = new ArrayList();
-        MessageManager.getInstance().registerListener(this.f31354h);
+        this.g = 60;
+        this.h = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_RECOMMEND_TAB);
+        this.b = tbPageContext;
+        this.d = new LinkedList();
+        this.e = new ArrayList();
+        MessageManager.getInstance().registerListener(this.h);
     }
 
     public static /* synthetic */ int z(SpecialRecommendTabModel specialRecommendTabModel) {
@@ -157,32 +146,32 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f31350d = new LinkedList();
+        this.d = new LinkedList();
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
-            c.a.p0.c0.f.h.b.b bVar = new c.a.p0.c0.f.h.b.b();
-            c.a.p0.c0.f.a.c cVar = new c.a.p0.c0.f.a.c();
-            cVar.f12865d = list.get(i);
-            bVar.a = cVar;
+            lr5 lr5Var = new lr5();
+            tn5 tn5Var = new tn5();
+            tn5Var.d = list.get(i);
+            lr5Var.a = tn5Var;
             int i2 = i + 1;
             if (i2 < size) {
-                c.a.p0.c0.f.a.c cVar2 = new c.a.p0.c0.f.a.c();
-                cVar2.f12865d = list.get(i2);
-                bVar.f13116b = cVar2;
+                tn5 tn5Var2 = new tn5();
+                tn5Var2.d = list.get(i2);
+                lr5Var.b = tn5Var2;
             }
-            this.f31350d.add(bVar);
+            this.d.add(lr5Var);
         }
     }
 
-    public final void G(c cVar) {
+    public final void G(sq5 sq5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || ListUtils.isEmpty(cVar.a)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sq5Var) == null) || sq5Var == null || ListUtils.isEmpty(sq5Var.a)) {
             return;
         }
-        if (ListUtils.getCount(this.f31350d) > 2) {
-            this.f31350d.add(2, cVar);
+        if (ListUtils.getCount(this.d) > 2) {
+            this.d.add(2, sq5Var);
         } else {
-            this.f31350d.add(cVar);
+            this.d.add(sq5Var);
         }
     }
 
@@ -193,21 +182,21 @@ public class SpecialRecommendTabModel extends BdBaseModel {
             httpMessage.addParam(Config.PACKAGE_NAME, i);
             httpMessage.addParam("tab_id", 1);
             String str = "N";
-            if (l.z()) {
-                if (l.H()) {
+            if (mi.z()) {
+                if (mi.H()) {
                     str = "1_0";
-                } else if (l.v()) {
+                } else if (mi.v()) {
                     str = "0_13";
-                } else if (l.u()) {
+                } else if (mi.u()) {
                     str = "0_3";
-                } else if (l.t()) {
+                } else if (mi.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", c.a.d.f.p.n.k(this.f31348b.getPageActivity()) + "_" + c.a.d.f.p.n.i(this.f31348b.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", oi.k(this.b.getPageActivity()) + "_" + oi.i(this.b.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("refresh_type", i2);
-            httpMessage.addParam("session_id", this.f31352f);
+            httpMessage.addParam("session_id", this.f);
             httpMessage.addParam("big_refresh_count", i3);
             MessageManager.getInstance().sendMessage(httpMessage);
         }
@@ -220,7 +209,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                 String tid = threadData.getTid();
                 if (!TextUtils.isEmpty(tid)) {
                     boolean z = false;
-                    Iterator<ThreadData> it = this.f31351e.iterator();
+                    Iterator<ThreadData> it = this.e.iterator();
                     while (true) {
                         if (it.hasNext()) {
                             if (tid.equals(it.next().getTid())) {
@@ -232,7 +221,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
                         }
                     }
                     if (!z) {
-                        this.f31351e.add(threadData);
+                        this.e.add(threadData);
                     }
                 }
             }
@@ -243,8 +232,8 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.f31352f >= this.f31353g * 30 * 1000) {
-                this.f31352f = currentTimeMillis;
+            if (currentTimeMillis - this.f >= this.g * 30 * 1000) {
+                this.f = currentTimeMillis;
             }
             H(this.a, 1, SpecialLiveFragment.U - 1);
         }
@@ -254,7 +243,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = 0;
-            this.f31352f = System.currentTimeMillis();
+            this.f = System.currentTimeMillis();
             H(0, 0, SpecialLiveFragment.U);
         }
     }
@@ -262,7 +251,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     public void L(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f31349c = bVar;
+            this.c = bVar;
         }
     }
 
@@ -289,7 +278,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f31354h);
+            MessageManager.getInstance().unRegisterListener(this.h);
         }
     }
 }

@@ -36,16 +36,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class TTDelegateActivity extends Activity implements ActivityCompat.OnRequestPermissionsResultCallback {
-
-    /* renamed from: d  reason: collision with root package name */
-    public static a f42714d;
+    public static a d;
     public Intent a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f42715b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public b f42716c;
+    public boolean b;
+    public b c;
 
     public static void a(String str, String[] strArr) {
         Intent intent = new Intent(j.getContext(), TTDelegateActivity.class);
@@ -59,12 +53,12 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     public static void b(String str, com.ss.android.downloadad.api.a.a aVar) {
-        Intent c2 = c(aVar);
-        c2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        c2.putExtra("type", 11);
-        c2.putExtra("package_name", str);
+        Intent c = c(aVar);
+        c.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        c.putExtra("type", 11);
+        c.putExtra("package_name", str);
         if (j.getContext() != null) {
-            j.getContext().startActivity(c2);
+            j.getContext().startActivity(c);
         }
     }
 
@@ -104,7 +98,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     public void onStop() {
         DownloadInfo a;
         super.onStop();
-        if (!this.f42715b || this.f42716c == null || (a = g.a((Context) null).a(this.f42716c.a())) == null || a.getCurBytes() < a.getTotalBytes() || isFinishing()) {
+        if (!this.b || this.c == null || (a = g.a((Context) null).a(this.c.a())) == null || a.getCurBytes() < a.getTotalBytes() || isFinishing()) {
             return;
         }
         finish();
@@ -118,34 +112,34 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
         String stringExtra3 = this.a.getStringExtra("negative_button_text");
         int intExtra = this.a.getIntExtra("type", 0);
         b d2 = f.a().d(longExtra);
-        d.a c2 = new d.a(this).a(false).a(stringExtra).b(stringExtra2).c(stringExtra3);
+        d.a c = new d.a(this).a(false).a(stringExtra).b(stringExtra2).c(stringExtra3);
         if (intExtra == 7) {
             if (com.ss.android.downloadlib.addownload.d.b.a() == null) {
                 return;
             }
-            c2.a(com.ss.android.downloadlib.addownload.d.b.a());
-            c2.a().show();
+            c.a(com.ss.android.downloadlib.addownload.d.b.a());
+            c.a().show();
             str = "download_percent";
         } else if (intExtra != 8) {
             str = "";
         } else if (com.ss.android.downloadlib.addownload.d.a.a() == null) {
             return;
         } else {
-            c2.a(com.ss.android.downloadlib.addownload.d.a.a());
-            c2.a().show();
+            c.a(com.ss.android.downloadlib.addownload.d.a.a());
+            c.a().show();
             str = "apk_size";
         }
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f42715b = true;
-        this.f42716c = d2;
+        this.b = true;
+        this.c = d2;
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("pause_optimise_type", str);
             jSONObject.putOpt("pause_optimise_action", "show_dialog");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, d2);
     }
@@ -155,12 +149,12 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     public static void a(String str, com.ss.android.downloadad.api.a.a aVar) {
-        Intent c2 = c(aVar);
-        c2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        c2.putExtra("type", 2);
-        c2.putExtra("open_url", str);
+        Intent c = c(aVar);
+        c.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        c.putExtra("type", 2);
+        c.putExtra("open_url", str);
         if (j.getContext() != null) {
-            j.getContext().startActivity(c2);
+            j.getContext().startActivity(c);
         }
     }
 
@@ -191,33 +185,33 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                     jSONObject.putOpt("download_percent", Long.valueOf(downloadInfo.getCurBytes() / downloadInfo.getTotalBytes()));
                     jSONObject.putOpt("download_apk_size", Long.valueOf(downloadInfo.getTotalBytes()));
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             com.ss.android.downloadlib.d.a.a().b("pause_reserve_wifi_dialog_show", jSONObject, d2);
         }
         new d.a(this).a(false).a(l.a()).a().show();
-        this.f42715b = true;
-        this.f42716c = d2;
+        this.b = true;
+        this.c = d2;
     }
 
     public static void a(com.ss.android.downloadad.api.a.a aVar) {
-        Intent c2 = c(aVar);
-        c2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        c2.putExtra("type", 4);
-        c2.putExtra("model_id", aVar.b());
+        Intent c = c(aVar);
+        c.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        c.putExtra("type", 4);
+        c.putExtra("model_id", aVar.b());
         if (j.getContext() != null) {
-            j.getContext().startActivity(c2);
+            j.getContext().startActivity(c);
         }
     }
 
     public static void a(com.ss.android.downloadad.api.a.a aVar, a aVar2) {
-        Intent c2 = c(aVar);
-        c2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        c2.putExtra("type", 9);
-        f42714d = aVar2;
+        Intent c = c(aVar);
+        c.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        c.putExtra("type", 9);
+        d = aVar2;
         if (j.getContext() != null) {
-            j.getContext().startActivity(c2);
+            j.getContext().startActivity(c);
         }
     }
 
@@ -238,26 +232,26 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             com.ss.android.socialbase.appdownloader.c.a((Activity) this);
             return;
         }
-        k c2 = j.c();
+        k c = j.c();
         b.a a = new b.a(this).a("已安装完成");
         Object[] objArr = new Object[1];
         objArr[0] = TextUtils.isEmpty(d2.N()) ? "刚刚下载的应用" : d2.N();
-        c2.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC2035b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC2035b
+        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(com.ss.android.downloadlib.g.l.c(this, d2.e())).a(new b.InterfaceC0579b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC0579b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC2035b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0579b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC2035b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0579b
             public void c(DialogInterface dialogInterface) {
                 com.ss.android.socialbase.appdownloader.c.a((Activity) TTDelegateActivity.this);
             }
@@ -268,32 +262,30 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     private void b(final String str, String[] strArr) {
         if (!TextUtils.isEmpty(str) && strArr != null && strArr.length > 0) {
             s sVar = new s() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.1
-
-                /* renamed from: c  reason: collision with root package name */
-                public WeakReference<Activity> f42718c;
+                public WeakReference<Activity> c;
 
                 {
-                    this.f42718c = new WeakReference<>(TTDelegateActivity.this);
+                    this.c = new WeakReference<>(TTDelegateActivity.this);
                 }
 
                 @Override // com.ss.android.download.api.config.s
                 public void a() {
                     com.ss.android.downloadlib.g.j.a(str);
-                    com.ss.android.socialbase.appdownloader.c.a(this.f42718c.get());
+                    com.ss.android.socialbase.appdownloader.c.a(this.c.get());
                 }
 
                 @Override // com.ss.android.download.api.config.s
                 public void a(String str2) {
                     com.ss.android.downloadlib.g.j.a(str, str2);
-                    com.ss.android.socialbase.appdownloader.c.a(this.f42718c.get());
+                    com.ss.android.socialbase.appdownloader.c.a(this.c.get());
                 }
             };
             if (Build.VERSION.SDK_INT >= 23) {
                 try {
                     j.e().a(this, strArr, sVar);
                     return;
-                } catch (Exception e2) {
-                    j.s().a(e2, "requestPermission");
+                } catch (Exception e) {
+                    j.s().a(e, "requestPermission");
                     sVar.a();
                     return;
                 }
@@ -318,17 +310,17 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     private void b(String str) {
-        Intent f2 = com.ss.android.downloadlib.g.l.f(this, str);
-        if (f2 == null) {
+        Intent f = com.ss.android.downloadlib.g.l.f(this, str);
+        if (f == null) {
             return;
         }
         try {
             try {
-                f2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                f2.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
-                startActivity(f2);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                f.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                f.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
+                startActivity(f);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } finally {
             com.ss.android.socialbase.appdownloader.c.a((Activity) this);
@@ -340,21 +332,21 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
     }
 
     public static void a(@NonNull com.ss.android.downloadad.api.a.a aVar, int i, String str, String str2, String str3) {
-        Intent c2 = c(aVar);
-        c2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-        c2.putExtra("type", i);
+        Intent c = c(aVar);
+        c.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+        c.putExtra("type", i);
         if (!TextUtils.isEmpty(str2)) {
-            c2.putExtra("positive_button_text", str2);
+            c.putExtra("positive_button_text", str2);
         }
         if (!TextUtils.isEmpty(str3)) {
-            c2.putExtra("negative_button_text", str3);
+            c.putExtra("negative_button_text", str3);
         }
         if (!TextUtils.isEmpty(str)) {
-            c2.putExtra("message_text", str);
+            c.putExtra("message_text", str);
         }
-        c2.putExtra("model_id", aVar.b());
+        c.putExtra("model_id", aVar.b());
         if (j.getContext() != null) {
-            j.getContext().startActivity(c2);
+            j.getContext().startActivity(c);
         }
     }
 
@@ -386,7 +378,7 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 c();
                 break;
             case 9:
-                a aVar = f42714d;
+                a aVar = d;
                 if (aVar != null) {
                     aVar.a();
                 }
@@ -422,8 +414,8 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
                 }
                 intent.putExtra(BaseConstants.START_ONLY_FOR_ANDROID, true);
                 startActivity(intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } finally {
             com.ss.android.socialbase.appdownloader.c.a((Activity) this);

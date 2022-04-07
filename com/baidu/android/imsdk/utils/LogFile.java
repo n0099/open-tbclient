@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LogFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LogFile";
@@ -84,21 +84,21 @@ public class LogFile {
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             LogUtils.e(TAG, "Exception ", e);
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                         }
                     }
-                } catch (Exception e3) {
-                    LogUtils.e(TAG, "Exception ", e3);
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+                } catch (Exception e2) {
+                    LogUtils.e(TAG, "Exception ", e2);
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e = e4;
+                        } catch (IOException e3) {
+                            e = e3;
                             LogUtils.e(TAG, "Exception ", e);
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
@@ -109,9 +109,9 @@ public class LogFile {
                 if (fileOutputStream != null) {
                     try {
                         fileOutputStream.close();
-                    } catch (IOException e5) {
-                        LogUtils.e(TAG, "Exception ", e5);
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
+                    } catch (IOException e4) {
+                        LogUtils.e(TAG, "Exception ", e4);
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
                     }
                 }
                 throw th;

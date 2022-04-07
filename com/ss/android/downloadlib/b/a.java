@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class a {
     public static boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
         boolean z;
-        DeepLink deepLink = eVar.f42774b.getDeepLink();
+        DeepLink deepLink = eVar.b.getDeepLink();
         String openUrl = deepLink == null ? null : deepLink.getOpenUrl();
         JSONObject a = com.ss.android.downloadlib.g.f.a(new JSONObject(), eVar);
         l.a(a, "applink_source", "click_by_sdk");
@@ -27,11 +27,11 @@ public class a {
             if (!TextUtils.isEmpty(openUrl)) {
                 b("by_url", a2, a, eVar);
             }
-            a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f42774b.getPackageName(), eVar);
+            a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.b.getPackageName(), eVar);
         }
         boolean z2 = false;
         if (a(eVar.a) && com.ss.android.downloadlib.addownload.j.i().optInt("link_ad_click_event") == 1) {
-            DownloadModel downloadModel = eVar.f42774b;
+            DownloadModel downloadModel = eVar.b;
             if (downloadModel instanceof AdDownloadModel) {
                 ((AdDownloadModel) downloadModel).setFunnelType(4);
             }
@@ -51,7 +51,7 @@ public class a {
             } else {
                 a("by_package", a2, a, eVar);
             }
-            if (z2 && !z && ((com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(eVar.a, eVar.f42774b.getLogExtra())) || com.ss.android.downloadlib.d.c.a().c())) {
+            if (z2 && !z && ((com.ss.android.downloadlib.d.c.a().b() && !com.ss.android.downloadlib.d.c.a().b(eVar.a, eVar.b.getLogExtra())) || com.ss.android.downloadlib.d.c.a().c())) {
                 com.ss.android.downloadlib.d.a.a().a(eVar.a, 2);
             }
             return z2;
@@ -67,13 +67,13 @@ public class a {
         if (bVar == null) {
             return;
         }
-        String f2 = com.ss.android.socialbase.downloader.g.a.c().b("app_link_opt") == 1 ? bVar.f() : null;
+        String f = com.ss.android.socialbase.downloader.g.a.c().b("app_link_opt") == 1 ? bVar.f() : null;
         JSONObject a = com.ss.android.downloadlib.g.f.a(new JSONObject(), bVar);
         l.a(a, "applink_source", "dialog_click_by_sdk");
         com.ss.android.downloadlib.d.a.a().b("applink_click", a, bVar);
-        com.ss.android.downloadlib.addownload.b.g a2 = com.ss.android.downloadlib.g.i.a(f2, bVar);
+        com.ss.android.downloadlib.addownload.b.g a2 = com.ss.android.downloadlib.g.i.a(f, bVar);
         if (a2.getType() == 2) {
-            if (!TextUtils.isEmpty(f2)) {
+            if (!TextUtils.isEmpty(f)) {
                 b("dialog_by_url", a2, a, bVar);
             }
             a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), bVar.e(), bVar);
@@ -92,44 +92,44 @@ public class a {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static void b(String str, @NonNull final JSONObject jSONObject, @NonNull final com.ss.android.downloadad.api.a.a aVar) {
-        char c2;
+        char c;
         l.a(jSONObject, "applink_source", str);
         l.a(jSONObject, "download_scene", Integer.valueOf(aVar.t()));
         com.ss.android.downloadlib.d.a.a().b("deeplink_url_open", jSONObject, aVar);
         switch (str.hashCode()) {
             case -1721882089:
                 if (str.equals("auto_by_url")) {
-                    c2 = 1;
+                    c = 1;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case -1374618233:
                 if (str.equals("by_url")) {
-                    c2 = 2;
+                    c = 2;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case -129544387:
                 if (str.equals("notify_by_url")) {
-                    c2 = 0;
+                    c = 0;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 829750366:
                 if (str.equals("dialog_by_url")) {
-                    c2 = 3;
+                    c = 3;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             default:
-                c2 = 65535;
+                c = 65535;
                 break;
         }
-        if (c2 == 0 || c2 == 1 || c2 == 2 || c2 == 3) {
+        if (c == 0 || c == 1 || c == 2 || c == 3) {
             if ((com.ss.android.downloadlib.addownload.j.i().optInt("check_applink_mode") & 1) != 0) {
                 l.a(jSONObject, "check_applink_result_by_sdk", (Object) 1);
                 e.a().a(new d() { // from class: com.ss.android.downloadlib.b.a.2
@@ -148,13 +148,13 @@ public class a {
     }
 
     public static void a(@NonNull com.ss.android.downloadad.api.a.b bVar) {
-        String f2 = bVar.f();
+        String f = bVar.f();
         JSONObject a = com.ss.android.downloadlib.g.f.a(new JSONObject(), bVar);
         l.a(a, "applink_source", "notify_click_by_sdk");
         com.ss.android.downloadlib.d.a.a().b("applink_click", a, bVar);
-        com.ss.android.downloadlib.addownload.b.g a2 = com.ss.android.downloadlib.g.i.a(f2, bVar);
+        com.ss.android.downloadlib.addownload.b.g a2 = com.ss.android.downloadlib.g.i.a(f, bVar);
         if (a2.getType() == 2) {
-            if (!TextUtils.isEmpty(f2)) {
+            if (!TextUtils.isEmpty(f)) {
                 b("notify_by_url", a2, a, bVar);
             }
             a2 = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), bVar.e(), bVar);
@@ -211,44 +211,44 @@ public class a {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static void a(String str, @NonNull final JSONObject jSONObject, @NonNull final com.ss.android.downloadad.api.a.a aVar) {
-        char c2;
+        char c;
         l.a(jSONObject, "applink_source", str);
         l.a(jSONObject, "download_scene", Integer.valueOf(aVar.t()));
         com.ss.android.downloadlib.d.a.a().b("deeplink_app_open", jSONObject, aVar);
         switch (str.hashCode()) {
             case -1282070764:
                 if (str.equals("notify_by_package")) {
-                    c2 = 0;
+                    c = 0;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case -441514770:
                 if (str.equals("auto_by_package")) {
-                    c2 = 1;
+                    c = 1;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case -185950114:
                 if (str.equals("by_package")) {
-                    c2 = 2;
+                    c = 2;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 368401333:
                 if (str.equals("dialog_by_package")) {
-                    c2 = 3;
+                    c = 3;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             default:
-                c2 = 65535;
+                c = 65535;
                 break;
         }
-        if (c2 == 0 || c2 == 1 || c2 == 2 || c2 == 3) {
+        if (c == 0 || c == 1 || c == 2 || c == 3) {
             if ((com.ss.android.downloadlib.addownload.j.i().optInt("check_applink_mode") & 1) != 0) {
                 l.a(jSONObject, "check_applink_result_by_sdk", (Object) 1);
                 e.a().a(new d() { // from class: com.ss.android.downloadlib.b.a.1
@@ -277,7 +277,7 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         l.a(jSONObject, "download_scene", Integer.valueOf(eVar.t()));
         com.ss.android.downloadlib.d.a.a().b("market_click_open", jSONObject, eVar);
-        com.ss.android.downloadlib.addownload.b.g a = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar, eVar.f42774b.getPackageName());
+        com.ss.android.downloadlib.addownload.b.g a = com.ss.android.downloadlib.g.i.a(com.ss.android.downloadlib.addownload.j.getContext(), eVar, eVar.b.getPackageName());
         String a2 = l.a(a.b(), "open_market");
         int type = a.getType();
         if (type == 5) {
@@ -298,8 +298,8 @@ public class a {
         if (jSONObject == null) {
             try {
                 jSONObject = new JSONObject();
-            } catch (Exception e2) {
-                com.ss.android.downloadlib.e.c.a().a(e2, "onMarketSuccess");
+            } catch (Exception e) {
+                com.ss.android.downloadlib.e.c.a().a(e, "onMarketSuccess");
                 return;
             }
         }
@@ -321,15 +321,15 @@ public class a {
                         r t = com.ss.android.downloadlib.addownload.j.t();
                         Context context2 = com.ss.android.downloadlib.addownload.j.getContext();
                         com.ss.android.downloadlib.addownload.b.e eVar2 = eVar;
-                        DownloadModel downloadModel = eVar2.f42774b;
-                        t.a(context2, downloadModel, eVar2.f42776d, eVar2.f42775c, downloadModel.getPackageName(), 2);
+                        DownloadModel downloadModel = eVar2.b;
+                        t.a(context2, downloadModel, eVar2.d, eVar2.c, downloadModel.getPackageName(), 2);
                     }
                 }
             });
         } else {
-            com.ss.android.downloadlib.addownload.j.b().a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.f42774b, eVar.f42776d, eVar.f42775c, eVar.f42774b.getPackageName(), str);
+            com.ss.android.downloadlib.addownload.j.b().a(com.ss.android.downloadlib.addownload.j.getContext(), eVar.b, eVar.d, eVar.c, eVar.b.getPackageName(), str);
         }
-        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f42774b, eVar.f42775c, eVar.f42776d);
+        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.b, eVar.c, eVar.d);
         bVar.e(2);
         bVar.f(System.currentTimeMillis());
         bVar.h(4);

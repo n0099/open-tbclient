@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebBackForwardListImpl extends WebBackForwardList implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static Method cloneMethod;
@@ -33,8 +33,8 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
         }
         try {
             cloneMethod = android.webkit.WebBackForwardList.class.getDeclaredMethod("clone", null);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -78,8 +78,8 @@ public final class WebBackForwardListImpl extends WebBackForwardList implements 
                 if (cloneMethod != null && this.mList != null) {
                     return from((android.webkit.WebBackForwardList) cloneMethod.invoke(this.mList, null));
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return null;
         }

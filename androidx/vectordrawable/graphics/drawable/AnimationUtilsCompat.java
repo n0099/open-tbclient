@@ -126,13 +126,13 @@ public class AnimationUtilsCompat {
                         animation.close();
                     }
                     return createInterpolatorFromXml;
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
-                    notFoundException.initCause(e2);
+                    notFoundException.initCause(e);
                     throw notFoundException;
-                } catch (XmlPullParserException e3) {
+                } catch (XmlPullParserException e2) {
                     Resources.NotFoundException notFoundException2 = new Resources.NotFoundException("Can't load animation resource ID #0x" + Integer.toHexString(i));
-                    notFoundException2.initCause(e3);
+                    notFoundException2.initCause(e2);
                     throw notFoundException2;
                 }
             } catch (Throwable th) {

@@ -31,7 +31,7 @@ import java.text.DecimalFormat;
 import java.util.Locale;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 1024;
@@ -99,15 +99,15 @@ public final class FileUtils {
                 fileInputStream = new FileInputStream(file);
                 try {
                     fileOutputStream = new FileOutputStream(file2);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     fileOutputStream = null;
                 } catch (Throwable th) {
                     th = th;
                     fileOutputStream = null;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileOutputStream = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -116,8 +116,8 @@ public final class FileUtils {
             try {
                 j = copyStream(fileInputStream, fileOutputStream);
                 Closeables.closeSafely(fileInputStream);
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileInputStream2 = fileInputStream;
                 try {
                     e.printStackTrace();
@@ -189,8 +189,8 @@ public final class FileUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
             try {
                 return context.deleteFile(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -409,8 +409,8 @@ public final class FileUtils {
                     Drawable createFromPath = Drawable.createFromPath(str);
                     System.currentTimeMillis();
                     return createFromPath;
-                } catch (OutOfMemoryError e2) {
-                    e2.printStackTrace();
+                } catch (OutOfMemoryError e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -516,24 +516,24 @@ public final class FileUtils {
                     String sb2 = sb.toString();
                     try {
                         inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     return sb2;
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     try {
                         inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                     return "";
                 }
             } catch (Throwable th) {
                 try {
                     inputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
                 throw th;
             }
@@ -556,8 +556,8 @@ public final class FileUtils {
                         return file3.delete();
                     }
                     return true;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -613,12 +613,12 @@ public final class FileUtils {
                 try {
                     try {
                         fileOutputStream = new FileOutputStream(file);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                         return;
                     }
-                } catch (FileNotFoundException e3) {
-                    e = e3;
+                } catch (FileNotFoundException e2) {
+                    e = e2;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -626,8 +626,8 @@ public final class FileUtils {
             try {
                 copyStream(inputStream, fileOutputStream);
                 fileOutputStream.close();
-            } catch (FileNotFoundException e4) {
-                e = e4;
+            } catch (FileNotFoundException e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
@@ -639,8 +639,8 @@ public final class FileUtils {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
@@ -679,8 +679,8 @@ public final class FileUtils {
                             break;
                         }
                         gZIPOutputStream2.write(bArr2, 0, read);
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e) {
+                        e = e;
                         gZIPOutputStream = gZIPOutputStream2;
                         try {
                             e.printStackTrace();
@@ -702,15 +702,15 @@ public final class FileUtils {
                 }
                 gZIPOutputStream2.finish();
                 Closeables.closeSafely(gZIPOutputStream2);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 byteArrayInputStream = null;
             } catch (Throwable th3) {
                 th = th3;
                 byteArrayInputStream = null;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             byteArrayInputStream = null;
         } catch (Throwable th4) {
             th = th4;
@@ -725,8 +725,8 @@ public final class FileUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65585, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase(Locale.getDefault());
                 }
@@ -843,14 +843,14 @@ public final class FileUtils {
                             fileOutputStream.write(bArr);
                             fileOutputStream.flush();
                             z = true;
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                             if (fileOutputStream != null) {
                                 fileOutputStream.close();
                             }
                         }
-                    } catch (FileNotFoundException e3) {
-                        e3.printStackTrace();
+                    } catch (FileNotFoundException e2) {
+                        e2.printStackTrace();
                         if (fileOutputStream != null) {
                             fileOutputStream.close();
                         }
@@ -862,14 +862,14 @@ public final class FileUtils {
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (IOException e5) {
-                e5.printStackTrace();
+            } catch (IOException e4) {
+                e4.printStackTrace();
             }
             return z;
         }
@@ -1046,8 +1046,8 @@ public final class FileUtils {
                             return j;
                         }
                     }
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
             return 0L;
@@ -1065,12 +1065,12 @@ public final class FileUtils {
                 try {
                     try {
                         fileOutputStream = new FileOutputStream(file, z);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                         return;
                     }
-                } catch (FileNotFoundException e3) {
-                    e = e3;
+                } catch (FileNotFoundException e2) {
+                    e = e2;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -1078,8 +1078,8 @@ public final class FileUtils {
             try {
                 copyStream(inputStream, fileOutputStream);
                 fileOutputStream.close();
-            } catch (FileNotFoundException e4) {
-                e = e4;
+            } catch (FileNotFoundException e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
@@ -1091,8 +1091,8 @@ public final class FileUtils {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;

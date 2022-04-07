@@ -25,7 +25,7 @@ public abstract class h<Params, Result> implements Callable<Result> {
         }
     }
 
-    public /* synthetic */ h(byte b2) {
+    public /* synthetic */ h(byte b) {
         this();
     }
 }

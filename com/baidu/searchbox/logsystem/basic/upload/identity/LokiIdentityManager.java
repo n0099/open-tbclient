@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.Base64Encoder;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class LokiIdentityManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PARAM_APP_NAME = "appname";
@@ -73,8 +73,8 @@ public final class LokiIdentityManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             try {
                 return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return str;
             }
         }

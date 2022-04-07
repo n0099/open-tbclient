@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,21 +14,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f35060b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f35061c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f35062d;
+    public int b;
+    public int c;
+    public int d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorTopicView(Context context) {
@@ -59,7 +53,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             LinearLayout linearLayout = new LinearLayout(this.a);
             SkinManager.setBackgroundColor(linearLayout, R.color.transparent);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.f35062d, -2));
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.d, -2));
             linearLayout.setGravity(17);
             addView(linearLayout);
             return linearLayout;
@@ -79,11 +73,11 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             textView.setTypeface(null, 1);
             textView.setMinLines(1);
             textView.setMaxLines(1);
-            textView.setWidth(this.f35060b);
+            textView.setWidth(this.b);
             textView.setOnClickListener(this);
             linearLayout.addView(textView);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
-            int i = this.f35061c;
+            int i = this.c;
             layoutParams.leftMargin = i;
             layoutParams.rightMargin = i;
         }
@@ -94,17 +88,17 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
             this.a = context;
-            this.f35061c = n.f(context, R.dimen.obfuscated_res_0x7f0702fb);
-            this.f35062d = n.k(this.a);
-            this.f35060b = n.k(this.a) / 2;
+            this.c = oi.f(context, R.dimen.obfuscated_res_0x7f070305);
+            this.d = oi.k(this.a);
+            this.b = oi.k(this.a) / 2;
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && (view instanceof TextView)) {
-            TextView textView = (TextView) view;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (view2 instanceof TextView)) {
+            TextView textView = (TextView) view2;
             if (textView.getText() != null) {
                 textView.getText().toString();
             }
@@ -141,7 +135,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (linearLayout == null || linearLayout.getChildCount() != 0) {
             return;
         }
-        this.f35060b = this.f35062d;
+        this.b = this.d;
         b(linearLayout, (String) ListUtils.getItem(arrayList, count - 1));
     }
 

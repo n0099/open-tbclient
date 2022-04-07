@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MD5Utils";
@@ -54,8 +54,8 @@ public class MD5Utils {
             }
             try {
                 return getFileMd5String(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -109,15 +109,15 @@ public class MD5Utils {
                                     }
                                     str = bufferToHex(file.getMessageDigest().digest());
                                     interceptable.close();
-                                } catch (NoSuchAlgorithmException e2) {
-                                    e = e2;
+                                } catch (NoSuchAlgorithmException e) {
+                                    e = e;
                                     e.printStackTrace();
                                     if (interceptable != 0) {
                                         interceptable.close();
                                     }
                                 }
-                            } catch (NoSuchAlgorithmException e3) {
-                                e = e3;
+                            } catch (NoSuchAlgorithmException e2) {
+                                e = e2;
                                 file = 0;
                             } catch (Throwable th) {
                                 th = th;
@@ -130,8 +130,8 @@ public class MD5Utils {
                                 }
                                 throw th;
                             }
-                        } catch (NoSuchAlgorithmException e4) {
-                            e = e4;
+                        } catch (NoSuchAlgorithmException e3) {
+                            e = e3;
                             file = 0;
                             interceptable = 0;
                         } catch (Throwable th2) {
@@ -225,8 +225,8 @@ public class MD5Utils {
             }
             try {
                 return getFileMD5String(file);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }

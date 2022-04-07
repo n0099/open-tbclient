@@ -30,19 +30,19 @@ public final class ListPopupWindowCompat {
     }
 
     @Deprecated
-    public static View.OnTouchListener createDragToOpenListener(Object obj, View view) {
+    public static View.OnTouchListener createDragToOpenListener(Object obj, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, view)) == null) ? createDragToOpenListener((ListPopupWindow) obj, view) : (View.OnTouchListener) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, view2)) == null) ? createDragToOpenListener((ListPopupWindow) obj, view2) : (View.OnTouchListener) invokeLL.objValue;
     }
 
     @Nullable
-    public static View.OnTouchListener createDragToOpenListener(@NonNull ListPopupWindow listPopupWindow, @NonNull View view) {
+    public static View.OnTouchListener createDragToOpenListener(@NonNull ListPopupWindow listPopupWindow, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, listPopupWindow, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, listPopupWindow, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return listPopupWindow.createDragToOpenListener(view);
+                return listPopupWindow.createDragToOpenListener(view2);
             }
             return null;
         }

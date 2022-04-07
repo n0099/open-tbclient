@@ -18,23 +18,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"WrongCall"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbListTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final List<Object> f30745b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final List<Object> f30746c;
+        public final List<Object> b;
+        public final List<Object> c;
 
         public a(boolean z, List<Object> list, List<Object> list2) {
             Interceptable interceptable = $ic;
@@ -52,8 +48,8 @@ public class TbListTextView extends TextView {
                 }
             }
             this.a = z;
-            this.f30745b = list;
-            this.f30746c = list2;
+            this.b = list;
+            this.c = list2;
         }
 
         public static a a(List<Object> list, List<Object> list2) {
@@ -111,8 +107,8 @@ public class TbListTextView extends TextView {
                 try {
                     g(spannableStringBuilder, i, i2);
                     return a.a(arrayList, arrayList2);
-                } catch (IndexOutOfBoundsException e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (IndexOutOfBoundsException e) {
+                    BdLog.e(e.getMessage());
                 }
             }
             return a.b();
@@ -161,7 +157,7 @@ public class TbListTextView extends TextView {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), spannableStringBuilder, aVar}) == null) {
-            for (Object obj : aVar.f30746c) {
+            for (Object obj : aVar.c) {
                 int spanEnd = spannableStringBuilder.getSpanEnd(obj);
                 spannableStringBuilder.delete(spanEnd, spanEnd + 1);
                 try {
@@ -172,7 +168,7 @@ public class TbListTextView extends TextView {
             }
             loop1: while (true) {
                 z = true;
-                for (Object obj2 : aVar.f30745b) {
+                for (Object obj2 : aVar.b) {
                     int spanStart = spannableStringBuilder.getSpanStart(obj2);
                     int i3 = spanStart - 1;
                     spannableStringBuilder.delete(i3, spanStart);

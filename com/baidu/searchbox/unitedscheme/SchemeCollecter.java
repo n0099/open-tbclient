@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SchemeCollecter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLASSIFY_BASE = "base";
@@ -73,8 +73,8 @@ public class SchemeCollecter {
                     }
                     str = jSONObject.optString(SchemeDescPatchListener.START_VERSION);
                     str2 = jSONObject.optString(SchemeDescPatchListener.END_VERSION);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return SchemeDescPatchListener.checkVersionIsValid(str, str2) ? SchemeDescPatchListener.amendDes : "";
@@ -82,14 +82,14 @@ public class SchemeCollecter {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0048  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0064  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0086  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x009f  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x00be A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00bf A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0058  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x008c  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x009a  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x00a8 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x00a9 A[RETURN] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

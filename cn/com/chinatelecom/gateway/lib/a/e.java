@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "e";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final char[] f23648b;
+    public static final char[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +29,7 @@ public class e {
                 return;
             }
         }
-        f23648b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        b = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public e() {
@@ -57,8 +55,8 @@ public class e {
             }
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < bArr.length; i++) {
-                sb.append(f23648b[(bArr[i] >> 4) & 15]);
-                sb.append(f23648b[bArr[i] & 15]);
+                sb.append(b[(bArr[i] >> 4) & 15]);
+                sb.append(b[bArr[i] & 15]);
             }
             return sb.toString();
         }

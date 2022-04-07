@@ -67,8 +67,8 @@ public class WbResponseBody {
                     return new String(byteArrayOutputStream.toByteArray());
                 }
             }
-        } catch (IOException e2) {
-            throw new RequestException(e2.toString());
+        } catch (IOException e) {
+            throw new RequestException(e.toString());
         }
     }
 }

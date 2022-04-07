@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.c;
 import com.bytedance.pangle.plugin.PluginManager;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a extends c.a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a a;

@@ -23,7 +23,7 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TaskManagerNew implements ITaskManager {
     public static /* synthetic */ Interceptable $ic;
     public static final int MAX_CACHE_DAY;
@@ -47,7 +47,7 @@ public class TaskManagerNew implements ITaskManager {
     public final TaskExecutor mSaveExecutor;
     public AtomicInteger sendFailedCount;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class FailSendControler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long SEND_FAIL_SLEEP_TIMES = 10000;
@@ -271,8 +271,8 @@ public class TaskManagerNew implements ITaskManager {
                 L.warn(this, "data send more than 1 times continuously. dataId=%s", this.mLastSucDataId);
                 try {
                     Thread.sleep(1000L);
-                } catch (InterruptedException e2) {
-                    L.debug(this, e2.getMessage(), new Object[0]);
+                } catch (InterruptedException e) {
+                    L.debug(this, e.getMessage(), new Object[0]);
                 }
                 return true;
             }

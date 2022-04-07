@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BusInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BusInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f26370b;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -69,7 +67,7 @@ public class BusInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readInt();
-        this.f26370b = parcel.readInt();
+        this.b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -85,7 +83,7 @@ public class BusInfo extends TransitBaseInfo {
     public int getStopNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26370b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getType() {
@@ -97,7 +95,7 @@ public class BusInfo extends TransitBaseInfo {
     public void setStopNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f26370b = i;
+            this.b = i;
         }
     }
 
@@ -114,7 +112,7 @@ public class BusInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f26370b);
+            parcel.writeInt(this.b);
         }
     }
 }

@@ -104,8 +104,8 @@ public final class ShareUtils {
                                 if (cursor.moveToFirst()) {
                                     str2 = cursor.getString(cursor.getColumnIndex("_display_name"));
                                 }
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 Log.v("weibo sdk rename", e.toString());
                                 if (cursor != null) {
                                     cursor.close();
@@ -133,8 +133,8 @@ public final class ShareUtils {
                                     } catch (Exception unused) {
                                     }
                                     return path;
-                                } catch (Exception e3) {
-                                    e = e3;
+                                } catch (Exception e2) {
+                                    e = e2;
                                     LogUtil.e("weibo sdk copy", e.toString());
                                     if (uri != 0) {
                                         try {
@@ -155,8 +155,8 @@ public final class ShareUtils {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     cursor = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -176,8 +176,8 @@ public final class ShareUtils {
             } catch (Throwable th3) {
                 th = th3;
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e4) {
+            e = e4;
             uri = 0;
             fileOutputStream = null;
         } catch (Throwable th4) {
@@ -213,8 +213,8 @@ public final class ShareUtils {
             uri.close();
             fileOutputStream.close();
             return path2;
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             fileOutputStream = null;
         } catch (Throwable th5) {
             th = th5;

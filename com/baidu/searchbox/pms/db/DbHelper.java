@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DbHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "pms.db";
@@ -42,8 +42,8 @@ public class DbHelper extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) {
             try {
                 sQLiteDatabase.execSQL("ALTER TABLE package_info ADD COLUMN " + PackageTable.ABI + " TEXT;");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -59,8 +59,8 @@ public class DbHelper extends SQLiteOpenHelper {
             sb.append(" TEXT;");
             try {
                 sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             sb.delete(0, sb.length());
             sb.append("ALTER TABLE ");
@@ -70,8 +70,8 @@ public class DbHelper extends SQLiteOpenHelper {
             sb.append(" INTEGER DEFAULT 1;");
             try {
                 sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             sb.delete(0, sb.length());
             sb.append("ALTER TABLE ");
@@ -82,8 +82,8 @@ public class DbHelper extends SQLiteOpenHelper {
             sb.append(";");
             try {
                 sQLiteDatabase.execSQL(sb.toString());
-            } catch (Exception e4) {
-                e4.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
         }
     }

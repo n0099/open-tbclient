@@ -7,42 +7,42 @@ public final class ULongKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final long toULong(byte b2) {
-        return ULong.m864constructorimpl(b2);
+    public static final long toULong(byte b) {
+        return ULong.m860constructorimpl(b);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(short s) {
-        return ULong.m864constructorimpl(s);
+        return ULong.m860constructorimpl(s);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(int i) {
-        return ULong.m864constructorimpl(i);
+        return ULong.m860constructorimpl(i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(long j) {
-        return ULong.m864constructorimpl(j);
+        return ULong.m860constructorimpl(j);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final long toULong(float f2) {
-        return UnsignedKt.doubleToULong(f2);
+    public static final long toULong(float f) {
+        return UnsignedKt.doubleToULong(f);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final long toULong(double d2) {
-        return UnsignedKt.doubleToULong(d2);
+    public static final long toULong(double d) {
+        return UnsignedKt.doubleToULong(d);
     }
 }

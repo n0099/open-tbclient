@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class LocationClientOption {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GpsFirst = 1;
@@ -52,7 +52,7 @@ public final class LocationClientOption {
     public int wifiCacheTimeOut;
 
     /* renamed from: com.baidu.location.LocationClientOption$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -89,7 +89,7 @@ public final class LocationClientOption {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class LocationMode {
         public static final /* synthetic */ LocationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -478,7 +478,7 @@ public final class LocationClientOption {
     }
 
     public void setOpenAutoNotifyMode(int i, int i2, int i3) {
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048607, this, i, i2, i3) == null) {
             int i4 = TiebaStatic.MAX_COST_VALUE;
@@ -489,15 +489,15 @@ public final class LocationClientOption {
                 throw new IllegalArgumentException("Illegal this maxLocInterval : " + i4 + " , maxLocInterval must >= 10000");
             }
             if (i3 == 1) {
-                f2 = 0.5f;
+                f = 0.5f;
             } else if (i3 == 2) {
-                f2 = 0.3f;
+                f = 0.3f;
             } else if (i3 != 3) {
                 throw new IllegalArgumentException("Illegal this locSensitivity : " + i3);
             } else {
-                f2 = 0.1f;
+                f = 0.1f;
             }
-            this.autoNotifyLocSensitivity = f2;
+            this.autoNotifyLocSensitivity = f;
             this.autoNotifyMaxInterval = i4;
             this.autoNotifyMinTimeInterval = i;
             this.autoNotifyMinDistance = i2;

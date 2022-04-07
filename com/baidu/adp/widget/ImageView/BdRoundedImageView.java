@@ -9,7 +9,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.o.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,35 +18,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.go;
+/* loaded from: classes.dex */
 public class BdRoundedImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageView.ScaleType[] i;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public int b;
+    public ColorStateList c;
+    public boolean d;
+    public boolean e;
+    public Drawable f;
+    public Drawable g;
+    public ImageView.ScaleType h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f23924b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ColorStateList f23925c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f23926d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f23927e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Drawable f23928f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Drawable f23929g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView.ScaleType f23930h;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -134,10 +120,10 @@ public class BdRoundedImageView extends ImageView {
             }
         }
         this.a = 0;
-        this.f23924b = 0;
-        this.f23925c = ColorStateList.valueOf(0);
-        this.f23926d = false;
-        this.f23927e = false;
+        this.b = 0;
+        this.c = ColorStateList.valueOf(0);
+        this.d = false;
+        this.e = false;
     }
 
     public final void a(Drawable drawable, boolean z) {
@@ -146,16 +132,16 @@ public class BdRoundedImageView extends ImageView {
             return;
         }
         int i2 = 0;
-        if (drawable instanceof b) {
-            b bVar = (b) drawable;
-            bVar.g(this.f23930h);
-            bVar.e((this.f23926d || !z) ? this.a : 0.0f);
-            if (this.f23926d || !z) {
-                i2 = this.f23924b;
+        if (drawable instanceof go) {
+            go goVar = (go) drawable;
+            goVar.g(this.h);
+            goVar.e((this.d || !z) ? this.a : 0.0f);
+            if (this.d || !z) {
+                i2 = this.b;
             }
-            bVar.d(i2);
-            bVar.c(this.f23925c);
-            bVar.f(this.f23927e);
+            goVar.d(i2);
+            goVar.c(this.c);
+            goVar.f(this.e);
         } else if (drawable instanceof LayerDrawable) {
             LayerDrawable layerDrawable = (LayerDrawable) drawable;
             int numberOfLayers = layerDrawable.getNumberOfLayers();
@@ -169,14 +155,14 @@ public class BdRoundedImageView extends ImageView {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.f23929g, true);
+            a(this.g, true);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(this.f23928f, false);
+            a(this.f, false);
         }
     }
 
@@ -192,19 +178,19 @@ public class BdRoundedImageView extends ImageView {
     public int getBorderColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f23925c.getDefaultColor() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c.getDefaultColor() : invokeV.intValue;
     }
 
     public ColorStateList getBorderColors() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f23925c : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (ColorStateList) invokeV.objValue;
     }
 
     public int getBorderWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23924b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getCornerRadius() {
@@ -217,16 +203,16 @@ public class BdRoundedImageView extends ImageView {
     public ImageView.ScaleType getScaleType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f23930h : (ImageView.ScaleType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : (ImageView.ScaleType) invokeV.objValue;
     }
 
     @Override // android.view.View
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.f23929g = b.b(drawable);
+            this.g = go.b(drawable);
             b();
-            super.setBackgroundDrawable(this.f23929g);
+            super.setBackgroundDrawable(this.g);
         }
     }
 
@@ -239,26 +225,26 @@ public class BdRoundedImageView extends ImageView {
 
     public void setBorderColors(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, colorStateList) == null) || this.f23925c.equals(colorStateList)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, colorStateList) == null) || this.c.equals(colorStateList)) {
             return;
         }
         if (colorStateList == null) {
             colorStateList = ColorStateList.valueOf(0);
         }
-        this.f23925c = colorStateList;
+        this.c = colorStateList;
         c();
         b();
-        if (this.f23924b > 0) {
+        if (this.b > 0) {
             invalidate();
         }
     }
 
     public void setBorderWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.f23924b == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.b == i2) {
             return;
         }
-        this.f23924b = i2;
+        this.b = i2;
         c();
         b();
         invalidate();
@@ -279,12 +265,12 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bitmap) == null) {
             if (bitmap != null && !bitmap.isRecycled()) {
-                this.f23928f = new b(bitmap);
+                this.f = new go(bitmap);
                 c();
             } else {
-                this.f23928f = null;
+                this.f = null;
             }
-            super.setImageDrawable(this.f23928f);
+            super.setImageDrawable(this.f);
         }
     }
 
@@ -293,12 +279,12 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, drawable) == null) {
             if (drawable != null) {
-                this.f23928f = b.b(drawable);
+                this.f = go.b(drawable);
                 c();
             } else {
-                this.f23928f = null;
+                this.f = null;
             }
-            super.setImageDrawable(this.f23928f);
+            super.setImageDrawable(this.f);
         }
     }
 
@@ -314,7 +300,7 @@ public class BdRoundedImageView extends ImageView {
     public void setOval(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f23927e = z;
+            this.e = z;
             c();
             b();
             invalidate();
@@ -323,10 +309,10 @@ public class BdRoundedImageView extends ImageView {
 
     public void setRoundBackground(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.f23926d == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.d == z) {
             return;
         }
-        this.f23926d = z;
+        this.d = z;
         b();
         invalidate();
     }
@@ -336,8 +322,8 @@ public class BdRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, scaleType) == null) {
             if (scaleType != null) {
-                if (this.f23930h != scaleType) {
-                    this.f23930h = scaleType;
+                if (this.h != scaleType) {
+                    this.h = scaleType;
                     switch (a.a[scaleType.ordinal()]) {
                         case 1:
                         case 2:
@@ -404,30 +390,30 @@ public class BdRoundedImageView extends ImageView {
             }
         }
         this.a = 0;
-        this.f23924b = 0;
-        this.f23925c = ColorStateList.valueOf(0);
-        this.f23926d = false;
-        this.f23927e = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e1, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f040193, R.attr.obfuscated_res_0x7f0402d6, R.attr.obfuscated_res_0x7f040512}, i2, 0);
+        this.b = 0;
+        this.c = ColorStateList.valueOf(0);
+        this.d = false;
+        this.e = false;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16843037, R.attr.obfuscated_res_0x7f0400e1, R.attr.obfuscated_res_0x7f0400e2, R.attr.obfuscated_res_0x7f040196, R.attr.obfuscated_res_0x7f040312, R.attr.obfuscated_res_0x7f040550}, i2, 0);
         int i5 = obtainStyledAttributes.getInt(0, -1);
         if (i5 >= 0) {
             setScaleType(i[i5]);
         }
         this.a = obtainStyledAttributes.getDimensionPixelSize(3, -1);
-        this.f23924b = obtainStyledAttributes.getDimensionPixelSize(2, -1);
+        this.b = obtainStyledAttributes.getDimensionPixelSize(2, -1);
         if (this.a < 0) {
             this.a = 0;
         }
-        if (this.f23924b < 0) {
-            this.f23924b = 0;
+        if (this.b < 0) {
+            this.b = 0;
         }
         ColorStateList colorStateList = obtainStyledAttributes.getColorStateList(1);
-        this.f23925c = colorStateList;
+        this.c = colorStateList;
         if (colorStateList == null) {
-            this.f23925c = ColorStateList.valueOf(0);
+            this.c = ColorStateList.valueOf(0);
         }
-        this.f23926d = obtainStyledAttributes.getBoolean(5, false);
-        this.f23927e = obtainStyledAttributes.getBoolean(4, false);
+        this.d = obtainStyledAttributes.getBoolean(5, false);
+        this.e = obtainStyledAttributes.getBoolean(4, false);
         c();
         b();
         obtainStyledAttributes.recycle();

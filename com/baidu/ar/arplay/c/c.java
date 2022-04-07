@@ -3,15 +3,15 @@ package com.baidu.ar.arplay.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static float a(Object obj, float f2) {
+    public static float a(Object obj, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, obj, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, obj, f)) == null) {
             if (obj != null) {
                 if ((obj instanceof Float) || (obj instanceof Integer)) {
                     return ((Float) obj).floatValue();
@@ -19,14 +19,14 @@ public class c {
                 if (obj instanceof String) {
                     try {
                         return Float.parseFloat((String) obj);
-                    } catch (NumberFormatException e2) {
-                        e2.printStackTrace();
-                        return f2;
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                        return f;
                     }
                 }
-                return f2;
+                return f;
             }
-            return f2;
+            return f;
         }
         return invokeLF.floatValue;
     }
@@ -45,8 +45,8 @@ public class c {
                 if (obj instanceof String) {
                     try {
                         return Integer.parseInt((String) obj);
-                    } catch (NumberFormatException e2) {
-                        e2.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                         return i;
                     }
                 }
@@ -68,8 +68,8 @@ public class c {
                 if (obj instanceof String) {
                     try {
                         return Long.parseLong((String) obj);
-                    } catch (NumberFormatException e2) {
-                        e2.printStackTrace();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
                         return j;
                     }
                 }

@@ -92,8 +92,8 @@ public class CodecStringUtils {
             }
             try {
                 return str.getBytes(str2);
-            } catch (UnsupportedEncodingException e2) {
-                throw newIllegalStateException(str2, e2);
+            } catch (UnsupportedEncodingException e) {
+                throw newIllegalStateException(str2, e);
             }
         }
         return (byte[]) invokeLL.objValue;
@@ -195,8 +195,8 @@ public class CodecStringUtils {
             }
             try {
                 return new String(bArr, str);
-            } catch (UnsupportedEncodingException e2) {
-                throw newIllegalStateException(str, e2);
+            } catch (UnsupportedEncodingException e) {
+                throw newIllegalStateException(str, e);
             }
         }
         return (String) invokeLL.objValue;

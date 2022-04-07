@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,8 +18,8 @@ public final class a {
             }
             try {
                 return bundle.getInt(str, -1);
-            } catch (Exception e2) {
-                Log.e("MicroMsg.IntentUtil", "getIntExtra exception:" + e2.getMessage());
+            } catch (Exception e) {
+                Log.e("MicroMsg.IntentUtil", "getIntExtra exception:" + e.getMessage());
                 return -1;
             }
         }
@@ -35,8 +35,8 @@ public final class a {
             }
             try {
                 return bundle.getString(str);
-            } catch (Exception e2) {
-                Log.e("MicroMsg.IntentUtil", "getStringExtra exception:" + e2.getMessage());
+            } catch (Exception e) {
+                Log.e("MicroMsg.IntentUtil", "getStringExtra exception:" + e.getMessage());
                 return null;
             }
         }

@@ -8,17 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static b f25235b;
+    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f25236c;
+    public com.baidu.clientupdate.download.a c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,17 +48,17 @@ public final class b {
         }
         this.a = null;
         this.a = context.getApplicationContext();
-        this.f25236c = com.baidu.clientupdate.download.a.a(context);
+        this.c = com.baidu.clientupdate.download.a.a(context);
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f25235b == null) {
-                f25235b = new b(context);
+            if (b == null) {
+                b = new b(context);
             }
-            return f25235b;
+            return b;
         }
         return (b) invokeL.objValue;
     }

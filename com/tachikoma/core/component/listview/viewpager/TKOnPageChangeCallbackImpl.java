@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Object;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKOnPageChangeCallbackImpl implements ITKOnPageChangeCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public class TKOnPageChangeCallbackImpl implements ITKOnPageChangeCallback {
     }
 
     @Override // com.tachikoma.core.component.listview.viewpager.ITKOnPageChangeCallback
-    public void onPageScrolled(int i, float f2, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
-            executeJsFunction("onPageScrolled", Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
+            executeJsFunction("onPageScrolled", Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2));
         }
     }
 

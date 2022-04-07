@@ -2,8 +2,6 @@ package com.baidu.tbadk.game;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
-import c.a.o0.k0.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,6 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i65;
+import com.repackage.mg;
 import java.io.Serializable;
 import java.util.List;
 import tbclient.GameInfo;
@@ -18,8 +18,8 @@ import tbclient.GetGameCenter.RecommendGame;
 import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
-/* loaded from: classes5.dex */
-public class GameInfoData implements Serializable, a {
+/* loaded from: classes3.dex */
+public class GameInfoData implements Serializable, i65 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
@@ -102,7 +102,7 @@ public class GameInfoData implements Serializable, a {
     private String dealPackageSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? String.format("%.1f", Float.valueOf(b.d(str, 0.0f))) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? String.format("%.1f", Float.valueOf(mg.d(str, 0.0f))) : (String) invokeL.objValue;
     }
 
     public static GameInfoData fromGameInfo(GameInfo gameInfo) {

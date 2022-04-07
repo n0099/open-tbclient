@@ -13,7 +13,7 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class c1 {
                 dataInputStream = new DataInputStream(Runtime.getRuntime().exec("cat /proc/uptime").getInputStream());
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
-                    double d2 = 0.0d;
+                    double d = 0.0d;
                     while (true) {
                         try {
                             String readLine = bufferedReader.readLine();
@@ -67,7 +67,7 @@ public class c1 {
                             }
                             String[] split = a(readLine).split(";");
                             if (split != null && split.length != 0) {
-                                d2 = Double.valueOf(split[0]).doubleValue();
+                                d = Double.valueOf(split[0]).doubleValue();
                             }
                         } catch (Throwable th2) {
                             th = th2;
@@ -77,25 +77,25 @@ public class c1 {
                                 if (dataInputStream != null) {
                                     try {
                                         dataInputStream.close();
-                                    } catch (IOException e2) {
-                                        x0.a(e2);
+                                    } catch (IOException e) {
+                                        x0.a(e);
                                     }
                                 }
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
-                                    } catch (IOException e3) {
-                                        x0.a(e3);
+                                    } catch (IOException e2) {
+                                        x0.a(e2);
                                     }
                                 }
                             }
                         }
                     }
-                    j = System.currentTimeMillis() - ((long) (d2 * 1000.0d));
+                    j = System.currentTimeMillis() - ((long) (d * 1000.0d));
                     try {
                         dataInputStream.close();
-                    } catch (IOException e4) {
-                        x0.a(e4);
+                    } catch (IOException e3) {
+                        x0.a(e3);
                     }
                 } catch (Throwable th3) {
                     bufferedReader = null;
@@ -137,7 +137,7 @@ public class c1 {
                 dataInputStream = new DataInputStream(Runtime.getRuntime().exec("cat /proc/uptime").getInputStream());
                 try {
                     bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
-                    double d2 = 0.0d;
+                    double d = 0.0d;
                     while (true) {
                         try {
                             String readLine = bufferedReader.readLine();
@@ -146,7 +146,7 @@ public class c1 {
                             }
                             String[] split = a(readLine).split(";");
                             if (split != null && split.length != 0) {
-                                d2 = Double.valueOf(split[0]).doubleValue();
+                                d = Double.valueOf(split[0]).doubleValue();
                             }
                         } catch (Throwable th2) {
                             th = th2;
@@ -156,25 +156,25 @@ public class c1 {
                                 if (dataInputStream != null) {
                                     try {
                                         dataInputStream.close();
-                                    } catch (IOException e2) {
-                                        x0.a(e2);
+                                    } catch (IOException e) {
+                                        x0.a(e);
                                     }
                                 }
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
-                                    } catch (IOException e3) {
-                                        x0.a(e3);
+                                    } catch (IOException e2) {
+                                        x0.a(e2);
                                     }
                                 }
                             }
                         }
                     }
-                    j = (long) (d2 * 1000.0d);
+                    j = (long) (d * 1000.0d);
                     try {
                         dataInputStream.close();
-                    } catch (IOException e4) {
-                        x0.a(e4);
+                    } catch (IOException e3) {
+                        x0.a(e3);
                     }
                 } catch (Throwable th3) {
                     bufferedReader = null;

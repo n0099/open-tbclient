@@ -21,26 +21,16 @@ import java.io.RandomAccessFile;
 import java.io.Reader;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SystemUtil {
     public static volatile String a;
+    public static volatile Boolean b;
+    public static long c;
+    public static long d;
+    public static int e;
+    public static LEVEL f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static volatile Boolean f40192b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static long f40193c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static long f40194d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f40195e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static LEVEL f40196f;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum LEVEL {
         BEST(5),
         HIGH(4),
@@ -60,24 +50,14 @@ public class SystemUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public long a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f40197b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f40198c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public long f40199d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public long f40200e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f40201f;
+        public long b;
+        public long c;
+        public long d;
+        public long e;
+        public int f;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:46:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -271,11 +251,11 @@ public class SystemUtil {
     }
 
     public static boolean b(Context context) {
-        if (f40192b == null) {
+        if (b == null) {
             String a2 = a(context);
-            f40192b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
+            b = Boolean.valueOf(!TextUtils.isEmpty(a2) && a2.equals(context.getPackageName()));
         }
-        return f40192b.booleanValue();
+        return b.booleanValue();
     }
 
     public static long c(Context context) {
@@ -300,15 +280,15 @@ public class SystemUtil {
                             if (readLine.startsWith("VmSize") && readLine.contains("kB")) {
                                 String a3 = a(readLine, "VmSize");
                                 if (a3 != null) {
-                                    aVar.f40197b = Long.valueOf(a3).longValue();
+                                    aVar.b = Long.valueOf(a3).longValue();
                                 }
                             } else if (readLine.startsWith("VmRSS:") && readLine.contains("kB")) {
                                 String a4 = a(readLine, "VmRSS:");
                                 if (a4 != null) {
-                                    aVar.f40198c = Long.valueOf(a4).longValue();
+                                    aVar.c = Long.valueOf(a4).longValue();
                                 }
                             } else if (readLine.startsWith("Threads:") && (a2 = a(readLine, "Threads:")) != null) {
-                                aVar.f40201f = Integer.valueOf(a2).intValue();
+                                aVar.f = Integer.valueOf(a2).intValue();
                             }
                         }
                     } catch (IOException e2) {

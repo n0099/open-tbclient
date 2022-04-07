@@ -6,7 +6,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static String a(@Nullable AdTemplate adTemplate) {
         return adTemplate == null ? "" : h(adTemplate).playDetailInfo.detailTopToolBarInfo.rewardCallDescription;
@@ -48,10 +48,10 @@ public class c {
     }
 
     public static List<String> i(@NonNull AdTemplate adTemplate) {
-        AdStyleInfo h2 = h(adTemplate);
+        AdStyleInfo h = h(adTemplate);
         ArrayList arrayList = new ArrayList();
         try {
-            for (AdStyleInfo.ExposeTagInfo exposeTagInfo : h2.extraDisplayInfo.exposeTagInfoList) {
+            for (AdStyleInfo.ExposeTagInfo exposeTagInfo : h.extraDisplayInfo.exposeTagInfoList) {
                 arrayList.add(exposeTagInfo.text);
             }
         } catch (Exception unused) {

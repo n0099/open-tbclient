@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ak extends ai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class ak extends ai.b {
             obj = this.a.f88a;
             synchronized (obj) {
                 map = this.a.f89a;
-                map.remove(super.a.mo226a());
+                map.remove(super.a.mo222a());
             }
         }
     }

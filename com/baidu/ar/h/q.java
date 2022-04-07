@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic = null;
     public static String name = "";
@@ -38,7 +38,7 @@ public class q {
     public static String yh = "";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class q {
         InterceptResult invokeL;
         InputStreamReader inputStreamReader;
         Throwable th;
-        Exception e2;
+        Exception e;
         BufferedReader bufferedReader;
         long j;
         Interceptable interceptable = $ic;
@@ -102,9 +102,9 @@ public class q {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 inputStreamReader = null;
-                e2 = e3;
+                e = e2;
                 bufferedReader = null;
             } catch (Throwable th3) {
                 inputStreamReader = null;
@@ -122,36 +122,36 @@ public class q {
                     j = Integer.parseInt(split[1]);
                     try {
                         bufferedReader.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace(System.out);
+                    } catch (IOException e3) {
+                        e3.printStackTrace(System.out);
                     }
                     try {
                         inputStreamReader.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace(System.out);
+                    } catch (IOException e4) {
+                        e4.printStackTrace(System.out);
                     }
-                } catch (Exception e6) {
-                    e2 = e6;
-                    e2.printStackTrace(System.out);
+                } catch (Exception e5) {
+                    e = e5;
+                    e.printStackTrace(System.out);
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace(System.out);
+                        } catch (IOException e6) {
+                            e6.printStackTrace(System.out);
                         }
                     }
                     if (inputStreamReader != null) {
                         try {
                             inputStreamReader.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace(System.out);
+                        } catch (IOException e7) {
+                            e7.printStackTrace(System.out);
                         }
                     }
                     j = 0;
                     return j / 1024;
                 }
-            } catch (Exception e9) {
-                e2 = e9;
+            } catch (Exception e8) {
+                e = e8;
                 bufferedReader = null;
             } catch (Throwable th4) {
                 th = th4;
@@ -159,15 +159,15 @@ public class q {
                 if (r10 != 0) {
                     try {
                         r10.close();
-                    } catch (IOException e10) {
-                        e10.printStackTrace(System.out);
+                    } catch (IOException e9) {
+                        e9.printStackTrace(System.out);
                     }
                 }
                 if (inputStreamReader != null) {
                     try {
                         inputStreamReader.close();
-                    } catch (IOException e11) {
-                        e11.printStackTrace(System.out);
+                    } catch (IOException e10) {
+                        e10.printStackTrace(System.out);
                     }
                 }
                 throw th;
@@ -237,8 +237,8 @@ public class q {
                 try {
                     StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
                     return (statFs.getBlockSize() * statFs.getAvailableBlocks()) / 1048576;
-                } catch (Exception e2) {
-                    e2.printStackTrace(System.out);
+                } catch (Exception e) {
+                    e.printStackTrace(System.out);
                 }
             }
             return 0L;
@@ -262,8 +262,8 @@ public class q {
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (Exception e2) {
-            e = e2;
+        } catch (Exception e) {
+            e = e;
             inputStreamReader = null;
             bufferedReader2 = null;
         } catch (Throwable th3) {
@@ -280,36 +280,36 @@ public class q {
                 String str = split[1];
                 try {
                     bufferedReader2.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace(System.out);
+                } catch (IOException e2) {
+                    e2.printStackTrace(System.out);
                 }
                 try {
                     inputStreamReader.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace(System.out);
+                } catch (IOException e3) {
+                    e3.printStackTrace(System.out);
                 }
                 return str;
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e4) {
+                e = e4;
                 e.printStackTrace(System.out);
                 if (bufferedReader2 != null) {
                     try {
                         bufferedReader2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace(System.out);
+                    } catch (IOException e5) {
+                        e5.printStackTrace(System.out);
                     }
                 }
                 if (inputStreamReader != null) {
                     try {
                         inputStreamReader.close();
-                    } catch (IOException e7) {
-                        e7.printStackTrace(System.out);
+                    } catch (IOException e6) {
+                        e6.printStackTrace(System.out);
                     }
                 }
                 return null;
             }
-        } catch (Exception e8) {
-            e = e8;
+        } catch (Exception e7) {
+            e = e7;
             bufferedReader2 = null;
         } catch (Throwable th4) {
             bufferedReader = null;
@@ -317,15 +317,15 @@ public class q {
             if (bufferedReader != null) {
                 try {
                     bufferedReader.close();
-                } catch (IOException e9) {
-                    e9.printStackTrace(System.out);
+                } catch (IOException e8) {
+                    e8.printStackTrace(System.out);
                 }
             }
             if (inputStreamReader != null) {
                 try {
                     inputStreamReader.close();
-                } catch (IOException e10) {
-                    e10.printStackTrace(System.out);
+                } catch (IOException e9) {
+                    e9.printStackTrace(System.out);
                 }
             }
             throw th;
@@ -340,9 +340,9 @@ public class q {
                 File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(new a());
                 Log.d("bdar", "CPU Count: " + listFiles.length);
                 return listFiles.length;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 Log.d("bdar", "CPU Count: Failed.");
-                e2.printStackTrace(System.out);
+                e.printStackTrace(System.out);
                 return 1;
             }
         }
@@ -356,7 +356,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39040c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.c).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
@@ -384,15 +384,15 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39039b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.b).start().getInputStream();
                 String str2 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str2 = str2 + new String(bArr, IMAudioTransRequest.CHARSET);
                 }
                 inputStream.close();
                 str = String.valueOf(Integer.parseInt(str2.trim()) / 1000);
-            } catch (Exception e2) {
-                e2.printStackTrace(System.out);
+            } catch (Exception e) {
+                e.printStackTrace(System.out);
                 str = "N/A";
             }
             return String.valueOf(str);
@@ -432,7 +432,7 @@ public class q {
         InterceptResult invokeV;
         ?? r2;
         ?? r3;
-        Exception e2;
+        Exception e;
         Interceptable interceptable2;
         Interceptable interceptable3 = $ic;
         if (interceptable3 == null || (invokeV = (interceptable = interceptable3).invokeV(65549, null)) == null) {
@@ -447,9 +447,9 @@ public class q {
                         th = th;
                         r1 = interceptable;
                     }
-                } catch (Exception e3) {
+                } catch (Exception e2) {
                     r3 = 0;
-                    e2 = e3;
+                    e = e2;
                     r2 = 0;
                 } catch (Throwable th2) {
                     th = th2;
@@ -462,25 +462,25 @@ public class q {
                         try {
                             r3.close();
                             interceptable2 = r3;
-                        } catch (IOException e4) {
+                        } catch (IOException e3) {
                             ?? r32 = System.out;
-                            e4.printStackTrace(r32);
+                            e3.printStackTrace(r32);
                             interceptable2 = r32;
                         }
                         r2.close();
                         r2 = r2;
                         interceptable = interceptable2;
-                    } catch (Exception e5) {
-                        e2 = e5;
-                        e2.printStackTrace(System.out);
+                    } catch (Exception e4) {
+                        e = e4;
+                        e.printStackTrace(System.out);
                         interceptable = r3;
                         if (r3 != 0) {
                             try {
                                 r3.close();
                                 interceptable = r3;
-                            } catch (IOException e6) {
+                            } catch (IOException e5) {
                                 ?? r33 = System.out;
-                                e6.printStackTrace(r33);
+                                e5.printStackTrace(r33);
                                 interceptable = r33;
                             }
                         }
@@ -491,30 +491,30 @@ public class q {
                         }
                         return str;
                     }
-                } catch (Exception e7) {
+                } catch (Exception e6) {
                     r3 = 0;
-                    e2 = e7;
+                    e = e6;
                 } catch (Throwable th3) {
                     th = th3;
                     if (r1 != 0) {
                         try {
                             r1.close();
-                        } catch (IOException e8) {
-                            e8.printStackTrace(System.out);
+                        } catch (IOException e7) {
+                            e7.printStackTrace(System.out);
                         }
                     }
                     if (r2 != 0) {
                         try {
                             r2.close();
-                        } catch (IOException e9) {
-                            e9.printStackTrace(System.out);
+                        } catch (IOException e8) {
+                            e8.printStackTrace(System.out);
                         }
                     }
                     throw th;
                 }
-            } catch (IOException e10) {
+            } catch (IOException e9) {
                 PrintStream printStream = System.out;
-                e10.printStackTrace(printStream);
+                e9.printStackTrace(printStream);
                 r2 = printStream;
                 interceptable = interceptable;
             }

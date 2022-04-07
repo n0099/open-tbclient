@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class DisplayImageOptionsCompat {
     public final int blurRadius;
     public final boolean cacheInMemory;
@@ -26,7 +26,7 @@ public final class DisplayImageOptionsCompat {
     public final int strokeColor;
     public final float strokeWidth;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public int blurRadius;
         public int cornerRound;
@@ -139,9 +139,9 @@ public final class DisplayImageOptionsCompat {
             return this;
         }
 
-        public Builder setStrokeWidth(float f2) {
-            if (f2 > 0.0f) {
-                this.strokeWidth = f2;
+        public Builder setStrokeWidth(float f) {
+            if (f > 0.0f) {
+                this.strokeWidth = f;
                 this.isCircle = true;
             }
             return this;

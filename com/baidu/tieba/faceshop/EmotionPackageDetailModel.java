@@ -17,25 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionPackageDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d a;
+    public e b;
+    public final HttpMessageListener c;
+    public final HttpMessageListener d;
+    public final HttpMessageListener e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public e f32034b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final HttpMessageListener f32035c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final HttpMessageListener f32036d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f32037e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +67,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +109,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,19 +140,19 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || this.a.f32034b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003358 || this.a.b == null) {
                 return;
             }
-            this.a.f32034b.a(httpResponsedMessage);
+            this.a.b.a(httpResponsedMessage);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void onResult(boolean z);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface e {
         void a(HttpResponsedMessage httpResponsedMessage);
     }
@@ -178,9 +170,9 @@ public class EmotionPackageDetailModel extends BdBaseModel {
                 return;
             }
         }
-        this.f32035c = new a(this, CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-        this.f32036d = new b(this, CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
-        this.f32037e = new c(this, CmdConfigHttp.CMD_VOTE_EMOTION);
+        this.c = new a(this, CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
+        this.d = new b(this, CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
+        this.e = new c(this, CmdConfigHttp.CMD_VOTE_EMOTION);
         setUniqueId(BdUniqueId.gen());
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL, TbConfig.SERVER_ADDRESS + TbConfig.GET_NEW_PACKAGE_DETAIL);
         tbHttpMessageTask.setResponsedClass(PackageDetailResponseMessage.class);
@@ -192,11 +184,11 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         tbHttpMessageTask3.setIsNeedTbs(true);
         tbHttpMessageTask3.setResponsedClass(JsonHttpResponsedMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask3);
-        this.f32035c.setTag(getUniqueId());
-        this.f32035c.setSelfListener(true);
-        registerListener(this.f32035c);
-        registerListener(this.f32036d);
-        registerListener(this.f32037e);
+        this.c.setTag(getUniqueId());
+        this.c.setSelfListener(true);
+        registerListener(this.c);
+        registerListener(this.d);
+        registerListener(this.e);
     }
 
     public void D(int i, d dVar) {
@@ -228,7 +220,7 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VOTE_EMOTION);
         httpMessage.addParam(IntentConfig.PKG_ID, i);
         sendMessage(httpMessage);
-        this.f32034b = eVar;
+        this.b = eVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -236,12 +228,12 @@ public class EmotionPackageDetailModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f32035c);
+            MessageManager.getInstance().unRegisterListener(this.c);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_EMOTION_PACKAGE_DETAIL);
-            MessageManager.getInstance().unRegisterListener(this.f32036d);
+            MessageManager.getInstance().unRegisterListener(this.d);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_DELETE_EMOTION_PACKAGE);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_VOTE_EMOTION);
-            MessageManager.getInstance().unRegisterListener(this.f32037e);
+            MessageManager.getInstance().unRegisterListener(this.e);
             return true;
         }
         return invokeV.booleanValue;

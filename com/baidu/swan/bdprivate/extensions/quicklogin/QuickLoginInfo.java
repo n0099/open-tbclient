@@ -13,7 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.mi3;
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR;
@@ -26,7 +28,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public String serviceAgreement;
     public boolean supportQuickLogin;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<QuickLoginInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +79,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = c.a.n0.a.a.a;
+        DEBUG = tg1.a;
         CREATOR = new a();
     }
 
@@ -86,20 +88,20 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(c.a.n0.b.g.d.a aVar) {
+    public static QuickLoginInfo parseQuickLoginInfo(mi3 mi3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
-            if (aVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mi3Var)) == null) {
+            if (mi3Var == null) {
                 return null;
             }
             QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-            quickLoginInfo.supportQuickLogin = aVar.f();
-            quickLoginInfo.encryptPhoneNum = aVar.c();
-            quickLoginInfo.serviceAgreement = aVar.b();
-            quickLoginInfo.hasHistory = aVar.d();
-            quickLoginInfo.loginMode = aVar.e();
-            quickLoginInfo.agreeText = aVar.a();
+            quickLoginInfo.supportQuickLogin = mi3Var.f();
+            quickLoginInfo.encryptPhoneNum = mi3Var.c();
+            quickLoginInfo.serviceAgreement = mi3Var.b();
+            quickLoginInfo.hasHistory = mi3Var.d();
+            quickLoginInfo.loginMode = mi3Var.e();
+            quickLoginInfo.agreeText = mi3Var.a();
             return quickLoginInfo;
         }
         return (QuickLoginInfo) invokeL.objValue;

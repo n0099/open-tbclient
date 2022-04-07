@@ -57,10 +57,10 @@ public final class HTTP {
         throw new RuntimeException("Stub!");
     }
 
-    public static boolean isWhitespace(char c2) {
+    public static boolean isWhitespace(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Character.valueOf(c)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.booleanValue;

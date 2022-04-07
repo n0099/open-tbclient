@@ -4,8 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v.b.f.c;
-import c.a.v.f.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,12 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aa0;
+import com.repackage.ob0;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class LiveFeedWrapData implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<LiveFeedWrapData> CREATOR;
@@ -40,7 +40,7 @@ public class LiveFeedWrapData implements Parcelable {
     public String subTab;
     public String tab;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Parcelable.Creator<LiveFeedWrapData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public class LiveFeedWrapData implements Parcelable {
                 }
             }
         }
-        this.hasMore = (this.errCode == 0 && d.c(this.roomInfoList)) ? true : true;
+        this.hasMore = (this.errCode == 0 && ob0.c(this.roomInfoList)) ? true : true;
     }
 
     @Override // android.os.Parcelable
@@ -172,10 +172,10 @@ public class LiveFeedWrapData implements Parcelable {
             }
             try {
                 jSONObject.put(LIVE_FEED_PAGE_FEED_CACHE_TIME, System.currentTimeMillis());
-            } catch (JSONException e2) {
-                LiveFeedPageSdk.m("Feed 缓存记录时间失败 " + e2.getMessage());
+            } catch (JSONException e) {
+                LiveFeedPageSdk.m("Feed 缓存记录时间失败 " + e.getMessage());
             }
-            c.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
+            aa0.f(getFeedCacheKey(this.tab, this.subTab), jSONObject.toString());
         }
     }
 

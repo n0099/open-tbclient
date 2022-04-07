@@ -7,7 +7,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.a0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,29 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.b21;
+import com.repackage.tx0;
+/* loaded from: classes2.dex */
 public class BdVideoBattery extends View {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f27675d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f27676e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f27677f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f27678g;
+    public static final int d;
+    public static final int e;
+    public static final int f;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Bitmap f27679b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f27680c;
+    public Bitmap b;
+    public Paint c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,10 +42,10 @@ public class BdVideoBattery extends View {
                 return;
             }
         }
-        f27675d = b.d(2.0f);
-        f27676e = b.d(2.0f);
-        f27677f = b.d(2.0f);
-        f27678g = b.d(4.0f);
+        d = b21.d(2.0f);
+        e = b21.d(2.0f);
+        f = b21.d(2.0f);
+        g = b21.d(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -85,7 +74,7 @@ public class BdVideoBattery extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f27680c = paint;
+            this.c = paint;
             paint.setColor(-1);
         }
     }
@@ -97,15 +86,15 @@ public class BdVideoBattery extends View {
             super.onDraw(canvas);
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            Bitmap bitmap = this.f27679b;
+            Bitmap bitmap = this.b;
             if (bitmap != null) {
                 canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
             }
-            float f2 = (float) (c.a.a0.v.v0.b.a / 100.0d);
+            float f2 = (float) (tx0.a / 100.0d);
             float f3 = f2 >= 0.0f ? f2 > 100.0f ? 100.0f : f2 : 0.0f;
-            int i = measuredWidth - f27678g;
-            int i2 = f27677f;
-            canvas.drawRect(i2, f27675d, i2 + ((i - i2) * f3), measuredHeight - f27676e, this.f27680c);
+            int i = measuredWidth - g;
+            int i2 = f;
+            canvas.drawRect(i2, d, i2 + ((i - i2) * f3), measuredHeight - e, this.c);
         }
     }
 
@@ -115,14 +104,14 @@ public class BdVideoBattery extends View {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             View.MeasureSpec.getSize(i);
             View.MeasureSpec.getSize(i2);
-            setMeasuredDimension(this.f27679b.getWidth(), this.f27679b.getHeight());
+            setMeasuredDimension(this.b.getWidth(), this.b.getHeight());
         }
     }
 
     public void setImage(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f27679b = BitmapFactory.decodeResource(this.a.getResources(), i);
+            this.b = BitmapFactory.decodeResource(this.a.getResources(), i);
         }
     }
 

@@ -5,7 +5,6 @@ import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,13 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
+import com.repackage.tb9;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EglSurfaceBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";
@@ -141,7 +141,7 @@ public class EglSurfaceBase {
                     createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
                     createBitmap.recycle();
                     bufferedOutputStream2.close();
-                    c.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
+                    tb9.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
                 } catch (Throwable th) {
                     th = th;
                     bufferedOutputStream = bufferedOutputStream2;
@@ -171,7 +171,7 @@ public class EglSurfaceBase {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             boolean swapBuffers = this.mEglCore.swapBuffers(this.mEGLSurface);
             if (!swapBuffers) {
-                c.c("Grafika", "WARNING: swapBuffers() failed");
+                tb9.c("Grafika", "WARNING: swapBuffers() failed");
             }
             return swapBuffers;
         }

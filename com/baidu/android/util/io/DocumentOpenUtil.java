@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DocumentOpenUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOC = "doc";
@@ -53,52 +53,52 @@ public class DocumentOpenUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !getSupportMimeType(str)) {
                 String lowerCase = str2.toLowerCase(Locale.getDefault());
-                char c2 = 65535;
+                char c = 65535;
                 switch (lowerCase.hashCode()) {
                     case 99640:
                         if (lowerCase.equals(DOC)) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
                         break;
                     case 110834:
                         if (lowerCase.equals(PDF)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                     case 111220:
                         if (lowerCase.equals(PPT)) {
-                            c2 = 5;
+                            c = 5;
                             break;
                         }
                         break;
                     case 118783:
                         if (lowerCase.equals(XLS)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
                         break;
                     case 3088960:
                         if (lowerCase.equals(DOCX)) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
                         break;
                     case 3447940:
                         if (lowerCase.equals(PPTX)) {
-                            c2 = 6;
+                            c = 6;
                             break;
                         }
                         break;
                     case 3682393:
                         if (lowerCase.equals(XLSX)) {
-                            c2 = 4;
+                            c = 4;
                             break;
                         }
                         break;
                 }
-                switch (c2) {
+                switch (c) {
                     case 0:
                         str = PDF_TYPE;
                         break;
@@ -151,52 +151,52 @@ public class DocumentOpenUtil {
                 return "";
             }
             String lowerCase = str.toLowerCase(Locale.getDefault());
-            char c2 = 65535;
+            char c = 65535;
             switch (lowerCase.hashCode()) {
                 case 99640:
                     if (lowerCase.equals(DOC)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
                     break;
                 case 110834:
                     if (lowerCase.equals(PDF)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
                     break;
                 case 111220:
                     if (lowerCase.equals(PPT)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
                     break;
                 case 118783:
                     if (lowerCase.equals(XLS)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
                     break;
                 case 3088960:
                     if (lowerCase.equals(DOCX)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
                     break;
                 case 3447940:
                     if (lowerCase.equals(PPTX)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
                     break;
                 case 3682393:
                     if (lowerCase.equals(XLSX)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     str2 = PDF_TYPE;
                     break;

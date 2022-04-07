@@ -15,12 +15,10 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f43676h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
+    public static String h = "https://open.weixin.qq.com/connect/sdk/qrconnect?appid=%s&noncestr=%s&timestamp=%s&scope=%s&signature=%s";
     public transient /* synthetic */ FieldHolder $fh;
     public String appId;
     public String i;
@@ -30,7 +28,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public String scope;
     public String signature;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,15 +95,15 @@ public final class d extends AsyncTask<Void, Void, a> {
                             Log.e("MicroMsg.SDK.GetQRCodeResult", "parse fail, qrcodeBase64 is null");
                             aVar.m = OAuthErrCode.WechatAuth_Err_JsonDecodeErr;
                             return aVar;
-                        } catch (Exception e2) {
-                            format = String.format("parse json fail, ex = %s", e2.getMessage());
+                        } catch (Exception e) {
+                            format = String.format("parse json fail, ex = %s", e.getMessage());
                             Log.e("MicroMsg.SDK.GetQRCodeResult", format);
                             oAuthErrCode = OAuthErrCode.WechatAuth_Err_NormalErr;
                             aVar.m = oAuthErrCode;
                             return aVar;
                         }
-                    } catch (Exception e3) {
-                        format = String.format("parse fail, build String fail, ex = %s", e3.getMessage());
+                    } catch (Exception e2) {
+                        format = String.format("parse fail, build String fail, ex = %s", e2.getMessage());
                     }
                 }
                 aVar.m = oAuthErrCode;
@@ -170,7 +168,7 @@ public final class d extends AsyncTask<Void, Void, a> {
     public final /* synthetic */ a doInBackground(Void[] voidArr) {
         Thread.currentThread().setName("OpenSdkGetQRCodeTask");
         Log.i("MicroMsg.SDK.GetQRCodeTask", "doInBackground");
-        String format = String.format(f43676h, this.appId, this.i, this.j, this.scope, this.signature);
+        String format = String.format(h, this.appId, this.i, this.j, this.scope, this.signature);
         long currentTimeMillis = System.currentTimeMillis();
         byte[] a2 = e.a(format);
         Log.d("MicroMsg.SDK.GetQRCodeTask", String.format("doInBackground, url = %s, time consumed = %d(ms)", format, Long.valueOf(System.currentTimeMillis() - currentTimeMillis)));

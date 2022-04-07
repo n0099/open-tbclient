@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FontParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
@@ -41,7 +41,7 @@ public class FontParser {
     public static Map<String, String> sSystemFontMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Alias {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,19 +64,19 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Axis {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float styleValue;
         public final int tag;
 
-        public Axis(int i, float f2) {
+        public Axis(int i, float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
+                Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -87,11 +87,11 @@ public class FontParser {
                 }
             }
             this.tag = i;
-            this.styleValue = f2;
+            this.styleValue = f;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Config {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Family {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,7 +147,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Font {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -297,27 +297,27 @@ public class FontParser {
         return (Config) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x008e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x008c, code lost:
         if (r2.equals("zh") != false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0097, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0094, code lost:
         if (r2.equals("zh-Hant") != false) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x00a0, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x009c, code lost:
         if (r2.equals("zh-Hans") == false) goto L34;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x009e, code lost:
         r5 = new java.lang.StringBuilder();
         r5.append(r2);
         r5.append("/");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x00af, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00ab, code lost:
         if (r4.isItalic == false) goto L32;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00ae, code lost:
         r6 = "normal";
      */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00af, code lost:
         r5.append(r6);
         r5.append("/");
         r5.append(r4.weight);

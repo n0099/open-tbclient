@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CircleIndicator extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CIRCLE_INTER_WIDTH = 10;
@@ -139,10 +139,10 @@ public class CircleIndicator extends View {
         }
     }
 
-    public void scroll(int i, float f2) {
+    public void scroll(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            this.mTranslationX = (int) (this.mInterWidth * (f2 + i));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.mTranslationX = (int) (this.mInterWidth * (f + i));
             invalidate();
         }
     }
@@ -236,12 +236,12 @@ public class CircleIndicator extends View {
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-            public void onPageScrolled(int i4, float f2, int i5) {
+            public void onPageScrolled(int i4, float f, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), Float.valueOf(f2), Integer.valueOf(i5)}) == null) || f2 <= 0.0f) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i4), Float.valueOf(f), Integer.valueOf(i5)}) == null) || f <= 0.0f) {
                     return;
                 }
-                this.this$0.scroll(i4, f2);
+                this.this$0.scroll(i4, f);
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener

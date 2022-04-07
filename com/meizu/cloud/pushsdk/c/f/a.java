@@ -6,7 +6,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static final String a = "a";
 
@@ -18,8 +18,8 @@ public class a {
             objectInputStream.close();
             c.b(a, " + Retrieved map from file: %s", hashMap);
             return hashMap;
-        } catch (IOException | ClassNotFoundException e2) {
-            c.a(a, " + Exception getting vars map: %s", e2.getMessage());
+        } catch (IOException | ClassNotFoundException e) {
+            c.a(a, " + Exception getting vars map: %s", e.getMessage());
             return null;
         }
     }
@@ -32,8 +32,8 @@ public class a {
             objectOutputStream.close();
             c.b(a, " + Successfully saved KV Pairs to: %s", str);
             return true;
-        } catch (IOException e2) {
-            c.a(a, " + Exception saving vars map: %s", e2.getMessage());
+        } catch (IOException e) {
+            c.a(a, " + Exception saving vars map: %s", e.getMessage());
             return false;
         }
     }

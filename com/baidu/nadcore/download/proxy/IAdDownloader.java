@@ -1,6 +1,5 @@
 package com.baidu.nadcore.download.proxy;
 
-import c.a.a0.j.g.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.lk0;
+/* loaded from: classes2.dex */
 public interface IAdDownloader {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class STATE {
         public static final /* synthetic */ STATE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,11 +77,11 @@ public interface IAdDownloader {
         }
     }
 
-    int a(String str, c cVar);
+    int a(String str, lk0 lk0Var);
 
     void b(int i);
 
-    void c(int i, String str, c cVar);
+    void c(int i, String str, lk0 lk0Var);
 
     void d(int i);
 }

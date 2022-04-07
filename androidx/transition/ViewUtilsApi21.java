@@ -54,11 +54,11 @@ public class ViewUtilsApi21 extends ViewUtilsApi19 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void setAnimationMatrix(@NonNull View view, @Nullable Matrix matrix) {
+    public void setAnimationMatrix(@NonNull View view2, @Nullable Matrix matrix) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, view, matrix) == null) && sTryHiddenSetAnimationMatrix) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, matrix) == null) && sTryHiddenSetAnimationMatrix) {
             try {
-                view.setAnimationMatrix(matrix);
+                view2.setAnimationMatrix(matrix);
             } catch (NoSuchMethodError unused) {
                 sTryHiddenSetAnimationMatrix = false;
             }
@@ -67,11 +67,11 @@ public class ViewUtilsApi21 extends ViewUtilsApi19 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void transformMatrixToGlobal(@NonNull View view, @NonNull Matrix matrix) {
+    public void transformMatrixToGlobal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, matrix) == null) && sTryHiddenTransformMatrixToGlobal) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, matrix) == null) && sTryHiddenTransformMatrixToGlobal) {
             try {
-                view.transformMatrixToGlobal(matrix);
+                view2.transformMatrixToGlobal(matrix);
             } catch (NoSuchMethodError unused) {
                 sTryHiddenTransformMatrixToGlobal = false;
             }
@@ -80,11 +80,11 @@ public class ViewUtilsApi21 extends ViewUtilsApi19 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void transformMatrixToLocal(@NonNull View view, @NonNull Matrix matrix) {
+    public void transformMatrixToLocal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, matrix) == null) && sTryHiddenTransformMatrixToLocal) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, matrix) == null) && sTryHiddenTransformMatrixToLocal) {
             try {
-                view.transformMatrixToLocal(matrix);
+                view2.transformMatrixToLocal(matrix);
             } catch (NoSuchMethodError unused) {
                 sTryHiddenTransformMatrixToLocal = false;
             }

@@ -5,41 +5,27 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import com.kwad.sdk.utils.av;
 import com.kwad.sdk.utils.ba;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public final View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final j f41521b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final ba f41522c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final int f41523d;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f41525f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f41526g;
+    public final j b;
+    public final ba c;
+    public final int d;
+    public boolean f;
+    public boolean g;
     public ViewTreeObserver.OnScrollChangedListener i;
+    public float e = 0.1f;
+    public boolean h = true;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f41524e = 0.1f;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f41527h = true;
-
-    public h(View view, j jVar) {
-        this.a = view;
-        this.f41521b = jVar;
-        this.f41522c = new ba(view);
-        this.f41523d = av.o(view.getContext());
+    public h(View view2, j jVar) {
+        this.a = view2;
+        this.b = jVar;
+        this.c = new ba(view2);
+        this.d = av.o(view2.getContext());
     }
 
     private void d() {
-        if (this.f41527h) {
+        if (this.h) {
             e();
         }
     }
@@ -56,7 +42,7 @@ public class h {
     /* JADX INFO: Access modifiers changed from: private */
     public void f() {
         i();
-        j jVar = this.f41521b;
+        j jVar = this.b;
         if (jVar != null) {
             jVar.a(this.a);
         }
@@ -64,11 +50,11 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean g() {
-        if (!this.f41522c.a() || Math.abs(this.f41522c.a.height() - this.a.getHeight()) > this.a.getHeight() * (1.0f - this.f41524e) || this.a.getHeight() <= 0 || this.a.getWidth() <= 0) {
+        if (!this.c.a() || Math.abs(this.c.a.height() - this.a.getHeight()) > this.a.getHeight() * (1.0f - this.e) || this.a.getHeight() <= 0 || this.a.getWidth() <= 0) {
             return false;
         }
-        Rect rect = this.f41522c.a;
-        return rect.bottom > 0 && rect.top < this.f41523d;
+        Rect rect = this.c.a;
+        return rect.bottom > 0 && rect.top < this.d;
     }
 
     private void h() {
@@ -98,30 +84,30 @@ public class h {
                 viewTreeObserver.removeOnScrollChangedListener(this.i);
             }
             this.i = null;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 
     public float a() {
-        return this.f41524e;
+        return this.e;
     }
 
-    public void a(float f2) {
-        this.f41524e = f2;
+    public void a(float f) {
+        this.e = f;
     }
 
     public void a(int i, int i2, int i3, int i4) {
-        this.f41526g = false;
-        if (this.f41525f || (i3 | i4) != 0 || (i | i2) == 0) {
+        this.g = false;
+        if (this.f || (i3 | i4) != 0 || (i | i2) == 0) {
             return;
         }
-        this.f41526g = true;
-        this.f41525f = true;
+        this.g = true;
+        this.f = true;
     }
 
     public void a(boolean z) {
-        this.f41527h = z;
+        this.h = z;
     }
 
     public void b() {
@@ -129,13 +115,13 @@ public class h {
     }
 
     public void b(int i, int i2, int i3, int i4) {
-        if (this.f41526g) {
+        if (this.g) {
             d();
         }
     }
 
     public void c() {
         i();
-        this.f41525f = false;
+        this.f = false;
     }
 }

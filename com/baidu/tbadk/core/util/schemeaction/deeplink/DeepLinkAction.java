@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a4.a;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
@@ -19,7 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.xi8;
+/* loaded from: classes3.dex */
 public class DeepLinkAction {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUNDLE_NEED_BLACKLIST = "need_scheme_blacklist";
@@ -114,7 +114,7 @@ public class DeepLinkAction {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, context, str, bundle)) == null) {
             String[] strArr = {str};
             UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (a = a.a(context)) == null) {
+            if (urlManager == null || (a = xi8.a(context)) == null) {
                 return false;
             }
             if (urlManager.UrlValidated(str)) {
@@ -194,7 +194,7 @@ public class DeepLinkAction {
                 deepLinkResponse.onFailed(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER, -1);
                 return false;
             }
-            TbPageContext<?> a = a.a(context);
+            TbPageContext<?> a = xi8.a(context);
             if (a != null) {
                 int dealOneLinkWithOutJumpWebView = UrlManager.getInstance().dealOneLinkWithOutJumpWebView(a, new String[]{str});
                 SchemeActionHelper.printLog("inner tryOpenInnerLink-->" + str + ",retType=" + dealOneLinkWithOutJumpWebView);

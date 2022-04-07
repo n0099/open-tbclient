@@ -73,13 +73,13 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         public final /* synthetic */ ActionMenuPresenter this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ActionButtonSubmenu(ActionMenuPresenter actionMenuPresenter, Context context, SubMenuBuilder subMenuBuilder, View view) {
-            super(context, subMenuBuilder, view, false, R$attr.actionOverflowMenuStyle);
+        public ActionButtonSubmenu(ActionMenuPresenter actionMenuPresenter, Context context, SubMenuBuilder subMenuBuilder, View view2) {
+            super(context, subMenuBuilder, view2, false, R$attr.actionOverflowMenuStyle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {actionMenuPresenter, context, subMenuBuilder, view};
+                Object[] objArr = {actionMenuPresenter, context, subMenuBuilder, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,8 +93,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             }
             this.this$0 = actionMenuPresenter;
             if (!((MenuItemImpl) subMenuBuilder.getItem()).isActionButton()) {
-                View view2 = actionMenuPresenter.mOverflowButton;
-                setAnchorView(view2 == null ? (View) actionMenuPresenter.mMenuView : view2);
+                View view3 = actionMenuPresenter.mOverflowButton;
+                setAnchorView(view3 == null ? (View) actionMenuPresenter.mMenuView : view3);
             }
             setPresenterCallback(actionMenuPresenter.mPopupPresenterCallback);
         }
@@ -183,8 +183,8 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                 if (this.this$0.mMenu != null) {
                     this.this$0.mMenu.changeMenuMode();
                 }
-                View view = (View) this.this$0.mMenuView;
-                if (view != null && view.getWindowToken() != null && this.mPopup.tryShow()) {
+                View view2 = (View) this.this$0.mMenuView;
+                if (view2 != null && view2.getWindowToken() != null && this.mPopup.tryShow()) {
                     this.this$0.mOverflowPopup = this.mPopup;
                 }
                 this.this$0.mPostedOpenRunnable = null;
@@ -357,13 +357,13 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         public final /* synthetic */ ActionMenuPresenter this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public OverflowPopup(ActionMenuPresenter actionMenuPresenter, Context context, MenuBuilder menuBuilder, View view, boolean z) {
-            super(context, menuBuilder, view, z, R$attr.actionOverflowMenuStyle);
+        public OverflowPopup(ActionMenuPresenter actionMenuPresenter, Context context, MenuBuilder menuBuilder, View view2, boolean z) {
+            super(context, menuBuilder, view2, z, R$attr.actionOverflowMenuStyle);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {actionMenuPresenter, context, menuBuilder, view, Boolean.valueOf(z)};
+                Object[] objArr = {actionMenuPresenter, context, menuBuilder, view2, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -648,7 +648,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ActionMenuPresenter actionMenuPresenter = this;
             MenuBuilder menuBuilder = actionMenuPresenter.mMenu;
-            View view = null;
+            View view2 = null;
             int i5 = 0;
             if (menuBuilder != null) {
                 arrayList = menuBuilder.getVisibleItems();
@@ -696,7 +696,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
             while (i13 < i) {
                 MenuItemImpl menuItemImpl2 = arrayList.get(i13);
                 if (menuItemImpl2.requiresActionButton()) {
-                    View itemView = actionMenuPresenter.getItemView(menuItemImpl2, view, viewGroup);
+                    View itemView = actionMenuPresenter.getItemView(menuItemImpl2, view2, viewGroup);
                     if (actionMenuPresenter.mStrictWidthLimit) {
                         i3 -= ActionMenuView.measureChildForCells(itemView, i2, i3, makeMeasureSpec, i5);
                     } else {
@@ -760,13 +760,13 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
                     i4 = i;
                     menuItemImpl2.setIsActionButton(false);
                     i13++;
-                    view = null;
+                    view2 = null;
                     actionMenuPresenter = this;
                     i = i4;
                     i5 = 0;
                 }
                 i13++;
-                view = null;
+                view2 = null;
                 actionMenuPresenter = this;
                 i = i4;
                 i5 = 0;
@@ -777,13 +777,13 @@ public class ActionMenuPresenter extends BaseMenuPresenter implements ActionProv
     }
 
     @Override // androidx.appcompat.view.menu.BaseMenuPresenter
-    public View getItemView(MenuItemImpl menuItemImpl, View view, ViewGroup viewGroup) {
+    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, menuItemImpl, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, menuItemImpl, view2, viewGroup)) == null) {
             View actionView = menuItemImpl.getActionView();
             if (actionView == null || menuItemImpl.hasCollapsibleActionView()) {
-                actionView = super.getItemView(menuItemImpl, view, viewGroup);
+                actionView = super.getItemView(menuItemImpl, view2, viewGroup);
             }
             actionView.setVisibility(menuItemImpl.isActionViewExpanded() ? 8 : 0);
             ActionMenuView actionMenuView = (ActionMenuView) viewGroup;

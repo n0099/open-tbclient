@@ -1,6 +1,5 @@
 package com.baidu.tieba.themeCenter.avatarPendant;
 
-import c.a.p0.f4.c;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -13,30 +12,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.cq8;
+import com.repackage.dk8;
+import com.repackage.wa;
+/* loaded from: classes4.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_SET_USE = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
+    public int b;
+    public int c;
+    public boolean d;
+    public b e;
+    public wa f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f36305b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36306c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f36307d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public b f36308e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public c.a.d.c.g.a f36309f;
-
-    /* loaded from: classes6.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SetAvatarPendantModel a;
@@ -63,7 +55,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
             this.a = setAvatarPendantModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -79,24 +71,24 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 if (z) {
                     SetPendantHttpResponse setPendantHttpResponse = (SetPendantHttpResponse) responsedMessage;
                     this.a.E(setPendantHttpResponse.getPendantId());
-                    this.a.f36306c = setPendantHttpResponse.getFreeUseLevel();
+                    this.a.c = setPendantHttpResponse.getFreeUseLevel();
                 } else if (responsedMessage instanceof SetPendantSocketResponse) {
                     SetPendantSocketResponse setPendantSocketResponse = (SetPendantSocketResponse) responsedMessage;
                     this.a.E(setPendantSocketResponse.getPendantId());
-                    this.a.f36306c = setPendantSocketResponse.getFreeUseLevel();
+                    this.a.c = setPendantSocketResponse.getFreeUseLevel();
                 }
-                if (this.a.f36308e != null) {
-                    int i = c.f14994b;
-                    if (responsedMessage.getError() == c.f14995c) {
-                        i = c.a;
+                if (this.a.e != null) {
+                    int i = cq8.b;
+                    if (responsedMessage.getError() == cq8.c) {
+                        i = cq8.a;
                     }
-                    this.a.f36308e.onSetPendantCallback(this.a.f36307d, this.a.a, this.a.f36306c, responsedMessage.getErrorString(), i);
+                    this.a.e.onSetPendantCallback(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void onSetPendantCallback(boolean z, long j, int i, String str, int i2);
     }
@@ -114,11 +106,11 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                 return;
             }
         }
-        this.f36307d = false;
-        this.f36309f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        c.a.p0.a4.g0.a.h(309412, SetPendantSocketResponse.class, false, false);
-        c.a.p0.a4.g0.a.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
-        registerListener(this.f36309f);
+        this.d = false;
+        this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
+        dk8.h(309412, SetPendantSocketResponse.class, false, false);
+        dk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        registerListener(this.f);
     }
 
     public void D(long j, int i, int i2) {
@@ -142,14 +134,14 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f36308e = bVar;
+            this.e = bVar;
         }
     }
 
     public void G(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f36307d = z;
+            this.d = z;
         }
     }
 
@@ -166,7 +158,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36305b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -182,7 +174,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f36309f);
+            MessageManager.getInstance().unRegisterListener(this.f);
         }
     }
 }

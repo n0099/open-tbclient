@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMInviteRtcInfo";
@@ -57,8 +57,8 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
                 jSONObject.put(TiebaStatic.Params.RESOURCE_ID, jSONObject3.optString(TiebaStatic.Params.RESOURCE_ID));
                 jSONObject.put("session_type", jSONObject3.optInt("session_type"));
                 jSONObject.put("inviter_imuk", this.mInitiatorUk);
-            } catch (Exception e2) {
-                LogUtils.d("IMInviteRtcInfo", e2.getMessage());
+            } catch (Exception e) {
+                LogUtils.d("IMInviteRtcInfo", e.getMessage());
             }
             LogUtils.d("IMInviteRtcInfo", "info = " + jSONObject.toString());
             return jSONObject.toString();
@@ -175,8 +175,8 @@ public class BIMInviteSyncRtcInfo extends BIMSyncRtcInfo {
                 jSONObject.put("rtc_userid", this.mRtcUserId);
                 jSONObject.put("ext", this.mRtcExt);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e("IMInviteRtcInfo", "IMInviteRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e("IMInviteRtcInfo", "IMInviteRtcInfo Exception ", e);
                 return "";
             }
         }

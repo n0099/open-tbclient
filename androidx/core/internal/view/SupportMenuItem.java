@@ -55,10 +55,10 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setActionView(int i);
 
     @Override // android.view.MenuItem
-    MenuItem setActionView(View view);
+    MenuItem setActionView(View view2);
 
     @Override // android.view.MenuItem
-    MenuItem setAlphabeticShortcut(char c2, int i);
+    MenuItem setAlphabeticShortcut(char c, int i);
 
     @Override // android.view.MenuItem
     SupportMenuItem setContentDescription(CharSequence charSequence);
@@ -70,10 +70,10 @@ public interface SupportMenuItem extends MenuItem {
     MenuItem setIconTintMode(PorterDuff.Mode mode);
 
     @Override // android.view.MenuItem
-    MenuItem setNumericShortcut(char c2, int i);
+    MenuItem setNumericShortcut(char c, int i);
 
     @Override // android.view.MenuItem
-    MenuItem setShortcut(char c2, char c3, int i, int i2);
+    MenuItem setShortcut(char c, char c2, int i, int i2);
 
     @Override // android.view.MenuItem
     void setShowAsAction(int i);

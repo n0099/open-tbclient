@@ -8,7 +8,6 @@ import android.opengl.EGLDisplay;
 import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,9 +15,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
+import com.repackage.tb9;
 import org.webrtc.EglBase10;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InputSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_OPENGL_ES2_BIT = 4;
@@ -63,7 +63,7 @@ public class InputSurface {
                 if (eglGetError == 12288) {
                     break;
                 }
-                c.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                tb9.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
                 z = true;
             }
             if (z) {

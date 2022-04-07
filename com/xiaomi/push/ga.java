@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ga extends gc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,22 +21,14 @@ public class ga extends gc {
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f404a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f44269b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final a f44270c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final a f44271d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final a f44272e;
+        public static final a b;
+        public static final a c;
+        public static final a d;
+        public static final a e;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
@@ -56,10 +48,10 @@ public class ga extends gc {
                 }
             }
             a = new a(SharedPreferenceManager.OPERATION_GET_PERFIX);
-            f44269b = new a("set");
-            f44270c = new a("result");
-            f44271d = new a("error");
-            f44272e = new a("command");
+            b = new a("set");
+            c = new a("result");
+            d = new a("error");
+            e = new a("command");
         }
 
         public a(String str) {
@@ -91,17 +83,17 @@ public class ga extends gc {
                 if (a.toString().equals(lowerCase)) {
                     return a;
                 }
-                if (f44269b.toString().equals(lowerCase)) {
-                    return f44269b;
+                if (b.toString().equals(lowerCase)) {
+                    return b;
                 }
-                if (f44271d.toString().equals(lowerCase)) {
-                    return f44271d;
+                if (d.toString().equals(lowerCase)) {
+                    return d;
                 }
-                if (f44270c.toString().equals(lowerCase)) {
-                    return f44270c;
+                if (c.toString().equals(lowerCase)) {
+                    return c;
                 }
-                if (f44272e.toString().equals(lowerCase)) {
-                    return f44272e;
+                if (e.toString().equals(lowerCase)) {
+                    return e;
                 }
                 return null;
             }
@@ -219,14 +211,14 @@ public class ga extends gc {
                 str = "\">";
             }
             sb.append(str);
-            String b2 = b();
-            if (b2 != null) {
-                sb.append(b2);
+            String b = b();
+            if (b != null) {
+                sb.append(b);
             }
             sb.append(o());
-            gg m385a = m385a();
-            if (m385a != null) {
-                sb.append(m385a.m389a());
+            gg m381a = m381a();
+            if (m381a != null) {
+                sb.append(m381a.m385a());
             }
             sb.append("</iq>");
             return sb.toString();

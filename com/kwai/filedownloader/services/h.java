@@ -11,23 +11,15 @@ import com.kwai.filedownloader.download.DownloadLaunchRunnable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SparseArray<DownloadLaunchRunnable> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ThreadPoolExecutor f41779b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f41780c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f41781d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f41782e;
+    public ThreadPoolExecutor b;
+    public final String c;
+    public int d;
+    public int e;
 
     public h(int i) {
         Interceptable interceptable = $ic;
@@ -45,10 +37,10 @@ public class h {
             }
         }
         this.a = new SparseArray<>();
-        this.f41780c = "Network";
-        this.f41782e = 0;
-        this.f41779b = com.kwai.filedownloader.e.b.a(i, "Network");
-        this.f41781d = i;
+        this.c = "Network";
+        this.e = 0;
+        this.b = com.kwai.filedownloader.e.b.a(i, "Network");
+        this.d = i;
     }
 
     private synchronized void c() {
@@ -110,15 +102,15 @@ public class h {
             synchronized (this) {
                 this.a.put(downloadLaunchRunnable.d(), downloadLaunchRunnable);
             }
-            this.f41779b.execute(downloadLaunchRunnable);
-            int i2 = this.f41782e;
+            this.b.execute(downloadLaunchRunnable);
+            int i2 = this.e;
             if (i2 >= 600) {
                 c();
                 i = 0;
             } else {
                 i = i2 + 1;
             }
-            this.f41782e = i;
+            this.e = i;
         }
     }
 
@@ -133,14 +125,14 @@ public class h {
                 }
                 int a = com.kwai.filedownloader.e.e.a(i);
                 if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(this, "change the max network thread count, from %d to %d", Integer.valueOf(this.f41781d), Integer.valueOf(a));
+                    com.kwai.filedownloader.e.d.c(this, "change the max network thread count, from %d to %d", Integer.valueOf(this.d), Integer.valueOf(a));
                 }
-                List<Runnable> shutdownNow = this.f41779b.shutdownNow();
-                this.f41779b = com.kwai.filedownloader.e.b.a(a, "Network");
+                List<Runnable> shutdownNow = this.b.shutdownNow();
+                this.b = com.kwai.filedownloader.e.b.a(a, "Network");
                 if (shutdownNow.size() > 0) {
                     com.kwai.filedownloader.e.d.d(this, "recreate the network thread pool and discard %d tasks", Integer.valueOf(shutdownNow.size()));
                 }
-                this.f41781d = a;
+                this.d = a;
                 return true;
             }
         }
@@ -172,7 +164,7 @@ public class h {
                 DownloadLaunchRunnable downloadLaunchRunnable = this.a.get(i);
                 if (downloadLaunchRunnable != null) {
                     downloadLaunchRunnable.a();
-                    boolean remove = this.f41779b.remove(downloadLaunchRunnable);
+                    boolean remove = this.b.remove(downloadLaunchRunnable);
                     if (com.kwai.filedownloader.e.d.a) {
                         com.kwai.filedownloader.e.d.c(this, "successful cancel %d %B", Integer.valueOf(i), Boolean.valueOf(remove));
                     }

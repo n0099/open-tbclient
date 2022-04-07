@@ -5,14 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.e;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f43905b;
+    public final /* synthetic */ e b;
 
     public k(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -29,23 +27,23 @@ public final class k implements Runnable {
                 return;
             }
         }
-        this.f43905b = eVar;
+        this.b = eVar;
         this.a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-        r0 = r4.f43905b.d(r4.a);
+        r0 = r4.b.d(r4.a);
      */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void run() {
-        e.a d2;
+        e.a d;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || d2 == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || d == null) {
             return;
         }
-        d2.a(1003, new Object[0]);
+        d.a(1003, new Object[0]);
     }
 }

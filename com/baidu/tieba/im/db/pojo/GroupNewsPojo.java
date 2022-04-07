@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GroupNewsPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int hide = 3;
@@ -281,8 +281,8 @@ public class GroupNewsPojo implements Serializable {
                 if (optJSONObject != null) {
                     setGid(optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID));
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
         if (!str2.equals("apply_join_group") || ModelHelper.getInstance().getValidateModel() == null) {

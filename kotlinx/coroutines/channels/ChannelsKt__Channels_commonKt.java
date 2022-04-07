@@ -2152,7 +2152,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends Collection<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
+    public static final <E, C extends Collection<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterIndexedTo$1 channelsKt__Channels_commonKt$filterIndexedTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -2183,7 +2183,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     Ref.IntRef intRef2 = new Ref.IntRef();
                     intRef2.element = 0;
                     try {
-                        collection = c2;
+                        collection = c;
                         function22 = function2;
                         intRef = intRef2;
                         channelsKt__Channels_commonKt$filterIndexedTo$12 = channelsKt__Channels_commonKt$filterIndexedTo$1;
@@ -2373,7 +2373,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends Collection<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
+    public static final <E, C extends Collection<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterNotNullTo$1 channelsKt__Channels_commonKt$filterNotNullTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -2384,7 +2384,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         ReceiveChannel<? extends E> receiveChannel3;
         ReceiveChannel<? extends E> receiveChannel4;
         ChannelIterator<? extends E> it;
-        C c3;
+        C c2;
         ReceiveChannel<? extends E> receiveChannel5;
         Object hasNext;
         try {
@@ -2406,10 +2406,10 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             receiveChannel2 = receiveChannel3;
                             receiveChannel4 = receiveChannel2;
                             it = receiveChannel.iterator();
-                            c3 = c2;
+                            c2 = c;
                             receiveChannel5 = receiveChannel4;
                             channelsKt__Channels_commonKt$filterNotNullTo$12.L$0 = receiveChannel5;
-                            channelsKt__Channels_commonKt$filterNotNullTo$12.L$1 = c3;
+                            channelsKt__Channels_commonKt$filterNotNullTo$12.L$1 = c2;
                             channelsKt__Channels_commonKt$filterNotNullTo$12.L$2 = receiveChannel3;
                             channelsKt__Channels_commonKt$filterNotNullTo$12.L$3 = receiveChannel2;
                             channelsKt__Channels_commonKt$filterNotNullTo$12.L$4 = th2;
@@ -2438,7 +2438,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             receiveChannel4 = receiveChannel6;
                             receiveChannel5 = receiveChannel9;
                             Throwable th5 = th4;
-                            c3 = r6;
+                            c2 = r6;
                             Object obj3 = coroutine_suspended;
                             channelsKt__Channels_commonKt$filterNotNullTo$12 = channelsKt__Channels_commonKt$filterNotNullTo$1;
                             receiveChannel2 = receiveChannel7;
@@ -2447,18 +2447,18 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 if (!((Boolean) obj2).booleanValue()) {
                                     Unit unit = Unit.INSTANCE;
                                     ChannelsKt.cancelConsumed(receiveChannel2, th5);
-                                    return c3;
+                                    return c2;
                                 }
                                 E next = channelIterator2.next();
                                 if (next != null) {
-                                    c3.add(next);
+                                    c2.add(next);
                                 }
                                 receiveChannel3 = receiveChannel8;
                                 obj = obj3;
                                 th2 = th5;
                                 it = channelIterator2;
                                 channelsKt__Channels_commonKt$filterNotNullTo$12.L$0 = receiveChannel5;
-                                channelsKt__Channels_commonKt$filterNotNullTo$12.L$1 = c3;
+                                channelsKt__Channels_commonKt$filterNotNullTo$12.L$1 = c2;
                                 channelsKt__Channels_commonKt$filterNotNullTo$12.L$2 = receiveChannel3;
                                 channelsKt__Channels_commonKt$filterNotNullTo$12.L$3 = receiveChannel2;
                                 channelsKt__Channels_commonKt$filterNotNullTo$12.L$4 = th2;
@@ -2474,7 +2474,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 obj2 = hasNext;
                                 th5 = th2;
                                 obj3 = obj4;
-                                c3 = c3;
+                                c2 = c2;
                                 channelIterator2 = it;
                                 if (!((Boolean) obj2).booleanValue()) {
                                 }
@@ -2513,7 +2513,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends Collection<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+    public static final <E, C extends Collection<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterNotTo$1 channelsKt__Channels_commonKt$filterNotTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -2544,7 +2544,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         obj = coroutine_suspended;
                         receiveChannel2 = receiveChannel;
                         receiveChannel3 = receiveChannel2;
-                        collection = c2;
+                        collection = c;
                         receiveChannel4 = receiveChannel3;
                         it = receiveChannel.iterator();
                         function12 = function1;
@@ -2692,7 +2692,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends Collection<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+    public static final <E, C extends Collection<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterTo$1 channelsKt__Channels_commonKt$filterTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -2723,7 +2723,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         obj = coroutine_suspended;
                         receiveChannel2 = receiveChannel;
                         receiveChannel3 = receiveChannel2;
-                        collection = c2;
+                        collection = c;
                         receiveChannel4 = receiveChannel3;
                         it = receiveChannel.iterator();
                         function12 = function1;
@@ -4218,7 +4218,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E> Object indexOf(ReceiveChannel<? extends E> receiveChannel, E e2, Continuation<? super Integer> continuation) {
+    public static final <E> Object indexOf(ReceiveChannel<? extends E> receiveChannel, E e, Continuation<? super Integer> continuation) {
         ChannelsKt__Channels_commonKt$indexOf$1 channelsKt__Channels_commonKt$indexOf$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -4252,7 +4252,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             th2 = null;
                             receiveChannel3 = receiveChannel;
                             receiveChannel4 = receiveChannel3;
-                            obj2 = e2;
+                            obj2 = e;
                             receiveChannel5 = receiveChannel4;
                             it = receiveChannel.iterator();
                             channelsKt__Channels_commonKt$indexOf$12 = channelsKt__Channels_commonKt$indexOf$1;
@@ -4941,7 +4941,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E> Object lastIndexOf(ReceiveChannel<? extends E> receiveChannel, E e2, Continuation<? super Integer> continuation) {
+    public static final <E> Object lastIndexOf(ReceiveChannel<? extends E> receiveChannel, E e, Continuation<? super Integer> continuation) {
         ChannelsKt__Channels_commonKt$lastIndexOf$1 channelsKt__Channels_commonKt$lastIndexOf$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -4977,7 +4977,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             intRef2 = intRef4;
                             th2 = null;
                             receiveChannel3 = receiveChannel;
-                            obj = e2;
+                            obj = e;
                             channelsKt__Channels_commonKt$lastIndexOf$12 = channelsKt__Channels_commonKt$lastIndexOf$1;
                             receiveChannel4 = receiveChannel3;
                             receiveChannel2 = receiveChannel4;
@@ -5299,7 +5299,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends Collection<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+    public static final <E, R, C extends Collection<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapIndexedNotNullTo$1 channelsKt__Channels_commonKt$mapIndexedNotNullTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -5331,7 +5331,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     Ref.IntRef intRef2 = new Ref.IntRef();
                     intRef2.element = 0;
                     try {
-                        collection = c2;
+                        collection = c;
                         function22 = function2;
                         intRef = intRef2;
                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$12 = channelsKt__Channels_commonKt$mapIndexedNotNullTo$1;
@@ -5496,7 +5496,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends Collection<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+    public static final <E, R, C extends Collection<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapIndexedTo$1 channelsKt__Channels_commonKt$mapIndexedTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -5536,7 +5536,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         receiveChannel4 = receiveChannel3;
                         receiveChannel2 = receiveChannel4;
                         receiveChannel5 = receiveChannel2;
-                        collection = c2;
+                        collection = c;
                         channelsKt__Channels_commonKt$mapIndexedTo$12.L$0 = receiveChannel3;
                         channelsKt__Channels_commonKt$mapIndexedTo$12.L$1 = collection;
                         channelsKt__Channels_commonKt$mapIndexedTo$12.L$2 = function22;
@@ -5685,7 +5685,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends Collection<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+    public static final <E, R, C extends Collection<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapNotNullTo$1 channelsKt__Channels_commonKt$mapNotNullTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -5716,7 +5716,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         obj = coroutine_suspended;
                         receiveChannel2 = receiveChannel;
                         receiveChannel3 = receiveChannel2;
-                        collection = c2;
+                        collection = c;
                         receiveChannel4 = receiveChannel3;
                         it = receiveChannel.iterator();
                         function12 = function1;
@@ -5865,7 +5865,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends Collection<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+    public static final <E, R, C extends Collection<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapTo$1 channelsKt__Channels_commonKt$mapTo$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -5896,7 +5896,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         obj = coroutine_suspended;
                         receiveChannel2 = receiveChannel;
                         receiveChannel3 = receiveChannel2;
-                        collection = c2;
+                        collection = c;
                         receiveChannel4 = receiveChannel3;
                         it = receiveChannel.iterator();
                         function12 = function1;
@@ -8220,19 +8220,19 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     public static final Object sumByDouble$$forInline(ReceiveChannel receiveChannel, Function1 function1, Continuation continuation) {
         try {
             ChannelIterator it = receiveChannel.iterator();
-            double d2 = 0.0d;
+            double d = 0.0d;
             while (true) {
                 InlineMarker.mark(0);
                 Object hasNext = it.hasNext(continuation);
                 InlineMarker.mark(1);
                 if (((Boolean) hasNext).booleanValue()) {
-                    d2 += ((Number) function1.invoke(it.next())).doubleValue();
+                    d += ((Number) function1.invoke(it.next())).doubleValue();
                 } else {
                     Unit unit = Unit.INSTANCE;
                     InlineMarker.finallyStart(1);
                     ChannelsKt.cancelConsumed(receiveChannel, null);
                     InlineMarker.finallyEnd(1);
-                    return Double.valueOf(d2);
+                    return Double.valueOf(d);
                 }
             }
         } finally {
@@ -8278,7 +8278,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends SendChannel<? super E>> Object toChannel(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
+    public static final <E, C extends SendChannel<? super E>> Object toChannel(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$toChannel$1 channelsKt__Channels_commonKt$toChannel$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -8293,9 +8293,9 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         ReceiveChannel<? extends E> receiveChannel7;
         ReceiveChannel<? extends E> receiveChannel8;
         Object obj2;
-        C c3;
+        C c2;
         ChannelIterator channelIterator2;
-        C c4;
+        C c3;
         try {
             if (continuation instanceof ChannelsKt__Channels_commonKt$toChannel$1) {
                 channelsKt__Channels_commonKt$toChannel$1 = (ChannelsKt__Channels_commonKt$toChannel$1) continuation;
@@ -8312,7 +8312,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             obj2 = coroutine_suspended;
                             channelIterator2 = receiveChannel.iterator();
                             receiveChannel7 = receiveChannel;
-                            c3 = c2;
+                            c2 = c;
                             th = null;
                             receiveChannel8 = receiveChannel7;
                             receiveChannel3 = receiveChannel8;
@@ -8335,11 +8335,11 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 obj = obj3;
                                 receiveChannel3 = receiveChannel9;
                                 receiveChannel6 = receiveChannel10;
-                                c4 = r7;
+                                c3 = r7;
                                 if (!((Boolean) obj).booleanValue()) {
                                     Object next = channelIterator.next();
                                     channelsKt__Channels_commonKt$toChannel$1.L$0 = receiveChannel6;
-                                    channelsKt__Channels_commonKt$toChannel$1.L$1 = c4;
+                                    channelsKt__Channels_commonKt$toChannel$1.L$1 = c3;
                                     channelsKt__Channels_commonKt$toChannel$1.L$2 = receiveChannel5;
                                     channelsKt__Channels_commonKt$toChannel$1.L$3 = receiveChannel3;
                                     channelsKt__Channels_commonKt$toChannel$1.L$4 = th;
@@ -8348,21 +8348,21 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     channelsKt__Channels_commonKt$toChannel$1.L$7 = next;
                                     channelsKt__Channels_commonKt$toChannel$1.L$8 = next;
                                     channelsKt__Channels_commonKt$toChannel$1.label = 2;
-                                    if (c4.send(next, channelsKt__Channels_commonKt$toChannel$1) == coroutine_suspended) {
+                                    if (c3.send(next, channelsKt__Channels_commonKt$toChannel$1) == coroutine_suspended) {
                                         return coroutine_suspended;
                                     }
-                                    C c5 = c4;
+                                    C c4 = c3;
                                     channelIterator2 = channelIterator;
                                     receiveChannel = receiveChannel6;
                                     channelsKt__Channels_commonKt$toChannel$12 = channelsKt__Channels_commonKt$toChannel$1;
                                     receiveChannel7 = receiveChannel4;
                                     receiveChannel8 = receiveChannel5;
                                     obj2 = coroutine_suspended;
-                                    c3 = c5;
+                                    c2 = c4;
                                 } else {
                                     Unit unit = Unit.INSTANCE;
                                     ChannelsKt.cancelConsumed(receiveChannel3, th);
-                                    return c4;
+                                    return c3;
                                 }
                             } else if (i != 2) {
                                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -8382,7 +8382,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 receiveChannel7 = receiveChannel11;
                                 receiveChannel8 = receiveChannel13;
                                 obj2 = coroutine_suspended;
-                                c3 = r72;
+                                c2 = r72;
                                 channelIterator2 = channelIterator3;
                                 receiveChannel = receiveChannel14;
                             }
@@ -8398,7 +8398,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         }
                     }
                     channelsKt__Channels_commonKt$toChannel$12.L$0 = receiveChannel;
-                    channelsKt__Channels_commonKt$toChannel$12.L$1 = c3;
+                    channelsKt__Channels_commonKt$toChannel$12.L$1 = c2;
                     channelsKt__Channels_commonKt$toChannel$12.L$2 = receiveChannel8;
                     channelsKt__Channels_commonKt$toChannel$12.L$3 = receiveChannel3;
                     channelsKt__Channels_commonKt$toChannel$12.L$4 = th;
@@ -8412,7 +8412,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     ChannelsKt__Channels_commonKt$toChannel$1 channelsKt__Channels_commonKt$toChannel$13 = channelsKt__Channels_commonKt$toChannel$12;
                     receiveChannel6 = receiveChannel;
                     channelIterator = channelIterator2;
-                    c4 = c3;
+                    c3 = c2;
                     coroutine_suspended = obj2;
                     receiveChannel5 = receiveChannel8;
                     receiveChannel4 = receiveChannel7;
@@ -8422,7 +8422,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                 }
             }
             channelsKt__Channels_commonKt$toChannel$12.L$0 = receiveChannel;
-            channelsKt__Channels_commonKt$toChannel$12.L$1 = c3;
+            channelsKt__Channels_commonKt$toChannel$12.L$1 = c2;
             channelsKt__Channels_commonKt$toChannel$12.L$2 = receiveChannel8;
             channelsKt__Channels_commonKt$toChannel$12.L$3 = receiveChannel3;
             channelsKt__Channels_commonKt$toChannel$12.L$4 = th;
@@ -8457,7 +8457,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends Collection<? super E>> Object toCollection(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
+    public static final <E, C extends Collection<? super E>> Object toCollection(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$toCollection$1 channelsKt__Channels_commonKt$toCollection$1;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -8468,7 +8468,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         ReceiveChannel<? extends E> receiveChannel3;
         ReceiveChannel<? extends E> receiveChannel4;
         ChannelIterator<? extends E> it;
-        C c3;
+        C c2;
         ReceiveChannel<? extends E> receiveChannel5;
         Object hasNext;
         try {
@@ -8490,10 +8490,10 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             receiveChannel2 = receiveChannel3;
                             receiveChannel4 = receiveChannel2;
                             it = receiveChannel.iterator();
-                            c3 = c2;
+                            c2 = c;
                             receiveChannel5 = receiveChannel4;
                             channelsKt__Channels_commonKt$toCollection$12.L$0 = receiveChannel5;
-                            channelsKt__Channels_commonKt$toCollection$12.L$1 = c3;
+                            channelsKt__Channels_commonKt$toCollection$12.L$1 = c2;
                             channelsKt__Channels_commonKt$toCollection$12.L$2 = receiveChannel3;
                             channelsKt__Channels_commonKt$toCollection$12.L$3 = receiveChannel2;
                             channelsKt__Channels_commonKt$toCollection$12.L$4 = th2;
@@ -8522,20 +8522,20 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             receiveChannel4 = receiveChannel6;
                             receiveChannel5 = receiveChannel9;
                             Throwable th5 = th4;
-                            c3 = r6;
+                            c2 = r6;
                             Object obj3 = coroutine_suspended;
                             channelsKt__Channels_commonKt$toCollection$12 = channelsKt__Channels_commonKt$toCollection$1;
                             receiveChannel2 = receiveChannel7;
                             ChannelIterator<? extends E> channelIterator2 = channelIterator;
                             try {
                                 if (!((Boolean) obj2).booleanValue()) {
-                                    c3.add(channelIterator2.next());
+                                    c2.add(channelIterator2.next());
                                     receiveChannel3 = receiveChannel8;
                                     obj = obj3;
                                     th2 = th5;
                                     it = channelIterator2;
                                     channelsKt__Channels_commonKt$toCollection$12.L$0 = receiveChannel5;
-                                    channelsKt__Channels_commonKt$toCollection$12.L$1 = c3;
+                                    channelsKt__Channels_commonKt$toCollection$12.L$1 = c2;
                                     channelsKt__Channels_commonKt$toCollection$12.L$2 = receiveChannel3;
                                     channelsKt__Channels_commonKt$toCollection$12.L$3 = receiveChannel2;
                                     channelsKt__Channels_commonKt$toCollection$12.L$4 = th2;
@@ -8551,12 +8551,12 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     obj2 = hasNext;
                                     th5 = th2;
                                     obj3 = obj4;
-                                    c3 = c3;
+                                    c2 = c2;
                                     channelIterator2 = it;
                                     if (!((Boolean) obj2).booleanValue()) {
                                         Unit unit = Unit.INSTANCE;
                                         ChannelsKt.cancelConsumed(receiveChannel2, th5);
-                                        return c3;
+                                        return c2;
                                     }
                                 }
                             } catch (Throwable th6) {
@@ -9660,7 +9660,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends SendChannel<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Continuation<? super C> continuation) {
+    public static final <E, C extends SendChannel<? super E>> Object filterNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterNotNullTo$3 channelsKt__Channels_commonKt$filterNotNullTo$3;
         int i;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -9692,7 +9692,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             obj = coroutine_suspended;
                             it = receiveChannel.iterator();
                             receiveChannel3 = receiveChannel;
-                            sendChannel = c2;
+                            sendChannel = c;
                             th = null;
                             receiveChannel4 = receiveChannel3;
                             receiveChannel5 = receiveChannel4;
@@ -9832,7 +9832,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends SendChannel<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+    public static final <E, C extends SendChannel<? super E>> Object filterNotTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterNotTo$3 channelsKt__Channels_commonKt$filterNotTo$3;
         int i;
         Throwable th;
@@ -9846,7 +9846,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         Function1<? super E, Boolean> function12;
         ChannelIterator channelIterator;
         ReceiveChannel<? extends E> receiveChannel6;
-        C c3;
+        C c2;
         ReceiveChannel<? extends E> receiveChannel7;
         ChannelIterator channelIterator2;
         Throwable th3;
@@ -9863,7 +9863,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     if (i != 0) {
                         ResultKt.throwOnFailure(obj2);
                         try {
-                            c3 = c2;
+                            c2 = c;
                             function12 = function1;
                             th2 = null;
                             channelsKt__Channels_commonKt$filterNotTo$32 = channelsKt__Channels_commonKt$filterNotTo$3;
@@ -9899,12 +9899,12 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 function12 = function13;
                                 channelIterator = channelIterator3;
                                 receiveChannel6 = receiveChannel8;
-                                c3 = r11;
+                                c2 = r11;
                                 if (!((Boolean) obj2).booleanValue()) {
                                     Object obj3 = (Object) channelIterator.next();
                                     if (!function12.invoke(obj3).booleanValue()) {
                                         channelsKt__Channels_commonKt$filterNotTo$32.L$0 = receiveChannel4;
-                                        channelsKt__Channels_commonKt$filterNotTo$32.L$1 = c3;
+                                        channelsKt__Channels_commonKt$filterNotTo$32.L$1 = c2;
                                         channelsKt__Channels_commonKt$filterNotTo$32.L$2 = function12;
                                         channelsKt__Channels_commonKt$filterNotTo$32.L$3 = receiveChannel5;
                                         channelsKt__Channels_commonKt$filterNotTo$32.L$4 = receiveChannel3;
@@ -9914,7 +9914,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         channelsKt__Channels_commonKt$filterNotTo$32.L$8 = obj3;
                                         channelsKt__Channels_commonKt$filterNotTo$32.L$9 = obj3;
                                         channelsKt__Channels_commonKt$filterNotTo$32.label = 2;
-                                        if (c3.send(obj3, channelsKt__Channels_commonKt$filterNotTo$32) == obj) {
+                                        if (c2.send(obj3, channelsKt__Channels_commonKt$filterNotTo$32) == obj) {
                                             return obj;
                                         }
                                     }
@@ -9922,7 +9922,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     channelIterator2 = channelIterator;
                                 } else {
                                     Unit unit = Unit.INSTANCE;
-                                    return c3;
+                                    return c2;
                                 }
                             } else if (i != 2) {
                                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -9947,7 +9947,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 function12 = function14;
                                 channelIterator2 = channelIterator4;
                                 receiveChannel6 = receiveChannel11;
-                                c3 = r112;
+                                c2 = r112;
                             }
                         } catch (Throwable th7) {
                             th = th7;
@@ -9962,7 +9962,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         }
                     }
                     channelsKt__Channels_commonKt$filterNotTo$32.L$0 = receiveChannel7;
-                    channelsKt__Channels_commonKt$filterNotTo$32.L$1 = c3;
+                    channelsKt__Channels_commonKt$filterNotTo$32.L$1 = c2;
                     channelsKt__Channels_commonKt$filterNotTo$32.L$2 = function12;
                     channelsKt__Channels_commonKt$filterNotTo$32.L$3 = receiveChannel5;
                     channelsKt__Channels_commonKt$filterNotTo$32.L$4 = receiveChannel3;
@@ -9982,7 +9982,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                 }
             }
             channelsKt__Channels_commonKt$filterNotTo$32.L$0 = receiveChannel7;
-            channelsKt__Channels_commonKt$filterNotTo$32.L$1 = c3;
+            channelsKt__Channels_commonKt$filterNotTo$32.L$1 = c2;
             channelsKt__Channels_commonKt$filterNotTo$32.L$2 = function12;
             channelsKt__Channels_commonKt$filterNotTo$32.L$3 = receiveChannel5;
             channelsKt__Channels_commonKt$filterNotTo$32.L$4 = receiveChannel3;
@@ -10022,7 +10022,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends SendChannel<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
+    public static final <E, C extends SendChannel<? super E>> Object filterTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, Boolean> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterTo$3 channelsKt__Channels_commonKt$filterTo$3;
         int i;
         Throwable th;
@@ -10036,7 +10036,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         Function1<? super E, Boolean> function12;
         ChannelIterator channelIterator;
         ReceiveChannel<? extends E> receiveChannel6;
-        C c3;
+        C c2;
         ReceiveChannel<? extends E> receiveChannel7;
         ChannelIterator channelIterator2;
         Throwable th3;
@@ -10053,7 +10053,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     if (i != 0) {
                         ResultKt.throwOnFailure(obj2);
                         try {
-                            c3 = c2;
+                            c2 = c;
                             function12 = function1;
                             th2 = null;
                             channelsKt__Channels_commonKt$filterTo$32 = channelsKt__Channels_commonKt$filterTo$3;
@@ -10089,12 +10089,12 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 function12 = function13;
                                 channelIterator = channelIterator3;
                                 receiveChannel6 = receiveChannel8;
-                                c3 = r11;
+                                c2 = r11;
                                 if (!((Boolean) obj2).booleanValue()) {
                                     Object obj3 = (Object) channelIterator.next();
                                     if (function12.invoke(obj3).booleanValue()) {
                                         channelsKt__Channels_commonKt$filterTo$32.L$0 = receiveChannel4;
-                                        channelsKt__Channels_commonKt$filterTo$32.L$1 = c3;
+                                        channelsKt__Channels_commonKt$filterTo$32.L$1 = c2;
                                         channelsKt__Channels_commonKt$filterTo$32.L$2 = function12;
                                         channelsKt__Channels_commonKt$filterTo$32.L$3 = receiveChannel5;
                                         channelsKt__Channels_commonKt$filterTo$32.L$4 = receiveChannel3;
@@ -10104,7 +10104,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         channelsKt__Channels_commonKt$filterTo$32.L$8 = obj3;
                                         channelsKt__Channels_commonKt$filterTo$32.L$9 = obj3;
                                         channelsKt__Channels_commonKt$filterTo$32.label = 2;
-                                        if (c3.send(obj3, channelsKt__Channels_commonKt$filterTo$32) == obj) {
+                                        if (c2.send(obj3, channelsKt__Channels_commonKt$filterTo$32) == obj) {
                                             return obj;
                                         }
                                     }
@@ -10112,7 +10112,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     channelIterator2 = channelIterator;
                                 } else {
                                     Unit unit = Unit.INSTANCE;
-                                    return c3;
+                                    return c2;
                                 }
                             } else if (i != 2) {
                                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
@@ -10137,7 +10137,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 function12 = function14;
                                 channelIterator2 = channelIterator4;
                                 receiveChannel6 = receiveChannel11;
-                                c3 = r112;
+                                c2 = r112;
                             }
                         } catch (Throwable th7) {
                             th = th7;
@@ -10152,7 +10152,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         }
                     }
                     channelsKt__Channels_commonKt$filterTo$32.L$0 = receiveChannel7;
-                    channelsKt__Channels_commonKt$filterTo$32.L$1 = c3;
+                    channelsKt__Channels_commonKt$filterTo$32.L$1 = c2;
                     channelsKt__Channels_commonKt$filterTo$32.L$2 = function12;
                     channelsKt__Channels_commonKt$filterTo$32.L$3 = receiveChannel5;
                     channelsKt__Channels_commonKt$filterTo$32.L$4 = receiveChannel3;
@@ -10172,7 +10172,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                 }
             }
             channelsKt__Channels_commonKt$filterTo$32.L$0 = receiveChannel7;
-            channelsKt__Channels_commonKt$filterTo$32.L$1 = c3;
+            channelsKt__Channels_commonKt$filterTo$32.L$1 = c2;
             channelsKt__Channels_commonKt$filterTo$32.L$2 = function12;
             channelsKt__Channels_commonKt$filterTo$32.L$3 = receiveChannel5;
             channelsKt__Channels_commonKt$filterTo$32.L$4 = receiveChannel3;
@@ -10213,7 +10213,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends SendChannel<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+    public static final <E, R, C extends SendChannel<? super R>> Object mapNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapNotNullTo$3 channelsKt__Channels_commonKt$mapNotNullTo$3;
         ?? r2;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -10226,11 +10226,11 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         ReceiveChannel<? extends E> receiveChannel6;
         ReceiveChannel<? extends E> receiveChannel7;
         ChannelsKt__Channels_commonKt$mapNotNullTo$3 channelsKt__Channels_commonKt$mapNotNullTo$32;
-        C c3;
+        C c2;
         ChannelIterator<? extends E> channelIterator2;
         Object obj;
         Function1<? super E, ? extends R> function13;
-        C c4;
+        C c3;
         Object hasNext;
         try {
             if (continuation instanceof ChannelsKt__Channels_commonKt$mapNotNullTo$3) {
@@ -10255,7 +10255,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 ResultKt.throwOnFailure(obj2);
                                 th = th2;
                                 receiveChannel2 = receiveChannel8;
-                                c4 = r7;
+                                c3 = r7;
                                 if (((Boolean) obj2).booleanValue()) {
                                 }
                             } else if (r2 != 2) {
@@ -10273,11 +10273,11 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 ?? r72 = (SendChannel) channelsKt__Channels_commonKt$mapNotNullTo$3.L$1;
                                 receiveChannel5 = (ReceiveChannel) channelsKt__Channels_commonKt$mapNotNullTo$3.L$0;
                                 ResultKt.throwOnFailure(obj2);
-                                C c5 = r72;
+                                C c4 = r72;
                                 receiveChannel6 = receiveChannel3;
                                 receiveChannel7 = receiveChannel4;
                                 channelsKt__Channels_commonKt$mapNotNullTo$32 = channelsKt__Channels_commonKt$mapNotNullTo$3;
-                                c3 = c5;
+                                c2 = c4;
                                 channelIterator2 = channelIterator;
                                 receiveChannel = receiveChannel5;
                                 ReceiveChannel<? extends E> receiveChannel10 = receiveChannel9;
@@ -10288,7 +10288,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 function13 = function14;
                                 try {
                                     channelsKt__Channels_commonKt$mapNotNullTo$32.L$0 = receiveChannel;
-                                    channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c3;
+                                    channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c2;
                                     channelsKt__Channels_commonKt$mapNotNullTo$32.L$2 = function13;
                                     channelsKt__Channels_commonKt$mapNotNullTo$32.L$3 = receiveChannel7;
                                     channelsKt__Channels_commonKt$mapNotNullTo$32.L$4 = receiveChannel2;
@@ -10302,7 +10302,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     }
                                     receiveChannel5 = receiveChannel;
                                     channelIterator = channelIterator2;
-                                    c4 = c3;
+                                    c3 = c2;
                                     channelsKt__Channels_commonKt$mapNotNullTo$3 = channelsKt__Channels_commonKt$mapNotNullTo$32;
                                     receiveChannel4 = receiveChannel7;
                                     receiveChannel3 = receiveChannel6;
@@ -10315,7 +10315,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         R invoke = function12.invoke(obj7);
                                         if (invoke != null) {
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.L$0 = receiveChannel5;
-                                            channelsKt__Channels_commonKt$mapNotNullTo$3.L$1 = c4;
+                                            channelsKt__Channels_commonKt$mapNotNullTo$3.L$1 = c3;
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.L$2 = function12;
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.L$3 = receiveChannel4;
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.L$4 = receiveChannel2;
@@ -10326,17 +10326,17 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.L$9 = obj7;
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.L$10 = invoke;
                                             channelsKt__Channels_commonKt$mapNotNullTo$3.label = 2;
-                                            if (c4.send(invoke, channelsKt__Channels_commonKt$mapNotNullTo$3) == coroutine_suspended) {
+                                            if (c3.send(invoke, channelsKt__Channels_commonKt$mapNotNullTo$3) == coroutine_suspended) {
                                                 return coroutine_suspended;
                                             }
                                             Throwable th4 = th;
                                             receiveChannel9 = receiveChannel2;
                                             th3 = th4;
-                                            c5 = c4;
+                                            c4 = c3;
                                             receiveChannel6 = receiveChannel3;
                                             receiveChannel7 = receiveChannel4;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32 = channelsKt__Channels_commonKt$mapNotNullTo$3;
-                                            c3 = c5;
+                                            c2 = c4;
                                             channelIterator2 = channelIterator;
                                             receiveChannel = receiveChannel5;
                                             ReceiveChannel<? extends E> receiveChannel102 = receiveChannel9;
@@ -10346,7 +10346,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                             obj = coroutine_suspended;
                                             function13 = function142;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$0 = receiveChannel;
-                                            channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c3;
+                                            channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c2;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$2 = function13;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$3 = receiveChannel7;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$4 = receiveChannel2;
@@ -10361,14 +10361,14 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                             receiveChannel6 = receiveChannel3;
                                             receiveChannel7 = receiveChannel4;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32 = channelsKt__Channels_commonKt$mapNotNullTo$3;
-                                            c3 = c4;
+                                            c2 = c3;
                                             channelIterator2 = channelIterator;
                                             receiveChannel = receiveChannel5;
                                             Function1<? super E, ? extends R> function15 = function12;
                                             obj = coroutine_suspended;
                                             function13 = function15;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$0 = receiveChannel;
-                                            channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c3;
+                                            channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c2;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$2 = function13;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$3 = receiveChannel7;
                                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$4 = receiveChannel2;
@@ -10385,7 +10385,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         InlineMarker.finallyStart(1);
                                         ChannelsKt.cancelConsumed(receiveChannel2, th);
                                         InlineMarker.finallyEnd(1);
-                                        return c4;
+                                        return c3;
                                     }
                                 } catch (Throwable th5) {
                                     th = th5;
@@ -10401,14 +10401,14 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             channelsKt__Channels_commonKt$mapNotNullTo$32 = channelsKt__Channels_commonKt$mapNotNullTo$3;
                             obj = coroutine_suspended;
                             channelIterator2 = receiveChannel.iterator();
-                            c3 = c2;
+                            c2 = c;
                             function13 = function1;
                             th = null;
                             receiveChannel7 = receiveChannel;
                             receiveChannel2 = receiveChannel7;
                             receiveChannel6 = receiveChannel2;
                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$0 = receiveChannel;
-                            channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c3;
+                            channelsKt__Channels_commonKt$mapNotNullTo$32.L$1 = c2;
                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$2 = function13;
                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$3 = receiveChannel7;
                             channelsKt__Channels_commonKt$mapNotNullTo$32.L$4 = receiveChannel2;
@@ -10454,7 +10454,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends SendChannel<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
+    public static final <E, R, C extends SendChannel<? super R>> Object mapTo(ReceiveChannel<? extends E> receiveChannel, C c, Function1<? super E, ? extends R> function1, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapTo$3 channelsKt__Channels_commonKt$mapTo$3;
         ?? r2;
         ReceiveChannel<? extends E> receiveChannel2;
@@ -10488,7 +10488,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             channelsKt__Channels_commonKt$mapTo$32 = channelsKt__Channels_commonKt$mapTo$3;
                             obj = coroutine_suspended;
                             channelIterator2 = receiveChannel.iterator();
-                            sendChannel2 = c2;
+                            sendChannel2 = c;
                             function13 = function1;
                             th = null;
                             receiveChannel7 = receiveChannel;
@@ -11102,7 +11102,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapIndexedTo$3 channelsKt__Channels_commonKt$mapIndexedTo$3;
         int i;
         Throwable th;
@@ -11151,7 +11151,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             receiveChannel8 = receiveChannel7;
                             receiveChannel3 = receiveChannel8;
                             receiveChannel9 = receiveChannel3;
-                            sendChannel2 = c2;
+                            sendChannel2 = c;
                         } catch (Throwable th5) {
                             th4 = th5;
                             receiveChannel3 = receiveChannel;
@@ -11473,7 +11473,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, C extends SendChannel<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
+    public static final <E, C extends SendChannel<? super E>> Object filterIndexedTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, Boolean> function2, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$filterIndexedTo$3 channelsKt__Channels_commonKt$filterIndexedTo$3;
         int i;
         Throwable th;
@@ -11487,14 +11487,14 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         Function2<? super Integer, ? super E, Boolean> function22;
         ReceiveChannel<? extends E> receiveChannel7;
         ChannelIterator<? extends E> channelIterator;
-        C c3;
+        C c2;
         Throwable th3;
         Throwable th4;
         Object obj;
         ChannelsKt__Channels_commonKt$filterIndexedTo$3 channelsKt__Channels_commonKt$filterIndexedTo$32;
         Ref.IntRef intRef2;
         Function2<? super Integer, ? super E, Boolean> function23;
-        C c4;
+        C c3;
         ReceiveChannel<? extends E> receiveChannel8;
         ReceiveChannel<? extends E> receiveChannel9;
         ReceiveChannel<? extends E> receiveChannel10;
@@ -11513,7 +11513,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     Ref.IntRef intRef3 = new Ref.IntRef();
                     intRef3.element = 0;
                     try {
-                        c4 = c2;
+                        c3 = c;
                         function23 = function2;
                         intRef2 = intRef3;
                         channelsKt__Channels_commonKt$filterIndexedTo$32 = channelsKt__Channels_commonKt$filterIndexedTo$3;
@@ -11526,7 +11526,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         receiveChannel3 = receiveChannel8;
                         receiveChannel4 = receiveChannel3;
                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$0 = receiveChannel10;
-                        channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c4;
+                        channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c3;
                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$2 = function23;
                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$3 = receiveChannel9;
                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$4 = intRef2;
@@ -11561,7 +11561,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             ResultKt.throwOnFailure(obj2);
                             channelIterator = channelIterator2;
                             receiveChannel3 = receiveChannel11;
-                            c3 = r13;
+                            c2 = r13;
                             if (!((Boolean) obj2).booleanValue()) {
                             }
                         } else if (i != 2) {
@@ -11590,14 +11590,14 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 obj = coroutine_suspended;
                                 receiveChannel8 = receiveChannel5;
                                 intRef2 = intRef4;
-                                C c5 = obj6;
+                                C c4 = obj6;
                                 channelIterator = channelIterator3;
                                 receiveChannel3 = receiveChannel12;
                                 function23 = function22;
                                 th4 = th2;
-                                c4 = c5;
+                                c3 = c4;
                                 channelsKt__Channels_commonKt$filterIndexedTo$32.L$0 = receiveChannel10;
-                                channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c4;
+                                channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c3;
                                 channelsKt__Channels_commonKt$filterIndexedTo$32.L$2 = function23;
                                 channelsKt__Channels_commonKt$filterIndexedTo$32.L$3 = receiveChannel9;
                                 channelsKt__Channels_commonKt$filterIndexedTo$32.L$4 = intRef2;
@@ -11620,7 +11620,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 receiveChannel5 = receiveChannel8;
                                 coroutine_suspended = obj7;
                                 Function2<? super Integer, ? super E, Boolean> function24 = function23;
-                                c3 = c4;
+                                c2 = c3;
                                 th2 = th4;
                                 function22 = function24;
                                 if (!((Boolean) obj2).booleanValue()) {
@@ -11633,7 +11633,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     Object obj9 = coroutine_suspended;
                                     if (function22.invoke(Boxing.boxInt(component1), obj8).booleanValue()) {
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.L$0 = receiveChannel7;
-                                        channelsKt__Channels_commonKt$filterIndexedTo$3.L$1 = c3;
+                                        channelsKt__Channels_commonKt$filterIndexedTo$3.L$1 = c2;
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.L$2 = function22;
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.L$3 = receiveChannel6;
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.L$4 = intRef;
@@ -11648,11 +11648,11 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.I$0 = component1;
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.L$13 = obj8;
                                         channelsKt__Channels_commonKt$filterIndexedTo$3.label = 2;
-                                        if (c3.send(obj8, channelsKt__Channels_commonKt$filterIndexedTo$3) == obj9) {
+                                        if (c2.send(obj8, channelsKt__Channels_commonKt$filterIndexedTo$3) == obj9) {
                                             return obj9;
                                         }
                                         coroutine_suspended = obj9;
-                                        Object obj10 = c3;
+                                        Object obj10 = c2;
                                         receiveChannel12 = receiveChannel3;
                                         channelIterator3 = channelIterator;
                                         obj6 = obj10;
@@ -11662,17 +11662,17 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         obj = coroutine_suspended;
                                         receiveChannel8 = receiveChannel5;
                                         intRef2 = intRef42;
-                                        C c52 = obj6;
+                                        C c42 = obj6;
                                         channelIterator = channelIterator3;
                                         receiveChannel3 = receiveChannel12;
                                         function23 = function22;
                                         th4 = th2;
-                                        c4 = c52;
+                                        c3 = c42;
                                         receiveChannel10 = receiveChannel7;
                                         i3 = 1;
                                         channelIterator = channelIterator;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$0 = receiveChannel10;
-                                        channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c4;
+                                        channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c3;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$2 = function23;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$3 = receiveChannel9;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$4 = intRef2;
@@ -11693,13 +11693,13 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         obj = obj9;
                                         Function2<? super Integer, ? super E, Boolean> function25 = function22;
                                         th4 = th2;
-                                        c4 = c3;
+                                        c3 = c2;
                                         function23 = function25;
                                         receiveChannel10 = receiveChannel7;
                                         i3 = 1;
                                         channelIterator = channelIterator;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$0 = receiveChannel10;
-                                        channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c4;
+                                        channelsKt__Channels_commonKt$filterIndexedTo$32.L$1 = c3;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$2 = function23;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$3 = receiveChannel9;
                                         channelsKt__Channels_commonKt$filterIndexedTo$32.L$4 = intRef2;
@@ -11715,7 +11715,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     }
                                 } else {
                                     Unit unit = Unit.INSTANCE;
-                                    return c3;
+                                    return c2;
                                 }
                             } catch (Throwable th6) {
                                 th3 = th6;
@@ -11796,7 +11796,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c2, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
+    public static final <E, R, C extends SendChannel<? super R>> Object mapIndexedNotNullTo(ReceiveChannel<? extends E> receiveChannel, C c, Function2<? super Integer, ? super E, ? extends R> function2, Continuation<? super C> continuation) {
         ChannelsKt__Channels_commonKt$mapIndexedNotNullTo$3 channelsKt__Channels_commonKt$mapIndexedNotNullTo$3;
         int i;
         Throwable th;
@@ -11810,14 +11810,14 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
         Function2<? super Integer, ? super E, ? extends R> function22;
         ReceiveChannel<? extends E> receiveChannel7;
         ChannelIterator<? extends E> channelIterator;
-        C c3;
+        C c2;
         Throwable th3;
         Throwable th4;
         Object obj;
         ChannelsKt__Channels_commonKt$mapIndexedNotNullTo$3 channelsKt__Channels_commonKt$mapIndexedNotNullTo$32;
         Ref.IntRef intRef2;
         Function2<? super Integer, ? super E, ? extends R> function23;
-        C c4;
+        C c3;
         ReceiveChannel<? extends E> receiveChannel8;
         ReceiveChannel<? extends E> receiveChannel9;
         ReceiveChannel<? extends E> receiveChannel10;
@@ -11836,7 +11836,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                     Ref.IntRef intRef3 = new Ref.IntRef();
                     intRef3.element = 0;
                     try {
-                        c4 = c2;
+                        c3 = c;
                         function23 = function2;
                         intRef2 = intRef3;
                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32 = channelsKt__Channels_commonKt$mapIndexedNotNullTo$3;
@@ -11849,7 +11849,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                         receiveChannel3 = receiveChannel8;
                         receiveChannel4 = receiveChannel3;
                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$0 = receiveChannel10;
-                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c4;
+                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c3;
                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$2 = function23;
                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$3 = receiveChannel9;
                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$4 = intRef2;
@@ -11884,7 +11884,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                             ResultKt.throwOnFailure(obj2);
                             channelIterator = channelIterator2;
                             receiveChannel3 = receiveChannel11;
-                            c3 = r13;
+                            c2 = r13;
                             if (!((Boolean) obj2).booleanValue()) {
                             }
                         } else if (i != 2) {
@@ -11914,14 +11914,14 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 obj = coroutine_suspended;
                                 receiveChannel8 = receiveChannel5;
                                 intRef2 = intRef4;
-                                C c5 = obj7;
+                                C c4 = obj7;
                                 channelIterator = channelIterator3;
                                 receiveChannel3 = receiveChannel12;
                                 function23 = function22;
                                 th4 = th2;
-                                c4 = c5;
+                                c3 = c4;
                                 channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$0 = receiveChannel10;
-                                channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c4;
+                                channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c3;
                                 channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$2 = function23;
                                 channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$3 = receiveChannel9;
                                 channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$4 = intRef2;
@@ -11944,7 +11944,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                 receiveChannel5 = receiveChannel8;
                                 coroutine_suspended = obj8;
                                 Function2<? super Integer, ? super E, ? extends R> function24 = function23;
-                                c3 = c4;
+                                c2 = c3;
                                 th2 = th4;
                                 function22 = function24;
                                 if (!((Boolean) obj2).booleanValue()) {
@@ -11958,7 +11958,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     R invoke = function22.invoke(Boxing.boxInt(component1), obj9);
                                     if (invoke != null) {
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$0 = receiveChannel7;
-                                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$1 = c3;
+                                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$1 = c2;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$2 = function22;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$3 = receiveChannel6;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$4 = intRef;
@@ -11974,11 +11974,11 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$13 = obj9;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.L$14 = invoke;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$3.label = 2;
-                                        if (c3.send(invoke, channelsKt__Channels_commonKt$mapIndexedNotNullTo$3) == obj10) {
+                                        if (c2.send(invoke, channelsKt__Channels_commonKt$mapIndexedNotNullTo$3) == obj10) {
                                             return obj10;
                                         }
                                         coroutine_suspended = obj10;
-                                        Object obj11 = c3;
+                                        Object obj11 = c2;
                                         receiveChannel12 = receiveChannel3;
                                         channelIterator3 = channelIterator;
                                         obj7 = obj11;
@@ -11988,17 +11988,17 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         obj = coroutine_suspended;
                                         receiveChannel8 = receiveChannel5;
                                         intRef2 = intRef42;
-                                        C c52 = obj7;
+                                        C c42 = obj7;
                                         channelIterator = channelIterator3;
                                         receiveChannel3 = receiveChannel12;
                                         function23 = function22;
                                         th4 = th2;
-                                        c4 = c52;
+                                        c3 = c42;
                                         receiveChannel10 = receiveChannel7;
                                         i3 = 1;
                                         channelIterator = channelIterator;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$0 = receiveChannel10;
-                                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c4;
+                                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c3;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$2 = function23;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$3 = receiveChannel9;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$4 = intRef2;
@@ -12019,13 +12019,13 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                         obj = obj10;
                                         Function2<? super Integer, ? super E, ? extends R> function25 = function22;
                                         th4 = th2;
-                                        c4 = c3;
+                                        c3 = c2;
                                         function23 = function25;
                                         receiveChannel10 = receiveChannel7;
                                         i3 = 1;
                                         channelIterator = channelIterator;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$0 = receiveChannel10;
-                                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c4;
+                                        channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$1 = c3;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$2 = function23;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$3 = receiveChannel9;
                                         channelsKt__Channels_commonKt$mapIndexedNotNullTo$32.L$4 = intRef2;
@@ -12041,7 +12041,7 @@ public final /* synthetic */ class ChannelsKt__Channels_commonKt {
                                     }
                                 } else {
                                     Unit unit = Unit.INSTANCE;
-                                    return c3;
+                                    return c2;
                                 }
                             } catch (Throwable th6) {
                                 th3 = th6;

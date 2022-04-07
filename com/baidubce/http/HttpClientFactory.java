@@ -26,12 +26,12 @@ import okhttp3.Response;
 import okhttp3.Route;
 import org.apache.http.auth.AUTH;
 import org.apache.http.client.params.AuthPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class NTLMAuthenticator implements Authenticator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,8 +66,8 @@ public class HttpClientFactory {
             String str5 = null;
             try {
                 str5 = nTLMEngineImpl.generateType1Msg(null, null);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             this.ntlmMsg1 = str5;
         }
@@ -85,8 +85,8 @@ public class HttpClientFactory {
                 String str = null;
                 try {
                     str = this.engine.generateType3Msg(this.username, this.password, this.domain, this.workstation, values.get(0).substring(5));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 Request.Builder newBuilder2 = response.request().newBuilder();
                 return newBuilder2.header("Authorization", "NTLM " + str).build();

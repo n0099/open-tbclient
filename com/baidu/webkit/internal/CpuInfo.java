@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CpuInfo implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_TYPE_ARM_AR = 2;
@@ -73,7 +73,7 @@ public class CpuInfo implements INoProGuard {
         InterceptResult invokeL;
         BufferedReader bufferedReader;
         Throwable th;
-        IOException e2;
+        IOException e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             File file = new File(str);
@@ -104,9 +104,9 @@ public class CpuInfo implements INoProGuard {
                                     } else {
                                         break;
                                     }
-                                } catch (IOException e3) {
-                                    e2 = e3;
-                                    e2.printStackTrace();
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    e.printStackTrace();
                                     if (bufferedReader != null) {
                                         bufferedReader.close();
                                     }
@@ -117,20 +117,20 @@ public class CpuInfo implements INoProGuard {
                                 if (bufferedReader != null) {
                                     try {
                                         bufferedReader.close();
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
                                     }
                                 }
                                 throw th;
                             }
                         }
                         bufferedReader.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
-                } catch (IOException e6) {
+                } catch (IOException e5) {
                     bufferedReader = null;
-                    e2 = e6;
+                    e = e5;
                 } catch (Throwable th3) {
                     bufferedReader = null;
                     th = th3;
@@ -158,7 +158,7 @@ public class CpuInfo implements INoProGuard {
         ?? r2;
         Throwable th;
         BufferedReader bufferedReader;
-        IOException e2;
+        IOException e;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             r2 = 65540;
@@ -185,9 +185,9 @@ public class CpuInfo implements INoProGuard {
                                 } else {
                                     break;
                                 }
-                            } catch (IOException e3) {
-                                e2 = e3;
-                                e2.printStackTrace();
+                            } catch (IOException e2) {
+                                e = e2;
+                                e.printStackTrace();
                                 if (bufferedReader != null) {
                                     bufferedReader.close();
                                 }
@@ -200,15 +200,15 @@ public class CpuInfo implements INoProGuard {
                         if (r2 != 0) {
                             try {
                                 r2.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                             }
                         }
                         throw th;
                     }
-                } catch (IOException e5) {
+                } catch (IOException e4) {
                     bufferedReader = null;
-                    e2 = e5;
+                    e = e4;
                 } catch (Throwable th3) {
                     r2 = 0;
                     th = th3;
@@ -216,8 +216,8 @@ public class CpuInfo implements INoProGuard {
                     }
                     throw th;
                 }
-            } catch (IOException e6) {
-                e6.printStackTrace();
+            } catch (IOException e5) {
+                e5.printStackTrace();
             }
         }
         return z;
@@ -291,8 +291,8 @@ public class CpuInfo implements INoProGuard {
                             return true;
                         }
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 return false;
             }

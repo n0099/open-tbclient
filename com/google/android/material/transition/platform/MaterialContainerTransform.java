@@ -54,7 +54,7 @@ import com.google.android.material.transition.platform.TransitionUtils;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MaterialContainerTransform extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProgressThresholdsGroup DEFAULT_ENTER_THRESHOLDS;
@@ -118,17 +118,17 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface FadeMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface FitMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ProgressThresholds {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,12 +137,12 @@ public final class MaterialContainerTransform extends Transition {
         @FloatRange(from = 0.0d, to = 1.0d)
         public final float start;
 
-        public ProgressThresholds(@FloatRange(from = 0.0d, to = 1.0d) float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3) {
+        public ProgressThresholds(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
+                Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -152,8 +152,8 @@ public final class MaterialContainerTransform extends Transition {
                     return;
                 }
             }
-            this.start = f2;
-            this.end = f3;
+            this.start = f;
+            this.end = f2;
         }
 
         @FloatRange(from = 0.0d, to = 1.0d)
@@ -171,7 +171,7 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class ProgressThresholdsGroup {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,11 +208,11 @@ public final class MaterialContainerTransform extends Transition {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public @interface TransitionDirection {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class TransitionDrawable extends Drawable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int COMPAT_SHADOW_COLOR = -7829368;
@@ -259,16 +259,16 @@ public final class MaterialContainerTransform extends Transition {
         public final ShapeAppearanceModel startShapeAppearanceModel;
         public final View startView;
 
-        public static float calculateElevationDxMultiplier(RectF rectF, float f2) {
+        public static float calculateElevationDxMultiplier(RectF rectF, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, rectF, f2)) == null) ? ((rectF.centerX() / (f2 / 2.0f)) - 1.0f) * 0.3f : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, rectF, f)) == null) ? ((rectF.centerX() / (f / 2.0f)) - 1.0f) * 0.3f : invokeLF.floatValue;
         }
 
-        public static float calculateElevationDyMultiplier(RectF rectF, float f2) {
+        public static float calculateElevationDyMultiplier(RectF rectF, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, rectF, f2)) == null) ? (rectF.centerY() / f2) * 1.5f : invokeLF.floatValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, rectF, f)) == null) ? (rectF.centerY() / f) * 1.5f : invokeLF.floatValue;
         }
 
         private void drawDebugCumulativePath(Canvas canvas, RectF rectF, Path path, @ColorInt int i) {
@@ -429,53 +429,53 @@ public final class MaterialContainerTransform extends Transition {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void setProgress(float f2) {
+        public void setProgress(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(65552, this, f2) == null) || this.progress == f2) {
+            if (!(interceptable == null || interceptable.invokeF(65552, this, f) == null) || this.progress == f) {
                 return;
             }
-            updateProgress(f2);
+            updateProgress(f);
         }
 
-        private void updateProgress(float f2) {
+        private void updateProgress(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(65553, this, f2) == null) {
-                this.progress = f2;
-                this.scrimPaint.setAlpha((int) (this.entering ? TransitionUtils.lerp(0.0f, 255.0f, f2) : TransitionUtils.lerp(255.0f, 0.0f, f2)));
-                this.motionPathMeasure.getPosTan(this.motionPathLength * f2, this.motionPathPosition, null);
+            if (interceptable == null || interceptable.invokeF(65553, this, f) == null) {
+                this.progress = f;
+                this.scrimPaint.setAlpha((int) (this.entering ? TransitionUtils.lerp(0.0f, 255.0f, f) : TransitionUtils.lerp(255.0f, 0.0f, f)));
+                this.motionPathMeasure.getPosTan(this.motionPathLength * f, this.motionPathPosition, null);
                 float[] fArr = this.motionPathPosition;
-                float f3 = fArr[0];
-                float f4 = fArr[1];
-                FitModeResult evaluate = this.fitModeEvaluator.evaluate(f2, ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scale.start))).floatValue(), ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scale.end))).floatValue(), this.startBounds.width(), this.startBounds.height(), this.endBounds.width(), this.endBounds.height());
+                float f2 = fArr[0];
+                float f3 = fArr[1];
+                FitModeResult evaluate = this.fitModeEvaluator.evaluate(f, ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scale.start))).floatValue(), ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scale.end))).floatValue(), this.startBounds.width(), this.startBounds.height(), this.endBounds.width(), this.endBounds.height());
                 this.fitModeResult = evaluate;
                 RectF rectF = this.currentStartBounds;
-                float f5 = evaluate.currentStartWidth;
-                rectF.set(f3 - (f5 / 2.0f), f4, (f5 / 2.0f) + f3, evaluate.currentStartHeight + f4);
+                float f4 = evaluate.currentStartWidth;
+                rectF.set(f2 - (f4 / 2.0f), f3, (f4 / 2.0f) + f2, evaluate.currentStartHeight + f3);
                 RectF rectF2 = this.currentEndBounds;
                 FitModeResult fitModeResult = this.fitModeResult;
-                float f6 = fitModeResult.currentEndWidth;
-                rectF2.set(f3 - (f6 / 2.0f), f4, f3 + (f6 / 2.0f), fitModeResult.currentEndHeight + f4);
+                float f5 = fitModeResult.currentEndWidth;
+                rectF2.set(f2 - (f5 / 2.0f), f3, f2 + (f5 / 2.0f), fitModeResult.currentEndHeight + f3);
                 this.currentStartBoundsMasked.set(this.currentStartBounds);
                 this.currentEndBoundsMasked.set(this.currentEndBounds);
                 float floatValue = ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scaleMask.start))).floatValue();
                 float floatValue2 = ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.scaleMask.end))).floatValue();
                 boolean shouldMaskStartBounds = this.fitModeEvaluator.shouldMaskStartBounds(this.fitModeResult);
                 RectF rectF3 = shouldMaskStartBounds ? this.currentStartBoundsMasked : this.currentEndBoundsMasked;
-                float lerp = TransitionUtils.lerp(0.0f, 1.0f, floatValue, floatValue2, f2);
+                float lerp = TransitionUtils.lerp(0.0f, 1.0f, floatValue, floatValue2, f);
                 if (!shouldMaskStartBounds) {
                     lerp = 1.0f - lerp;
                 }
                 this.fitModeEvaluator.applyMask(rectF3, lerp, this.fitModeResult);
                 this.currentMaskBounds = new RectF(Math.min(this.currentStartBoundsMasked.left, this.currentEndBoundsMasked.left), Math.min(this.currentStartBoundsMasked.top, this.currentEndBoundsMasked.top), Math.max(this.currentStartBoundsMasked.right, this.currentEndBoundsMasked.right), Math.max(this.currentStartBoundsMasked.bottom, this.currentEndBoundsMasked.bottom));
-                this.maskEvaluator.evaluate(f2, this.startShapeAppearanceModel, this.endShapeAppearanceModel, this.currentStartBounds, this.currentStartBoundsMasked, this.currentEndBoundsMasked, this.progressThresholds.shapeMask);
-                this.currentElevation = TransitionUtils.lerp(this.startElevation, this.endElevation, f2);
+                this.maskEvaluator.evaluate(f, this.startShapeAppearanceModel, this.endShapeAppearanceModel, this.currentStartBounds, this.currentStartBoundsMasked, this.currentEndBoundsMasked, this.progressThresholds.shapeMask);
+                this.currentElevation = TransitionUtils.lerp(this.startElevation, this.endElevation, f);
                 float calculateElevationDxMultiplier = calculateElevationDxMultiplier(this.currentMaskBounds, this.displayWidth);
                 float calculateElevationDyMultiplier = calculateElevationDyMultiplier(this.currentMaskBounds, this.displayHeight);
-                float f7 = this.currentElevation;
-                float f8 = (int) (calculateElevationDyMultiplier * f7);
-                this.currentElevationDy = f8;
-                this.shadowPaint.setShadowLayer(f7, (int) (calculateElevationDxMultiplier * f7), f8, 754974720);
-                this.fadeModeResult = this.fadeModeEvaluator.evaluate(f2, ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.fade.start))).floatValue(), ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.fade.end))).floatValue());
+                float f6 = this.currentElevation;
+                float f7 = (int) (calculateElevationDyMultiplier * f6);
+                this.currentElevationDy = f7;
+                this.shadowPaint.setShadowLayer(f6, (int) (calculateElevationDxMultiplier * f6), f7, 754974720);
+                this.fadeModeResult = this.fadeModeEvaluator.evaluate(f, ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.fade.start))).floatValue(), ((Float) Preconditions.checkNotNull(Float.valueOf(this.progressThresholds.fade.end))).floatValue());
                 if (this.startContainerPaint.getColor() != 0) {
                     this.startContainerPaint.setAlpha(this.fadeModeResult.startAlpha);
                 }
@@ -543,12 +543,12 @@ public final class MaterialContainerTransform extends Transition {
             }
         }
 
-        public TransitionDrawable(PathMotion pathMotion, View view, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f2, View view2, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f3, @ColorInt int i, @ColorInt int i2, @ColorInt int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
+        public TransitionDrawable(PathMotion pathMotion, View view2, RectF rectF, ShapeAppearanceModel shapeAppearanceModel, float f, View view3, RectF rectF2, ShapeAppearanceModel shapeAppearanceModel2, float f2, @ColorInt int i, @ColorInt int i2, @ColorInt int i3, int i4, boolean z, boolean z2, FadeModeEvaluator fadeModeEvaluator, FitModeEvaluator fitModeEvaluator, ProgressThresholdsGroup progressThresholdsGroup, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pathMotion, view, rectF, shapeAppearanceModel, Float.valueOf(f2), view2, rectF2, shapeAppearanceModel2, Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), fadeModeEvaluator, fitModeEvaluator, progressThresholdsGroup, Boolean.valueOf(z3)};
+                Object[] objArr = {pathMotion, view2, rectF, shapeAppearanceModel, Float.valueOf(f), view3, rectF2, shapeAppearanceModel2, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), fadeModeEvaluator, fitModeEvaluator, progressThresholdsGroup, Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -568,14 +568,14 @@ public final class MaterialContainerTransform extends Transition {
             this.compatShadowDrawable = new MaterialShapeDrawable();
             this.debugPaint = new Paint();
             this.debugPath = new Path();
-            this.startView = view;
+            this.startView = view2;
             this.startBounds = rectF;
             this.startShapeAppearanceModel = shapeAppearanceModel;
-            this.startElevation = f2;
-            this.endView = view2;
+            this.startElevation = f;
+            this.endView = view3;
             this.endBounds = rectF2;
             this.endShapeAppearanceModel = shapeAppearanceModel2;
-            this.endElevation = f3;
+            this.endElevation = f2;
             this.entering = z;
             this.elevationShadowEnabled = z2;
             this.fadeModeEvaluator = fadeModeEvaluator;
@@ -583,7 +583,7 @@ public final class MaterialContainerTransform extends Transition {
             this.progressThresholds = progressThresholdsGroup;
             this.drawDebugEnabled = z3;
             DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
+            ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
             this.displayWidth = displayMetrics.widthPixels;
             this.displayHeight = displayMetrics.heightPixels;
             this.containerPaint.setColor(i);
@@ -677,70 +677,70 @@ public final class MaterialContainerTransform extends Transition {
         return (ProgressThresholdsGroup) invokeZ.objValue;
     }
 
-    public static RectF calculateDrawableBounds(View view, @Nullable View view2, float f2, float f3) {
+    public static RectF calculateDrawableBounds(View view2, @Nullable View view3, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, view2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            if (view2 != null) {
-                RectF locationOnScreen = TransitionUtils.getLocationOnScreen(view2);
-                locationOnScreen.offset(f2, f3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, view3, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (view3 != null) {
+                RectF locationOnScreen = TransitionUtils.getLocationOnScreen(view3);
+                locationOnScreen.offset(f, f2);
                 return locationOnScreen;
             }
-            return new RectF(0.0f, 0.0f, view.getWidth(), view.getHeight());
+            return new RectF(0.0f, 0.0f, view2.getWidth(), view2.getHeight());
         }
         return (RectF) invokeCommon.objValue;
     }
 
-    public static ShapeAppearanceModel captureShapeAppearance(@NonNull View view, @NonNull RectF rectF, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static ShapeAppearanceModel captureShapeAppearance(@NonNull View view2, @NonNull RectF rectF, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view, rectF, shapeAppearanceModel)) == null) ? TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view, shapeAppearanceModel), rectF) : (ShapeAppearanceModel) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, view2, rectF, shapeAppearanceModel)) == null) ? TransitionUtils.convertToRelativeCornerSizes(getShapeAppearance(view2, shapeAppearanceModel), rectF) : (ShapeAppearanceModel) invokeLLL.objValue;
     }
 
-    public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view, @IdRes int i, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static void captureValues(@NonNull TransitionValues transitionValues, @Nullable View view2, @IdRes int i, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view, i, shapeAppearanceModel) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65542, null, transitionValues, view2, i, shapeAppearanceModel) == null) {
             if (i != -1) {
                 transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
-            } else if (view != null) {
-                transitionValues.view = view;
-            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f09146c) instanceof View) {
-                transitionValues.view.setTag(R.id.obfuscated_res_0x7f09146c, null);
-                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f09146c);
+            } else if (view2 != null) {
+                transitionValues.view = view2;
+            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091465) instanceof View) {
+                transitionValues.view.setTag(R.id.obfuscated_res_0x7f091465, null);
+                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091465);
             }
-            View view2 = transitionValues.view;
-            if (!ViewCompat.isLaidOut(view2) && view2.getWidth() == 0 && view2.getHeight() == 0) {
+            View view3 = transitionValues.view;
+            if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
                 return;
             }
-            RectF relativeBounds = view2.getParent() == null ? TransitionUtils.getRelativeBounds(view2) : TransitionUtils.getLocationOnScreen(view2);
+            RectF relativeBounds = view3.getParent() == null ? TransitionUtils.getRelativeBounds(view3) : TransitionUtils.getLocationOnScreen(view3);
             transitionValues.values.put("materialContainerTransition:bounds", relativeBounds);
-            transitionValues.values.put("materialContainerTransition:shapeAppearance", captureShapeAppearance(view2, relativeBounds, shapeAppearanceModel));
+            transitionValues.values.put("materialContainerTransition:shapeAppearance", captureShapeAppearance(view3, relativeBounds, shapeAppearanceModel));
         }
     }
 
-    public static float getElevationOrDefault(float f2, View view) {
+    public static float getElevationOrDefault(float f, View view2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f2), view})) == null) ? f2 != -1.0f ? f2 : ViewCompat.getElevation(view) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f), view2})) == null) ? f != -1.0f ? f : ViewCompat.getElevation(view2) : invokeCommon.floatValue;
     }
 
-    public static ShapeAppearanceModel getShapeAppearance(@NonNull View view, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
+    public static ShapeAppearanceModel getShapeAppearance(@NonNull View view2, @Nullable ShapeAppearanceModel shapeAppearanceModel) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view, shapeAppearanceModel)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, view2, shapeAppearanceModel)) == null) {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view.getTag(R.id.obfuscated_res_0x7f09146c) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view.getTag(R.id.obfuscated_res_0x7f09146c);
+            if (view2.getTag(R.id.obfuscated_res_0x7f091465) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091465);
             }
-            Context context = view.getContext();
+            Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);
             if (transitionShapeAppearanceResId != -1) {
                 return ShapeAppearanceModel.builder(context, transitionShapeAppearanceResId, 0).build();
             }
-            if (view instanceof Shapeable) {
-                return ((Shapeable) view).getShapeAppearanceModel();
+            if (view2 instanceof Shapeable) {
+                return ((Shapeable) view2).getShapeAppearanceModel();
             }
             return ShapeAppearanceModel.builder().build();
         }
@@ -764,7 +764,7 @@ public final class MaterialContainerTransform extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f040669});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(new int[]{R.attr.obfuscated_res_0x7f0406a7});
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;
@@ -821,23 +821,23 @@ public final class MaterialContainerTransform extends Transition {
                     RectF rectF2 = (RectF) transitionValues2.values.get("materialContainerTransition:bounds");
                     ShapeAppearanceModel shapeAppearanceModel2 = (ShapeAppearanceModel) transitionValues2.values.get("materialContainerTransition:shapeAppearance");
                     if (rectF2 != null && shapeAppearanceModel2 != null) {
-                        View view = transitionValues.view;
-                        View view2 = transitionValues2.view;
-                        View view3 = view2.getParent() != null ? view2 : view;
-                        if (this.drawingViewId == view3.getId()) {
-                            findAncestorById = (View) view3.getParent();
+                        View view2 = transitionValues.view;
+                        View view3 = transitionValues2.view;
+                        View view4 = view3.getParent() != null ? view3 : view2;
+                        if (this.drawingViewId == view4.getId()) {
+                            findAncestorById = (View) view4.getParent();
                         } else {
-                            findAncestorById = TransitionUtils.findAncestorById(view3, this.drawingViewId);
-                            view3 = null;
+                            findAncestorById = TransitionUtils.findAncestorById(view4, this.drawingViewId);
+                            view4 = null;
                         }
                         RectF locationOnScreen = TransitionUtils.getLocationOnScreen(findAncestorById);
-                        float f2 = -locationOnScreen.left;
-                        float f3 = -locationOnScreen.top;
-                        RectF calculateDrawableBounds = calculateDrawableBounds(findAncestorById, view3, f2, f3);
-                        rectF.offset(f2, f3);
-                        rectF2.offset(f2, f3);
+                        float f = -locationOnScreen.left;
+                        float f2 = -locationOnScreen.top;
+                        RectF calculateDrawableBounds = calculateDrawableBounds(findAncestorById, view4, f, f2);
+                        rectF.offset(f, f2);
+                        rectF2.offset(f, f2);
                         boolean isEntering = isEntering(rectF, rectF2);
-                        TransitionDrawable transitionDrawable = new TransitionDrawable(getPathMotion(), view, rectF, shapeAppearanceModel, getElevationOrDefault(this.startElevation, view), view2, rectF2, shapeAppearanceModel2, getElevationOrDefault(this.endElevation, view2), this.containerColor, this.startContainerColor, this.endContainerColor, this.scrimColor, isEntering, this.elevationShadowEnabled, FadeModeEvaluators.get(this.fadeMode, isEntering), FitModeEvaluators.get(this.fitMode, isEntering, rectF, rectF2), buildThresholdsGroup(isEntering), this.drawDebugEnabled);
+                        TransitionDrawable transitionDrawable = new TransitionDrawable(getPathMotion(), view2, rectF, shapeAppearanceModel, getElevationOrDefault(this.startElevation, view2), view3, rectF2, shapeAppearanceModel2, getElevationOrDefault(this.endElevation, view3), this.containerColor, this.startContainerColor, this.endContainerColor, this.scrimColor, isEntering, this.elevationShadowEnabled, FadeModeEvaluators.get(this.fadeMode, isEntering), FitModeEvaluators.get(this.fitMode, isEntering, rectF, rectF2), buildThresholdsGroup(isEntering), this.drawDebugEnabled);
                         transitionDrawable.setBounds(Math.round(calculateDrawableBounds.left), Math.round(calculateDrawableBounds.top), Math.round(calculateDrawableBounds.right), Math.round(calculateDrawableBounds.bottom));
                         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
                         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, transitionDrawable) { // from class: com.google.android.material.transition.platform.MaterialContainerTransform.1
@@ -873,7 +873,7 @@ public final class MaterialContainerTransform extends Transition {
                                 }
                             }
                         });
-                        addListener(new TransitionListenerAdapter(this, findAncestorById, transitionDrawable, view, view2) { // from class: com.google.android.material.transition.platform.MaterialContainerTransform.2
+                        addListener(new TransitionListenerAdapter(this, findAncestorById, transitionDrawable, view2, view3) { // from class: com.google.android.material.transition.platform.MaterialContainerTransform.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ MaterialContainerTransform this$0;
@@ -887,7 +887,7 @@ public final class MaterialContainerTransform extends Transition {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, findAncestorById, transitionDrawable, view, view2};
+                                    Object[] objArr = {this, findAncestorById, transitionDrawable, view2, view3};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i = newInitContext.flag;
                                     if ((i & 1) != 0) {
@@ -900,8 +900,8 @@ public final class MaterialContainerTransform extends Transition {
                                 this.this$0 = this;
                                 this.val$drawingView = findAncestorById;
                                 this.val$transitionDrawable = transitionDrawable;
-                                this.val$startView = view;
-                                this.val$endView = view2;
+                                this.val$startView = view2;
+                                this.val$endView = view3;
                             }
 
                             @Override // com.google.android.material.transition.platform.TransitionListenerAdapter, android.transition.Transition.TransitionListener
@@ -1145,10 +1145,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setEndElevation(float f2) {
+    public void setEndElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048609, this, f2) == null) {
-            this.endElevation = f2;
+        if (interceptable == null || interceptable.invokeF(1048609, this, f) == null) {
+            this.endElevation = f;
         }
     }
 
@@ -1159,10 +1159,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setEndView(@Nullable View view) {
+    public void setEndView(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, view) == null) {
-            this.endView = view;
+        if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
+            this.endView = view2;
         }
     }
 
@@ -1236,10 +1236,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setStartElevation(float f2) {
+    public void setStartElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048622, this, f2) == null) {
-            this.startElevation = f2;
+        if (interceptable == null || interceptable.invokeF(1048622, this, f) == null) {
+            this.startElevation = f;
         }
     }
 
@@ -1250,10 +1250,10 @@ public final class MaterialContainerTransform extends Transition {
         }
     }
 
-    public void setStartView(@Nullable View view) {
+    public void setStartView(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, view) == null) {
-            this.startView = view;
+        if (interceptable == null || interceptable.invokeL(1048624, this, view2) == null) {
+            this.startView = view2;
         }
     }
 

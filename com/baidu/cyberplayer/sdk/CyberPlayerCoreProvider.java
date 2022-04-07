@@ -23,14 +23,14 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CyberPlayerCoreProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class LibsVersionType {
         public static /* synthetic */ Interceptable $ic;
         public static final LibsVersionType ALL_VERSION;

@@ -26,9 +26,9 @@ public final class ArrayIntIterator extends IntIterator {
             int i = this.index;
             this.index = i + 1;
             return iArr[i];
-        } catch (ArrayIndexOutOfBoundsException e2) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             this.index--;
-            throw new NoSuchElementException(e2.getMessage());
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 }

@@ -14,18 +14,16 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static final char a = File.separatorChar;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f40210b;
+    public static final String b;
 
     static {
         StringBuilderWriter stringBuilderWriter = new StringBuilderWriter(4);
         PrintWriter printWriter = new PrintWriter(stringBuilderWriter);
         printWriter.println();
-        f40210b = stringBuilderWriter.toString();
+        b = stringBuilderWriter.toString();
         printWriter.close();
     }
 

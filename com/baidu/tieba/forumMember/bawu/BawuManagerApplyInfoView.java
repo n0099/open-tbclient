@@ -15,23 +15,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f32183b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32184c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32185d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f32186e;
+    public View b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BawuManagerApplyInfoView(Context context) {
@@ -58,32 +50,32 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
     public void a(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            this.f32185d.setText(str);
-            this.f32184c.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805fa, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+            this.d.setText(str);
+            this.c.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0805f9, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
             if (i > 0) {
-                this.f32186e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0293), StringHelper.numberUniformFormat(i)));
-                this.f32184c.setEnabled(true);
-                this.f32184c.setClickable(true);
-                SkinManager.setViewTextColor(this.f32185d, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.f32186e, R.color.CAM_X0305, 1);
+                this.e.setText(String.format(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0294), StringHelper.numberUniformFormat(i)));
+                this.c.setEnabled(true);
+                this.c.setClickable(true);
+                SkinManager.setViewTextColor(this.d, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.e, R.color.CAM_X0305, 1);
                 return;
             }
-            this.f32186e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0295));
-            this.f32184c.setEnabled(false);
-            this.f32184c.setClickable(false);
-            SkinManager.setViewTextColor(this.f32185d, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f32186e, R.color.CAM_X0109, 1);
+            this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0296));
+            this.c.setEnabled(false);
+            this.c.setClickable(false);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.e, R.color.CAM_X0109, 1);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0148, this);
-            this.f32183b = inflate;
-            this.f32184c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e8c);
-            this.f32185d = (TextView) this.f32183b.findViewById(R.id.obfuscated_res_0x7f091f6d);
-            this.f32186e = (TextView) this.f32183b.findViewById(R.id.obfuscated_res_0x7f091f6e);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d014a, this);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090e87);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f59);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f5a);
         }
     }
 
@@ -91,7 +83,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f32184c.setOnClickListener(onClickListener);
+            this.c.setOnClickListener(onClickListener);
         }
     }
 

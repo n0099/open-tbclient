@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class BaseService extends Service {
                 return;
             }
             com.xiaomi.channel.commonutils.logger.b.c("TimeoutHandler" + baseService.toString() + "  kill self");
-            if (!baseService.mo131a()) {
+            if (!baseService.mo127a()) {
                 baseService.stopSelf();
                 return;
             }
@@ -84,7 +84,7 @@ public abstract class BaseService extends Service {
     }
 
     /* renamed from: a */
-    public abstract boolean mo131a();
+    public abstract boolean mo127a();
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {

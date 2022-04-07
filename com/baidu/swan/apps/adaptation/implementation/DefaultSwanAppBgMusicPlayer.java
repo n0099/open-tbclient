@@ -8,8 +8,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.f.d.s;
-import c.a.n0.a.p2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.media.audio.service.BgMusicPlayState;
@@ -20,39 +18,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.de3;
+import com.repackage.jn2;
+import com.repackage.lk1;
+import com.repackage.p73;
+import com.repackage.qn2;
+import com.repackage.tg1;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class DefaultSwanAppBgMusicPlayer implements s {
+/* loaded from: classes2.dex */
+public class DefaultSwanAppBgMusicPlayer implements lk1 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final boolean f28717h;
+    public static final boolean h;
     public static volatile DefaultSwanAppBgMusicPlayer i;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public PlayerStatus f28718b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.n0.a.z0.c.g.a f28719c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public AudioManager f28720d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f28721e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public b f28722f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public d f28723g;
+    public PlayerStatus b;
+    public qn2 c;
+    public AudioManager d;
+    public boolean e;
+    public b f;
+    public d g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class PlayerStatus {
         public static final /* synthetic */ PlayerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,26 +105,24 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements AudioManager.OnAudioFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DefaultSwanAppBgMusicPlayer a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f28724b;
+            public final /* synthetic */ b b;
 
             public a(b bVar, int i) {
                 Interceptable interceptable = $ic;
@@ -151,7 +139,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                         return;
                     }
                 }
-                this.f28724b = bVar;
+                this.b = bVar;
                 this.a = i;
             }
 
@@ -161,11 +149,11 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     int i = this.a;
                     if (i == -2 || i == -1) {
-                        if (DefaultSwanAppBgMusicPlayer.f28717h) {
+                        if (DefaultSwanAppBgMusicPlayer.h) {
                             Log.d("AudioPlayerListener", "--focusChange AUDIOFOCUS_LOSS_TRANSIENT");
                         }
-                        this.f28724b.a.b();
-                        this.f28724b.a.pause();
+                        this.b.a.b();
+                        this.b.a.pause();
                     }
                 }
             }
@@ -193,7 +181,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void onAudioFocusChange(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                q0.e0(new a(this, i));
+                de3.e0(new a(this, i));
             }
         }
 
@@ -202,7 +190,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class c implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnErrorListener, MediaPlayer.OnBufferingUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -230,14 +218,14 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, mediaPlayer, i) == null) {
-                if (DefaultSwanAppBgMusicPlayer.f28717h) {
+                if (DefaultSwanAppBgMusicPlayer.h) {
                     Log.d("AudioPlayerListener", "--onBufferUpdate -> " + i + "%");
                 }
-                this.a.f28719c.onGetDownloadProgress(i);
-                if (this.a.f28718b != PlayerStatus.PREPARED || (i * this.a.k().getDuration()) / 100 > this.a.k().getCurrentPosition()) {
+                this.a.c.onGetDownloadProgress(i);
+                if (this.a.b != PlayerStatus.PREPARED || (i * this.a.k().getDuration()) / 100 > this.a.k().getCurrentPosition()) {
                     return;
                 }
-                this.a.f28719c.onStateChanged(BgMusicPlayState.LOADING);
+                this.a.c.onStateChanged(BgMusicPlayState.LOADING);
             }
         }
 
@@ -245,13 +233,13 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void onCompletion(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaPlayer) == null) {
-                if (DefaultSwanAppBgMusicPlayer.f28717h) {
+                if (DefaultSwanAppBgMusicPlayer.h) {
                     Log.d("AudioPlayerListener", "--onCompletion");
                 }
-                this.a.f28718b = PlayerStatus.PREPARED;
-                this.a.f28719c.onStateChanged(BgMusicPlayState.END);
-                if (this.a.f28723g != null) {
-                    this.a.f28723g.removeMessages(0);
+                this.a.b = PlayerStatus.PREPARED;
+                this.a.c.onStateChanged(BgMusicPlayState.END);
+                if (this.a.g != null) {
+                    this.a.g.removeMessages(0);
                 }
             }
         }
@@ -261,10 +249,10 @@ public class DefaultSwanAppBgMusicPlayer implements s {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, mediaPlayer, i, i2)) == null) {
-                if (DefaultSwanAppBgMusicPlayer.f28717h) {
+                if (DefaultSwanAppBgMusicPlayer.h) {
                     Log.d("AudioPlayerListener", "--onError -> what: " + i + " extra: " + i2);
                 }
-                c.a.n0.a.d2.u.a.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
+                p73.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
                 return true;
             }
             return invokeLII.booleanValue;
@@ -274,11 +262,11 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) {
-                if (DefaultSwanAppBgMusicPlayer.f28717h) {
+                if (DefaultSwanAppBgMusicPlayer.h) {
                     Log.d("AudioPlayerListener", "--onPrepared");
                 }
-                this.a.f28718b = PlayerStatus.PREPARED;
-                this.a.f28719c.onStateChanged(BgMusicPlayState.READY);
+                this.a.b = PlayerStatus.PREPARED;
+                this.a.c.onStateChanged(BgMusicPlayState.READY);
                 this.a.play();
             }
         }
@@ -289,7 +277,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,8 +322,8 @@ public class DefaultSwanAppBgMusicPlayer implements s {
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) && message.what == 0) {
                 int duration = this.a.k().getDuration();
                 int currentPosition = this.a.k().getCurrentPosition();
-                this.a.f28719c.onGetDuration(duration);
-                this.a.f28719c.onGetPosition(currentPosition, a(duration, currentPosition));
+                this.a.c.onGetDuration(duration);
+                this.a.c.onGetPosition(currentPosition, a(duration, currentPosition));
                 sendEmptyMessageDelayed(0, 200L);
             }
         }
@@ -358,7 +346,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                 return;
             }
         }
-        f28717h = c.a.n0.a.a.a;
+        h = tg1.a;
     }
 
     public DefaultSwanAppBgMusicPlayer() {
@@ -374,7 +362,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                 return;
             }
         }
-        this.f28718b = PlayerStatus.NONE;
+        this.b = PlayerStatus.NONE;
     }
 
     public static DefaultSwanAppBgMusicPlayer j() {
@@ -393,68 +381,68 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         return (DefaultSwanAppBgMusicPlayer) invokeV.objValue;
     }
 
-    @Override // c.a.n0.a.f.d.s
-    public void a(String str, c.a.n0.a.z0.c.g.a aVar) {
+    @Override // com.repackage.lk1
+    public void a(String str, qn2 qn2Var) {
         String str2;
-        c.a.n0.a.z0.c.a b2;
+        jn2 b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, qn2Var) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f28719c = aVar;
+        this.c = qn2Var;
         try {
-            b2 = c.a.n0.a.z0.c.a.b(new JSONObject(str), new c.a.n0.a.z0.c.a());
-            str2 = b2.f7765c;
-        } catch (IOException | JSONException e2) {
-            e = e2;
+            b2 = jn2.b(new JSONObject(str), new jn2());
+            str2 = b2.c;
+        } catch (IOException | JSONException e) {
+            e = e;
             str2 = "";
         }
         try {
-            if (this.f28718b != PlayerStatus.NONE) {
+            if (this.b != PlayerStatus.NONE) {
                 k().reset();
             }
-            k().setDataSource(b2.f7765c);
-            this.f28718b = PlayerStatus.IDLE;
-            this.f28719c.onGetCurrentSong(b2.f7765c);
+            k().setDataSource(b2.c);
+            this.b = PlayerStatus.IDLE;
+            this.c.onGetCurrentSong(b2.c);
             play();
-        } catch (IOException e3) {
+        } catch (IOException e2) {
+            e = e2;
+            p73.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+            e.printStackTrace();
+            this.c.onInvokeFailed();
+        } catch (JSONException e3) {
             e = e3;
-            c.a.n0.a.d2.u.a.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+            p73.b("audio", 1001, "audio src error, src is" + str2, -1, "");
             e.printStackTrace();
-            this.f28719c.onInvokeFailed();
-        } catch (JSONException e4) {
-            e = e4;
-            c.a.n0.a.d2.u.a.b("audio", 1001, "audio src error, src is" + str2, -1, "");
-            e.printStackTrace();
-            this.f28719c.onInvokeFailed();
+            this.c.onInvokeFailed();
         }
     }
 
     public final void b() {
         b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f28721e) {
-            AudioManager audioManager = this.f28720d;
-            if (audioManager != null && (bVar = this.f28722f) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e) {
+            AudioManager audioManager = this.d;
+            if (audioManager != null && (bVar = this.f) != null) {
                 audioManager.abandonAudioFocus(bVar);
-                this.f28720d = null;
-                this.f28722f = null;
+                this.d = null;
+                this.f = null;
             }
-            this.f28721e = false;
-            if (f28717h) {
+            this.e = false;
+            if (h) {
                 Log.d("AudioPlayerListener", "   abandonAudioFocus");
             }
         }
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k().getDuration() : invokeV.intValue;
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -473,7 +461,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
                 this.a.setOnErrorListener(cVar);
                 this.a.setOnBufferingUpdateListener(cVar);
                 this.a.setAudioStreamType(3);
-                this.f28723g = new d(this, null);
+                this.g = new d(this, null);
             }
             return this.a;
         }
@@ -485,10 +473,10 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
                 k().prepareAsync();
-                this.f28718b = PlayerStatus.PREPARING;
-            } catch (IllegalStateException e2) {
-                e2.printStackTrace();
-                this.f28719c.onInvokeFailed();
+                this.b = PlayerStatus.PREPARING;
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
+                this.c.onInvokeFailed();
                 onRelease();
             }
         }
@@ -496,64 +484,64 @@ public class DefaultSwanAppBgMusicPlayer implements s {
 
     public final void m() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f28721e) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.e) {
             return;
         }
-        if (this.f28720d == null) {
+        if (this.d == null) {
             AudioManager audioManager = (AudioManager) AppRuntime.getAppContext().getSystemService("audio");
-            this.f28720d = audioManager;
+            this.d = audioManager;
             if (audioManager == null) {
                 return;
             }
         }
-        if (this.f28722f == null) {
-            this.f28722f = new b(this, null);
+        if (this.f == null) {
+            this.f = new b(this, null);
         }
-        this.f28721e = this.f28720d.requestAudioFocus(this.f28722f, 3, 1) == 1;
-        if (f28717h) {
+        this.e = this.d.requestAudioFocus(this.f, 3, 1) == 1;
+        if (h) {
             Log.d("AudioPlayerListener", "   requestAudioFocus");
         }
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public void onRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             b();
             k().release();
             this.a = null;
-            this.f28718b = PlayerStatus.NONE;
-            d dVar = this.f28723g;
+            this.b = PlayerStatus.NONE;
+            d dVar = this.g;
             if (dVar != null) {
                 dVar.removeMessages(0);
-                this.f28723g = null;
+                this.g = null;
             }
         }
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public void pause() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && k().isPlaying()) {
             k().pause();
-            this.f28719c.onStateChanged(BgMusicPlayState.PAUSE);
-            d dVar = this.f28723g;
+            this.c.onStateChanged(BgMusicPlayState.PAUSE);
+            d dVar = this.g;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }
         }
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            PlayerStatus playerStatus = this.f28718b;
+            PlayerStatus playerStatus = this.b;
             if (playerStatus == PlayerStatus.PREPARED) {
                 m();
                 k().start();
-                this.f28719c.onStateChanged(BgMusicPlayState.PLAY);
-                d dVar = this.f28723g;
+                this.c.onStateChanged(BgMusicPlayState.PLAY);
+                d dVar = this.g;
                 if (dVar != null) {
                     dVar.sendEmptyMessage(0);
                 }
@@ -563,7 +551,7 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         }
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public void seek(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
@@ -571,17 +559,17 @@ public class DefaultSwanAppBgMusicPlayer implements s {
         }
     }
 
-    @Override // c.a.n0.a.f.d.s
+    @Override // com.repackage.lk1
     public void stop() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.f28718b == PlayerStatus.PREPARED) {
-            if (f28717h) {
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b == PlayerStatus.PREPARED) {
+            if (h) {
                 Log.d("AudioPlayerListener", "===stop");
             }
             k().stop();
-            this.f28718b = PlayerStatus.IDLE;
-            this.f28719c.onStateChanged(BgMusicPlayState.STOP);
-            d dVar = this.f28723g;
+            this.b = PlayerStatus.IDLE;
+            this.c.onStateChanged(BgMusicPlayState.STOP);
+            d dVar = this.g;
             if (dVar != null) {
                 dVar.removeMessages(0);
             }

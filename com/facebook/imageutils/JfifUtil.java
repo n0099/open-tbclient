@@ -12,7 +12,7 @@ import com.kuaishou.weapon.un.w0;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JfifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP1_EXIF_MAGIC = 1165519206;

@@ -1,15 +1,15 @@
 package com.fun.ad.sdk;
 
 import androidx.core.view.InputDeviceCompat;
-import c.d.h0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-/* loaded from: classes6.dex */
-public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
+import com.repackage.xk9;
+/* loaded from: classes4.dex */
+public class FunAdCallbackWithBasePrice implements FunAdCallback, xk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdClicked(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pid) == null) {
@@ -42,13 +42,13 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdClicked(String str, String str2, String str3, double d2) {
+    public void onAdClicked(String str, String str2, String str3, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, Double.valueOf(d)}) == null) {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdClose(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, pid) == null) {
@@ -63,13 +63,13 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdClose(String str, String str2, String str3, double d2) {
+    public void onAdClose(String str, String str2, String str3, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Double.valueOf(d)}) == null) {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdLoad(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, pid) == null) {
@@ -84,13 +84,13 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdLoad(String str, String str2, String str3, double d2) {
+    public void onAdLoad(String str, String str2, String str3, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Double.valueOf(d)}) == null) {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdLoadError(Ssp.Pid pid, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, pid, i, str) == null) {
@@ -98,9 +98,9 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdLoadError(String str, String str2, String str3, double d2, int i, String str4) {
+    public void onAdLoadError(String str, String str2, String str3, double d, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, Double.valueOf(d2), Integer.valueOf(i), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, str2, str3, Double.valueOf(d), Integer.valueOf(i), str4}) == null) {
         }
     }
 
@@ -111,7 +111,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdLoaded(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, pid) == null) {
@@ -126,13 +126,13 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdLoaded(String str, String str2, String str3, double d2) {
+    public void onAdLoaded(String str, String str2, String str3, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Double.valueOf(d)}) == null) {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdShow(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, pid) == null) {
@@ -147,13 +147,13 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdShow(String str, String str2, String str3, double d2) {
+    public void onAdShow(String str, String str2, String str3, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, str3, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, str3, Double.valueOf(d)}) == null) {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onAdShowError(Ssp.Pid pid, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048594, this, pid, i, str) == null) {
@@ -161,9 +161,9 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onAdShowError(String str, String str2, String str3, double d2, int i, String str4) {
+    public void onAdShowError(String str, String str2, String str3, double d, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Double.valueOf(d2), Integer.valueOf(i), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, str2, str3, Double.valueOf(d), Integer.valueOf(i), str4}) == null) {
         }
     }
 
@@ -174,7 +174,7 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    @Override // c.d.h0
+    @Override // com.repackage.xk9
     public final void onRewardedVideo(Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, pid) == null) {
@@ -189,9 +189,9 @@ public class FunAdCallbackWithBasePrice implements FunAdCallback, h0 {
         }
     }
 
-    public void onRewardedVideo(String str, String str2, String str3, double d2) {
+    public void onRewardedVideo(String str, String str2, String str3, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, str2, str3, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{str, str2, str3, Double.valueOf(d)}) == null) {
         }
     }
 }

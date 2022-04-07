@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runnable {
     public static final String ERROR_NO_IMAGE_STREAM = "No stream for image [%s]";
     public static final String ERROR_POST_PROCESSOR_NULL = "Post-processor returned null [%s]";
@@ -64,7 +64,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
     public final ImageSize targetSize;
     public final String uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class FireCancelEventRunnable implements Runnable {
         public WeakReference<LoadAndDisplayImageTask> weakReference;
 
@@ -81,7 +81,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class FireFailEventRunnable implements Runnable {
         public final Throwable failCause;
         public final FailReason.FailType failType;
@@ -105,7 +105,7 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class TaskCancelledException extends Exception {
         public static final long serialVersionUID = -504619855289909996L;
 
@@ -296,8 +296,8 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                 }
             }
             return downloadImage;
-        } catch (IOException e2) {
-            L.e(e2);
+        } catch (IOException e) {
+            L.e(e);
             return false;
         }
     }
@@ -326,9 +326,9 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                 }
                 if (decodedResult != null) {
                     try {
-                    } catch (IOException e2) {
+                    } catch (IOException e) {
                         DecodedResult decodedResult3 = decodedResult;
-                        e = e2;
+                        e = e;
                         decodedResult2 = decodedResult3;
                         L.e(e);
                         failType = FailReason.FailType.IO_ERROR;
@@ -337,9 +337,9 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                     } catch (IllegalStateException unused) {
                         fireFailEvent(FailReason.FailType.NETWORK_DENIED, null);
                         return decodedResult;
-                    } catch (OutOfMemoryError e3) {
+                    } catch (OutOfMemoryError e2) {
                         DecodedResult decodedResult4 = decodedResult;
-                        e = e3;
+                        e = e2;
                         decodedResult2 = decodedResult4;
                         L.e(e);
                         failType = FailReason.FailType.OUT_OF_MEMORY;
@@ -368,15 +368,15 @@ public final class LoadAndDisplayImageTask implements IoUtils.CopyListener, Runn
                     return decodedResult;
                 }
                 return decodedResult;
-            } catch (TaskCancelledException e4) {
-                throw e4;
+            } catch (TaskCancelledException e3) {
+                throw e3;
             }
-        } catch (IOException e5) {
-            e = e5;
+        } catch (IOException e4) {
+            e = e4;
         } catch (IllegalStateException unused2) {
             decodedResult = null;
-        } catch (OutOfMemoryError e6) {
-            e = e6;
+        } catch (OutOfMemoryError e5) {
+            e = e5;
         } catch (Throwable th2) {
             e = th2;
         }

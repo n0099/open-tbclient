@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -21,29 +20,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32667b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32668c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f32669d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f32670e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f32671f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbPageContext f32672g;
+    public TextView b;
+    public TextView c;
+    public View d;
+    public View e;
+    public String f;
+    public TbPageContext g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsHeaderBannerView(Context context) {
@@ -70,17 +58,17 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            TbPageContext tbPageContext = this.f32672g;
+            TbPageContext tbPageContext = this.g;
             if (tbPageContext != null) {
                 return tbPageContext;
             }
             Context context = getContext();
             if (context instanceof BaseActivity) {
-                this.f32672g = ((BaseActivity) context).getPageContext();
+                this.g = ((BaseActivity) context).getPageContext();
             } else if (context instanceof BaseFragmentActivity) {
-                this.f32672g = ((BaseFragmentActivity) context).getPageContext();
+                this.g = ((BaseFragmentActivity) context).getPageContext();
             }
-            return this.f32672g;
+            return this.g;
         }
         return (TbPageContext) invokeV.objValue;
     }
@@ -88,56 +76,56 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0320, (ViewGroup) this, true);
-            this.f32669d = inflate.findViewById(R.id.obfuscated_res_0x7f090b2d);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b22);
-            this.f32667b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b2c);
-            this.f32668c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b2e);
-            this.f32670e = inflate.findViewById(R.id.obfuscated_res_0x7f090b38);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0321, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b39);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b2e);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b38);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b3a);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b44);
             this.a.setOnClickListener(this);
-            this.f32669d.setOnClickListener(this);
-            this.f32670e.setOnClickListener(this);
+            this.d.setOnClickListener(this);
+            this.e.setOnClickListener(this);
             this.a.setDefaultResource(0);
-            this.a.setRadius(n.f(getContext(), R.dimen.tbds20));
+            this.a.setRadius(oi.f(getContext(), R.dimen.tbds20));
             this.a.setConrers(15);
             this.a.setPlaceHolder(2);
-            this.f32668c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f06ee));
-            this.f32672g = getTbPageContext();
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f06f3));
+            this.g = getTbPageContext();
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             TbPageContext<?> tbPageContext = getTbPageContext();
-            if (TextUtils.isEmpty(this.f32671f) || tbPageContext == null) {
+            if (TextUtils.isEmpty(this.f) || tbPageContext == null) {
                 return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f32671f}, true);
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{this.f}, true);
         }
     }
 
     public void setSchemaUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f32671f = str;
+            this.f = str;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.f32667b == null || this.f32668c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.b == null || this.c == null) {
             return;
         }
         if (!TextUtils.isEmpty(str)) {
-            this.f32667b.setText(str);
-            this.f32668c.setVisibility(0);
-            this.f32667b.setVisibility(0);
+            this.b.setText(str);
+            this.c.setVisibility(0);
+            this.b.setVisibility(0);
             return;
         }
-        this.f32668c.setVisibility(8);
-        this.f32667b.setVisibility(8);
+        this.c.setVisibility(8);
+        this.b.setVisibility(8);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

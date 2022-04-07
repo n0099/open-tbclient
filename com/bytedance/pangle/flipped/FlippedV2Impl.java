@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.ZeusConstants;
 import java.lang.reflect.Method;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FlippedV2Impl implements c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlippedV2Impl";
@@ -63,8 +63,8 @@ public class FlippedV2Impl implements c {
                 declaredMethod2.setAccessible(true);
                 declaredMethod2.invoke(invoke, new String[]{"L"});
                 Log.e(TAG, "V2 invokeHiddenApiRestrictions success.");
-            } catch (Exception e2) {
-                Log.e(TAG, "V2 invokeHiddenApiRestrictions fail: " + Log.getStackTraceString(e2));
+            } catch (Exception e) {
+                Log.e(TAG, "V2 invokeHiddenApiRestrictions fail: " + Log.getStackTraceString(e));
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.ueg;
 
 import android.text.TextUtils;
-import c.a.d.f.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -14,17 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.dk8;
+import com.repackage.mi;
+import com.repackage.wa;
+/* loaded from: classes4.dex */
 public class UEGCancelModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final wa b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final c.a.d.c.g.a f36385b;
-
-    /* loaded from: classes6.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UEGCancelModel a;
@@ -51,7 +51,7 @@ public class UEGCancelModel extends BdBaseModel {
             this.a = uEGCancelModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UEGCancelResponsedMessage uEGCancelResponsedMessage;
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public class UEGCancelModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(BlockPopInfoData blockPopInfoData);
     }
@@ -90,10 +90,10 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f36385b = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        c.a.p0.a4.g0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        c.a.p0.a4.g0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.f36385b);
+        this.b = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+        dk8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        dk8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        registerListener(this.b);
     }
 
     public void A(b bVar) {
@@ -126,13 +126,13 @@ public class UEGCancelModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f36385b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 
     public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && l.z() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && mi.z() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             UEGCancelRequestMessage uEGCancelRequestMessage = new UEGCancelRequestMessage();
             uEGCancelRequestMessage.setUser_id(TbadkCoreApplication.getCurrentAccount());
             MessageManager.getInstance().sendMessage(uEGCancelRequestMessage);

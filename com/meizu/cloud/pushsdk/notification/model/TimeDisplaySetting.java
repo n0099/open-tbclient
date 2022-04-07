@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TimeDisplaySetting implements Parcelable {
     public static final Parcelable.Creator<TimeDisplaySetting> CREATOR = new Parcelable.Creator<TimeDisplaySetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -45,8 +46,8 @@ public class TimeDisplaySetting implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                c.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+            } catch (JSONException e) {
+                rm9.b(TAG, "parse json string error " + e.getMessage());
             }
             return parse(jSONObject);
         }
@@ -68,13 +69,13 @@ public class TimeDisplaySetting implements Parcelable {
                 if (!jSONObject.isNull("et")) {
                     timeDisplaySetting.setEndShowTime(jSONObject.getString("et"));
                 }
-            } catch (JSONException e2) {
-                str = "parse json obj error " + e2.getMessage();
+            } catch (JSONException e) {
+                str = "parse json obj error " + e.getMessage();
             }
             return timeDisplaySetting;
         }
         str = "no such tag time_display_setting";
-        c.h.a.a.a.b(TAG, str);
+        rm9.b(TAG, str);
         return timeDisplaySetting;
     }
 

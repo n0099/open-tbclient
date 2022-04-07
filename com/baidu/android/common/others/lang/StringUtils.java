@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,12 +109,12 @@ public final class StringUtils {
                 return 0;
             }
             int i = 0;
-            for (char c2 : str.toCharArray()) {
-                float f2 = 2.0f;
-                if (c2 > 0 && c2 < 127 && z) {
-                    f2 = 1.0f;
+            for (char c : str.toCharArray()) {
+                float f = 2.0f;
+                if (c > 0 && c < 127 && z) {
+                    f = 1.0f;
                 }
-                i = (int) (i + f2);
+                i = (int) (i + f);
             }
             return i;
         }
@@ -144,8 +144,8 @@ public final class StringUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (z) {
                     hexString = hexString.toUpperCase(Locale.getDefault());
                 }

@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaContactorSettingRequest";
@@ -106,8 +106,8 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
                     jSONObject.put("contacter_third_id", this.mContactorThirdid);
                 }
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "getRequestParameter Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "getRequestParameter Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }
@@ -139,8 +139,8 @@ public class IMMediaContactorSettingRequest extends IMMediaBaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 i2 = jSONObject.optInt("error_code", 0);
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

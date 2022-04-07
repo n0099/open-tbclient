@@ -2,10 +2,6 @@ package com.baidu.ugc.editvideo.muxer;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.i.c;
-import c.a.v0.l.a;
-import c.a.v0.r.h;
-import c.a.v0.r.n;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,11 +18,15 @@ import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
+import com.repackage.aa9;
+import com.repackage.ec9;
+import com.repackage.s89;
+import com.repackage.yb9;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CheckUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class CheckUtils {
             if (videoMuxerData == null) {
                 return false;
             }
-            if (h.e(videoMuxerData.getAudioPlayDataList())) {
+            if (yb9.e(videoMuxerData.getAudioPlayDataList())) {
                 MusicData musicData = videoMuxerData.getMusicData();
                 return musicData != null && musicData.mVolume > 0.0f && FileUtils.isExists(musicData.localPath);
             }
@@ -73,7 +73,7 @@ public class CheckUtils {
             if (videoMuxerData == null) {
                 return false;
             }
-            return !h.e(videoMuxerData.getStickerDataList());
+            return !yb9.e(videoMuxerData.getStickerDataList());
         }
         return invokeL.booleanValue;
     }
@@ -91,10 +91,10 @@ public class CheckUtils {
                 boolean z = true;
                 for (MultiMediaData multiMediaData : videoMuxerData.getPhotoDataList()) {
                     if (multiMediaData.type == 1) {
-                        int f2 = n.f(multiMediaData.path);
-                        if (!FileUtils.checkFile(multiMediaData.path) || f2 <= 0) {
+                        int f = ec9.f(multiMediaData.path);
+                        if (!FileUtils.checkFile(multiMediaData.path) || f <= 0) {
                             if (sb != null) {
-                                str = "sourceerror:" + multiMediaData.path + ", isexit:" + FileUtils.checkFile(multiMediaData.path) + ", draftDir exist:" + FileUtils.checkFile(new File(multiMediaData.path).getParent()) + ", duration:" + f2;
+                                str = "sourceerror:" + multiMediaData.path + ", isexit:" + FileUtils.checkFile(multiMediaData.path) + ", draftDir exist:" + FileUtils.checkFile(new File(multiMediaData.path).getParent()) + ", duration:" + f;
                                 sb.append(str);
                             }
                             z = false;
@@ -133,23 +133,23 @@ public class CheckUtils {
     public static boolean checkArEdit(VideoMuxerData videoMuxerData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, videoMuxerData)) == null) ? (videoMuxerData == null || (h.f(videoMuxerData.getAREditBeautyMap()) && videoMuxerData.getAREditSticker() == null && !ImageQualityData.isValidStatus(videoMuxerData.getImageQualityData()))) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, videoMuxerData)) == null) ? (videoMuxerData == null || (yb9.f(videoMuxerData.getAREditBeautyMap()) && videoMuxerData.getAREditSticker() == null && !ImageQualityData.isValidStatus(videoMuxerData.getImageQualityData()))) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean checkAudioDirectNext(VideoMuxerData videoMuxerData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, videoMuxerData)) == null) ? (videoMuxerData == null || videoMuxerData.isComposeNecessary() || !checkOriginAudio(videoMuxerData) || checkAddMusic(videoMuxerData) || c.o(videoMuxerData.getFakeVoiceTypes()) || checkOriginVideoMute(videoMuxerData) || checkOriginVideoChangeSpeed(videoMuxerData)) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, videoMuxerData)) == null) ? (videoMuxerData == null || videoMuxerData.isComposeNecessary() || !checkOriginAudio(videoMuxerData) || checkAddMusic(videoMuxerData) || s89.o(videoMuxerData.getFakeVoiceTypes()) || checkOriginVideoMute(videoMuxerData) || checkOriginVideoChangeSpeed(videoMuxerData)) ? false : true : invokeL.booleanValue;
     }
 
     public static void checkAudioPlayTrackDataList(List<AudioPlayTrackData> list, VideoMuxerData videoMuxerData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, list, videoMuxerData) == null) || videoMuxerData == null || videoMuxerData.getPhotoDataList() == null || list == null || h.e(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, list, videoMuxerData) == null) || videoMuxerData == null || videoMuxerData.getPhotoDataList() == null || list == null || yb9.e(list)) {
             return;
         }
-        int segmentsDuration = (int) MultiDataSourceUtil.getSegmentsDuration(videoMuxerData.getCurrThemeEffect() != null ? (MediaTrack) h.c(videoMuxerData.getCurrThemeEffect().mediaTracks, 0) : null);
+        int segmentsDuration = (int) MultiDataSourceUtil.getSegmentsDuration(videoMuxerData.getCurrThemeEffect() != null ? (MediaTrack) yb9.c(videoMuxerData.getCurrThemeEffect().mediaTracks, 0) : null);
         for (AudioPlayTrackData audioPlayTrackData : videoMuxerData.getAudioPlayTrackDataList()) {
-            if (audioPlayTrackData != null && !h.e(audioPlayTrackData.mAudioPlayDataList)) {
+            if (audioPlayTrackData != null && !yb9.e(audioPlayTrackData.mAudioPlayDataList)) {
                 ArrayList arrayList = new ArrayList();
                 int i = 0;
                 while (i < segmentsDuration) {
@@ -158,7 +158,7 @@ public class CheckUtils {
                         if (it.hasNext()) {
                             AudioPlayData next = it.next();
                             if (next.end <= 0) {
-                                next.end = n.f(next.audioPath);
+                                next.end = ec9.f(next.audioPath);
                             }
                             int i2 = next.end;
                             int i3 = next.start;
@@ -183,9 +183,9 @@ public class CheckUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
-                if (multiMediaData.type == 1 && n.e(multiMediaData.path) > videoMuxerData.getOutBitRate()) {
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) == 1) {
+                MultiMediaData multiMediaData = (MultiMediaData) yb9.c(videoMuxerData.getPhotoDataList(), 0);
+                if (multiMediaData.type == 1 && ec9.e(multiMediaData.path) > videoMuxerData.getOutBitRate()) {
                     return true;
                 }
             }
@@ -213,7 +213,7 @@ public class CheckUtils {
                 z = true;
             }
             if (videoMuxerData.getVideoEffectData() != null) {
-                if (!h.e(videoMuxerData.getVideoEffectData().getMagicEffectList())) {
+                if (!yb9.e(videoMuxerData.getVideoEffectData().getMagicEffectList())) {
                     z = true;
                 }
                 if (videoMuxerData.getVideoEffectData().getTimeEffect() != null && videoMuxerData.getVideoEffectData().getTimeEffect().effectType == EffectType.TIME_REPEAT) {
@@ -252,7 +252,7 @@ public class CheckUtils {
             if (videoMuxerData == null || videoMuxerData.getVideoEffectData() == null) {
                 return false;
             }
-            boolean z = !h.e(videoMuxerData.getVideoEffectData().getMagicEffectList());
+            boolean z = !yb9.e(videoMuxerData.getVideoEffectData().getMagicEffectList());
             if (videoMuxerData.getVideoEffectData().getTimeEffect() == null || videoMuxerData.getVideoEffectData().getTimeEffect().effectType != EffectType.TIME_REPEAT) {
                 return z;
             }
@@ -268,7 +268,7 @@ public class CheckUtils {
             if (videoMuxerData == null) {
                 return false;
             }
-            if (videoMuxerData.getOriginMusicVolume() == 1.0f || !h.e(videoMuxerData.getPhotoDataList())) {
+            if (videoMuxerData.getOriginMusicVolume() == 1.0f || !yb9.e(videoMuxerData.getPhotoDataList())) {
                 MusicData musicData = videoMuxerData.getMusicData();
                 return ((videoMuxerData.getOriginMusicVolume() == 1.0f && (musicData == null || musicData.mVolume == 0.0f)) || musicData == null || TextUtils.isEmpty(musicData.localPath)) ? false : true;
             }
@@ -281,8 +281,8 @@ public class CheckUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) == 1) {
+                MultiMediaData multiMediaData = (MultiMediaData) yb9.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1 && multiMediaData.start == 0) {
                     long j = multiMediaData.originalDuration;
                     return (j == 0 || multiMediaData.end == j) && multiMediaData.volume == 1.0f;
@@ -298,8 +298,8 @@ public class CheckUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) == 1) {
+                MultiMediaData multiMediaData = (MultiMediaData) yb9.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1 && multiMediaData.start == 0) {
                     long j = multiMediaData.originalDuration;
                     return (j == 0 || multiMediaData.end == j) && multiMediaData.angle == 0.0f && multiMediaData.scaleX == 1.0f && multiMediaData.scaleY == 1.0f && multiMediaData.x == 0.0f && multiMediaData.y == 0.0f && !multiMediaData.addDefaultEffect;
@@ -315,7 +315,7 @@ public class CheckUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) > 0) {
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) > 0) {
                 Iterator<MultiMediaData> it = videoMuxerData.getPhotoDataList().iterator();
                 while (it.hasNext()) {
                     if (it.next().getCurrentSpeed() != 1.0f) {
@@ -332,8 +332,8 @@ public class CheckUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
-                if (!n.g(((MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0)).path)) {
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) == 1) {
+                if (!ec9.g(((MultiMediaData) yb9.c(videoMuxerData.getPhotoDataList(), 0)).path)) {
                     return true;
                 }
             }
@@ -354,19 +354,19 @@ public class CheckUtils {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) == 1) {
+                MultiMediaData multiMediaData = (MultiMediaData) yb9.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1) {
-                    float f2 = multiMediaData.angle;
-                    float f3 = multiMediaData.rotation;
-                    if ((f2 + f3) % 360.0f == 90.0f || (f2 + f3) % 360.0f == 270.0f) {
+                    float f = multiMediaData.angle;
+                    float f2 = multiMediaData.rotation;
+                    if ((f + f2) % 360.0f == 90.0f || (f + f2) % 360.0f == 270.0f) {
                         i = multiMediaData.height;
                         i2 = multiMediaData.width;
                     } else {
                         i = multiMediaData.width;
                         i2 = multiMediaData.height;
                     }
-                    return a.g(i, i2);
+                    return aa9.g(i, i2);
                 }
             }
             return false;
@@ -377,7 +377,7 @@ public class CheckUtils {
     public static boolean checkSubtitle(VideoMuxerData videoMuxerData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, videoMuxerData)) == null) ? (videoMuxerData == null || videoMuxerData.getSubTitleConfig() == null || h.b(videoMuxerData.getSubTitleUnits()) == 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, videoMuxerData)) == null) ? (videoMuxerData == null || videoMuxerData.getSubTitleConfig() == null || yb9.b(videoMuxerData.getSubTitleUnits()) == 0) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean checkTheme(VideoMuxerData videoMuxerData) {
@@ -398,11 +398,11 @@ public class CheckUtils {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, videoMuxerData)) == null) {
-            if (videoMuxerData != null && h.b(videoMuxerData.getPhotoDataList()) == 1) {
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(videoMuxerData.getPhotoDataList(), 0);
+            if (videoMuxerData != null && yb9.b(videoMuxerData.getPhotoDataList()) == 1) {
+                MultiMediaData multiMediaData = (MultiMediaData) yb9.c(videoMuxerData.getPhotoDataList(), 0);
                 if (multiMediaData.type == 1) {
-                    float f2 = multiMediaData.rotation;
-                    if (f2 % 360.0f == 90.0f || f2 % 360.0f == 270.0f) {
+                    float f = multiMediaData.rotation;
+                    if (f % 360.0f == 90.0f || f % 360.0f == 270.0f) {
                         i = multiMediaData.height;
                         i2 = multiMediaData.width;
                     } else {
@@ -427,22 +427,22 @@ public class CheckUtils {
             return;
         }
         int i2 = 0;
-        int segmentsDuration = (int) MultiDataSourceUtil.getSegmentsDuration(videoMuxerData.getCurrThemeEffect() != null ? (MediaTrack) h.c(videoMuxerData.getCurrThemeEffect().mediaTracks, 0) : null);
-        int f2 = n.f(musicData.localPath);
+        int segmentsDuration = (int) MultiDataSourceUtil.getSegmentsDuration(videoMuxerData.getCurrThemeEffect() != null ? (MediaTrack) yb9.c(videoMuxerData.getCurrThemeEffect().mediaTracks, 0) : null);
+        int f = ec9.f(musicData.localPath);
         ArrayList arrayList = new ArrayList();
         int i3 = musicData.startPosition;
-        if (f2 - i3 < segmentsDuration) {
-            if (f2 > 0 && f2 - i3 <= 0) {
+        if (f - i3 < segmentsDuration) {
+            if (f > 0 && f - i3 <= 0) {
                 musicData.startPosition = 0;
             }
-            if (f2 - musicData.startPosition > 0) {
+            if (f - musicData.startPosition > 0) {
                 while (true) {
                     i = segmentsDuration - i2;
-                    if (i < f2 - musicData.startPosition) {
+                    if (i < f - musicData.startPosition) {
                         break;
                     }
-                    arrayList.add(new AudioPlayData(musicData.localPath, musicData.startPosition, f2, musicData.mVolume));
-                    i2 += f2 - musicData.startPosition;
+                    arrayList.add(new AudioPlayData(musicData.localPath, musicData.startPosition, f, musicData.mVolume));
+                    i2 += f - musicData.startPosition;
                 }
                 if (i2 < segmentsDuration) {
                     String str = musicData.localPath;

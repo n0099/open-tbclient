@@ -7,21 +7,21 @@ import android.view.ViewGroup;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TTNativeAd {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface AdInteractionListener {
-        void onAdClicked(View view, TTNativeAd tTNativeAd);
+        void onAdClicked(View view2, TTNativeAd tTNativeAd);
 
-        void onAdCreativeClick(View view, TTNativeAd tTNativeAd);
+        void onAdCreativeClick(View view2, TTNativeAd tTNativeAd);
 
         void onAdShow(TTNativeAd tTNativeAd);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ExpressRenderListener {
-        void onRenderSuccess(View view, float f2, float f3, boolean z);
+        void onRenderSuccess(View view2, float f, float f2, boolean z);
     }
 
     void destroy();
@@ -66,15 +66,15 @@ public interface TTNativeAd {
 
     TTImage getVideoCoverImage();
 
-    void registerViewForInteraction(ViewGroup viewGroup, View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, View view2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, View view2, AdInteractionListener adInteractionListener);
 
     void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, View view2, AdInteractionListener adInteractionListener);
 
-    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, List<View> list4, View view, AdInteractionListener adInteractionListener);
+    void registerViewForInteraction(ViewGroup viewGroup, List<View> list, List<View> list2, List<View> list3, List<View> list4, View view2, AdInteractionListener adInteractionListener);
 
     void render();
 

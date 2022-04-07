@@ -8,15 +8,15 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
-import c.a.v0.r.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.repackage.dc9;
 import java.nio.ByteBuffer;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InnerAudioProcessor extends InnerMediaProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InnerAudioProcessor";
@@ -137,8 +137,8 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 } else {
                     if (dequeueOutputBuffer == -2) {
                         MediaFormat outputFormat = mediaCodec.getOutputFormat();
-                        m.n(outputFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
-                        m.n(outputFormat, mediaFormat, "channel-count", i4);
+                        dc9.n(outputFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
+                        dc9.n(outputFormat, mediaFormat, "channel-count", i4);
                         mediaCodec3 = mediaCodec2;
                         obj = null;
                         mediaCodec3.configure(mediaFormat, (Surface) null, (MediaCrypto) null, i4);
@@ -383,15 +383,15 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
         MediaCodec mediaCodec5;
         int integer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (m = m.m("audio/mp4a-latm")) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (m = dc9.m("audio/mp4a-latm")) == 0) {
             return;
         }
         MediaExtractor mediaExtractor3 = null;
         e = null;
-        Exception e2 = null;
+        Exception e = null;
         try {
             try {
-                mediaExtractor = m.b(this.mSourcePath);
+                mediaExtractor = dc9.b(this.mSourcePath);
             } catch (Throwable th) {
                 th = th;
                 mediaCodec4 = "audio/mp4a-latm";
@@ -400,23 +400,23 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 mediaCodec5 = m;
             }
             try {
-                MediaFormat trackFormat = mediaExtractor.getTrackFormat(m.e(mediaExtractor));
+                MediaFormat trackFormat = mediaExtractor.getTrackFormat(dc9.e(mediaExtractor));
                 if (this.mDoDecode) {
                     MediaFormat mediaFormat = new MediaFormat();
                     mediaFormat.setString("mime", "audio/mp4a-latm");
                     mediaFormat.setInteger("aac-profile", 2);
                     mediaFormat.setInteger("max-input-size", 8192);
-                    m.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
-                    m.n(trackFormat, mediaFormat, "channel-count", 1);
-                    m.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
+                    dc9.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
+                    dc9.n(trackFormat, mediaFormat, "channel-count", 1);
+                    dc9.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
                     mediaCodec3 = MediaCodec.createByCodecName(m.getName());
                     try {
-                        mediaCodec2 = m.a(trackFormat);
+                        mediaCodec2 = dc9.a(trackFormat);
                         try {
                             doExtractDecodeEditEncodeMux(mediaExtractor, mediaCodec2, mediaCodec3, mediaFormat);
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            e2.printStackTrace();
+                        } catch (Exception e2) {
+                            e = e2;
+                            e.printStackTrace();
                             if (mediaExtractor != null) {
                                 try {
                                     mediaExtractor.release();
@@ -437,11 +437,11 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                                 } catch (Exception unused3) {
                                 }
                             }
-                            if (e2 == null) {
+                            if (e == null) {
                             }
                         }
-                    } catch (Exception e4) {
-                        e2 = e4;
+                    } catch (Exception e3) {
+                        e = e3;
                         mediaCodec2 = null;
                     } catch (Throwable th2) {
                         th = th2;
@@ -469,17 +469,17 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 if (mediaExtractor != null) {
                     try {
                         mediaExtractor.release();
-                    } catch (Exception e5) {
-                        e2 = e5;
+                    } catch (Exception e4) {
+                        e = e4;
                     }
                 }
                 if (mediaCodec2 != null) {
                     try {
                         mediaCodec2.stop();
                         mediaCodec2.release();
-                    } catch (Exception e6) {
-                        if (e2 == null) {
-                            e2 = e6;
+                    } catch (Exception e5) {
+                        if (e == null) {
+                            e = e5;
                         }
                     }
                 }
@@ -487,15 +487,15 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                     try {
                         mediaCodec3.stop();
                         mediaCodec3.release();
-                    } catch (Exception e7) {
-                        if (e2 == null) {
-                            e2 = e7;
+                    } catch (Exception e6) {
+                        if (e == null) {
+                            e = e6;
                         }
                     }
                 }
-            } catch (Exception e8) {
+            } catch (Exception e7) {
                 mediaCodec2 = null;
-                e2 = e8;
+                e = e7;
                 mediaCodec3 = null;
             } catch (Throwable th3) {
                 th = th3;
@@ -507,9 +507,9 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 if (mediaExtractor3 != null) {
                     try {
                         mediaExtractor3.release();
-                    } catch (Exception e9) {
+                    } catch (Exception e8) {
                         if (exc == null) {
-                            exc = e9;
+                            exc = e8;
                         }
                     }
                 }
@@ -517,7 +517,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                     try {
                         mediaCodec5.stop();
                         mediaCodec5.release();
-                    } catch (Exception e10) {
+                    } catch (Exception e9) {
                         if (exc == null) {
                         }
                     }
@@ -531,18 +531,18 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 }
                 throw th;
             }
-        } catch (Exception e11) {
+        } catch (Exception e10) {
             mediaCodec2 = null;
             mediaExtractor = null;
-            e2 = e11;
+            e = e10;
             mediaCodec3 = null;
         } catch (Throwable th4) {
             th = th4;
             exc = null;
             mediaCodec = null;
         }
-        if (e2 == null) {
-            throw e2;
+        if (e == null) {
+            throw e;
         }
     }
 }

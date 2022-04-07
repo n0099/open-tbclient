@@ -2,6 +2,7 @@ package com.baidu.nadcore.model;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.nps.pm.provider.BundleOpProvider;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,23 +11,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AdOperator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TYPE a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final a f27546b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f27547c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f27548d;
+    public final a b;
+    public final String c;
+    public String d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +98,7 @@ public class AdOperator {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,11 +155,11 @@ public class AdOperator {
         }
         if (type != null) {
             this.a = type;
-            this.f27546b = a.a(jSONObject.optJSONObject("desc"));
-            JSONObject optJSONObject = jSONObject.optJSONObject("button");
+            this.b = a.a(jSONObject.optJSONObject("desc"));
+            JSONObject optJSONObject = jSONObject.optJSONObject(NativeConstants.ID_BUTTON);
             optJSONObject = optJSONObject == null ? new JSONObject() : optJSONObject;
-            this.f27547c = optJSONObject.optString("text");
-            this.f27548d = optJSONObject.optString("scheme");
+            this.c = optJSONObject.optString("text");
+            this.d = optJSONObject.optString("scheme");
             return;
         }
         throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));

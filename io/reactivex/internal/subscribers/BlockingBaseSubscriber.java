@@ -47,13 +47,13 @@ public abstract class BlockingBaseSubscriber<T> extends CountDownLatch implement
                 try {
                     BlockingHelper.verifyNonBlocking();
                     await();
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     Subscription subscription = this.s;
                     this.s = SubscriptionHelper.CANCELLED;
                     if (subscription != null) {
                         subscription.cancel();
                     }
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             Throwable th = this.error;

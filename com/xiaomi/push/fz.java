@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fz implements gd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,15 +25,11 @@ public class fz implements gd {
 
     /* renamed from: a  reason: collision with other field name */
     public String[] f400a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f44265b;
+    public String b;
 
     /* renamed from: b  reason: collision with other field name */
     public String[] f401b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f44266c;
+    public String c;
 
     public fz(String str, String str2, String[] strArr, String[] strArr2) {
         Interceptable interceptable = $ic;
@@ -53,7 +50,7 @@ public class fz implements gd {
         this.f401b = null;
         this.f399a = null;
         this.a = str;
-        this.f44265b = str2;
+        this.b = str2;
         this.f400a = strArr;
         this.f401b = strArr2;
     }
@@ -77,10 +74,10 @@ public class fz implements gd {
         this.f401b = null;
         this.f399a = null;
         this.a = str;
-        this.f44265b = str2;
+        this.b = str2;
         this.f400a = strArr;
         this.f401b = strArr2;
-        this.f44266c = str3;
+        this.c = str3;
         this.f399a = list;
     }
 
@@ -102,8 +99,8 @@ public class fz implements gd {
                 strArr2[i] = bundle2.getString(str);
                 i++;
             }
-            if (bundle.containsKey("children")) {
-                Parcelable[] parcelableArray = bundle.getParcelableArray("children");
+            if (bundle.containsKey(CriusAttrConstants.CHILDREN)) {
+                Parcelable[] parcelableArray = bundle.getParcelableArray(CriusAttrConstants.CHILDREN);
                 ArrayList arrayList2 = new ArrayList(parcelableArray.length);
                 for (Parcelable parcelable : parcelableArray) {
                     arrayList2.add(a((Bundle) parcelable));
@@ -132,7 +129,7 @@ public class fz implements gd {
             }
             Parcelable[] parcelableArr = new Parcelable[fzVarArr.length];
             for (int i = 0; i < fzVarArr.length; i++) {
-                parcelableArr[i] = fzVarArr[i].m375a();
+                parcelableArr[i] = fzVarArr[i].m371a();
             }
             return parcelableArr;
         }
@@ -145,8 +142,8 @@ public class fz implements gd {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("ext_ele_name", this.a);
-            bundle.putString("ext_ns", this.f44265b);
-            bundle.putString("ext_text", this.f44266c);
+            bundle.putString("ext_ns", this.b);
+            bundle.putString("ext_text", this.c);
             Bundle bundle2 = new Bundle();
             String[] strArr = this.f400a;
             if (strArr != null && strArr.length > 0) {
@@ -163,7 +160,7 @@ public class fz implements gd {
             bundle.putBundle("attributes", bundle2);
             List<fz> list = this.f399a;
             if (list != null && list.size() > 0) {
-                bundle.putParcelableArray("children", a(this.f399a));
+                bundle.putParcelableArray(CriusAttrConstants.CHILDREN, a(this.f399a));
             }
             return bundle;
         }
@@ -171,14 +168,14 @@ public class fz implements gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Parcelable m375a() {
+    public Parcelable m371a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a() : (Parcelable) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m376a() {
+    public String m372a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
@@ -223,26 +220,26 @@ public class fz implements gd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m377a(String str) {
+    public void m373a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (!TextUtils.isEmpty(str)) {
                 str = gn.a(str);
             }
-            this.f44266c = str;
+            this.c = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f44265b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.f44266c) ? gn.b(this.f44266c) : this.f44266c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !TextUtils.isEmpty(this.c) ? gn.b(this.c) : this.c : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.gd
@@ -253,11 +250,11 @@ public class fz implements gd {
             StringBuilder sb = new StringBuilder();
             sb.append("<");
             sb.append(this.a);
-            if (!TextUtils.isEmpty(this.f44265b)) {
+            if (!TextUtils.isEmpty(this.b)) {
                 sb.append(" ");
                 sb.append("xmlns=");
                 sb.append("\"");
-                sb.append(this.f44265b);
+                sb.append(this.b);
                 sb.append("\"");
             }
             String[] strArr = this.f400a;
@@ -272,7 +269,7 @@ public class fz implements gd {
                     }
                 }
             }
-            if (TextUtils.isEmpty(this.f44266c)) {
+            if (TextUtils.isEmpty(this.c)) {
                 List<fz> list = this.f399a;
                 if (list == null || list.size() <= 0) {
                     sb.append("/>");
@@ -284,7 +281,7 @@ public class fz implements gd {
                 }
             } else {
                 sb.append(">");
-                sb.append(this.f44266c);
+                sb.append(this.c);
             }
             sb.append("</");
             sb.append(this.a);

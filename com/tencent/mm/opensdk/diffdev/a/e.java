@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,20 +96,20 @@ public final class e {
                                 InputStream inputStream5 = str.getInputStream();
                                 try {
                                     byteArrayOutputStream8 = new ByteArrayOutputStream();
-                                } catch (MalformedURLException e2) {
+                                } catch (MalformedURLException e) {
                                     byteArrayOutputStream7 = null;
                                     inputStream4 = inputStream5;
-                                    e = e2;
+                                    e = e;
                                     httpURLConnection6 = str;
-                                } catch (IOException e3) {
+                                } catch (IOException e2) {
                                     byteArrayOutputStream6 = null;
                                     inputStream3 = inputStream5;
-                                    e = e3;
+                                    e = e2;
                                     httpURLConnection5 = str;
-                                } catch (Exception e4) {
+                                } catch (Exception e3) {
                                     byteArrayOutputStream5 = null;
                                     inputStream2 = inputStream5;
-                                    e = e4;
+                                    e = e3;
                                     httpURLConnection4 = str;
                                 } catch (Throwable th) {
                                     th = th;
@@ -164,9 +164,9 @@ public final class e {
                                     } catch (Throwable unused8) {
                                     }
                                     return byteArray;
-                                } catch (MalformedURLException e5) {
+                                } catch (MalformedURLException e4) {
                                     inputStream4 = inputStream5;
-                                    e = e5;
+                                    e = e4;
                                     byteArrayOutputStream7 = byteArrayOutputStream8;
                                     httpURLConnection6 = str;
                                     Log.e("MicroMsg.SDK.NetUtil", "httpGet ex:" + e.getMessage());
@@ -177,9 +177,9 @@ public final class e {
                                     if (byteArrayOutputStream7 != null) {
                                     }
                                     return null;
-                                } catch (IOException e6) {
+                                } catch (IOException e5) {
                                     inputStream3 = inputStream5;
-                                    e = e6;
+                                    e = e5;
                                     byteArrayOutputStream6 = byteArrayOutputStream8;
                                     httpURLConnection5 = str;
                                     Log.e("MicroMsg.SDK.NetUtil", "httpGet ex:" + e.getMessage());
@@ -190,9 +190,9 @@ public final class e {
                                     if (byteArrayOutputStream6 != null) {
                                     }
                                     return null;
-                                } catch (Exception e7) {
+                                } catch (Exception e6) {
                                     inputStream2 = inputStream5;
-                                    e = e7;
+                                    e = e6;
                                     byteArrayOutputStream5 = byteArrayOutputStream8;
                                     httpURLConnection4 = str;
                                     Log.e("MicroMsg.SDK.NetUtil", "httpGet ex:" + e.getMessage());
@@ -216,8 +216,8 @@ public final class e {
                                     }
                                     throw th;
                                 }
-                            } catch (MalformedURLException e8) {
-                                e = e8;
+                            } catch (MalformedURLException e7) {
+                                e = e7;
                                 byteArrayOutputStream4 = null;
                                 httpURLConnection3 = str;
                                 byteArrayOutputStream7 = byteArrayOutputStream4;
@@ -243,8 +243,8 @@ public final class e {
                                     }
                                 }
                                 return null;
-                            } catch (IOException e9) {
-                                e = e9;
+                            } catch (IOException e8) {
+                                e = e8;
                                 byteArrayOutputStream3 = null;
                                 httpURLConnection2 = str;
                                 byteArrayOutputStream6 = byteArrayOutputStream3;
@@ -270,8 +270,8 @@ public final class e {
                                     }
                                 }
                                 return null;
-                            } catch (Exception e10) {
-                                e = e10;
+                            } catch (Exception e9) {
+                                e = e9;
                                 byteArrayOutputStream2 = null;
                                 httpURLConnection = str;
                                 byteArrayOutputStream5 = byteArrayOutputStream2;
@@ -302,16 +302,16 @@ public final class e {
                                 inputStream = null;
                                 byteArrayOutputStream = null;
                             }
-                        } catch (MalformedURLException e11) {
-                            e = e11;
+                        } catch (MalformedURLException e10) {
+                            e = e10;
                             httpURLConnection3 = null;
                             byteArrayOutputStream4 = null;
-                        } catch (IOException e12) {
-                            e = e12;
+                        } catch (IOException e11) {
+                            e = e11;
                             httpURLConnection2 = null;
                             byteArrayOutputStream3 = null;
-                        } catch (Exception e13) {
-                            e = e13;
+                        } catch (Exception e12) {
+                            e = e12;
                             httpURLConnection = null;
                             byteArrayOutputStream2 = null;
                         } catch (Throwable th4) {

@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra;
 
 import android.os.Bundle;
-import c.a.o0.s.i.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,14 +12,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.xy4;
+/* loaded from: classes3.dex */
 public class InitUserNameDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.o0.s.i.b mInputUserNameDialog;
+    public xy4 mInputUserNameDialog;
 
-    /* loaded from: classes5.dex */
-    public class a implements b.e {
+    /* loaded from: classes3.dex */
+    public class a implements xy4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InitUserNameDialogActivity a;
@@ -43,7 +43,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // c.a.o0.s.i.b.e
+        @Override // com.repackage.xy4.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -53,8 +53,8 @@ public class InitUserNameDialogActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements b.e {
+    /* loaded from: classes3.dex */
+    public class b implements xy4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InitUserNameDialogActivity a;
@@ -77,7 +77,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
             this.a = initUserNameDialogActivity;
         }
 
-        @Override // c.a.o0.s.i.b.e
+        @Override // com.repackage.xy4.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -127,9 +127,9 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            c.a.o0.s.i.b bVar = new c.a.o0.s.i.b(this);
-            this.mInputUserNameDialog = bVar;
-            bVar.v(new a(this));
+            xy4 xy4Var = new xy4(this);
+            this.mInputUserNameDialog = xy4Var;
+            xy4Var.v(new a(this));
             this.mInputUserNameDialog.w(new b(this));
             this.mInputUserNameDialog.p();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();

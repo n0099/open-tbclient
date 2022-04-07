@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import okhttp3.Call;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OkHttpDownloader extends OkHttpRequest implements Downloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
     public void onResponseCallback(Call call, Response response) {
         Exception exc;
         FileOutputStream fileOutputStream;
-        IOException e2;
+        IOException e;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, call, response) != null) {
             return;
@@ -110,8 +110,8 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                             }
                             fileOutputStream.flush();
                             fileOutputStream2 = fileOutputStream;
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             inputStream = byteStream;
                             if (downloadCallback != null) {
                                 try {
@@ -121,18 +121,18 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (IOException e4) {
+                                        } catch (IOException e3) {
                                             if (downloadCallback != null) {
-                                                downloadCallback.onFail(3, e4);
+                                                downloadCallback.onFail(3, e3);
                                             }
                                         }
                                     }
                                     if (fileOutputStream != null) {
                                         try {
                                             fileOutputStream.close();
-                                        } catch (IOException e5) {
+                                        } catch (IOException e4) {
                                             if (downloadCallback != null) {
-                                                downloadCallback.onFail(3, e5);
+                                                downloadCallback.onFail(3, e4);
                                             }
                                         }
                                     }
@@ -142,9 +142,9 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
-                                } catch (IOException e6) {
+                                } catch (IOException e5) {
                                     if (downloadCallback != null) {
-                                        downloadCallback.onFail(3, e6);
+                                        downloadCallback.onFail(3, e5);
                                     }
                                 }
                             }
@@ -152,12 +152,12 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                                 try {
                                     fileOutputStream.close();
                                     return;
-                                } catch (IOException e7) {
-                                    e2 = e7;
+                                } catch (IOException e6) {
+                                    e = e6;
                                     if (downloadCallback == null) {
                                         return;
                                     }
-                                    downloadCallback.onFail(3, e2);
+                                    downloadCallback.onFail(3, e);
                                 }
                             }
                             return;
@@ -180,32 +180,32 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                     if (byteStream != null) {
                         try {
                             byteStream.close();
-                        } catch (IOException e8) {
+                        } catch (IOException e7) {
                             if (downloadCallback != null) {
-                                downloadCallback.onFail(3, e8);
+                                downloadCallback.onFail(3, e7);
                             }
                         }
                     }
                     if (fileOutputStream2 != null) {
                         try {
                             fileOutputStream2.close();
-                        } catch (IOException e9) {
-                            e2 = e9;
+                        } catch (IOException e8) {
+                            e = e8;
                             if (downloadCallback == null) {
                                 return;
                             }
-                            downloadCallback.onFail(3, e2);
+                            downloadCallback.onFail(3, e);
                         }
                     }
-                } catch (Exception e10) {
-                    e = e10;
+                } catch (Exception e9) {
+                    e = e9;
                     fileOutputStream = fileOutputStream2;
                 } catch (Throwable th3) {
                     th = th3;
                     fileOutputStream = fileOutputStream2;
                 }
-            } catch (Exception e11) {
-                e = e11;
+            } catch (Exception e10) {
+                e = e10;
                 fileOutputStream = null;
             } catch (Throwable th4) {
                 th = th4;

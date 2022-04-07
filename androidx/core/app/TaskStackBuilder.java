@@ -238,9 +238,9 @@ public final class TaskStackBuilder implements Iterable<Intent> {
                     parentActivityIntent = NavUtils.getParentActivityIntent(this.mSourceContext, parentActivityIntent.getComponent());
                 }
                 return this;
-            } catch (PackageManager.NameNotFoundException e2) {
+            } catch (PackageManager.NameNotFoundException e) {
                 Log.e(TAG, "Bad ComponentName while traversing activity parent metadata");
-                throw new IllegalArgumentException(e2);
+                throw new IllegalArgumentException(e);
             }
         }
         return (TaskStackBuilder) invokeL.objValue;

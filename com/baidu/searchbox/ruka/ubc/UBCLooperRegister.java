@@ -33,7 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UBCLooperRegister extends ILooperRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_BLOCK_ACTIVE_UPLOAD = "key_block_active_upload";
@@ -205,8 +205,8 @@ public class UBCLooperRegister extends ILooperRegister {
                 if (uBCManager != null) {
                     uBCManager.onEvent(UBC_BLOCK, jSONObject3);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

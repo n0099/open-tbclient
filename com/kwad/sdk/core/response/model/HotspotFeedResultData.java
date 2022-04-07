@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class HotspotFeedResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "TrendsResultData";
     public static final long serialVersionUID = -1619392774105464372L;
@@ -60,8 +60,8 @@ public class HotspotFeedResultData extends BaseResultData implements com.kwad.sd
                     this.adTemplateList.add(adTemplate);
                 }
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MessageStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_PACKAGE = "appPackage";
@@ -148,8 +148,8 @@ public class MessageStat {
                 messageStat.setProperty(jSONObject.optString(PROPERTY, ""));
                 messageStat.setEventTime(jSONObject.optLong(EVENT_TIME, System.currentTimeMillis()));
                 return messageStat;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -273,8 +273,8 @@ public class MessageStat {
                 if (!TextUtils.isEmpty(this.mProperty)) {
                     jSONObject.putOpt(PROPERTY, this.mProperty);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return jSONObject.toString();
         }

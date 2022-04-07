@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.MonitorType;
 import org.webrtc.EglBase10;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OutputSurface";
@@ -122,8 +122,8 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
                         if (!this.mFrameAvailable) {
                             throw new RuntimeException("Surface frame wait timed out");
                         }
-                    } catch (InterruptedException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 this.mFrameAvailable = false;
@@ -149,8 +149,8 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
                     if (!this.mFrameAvailable) {
                         try {
                             this.mFrameSyncObject.wait(i);
-                        } catch (InterruptedException e2) {
-                            throw new RuntimeException(e2);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
                         }
                     } else {
                         this.mFrameAvailable = false;

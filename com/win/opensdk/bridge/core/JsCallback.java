@@ -12,16 +12,14 @@ import java.lang.ref.WeakReference;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JsCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WeakReference a;
+    public String b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f44017b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class JsCallbackException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +61,7 @@ public class JsCallback {
             }
         }
         this.a = new WeakReference(webView);
-        this.f44017b = str;
+        this.b = str;
     }
 
     public static void invokeJsCallback(JsCallback jsCallback, boolean z, JSONObject jSONObject, String str) {
@@ -73,8 +71,8 @@ public class JsCallback {
         }
         try {
             jsCallback.call(z, jSONObject, str);
-        } catch (JsCallbackException e2) {
-            e2.printStackTrace();
+        } catch (JsCallbackException e) {
+            e.printStackTrace();
         }
     }
 
@@ -104,10 +102,10 @@ public class JsCallback {
                 if (jSONObject != null) {
                     jSONObject2.put("data", jSONObject);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.f44017b, jSONObject2.toString());
+            String format = String.format(Locale.getDefault(), "javascript:JsBridge.onComplete(%s,%s);", this.b, jSONObject2.toString());
             if (AsyncTaskExecutor.isMainThread()) {
                 webView.loadUrl(format);
             } else {
@@ -115,9 +113,7 @@ public class JsCallback {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WebView a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f44018b;
+                    public final /* synthetic */ String b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -135,14 +131,14 @@ public class JsCallback {
                             }
                         }
                         this.a = webView;
-                        this.f44018b = format;
+                        this.b = format;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.a.loadUrl(this.f44018b);
+                            this.a.loadUrl(this.b);
                         }
                     }
                 });

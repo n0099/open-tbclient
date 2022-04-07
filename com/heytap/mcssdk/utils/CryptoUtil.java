@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CryptoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_RADIX = 16;
@@ -38,8 +38,8 @@ public class CryptoUtil {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return DESUtil.decrypt(str, getDesKey());
-                } catch (Exception e2) {
-                    LogUtil.e("desDecrypt-" + e2.getMessage());
+                } catch (Exception e) {
+                    LogUtil.e("desDecrypt-" + e.getMessage());
                 }
             }
             return "";
@@ -54,8 +54,8 @@ public class CryptoUtil {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return DESUtil.encrypt(str, getDesKey());
-                } catch (Exception e2) {
-                    LogUtil.e("desEncrypt-" + e2.getMessage());
+                } catch (Exception e) {
+                    LogUtil.e("desEncrypt-" + e.getMessage());
                 }
             }
             return "";
@@ -94,8 +94,8 @@ public class CryptoUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() == 1) {
                     hexString = "0" + hexString;
                 }
@@ -130,10 +130,10 @@ public class CryptoUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
             int length = bArr.length % 2 == 0 ? bArr.length : bArr.length - 1;
             for (int i = 0; i < length; i += 2) {
-                byte b2 = bArr[i];
+                byte b = bArr[i];
                 int i2 = i + 1;
                 bArr[i] = bArr[i2];
-                bArr[i2] = b2;
+                bArr[i2] = b;
             }
             return bArr;
         }

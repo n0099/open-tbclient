@@ -5,8 +5,6 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -21,7 +19,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ni;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class WebViewActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG_AD_DEEPLINK_URL = "tag_ad_deeplink_url";
@@ -75,11 +75,11 @@ public class WebViewActivityConfig extends IntentConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (m.isEmpty(str)) {
+            if (ni.isEmpty(str)) {
                 return str;
             }
             if (str.indexOf("_client_version=") < 0) {
-                if (m.isEmpty(Uri.parse(str).getQuery())) {
+                if (ni.isEmpty(Uri.parse(str).getQuery())) {
                     str = str + "?_client_version=" + TbConfig.getVersion();
                 } else {
                     str = str + "&_client_version=" + TbConfig.getVersion();
@@ -99,7 +99,7 @@ public class WebViewActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (UtilHelper.webViewIsProbablyCorrupt(getContext())) {
-                n.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f154a));
+                oi.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f1551));
                 return false;
             }
             return true;

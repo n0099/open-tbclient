@@ -15,14 +15,12 @@ public interface b extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2054a implements b {
+        public static class C0598a implements b {
             public static b a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43132b;
-
-            public C2054a(IBinder iBinder) {
-                this.f43132b = iBinder;
+            public C0598a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.b
@@ -33,7 +31,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                     obtain.writeMap(map);
                     obtain.writeMap(map2);
-                    if (!this.f43132b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(map, map2);
                     } else {
                         obtain2.readException();
@@ -46,7 +44,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43132b;
+                return this.b;
             }
         }
 
@@ -62,7 +60,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C2054a(iBinder);
+            return new C0598a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -87,7 +85,7 @@ public interface b extends IInterface {
         }
 
         public static b a() {
-            return C2054a.a;
+            return C0598a.a;
         }
     }
 }

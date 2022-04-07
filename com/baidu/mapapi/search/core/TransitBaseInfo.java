@@ -11,24 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TransitBaseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TransitBaseInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26395b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26396c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26397d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f26398e;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 
     static {
         InterceptResult invokeClinit;
@@ -76,10 +68,10 @@ public class TransitBaseInfo implements Parcelable {
             }
         }
         this.a = parcel.readString();
-        this.f26395b = parcel.readString();
-        this.f26396c = parcel.readString();
-        this.f26397d = parcel.readString();
-        this.f26398e = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readString();
+        this.d = parcel.readString();
+        this.e = parcel.readString();
     }
 
     @Override // android.os.Parcelable
@@ -95,25 +87,25 @@ public class TransitBaseInfo implements Parcelable {
     public String getArriveStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26396c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public String getArriveTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26398e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     public String getDepartureStation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26395b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public String getDepartureTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26397d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public String getName() {
@@ -125,28 +117,28 @@ public class TransitBaseInfo implements Parcelable {
     public void setArriveStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f26396c = str;
+            this.c = str;
         }
     }
 
     public void setArriveTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f26398e = str;
+            this.e = str;
         }
     }
 
     public void setDepartureStation(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f26395b = str;
+            this.b = str;
         }
     }
 
     public void setDepartureTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f26397d = str;
+            this.d = str;
         }
     }
 
@@ -162,10 +154,10 @@ public class TransitBaseInfo implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f26395b);
-            parcel.writeString(this.f26396c);
-            parcel.writeString(this.f26397d);
-            parcel.writeString(this.f26398e);
+            parcel.writeString(this.b);
+            parcel.writeString(this.c);
+            parcel.writeString(this.d);
+            parcel.writeString(this.e);
         }
     }
 }

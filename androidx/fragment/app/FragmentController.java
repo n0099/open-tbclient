@@ -274,10 +274,10 @@ public class FragmentController {
     }
 
     @Nullable
-    public View onCreateView(@Nullable View view, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
+    public View onCreateView(@Nullable View view2, @NonNull String str, @NonNull Context context, @NonNull AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048607, this, view, str, context, attributeSet)) == null) ? this.mHost.mFragmentManager.getLayoutInflaterFactory().onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048607, this, view2, str, context, attributeSet)) == null) ? this.mHost.mFragmentManager.getLayoutInflaterFactory().onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     @Deprecated

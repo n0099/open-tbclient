@@ -33,7 +33,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPushUploadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PING_INTERVAL_MS = 1000;
@@ -43,7 +43,7 @@ public class IMPushUploadManager {
     public Context mContext;
     public OkHttpClient mOkHttpClient;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,8 +120,8 @@ public class IMPushUploadManager {
                         try {
                             this.val$body.writeTo(buffer);
                             buffer.close();
-                        } catch (IOException e2) {
-                            Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e2);
+                        } catch (IOException e) {
+                            Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e);
                         }
                     }
                 }
@@ -139,8 +139,8 @@ public class IMPushUploadManager {
                         return chain.proceed(request.newBuilder().header("Content-Encoding", "gzip").method(request.method(), gzip(request.body())).build());
                     }
                     return chain.proceed(request);
-                } catch (Exception e2) {
-                    throw new IOException(e2.getMessage());
+                } catch (Exception e) {
+                    throw new IOException(e.getMessage());
                 }
             }
             return (Response) invokeL.objValue;
@@ -224,8 +224,8 @@ public class IMPushUploadManager {
                 }
                 Log.d(IMPushUploadConstants.TAG, "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg());
                 return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
-            } catch (InvalidProtocolBufferException e2) {
-                Log.e(IMPushUploadConstants.TAG, "parseResponse has exception ", e2);
+            } catch (InvalidProtocolBufferException e) {
+                Log.e(IMPushUploadConstants.TAG, "parseResponse has exception ", e);
                 return new String[]{String.valueOf(-1), "parseResponse exception"};
             }
         }
@@ -302,8 +302,8 @@ public class IMPushUploadManager {
                                 if (iMPushUploadResponseListener2 == null) {
                                     return;
                                 }
-                            } catch (IOException e2) {
-                                Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e2);
+                            } catch (IOException e) {
+                                Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e);
                                 iMPushUploadResponseListener2 = this.val$responseListener;
                                 if (iMPushUploadResponseListener2 == null) {
                                     return;

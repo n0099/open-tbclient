@@ -23,13 +23,11 @@ import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
 @TargetApi(17)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final HostnameVerifier a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final SSLCertificateSocketFactory f43805b;
+    public static final SSLCertificateSocketFactory b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +44,7 @@ public class k implements LayeredSocketFactory {
             }
         }
         a = new StrictHostnameVerifier();
-        f43805b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
+        b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
     }
 
     public k() {
@@ -104,11 +102,11 @@ public class k implements LayeredSocketFactory {
             if (z) {
                 socket.close();
             }
-            SSLSocket sSLSocket = (SSLSocket) f43805b.createSocket(inetAddress, i);
+            SSLSocket sSLSocket = (SSLSocket) b.createSocket(inetAddress, i);
             sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
             if (Build.VERSION.SDK_INT >= 17) {
                 SLog.v("openSDK_LOG.SNISocketFactory", "Setting SNI hostname");
-                f43805b.setHostname(sSLSocket, str);
+                b.setHostname(sSLSocket, str);
             } else {
                 SLog.v("openSDK_LOG.SNISocketFactory", "No documented SNI support on Android <4.2, trying with reflection");
                 try {

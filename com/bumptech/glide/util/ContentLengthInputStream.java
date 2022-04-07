@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ContentLengthInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContentLengthStream";
@@ -72,9 +72,9 @@ public final class ContentLengthInputStream extends FilterInputStream {
             if (!TextUtils.isEmpty(str)) {
                 try {
                     return Integer.parseInt(str);
-                } catch (NumberFormatException e2) {
+                } catch (NumberFormatException e) {
                     if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "failed to parse content length header: " + str, e2);
+                        Log.d(TAG, "failed to parse content length header: " + str, e);
                     }
                 }
             }

@@ -35,7 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
 import org.webrtc.StatsReport;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RtcReportHandle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMUNICATION_REPORT_INTERVAL = 2000;
@@ -67,7 +67,7 @@ public class RtcReportHandle {
     public long mUserId;
     public Runnable reportDeviceInfoRun;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AudioStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +104,7 @@ public class RtcReportHandle {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class VideoStuckEvent implements SLIReportInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,8 +322,8 @@ public class RtcReportHandle {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject6);
-            } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportCommunicationQualityInfo: " + e2);
+            } catch (JSONException e) {
+                Log.e(TAG, "Caught error on reportCommunicationQualityInfo: " + e);
             }
             reportData(jSONObject.toString(), 2);
         }
@@ -356,8 +356,8 @@ public class RtcReportHandle {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject3);
-            } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
+            } catch (JSONException e) {
+                Log.e(TAG, "Caught error on reportDeviceInfo: " + e);
             }
             reportData(jSONObject.toString(), 0);
         }
@@ -413,8 +413,8 @@ public class RtcReportHandle {
                         jSONObject.put("timestamp", System.currentTimeMillis());
                         jSONObject.put("userId", this.mUserId);
                         jSONObject.put("message", jSONObject2);
-                    } catch (JSONException e2) {
-                        Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
+                    } catch (JSONException e) {
+                        Log.e(TAG, "Caught error on reportDeviceInfo: " + e);
                     }
                     reportData(jSONObject.toString(), 3);
                 }
@@ -503,8 +503,8 @@ public class RtcReportHandle {
                 jSONObject.put("timestamp", System.currentTimeMillis());
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject3);
-            } catch (JSONException e2) {
-                Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
+            } catch (JSONException e) {
+                Log.e(TAG, "Caught error on reportDeviceInfo: " + e);
             }
             reportData(jSONObject.toString(), 3);
         }
@@ -594,9 +594,9 @@ public class RtcReportHandle {
             if (!TextUtils.isEmpty(str3)) {
                 try {
                     this.mUserId = Long.valueOf(str3).longValue();
-                } catch (NumberFormatException e2) {
+                } catch (NumberFormatException e) {
                     this.mUserId = -1L;
-                    Logging.e(TAG, "UserID must be number format " + e2.getMessage());
+                    Logging.e(TAG, "UserID must be number format " + e.getMessage());
                 }
             }
             this.mFeedId = str4;

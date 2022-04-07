@@ -11,7 +11,7 @@ import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
 import com.kwad.sdk.utils.aq;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     @Nullable
     public static AdDownloadProxy a(Context context, AdInstallProxy adInstallProxy, boolean z) {
@@ -42,8 +42,8 @@ public class e {
         if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
             try {
                 file = context.getExternalCacheDir();
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
                 file = null;
             }
             if (file != null) {

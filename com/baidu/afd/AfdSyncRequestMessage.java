@@ -5,8 +5,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -27,11 +25,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.rp;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AfdSyncRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";
@@ -63,13 +63,13 @@ public class AfdSyncRequestMessage extends HttpMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AfdSyncRequestMessage(h hVar) {
+    public AfdSyncRequestMessage(rp rpVar) {
         super(CmdConfigHttp.CMD_AFD_REQUEST_ASYNC);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hVar};
+            Object[] objArr = {rpVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,10 +85,10 @@ public class AfdSyncRequestMessage extends HttpMessage {
         setUserAgent("bdtb for Android " + TbConfig.getVersion());
         addParam("pid", "1517888290046");
         addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, "1");
-        addParam("ft", hVar.c());
-        addParam("ext", getExt(hVar));
-        addParam("flr", String.valueOf(hVar.b()));
-        addParam("fc", String.valueOf(hVar.b()));
+        addParam("ft", rpVar.b());
+        addParam("ext", getExt(rpVar));
+        addParam("flr", String.valueOf(rpVar.a()));
+        addParam("fc", String.valueOf(rpVar.a()));
     }
 
     private void addCommonParams() {
@@ -106,7 +106,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
             addParam(HttpRequest.ANDROID_ID, androidId());
             addParam("ot", "2");
             addParam(Config.EXCEPTION_CRASH_TYPE, "2");
-            addParam("nt", String.valueOf(l.I()));
+            addParam("nt", String.valueOf(mi.I()));
             addParam("uid", TbadkCoreApplication.getCurrentAccount());
             addParam("is_https", 1);
         }
@@ -143,12 +143,12 @@ public class AfdSyncRequestMessage extends HttpMessage {
         return (JSONObject) invokeLL.objValue;
     }
 
-    public static String getExt(h hVar) {
+    public static String getExt(rp rpVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, hVar)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, rpVar)) == null) {
             JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, String> entry : hVar.d().entrySet()) {
+            for (Map.Entry<String, String> entry : rpVar.c().entrySet()) {
                 jSONArray.put(create(entry.getKey(), entry.getValue()));
             }
             return jSONArray.toString();

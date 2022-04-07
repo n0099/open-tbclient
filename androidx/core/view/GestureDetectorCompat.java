@@ -222,17 +222,17 @@ public final class GestureDetectorCompat {
                 boolean z2 = i == 6;
                 int actionIndex = z2 ? motionEvent.getActionIndex() : -1;
                 int pointerCount = motionEvent.getPointerCount();
+                float f = 0.0f;
                 float f2 = 0.0f;
-                float f3 = 0.0f;
                 for (int i2 = 0; i2 < pointerCount; i2++) {
                     if (actionIndex != i2) {
-                        f2 += motionEvent.getX(i2);
-                        f3 += motionEvent.getY(i2);
+                        f += motionEvent.getX(i2);
+                        f2 += motionEvent.getY(i2);
                     }
                 }
-                float f4 = z2 ? pointerCount - 1 : pointerCount;
-                float f5 = f2 / f4;
-                float f6 = f3 / f4;
+                float f3 = z2 ? pointerCount - 1 : pointerCount;
+                float f4 = f / f3;
+                float f5 = f2 / f3;
                 if (i == 0) {
                     if (this.mDoubleTapListener != null) {
                         boolean hasMessages = this.mHandler.hasMessages(3);
@@ -243,10 +243,10 @@ public final class GestureDetectorCompat {
                         if (motionEvent4 != null && (motionEvent3 = this.mPreviousUpEvent) != null && hasMessages && isConsideredDoubleTap(motionEvent4, motionEvent3, motionEvent)) {
                             this.mIsDoubleTapping = true;
                             z = this.mDoubleTapListener.onDoubleTap(this.mCurrentDownEvent) | false | this.mDoubleTapListener.onDoubleTapEvent(motionEvent);
-                            this.mLastFocusX = f5;
-                            this.mDownFocusX = f5;
-                            this.mLastFocusY = f6;
-                            this.mDownFocusY = f6;
+                            this.mLastFocusX = f4;
+                            this.mDownFocusX = f4;
+                            this.mLastFocusY = f5;
+                            this.mDownFocusY = f5;
                             motionEvent2 = this.mCurrentDownEvent;
                             if (motionEvent2 != null) {
                                 motionEvent2.recycle();
@@ -267,10 +267,10 @@ public final class GestureDetectorCompat {
                         this.mHandler.sendEmptyMessageDelayed(3, DOUBLE_TAP_TIMEOUT);
                     }
                     z = false;
-                    this.mLastFocusX = f5;
-                    this.mDownFocusX = f5;
-                    this.mLastFocusY = f6;
-                    this.mDownFocusY = f6;
+                    this.mLastFocusX = f4;
+                    this.mDownFocusX = f4;
+                    this.mLastFocusY = f5;
+                    this.mDownFocusY = f5;
                     motionEvent2 = this.mCurrentDownEvent;
                     if (motionEvent2 != null) {
                     }
@@ -331,19 +331,19 @@ public final class GestureDetectorCompat {
                         cancel();
                         return false;
                     } else if (i == 5) {
-                        this.mLastFocusX = f5;
-                        this.mDownFocusX = f5;
-                        this.mLastFocusY = f6;
-                        this.mDownFocusY = f6;
+                        this.mLastFocusX = f4;
+                        this.mDownFocusX = f4;
+                        this.mLastFocusY = f5;
+                        this.mDownFocusY = f5;
                         cancelTaps();
                         return false;
                     } else if (i != 6) {
                         return false;
                     } else {
-                        this.mLastFocusX = f5;
-                        this.mDownFocusX = f5;
-                        this.mLastFocusY = f6;
-                        this.mDownFocusY = f6;
+                        this.mLastFocusX = f4;
+                        this.mDownFocusX = f4;
+                        this.mLastFocusY = f5;
+                        this.mDownFocusY = f5;
                         this.mVelocityTracker.computeCurrentVelocity(1000, this.mMaximumFlingVelocity);
                         int actionIndex2 = motionEvent.getActionIndex();
                         int pointerId2 = motionEvent.getPointerId(actionIndex2);
@@ -363,19 +363,19 @@ public final class GestureDetectorCompat {
                 } else if (this.mInLongPress) {
                     return false;
                 } else {
-                    float f7 = this.mLastFocusX - f5;
-                    float f8 = this.mLastFocusY - f6;
+                    float f6 = this.mLastFocusX - f4;
+                    float f7 = this.mLastFocusY - f5;
                     if (this.mIsDoubleTapping) {
                         return false | this.mDoubleTapListener.onDoubleTapEvent(motionEvent);
                     }
                     if (this.mAlwaysInTapRegion) {
-                        int i4 = (int) (f5 - this.mDownFocusX);
-                        int i5 = (int) (f6 - this.mDownFocusY);
+                        int i4 = (int) (f4 - this.mDownFocusX);
+                        int i5 = (int) (f5 - this.mDownFocusY);
                         int i6 = (i4 * i4) + (i5 * i5);
                         if (i6 > this.mTouchSlopSquare) {
-                            onFling = this.mListener.onScroll(this.mCurrentDownEvent, motionEvent, f7, f8);
-                            this.mLastFocusX = f5;
-                            this.mLastFocusY = f6;
+                            onFling = this.mListener.onScroll(this.mCurrentDownEvent, motionEvent, f6, f7);
+                            this.mLastFocusX = f4;
+                            this.mLastFocusY = f5;
                             this.mAlwaysInTapRegion = false;
                             this.mHandler.removeMessages(3);
                             this.mHandler.removeMessages(1);
@@ -386,10 +386,10 @@ public final class GestureDetectorCompat {
                         if (i6 > this.mTouchSlopSquare) {
                             this.mAlwaysInBiggerTapRegion = false;
                         }
-                    } else if (Math.abs(f7) >= 1.0f || Math.abs(f8) >= 1.0f) {
-                        boolean onScroll = this.mListener.onScroll(this.mCurrentDownEvent, motionEvent, f7, f8);
-                        this.mLastFocusX = f5;
-                        this.mLastFocusY = f6;
+                    } else if (Math.abs(f6) >= 1.0f || Math.abs(f7) >= 1.0f) {
+                        boolean onScroll = this.mListener.onScroll(this.mCurrentDownEvent, motionEvent, f6, f7);
+                        this.mLastFocusX = f4;
+                        this.mLastFocusY = f5;
                         return onScroll;
                     } else {
                         return false;

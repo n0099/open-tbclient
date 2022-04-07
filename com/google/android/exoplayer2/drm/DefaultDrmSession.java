@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LICENSE_DURATION_TO_RENEW = 60;
@@ -56,7 +56,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     public final UUID uuid;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PostRequestHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,8 +118,8 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                     } else {
                         throw new RuntimeException();
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     if (maybeRetryRequest(message)) {
                         return;
                     }
@@ -139,7 +139,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
     }
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PostResponseHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ProvisioningManager<T extends ExoMediaCrypto> {
         void onProvisionCompleted();
 
@@ -454,8 +454,8 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                         }
                     }
                 });
-            } catch (Exception e2) {
-                onKeysError(e2);
+            } catch (Exception e) {
+                onKeysError(e);
             }
         }
     }
@@ -491,8 +491,8 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                 try {
                     this.mediaDrm.provideProvisionResponse((byte[]) obj);
                     this.provisioningManager.onProvisionCompleted();
-                } catch (Exception e2) {
-                    this.provisioningManager.onProvisionError(e2);
+                } catch (Exception e) {
+                    this.provisioningManager.onProvisionError(e);
                 }
             }
         }
@@ -511,15 +511,15 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                 this.mediaCrypto = this.mediaDrm.createMediaCrypto(openSession);
                 this.state = 3;
                 return true;
-            } catch (NotProvisionedException e2) {
+            } catch (NotProvisionedException e) {
                 if (z) {
                     this.provisioningManager.provisionRequired(this);
                     return false;
                 }
-                onError(e2);
+                onError(e);
                 return false;
-            } catch (Exception e3) {
-                onError(e3);
+            } catch (Exception e2) {
+                onError(e2);
                 return false;
             }
         }
@@ -535,8 +535,8 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
                     keyRequest = new ExoMediaDrm.DefaultKeyRequest(ClearKeyUtil.adjustRequestData(keyRequest.getData()), keyRequest.getDefaultUrl());
                 }
                 this.postRequestHandler.obtainMessage(1, keyRequest, z).sendToTarget();
-            } catch (Exception e2) {
-                onKeysError(e2);
+            } catch (Exception e) {
+                onKeysError(e);
             }
         }
     }
@@ -548,9 +548,9 @@ public class DefaultDrmSession<T extends ExoMediaCrypto> implements DrmSession<T
             try {
                 this.mediaDrm.restoreKeys(this.sessionId, this.offlineLicenseKeySetId);
                 return true;
-            } catch (Exception e2) {
-                Log.e(TAG, "Error trying to restore Widevine keys.", e2);
-                onError(e2);
+            } catch (Exception e) {
+                Log.e(TAG, "Error trying to restore Widevine keys.", e);
+                onError(e);
                 return false;
             }
         }

@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class APPStatus {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f42447b;
+    public Context b;
 
     public APPStatus(String str, Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public class APPStatus {
             }
         }
         this.a = str;
-        this.f42447b = context;
+        this.b = context;
     }
 
     public String getAPPID() {
@@ -45,7 +43,7 @@ public class APPStatus {
     public String getAPPName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42447b.getPackageName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getPackageName() : (String) invokeV.objValue;
     }
 
     public String getAPPRealName() {
@@ -55,7 +53,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f42447b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.f42447b.getPackageManager()).toString();
+                    return this.b.getPackageManager().getPackageInfo(aPPName, 0).applicationInfo.loadLabel(this.b.getPackageManager()).toString();
                 } catch (Exception unused) {
                 }
             }
@@ -71,7 +69,7 @@ public class APPStatus {
             String aPPName = getAPPName();
             if (!StringUtil.isEmpty(aPPName)) {
                 try {
-                    return this.f42447b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
+                    return this.b.getPackageManager().getPackageInfo(aPPName, 0).versionName;
                 } catch (Exception unused) {
                 }
             }

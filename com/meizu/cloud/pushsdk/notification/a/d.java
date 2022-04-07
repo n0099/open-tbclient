@@ -10,8 +10,9 @@ import com.meizu.cloud.pushsdk.handler.MessageV4;
 import com.meizu.cloud.pushsdk.notification.PushNotificationBuilder;
 import com.meizu.cloud.pushsdk.notification.c.e;
 import com.meizu.cloud.pushsdk.util.MinSdkChecker;
+import com.repackage.rm9;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d extends c {
     public d(Context context, PushNotificationBuilder pushNotificationBuilder) {
         super(context, pushNotificationBuilder);
@@ -32,20 +33,20 @@ public class d extends c {
         super.a(notification, messageV3);
         MessageV4 parse = MessageV4.parse(messageV3);
         if (parse.getActVideoSetting() == null || (parse.getActVideoSetting().isWifiDisplay() && !com.meizu.cloud.pushsdk.util.a.b(this.a))) {
-            c.h.a.a.a.b("AbstractPushNotification", "only wifi can download act");
+            rm9.b("AbstractPushNotification", "only wifi can download act");
             return;
         }
         final String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdkAct/" + messageV3.getUploadDataPackageName();
         String valueOf = String.valueOf(System.currentTimeMillis());
         String actUrl = parse.getActVideoSetting().getActUrl();
         if (!TextUtils.isEmpty(actUrl) && com.meizu.cloud.pushsdk.b.a.a(actUrl, str, valueOf).a().c().b()) {
-            c.h.a.a.a.d("AbstractPushNotification", "down load " + actUrl + " success");
+            rm9.d("AbstractPushNotification", "down load " + actUrl + " success");
             String str2 = str + File.separator + "ACT-" + valueOf;
             boolean a = new e(str + File.separator + valueOf, str2).a();
             StringBuilder sb = new StringBuilder();
             sb.append("zip file ");
             sb.append(a);
-            c.h.a.a.a.d("AbstractPushNotification", sb.toString());
+            rm9.d("AbstractPushNotification", sb.toString());
             if (a) {
                 Bundle bundle = new Bundle();
                 bundle.putString("path", str2);
@@ -59,10 +60,10 @@ public class d extends c {
         com.meizu.cloud.pushsdk.c.b.a.b.a(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.d.1
             @Override // java.lang.Runnable
             public void run() {
-                File[] b2;
+                File[] b;
                 for (File file : com.meizu.cloud.pushsdk.notification.c.a.b(str, String.valueOf(System.currentTimeMillis() - 86400000))) {
                     com.meizu.cloud.pushsdk.notification.c.a.b(file.getPath());
-                    c.h.a.a.a.d("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");
+                    rm9.d("AbstractPushNotification", "Delete file directory " + file.getName() + "\n");
                 }
             }
         });

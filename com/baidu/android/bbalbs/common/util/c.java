@@ -10,18 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static b f24117b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f24118c = "";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static volatile String f24119d = "";
+    public static b b = null;
+    public static String c = "";
+    public static volatile String d = "";
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -62,10 +56,10 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f24118c)) {
-                f24118c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(c)) {
+                c = "0newiqr3mini0";
             }
-            return f24118c;
+            return c;
         }
         return (String) invokeV.objValue;
     }
@@ -83,8 +77,8 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f24119d)) {
-                    f24119d = str;
+                if (TextUtils.isEmpty(d)) {
+                    d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
@@ -92,7 +86,7 @@ public final class c {
                     for (int i = 0; i < length; i++) {
                         stringBuffer.append("0");
                     }
-                    f24118c = stringBuffer.toString().trim();
+                    c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -126,14 +120,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (f24117b == null) {
+            if (b == null) {
                 synchronized (b.class) {
-                    if (f24117b == null) {
-                        f24117b = new c(context).b();
+                    if (b == null) {
+                        b = new c(context).b();
                     }
                 }
             }
-            return f24117b;
+            return b;
         }
         return (b) invokeL.objValue;
     }

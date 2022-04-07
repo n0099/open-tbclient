@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class FlowLayout extends ViewGroup {
     private void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401a5, R.attr.obfuscated_res_0x7f0402a9, R.attr.obfuscated_res_0x7f0402ea, R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f040457, R.attr.obfuscated_res_0x7f040682}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0402eb, R.attr.obfuscated_res_0x7f040326, R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f040496, R.attr.obfuscated_res_0x7f0406c0}, 0, 0);
             this.lineSpacing = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.itemSpacing = obtainStyledAttributes.getDimensionPixelSize(2, 0);
             obtainStyledAttributes.recycle();
@@ -90,11 +90,11 @@ public class FlowLayout extends ViewGroup {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.rowCount : invokeV.intValue;
     }
 
-    public int getRowIndex(@NonNull View view) {
+    public int getRowIndex(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
-            Object tag = view.getTag(R.id.obfuscated_res_0x7f091afd);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f091aec);
             if (tag instanceof Integer) {
                 return ((Integer) tag).intValue();
             }
@@ -130,7 +130,7 @@ public class FlowLayout extends ViewGroup {
             for (int i10 = 0; i10 < getChildCount(); i10++) {
                 View childAt = getChildAt(i10);
                 if (childAt.getVisibility() == 8) {
-                    childAt.setTag(R.id.obfuscated_res_0x7f091afd, -1);
+                    childAt.setTag(R.id.obfuscated_res_0x7f091aec, -1);
                 } else {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
@@ -147,7 +147,7 @@ public class FlowLayout extends ViewGroup {
                         this.rowCount++;
                         i8 = paddingRight;
                     }
-                    childAt.setTag(R.id.obfuscated_res_0x7f091afd, Integer.valueOf(this.rowCount - 1));
+                    childAt.setTag(R.id.obfuscated_res_0x7f091aec, Integer.valueOf(this.rowCount - 1));
                     int i11 = i8 + i6;
                     int measuredWidth2 = childAt.getMeasuredWidth() + i11;
                     int measuredHeight = childAt.getMeasuredHeight() + i9;

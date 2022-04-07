@@ -59,19 +59,19 @@ public class AccessibilityDelegateCompat {
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+        public boolean dispatchPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, accessibilityEvent)) == null) ? this.mCompat.dispatchPopulateAccessibilityEvent(view, accessibilityEvent) : invokeLL.booleanValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, accessibilityEvent)) == null) ? this.mCompat.dispatchPopulateAccessibilityEvent(view2, accessibilityEvent) : invokeLL.booleanValue;
         }
 
         @Override // android.view.View.AccessibilityDelegate
         @RequiresApi(16)
-        public AccessibilityNodeProvider getAccessibilityNodeProvider(View view) {
+        public AccessibilityNodeProvider getAccessibilityNodeProvider(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
-                AccessibilityNodeProviderCompat accessibilityNodeProvider = this.mCompat.getAccessibilityNodeProvider(view);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+                AccessibilityNodeProviderCompat accessibilityNodeProvider = this.mCompat.getAccessibilityNodeProvider(view2);
                 if (accessibilityNodeProvider != null) {
                     return (AccessibilityNodeProvider) accessibilityNodeProvider.getProvider();
                 }
@@ -81,24 +81,24 @@ public class AccessibilityDelegateCompat {
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+        public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, accessibilityEvent) == null) {
-                this.mCompat.onInitializeAccessibilityEvent(view, accessibilityEvent);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, accessibilityEvent) == null) {
+                this.mCompat.onInitializeAccessibilityEvent(view2, accessibilityEvent);
             }
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfo accessibilityNodeInfo) {
+        public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfo accessibilityNodeInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, view, accessibilityNodeInfo) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048579, this, view2, accessibilityNodeInfo) == null) {
                 AccessibilityNodeInfoCompat wrap = AccessibilityNodeInfoCompat.wrap(accessibilityNodeInfo);
-                wrap.setScreenReaderFocusable(ViewCompat.isScreenReaderFocusable(view));
-                wrap.setHeading(ViewCompat.isAccessibilityHeading(view));
-                wrap.setPaneTitle(ViewCompat.getAccessibilityPaneTitle(view));
-                this.mCompat.onInitializeAccessibilityNodeInfo(view, wrap);
-                wrap.addSpansToExtras(accessibilityNodeInfo.getText(), view);
-                List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = AccessibilityDelegateCompat.getActionList(view);
+                wrap.setScreenReaderFocusable(ViewCompat.isScreenReaderFocusable(view2));
+                wrap.setHeading(ViewCompat.isAccessibilityHeading(view2));
+                wrap.setPaneTitle(ViewCompat.getAccessibilityPaneTitle(view2));
+                this.mCompat.onInitializeAccessibilityNodeInfo(view2, wrap);
+                wrap.addSpansToExtras(accessibilityNodeInfo.getText(), view2);
+                List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = AccessibilityDelegateCompat.getActionList(view2);
                 for (int i = 0; i < actionList.size(); i++) {
                     wrap.addAction(actionList.get(i));
                 }
@@ -106,40 +106,40 @@ public class AccessibilityDelegateCompat {
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+        public void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, view, accessibilityEvent) == null) {
-                this.mCompat.onPopulateAccessibilityEvent(view, accessibilityEvent);
+            if (interceptable == null || interceptable.invokeLL(1048580, this, view2, accessibilityEvent) == null) {
+                this.mCompat.onPopulateAccessibilityEvent(view2, accessibilityEvent);
             }
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, viewGroup, view, accessibilityEvent)) == null) ? this.mCompat.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent) : invokeLLL.booleanValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, viewGroup, view2, accessibilityEvent)) == null) ? this.mCompat.onRequestSendAccessibilityEvent(viewGroup, view2, accessibilityEvent) : invokeLLL.booleanValue;
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
+        public boolean performAccessibilityAction(View view2, int i, Bundle bundle) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, view, i, bundle)) == null) ? this.mCompat.performAccessibilityAction(view, i, bundle) : invokeLIL.booleanValue;
+            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, view2, i, bundle)) == null) ? this.mCompat.performAccessibilityAction(view2, i, bundle) : invokeLIL.booleanValue;
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public void sendAccessibilityEvent(View view, int i) {
+        public void sendAccessibilityEvent(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, view, i) == null) {
-                this.mCompat.sendAccessibilityEvent(view, i);
+            if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
+                this.mCompat.sendAccessibilityEvent(view2, i);
             }
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public void sendAccessibilityEventUnchecked(View view, AccessibilityEvent accessibilityEvent) {
+        public void sendAccessibilityEventUnchecked(View view2, AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, accessibilityEvent) == null) {
-                this.mCompat.sendAccessibilityEventUnchecked(view, accessibilityEvent);
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, accessibilityEvent) == null) {
+                this.mCompat.sendAccessibilityEventUnchecked(view2, accessibilityEvent);
             }
         }
     }
@@ -178,22 +178,22 @@ public class AccessibilityDelegateCompat {
         }
     }
 
-    public static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view) {
+    public static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view.getTag(R$id.tag_accessibility_actions);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R$id.tag_accessibility_actions);
             return list == null ? Collections.emptyList() : list;
         }
         return (List) invokeL.objValue;
     }
 
-    private boolean isSpanStillValid(ClickableSpan clickableSpan, View view) {
+    private boolean isSpanStillValid(ClickableSpan clickableSpan, View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, clickableSpan, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, clickableSpan, view2)) == null) {
             if (clickableSpan != null) {
-                ClickableSpan[] clickableSpans = AccessibilityNodeInfoCompat.getClickableSpans(view.createAccessibilityNodeInfo().getText());
+                ClickableSpan[] clickableSpans = AccessibilityNodeInfoCompat.getClickableSpans(view2.createAccessibilityNodeInfo().getText());
                 for (int i = 0; clickableSpans != null && i < clickableSpans.length; i++) {
                     if (clickableSpan.equals(clickableSpans[i])) {
                         return true;
@@ -205,18 +205,18 @@ public class AccessibilityDelegateCompat {
         return invokeLL.booleanValue;
     }
 
-    private boolean performClickableSpanAction(int i, View view) {
+    private boolean performClickableSpanAction(int i, View view2) {
         InterceptResult invokeIL;
         WeakReference weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, view)) == null) {
-            SparseArray sparseArray = (SparseArray) view.getTag(R$id.tag_accessibility_clickable_spans);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, view2)) == null) {
+            SparseArray sparseArray = (SparseArray) view2.getTag(R$id.tag_accessibility_clickable_spans);
             if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i)) == null) {
                 return false;
             }
             ClickableSpan clickableSpan = (ClickableSpan) weakReference.get();
-            if (isSpanStillValid(clickableSpan, view)) {
-                clickableSpan.onClick(view);
+            if (isSpanStillValid(clickableSpan, view2)) {
+                clickableSpan.onClick(view2);
                 return true;
             }
             return false;
@@ -224,18 +224,18 @@ public class AccessibilityDelegateCompat {
         return invokeIL.booleanValue;
     }
 
-    public boolean dispatchPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public boolean dispatchPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, accessibilityEvent)) == null) ? this.mOriginalDelegate.dispatchPopulateAccessibilityEvent(view, accessibilityEvent) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, accessibilityEvent)) == null) ? this.mOriginalDelegate.dispatchPopulateAccessibilityEvent(view2, accessibilityEvent) : invokeLL.booleanValue;
     }
 
-    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view) {
+    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view2) {
         InterceptResult invokeL;
         AccessibilityNodeProvider accessibilityNodeProvider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
-            if (Build.VERSION.SDK_INT < 16 || (accessibilityNodeProvider = this.mOriginalDelegate.getAccessibilityNodeProvider(view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            if (Build.VERSION.SDK_INT < 16 || (accessibilityNodeProvider = this.mOriginalDelegate.getAccessibilityNodeProvider(view2)) == null) {
                 return null;
             }
             return new AccessibilityNodeProviderCompat(accessibilityNodeProvider);
@@ -249,38 +249,38 @@ public class AccessibilityDelegateCompat {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBridge : (View.AccessibilityDelegate) invokeV.objValue;
     }
 
-    public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view, accessibilityEvent) == null) {
-            this.mOriginalDelegate.onInitializeAccessibilityEvent(view, accessibilityEvent);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, accessibilityEvent) == null) {
+            this.mOriginalDelegate.onInitializeAccessibilityEvent(view2, accessibilityEvent);
         }
     }
 
-    public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, view, accessibilityNodeInfoCompat) == null) {
-            this.mOriginalDelegate.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat.unwrap());
+        if (interceptable == null || interceptable.invokeLL(1048580, this, view2, accessibilityNodeInfoCompat) == null) {
+            this.mOriginalDelegate.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat.unwrap());
         }
     }
 
-    public void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, view, accessibilityEvent) == null) {
-            this.mOriginalDelegate.onPopulateAccessibilityEvent(view, accessibilityEvent);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, accessibilityEvent) == null) {
+            this.mOriginalDelegate.onPopulateAccessibilityEvent(view2, accessibilityEvent);
         }
     }
 
-    public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+    public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewGroup, view, accessibilityEvent)) == null) ? this.mOriginalDelegate.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewGroup, view2, accessibilityEvent)) == null) ? this.mOriginalDelegate.onRequestSendAccessibilityEvent(viewGroup, view2, accessibilityEvent) : invokeLLL.booleanValue;
     }
 
-    public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
+    public boolean performAccessibilityAction(View view2, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i, bundle)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view2, i, bundle)) == null) {
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view2);
             boolean z = false;
             int i2 = 0;
             while (true) {
@@ -289,30 +289,30 @@ public class AccessibilityDelegateCompat {
                 }
                 AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat = actionList.get(i2);
                 if (accessibilityActionCompat.getId() == i) {
-                    z = accessibilityActionCompat.perform(view, bundle);
+                    z = accessibilityActionCompat.perform(view2, bundle);
                     break;
                 }
                 i2++;
             }
             if (!z && Build.VERSION.SDK_INT >= 16) {
-                z = this.mOriginalDelegate.performAccessibilityAction(view, i, bundle);
+                z = this.mOriginalDelegate.performAccessibilityAction(view2, i, bundle);
             }
-            return (z || i != R$id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
+            return (z || i != R$id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view2);
         }
         return invokeLIL.booleanValue;
     }
 
-    public void sendAccessibilityEvent(View view, int i) {
+    public void sendAccessibilityEvent(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i) == null) {
-            this.mOriginalDelegate.sendAccessibilityEvent(view, i);
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) == null) {
+            this.mOriginalDelegate.sendAccessibilityEvent(view2, i);
         }
     }
 
-    public void sendAccessibilityEventUnchecked(View view, AccessibilityEvent accessibilityEvent) {
+    public void sendAccessibilityEventUnchecked(View view2, AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, view, accessibilityEvent) == null) {
-            this.mOriginalDelegate.sendAccessibilityEventUnchecked(view, accessibilityEvent);
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, accessibilityEvent) == null) {
+            this.mOriginalDelegate.sendAccessibilityEventUnchecked(view2, accessibilityEvent);
         }
     }
 

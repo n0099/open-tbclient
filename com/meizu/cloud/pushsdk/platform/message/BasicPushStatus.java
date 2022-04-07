@@ -1,11 +1,11 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
 import android.text.TextUtils;
-import c.h.a.a.a;
+import com.repackage.rm9;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class BasicPushStatus implements Serializable {
     public static final String SUCCESS_CODE = "200";
     public static final String TAG = "BasicPushStatus";
@@ -22,8 +22,8 @@ public abstract class BasicPushStatus implements Serializable {
         }
         try {
             parseValueData(parse.getJSONObject("value"));
-        } catch (JSONException e2) {
-            a.b(TAG, "parse value data error " + e2.getMessage() + " json " + str);
+        } catch (JSONException e) {
+            rm9.b(TAG, "parse value data error " + e.getMessage() + " json " + str);
         }
     }
 
@@ -50,14 +50,14 @@ public abstract class BasicPushStatus implements Serializable {
                     setMessage(jSONObject2.getString("message"));
                 }
                 return jSONObject2;
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 jSONObject = jSONObject2;
-                a.b(TAG, "covert json error " + e.getMessage());
+                rm9.b(TAG, "covert json error " + e.getMessage());
                 return jSONObject;
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 

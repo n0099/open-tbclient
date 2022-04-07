@@ -6,7 +6,7 @@ import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,8 +17,8 @@ public final class r {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             try {
                 return ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            } catch (Exception e2) {
-                p.a("NetUtils", e2);
+            } catch (Exception e) {
+                p.a("NetUtils", e);
                 return null;
             }
         }

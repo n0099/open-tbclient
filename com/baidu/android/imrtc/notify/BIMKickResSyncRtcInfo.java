@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMKickResSyncRtcInfo";
@@ -56,8 +56,8 @@ public class BIMKickResSyncRtcInfo extends BIMKickReqSyncRtcInfo {
                 jSONObject.put("status", this.mKickedStatus);
                 LogUtils.d(TAG, "BIMKickResSyncRtcInfo :" + jSONObject.toString());
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMKickResSyncRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMKickResSyncRtcInfo Exception ", e);
                 return "";
             }
         }

@@ -1,8 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.d.c;
-import c.a.d.f.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.cn4;
+import com.repackage.lb;
+import com.repackage.mi;
+/* loaded from: classes3.dex */
 public class TbImageHelper {
     public static /* synthetic */ Interceptable $ic;
     public static TbImageHelper mInstance;
@@ -77,7 +78,7 @@ public class TbImageHelper {
     public static boolean isSupportGifEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && c.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && lb.c() : invokeV.booleanValue;
     }
 
     private void updateAll() {
@@ -92,7 +93,7 @@ public class TbImageHelper {
     private void updateNetworkStatusCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            this.mIsWifiCache = l.H();
+            this.mIsWifiCache = mi.H();
         }
     }
 
@@ -149,7 +150,7 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             boolean z = true;
-            if (c.a.o0.r.l.c().e() != 0 ? c.a.o0.r.l.c().e() != 1 : !this.mIsWifiCache) {
+            if (cn4.c().e() != 0 ? cn4.c().e() != 1 : !this.mIsWifiCache) {
                 z = false;
             }
             setShowBigImage(z);
@@ -165,11 +166,11 @@ public class TbImageHelper {
     public void updatePostImageSize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            int d2 = c.a.o0.r.l.c().d();
+            int d = cn4.c().d();
             int i = 1300;
-            if (d2 != 0) {
-                if (d2 != 1) {
-                    if (d2 == 2 || d2 != 3) {
+            if (d != 0) {
+                if (d != 1) {
+                    if (d == 2 || d != 3) {
                         i = 1800;
                     }
                 }
@@ -183,11 +184,11 @@ public class TbImageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             String valueOf = String.valueOf(45);
-            if (c.a.o0.r.l.c().e() == 0) {
+            if (cn4.c().e() == 0) {
                 if (getIsWifi()) {
                     valueOf = String.valueOf(80);
                 }
-            } else if (c.a.o0.r.l.c().e() == 1) {
+            } else if (cn4.c().e() == 1) {
                 valueOf = String.valueOf(80);
             }
             this.mUrlQuality = valueOf;

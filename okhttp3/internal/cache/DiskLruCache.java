@@ -911,9 +911,9 @@ public final class DiskLruCache implements Closeable, Flushable {
                         processJournal();
                         this.initialized = true;
                         return;
-                    } catch (IOException e2) {
+                    } catch (IOException e) {
                         Platform platform = Platform.get();
-                        platform.log(5, "DiskLruCache " + this.directory + " is corrupt: " + e2.getMessage() + ", removing", e2);
+                        platform.log(5, "DiskLruCache " + this.directory + " is corrupt: " + e.getMessage() + ", removing", e);
                         delete();
                         this.closed = false;
                     }

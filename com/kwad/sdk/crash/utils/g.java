@@ -17,30 +17,16 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static final Charset a = Charset.forName("US-ASCII");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Charset f40203b = Charset.forName("UTF-8");
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final BigInteger f40204c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final BigInteger f40205d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final BigInteger f40206e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final BigInteger f40207f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final BigInteger f40208g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final BigInteger f40209h;
+    public static final Charset b = Charset.forName("UTF-8");
+    public static final BigInteger c;
+    public static final BigInteger d;
+    public static final BigInteger e;
+    public static final BigInteger f;
+    public static final BigInteger g;
+    public static final BigInteger h;
     public static final char i;
     public static final BigInteger j;
     public static final BigInteger k;
@@ -51,19 +37,19 @@ public class g {
 
     static {
         BigInteger valueOf = BigInteger.valueOf(1024L);
-        f40204c = valueOf;
+        c = valueOf;
         BigInteger multiply = valueOf.multiply(valueOf);
-        f40205d = multiply;
-        BigInteger multiply2 = f40204c.multiply(multiply);
-        f40206e = multiply2;
-        BigInteger multiply3 = f40204c.multiply(multiply2);
-        f40207f = multiply3;
-        BigInteger multiply4 = f40204c.multiply(multiply3);
-        f40208g = multiply4;
-        f40209h = f40204c.multiply(multiply4);
+        d = multiply;
+        BigInteger multiply2 = c.multiply(multiply);
+        e = multiply2;
+        BigInteger multiply3 = c.multiply(multiply2);
+        f = multiply3;
+        BigInteger multiply4 = c.multiply(multiply3);
+        g = multiply4;
+        h = c.multiply(multiply4);
         BigInteger multiply5 = BigInteger.valueOf(1024L).multiply(BigInteger.valueOf(LockFreeTaskQueueCore.FROZEN_MASK));
         j = multiply5;
-        k = f40204c.multiply(multiply5);
+        k = c.multiply(multiply5);
         l = new File[0];
         m = Character.toString(IStringUtil.EXTENSION_SEPARATOR);
         n = Charset.forName("UTF-8");

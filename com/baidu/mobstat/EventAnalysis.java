@@ -15,30 +15,26 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EventAnalysis {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, a> a;
 
     /* renamed from: com.baidu.mobstat.EventAnalysis$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f27091b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public long f27092c;
+        public String b;
+        public long c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -183,17 +179,17 @@ public class EventAnalysis {
             String a2 = a(str, str2);
             a aVar = this.a.get(a2);
             if (aVar == null) {
-                bc c2 = bc.c();
-                c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-            } else if ((str != null && !str.equals(aVar.a)) || (str2 != null && !str2.equals(aVar.f27091b))) {
+                bc c = bc.c();
+                c.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
+            } else if ((str != null && !str.equals(aVar.a)) || (str2 != null && !str2.equals(aVar.b))) {
                 bc.c().b("[WARNING] eventId/label pair not match");
             } else {
                 this.a.remove(a2);
-                long j3 = j2 - aVar.f27092c;
+                long j3 = j2 - aVar.c;
                 if (j3 < 0) {
                     bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
                 }
-                onEventDuration(context, j, str, str2, aVar.f27092c, j3, extraInfo, map, z);
+                onEventDuration(context, j, str, str2, aVar.c, j3, extraInfo, map, z);
             }
         }
     }
@@ -202,13 +198,13 @@ public class EventAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, str2, Long.valueOf(j)}) == null) {
             a aVar = new a(null);
-            aVar.f27092c = j;
+            aVar.c = j;
             aVar.a = str;
-            aVar.f27091b = str2;
+            aVar.b = str2;
             String a2 = a(str, str2);
             if (this.a.containsKey(a2)) {
-                bc c2 = bc.c();
-                c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
+                bc c = bc.c();
+                c.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
             }
             this.a.put(a2, aVar);
         }
@@ -327,10 +323,10 @@ public class EventAnalysis {
         return invokeLI.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:78:0x0168, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:78:0x0166, code lost:
         if (r4.equalsIgnoreCase(r23) != false) goto L88;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001f, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x001e, code lost:
         if (r37.equals("") != false) goto L5;
      */
     /*
@@ -440,68 +436,12 @@ public class EventAnalysis {
                             str24 = str15;
                             jSONArray4 = jSONArray;
                         }
-                        try {
-                            optInt = jSONObject3.optInt("v");
-                            str11 = str21;
-                            try {
-                                optInt2 = jSONObject3.optInt("at");
-                                str15 = str24;
-                                str16 = str23;
-                                if (optInt2 != 3) {
-                                    try {
-                                        str17 = jSONArray5;
-                                        optJSONArray = jSONObject3.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                                        jSONArray5 = jSONObject3.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
-                                        str18 = str15;
-                                        str19 = str18;
-                                    } catch (JSONException unused4) {
-                                        jSONObject2 = jSONObject;
-                                        str12 = jSONArray5;
-                                    }
-                                } else {
-                                    str18 = jSONObject3.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
-                                    str17 = jSONArray5;
-                                    jSONArray5 = null;
-                                    optJSONArray = null;
-                                    str19 = jSONObject3.optString(Config.EVENT_H5_VIEW_HIERARCHY);
-                                }
-                                try {
-                                    optString5 = jSONObject3.optString("ext");
-                                    str20 = str18;
-                                    optString6 = jSONObject3.optString(Config.EVENT_ATTR);
-                                    optInt3 = jSONObject3.optInt("h5");
-                                    optString7 = jSONObject3.optString("sign");
-                                } catch (JSONException unused5) {
-                                }
-                            } catch (JSONException unused6) {
-                                jSONObject2 = jSONObject4;
-                                str12 = jSONArray5;
-                                str14 = str23;
-                                str15 = str24;
-                            }
-                        } catch (JSONException unused7) {
-                            str11 = str21;
-                            str12 = jSONArray5;
-                            str14 = str23;
-                            str15 = str24;
-                            jSONObject2 = jSONObject4;
-                            jSONArray5 = str12;
-                            i11 = i7 + 1;
-                            str23 = str14;
-                            jSONObject4 = jSONObject2;
-                            str22 = str13;
-                            i10 = i8;
-                            length = i6;
-                            str21 = str11;
-                            str24 = str15;
-                            jSONArray4 = jSONArray;
-                        }
-                    } catch (JSONException unused8) {
+                    } catch (JSONException unused4) {
                         str11 = str21;
                         str12 = jSONArray5;
                         i6 = length;
                     }
-                } catch (JSONException unused9) {
+                } catch (JSONException unused5) {
                     str11 = str21;
                     str12 = jSONArray5;
                     i6 = length;
@@ -509,6 +449,62 @@ public class EventAnalysis {
                     str15 = str24;
                     i7 = i11;
                     i8 = i10;
+                    jSONObject2 = jSONObject4;
+                    jSONArray5 = str12;
+                    i11 = i7 + 1;
+                    str23 = str14;
+                    jSONObject4 = jSONObject2;
+                    str22 = str13;
+                    i10 = i8;
+                    length = i6;
+                    str21 = str11;
+                    str24 = str15;
+                    jSONArray4 = jSONArray;
+                }
+                try {
+                    optInt = jSONObject3.optInt("v");
+                    str11 = str21;
+                    try {
+                        optInt2 = jSONObject3.optInt("at");
+                        str15 = str24;
+                        str16 = str23;
+                        if (optInt2 != 3) {
+                            try {
+                                str17 = jSONArray5;
+                                optJSONArray = jSONObject3.optJSONArray(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                                jSONArray5 = jSONObject3.optJSONArray(Config.EVENT_H5_VIEW_HIERARCHY);
+                                str18 = str15;
+                                str19 = str18;
+                            } catch (JSONException unused6) {
+                                jSONObject2 = jSONObject;
+                                str12 = jSONArray5;
+                            }
+                        } else {
+                            str18 = jSONObject3.optString(Config.EVENT_NATIVE_VIEW_HIERARCHY);
+                            str17 = jSONArray5;
+                            jSONArray5 = null;
+                            optJSONArray = null;
+                            str19 = jSONObject3.optString(Config.EVENT_H5_VIEW_HIERARCHY);
+                        }
+                        try {
+                            optString5 = jSONObject3.optString("ext");
+                            str20 = str18;
+                            optString6 = jSONObject3.optString(Config.EVENT_ATTR);
+                            optInt3 = jSONObject3.optInt("h5");
+                            optString7 = jSONObject3.optString("sign");
+                        } catch (JSONException unused7) {
+                        }
+                    } catch (JSONException unused8) {
+                        jSONObject2 = jSONObject4;
+                        str12 = jSONArray5;
+                        str14 = str23;
+                        str15 = str24;
+                    }
+                } catch (JSONException unused9) {
+                    str11 = str21;
+                    str12 = jSONArray5;
+                    str14 = str23;
+                    str15 = str24;
                     jSONObject2 = jSONObject4;
                     jSONArray5 = str12;
                     i11 = i7 + 1;

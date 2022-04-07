@@ -8,10 +8,6 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b.a.e;
-import c.a.g0.b.a.f;
-import c.a.g0.b.a.g;
-import c.a.g0.b.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.multiprocess.components.ServerProvider;
 import com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl;
@@ -22,24 +18,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ac1;
+import com.repackage.bc1;
+import com.repackage.yb1;
+import com.repackage.zb1;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class IPCServiceManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile IPCServiceManagerAidl a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final b f28313b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static IPCServiceManagerAidlImpl f28314c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static ContentProviderClient f28315d;
+    public static final b b;
+    public static IPCServiceManagerAidlImpl c;
+    public static ContentProviderClient d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class IPCServiceManagerAidlImpl extends IPCServiceManagerAidl.Stub {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +56,7 @@ public class IPCServiceManager {
         public void addService(String str, IBinder iBinder, boolean z) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, iBinder, z) == null) {
-                h.a(str, iBinder, z);
+                bc1.a(str, iBinder, z);
             }
         }
 
@@ -70,14 +64,14 @@ public class IPCServiceManager {
         public IBinder getService(String str) throws RemoteException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? h.d(str) : (IBinder) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? bc1.d(str) : (IBinder) invokeL.objValue;
         }
 
         @Override // com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl
         public boolean removeService(String str) throws RemoteException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? h.e(str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? bc1.e(str) : invokeL.booleanValue;
         }
 
         public /* synthetic */ IPCServiceManagerAidlImpl(a aVar) {
@@ -85,13 +79,11 @@ public class IPCServiceManager {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class a extends f {
+    /* loaded from: classes2.dex */
+    public static class a extends zb1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ String f28316d;
+        public final /* synthetic */ String d;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -108,23 +100,21 @@ public class IPCServiceManager {
                     return;
                 }
             }
-            this.f28316d = str;
+            this.d = str;
         }
 
-        @Override // c.a.g0.b.a.f
+        @Override // com.repackage.zb1
         public IBinder c() throws RemoteException {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IPCServiceManager.g().getService(this.f28316d) : (IBinder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? IPCServiceManager.g().getService(this.d) : (IBinder) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b extends f {
+    /* loaded from: classes2.dex */
+    public static class b extends zb1 {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final Uri f28317d;
+        public static final Uri d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -140,7 +130,7 @@ public class IPCServiceManager {
                     return;
                 }
             }
-            f28317d = Uri.parse("content://" + ServerProvider.getCoreProviderAuthority() + "/ipc_manager/method/get_service_handler");
+            d = Uri.parse("content://" + ServerProvider.getCoreProviderAuthority() + "/ipc_manager/method/get_service_handler");
         }
 
         public b() {
@@ -157,28 +147,28 @@ public class IPCServiceManager {
             }
         }
 
-        @Override // c.a.g0.b.a.f
+        @Override // com.repackage.zb1
         public IBinder c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ContentResolver contentResolver = e.a().getContentResolver();
+                ContentResolver contentResolver = yb1.a().getContentResolver();
                 JSONObject jSONObject = new JSONObject();
-                Bundle f2 = f(contentResolver, jSONObject);
-                if (f2 == null) {
-                    f2 = i(contentResolver, jSONObject);
+                Bundle f = f(contentResolver, jSONObject);
+                if (f == null) {
+                    f = i(contentResolver, jSONObject);
                 }
                 if (jSONObject.length() != 0) {
-                    g.c(jSONObject.toString());
+                    ac1.c(jSONObject.toString());
                 }
-                if (f2 == null) {
+                if (f == null) {
                     return null;
                 }
                 if (Build.VERSION.SDK_INT >= 18) {
-                    return f2.getBinder("service");
+                    return f.getBinder("service");
                 }
-                f2.setClassLoader(BindlerHolder.class.getClassLoader());
-                BindlerHolder bindlerHolder = (BindlerHolder) f2.getParcelable("service");
+                f.setClassLoader(BindlerHolder.class.getClassLoader());
+                BindlerHolder bindlerHolder = (BindlerHolder) f.getParcelable("service");
                 if (bindlerHolder != null) {
                     return bindlerHolder.getBinder();
                 }
@@ -193,12 +183,12 @@ public class IPCServiceManager {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentResolver, uri, jSONObject)) == null) {
                 try {
                     return contentResolver.call(uri, "_get_service_handler", (String) null, (Bundle) null);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     try {
-                        jSONObject.put("useContentResolverCall", g.a(e2));
+                        jSONObject.put("useContentResolverCall", ac1.a(e));
                     } catch (JSONException unused) {
                     }
-                    IPCServiceManager.h("getServicerBinder", e2);
+                    IPCServiceManager.h("getServicerBinder", e);
                     return null;
                 }
             }
@@ -211,12 +201,12 @@ public class IPCServiceManager {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, contentResolver, uri, jSONObject)) == null) {
                 try {
                     return contentResolver.query(uri, null, null, null, null).getExtras();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     try {
-                        jSONObject.put("useContentResolverQuery", g.a(e2));
+                        jSONObject.put("useContentResolverQuery", ac1.a(e));
                     } catch (JSONException unused) {
                     }
-                    IPCServiceManager.h("getServicerBinder", e2);
+                    IPCServiceManager.h("getServicerBinder", e);
                     return null;
                 }
             }
@@ -238,7 +228,7 @@ public class IPCServiceManager {
                         bundle = h(acquireUnstableContentProviderClient, jSONObject);
                     }
                     if (bundle != null) {
-                        IPCServiceManager.f28315d = acquireUnstableContentProviderClient;
+                        IPCServiceManager.d = acquireUnstableContentProviderClient;
                         break;
                     }
                     try {
@@ -260,12 +250,12 @@ public class IPCServiceManager {
                     if (Build.VERSION.SDK_INT >= 17) {
                         return contentProviderClient.call("_get_service_handler", null, null);
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     try {
-                        jSONObject.put("useProviderClientCall", g.a(e2));
+                        jSONObject.put("useProviderClientCall", ac1.a(e));
                     } catch (JSONException unused) {
                     }
-                    IPCServiceManager.h("getServicerBinder", e2);
+                    IPCServiceManager.h("getServicerBinder", e);
                 }
                 return null;
             }
@@ -277,13 +267,13 @@ public class IPCServiceManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, contentProviderClient, jSONObject)) == null) {
                 try {
-                    return contentProviderClient.query(f28317d, null, null, null, null).getExtras();
-                } catch (Exception e2) {
+                    return contentProviderClient.query(d, null, null, null, null).getExtras();
+                } catch (Exception e) {
                     try {
-                        jSONObject.put("useProviderClientQuery", g.a(e2));
+                        jSONObject.put("useProviderClientQuery", ac1.a(e));
                     } catch (JSONException unused) {
                     }
-                    IPCServiceManager.h("getServicerBinder", e2);
+                    IPCServiceManager.h("getServicerBinder", e);
                     return null;
                 }
             }
@@ -296,9 +286,9 @@ public class IPCServiceManager {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, contentResolver, jSONObject)) == null) {
                 Bundle bundle = null;
                 for (int i = 0; i < 2; i++) {
-                    bundle = d(contentResolver, f28317d, jSONObject);
+                    bundle = d(contentResolver, d, jSONObject);
                     if (bundle == null) {
-                        bundle = e(contentResolver, f28317d, jSONObject);
+                        bundle = e(contentResolver, d, jSONObject);
                     }
                     if (bundle != null) {
                         break;
@@ -331,7 +321,7 @@ public class IPCServiceManager {
                 return;
             }
         }
-        f28313b = new b(null);
+        b = new b(null);
     }
 
     public static void c(String str, IBinder iBinder, boolean z) {
@@ -339,9 +329,9 @@ public class IPCServiceManager {
         if (interceptable == null || interceptable.invokeLLZ(65539, null, str, iBinder, z) == null) {
             try {
                 g().addService(str, iBinder, z);
-            } catch (RemoteException e2) {
-                h("MultiProcess", e2);
-                g.b(e2);
+            } catch (RemoteException e) {
+                h("MultiProcess", e);
+                ac1.b(e);
             }
         }
     }
@@ -365,10 +355,10 @@ public class IPCServiceManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f28314c == null) {
-                f28314c = new IPCServiceManagerAidlImpl(null);
+            if (c == null) {
+                c = new IPCServiceManagerAidlImpl(null);
             }
-            return f28314c;
+            return c;
         }
         return (IPCServiceManagerAidlImpl) invokeV.objValue;
     }
@@ -382,9 +372,9 @@ public class IPCServiceManager {
             }
             try {
                 return g().getService(str);
-            } catch (RemoteException e2) {
-                h("MultiProcess", e2);
-                g.b(e2);
+            } catch (RemoteException e) {
+                h("MultiProcess", e);
+                ac1.b(e);
                 return null;
             }
         }
@@ -399,7 +389,7 @@ public class IPCServiceManager {
             if (iPCServiceManagerAidl != null) {
                 return iPCServiceManagerAidl;
             }
-            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(f28313b);
+            IPCServiceManagerAidl asInterface = IPCServiceManagerAidl.Stub.asInterface(b);
             a = asInterface;
             return asInterface;
         }

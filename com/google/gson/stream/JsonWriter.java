@@ -15,7 +15,7 @@ import java.io.Closeable;
 import java.io.Flushable;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class JsonWriter implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] HTML_SAFE_REPLACEMENT_CHARS;
@@ -472,16 +472,16 @@ public class JsonWriter implements Closeable, Flushable {
         return (JsonWriter) invokeL.objValue;
     }
 
-    public JsonWriter value(double d2) throws IOException {
+    public JsonWriter value(double d) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d)})) == null) {
             writeDeferredName();
-            if (!this.lenient && (Double.isNaN(d2) || Double.isInfinite(d2))) {
-                throw new IllegalArgumentException("Numeric values must be finite, but was " + d2);
+            if (!this.lenient && (Double.isNaN(d) || Double.isInfinite(d))) {
+                throw new IllegalArgumentException("Numeric values must be finite, but was " + d);
             }
             beforeValue();
-            this.out.append((CharSequence) Double.toString(d2));
+            this.out.append((CharSequence) Double.toString(d));
             return this;
         }
         return (JsonWriter) invokeCommon.objValue;

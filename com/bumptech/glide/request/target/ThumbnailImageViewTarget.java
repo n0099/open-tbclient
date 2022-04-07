@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class ThumbnailImageViewTarget<T> extends ImageViewTarget<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public abstract class ThumbnailImageViewTarget<T> extends ImageViewTarget<T> {
     public void setResource(@Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            ViewGroup.LayoutParams layoutParams = ((ImageView) this.view).getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = ((ImageView) this.f1016view).getLayoutParams();
             Drawable drawable = getDrawable(t);
             if (layoutParams != null && layoutParams.width > 0 && layoutParams.height > 0) {
                 drawable = new FixedSizeDrawable(drawable, layoutParams.width, layoutParams.height);
             }
-            ((ImageView) this.view).setImageDrawable(drawable);
+            ((ImageView) this.f1016view).setImageDrawable(drawable);
         }
     }
 

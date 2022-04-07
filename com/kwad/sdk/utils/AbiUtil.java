@@ -5,11 +5,11 @@ import android.os.Process;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Reflect;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class AbiUtil {
     public static Abi a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum Abi {
         UNKNOWN,
         ARMEABI_V7A,

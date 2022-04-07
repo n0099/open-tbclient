@@ -9,17 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LaunchInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f27111b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f27112c;
+    public String b;
+    public String c;
 
     public LaunchInfo() {
         Interceptable interceptable = $ic;
@@ -81,11 +77,11 @@ public class LaunchInfo {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (TextUtils.isEmpty(this.a)) {
                 String packageName = context != null ? context.getPackageName() : "";
-                if (TextUtils.isEmpty(this.f27112c) || this.f27112c.equals(packageName)) {
+                if (TextUtils.isEmpty(this.c) || this.c.equals(packageName)) {
                     return 0;
                 }
                 String a = bj.a(context);
-                return !TextUtils.isEmpty(a) ? !this.f27112c.equals(a) ? 1 : 0 : !bj.a(context, this.f27112c) ? 1 : 0;
+                return !TextUtils.isEmpty(a) ? !this.c.equals(a) ? 1 : 0 : !bj.a(context, this.c) ? 1 : 0;
             }
             return 2;
         }
@@ -95,7 +91,7 @@ public class LaunchInfo {
     public String getPushContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.f27111b) ? this.f27111b : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.b) ? this.b : "" : (String) invokeV.objValue;
     }
 
     public String getPushLandingPage() {
@@ -107,21 +103,21 @@ public class LaunchInfo {
     public String getRefererPkgName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.f27112c) ? this.f27112c : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? !TextUtils.isEmpty(this.c) ? this.c : "" : (String) invokeV.objValue;
     }
 
     public void setPushInfo(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
             this.a = str;
-            this.f27111b = bx.a(str2, 1024);
+            this.b = bx.a(str2, 1024);
         }
     }
 
     public void setRefererPkgName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f27112c = str;
+            this.c = str;
         }
     }
 }

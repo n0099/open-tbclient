@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NetWorkUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -101,8 +101,8 @@ public class NetWorkUtils {
             }
             try {
                 connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            } catch (SecurityException e2) {
-                e2.printStackTrace();
+            } catch (SecurityException e) {
+                e.printStackTrace();
                 connectivityManager = null;
             }
             if (connectivityManager == null) {

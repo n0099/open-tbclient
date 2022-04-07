@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NpsLoadChainLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERR_CODE_UNUSED = Integer.MIN_VALUE;
@@ -43,7 +43,7 @@ public class NpsLoadChainLog {
     public String sessionId;
     public UBCManager ubcManager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final NpsLoadChainLog INSTANCE;
@@ -88,8 +88,8 @@ public class NpsLoadChainLog {
             JSONObject genNodeJsonObj = genNodeJsonObj(i, i2);
             try {
                 genNodeJsonObj.put("errorMsg", str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return genNodeJsonObj;
         }
@@ -184,8 +184,8 @@ public class NpsLoadChainLog {
                 jSONObject2.put("tpl_id", "");
                 jSONObject2.put("is_Mix", 0);
                 jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             dLog(jSONObject.toString());
             dLog("-----------------------\n");
@@ -241,8 +241,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndDowlonad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndDowlonad", this.this$0.genNodeJsonObj(1, Integer.MIN_VALUE, this.val$downloadSize, this.val$totalSize));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -291,8 +291,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "initEnd";
                     try {
                         this.this$0.pathJsonObj.put("initEnd", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, Integer.MIN_VALUE, this.val$errorMsg));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -343,8 +343,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceEndInstall";
                     try {
                         this.this$0.pathJsonObj.put("entranceEndInstall", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -397,8 +397,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "endInstallLiveNps";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndInstall", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -451,8 +451,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -505,8 +505,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceEndLoad";
                     try {
                         this.this$0.pathJsonObj.put("entranceEndLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -559,8 +559,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsEndPreLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsEndPreLoad", this.this$0.genNodeJsonObj(this.val$isSucc ? 1 : 0, this.val$errCode));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -603,8 +603,8 @@ public class NpsLoadChainLog {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             try {
                 return this.pathJsonObj == null ? "" : this.pathJsonObj.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -749,8 +749,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entry";
                     try {
                         this.this$0.pathJsonObj.put("entry", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -841,8 +841,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartDownload";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartDownload", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -887,8 +887,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "initStart";
                     try {
                         this.this$0.pathJsonObj.put("initStart", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -933,8 +933,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceStartInstall";
                     try {
                         this.this$0.pathJsonObj.put("entranceStartInstall", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -979,8 +979,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartInstall";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartInstall", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -1025,8 +1025,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -1071,8 +1071,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartPreLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartPreLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -1117,8 +1117,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "entranceStartLoad";
                     try {
                         this.this$0.pathJsonObj.put("entranceStartLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -1163,8 +1163,8 @@ public class NpsLoadChainLog {
                     npsLoadChainLog.pathTemp = this.this$0.pathTemp + "livenpsStartPreLoad";
                     try {
                         this.this$0.pathJsonObj.put("livenpsStartPreLoad", this.this$0.genNodeJsonObj(-1, Integer.MIN_VALUE));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     this.this$0.showPathAndDuration();
                     this.this$0.ubcLog();
@@ -1208,8 +1208,8 @@ public class NpsLoadChainLog {
             try {
                 genNodeJsonObj.put("downloadSize", j);
                 genNodeJsonObj.put("totalSize", j2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return genNodeJsonObj;
         }
@@ -1230,8 +1230,8 @@ public class NpsLoadChainLog {
                 if (1 != i && Integer.MIN_VALUE != i2) {
                     jSONObject.put("errorCode", i2);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

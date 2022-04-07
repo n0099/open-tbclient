@@ -14,18 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class TransitRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TransitRouteResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public TaxiInfo a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<TransitRouteLine> f26504b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public SuggestAddrInfo f26505c;
+    public List<TransitRouteLine> b;
+    public SuggestAddrInfo c;
 
     static {
         InterceptResult invokeClinit;
@@ -74,9 +70,9 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
         }
         this.a = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
         ArrayList arrayList = new ArrayList();
-        this.f26504b = arrayList;
+        this.b = arrayList;
         parcel.readList(arrayList, TransitRouteLine.class.getClassLoader());
-        this.f26505c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -92,13 +88,13 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
     public List<TransitRouteLine> getRouteLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26504b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26505c : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public TaxiInfo getTaxiInfo() {
@@ -110,14 +106,14 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
     public void setRoutelines(List<TransitRouteLine> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.f26504b = list;
+            this.b = list;
         }
     }
 
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, suggestAddrInfo) == null) {
-            this.f26505c = suggestAddrInfo;
+            this.c = suggestAddrInfo;
         }
     }
 
@@ -133,8 +129,8 @@ public final class TransitRouteResult extends SearchResult implements Parcelable
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
             parcel.writeParcelable(this.a, 1);
-            parcel.writeList(this.f26504b);
-            parcel.writeParcelable(this.f26505c, 1);
+            parcel.writeList(this.b);
+            parcel.writeParcelable(this.c, 1);
         }
     }
 }

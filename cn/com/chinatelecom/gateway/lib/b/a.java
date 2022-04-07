@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public class a {
                                         if (bufferedReader != null) {
                                             try {
                                                 bufferedReader.close();
-                                            } catch (Exception e2) {
-                                                e2.printStackTrace();
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
                                                 throw th3;
                                             }
                                         }
@@ -104,8 +104,8 @@ public class a {
                     th = th5;
                     inputStream = null;
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             return str3;
         }

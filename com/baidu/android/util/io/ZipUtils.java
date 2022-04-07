@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class ZipUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -115,8 +115,8 @@ public final class ZipUtils {
                                         FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                                         try {
                                             bufferedOutputStream = new BufferedOutputStream(fileOutputStream2, FileUtils.getFSBlockSize());
-                                        } catch (IOException e2) {
-                                            e = e2;
+                                        } catch (IOException e) {
+                                            e = e;
                                             fileOutputStream = fileOutputStream2;
                                         } catch (Throwable th) {
                                             th = th;
@@ -137,8 +137,8 @@ public final class ZipUtils {
                                             Closeables.closeSafely(fileOutputStream2);
                                             bufferedOutputStream2 = bufferedOutputStream;
                                             bufferedInputStream = bufferedInputStream2;
-                                        } catch (IOException e3) {
-                                            e = e3;
+                                        } catch (IOException e2) {
+                                            e = e2;
                                             fileOutputStream = fileOutputStream2;
                                             bufferedOutputStream2 = bufferedOutputStream;
                                             bufferedInputStream = bufferedInputStream2;
@@ -157,16 +157,16 @@ public final class ZipUtils {
                                             Closeables.closeSafely(fileOutputStream);
                                             throw th;
                                         }
-                                    } catch (IOException e4) {
-                                        e = e4;
+                                    } catch (IOException e3) {
+                                        e = e3;
                                     } catch (Throwable th3) {
                                         th = th3;
                                     }
                                 } catch (Throwable th4) {
                                     th = th4;
                                 }
-                            } catch (IOException e5) {
-                                e = e5;
+                            } catch (IOException e4) {
+                                e = e4;
                             }
                         }
                     }
@@ -174,8 +174,8 @@ public final class ZipUtils {
                 zipFile.close();
                 System.currentTimeMillis();
                 return true;
-            } catch (Exception e6) {
-                e6.printStackTrace();
+            } catch (Exception e5) {
+                e5.printStackTrace();
                 return false;
             } finally {
                 System.currentTimeMillis();
@@ -191,8 +191,8 @@ public final class ZipUtils {
             ZipOutputStream zipOutputStream = null;
             try {
                 try {
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             } catch (IOException unused) {
             } catch (Throwable th) {
@@ -225,8 +225,8 @@ public final class ZipUtils {
                     if (zipOutputStream != null) {
                         try {
                             zipOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     throw th;
@@ -267,8 +267,8 @@ public final class ZipUtils {
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
-                                } catch (IOException e2) {
-                                    e2.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
                                 }
                             }
                             throw th;
@@ -281,8 +281,8 @@ public final class ZipUtils {
                             }
                         }
                     }
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     return;
                 }
             } catch (IOException unused2) {

@@ -37,10 +37,10 @@ public class CardViewBaseImpl implements CardViewImpl {
         this.mCornerRect = new RectF();
     }
 
-    private RoundRectDrawableWithShadow createBackground(Context context, ColorStateList colorStateList, float f2, float f3, float f4) {
+    private RoundRectDrawableWithShadow createBackground(Context context, ColorStateList colorStateList, float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{context, colorStateList, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? new RoundRectDrawableWithShadow(context.getResources(), colorStateList, f2, f3, f4) : (RoundRectDrawableWithShadow) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? new RoundRectDrawableWithShadow(context.getResources(), colorStateList, f, f2, f3) : (RoundRectDrawableWithShadow) invokeCommon.objValue;
     }
 
     private RoundRectDrawableWithShadow getShadowBackground(CardViewDelegate cardViewDelegate) {
@@ -119,18 +119,18 @@ public class CardViewBaseImpl implements CardViewImpl {
                 }
 
                 @Override // androidx.cardview.widget.RoundRectDrawableWithShadow.RoundRectHelper
-                public void drawRoundRect(Canvas canvas, RectF rectF, float f2, Paint paint) {
+                public void drawRoundRect(Canvas canvas, RectF rectF, float f, Paint paint) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{canvas, rectF, Float.valueOf(f2), paint}) == null) {
-                        float f3 = 2.0f * f2;
-                        float width = (rectF.width() - f3) - 1.0f;
-                        float height = (rectF.height() - f3) - 1.0f;
-                        if (f2 >= 1.0f) {
-                            float f4 = f2 + 0.5f;
-                            float f5 = -f4;
-                            this.this$0.mCornerRect.set(f5, f5, f4, f4);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{canvas, rectF, Float.valueOf(f), paint}) == null) {
+                        float f2 = 2.0f * f;
+                        float width = (rectF.width() - f2) - 1.0f;
+                        float height = (rectF.height() - f2) - 1.0f;
+                        if (f >= 1.0f) {
+                            float f3 = f + 0.5f;
+                            float f4 = -f3;
+                            this.this$0.mCornerRect.set(f4, f4, f3, f3);
                             int save = canvas.save();
-                            canvas.translate(rectF.left + f4, rectF.top + f4);
+                            canvas.translate(rectF.left + f3, rectF.top + f3);
                             canvas.drawArc(this.this$0.mCornerRect, 180.0f, 90.0f, true, paint);
                             canvas.translate(width, 0.0f);
                             canvas.rotate(90.0f);
@@ -142,12 +142,12 @@ public class CardViewBaseImpl implements CardViewImpl {
                             canvas.rotate(90.0f);
                             canvas.drawArc(this.this$0.mCornerRect, 180.0f, 90.0f, true, paint);
                             canvas.restoreToCount(save);
-                            float f6 = rectF.top;
-                            canvas.drawRect((rectF.left + f4) - 1.0f, f6, (rectF.right - f4) + 1.0f, f6 + f4, paint);
-                            float f7 = rectF.bottom;
-                            canvas.drawRect((rectF.left + f4) - 1.0f, f7 - f4, (rectF.right - f4) + 1.0f, f7, paint);
+                            float f5 = rectF.top;
+                            canvas.drawRect((rectF.left + f3) - 1.0f, f5, (rectF.right - f3) + 1.0f, f5 + f3, paint);
+                            float f6 = rectF.bottom;
+                            canvas.drawRect((rectF.left + f3) - 1.0f, f6 - f3, (rectF.right - f3) + 1.0f, f6, paint);
                         }
-                        canvas.drawRect(rectF.left, rectF.top + f2, rectF.right, rectF.bottom - f2, paint);
+                        canvas.drawRect(rectF.left, rectF.top + f, rectF.right, rectF.bottom - f, paint);
                     }
                 }
             };
@@ -155,10 +155,10 @@ public class CardViewBaseImpl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f2, float f3, float f4) {
+    public void initialize(CardViewDelegate cardViewDelegate, Context context, ColorStateList colorStateList, float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            RoundRectDrawableWithShadow createBackground = createBackground(context, colorStateList, f2, f3, f4);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{cardViewDelegate, context, colorStateList, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            RoundRectDrawableWithShadow createBackground = createBackground(context, colorStateList, f, f2, f3);
             createBackground.setAddPaddingForCorners(cardViewDelegate.getPreventCornerOverlap());
             cardViewDelegate.setCardBackground(createBackground);
             updatePadding(cardViewDelegate);
@@ -190,27 +190,27 @@ public class CardViewBaseImpl implements CardViewImpl {
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setElevation(CardViewDelegate cardViewDelegate, float f2) {
+    public void setElevation(CardViewDelegate cardViewDelegate, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048587, this, cardViewDelegate, f2) == null) {
-            getShadowBackground(cardViewDelegate).setShadowSize(f2);
+        if (interceptable == null || interceptable.invokeLF(1048587, this, cardViewDelegate, f) == null) {
+            getShadowBackground(cardViewDelegate).setShadowSize(f);
         }
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setMaxElevation(CardViewDelegate cardViewDelegate, float f2) {
+    public void setMaxElevation(CardViewDelegate cardViewDelegate, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048588, this, cardViewDelegate, f2) == null) {
-            getShadowBackground(cardViewDelegate).setMaxShadowSize(f2);
+        if (interceptable == null || interceptable.invokeLF(1048588, this, cardViewDelegate, f) == null) {
+            getShadowBackground(cardViewDelegate).setMaxShadowSize(f);
             updatePadding(cardViewDelegate);
         }
     }
 
     @Override // androidx.cardview.widget.CardViewImpl
-    public void setRadius(CardViewDelegate cardViewDelegate, float f2) {
+    public void setRadius(CardViewDelegate cardViewDelegate, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048589, this, cardViewDelegate, f2) == null) {
-            getShadowBackground(cardViewDelegate).setCornerRadius(f2);
+        if (interceptable == null || interceptable.invokeLF(1048589, this, cardViewDelegate, f) == null) {
+            getShadowBackground(cardViewDelegate).setCornerRadius(f);
             updatePadding(cardViewDelegate);
         }
     }

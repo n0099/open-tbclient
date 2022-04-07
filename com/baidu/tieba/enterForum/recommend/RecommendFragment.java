@@ -6,10 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.o0.r.l0.f;
-import c.a.p0.w0.i.c;
-import c.a.p0.w0.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,20 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class RecommendFragment extends BaseFragment implements f.g, a {
+import com.repackage.d56;
+import com.repackage.du4;
+import com.repackage.e66;
+import com.repackage.mi;
+import com.repackage.wi8;
+import com.repackage.z56;
+/* loaded from: classes3.dex */
+public class RecommendFragment extends BaseFragment implements du4.g, z56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendModel a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RecommendView f31922b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f31923c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public c f31924d;
+    public RecommendView b;
+    public boolean c;
+    public d56 d;
 
     public RecommendFragment() {
         Interceptable interceptable = $ic;
@@ -51,36 +47,36 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a025" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.p0.w0.m.a
-    public void loadData() {
+    @Override // com.repackage.z56
+    public void l(int i, e66 e66Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && l.z()) {
-            this.f31922b.i();
-            this.f31922b.s(false);
-            this.a.B();
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, e66Var) == null) {
+            this.b.h();
+            this.b.u();
+            if (i == 0 && e66Var != null) {
+                this.b.i();
+                this.b.q();
+                this.b.setData(e66Var);
+                return;
+            }
+            this.b.s(false);
         }
     }
 
-    @Override // c.a.p0.w0.m.a
-    public void m(int i, c.a.p0.w0.m.c.a aVar) {
+    @Override // com.repackage.z56
+    public void loadData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, aVar) == null) {
-            this.f31922b.h();
-            this.f31922b.v();
-            if (i == 0 && aVar != null) {
-                this.f31922b.i();
-                this.f31922b.r();
-                this.f31922b.setData(aVar);
-                return;
-            }
-            this.f31922b.t(false);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && mi.z()) {
+            this.b.i();
+            this.b.r(false);
+            this.a.B();
         }
     }
 
@@ -102,7 +98,7 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void onChangeSkinType(int i) {
         RecommendView recommendView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (recommendView = this.f31922b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (recommendView = this.b) == null) {
             return;
         }
         recommendView.m();
@@ -114,19 +110,19 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (this.f31922b == null) {
+            if (this.b == null) {
                 RecommendView recommendView = new RecommendView(getPageContext());
-                this.f31922b = recommendView;
-                recommendView.setTabViewController(this.f31924d);
-                this.f31922b.setPresenter(this);
-                this.f31922b.setListPullRefreshListener(this);
-                this.f31922b.setPageUniqueId(getUniqueId());
+                this.b = recommendView;
+                recommendView.setTabViewController(this.d);
+                this.b.setPresenter(this);
+                this.b.setListPullRefreshListener(this);
+                this.b.setPageUniqueId(getUniqueId());
             }
-            if (this.f31922b.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.f31922b.getParent()).removeView(this.f31922b);
+            if (this.b.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.b.getParent()).removeView(this.b);
             }
-            c.a.p0.z3.c.g().i(getUniqueId());
-            return this.f31922b;
+            wi8.g().i(getUniqueId());
+            return this.b;
         }
         return (View) invokeLLL.objValue;
     }
@@ -135,10 +131,10 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f31924d = null;
-            this.f31922b.n();
+            this.d = null;
+            this.b.n();
             this.a.onDestroy();
-            c.a.p0.z3.c.g().k(getUniqueId());
+            wi8.g().k(getUniqueId());
             super.onDestroyView();
         }
     }
@@ -146,15 +142,15 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f31923c || TbadkCoreApplication.getInst().checkInterrupt()) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.c || TbadkCoreApplication.getInst().checkInterrupt()) {
             return;
         }
-        this.f31922b.s(false);
+        this.b.r(false);
         this.a.B();
-        this.f31923c = true;
+        this.c = true;
     }
 
-    @Override // c.a.o0.r.l0.f.g
+    @Override // com.repackage.du4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
@@ -162,7 +158,7 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
             if (recommendModel != null) {
                 recommendModel.B();
             }
-            c.a.p0.z3.c.g().j(getUniqueId());
+            wi8.g().j(getUniqueId());
         }
     }
 
@@ -173,15 +169,15 @@ public class RecommendFragment extends BaseFragment implements f.g, a {
             super.onPrimary();
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921385));
-                if (this.f31923c) {
+                if (this.c) {
                     return;
                 }
                 loadData();
-                this.f31923c = true;
+                this.c = true;
                 return;
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921386));
-            c.a.p0.z3.c.g().h(getUniqueId(), false);
+            wi8.g().h(getUniqueId(), false);
         }
     }
 }

@@ -12,9 +12,9 @@ public final class Pair<A, B> implements Serializable {
     public final A first;
     public final B second;
 
-    public Pair(A a, B b2) {
+    public Pair(A a, B b) {
         this.first = a;
-        this.second = b2;
+        this.second = b;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.Pair */
@@ -37,8 +37,8 @@ public final class Pair<A, B> implements Serializable {
         return this.second;
     }
 
-    public final Pair<A, B> copy(A a, B b2) {
-        return new Pair<>(a, b2);
+    public final Pair<A, B> copy(A a, B b) {
+        return new Pair<>(a, b);
     }
 
     public boolean equals(Object obj) {
@@ -63,8 +63,8 @@ public final class Pair<A, B> implements Serializable {
     public int hashCode() {
         A a = this.first;
         int hashCode = (a != null ? a.hashCode() : 0) * 31;
-        B b2 = this.second;
-        return hashCode + (b2 != null ? b2.hashCode() : 0);
+        B b = this.second;
+        return hashCode + (b != null ? b.hashCode() : 0);
     }
 
     public String toString() {

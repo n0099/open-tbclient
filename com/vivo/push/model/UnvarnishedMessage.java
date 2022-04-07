@@ -15,7 +15,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UnvarnishedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UnvarnishedMessage";
@@ -55,9 +55,9 @@ public class UnvarnishedMessage {
                 this.mTragetContent = jSONArray.getString(1);
                 this.mMessage = jSONArray.getString(2);
                 this.mParams = m.a(new JSONObject(jSONArray.getString(3)));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                p.a(TAG, "unvarnishedMsg pack to obj error", e2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                p.a(TAG, "unvarnishedMsg pack to obj error", e);
             }
         }
     }

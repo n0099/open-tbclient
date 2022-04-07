@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PSCIMessageUnicast extends ResponsePacket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class PSCIMessageUnicast extends ResponsePacket {
             this.uri = jSONObject.optLong("uri", 0L);
             this.appId = this.data.optInt("appid", -1);
             this.channelId = this.data.optInt("usedChannel", 0);
-        } catch (Exception e2) {
-            RLog.error("PSCIMessageUnicast", "popPacketData error.", e2);
+        } catch (Exception e) {
+            RLog.error("PSCIMessageUnicast", "popPacketData error.", e);
         }
     }
 
@@ -86,8 +86,8 @@ public class PSCIMessageUnicast extends ResponsePacket {
                 this.uri = jSONObject.optLong("uri", 0L);
                 this.appId = this.data.optInt("appid", -1);
                 this.channelId = this.data.optInt("usedChannel", 0);
-            } catch (Exception e2) {
-                RLog.error("PSCIMessageUnicast", "popPacketData error.", e2);
+            } catch (Exception e) {
+                RLog.error("PSCIMessageUnicast", "popPacketData error.", e);
             }
         }
     }

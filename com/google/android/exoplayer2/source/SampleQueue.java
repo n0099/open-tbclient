@@ -22,7 +22,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SampleQueue implements TrackOutput {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADVANCE_FAILED = -1;
@@ -44,7 +44,7 @@ public final class SampleQueue implements TrackOutput {
     public UpstreamFormatChangedListener upstreamFormatChangeListener;
     public AllocationNode writeAllocationNode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AllocationNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public final class SampleQueue implements TrackOutput {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface UpstreamFormatChangedListener {
         void onUpstreamFormatChanged(Format format);
     }
@@ -248,9 +248,9 @@ public final class SampleQueue implements TrackOutput {
             this.scratch.reset(1);
             readData(j, this.scratch.data, 1);
             long j2 = j + 1;
-            byte b2 = this.scratch.data[0];
-            boolean z = (b2 & 128) != 0;
-            int i2 = b2 & ByteCompanionObject.MAX_VALUE;
+            byte b = this.scratch.data[0];
+            boolean z = (b & 128) != 0;
+            int i2 = b & ByteCompanionObject.MAX_VALUE;
             CryptoInfo cryptoInfo = decoderInputBuffer.cryptoInfo;
             if (cryptoInfo.iv == null) {
                 cryptoInfo.iv = new byte[16];

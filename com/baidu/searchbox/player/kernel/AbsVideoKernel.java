@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class AbsVideoKernel implements IPoolItem {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CYBER_PLAYER = "CyberVideoKernel";
@@ -388,9 +388,9 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setProxy(@Nullable String str);
 
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048626, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048626, this, f) == null) {
         }
     }
 
@@ -400,7 +400,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public abstract void setSpeed(float f2);
+    public abstract void setSpeed(float f);
 
     public void setSurface(Surface surface) {
         Interceptable interceptable = $ic;
@@ -481,7 +481,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public abstract boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f2);
+    public abstract boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f);
 
     public void unbindMessenger() {
         Interceptable interceptable = $ic;

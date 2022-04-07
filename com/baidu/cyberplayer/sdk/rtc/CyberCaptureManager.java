@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CyberCaptureManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CaptureManagerProvider a;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnCaptureReadyCallback {
         void onVideoCaptureReady(boolean z);
     }
@@ -134,22 +134,22 @@ public class CyberCaptureManager {
         captureManagerProvider.resume();
     }
 
-    public void setBeautyBlure(float f2) {
+    public void setBeautyBlure(float f) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048585, this, f2) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048585, this, f) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.setBeautyBlure(f2);
+        captureManagerProvider.setBeautyBlure(f);
     }
 
-    public void setBeautyWhite(float f2) {
+    public void setBeautyWhite(float f) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048586, this, f2) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048586, this, f) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.setBeautyWhite(f2);
+        captureManagerProvider.setBeautyWhite(f);
     }
 
     public void setCameraFace(boolean z) {
@@ -170,22 +170,22 @@ public class CyberCaptureManager {
         captureManagerProvider.setCaptureReadyCallback(onCaptureReadyCallback);
     }
 
-    public void setCheekThin(float f2) {
+    public void setCheekThin(float f) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f2) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.setCheekThin(f2);
+        captureManagerProvider.setCheekThin(f);
     }
 
-    public void setEnlargeEye(float f2) {
+    public void setEnlargeEye(float f) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048590, this, f2) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048590, this, f) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.setEnlargeEye(f2);
+        captureManagerProvider.setEnlargeEye(f);
     }
 
     public void setFlip(boolean z) {

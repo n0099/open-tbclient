@@ -9,19 +9,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ht {
     public static /* synthetic */ Interceptable $ic;
     public static final ht a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ ht[] f535a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final ht f44386b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final ht f44387c;
+    public static final ht b;
+    public static final ht c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -41,10 +37,10 @@ public final class ht {
             }
         }
         a = new ht("RegIdExpired", 0, 0);
-        f44386b = new ht("PackageUnregistered", 1, 1);
+        b = new ht("PackageUnregistered", 1, 1);
         ht htVar = new ht("Init", 2, 2);
-        f44387c = htVar;
-        f535a = new ht[]{a, f44386b, htVar};
+        c = htVar;
+        f535a = new ht[]{a, b, htVar};
     }
 
     public ht(String str, int i, int i2) {
@@ -77,9 +73,9 @@ public final class ht {
                     if (i != 2) {
                         return null;
                     }
-                    return f44387c;
+                    return c;
                 }
-                return f44386b;
+                return b;
             }
             return a;
         }

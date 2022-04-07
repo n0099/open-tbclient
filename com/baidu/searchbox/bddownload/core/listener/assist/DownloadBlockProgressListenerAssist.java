@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DownloadBlockProgressListenerAssist<T extends Listener4Model> implements ListenerAssist {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
     public Listener4Callback callback;
     public final ListenerModelHandler<T> modelHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface AssistExtend {
         boolean dispatchBlockEnd(DownloadTask downloadTask, int i, Listener4Model listener4Model);
 
@@ -35,7 +35,7 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         boolean dispatchTaskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull Listener4Model listener4Model);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Listener4Callback {
         void blockEnd(DownloadTask downloadTask, int i, BlockInfo blockInfo);
 
@@ -48,7 +48,7 @@ public class DownloadBlockProgressListenerAssist<T extends Listener4Model> imple
         void taskEnd(DownloadTask downloadTask, EndCause endCause, @Nullable Exception exc, @NonNull Listener4Model listener4Model);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Listener4Model implements ListenerModelHandler.ListenerModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IMutiProcessHandler extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Default implements IMutiProcessHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public interface IMutiProcessHandler extends IInterface {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Stub extends Binder implements IMutiProcessHandler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.sofire.mutiprocess.IMutiProcessHandler";
@@ -84,7 +84,7 @@ public interface IMutiProcessHandler extends IInterface {
         public static final int TRANSACTION_getPluginStatus = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class Proxy implements IMutiProcessHandler {
             public static /* synthetic */ Interceptable $ic;
             public static IMutiProcessHandler sDefaultImpl;

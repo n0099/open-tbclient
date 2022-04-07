@@ -1,6 +1,5 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.p0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
+import com.repackage.vy5;
+/* loaded from: classes3.dex */
+public class ChosenPostCacheModel extends CacheModel<vy5, ChosenPostActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY = "chosen_post_cache";
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class ChosenPostCacheModel extends CacheModel<b, ChosenPostActivity> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<b> J() {
+    public Class<vy5> J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? vy5.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class NotifyMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NotifyMessageHandler";
@@ -54,8 +54,8 @@ public abstract class NotifyMessageHandler {
                 for (int i = 0; i < jSONArray2.length(); i++) {
                     jSONArray.put(jSONArray2.getJSONObject(i));
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
                 arrayList = null;
             }
             if (jSONArray.length() == 0) {
@@ -86,8 +86,8 @@ public abstract class NotifyMessageHandler {
         if (i == 0 && jSONObject.has("msgid")) {
             try {
                 j = jSONObject.getLong("msgid");
-            } catch (JSONException e2) {
-                LogUtils.i(TAG, "JSONException:" + e2.getMessage());
+            } catch (JSONException e) {
+                LogUtils.i(TAG, "JSONException:" + e.getMessage());
             }
             if (i != 0 || i == 2) {
                 generate = Generator.generate(context, 5);

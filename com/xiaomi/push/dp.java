@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dp extends dq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,18 +46,18 @@ public class dp extends dq {
             if (TextUtils.isEmpty(this.a)) {
                 return null;
             }
-            String b2 = bj.b(this.a);
-            if (TextUtils.isEmpty(b2)) {
+            String b = bj.b(this.a);
+            if (TextUtils.isEmpty(b)) {
                 return null;
             }
-            return b2.contains(",") ? b2.split(",") : new String[]{b2};
+            return b.contains(",") ? b.split(",") : new String[]{b};
         }
         return (String[]) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo226a() {
+    public hh mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh.x : (hh) invokeV.objValue;
@@ -65,7 +65,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "24" : (String) invokeV.objValue;

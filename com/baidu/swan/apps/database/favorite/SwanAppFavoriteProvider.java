@@ -6,19 +6,19 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.n0.a.w0.k.d;
-import c.a.n0.a.z.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.i72;
+import com.repackage.lm2;
+/* loaded from: classes2.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile b mProvider;
+    public volatile i72 mProvider;
 
     public SwanAppFavoriteProvider() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class SwanAppFavoriteProvider extends ContentProvider {
         }
     }
 
-    private b getProvider() {
+    private i72 getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (this.mProvider == null) {
                 synchronized (SwanAppFavoriteProvider.class) {
                     if (this.mProvider == null) {
-                        this.mProvider = new b();
+                        this.mProvider = new i72();
                     }
                 }
             }
             return this.mProvider;
         }
-        return (b) invokeV.objValue;
+        return (i72) invokeV.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -78,7 +78,7 @@ public class SwanAppFavoriteProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d.a().b(getContext());
+            lm2.a().b(getContext());
             return true;
         }
         return invokeV.booleanValue;

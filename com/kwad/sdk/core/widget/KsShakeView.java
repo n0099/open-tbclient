@@ -24,33 +24,19 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
 import com.kwad.sdk.a.kwai.a;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsShakeView extends FrameLayout {
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f40139b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f40140c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f40141d;
+    public int b;
+    public Paint c;
+    public float d;
     @ColorInt
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f40142e;
+    public int e;
     @ColorInt
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f40143f;
+    public int f;
     @ColorInt
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f40144g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f40145h;
+    public int g;
+    public float h;
     public float i;
     @DrawableRes
     public int j;
@@ -67,52 +53,52 @@ public class KsShakeView extends FrameLayout {
 
     public KsShakeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f40140c = new Paint();
+        this.c = new Paint();
         this.l = false;
         a(context, attributeSet, i);
     }
 
-    private Animator a(View view, long j, float f2) {
+    private Animator a(View view2, long j, float f) {
         Interpolator create;
         float height;
-        if (view == null) {
+        if (view2 == null) {
             return null;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        if (this.f40139b == 1) {
+        if (this.b == 1) {
             create = PathInterpolatorCompat.create(0.22f, 0.59f, 0.36f, 1.0f);
-            view.setPivotX(view.getWidth());
-            height = view.getHeight();
+            view2.setPivotX(view2.getWidth());
+            height = view2.getHeight();
         } else {
             create = PathInterpolatorCompat.create(0.33f, 0.0f, 0.36f, 1.0f);
-            view.setPivotX(view.getWidth() / 2.0f);
-            height = view.getHeight() / 2.0f;
+            view2.setPivotX(view2.getWidth() / 2.0f);
+            height = view2.getHeight() / 2.0f;
         }
-        view.setPivotY(height);
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.OPACITY, 1.0f, 1.0f);
+        view2.setPivotY(height);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f, 1.0f);
         ofFloat.setDuration(300L);
-        ObjectAnimator duration = ObjectAnimator.ofFloat(view, "rotation", 0.0f, f2).setDuration(j);
-        float f3 = -f2;
+        ObjectAnimator duration = ObjectAnimator.ofFloat(view2, "rotation", 0.0f, f).setDuration(j);
+        float f2 = -f;
         long j2 = j * 2;
-        ObjectAnimator duration2 = ObjectAnimator.ofFloat(view, "rotation", f2, f3).setDuration(j2);
+        ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
         duration2.setInterpolator(create);
-        ObjectAnimator duration3 = ObjectAnimator.ofFloat(view, "rotation", f3, f2).setDuration(j2);
-        ObjectAnimator duration4 = ObjectAnimator.ofFloat(view, "rotation", f2, f3).setDuration(j2);
+        ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, "rotation", f2, f).setDuration(j2);
+        ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, "rotation", f, f2).setDuration(j2);
         duration4.setInterpolator(create);
-        animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view, "rotation", f3, 0.0f).setDuration(j));
+        animatorSet.playSequentially(ofFloat, duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, "rotation", f2, 0.0f).setDuration(j));
         return animatorSet;
     }
 
     @SuppressLint({"CustomViewStyleable"})
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040315, R.attr.obfuscated_res_0x7f040316, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031d, R.attr.obfuscated_res_0x7f040323, R.attr.obfuscated_res_0x7f040324, R.attr.obfuscated_res_0x7f040326}, i, 0);
-        this.f40141d = obtainStyledAttributes.getDimension(4, 1.0f);
-        this.f40142e = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
-        this.f40143f = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
-        this.f40139b = obtainStyledAttributes.getInteger(6, 1);
-        this.f40144g = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
-        this.f40145h = obtainStyledAttributes.getDimension(2, 1.0f);
-        this.j = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080baf);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04035d, R.attr.obfuscated_res_0x7f040362, R.attr.obfuscated_res_0x7f040363, R.attr.obfuscated_res_0x7f040368, R.attr.obfuscated_res_0x7f040369, R.attr.obfuscated_res_0x7f04036f, R.attr.obfuscated_res_0x7f040370, R.attr.obfuscated_res_0x7f040372}, i, 0);
+        this.d = obtainStyledAttributes.getDimension(4, 1.0f);
+        this.e = obtainStyledAttributes.getColor(3, Color.parseColor("#4DFFFFFF"));
+        this.f = obtainStyledAttributes.getColor(7, Color.parseColor("#66000000"));
+        this.b = obtainStyledAttributes.getInteger(6, 1);
+        this.g = obtainStyledAttributes.getColor(1, Color.parseColor("#B3FFFFFF"));
+        this.h = obtainStyledAttributes.getDimension(2, 1.0f);
+        this.j = obtainStyledAttributes.getResourceId(5, R.drawable.obfuscated_res_0x7f080bb0);
         this.i = obtainStyledAttributes.getDimension(0, a.a(context, 10.0f));
         obtainStyledAttributes.recycle();
         this.a = new ImageView(getContext());
@@ -122,23 +108,23 @@ public class KsShakeView extends FrameLayout {
         b();
     }
 
-    private Animator b(View view, long j, float f2) {
-        if (view == null) {
+    private Animator b(View view2, long j, float f) {
+        if (view2 == null) {
             return null;
         }
         Interpolator create = PathInterpolatorCompat.create(0.33f, 0.0f, 0.36f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator duration = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, f2).setDuration(j);
+        ObjectAnimator duration = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, f).setDuration(j);
         duration.setInterpolator(create);
-        float f3 = -f2;
+        float f2 = -f;
         long j2 = 2 * j;
-        ObjectAnimator duration2 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, f3).setDuration(j2);
+        ObjectAnimator duration2 = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, f2).setDuration(j2);
         duration2.setInterpolator(create);
-        ObjectAnimator duration3 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, f2).setDuration(j2);
+        ObjectAnimator duration3 = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, f).setDuration(j2);
         duration3.setInterpolator(create);
-        ObjectAnimator duration4 = ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, f3).setDuration(j2);
+        ObjectAnimator duration4 = ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, f2).setDuration(j2);
         duration4.setInterpolator(create);
-        animatorSet.playSequentially(duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view, AnimationProperty.TRANSLATE_Y, f2).setDuration(j), ObjectAnimator.ofFloat(view, AnimationProperty.OPACITY, 1.0f, 1.0f).setDuration(j));
+        animatorSet.playSequentially(duration, duration2, duration3, duration4, ObjectAnimator.ofFloat(view2, AnimationProperty.TRANSLATE_Y, f).setDuration(j), ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f, 1.0f).setDuration(j));
         return animatorSet;
     }
 
@@ -149,23 +135,23 @@ public class KsShakeView extends FrameLayout {
     private void setBgCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.FILL);
-        paint.setColor(this.f40143f);
+        paint.setColor(this.f);
         paint.setAntiAlias(true);
     }
 
     private void setInnerCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.f40145h);
-        paint.setColor(this.f40144g);
+        paint.setStrokeWidth(this.h);
+        paint.setColor(this.g);
         paint.setAntiAlias(true);
     }
 
     private void setOuterCirclePaint(Paint paint) {
         paint.reset();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(this.f40141d);
-        paint.setColor(this.f40142e);
+        paint.setStrokeWidth(this.d);
+        paint.setColor(this.e);
         paint.setAntiAlias(true);
     }
 
@@ -200,8 +186,8 @@ public class KsShakeView extends FrameLayout {
     }
 
     public void a(int i) {
-        this.f40139b = i;
-        setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080baf : R.drawable.obfuscated_res_0x7f080bb0);
+        this.b = i;
+        setIconDrawableRes(i != 2 ? R.drawable.obfuscated_res_0x7f080bb0 : R.drawable.obfuscated_res_0x7f080bb1);
     }
 
     public void a(AnimatorListenerAdapter animatorListenerAdapter) {
@@ -211,23 +197,23 @@ public class KsShakeView extends FrameLayout {
             animator.cancel();
         }
         this.a.setRotation(0.0f);
-        Animator b2 = b(this, 100L, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703a6));
+        Animator b = b(this, 100L, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703b0));
         if (animatorListenerAdapter != null) {
-            b2.addListener(animatorListenerAdapter);
+            b.addListener(animatorListenerAdapter);
         }
-        b2.start();
+        b.start();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         float min = Math.min(getWidth(), getHeight()) / 2.0f;
-        setBgCirclePaint(this.f40140c);
-        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f40140c);
-        setOuterCirclePaint(this.f40140c);
-        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.f40140c);
-        if (this.f40139b == 2) {
-            setInnerCirclePaint(this.f40140c);
-            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.i, this.f40140c);
+        setBgCirclePaint(this.c);
+        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.c);
+        setOuterCirclePaint(this.c);
+        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min, this.c);
+        if (this.b == 2) {
+            setInnerCirclePaint(this.c);
+            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, min - this.i, this.c);
         }
         super.dispatchDraw(canvas);
     }

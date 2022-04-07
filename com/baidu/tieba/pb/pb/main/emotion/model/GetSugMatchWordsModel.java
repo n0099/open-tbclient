@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main.emotion.model;
 
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -19,21 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GetSugMatchWordsModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static List<String> f35021c;
+    public static List<String> c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f35022b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +64,8 @@ public class GetSugMatchWordsModel extends BdBaseModel {
                 GetSugMatchWordsResponseMessage getSugMatchWordsResponseMessage = (GetSugMatchWordsResponseMessage) httpResponsedMessage;
                 if (!ListUtils.isEmpty(getSugMatchWordsResponseMessage.getData())) {
                     this.a.a.onSuccess(getSugMatchWordsResponseMessage.getData());
-                    GetSugMatchWordsModel.f35021c.clear();
-                    GetSugMatchWordsModel.f35021c.addAll(getSugMatchWordsResponseMessage.getData());
+                    GetSugMatchWordsModel.c.clear();
+                    GetSugMatchWordsModel.c.addAll(getSugMatchWordsResponseMessage.getData());
                     return;
                 }
                 this.a.a.onFail(getSugMatchWordsResponseMessage.getError(), getSugMatchWordsResponseMessage.getErrorString());
@@ -77,7 +73,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onFail(int i, String str);
 
@@ -97,31 +93,31 @@ public class GetSugMatchWordsModel extends BdBaseModel {
                 return;
             }
         }
-        f35021c = new ArrayList();
+        c = new ArrayList();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GetSugMatchWordsModel(f<Object> fVar) {
-        super(fVar);
+    public GetSugMatchWordsModel(b9<Object> b9Var) {
+        super(b9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
+            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35022b = new a(this, CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
+        this.b = new a(this, CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
         registerTask();
-        this.f35022b.setSelfListener(true);
-        registerListener(this.f35022b);
+        this.b.setSelfListener(true);
+        registerListener(this.b);
     }
 
     public void A(b bVar) {
@@ -131,8 +127,8 @@ public class GetSugMatchWordsModel extends BdBaseModel {
             if (bVar == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(f35021c)) {
-                this.a.onSuccess(f35021c);
+            if (!ListUtils.isEmpty(c)) {
+                this.a.onSuccess(c);
             } else {
                 sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS));
             }
@@ -144,7 +140,7 @@ public class GetSugMatchWordsModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f35022b);
+            MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_SUG_MATCH_WORDS);
             return true;
         }

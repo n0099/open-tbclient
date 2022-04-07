@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GestureDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GestureDetector";
@@ -148,10 +148,10 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                         return -1;
                     }
                     int i = this.qr.getInt("force_ft_pose_flag", 0);
-                    float f2 = this.qr.getFloat("det_thresh", 0.25f);
-                    float f3 = this.qr.getFloat("first_cls_thresh", 0.75f);
-                    float f4 = this.qr.getFloat("second_cls_thresh", 0.5f);
-                    return aVar.f24836tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i, f2, f3, f4, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i, f2, f3, f4, 1);
+                    float f = this.qr.getFloat("det_thresh", 0.25f);
+                    float f2 = this.qr.getFloat("first_cls_thresh", 0.75f);
+                    float f3 = this.qr.getFloat("second_cls_thresh", 0.5f);
+                    return aVar.f986tv ? ARMdlInterfaceJNI.initGestureFromAsset(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i, f, f2, f3, 1) : ARMdlInterfaceJNI.initGesture(strArr[0], strArr[1], strArr[2], this.qs.c(this.qr), i, f, f2, f3, 1);
                 }
                 return invokeL2.intValue;
             }
@@ -265,11 +265,11 @@ public class GestureDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, framePixels2)) == null) {
-                    int c2 = this.qs.c(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
+                    int c = this.qs.c(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
                     long timestamp = framePixels2.getTimestamp();
                     float[] fArr = new float[13];
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    ARMdlInterfaceJNI.predictGesture(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), c2, framePixels2.isFrontCamera(), fArr);
+                    ARMdlInterfaceJNI.predictGesture(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), c, framePixels2.isFrontCamera(), fArr);
                     StatisticApi.getPerformanceApi().recordAlgoTimeCost("finger_gesture", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                     return new a(this.qs.getName(), fArr, timestamp);
                 }

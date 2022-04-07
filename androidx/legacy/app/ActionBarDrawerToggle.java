@@ -176,18 +176,18 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPosition : invokeV.floatValue;
         }
 
-        public void setOffset(float f2) {
+        public void setOffset(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-                this.mOffset = f2;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+                this.mOffset = f;
                 invalidateSelf();
             }
         }
 
-        public void setPosition(float f2) {
+        public void setPosition(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-                this.mPosition = f2;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.mPosition = f;
                 invalidateSelf();
             }
         }
@@ -285,8 +285,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                         ActionBar actionBar2 = this.mActivity.getActionBar();
                         this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i));
                         actionBar2.setSubtitle(actionBar2.getSubtitle());
-                    } catch (Exception e2) {
-                        Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
+                    } catch (Exception e) {
+                        Log.w(TAG, "Couldn't set content description via JB-MR2 API", e);
                     }
                 }
             }
@@ -316,8 +316,8 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
                         this.mSetIndicatorInfo.mSetHomeAsUpIndicator.invoke(actionBar2, drawable);
                         this.mSetIndicatorInfo.mSetHomeActionContentDescription.invoke(actionBar2, Integer.valueOf(i));
                         return;
-                    } catch (Exception e2) {
-                        Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
+                    } catch (Exception e) {
+                        Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e);
                         return;
                     }
                 }
@@ -349,9 +349,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerClosed(View view) {
+    public void onDrawerClosed(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             this.mSlider.setPosition(0.0f);
             if (this.mDrawerIndicatorEnabled) {
                 setActionBarDescription(this.mOpenDrawerContentDescRes);
@@ -360,9 +360,9 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerOpened(View view) {
+    public void onDrawerOpened(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             this.mSlider.setPosition(1.0f);
             if (this.mDrawerIndicatorEnabled) {
                 setActionBarDescription(this.mCloseDrawerContentDescRes);
@@ -371,15 +371,15 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
     }
 
     @Override // androidx.drawerlayout.widget.DrawerLayout.DrawerListener
-    public void onDrawerSlide(View view, float f2) {
+    public void onDrawerSlide(View view2, float f) {
         float min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048580, this, view, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048580, this, view2, f) == null) {
             float position = this.mSlider.getPosition();
-            if (f2 > 0.5f) {
-                min = Math.max(position, Math.max(0.0f, f2 - 0.5f) * 2.0f);
+            if (f > 0.5f) {
+                min = Math.max(position, Math.max(0.0f, f - 0.5f) * 2.0f);
             } else {
-                min = Math.min(position, f2 * 2.0f);
+                min = Math.min(position, f * 2.0f);
             }
             this.mSlider.setPosition(min);
         }

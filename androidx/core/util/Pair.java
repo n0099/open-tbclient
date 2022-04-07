@@ -17,12 +17,12 @@ public class Pair<F, S> {
     @Nullable
     public final S second;
 
-    public Pair(@Nullable F f2, @Nullable S s) {
+    public Pair(@Nullable F f, @Nullable S s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, s};
+            Object[] objArr = {f, s};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,15 +32,15 @@ public class Pair<F, S> {
                 return;
             }
         }
-        this.first = f2;
+        this.first = f;
         this.second = s;
     }
 
     @NonNull
-    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b2) {
+    public static <A, B> Pair<A, B> create(@Nullable A a, @Nullable B b) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b2)) == null) ? new Pair<>(a, b2) : (Pair) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, a, b)) == null) ? new Pair<>(a, b) : (Pair) invokeLL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -60,8 +60,8 @@ public class Pair<F, S> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            F f2 = this.first;
-            int hashCode = f2 == null ? 0 : f2.hashCode();
+            F f = this.first;
+            int hashCode = f == null ? 0 : f.hashCode();
             S s = this.second;
             return hashCode ^ (s != null ? s.hashCode() : 0);
         }

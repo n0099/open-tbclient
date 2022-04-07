@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean USE_COMPAT_PARENT;
@@ -56,14 +56,14 @@ public class BadgeUtils {
         }
     }
 
-    public static void attachBadgeDrawable(@NonNull BadgeDrawable badgeDrawable, @NonNull View view, @NonNull FrameLayout frameLayout) {
+    public static void attachBadgeDrawable(@NonNull BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, badgeDrawable, view, frameLayout) == null) {
-            setBadgeDrawableBounds(badgeDrawable, view, frameLayout);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, badgeDrawable, view2, frameLayout) == null) {
+            setBadgeDrawableBounds(badgeDrawable, view2, frameLayout);
             if (USE_COMPAT_PARENT) {
                 frameLayout.setForeground(badgeDrawable);
             } else {
-                view.getOverlay().add(badgeDrawable);
+                view2.getOverlay().add(badgeDrawable);
             }
         }
     }
@@ -108,32 +108,32 @@ public class BadgeUtils {
         return (ParcelableSparseArray) invokeL.objValue;
     }
 
-    public static void detachBadgeDrawable(@Nullable BadgeDrawable badgeDrawable, @NonNull View view, @NonNull FrameLayout frameLayout) {
+    public static void detachBadgeDrawable(@Nullable BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, badgeDrawable, view, frameLayout) == null) || badgeDrawable == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65541, null, badgeDrawable, view2, frameLayout) == null) || badgeDrawable == null) {
             return;
         }
         if (USE_COMPAT_PARENT) {
             frameLayout.setForeground(null);
         } else {
-            view.getOverlay().remove(badgeDrawable);
+            view2.getOverlay().remove(badgeDrawable);
         }
     }
 
-    public static void setBadgeDrawableBounds(@NonNull BadgeDrawable badgeDrawable, @NonNull View view, @NonNull FrameLayout frameLayout) {
+    public static void setBadgeDrawableBounds(@NonNull BadgeDrawable badgeDrawable, @NonNull View view2, @NonNull FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, badgeDrawable, view, frameLayout) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, badgeDrawable, view2, frameLayout) == null) {
             Rect rect = new Rect();
-            (USE_COMPAT_PARENT ? frameLayout : view).getDrawingRect(rect);
+            (USE_COMPAT_PARENT ? frameLayout : view2).getDrawingRect(rect);
             badgeDrawable.setBounds(rect);
-            badgeDrawable.updateBadgeCoordinates(view, frameLayout);
+            badgeDrawable.updateBadgeCoordinates(view2, frameLayout);
         }
     }
 
-    public static void updateBadgeBounds(@NonNull Rect rect, float f2, float f3, float f4, float f5) {
+    public static void updateBadgeBounds(@NonNull Rect rect, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{rect, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            rect.set((int) (f2 - f4), (int) (f3 - f5), (int) (f2 + f4), (int) (f3 + f5));
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{rect, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            rect.set((int) (f - f3), (int) (f2 - f4), (int) (f + f3), (int) (f2 + f4));
         }
     }
 }

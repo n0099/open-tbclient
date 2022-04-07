@@ -1,7 +1,6 @@
 package com.baidu.adp.plugin.proxy.activity;
 
 import android.content.Intent;
-import c.a.d.j.f.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
@@ -11,7 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.yl;
+/* loaded from: classes.dex */
 public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,23 +51,23 @@ public class ThirdFragmentActivityProxy extends FragmentActivityProxy {
                     Plugin plugin2 = PluginCenter.getInstance().getPlugin(stringExtra);
                     PluginBaseThirdFragmentActivity pluginBaseThirdFragmentActivity = (PluginBaseThirdFragmentActivity) plugin2.getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseThirdFragmentActivity.class).newInstance();
                     this.mEntity = pluginBaseThirdFragmentActivity;
-                    pluginBaseThirdFragmentActivity.setActivityProxy((b) this);
+                    pluginBaseThirdFragmentActivity.setActivityProxy((yl) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                     setTheme(plugin2.getActivityThemeResource());
                 } else {
                     PluginBaseThirdFragmentActivity pluginBaseThirdFragmentActivity2 = (PluginBaseThirdFragmentActivity) PluginCenter.getInstance().getPlugin(stringExtra).getDexClassLoader().loadClass(stringExtra2).asSubclass(PluginBaseThirdFragmentActivity.class).newInstance();
                     this.mEntity = pluginBaseThirdFragmentActivity2;
-                    pluginBaseThirdFragmentActivity2.setActivityProxy((b) this);
+                    pluginBaseThirdFragmentActivity2.setActivityProxy((yl) this);
                     this.mEntity.setPluginPackageName(stringExtra);
                 }
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                BdLog.e(e);
+            } catch (IllegalAccessException e2) {
                 BdLog.e(e2);
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 BdLog.e(e3);
-            } catch (InstantiationException e4) {
+            } catch (Exception e4) {
                 BdLog.e(e4);
-            } catch (Exception e5) {
-                BdLog.e(e5);
             }
         }
     }

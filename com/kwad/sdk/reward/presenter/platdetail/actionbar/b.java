@@ -24,29 +24,15 @@ import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl;
 import com.kwad.sdk.utils.az;
 import com.kwad.sdk.utils.be;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends g {
-
-    /* renamed from: b  reason: collision with root package name */
-    public KsAdWebView f41046b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public j.a f41047c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f41048d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public RewardActionBarControl f41049e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f41050f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.g f41051g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f41052h;
+    public KsAdWebView b;
+    public j.a c;
+    public com.kwad.sdk.core.download.a.b d;
+    public RewardActionBarControl e;
+    public boolean f;
+    public com.kwad.sdk.core.webview.kwai.g g;
+    public com.kwad.sdk.core.webview.a h;
     public s j;
     public boolean k;
     public long p;
@@ -71,20 +57,20 @@ public class b extends g {
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void c() {
             super.c();
-            b.this.f41050f = true;
+            b.this.f = true;
         }
     };
     public b.c o = new b.c() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.b.4
         @Override // com.kwad.sdk.core.webview.jshandler.b.c
         public void a(b.a aVar) {
-            ((g) b.this).a.f40742b.a();
+            ((g) b.this).a.b.a();
         }
     };
     public j.b q = new j.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.b.5
         @Override // com.kwad.sdk.core.webview.jshandler.j.b
         public void a(j.a aVar) {
-            b.this.f41047c = aVar;
-            b.this.f41046b.setTranslationY(aVar.a + aVar.f40051d);
+            b.this.c = aVar;
+            b.this.b.setTranslationY(aVar.a + aVar.d);
         }
     };
     public i.b r = new i.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.b.6
@@ -101,10 +87,10 @@ public class b extends g {
             long elapsedRealtime = SystemClock.elapsedRealtime() - b.this.p;
             com.kwad.sdk.core.d.a.c("RewardActionBarWeb", "load time:" + elapsedRealtime);
             if (b.this.i == 1) {
-                com.kwad.sdk.core.report.d.b(((g) b.this).a.f40747g, elapsedRealtime);
+                com.kwad.sdk.core.report.d.b(((g) b.this).a.g, elapsedRealtime);
             }
-            if (b.this.f41050f) {
-                b.this.f41049e.b(((g) b.this).a.k.f(), ((g) b.this).a.k.g());
+            if (b.this.f) {
+                b.this.e.b(((g) b.this).a.k.f(), ((g) b.this).a.k.g());
             }
         }
     };
@@ -116,72 +102,72 @@ public class b extends g {
     }
 
     private void a(com.kwad.sdk.core.webview.kwai.g gVar) {
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.f41052h, this.f41048d, this.o));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f41052h, this.f41048d, this.o));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f41052h));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f41052h));
-        gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.f41052h));
-        gVar.a(new j(this.f41052h, this.q));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.h, this.d, this.o));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.h, this.d, this.o));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.h));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.h));
+        gVar.a(new com.kwad.sdk.core.webview.jshandler.d(this.h));
+        gVar.a(new j(this.h, this.q));
         gVar.a(new p(this.s));
         s sVar = new s();
         this.j = sVar;
         gVar.a(sVar);
-        gVar.a(new t(this.f41052h, this.f41048d));
+        gVar.a(new t(this.h, this.d));
         gVar.a(new i(this.r));
-        gVar.a(new k(this.f41052h));
+        gVar.a(new k(this.h));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         this.i = -1;
-        this.f41046b.setVisibility(8);
+        this.b.setVisibility(8);
         t();
     }
 
     private void i() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f41052h = aVar;
-        aVar.a(((g) this).a.f40747g);
-        com.kwad.sdk.core.webview.a aVar2 = this.f41052h;
+        this.h = aVar;
+        aVar.a(((g) this).a.g);
+        com.kwad.sdk.core.webview.a aVar2 = this.h;
         com.kwad.sdk.reward.a aVar3 = ((g) this).a;
-        aVar2.a = aVar3.f40746f;
+        aVar2.a = aVar3.f;
         AdBaseFrameLayout adBaseFrameLayout = aVar3.j;
-        aVar2.f39981b = adBaseFrameLayout;
-        aVar2.f39983d = adBaseFrameLayout;
-        aVar2.f39984e = this.f41046b;
+        aVar2.b = adBaseFrameLayout;
+        aVar2.d = adBaseFrameLayout;
+        aVar2.e = this.b;
     }
 
     private void r() {
         this.i = -1;
         s();
-        this.f41046b.setBackgroundColor(0);
-        this.f41046b.getBackground().setAlpha(0);
-        this.f41046b.setVisibility(4);
+        this.b.setBackgroundColor(0);
+        this.b.getBackground().setAlpha(0);
+        this.b.setVisibility(4);
         this.p = SystemClock.elapsedRealtime();
-        this.f41046b.loadUrl(com.kwad.sdk.core.response.a.b.b(((g) this).a.f40747g));
+        this.b.loadUrl(com.kwad.sdk.core.response.a.b.b(((g) this).a.g));
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void s() {
         t();
-        be.a(this.f41046b);
-        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.f41046b);
-        this.f41051g = gVar;
+        be.a(this.b);
+        com.kwad.sdk.core.webview.kwai.g gVar = new com.kwad.sdk.core.webview.kwai.g(this.b);
+        this.g = gVar;
         a(gVar);
-        this.f41046b.addJavascriptInterface(this.f41051g, "KwaiAd");
+        this.b.addJavascriptInterface(this.g, "KwaiAd");
     }
 
     private void t() {
-        com.kwad.sdk.core.webview.kwai.g gVar = this.f41051g;
+        com.kwad.sdk.core.webview.kwai.g gVar = this.g;
         if (gVar != null) {
             gVar.a();
-            this.f41051g = null;
+            this.g = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean u() {
-        KsAdWebView ksAdWebView = this.f41046b;
+        KsAdWebView ksAdWebView = this.b;
         if (ksAdWebView == null) {
             return false;
         }
@@ -197,17 +183,17 @@ public class b extends g {
     }
 
     private void v() {
-        if (this.f41047c == null) {
+        if (this.c == null) {
             w();
             return;
         }
         z();
-        this.f41046b.setVisibility(0);
-        KsAdWebView ksAdWebView = this.f41046b;
-        j.a aVar = this.f41047c;
-        ValueAnimator b2 = az.b(ksAdWebView, aVar.a + aVar.f40051d, 0);
-        this.t = b2;
-        b2.setInterpolator(new DecelerateInterpolator(2.0f));
+        this.b.setVisibility(0);
+        KsAdWebView ksAdWebView = this.b;
+        j.a aVar = this.c;
+        ValueAnimator b = az.b(ksAdWebView, aVar.a + aVar.d, 0);
+        this.t = b;
+        b.setInterpolator(new DecelerateInterpolator(2.0f));
         this.t.setDuration(300L);
         this.t.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.b.8
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -234,7 +220,7 @@ public class b extends g {
         if (sVar != null) {
             sVar.c();
         }
-        this.f41046b.setVisibility(0);
+        this.b.setVisibility(0);
         s sVar2 = this.j;
         if (sVar2 != null) {
             sVar2.d();
@@ -243,25 +229,25 @@ public class b extends g {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void x() {
-        if (this.f41046b.getVisibility() != 0) {
+        if (this.b.getVisibility() != 0) {
             return;
         }
-        if (this.f41047c == null) {
+        if (this.c == null) {
             y();
             return;
         }
         z();
-        KsAdWebView ksAdWebView = this.f41046b;
-        j.a aVar = this.f41047c;
-        ValueAnimator b2 = az.b(ksAdWebView, 0, aVar.a + aVar.f40051d);
-        this.u = b2;
-        b2.setInterpolator(new DecelerateInterpolator(2.0f));
+        KsAdWebView ksAdWebView = this.b;
+        j.a aVar = this.c;
+        ValueAnimator b = az.b(ksAdWebView, 0, aVar.a + aVar.d);
+        this.u = b;
+        b.setInterpolator(new DecelerateInterpolator(2.0f));
         this.u.setDuration(300L);
         this.u.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.b.9
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                b.this.f41046b.setVisibility(4);
+                b.this.b.setVisibility(4);
                 if (b.this.j != null) {
                     b.this.j.f();
                 }
@@ -279,14 +265,14 @@ public class b extends g {
     }
 
     private void y() {
-        if (this.f41046b.getVisibility() != 0) {
+        if (this.b.getVisibility() != 0) {
             return;
         }
         s sVar = this.j;
         if (sVar != null) {
             sVar.e();
         }
-        this.f41046b.setVisibility(4);
+        this.b.setVisibility(4);
         s sVar2 = this.j;
         if (sVar2 != null) {
             sVar2.f();
@@ -310,9 +296,9 @@ public class b extends g {
     public void a() {
         super.a();
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        this.f41048d = aVar.l;
+        this.d = aVar.l;
         RewardActionBarControl rewardActionBarControl = aVar.n;
-        this.f41049e = rewardActionBarControl;
+        this.e = rewardActionBarControl;
         rewardActionBarControl.a(this.l);
         i();
         r();
@@ -323,7 +309,7 @@ public class b extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f41049e.a((RewardActionBarControl.d) null);
+        this.e.a((RewardActionBarControl.d) null);
         ((g) this).a.b(this.m);
         ((g) this).a.k.b(this.n);
         z();
@@ -333,6 +319,6 @@ public class b extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f41046b = (KsAdWebView) a(R.id.obfuscated_res_0x7f0910c2);
+        this.b = (KsAdWebView) a(R.id.obfuscated_res_0x7f0910bb);
     }
 }

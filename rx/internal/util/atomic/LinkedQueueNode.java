@@ -58,19 +58,19 @@ public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>
         }
     }
 
-    public void spValue(E e2) {
+    public void spValue(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e2) == null) {
-            this.value = e2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, e) == null) {
+            this.value = e;
         }
     }
 
-    public LinkedQueueNode(E e2) {
+    public LinkedQueueNode(E e) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {e2};
+            Object[] objArr = {e};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,6 +80,6 @@ public final class LinkedQueueNode<E> extends AtomicReference<LinkedQueueNode<E>
                 return;
             }
         }
-        spValue(e2);
+        spValue(e);
     }
 }

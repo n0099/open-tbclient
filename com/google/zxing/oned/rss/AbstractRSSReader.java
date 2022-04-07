@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.oned.OneDReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractRSSReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MAX_AVG_VARIANCE = 0.2f;
@@ -58,10 +58,10 @@ public abstract class AbstractRSSReader extends OneDReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, iArr, fArr) == null) {
             int i = 0;
-            float f2 = fArr[0];
+            float f = fArr[0];
             for (int i2 = 1; i2 < iArr.length; i2++) {
-                if (fArr[i2] < f2) {
-                    f2 = fArr[i2];
+                if (fArr[i2] < f) {
+                    f = fArr[i2];
                     i = i2;
                 }
             }
@@ -73,10 +73,10 @@ public abstract class AbstractRSSReader extends OneDReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, iArr, fArr) == null) {
             int i = 0;
-            float f2 = fArr[0];
+            float f = fArr[0];
             for (int i2 = 1; i2 < iArr.length; i2++) {
-                if (fArr[i2] > f2) {
-                    f2 = fArr[i2];
+                if (fArr[i2] > f) {
+                    f = fArr[i2];
                     i = i2;
                 }
             }
@@ -89,8 +89,8 @@ public abstract class AbstractRSSReader extends OneDReader {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, iArr)) == null) {
-            float f2 = (iArr[0] + iArr[1]) / ((iArr[2] + i) + iArr[3]);
-            if (f2 >= 0.7916667f && f2 <= 0.89285713f) {
+            float f = (iArr[0] + iArr[1]) / ((iArr[2] + i) + iArr[3]);
+            if (f >= 0.7916667f && f <= 0.89285713f) {
                 int i2 = Integer.MAX_VALUE;
                 int i3 = Integer.MIN_VALUE;
                 for (int i4 : iArr) {

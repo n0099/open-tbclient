@@ -3,8 +3,6 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -14,7 +12,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mu4;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,13 +45,13 @@ public class PublishButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            b bVar = new b();
-            bVar.i(R.drawable.obfuscated_res_0x7f080913, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            bVar.g(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-            bVar.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            setConfig(bVar);
+            mu4 mu4Var = new mu4();
+            mu4Var.i(R.drawable.obfuscated_res_0x7f080919, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            mu4Var.g(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+            mu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            setConfig(mu4Var);
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f084e));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f084f));
         }
     }
 
@@ -64,10 +64,10 @@ public class PublishButton extends TBSpecificationBtn {
         }
     }
 
-    public void setScrollAlpha(float f2) {
+    public void setScrollAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.o = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.o = f;
         }
     }
 

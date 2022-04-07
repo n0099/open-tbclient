@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class CameraPreviewUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PREVIEW_PIXELS = 2073600;
@@ -54,8 +54,8 @@ public final class CameraPreviewUtils {
 
     public static Point getBestPreview(Camera.Parameters parameters, Point point) {
         InterceptResult invokeLL;
+        double d;
         double d2;
-        double d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parameters, point)) == null) {
             List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
@@ -101,16 +101,16 @@ public final class CameraPreviewUtils {
             int i = point.x;
             int i2 = point.y;
             if (i > i2) {
-                d2 = i;
-                d3 = i2;
-            } else {
+                d = i;
                 d2 = i2;
-                d3 = i;
+            } else {
+                d = i2;
+                d2 = i;
             }
-            double d4 = d2 / d3;
+            double d3 = d / d2;
             Camera.Size size = null;
             Iterator it = arrayList.iterator();
-            double d5 = -1.0d;
+            double d4 = -1.0d;
             while (it.hasNext()) {
                 Camera.Size size2 = (Camera.Size) it.next();
                 int i3 = size2.width;
@@ -121,14 +121,14 @@ public final class CameraPreviewUtils {
                 } else if (i5 > 2073600) {
                     it.remove();
                 } else if (i4 % 4 == 0 && i3 % 4 == 0) {
-                    double abs = Math.abs((i3 > i4 ? i3 / i4 : i4 / i3) - d4);
+                    double abs = Math.abs((i3 > i4 ? i3 / i4 : i4 / i3) - d3);
                     boolean z = false;
-                    if ((d5 == -1.0d && abs <= 0.25d) || (d5 >= abs && abs <= 0.25d)) {
+                    if ((d4 == -1.0d && abs <= 0.25d) || (d4 >= abs && abs <= 0.25d)) {
                         z = true;
                     }
                     if (z) {
                         size = size2;
-                        d5 = abs;
+                        d4 = abs;
                     }
                 } else {
                     it.remove();
@@ -145,8 +145,8 @@ public final class CameraPreviewUtils {
 
     public static Point getBestVideoForSameSize(Camera.Parameters parameters, int i, int i2) {
         InterceptResult invokeLII;
+        double d;
         double d2;
-        double d3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, parameters, i, i2)) == null) {
             List<Camera.Size> supportedPreviewSizes = parameters.getSupportedPreviewSizes();
@@ -155,13 +155,13 @@ public final class CameraPreviewUtils {
             if (supportedVideoSizes != null && supportedPreviewSizes != null) {
                 supportedVideoSizes.addAll(supportedPreviewSizes);
                 if (i > i2) {
-                    d2 = i;
-                    d3 = i2;
-                } else {
+                    d = i;
                     d2 = i2;
-                    d3 = i;
+                } else {
+                    d = i2;
+                    d2 = i;
                 }
-                double d4 = d2 / d3;
+                double d3 = d / d2;
                 HashMap hashMap = new HashMap();
                 for (Camera.Size size : supportedVideoSizes) {
                     int i3 = 0;
@@ -211,7 +211,7 @@ public final class CameraPreviewUtils {
                 });
                 Iterator it = arrayList.iterator();
                 Point point = null;
-                double d5 = Double.MAX_VALUE;
+                double d4 = Double.MAX_VALUE;
                 while (it.hasNext()) {
                     Camera.Size size3 = (Camera.Size) it.next();
                     int i4 = size3.width;
@@ -222,10 +222,10 @@ public final class CameraPreviewUtils {
                     } else if (i6 > 2073600) {
                         it.remove();
                     } else if (i5 % 2 == 0 && i4 % 2 == 0) {
-                        double abs = Math.abs((i4 > i5 ? i4 / i5 : i5 / i4) - d4);
-                        if (abs < d5) {
+                        double abs = Math.abs((i4 > i5 ? i4 / i5 : i5 / i4) - d3);
+                        if (abs < d4) {
                             point = new Point(size3.width, size3.height);
-                            d5 = abs;
+                            d4 = abs;
                         }
                     } else {
                         it.remove();

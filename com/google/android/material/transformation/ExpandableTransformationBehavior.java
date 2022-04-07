@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ExpandableTransformationBehavior extends ExpandableBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,19 +38,19 @@ public abstract class ExpandableTransformationBehavior extends ExpandableBehavio
     }
 
     @NonNull
-    public abstract AnimatorSet onCreateExpandedStateChangeAnimation(View view, View view2, boolean z, boolean z2);
+    public abstract AnimatorSet onCreateExpandedStateChangeAnimation(View view2, View view3, boolean z, boolean z2);
 
     @Override // com.google.android.material.transformation.ExpandableBehavior
     @CallSuper
-    public boolean onExpandedStateChange(View view, View view2, boolean z, boolean z2) {
+    public boolean onExpandedStateChange(View view2, View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             boolean z3 = this.currentAnimation != null;
             if (z3) {
                 this.currentAnimation.cancel();
             }
-            AnimatorSet onCreateExpandedStateChangeAnimation = onCreateExpandedStateChangeAnimation(view, view2, z, z3);
+            AnimatorSet onCreateExpandedStateChangeAnimation = onCreateExpandedStateChangeAnimation(view2, view3, z, z3);
             this.currentAnimation = onCreateExpandedStateChangeAnimation;
             onCreateExpandedStateChangeAnimation.addListener(new AnimatorListenerAdapter(this) { // from class: com.google.android.material.transformation.ExpandableTransformationBehavior.1
                 public static /* synthetic */ Interceptable $ic;

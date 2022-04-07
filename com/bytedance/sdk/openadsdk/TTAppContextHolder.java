@@ -5,20 +5,20 @@ import android.app.Application;
 import android.content.Context;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TTAppContextHolder {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile Context a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         @SuppressLint({"StaticFieldLeak"})
         public static volatile Application a;
 
         static {
             try {
-                Object b2 = b();
-                a = (Application) b2.getClass().getMethod("getApplication", new Class[0]).invoke(b2, new Object[0]);
+                Object b = b();
+                a = (Application) b.getClass().getMethod("getApplication", new Class[0]).invoke(b, new Object[0]);
                 d.c("MyApplication", "application get success");
             } catch (Throwable th) {
                 d.b("MyApplication", "application get failed", th);

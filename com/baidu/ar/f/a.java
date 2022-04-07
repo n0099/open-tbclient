@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a implements SensorEventListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
     public SensorManager rH;
     public Sensor vS;
-    public InterfaceC1716a vT;
+    public InterfaceC0056a vT;
     public boolean vU;
     public LinkedList<Double> vV;
     public LinkedList<Float> vW;
@@ -31,9 +31,9 @@ public class a implements SensorEventListener {
     public boolean wc;
 
     /* renamed from: com.baidu.ar.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1716a {
-        void b(float f2, float f3, float f4, float f5);
+    /* loaded from: classes.dex */
+    public interface InterfaceC0056a {
+        void b(float f, float f2, float f3, float f4);
 
         void destroy();
     }
@@ -72,89 +72,89 @@ public class a implements SensorEventListener {
         }
     }
 
-    public void a(InterfaceC1716a interfaceC1716a) {
+    public void a(InterfaceC0056a interfaceC0056a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1716a) == null) {
-            this.vT = interfaceC1716a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0056a) == null) {
+            this.vT = interfaceC0056a;
         }
     }
 
-    public void a(LinkedList linkedList, double d2) {
+    public void a(LinkedList linkedList, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{linkedList, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{linkedList, Double.valueOf(d)}) == null) {
             if (linkedList.size() >= this.vZ) {
                 linkedList.poll();
             }
-            linkedList.offer(Double.valueOf(d2));
+            linkedList.offer(Double.valueOf(d));
         }
     }
 
-    public void a(LinkedList linkedList, float f2) {
+    public void a(LinkedList linkedList, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048579, this, linkedList, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048579, this, linkedList, f) == null) {
             if (linkedList.size() >= this.vZ) {
                 linkedList.poll();
             }
-            linkedList.offer(Float.valueOf(f2));
+            linkedList.offer(Float.valueOf(f));
         }
     }
 
-    public void b(float f2, float f3, float f4) {
-        InterfaceC1716a interfaceC1716a;
+    public void b(float f, float f2, float f3) {
+        InterfaceC0056a interfaceC0056a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            double sqrt = Math.sqrt((f * f) + (f2 * f2) + (f3 * f3));
             if (sqrt > this.wa) {
                 this.wa = sqrt;
             }
             com.baidu.ar.h.b.aQ("max acc is : " + this.wa);
             a(this.vV, sqrt);
-            a((LinkedList) this.vW, Math.abs(f2));
-            a((LinkedList) this.vX, Math.abs(f3));
-            a((LinkedList) this.vY, Math.abs(f4));
+            a((LinkedList) this.vW, Math.abs(f));
+            a((LinkedList) this.vX, Math.abs(f2));
+            a((LinkedList) this.vY, Math.abs(f3));
             if (this.vV.size() == this.vZ) {
+                float f4 = 0.0f;
+                double d = 0.0d;
                 float f5 = 0.0f;
-                double d2 = 0.0d;
                 float f6 = 0.0f;
-                float f7 = 0.0f;
                 for (int i = 0; i < this.vV.size(); i++) {
-                    d2 += this.vV.get(i).doubleValue();
-                    f5 += this.vW.get(i).floatValue();
-                    f6 += this.vX.get(i).floatValue();
-                    f7 += this.vY.get(i).floatValue();
+                    d += this.vV.get(i).doubleValue();
+                    f4 += this.vW.get(i).floatValue();
+                    f5 += this.vX.get(i).floatValue();
+                    f6 += this.vY.get(i).floatValue();
                 }
                 int i2 = this.vZ;
-                double d3 = d2 / i2;
+                double d2 = d / i2;
+                float f7 = f4 / i2;
                 float f8 = f5 / i2;
                 float f9 = f6 / i2;
-                float f10 = f7 / i2;
                 if (this.wc) {
                     if (this.wb) {
-                        if (d3 <= 10.0d) {
+                        if (d2 <= 10.0d) {
                             return;
                         }
                         this.wb = false;
-                    } else if (d3 < 10.0d) {
+                    } else if (d2 < 10.0d) {
                         this.wb = true;
-                        interfaceC1716a = this.vT;
-                        if (interfaceC1716a == null) {
+                        interfaceC0056a = this.vT;
+                        if (interfaceC0056a == null) {
                             return;
                         }
-                        interfaceC1716a.b(f8, f9, f10, (float) this.wa);
+                        interfaceC0056a.b(f7, f8, f9, (float) this.wa);
                         this.wa = 0.0d;
                     }
                 } else if (this.wb) {
-                    if (d3 <= 5.0d) {
+                    if (d2 <= 5.0d) {
                         return;
                     }
                     this.wb = false;
-                } else if (d3 < 5.0d) {
+                } else if (d2 < 5.0d) {
                     this.wb = true;
-                    interfaceC1716a = this.vT;
-                    if (interfaceC1716a == null) {
+                    interfaceC0056a = this.vT;
+                    if (interfaceC0056a == null) {
                         return;
                     }
-                    interfaceC1716a.b(f8, f9, f10, (float) this.wa);
+                    interfaceC0056a.b(f7, f8, f9, (float) this.wa);
                     this.wa = 0.0d;
                 }
             }
@@ -173,11 +173,11 @@ public class a implements SensorEventListener {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, sensorEvent) == null) && this.vU) {
             float[] fArr = sensorEvent.values;
-            float f2 = fArr[0];
-            float f3 = fArr[1];
-            float f4 = fArr[2];
-            b(f2, f3, f4);
-            com.baidu.ar.h.b.aQ("acc  x : " + f2 + " , y : " + f3 + ", z : " + f4);
+            float f = fArr[0];
+            float f2 = fArr[1];
+            float f3 = fArr[2];
+            b(f, f2, f3);
+            com.baidu.ar.h.b.aQ("acc  x : " + f + " , y : " + f2 + ", z : " + f3);
         }
     }
 
@@ -206,9 +206,9 @@ public class a implements SensorEventListener {
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            InterfaceC1716a interfaceC1716a = this.vT;
-            if (interfaceC1716a != null) {
-                interfaceC1716a.destroy();
+            InterfaceC0056a interfaceC0056a = this.vT;
+            if (interfaceC0056a != null) {
+                interfaceC0056a.destroy();
                 this.vT = null;
             }
             SensorManager sensorManager = this.rH;

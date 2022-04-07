@@ -27,7 +27,7 @@ import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FileProvider extends ContentProvider {
     public static final String ATTR_NAME = "name";
     public static final String ATTR_PATH = "path";
@@ -46,7 +46,7 @@ public class FileProvider extends ContentProvider {
 
     @KsAdSdkDynamicApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface PathStrategy {
         @KsAdSdkDynamicApi
         @Keep
@@ -57,7 +57,7 @@ public class FileProvider extends ContentProvider {
         Uri getUriForFile(File file);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class SimplePathStrategy implements PathStrategy {
         public final String mAuthority;
         public final HashMap<String, File> mRoots = new HashMap<>();
@@ -72,8 +72,8 @@ public class FileProvider extends ContentProvider {
             }
             try {
                 this.mRoots.put(str, file.getCanonicalFile());
-            } catch (IOException e2) {
-                throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
+            } catch (IOException e) {
+                throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e);
             }
         }
 
@@ -160,10 +160,10 @@ public class FileProvider extends ContentProvider {
                 try {
                     pathStrategy = parsePathStrategy(context, str);
                     sCache.put(str, pathStrategy);
-                } catch (IOException e2) {
+                } catch (IOException e) {
+                    throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e);
+                } catch (XmlPullParserException e2) {
                     throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
-                } catch (XmlPullParserException e3) {
-                    throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e3);
                 }
             }
         }

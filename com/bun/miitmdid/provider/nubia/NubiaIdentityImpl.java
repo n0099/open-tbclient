@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.e0;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NubiaIdentityImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NubiaIdentityImpl";
@@ -91,8 +91,8 @@ public class NubiaIdentityImpl {
                     e0.d(TAG, "generalMethod: failed:" + string);
                     return null;
                 }
-            } catch (Exception e2) {
-                e0.d(TAG, "generalMethod: Exception: " + e2.getMessage());
+            } catch (Exception e) {
+                e0.d(TAG, "generalMethod: Exception: " + e.getMessage());
                 return null;
             }
         }

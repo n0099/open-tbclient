@@ -57,10 +57,10 @@ public class CardViewApi17Impl extends CardViewBaseImpl {
                 }
 
                 @Override // androidx.cardview.widget.RoundRectDrawableWithShadow.RoundRectHelper
-                public void drawRoundRect(Canvas canvas, RectF rectF, float f2, Paint paint) {
+                public void drawRoundRect(Canvas canvas, RectF rectF, float f, Paint paint) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{canvas, rectF, Float.valueOf(f2), paint}) == null) {
-                        canvas.drawRoundRect(rectF, f2, f2, paint);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{canvas, rectF, Float.valueOf(f), paint}) == null) {
+                        canvas.drawRoundRect(rectF, f, f, paint);
                     }
                 }
             };

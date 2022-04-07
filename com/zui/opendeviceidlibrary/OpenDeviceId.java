@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OpenDeviceId {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DBG = false;
@@ -27,7 +27,7 @@ public class OpenDeviceId {
     public Context mContext;
     public IDeviceidInterface mDeviceidInterface;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CallBack<T> {
         void serviceConnected(T t, OpenDeviceId openDeviceId);
     }
@@ -123,9 +123,9 @@ public class OpenDeviceId {
                     return iDeviceidInterface.getOAID();
                 }
                 return null;
-            } catch (RemoteException e2) {
+            } catch (RemoteException e) {
                 logPrintE("getOAID error, RemoteException!");
-                e2.printStackTrace();
+                e.printStackTrace();
                 return null;
             }
         }
@@ -146,13 +146,13 @@ public class OpenDeviceId {
                     return iDeviceidInterface.getUDID();
                 }
                 return null;
-            } catch (RemoteException e2) {
+            } catch (RemoteException e) {
                 logPrintE("getUDID error, RemoteException!");
-                e2.printStackTrace();
+                e.printStackTrace();
                 return null;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 logPrintE("getUDID error, Exception!");
-                e3.printStackTrace();
+                e2.printStackTrace();
                 return null;
             }
         }
@@ -180,9 +180,9 @@ public class OpenDeviceId {
                     return iDeviceidInterface.getVAID(packageName);
                 }
                 return null;
-            } catch (RemoteException e2) {
+            } catch (RemoteException e) {
                 logPrintE("getVAID error, RemoteException!");
-                e2.printStackTrace();
+                e.printStackTrace();
                 return null;
             }
         }

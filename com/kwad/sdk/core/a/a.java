@@ -6,7 +6,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ar;
 import com.kwad.sdk.utils.p;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class a implements i {
     public static String a() {
         Context context = KsAdSDKImpl.get().getContext();
@@ -21,8 +21,8 @@ public final class a implements i {
         try {
             String a = p.a(0);
             return new String(c.a().a(b.a(a.getBytes("UTF-8"), b.a(str.getBytes()))), "UTF-8");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
             return str;
         }
     }
@@ -42,8 +42,8 @@ public final class a implements i {
     public String b(String str) {
         try {
             return new String(b.b(b.a(p.a(0), c.b().a(str.getBytes()))), "UTF-8");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
             return str;
         }
     }

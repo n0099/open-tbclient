@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKSpacing {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALL = 8;
@@ -65,12 +65,12 @@ public class TKSpacing {
         }
     }
 
-    public TKSpacing(float f2) {
+    public TKSpacing(float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2)};
+            Object[] objArr = {Float.valueOf(f)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,7 +81,7 @@ public class TKSpacing {
             }
         }
         this.mValueFlags = 0;
-        this.mDefaultValue = f2;
+        this.mDefaultValue = f;
         this.mSpacing = newFullSpacingArray();
     }
 
@@ -108,18 +108,18 @@ public class TKSpacing {
         this.mHasAliasesSet = tKSpacing.mHasAliasesSet;
     }
 
-    public static boolean isUndefined(float f2) {
+    public static boolean isUndefined(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) ? Float.compare(f2, UNDEFINED) == 0 : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) ? Float.compare(f, UNDEFINED) == 0 : invokeF.booleanValue;
     }
 
     public static float[] newFullSpacingArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            float f2 = UNDEFINED;
-            return new float[]{f2, f2, f2, f2, f2, f2, f2, f2, f2};
+            float f = UNDEFINED;
+            return new float[]{f, f, f, f, f, f, f, f, f};
         }
         return (float[]) invokeV.objValue;
     }
@@ -128,26 +128,26 @@ public class TKSpacing {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            float f2 = (i == 4 || i == 5) ? UNDEFINED : this.mDefaultValue;
+            float f = (i == 4 || i == 5) ? UNDEFINED : this.mDefaultValue;
             int i2 = this.mValueFlags;
             if (i2 == 0) {
-                return f2;
+                return f;
             }
             if ((i2 & sFlagsMap[i]) != 0) {
                 return this.mSpacing[i];
             }
             if (this.mHasAliasesSet) {
-                char c2 = (i == 1 || i == 3) ? (char) 7 : (char) 6;
+                char c = (i == 1 || i == 3) ? (char) 7 : (char) 6;
                 int i3 = this.mValueFlags;
                 int[] iArr = sFlagsMap;
-                if ((iArr[c2] & i3) != 0) {
-                    return this.mSpacing[c2];
+                if ((iArr[c] & i3) != 0) {
+                    return this.mSpacing[c];
                 }
                 if ((i3 & iArr[8]) != 0) {
                     return this.mSpacing[8];
                 }
             }
-            return f2;
+            return f;
         }
         return invokeI.floatValue;
     }
@@ -173,16 +173,16 @@ public class TKSpacing {
         }
     }
 
-    public boolean set(int i, float f2) {
+    public boolean set(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             boolean z = false;
-            if (TKFloatUtil.floatsEqual(this.mSpacing[i], f2)) {
+            if (TKFloatUtil.floatsEqual(this.mSpacing[i], f)) {
                 return false;
             }
-            this.mSpacing[i] = f2;
-            this.mValueFlags = isUndefined(f2) ? (~sFlagsMap[i]) & this.mValueFlags : sFlagsMap[i] | this.mValueFlags;
+            this.mSpacing[i] = f;
+            this.mValueFlags = isUndefined(f) ? (~sFlagsMap[i]) & this.mValueFlags : sFlagsMap[i] | this.mValueFlags;
             int i2 = this.mValueFlags;
             int[] iArr = sFlagsMap;
             this.mHasAliasesSet = ((iArr[8] & i2) == 0 && (iArr[7] & i2) == 0 && (i2 & iArr[6]) == 0) ? true : true;

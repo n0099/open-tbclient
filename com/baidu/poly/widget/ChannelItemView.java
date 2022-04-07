@@ -21,33 +21,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.g81;
+import com.repackage.x81;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ChannelItemView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f28216b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f28217c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f28218d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c f28219e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public b f28220f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f28221g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f28222h;
+    public TextView b;
+    public TextView c;
+    public ImageView d;
+    public c e;
+    public b f;
+    public TextView g;
+    public LinearLayout h;
     public LinearLayout i;
     public LinearLayout j;
     public TextView k;
@@ -57,14 +45,12 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public TextView o;
     public PayChannelEntity p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InstallmentEntity a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ ChannelItemView f28223b;
+        public final /* synthetic */ ChannelItemView b;
 
         public a(ChannelItemView channelItemView, InstallmentEntity installmentEntity) {
             Interceptable interceptable = $ic;
@@ -81,28 +67,28 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                     return;
                 }
             }
-            this.f28223b = channelItemView;
+            this.b = channelItemView;
             this.a = installmentEntity;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.e0.g.a.f2782c++;
-                if (this.f28223b.f28220f != null) {
-                    this.f28223b.f28220f.a(this.a);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                x81.c++;
+                if (this.b.f != null) {
+                    this.b.f.a(this.a);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(InstallmentEntity installmentEntity);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a(ChannelItemView channelItemView);
     }
@@ -128,10 +114,10 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         }
     }
 
-    public static int b(Context context, float f2) {
+    public static int b(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
     public LinearLayout c(InstallmentEntity installmentEntity) {
@@ -148,23 +134,23 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             }
             linearLayout.setGravity(16);
             linearLayout.setPadding(b(getContext(), 10.0f), 0, 0, 0);
-            linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080457);
+            linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f080454);
             linearLayout.setEnabled(true ^ installmentEntity.isSelected());
             TextView textView = new TextView(getContext());
             textView.setTextSize(11.0f);
             if (installmentEntity.isSelected()) {
-                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608ac));
+                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608bb));
             } else {
-                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060aba));
+                textView.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060ac9));
             }
             textView.setText(installmentEntity.getTitle() == null ? "" : installmentEntity.getTitle());
             textView.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             linearLayout.addView(textView);
             TextView textView2 = new TextView(getContext());
             if (installmentEntity.isSelected()) {
-                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608ac));
+                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608bb));
             } else {
-                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608ad));
+                textView2.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f0608bc));
             }
             textView2.setTextSize(11.0f);
             textView2.setText(installmentEntity.getDisplay() != null ? installmentEntity.getDisplay() : "");
@@ -181,18 +167,18 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0895, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905e6);
-            this.f28216b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f0);
-            this.f28217c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e5);
-            this.f28218d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905f2);
-            this.f28222h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912f6);
-            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912f8);
-            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912f7);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0921c6);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f092207);
-            this.f28221g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f0f);
-            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f091889);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d088b, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905ef);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ee);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905fb);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ea);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912ec);
+            this.j = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0912eb);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0921a9);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0921eb);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090f09);
+            this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09187c);
             setOnClickListener(this);
         }
     }
@@ -202,7 +188,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
             if (arrayList != null && arrayList.size() != 0) {
                 if (this.m) {
-                    this.f28222h.setVisibility(0);
+                    this.h.setVisibility(0);
                 }
                 int size = arrayList.size();
                 int i = (size / 2) + (size % 2);
@@ -219,16 +205,16 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                         linearLayout.setLayoutParams(layoutParams);
                         linearLayout.setOrientation(0);
                         linearLayout.addView(c(installmentEntity));
-                        View view = new View(getContext());
-                        view.setLayoutParams(new LinearLayout.LayoutParams(b(getContext(), 8.0f), 1));
-                        linearLayout.addView(view);
+                        View view2 = new View(getContext());
+                        view2.setLayoutParams(new LinearLayout.LayoutParams(b(getContext(), 8.0f), 1));
+                        linearLayout.addView(view2);
                         linearLayout.addView(c(installmentEntity2));
                         this.j.addView(linearLayout);
                     }
                 }
                 return;
             }
-            this.f28222h.setVisibility(8);
+            this.h.setVisibility(8);
         }
     }
 
@@ -237,7 +223,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(1048579, this, payChannelEntity) == null) {
             PayChannelExtInfoEntity payChannelExtInfoEntity = payChannelEntity.getPayChannelExtInfoEntity();
             if (payChannelExtInfoEntity == null) {
-                this.f28222h.setVisibility(8);
+                this.h.setVisibility(8);
                 return;
             }
             ArrayList<InstallmentEntity> installmentEntities = payChannelExtInfoEntity.getInstallmentEntities();
@@ -253,7 +239,7 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                     }
                     textView.setText(str);
                     if (installmentEntity != null && installmentEntity.isSelected()) {
-                        this.f28217c.setText(installmentEntity.getDisplay());
+                        this.c.setText(installmentEntity.getDisplay());
                         this.l.setText(installmentEntity.getPayText());
                         payChannelEntity.setInstallmentPeriod(installmentEntity.getInstallmentPeriod());
                         return;
@@ -261,15 +247,15 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
                 }
                 return;
             }
-            this.f28222h.setVisibility(8);
+            this.h.setVisibility(8);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || 1 == this.p.disAbled || (cVar = this.f28219e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || 1 == this.p.disAbled || (cVar = this.e) == null) {
             return;
         }
         cVar.a(this);
@@ -285,44 +271,44 @@ public class ChannelItemView extends RelativeLayout implements View.OnClickListe
             String icon = payChannelEntity.getIcon();
             int isSelected = payChannelEntity.getIsSelected();
             int enable = payChannelEntity.getEnable();
-            c.a.e0.d.b.b().a(this.a, icon);
-            this.f28216b.setText(displayName);
+            g81.b().a(this.a, icon);
+            this.b.setText(displayName);
             if (isSelected == 1) {
-                this.f28218d.setImageResource(R.drawable.obfuscated_res_0x7f080453);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f080450);
                 this.m = true;
             } else {
-                this.f28218d.setImageResource(R.drawable.obfuscated_res_0x7f081218);
+                this.d.setImageResource(R.drawable.obfuscated_res_0x7f08121f);
                 this.m = false;
             }
             if (1 == enable) {
-                this.f28219e = cVar;
-                this.f28220f = bVar;
+                this.e = cVar;
+                this.f = bVar;
             } else {
                 this.a.setAlpha(0.4f);
-                this.f28216b.setAlpha(0.4f);
-                this.f28217c.setAlpha(0.4f);
-                this.f28218d.setVisibility(8);
+                this.b.setAlpha(0.4f);
+                this.c.setAlpha(0.4f);
+                this.d.setVisibility(8);
             }
             if (1 == payChannelEntity.disAbled && !TextUtils.isEmpty(payChannelEntity.disAbledMsg)) {
-                this.f28216b.setTextColor(Color.parseColor("#B8B8B8"));
+                this.b.setTextColor(Color.parseColor("#B8B8B8"));
                 this.o.setVisibility(0);
                 this.o.setText(payChannelEntity.disAbledMsg);
-                this.f28218d.setAlpha(0.4f);
+                this.d.setAlpha(0.4f);
             } else {
-                this.f28216b.setTextColor(Color.parseColor("#1F1F1F"));
+                this.b.setTextColor(Color.parseColor("#1F1F1F"));
                 this.o.setVisibility(8);
-                this.f28218d.setAlpha(1.0f);
+                this.d.setAlpha(1.0f);
             }
             if (!TextUtils.isEmpty(payText)) {
                 String displayColor = payChannelEntity.getDisplayColor();
                 if (!TextUtils.isEmpty(displayColor)) {
                     try {
-                        this.f28217c.setTextColor(Color.parseColor(displayColor));
+                        this.c.setTextColor(Color.parseColor(displayColor));
                     } catch (Exception unused) {
                     }
                 }
-                this.f28217c.setText(payText);
-                this.f28217c.setVisibility(0);
+                this.c.setText(payText);
+                this.c.setVisibility(0);
             }
             f(payChannelEntity);
         }

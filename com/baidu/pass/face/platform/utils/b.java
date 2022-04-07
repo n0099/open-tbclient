@@ -12,23 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static long a = 0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f28122b = "b";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static b f28123e;
+    public static final String b = "b";
+    public static b e;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public SoundPool f28124c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public SparseIntArray f28125d;
+    public SoundPool c;
+    public SparseIntArray d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,8 +50,8 @@ public final class b {
                 return;
             }
         }
-        this.f28124c = new SoundPool(5, 3, 0);
-        this.f28125d = new SparseIntArray();
+        this.c = new SoundPool(5, 3, 0);
+        this.d = new SparseIntArray();
         a = 0L;
     }
 
@@ -67,16 +59,16 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             try {
-                if (f28123e != null) {
-                    int size = f28123e.f28125d.size();
+                if (e != null) {
+                    int size = e.d.size();
                     for (int i = 0; i < size; i++) {
-                        f28123e.f28124c.unload(f28123e.f28125d.valueAt(i));
+                        e.c.unload(e.d.valueAt(i));
                     }
-                    f28123e.f28124c.release();
-                    f28123e.f28124c = null;
-                    f28123e.f28125d.clear();
-                    f28123e.f28125d = null;
-                    f28123e = null;
+                    e.c.release();
+                    e.c = null;
+                    e.d.clear();
+                    e.d = null;
+                    e = null;
                 }
                 a = 0L;
             } catch (Exception e2) {
@@ -89,15 +81,15 @@ public final class b {
     public static void a(Context context, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) {
-            if (f28123e == null) {
-                f28123e = new b();
+            if (e == null) {
+                e = new b();
             }
             try {
-                int i2 = f28123e.f28125d.get(i);
+                int i2 = e.d.get(i);
                 if (i2 == 0) {
-                    int load = f28123e.f28124c.load(context, i, 1);
-                    f28123e.f28125d.put(i, load);
-                    f28123e.f28124c.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener(load) { // from class: com.baidu.pass.face.platform.utils.b.1
+                    int load = e.c.load(context, i, 1);
+                    e.d.put(i, load);
+                    e.c.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener(load) { // from class: com.baidu.pass.face.platform.utils.b.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ int a;
@@ -126,7 +118,7 @@ public final class b {
                             if ((interceptable2 == null || interceptable2.invokeLII(1048576, this, soundPool, i3, i4) == null) && i4 == 0 && this.a == i3) {
                                 try {
                                     b.a = System.currentTimeMillis();
-                                    b.f28123e.f28124c.play(this.a, 1.0f, 1.0f, 5, 0, 1.0f);
+                                    b.e.c.play(this.a, 1.0f, 1.0f, 5, 0, 1.0f);
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
                                 }
@@ -136,7 +128,7 @@ public final class b {
                     return;
                 }
                 try {
-                    f28123e.f28124c.play(i2, 1.0f, 1.0f, 5, 0, 1.0f);
+                    e.c.play(i2, 1.0f, 1.0f, 5, 0, 1.0f);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

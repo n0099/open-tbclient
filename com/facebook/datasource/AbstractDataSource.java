@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DataSourceStatus {
         public static final /* synthetic */ DataSourceStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -194,16 +194,16 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         return invokeL.booleanValue;
     }
 
-    private synchronized boolean setProgressInternal(float f2) {
+    private synchronized boolean setProgressInternal(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, this, f)) == null) {
             synchronized (this) {
                 if (!this.mIsClosed && this.mDataSourceStatus == DataSourceStatus.IN_PROGRESS) {
-                    if (f2 < this.mProgress) {
+                    if (f < this.mProgress) {
                         return false;
                     }
-                    this.mProgress = f2;
+                    this.mProgress = f;
                     return true;
                 }
                 return false;
@@ -330,13 +330,13 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     @Override // com.facebook.datasource.DataSource
     public synchronized float getProgress() {
         InterceptResult invokeV;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                f2 = this.mProgress;
+                f = this.mProgress;
             }
-            return f2;
+            return f;
         }
         return invokeV.floatValue;
     }
@@ -478,11 +478,11 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         return invokeL.booleanValue;
     }
 
-    public boolean setProgress(float f2) {
+    public boolean setProgress(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f2)) == null) {
-            boolean progressInternal = setProgressInternal(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048588, this, f)) == null) {
+            boolean progressInternal = setProgressInternal(f);
             if (progressInternal) {
                 notifyProgressUpdate();
             }

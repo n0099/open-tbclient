@@ -87,8 +87,8 @@ public final class ColorStateListInflaterCompat {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i, theme)) == null) {
             try {
                 return createFromXml(resources, resources.getXml(i), theme);
-            } catch (Exception e2) {
-                Log.e("CSLCompat", "Failed to inflate ColorStateList.", e2);
+            } catch (Exception e) {
+                Log.e("CSLCompat", "Failed to inflate ColorStateList.", e);
                 return null;
             }
         }
@@ -96,10 +96,10 @@ public final class ColorStateListInflaterCompat {
     }
 
     @ColorInt
-    public static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public static int modulateColorAlpha(@ColorInt int i, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? (i & 16777215) | (Math.round(Color.alpha(i) * f2) << 24) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (Math.round(Color.alpha(i) * f) << 24) : invokeCommon.intValue;
     }
 
     public static TypedArray obtainAttributes(Resources resources, Resources.Theme theme, AttributeSet attributeSet, int[] iArr) {
@@ -132,11 +132,11 @@ public final class ColorStateListInflaterCompat {
                 if (next == 2 && depth <= depth2 && xmlPullParser.getName().equals("item")) {
                     TypedArray obtainAttributes = obtainAttributes(resources, theme, attributeSet, R$styleable.ColorStateListItem);
                     int color = obtainAttributes.getColor(R$styleable.ColorStateListItem_android_color, -65281);
-                    float f2 = 1.0f;
+                    float f = 1.0f;
                     if (obtainAttributes.hasValue(R$styleable.ColorStateListItem_android_alpha)) {
-                        f2 = obtainAttributes.getFloat(R$styleable.ColorStateListItem_android_alpha, 1.0f);
+                        f = obtainAttributes.getFloat(R$styleable.ColorStateListItem_android_alpha, 1.0f);
                     } else if (obtainAttributes.hasValue(R$styleable.ColorStateListItem_alpha)) {
-                        f2 = obtainAttributes.getFloat(R$styleable.ColorStateListItem_alpha, 1.0f);
+                        f = obtainAttributes.getFloat(R$styleable.ColorStateListItem_alpha, 1.0f);
                     }
                     obtainAttributes.recycle();
                     int attributeCount = attributeSet.getAttributeCount();
@@ -154,7 +154,7 @@ public final class ColorStateListInflaterCompat {
                         }
                     }
                     int[] trimStateSet = StateSet.trimStateSet(iArr3, i3);
-                    iArr2 = GrowingArrayUtils.append(iArr2, i2, modulateColorAlpha(color, f2));
+                    iArr2 = GrowingArrayUtils.append(iArr2, i2, modulateColorAlpha(color, f));
                     iArr = (int[][]) GrowingArrayUtils.append(iArr, i2, trimStateSet);
                     i2++;
                 }

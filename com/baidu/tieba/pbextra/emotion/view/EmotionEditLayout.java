@@ -15,32 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionEditLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewDragHelper a;
+    public float b;
+    public float c;
+    public float d;
+    public long e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public float f35335b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public float f35336c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f35337d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f35338e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends ViewDragHelper.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionEditText a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EmotionEditLayout f35339b;
+        public final /* synthetic */ EmotionEditLayout b;
 
         public a(EmotionEditLayout emotionEditLayout, EmotionEditText emotionEditText) {
             Interceptable interceptable = $ic;
@@ -57,65 +47,65 @@ public class EmotionEditLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f35339b = emotionEditLayout;
+            this.b = emotionEditLayout;
             this.a = emotionEditText;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
-        public int clampViewPositionHorizontal(View view, int i, int i2) {
+        public int clampViewPositionHorizontal(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i, i2)) == null) ? Math.min(Math.max(i, this.f35339b.getPaddingLeft()), this.f35339b.getWidth() - this.a.getWidth()) : invokeLII.intValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view2, i, i2)) == null) ? Math.min(Math.max(i, this.b.getPaddingLeft()), this.b.getWidth() - this.a.getWidth()) : invokeLII.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
-        public int clampViewPositionVertical(View view, int i, int i2) {
+        public int clampViewPositionVertical(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i, i2)) == null) ? Math.min(Math.max(i, this.f35339b.getPaddingTop()), this.f35339b.getHeight() - this.a.getHeight()) : invokeLII.intValue;
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, i2)) == null) ? Math.min(Math.max(i, this.b.getPaddingTop()), this.b.getHeight() - this.a.getHeight()) : invokeLII.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
-        public void onViewCaptured(View view, int i) {
+        public void onViewCaptured(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
-                super.onViewCaptured(view, i);
-                if (view instanceof EmotionEditText) {
-                    this.f35339b.f35338e = System.currentTimeMillis();
-                    this.f35339b.f35336c = view.getX();
-                    this.f35339b.f35337d = view.getY();
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
+                super.onViewCaptured(view2, i);
+                if (view2 instanceof EmotionEditText) {
+                    this.b.e = System.currentTimeMillis();
+                    this.b.c = view2.getX();
+                    this.b.d = view2.getY();
                     this.a.m();
                 }
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
-        public void onViewReleased(View view, float f2, float f3) {
+        public void onViewReleased(View view2, float f, float f2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                super.onViewReleased(view, f2, f3);
-                if (view instanceof EmotionEditText) {
-                    float x = view.getX();
-                    float y = view.getY();
-                    float abs = Math.abs(x - this.f35339b.f35336c);
-                    float abs2 = Math.abs(y - this.f35339b.f35337d);
-                    if (abs < this.f35339b.f35335b && abs2 < this.f35339b.f35335b && System.currentTimeMillis() - this.f35339b.f35338e < 300) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                super.onViewReleased(view2, f, f2);
+                if (view2 instanceof EmotionEditText) {
+                    float x = view2.getX();
+                    float y = view2.getY();
+                    float abs = Math.abs(x - this.b.c);
+                    float abs2 = Math.abs(y - this.b.d);
+                    if (abs < this.b.b && abs2 < this.b.b && System.currentTimeMillis() - this.b.e < 300) {
                         this.a.u();
                     }
                     FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                    layoutParams.setMargins(view.getLeft(), view.getTop(), 0, 0);
+                    layoutParams.setMargins(view2.getLeft(), view2.getTop(), 0, 0);
                     this.a.setLayoutParams(layoutParams);
                 }
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
-        public boolean tryCaptureView(View view, int i) {
+        public boolean tryCaptureView(View view2, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, view, i)) == null) {
-                boolean z = view == this.a;
-                if (view instanceof ImageView) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, view2, i)) == null) {
+                boolean z = view2 == this.a;
+                if (view2 instanceof ImageView) {
                     this.a.m();
                 }
                 return z;
@@ -218,6 +208,6 @@ public class EmotionEditLayout extends FrameLayout {
                 return;
             }
         }
-        this.f35335b = ViewConfiguration.get(getContext()).getScaledTouchSlop();
+        this.b = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }
 }

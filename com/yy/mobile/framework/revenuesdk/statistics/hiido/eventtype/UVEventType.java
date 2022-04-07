@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UVEventType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PAY_AMOUNT_DIALOG_COMFIRM_BTN_CLICK = "2";
@@ -32,7 +32,7 @@ public class UVEventType {
     public static final String PAY_WAY_FULL_PAGE_SUCCESS = "14";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class UserType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU = "2";

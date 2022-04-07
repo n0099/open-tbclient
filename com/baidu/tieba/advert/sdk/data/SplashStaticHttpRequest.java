@@ -1,8 +1,6 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import c.a.p0.a0.a.h.b;
-import c.a.p0.a0.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -14,14 +12,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ol5;
+import com.repackage.pl5;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SplashStaticHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class SplashStaticHttpResponse extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,12 +72,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("params", c.a(context, adInfo));
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+                jSONObject.put("params", pl5.a(context, adInfo));
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
             }
             splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, b.b());
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, ol5.b());
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
             MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
@@ -104,12 +104,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("params", c.a(context, adInfo));
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
+                jSONObject.put("params", pl5.a(context, adInfo));
+            } catch (JSONException e) {
+                BdLog.e(e.getMessage());
             }
             splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, b.c());
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, ol5.c());
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
             MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);

@@ -40,12 +40,12 @@ public final class ObservableUsing<T, D> extends Observable<T> {
         public final D resource;
         public Disposable s;
 
-        public UsingObserver(Observer<? super T> observer, D d2, Consumer<? super D> consumer, boolean z) {
+        public UsingObserver(Observer<? super T> observer, D d, Consumer<? super D> consumer, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, d2, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {observer, d, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class ObservableUsing<T, D> extends Observable<T> {
                 }
             }
             this.actual = observer;
-            this.resource = d2;
+            this.resource = d;
             this.disposer = consumer;
             this.eager = z;
         }

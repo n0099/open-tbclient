@@ -4,7 +4,7 @@ import com.kwad.sdk.core.b;
 import com.kwad.sdk.core.response.kwai.a;
 import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CouponStatus extends a implements b, Serializable {
     public static final int DEF_COUPON_VIDEO_SECONDS = 5;
     public static final long serialVersionUID = 8301131859564901468L;

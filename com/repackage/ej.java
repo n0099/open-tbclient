@@ -1,0 +1,17 @@
+package com.repackage;
+/* loaded from: classes5.dex */
+public interface ej {
+    void onDeletedVoice(String str);
+
+    void onSendVoice(String str, int i);
+
+    void onShowErr(int i, String str);
+
+    void onShowRecordTime(int i);
+
+    void onShowRecording(int i);
+
+    void onStartedRecorder(boolean z);
+
+    void onStopingRecorder();
+}

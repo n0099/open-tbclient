@@ -6,8 +6,6 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import c.a.d.a.j;
-import c.a.p0.a4.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.f9;
+import com.repackage.xi8;
+/* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Rect f34332b;
+    public Rect b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbLocationInfoView(Context context) {
@@ -53,15 +51,15 @@ public class PbLocationInfoView extends TextView {
             if (this.a == 1) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_posts_pin_loading_anim);
                 if (drawable != null) {
-                    drawable.setBounds(this.f34332b);
+                    drawable.setBounds(this.b);
                 }
                 setCompoundDrawables(drawable, null, null, null);
-                a.b((TbPageContextSupport) j.b(getContext()), (Animatable) drawable);
+                xi8.b((TbPageContextSupport) f9.b(getContext()), (Animatable) drawable);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
             if (drawable2 != null) {
-                drawable2.setBounds(this.f34332b);
+                drawable2.setBounds(this.b);
             }
             setCompoundDrawables(drawable2, null, null, null);
         }
@@ -70,7 +68,7 @@ public class PbLocationInfoView extends TextView {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f34332b = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            this.b = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             setState(0, null);
             c();
         }
@@ -96,12 +94,12 @@ public class PbLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a42);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a44);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a3f);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a41);
                 }
                 setText(str);
             }

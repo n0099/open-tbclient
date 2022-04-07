@@ -14,18 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WalkingRouteResult extends SearchResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<WalkingRouteResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public List<WalkingRouteLine> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TaxiInfo f26511b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public SuggestAddrInfo f26512c;
+    public TaxiInfo b;
+    public SuggestAddrInfo c;
 
     static {
         InterceptResult invokeClinit;
@@ -75,8 +71,8 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
         ArrayList arrayList = new ArrayList();
         this.a = arrayList;
         parcel.readList(arrayList, WalkingRouteLine.class.getClassLoader());
-        this.f26511b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
-        this.f26512c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.b = (TaxiInfo) parcel.readParcelable(TaxiInfo.class.getClassLoader());
+        this.c = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -98,13 +94,13 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26512c : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public TaxiInfo getTaxiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26511b : (TaxiInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (TaxiInfo) invokeV.objValue;
     }
 
     public void setRouteLines(List<WalkingRouteLine> list) {
@@ -117,14 +113,14 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, suggestAddrInfo) == null) {
-            this.f26512c = suggestAddrInfo;
+            this.c = suggestAddrInfo;
         }
     }
 
     public void setTaxiInfo(TaxiInfo taxiInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, taxiInfo) == null) {
-            this.f26511b = taxiInfo;
+            this.b = taxiInfo;
         }
     }
 
@@ -133,8 +129,8 @@ public class WalkingRouteResult extends SearchResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
             parcel.writeList(this.a);
-            parcel.writeParcelable(this.f26511b, 1);
-            parcel.writeParcelable(this.f26512c, 1);
+            parcel.writeParcelable(this.b, 1);
+            parcel.writeParcelable(this.c, 1);
         }
     }
 }

@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RetrieveReportRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_NAME = "imsdk";
@@ -159,8 +159,8 @@ public class RetrieveReportRequest extends BaseHttpRequest {
                 jSONObject.put("sign", generateSign(jSONObject));
                 jSONObject2.put("req", jSONObject);
                 LogUtils.d(TAG, "retrieve-->getRequestParameter:" + jSONObject2.toString());
-            } catch (Exception e2) {
-                LogUtils.d(TAG, "retrieve-->getRequestParameter error:" + e2.toString());
+            } catch (Exception e) {
+                LogUtils.d(TAG, "retrieve-->getRequestParameter error:" + e.toString());
             }
             return jSONObject2.toString().getBytes();
         }
@@ -196,8 +196,8 @@ public class RetrieveReportRequest extends BaseHttpRequest {
                         LogUtils.d(TAG, "可能是无效的任务，valid-》0无效：" + optString2);
                     }
                 }
-            } catch (Exception e2) {
-                LogUtils.d(TAG, e2.toString());
+            } catch (Exception e) {
+                LogUtils.d(TAG, e.toString());
             }
         }
     }

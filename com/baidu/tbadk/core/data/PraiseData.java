@@ -17,7 +17,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.Zan;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PraiseData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2658065756886586666L;
@@ -97,8 +97,8 @@ public class PraiseData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -184,8 +184,8 @@ public class PraiseData extends OrmObject implements Serializable {
                     this.users.add(metaData);
                 }
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

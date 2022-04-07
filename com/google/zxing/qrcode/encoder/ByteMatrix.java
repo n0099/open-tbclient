@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.lang.reflect.Array;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ByteMatrix {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,12 +37,12 @@ public final class ByteMatrix {
         this.height = i2;
     }
 
-    public void clear(byte b2) {
+    public void clear(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048576, this, b2) == null) {
+        if (interceptable == null || interceptable.invokeB(1048576, this, b) == null) {
             for (int i = 0; i < this.height; i++) {
                 for (int i2 = 0; i2 < this.width; i2++) {
-                    this.bytes[i][i2] = b2;
+                    this.bytes[i][i2] = b;
                 }
             }
         }
@@ -72,10 +72,10 @@ public final class ByteMatrix {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
     }
 
-    public void set(int i, int i2, byte b2) {
+    public void set(int i, int i2, byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b2)}) == null) {
-            this.bytes[i2][i] = b2;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b)}) == null) {
+            this.bytes[i2][i] = b;
         }
     }
 
@@ -86,10 +86,10 @@ public final class ByteMatrix {
             StringBuilder sb = new StringBuilder((this.width * 2 * this.height) + 2);
             for (int i = 0; i < this.height; i++) {
                 for (int i2 = 0; i2 < this.width; i2++) {
-                    byte b2 = this.bytes[i][i2];
-                    if (b2 == 0) {
+                    byte b = this.bytes[i][i2];
+                    if (b == 0) {
                         sb.append(" 0");
-                    } else if (b2 != 1) {
+                    } else if (b != 1) {
                         sb.append(GlideException.IndentedAppendable.INDENT);
                     } else {
                         sb.append(" 1");

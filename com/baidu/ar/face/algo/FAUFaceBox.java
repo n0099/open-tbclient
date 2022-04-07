@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FAUFaceBox {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,12 +16,12 @@ public class FAUFaceBox {
     public float x;
     public float y;
 
-    public FAUFaceBox(float f2, float f3, float f4, float f5) {
+    public FAUFaceBox(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,18 +31,18 @@ public class FAUFaceBox {
                 return;
             }
         }
-        this.x = f2;
-        this.y = f3;
-        this.width = f4;
-        this.height = f5;
+        this.x = f;
+        this.y = f2;
+        this.width = f3;
+        this.height = f4;
     }
 
-    public FAUFaceBox(float f2, float f3, float f4, float f5, float f6) {
+    public FAUFaceBox(float f, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,11 +52,11 @@ public class FAUFaceBox {
                 return;
             }
         }
-        this.x = f2;
-        this.y = f3;
-        this.width = f4;
-        this.height = f5;
-        this.angle = f6;
+        this.x = f;
+        this.y = f2;
+        this.width = f3;
+        this.height = f4;
+        this.angle = f5;
     }
 
     public float getAngle() {

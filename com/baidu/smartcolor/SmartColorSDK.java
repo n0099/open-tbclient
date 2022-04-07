@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import c.a.k0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.smartcolor.utils.Tri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,9 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.he1;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SmartColorSDK {
     public static /* synthetic */ Interceptable $ic;
     public static volatile SmartColorSDK a;
@@ -110,25 +110,25 @@ public class SmartColorSDK {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 byteArrayOutputStream.close();
                 return byteArray;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return null;
             }
         }
         return (byte[]) invokeLLI.objValue;
     }
 
-    public String e(a aVar, Bitmap bitmap) {
+    public String e(he1 he1Var, Bitmap bitmap) {
         InterceptResult invokeLL;
         Bitmap bitmap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, bitmap)) == null) {
-            if (bitmap == null || aVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, he1Var, bitmap)) == null) {
+            if (bitmap == null || he1Var == null) {
                 return null;
             }
-            if (aVar.h()) {
-                int s = aVar.s();
-                int p = aVar.p();
+            if (he1Var.h()) {
+                int s = he1Var.s();
+                int p = he1Var.p();
                 int width = bitmap.getWidth();
                 int height = bitmap.getHeight();
                 if (width == 0 || height == 0) {
@@ -139,8 +139,8 @@ public class SmartColorSDK {
                 } else {
                     int a2 = a(width, height, s, p);
                     Matrix matrix = new Matrix();
-                    float f2 = 1.0f / a2;
-                    matrix.setScale(f2, f2);
+                    float f = 1.0f / a2;
+                    matrix.setScale(f, f);
                     bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
                 }
             } else {
@@ -156,26 +156,26 @@ public class SmartColorSDK {
                     }
                 }
             }
-            byte[] b2 = b(bitmap2, Bitmap.CompressFormat.JPEG, 100);
+            byte[] b = b(bitmap2, Bitmap.CompressFormat.JPEG, 100);
             if (!bitmap2.isRecycled()) {
                 bitmap2.recycle();
             }
-            if (b2 == null) {
+            if (b == null) {
                 return null;
             }
-            return f(aVar, b2, b2.length);
+            return f(he1Var, b, b.length);
         }
         return (String) invokeLL.objValue;
     }
 
-    public final String f(a aVar, byte[] bArr, int i) {
+    public final String f(he1 he1Var, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, aVar, bArr, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, he1Var, bArr, i)) == null) {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            return getNativeSmartColor(bArr, i, aVar.j(), aVar.k(), aVar.o(), aVar.v(), aVar.l(), c(aVar.m()), c(aVar.n()), c(aVar.i()), c(aVar.g()), aVar.t(), aVar.q(), aVar.u(), aVar.r());
+            return getNativeSmartColor(bArr, i, he1Var.j(), he1Var.k(), he1Var.o(), he1Var.v(), he1Var.l(), c(he1Var.m()), c(he1Var.n()), c(he1Var.i()), c(he1Var.g()), he1Var.t(), he1Var.q(), he1Var.u(), he1Var.r());
         }
         return (String) invokeLLI.objValue;
     }

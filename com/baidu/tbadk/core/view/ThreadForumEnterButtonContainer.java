@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
@@ -13,23 +12,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ThreadForumEnterButton f30136b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f30137c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ThreadForumEnterButton f30138d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f30139e;
+    public ThreadForumEnterButton b;
+    public ThreadForumEnterButton c;
+    public ThreadForumEnterButton d;
+    public View e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ThreadForumEnterButtonContainer(Context context) {
@@ -55,15 +47,15 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f30136b;
+            ThreadForumEnterButton threadForumEnterButton = this.b;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.e();
             }
-            ThreadForumEnterButton threadForumEnterButton2 = this.f30137c;
+            ThreadForumEnterButton threadForumEnterButton2 = this.c;
             if (threadForumEnterButton2 != null) {
                 threadForumEnterButton2.e();
             }
-            ThreadForumEnterButton threadForumEnterButton3 = this.f30138d;
+            ThreadForumEnterButton threadForumEnterButton3 = this.d;
             if (threadForumEnterButton3 != null) {
                 threadForumEnterButton3.e();
             }
@@ -73,15 +65,15 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f30136b;
+            ThreadForumEnterButton threadForumEnterButton = this.b;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.setAfterClickListener(onClickListener);
             }
-            ThreadForumEnterButton threadForumEnterButton2 = this.f30137c;
+            ThreadForumEnterButton threadForumEnterButton2 = this.c;
             if (threadForumEnterButton2 != null) {
                 threadForumEnterButton2.setAfterClickListener(onClickListener);
             }
-            ThreadForumEnterButton threadForumEnterButton3 = this.f30138d;
+            ThreadForumEnterButton threadForumEnterButton3 = this.d;
             if (threadForumEnterButton3 != null) {
                 threadForumEnterButton3.setAfterClickListener(onClickListener);
             }
@@ -91,22 +83,22 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
     public void setBottomPlaceHolderVisibility(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f30139e.setVisibility(z ? 0 : 8);
+            this.e.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            ThreadForumEnterButton threadForumEnterButton = this.f30136b;
+            ThreadForumEnterButton threadForumEnterButton = this.b;
             if (threadForumEnterButton != null) {
                 threadForumEnterButton.setFrom(i);
             }
-            ThreadForumEnterButton threadForumEnterButton2 = this.f30137c;
+            ThreadForumEnterButton threadForumEnterButton2 = this.c;
             if (threadForumEnterButton2 != null) {
                 threadForumEnterButton2.setFrom(i);
             }
-            ThreadForumEnterButton threadForumEnterButton3 = this.f30138d;
+            ThreadForumEnterButton threadForumEnterButton3 = this.d;
             if (threadForumEnterButton3 != null) {
                 threadForumEnterButton3.setFrom(i);
             }
@@ -153,13 +145,13 @@ public class ThreadForumEnterButtonContainer extends RelativeLayout {
                 return;
             }
         }
-        this.a = n.f(TbadkApplication.getInst(), R.dimen.tbds22);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0832, this);
-        this.f30136b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a3a);
-        this.f30137c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a3c);
-        this.f30138d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a3b);
-        this.f30139e = findViewById(R.id.obfuscated_res_0x7f0903d2);
-        int k = (((n.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
-        int k2 = (((n.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
+        this.a = oi.f(TbadkApplication.getInst(), R.dimen.tbds22);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0829, this);
+        this.b = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a41);
+        this.c = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a43);
+        this.d = (ThreadForumEnterButton) findViewById(R.id.obfuscated_res_0x7f090a42);
+        this.e = findViewById(R.id.obfuscated_res_0x7f0903dc);
+        int k = (((oi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - this.a) / 2;
+        int k2 = (((oi.k(getContext()) - getPaddingLeft()) - getPaddingRight()) - (this.a * 2)) / 3;
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.er;
 import com.xiaomi.push.service.XMJobService;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class et implements er.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +75,13 @@ public class et implements er.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z || this.f319a) {
-                long b2 = fr.b();
+                long b = fr.b();
                 if (z) {
                     a();
-                    b2 -= SystemClock.elapsedRealtime() % b2;
+                    b -= SystemClock.elapsedRealtime() % b;
                 }
                 this.f319a = true;
-                a(b2);
+                a(b);
             }
         }
     }

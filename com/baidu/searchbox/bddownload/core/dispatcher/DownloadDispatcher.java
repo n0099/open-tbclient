@@ -30,7 +30,7 @@ import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DownloadDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadDispatcher";
@@ -121,8 +121,8 @@ public class DownloadDispatcher {
                         }
                     }
                     BdDownload.with().callbackDispatcher().endTasks(arrayList2, arrayList3, arrayList4);
-                } catch (UnknownHostException e2) {
-                    BdDownload.with().callbackDispatcher().endTasksWithError(new ArrayList(arrayList), e2);
+                } catch (UnknownHostException e) {
+                    BdDownload.with().callbackDispatcher().endTasksWithError(new ArrayList(arrayList), e);
                 }
                 if (size != this.readyAsyncCalls.size()) {
                     Collections.sort(this.readyAsyncCalls);

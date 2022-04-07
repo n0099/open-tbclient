@@ -99,16 +99,16 @@ public final class BuilderAdapter<B extends Message.Builder> {
         }
     }
 
-    public <B extends Message.Builder> void checkRequiredFields(B b2) {
+    public <B extends Message.Builder> void checkRequiredFields(B b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, b) == null) {
             try {
                 int size = this.requiredFields.size();
                 StringBuilder sb = null;
                 String str = "";
                 for (int i = 0; i < size; i++) {
                     Field field = this.requiredFields.get(i);
-                    if (field.get(b2) == null) {
+                    if (field.get(b) == null) {
                         if (sb == null) {
                             sb = new StringBuilder();
                         } else {

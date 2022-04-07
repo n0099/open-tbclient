@@ -12,7 +12,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,11 +35,11 @@ public final class a {
                     return false;
                 }
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
-            } catch (InterruptedException e3) {
-                e3.printStackTrace();
+            } catch (InterruptedException e2) {
+                e2.printStackTrace();
                 return false;
             }
         }
@@ -86,8 +86,8 @@ public final class a {
                                 return;
                             }
                             ZeusLogger.d(ZeusLogger.TAG_INSTALL, "exec cmd info : ".concat(String.valueOf(readLine)));
-                        } catch (IOException e2) {
-                            ZeusLogger.e(ZeusLogger.TAG_INSTALL, "execCmd consumeInputStream failed : ".concat(String.valueOf(e2)));
+                        } catch (IOException e) {
+                            ZeusLogger.e(ZeusLogger.TAG_INSTALL, "execCmd consumeInputStream failed : ".concat(String.valueOf(e)));
                             return;
                         } finally {
                             f.a(bufferedReader);

@@ -16,11 +16,11 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.ExecutorService;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static ExecutorService a = com.kwad.sdk.core.i.b.i();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public String a;
     }
@@ -32,19 +32,19 @@ public class c {
                 OutputStream outputStream = null;
                 try {
                     try {
-                        a.C1954a b2 = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
-                        if (b2 != null) {
-                            outputStream = b2.a(0);
+                        a.C0294a b = com.kwad.sdk.core.diskcache.kwai.a.this.b(str2);
+                        if (b != null) {
+                            outputStream = b.a(0);
                             if (c.b(str, outputStream, new a())) {
-                                b2.a();
+                                b.a();
                             } else {
-                                b2.b();
+                                b.b();
                             }
                             com.kwad.sdk.core.diskcache.kwai.a.this.b();
                         }
-                    } catch (IOException e2) {
-                        com.kwad.sdk.core.d.a.a(e2);
-                        com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileAsync file crash", e2);
+                    } catch (IOException e) {
+                        com.kwad.sdk.core.d.a.a(e);
+                        com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileAsync file crash", e);
                     }
                 } finally {
                     d.a(outputStream);
@@ -58,21 +58,21 @@ public class c {
         OutputStream outputStream = null;
         try {
             try {
-                a.C1954a b2 = aVar.b(str2);
-                if (b2 != null) {
-                    outputStream = b2.a(0);
+                a.C0294a b = aVar.b(str2);
+                if (b != null) {
+                    outputStream = b.a(0);
                     if (b(str, outputStream, aVar2)) {
-                        b2.a();
+                        b.a();
                         z = true;
                     } else {
-                        b2.b();
+                        b.b();
                     }
                     aVar.b();
                 }
-            } catch (IOException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
-                com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileSync file crash", e2);
-                aVar2.a = e2.getMessage();
+            } catch (IOException e) {
+                com.kwad.sdk.core.d.a.a(e);
+                com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileSync file crash", e);
+                aVar2.a = e.getMessage();
             }
             return z;
         } finally {
@@ -89,15 +89,15 @@ public class c {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e) {
+            e = e;
         }
         try {
-            boolean b2 = b(str, fileOutputStream, new a());
+            boolean b = b(str, fileOutputStream, new a());
             d.a(fileOutputStream);
-            return b2;
-        } catch (IOException e3) {
-            e = e3;
+            return b;
+        } catch (IOException e2) {
+            e = e2;
             fileOutputStream2 = fileOutputStream;
             com.kwad.sdk.core.d.a.b(e);
             com.kwad.sdk.core.d.a.a("FileHelper", "downLoadFileSync file crash", e);

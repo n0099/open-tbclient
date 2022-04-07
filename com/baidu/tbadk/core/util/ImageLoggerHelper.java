@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
-import c.a.d.f.p.n;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ImageLoggerHelper {
     public static /* synthetic */ Interceptable $ic;
     public static ImageLoggerHelper mInstance;
@@ -68,8 +68,8 @@ public class ImageLoggerHelper {
                     return null;
                 }
                 return UtilHelper.getIpFromDomain(host);
-            } catch (Exception e2) {
-                BdLog.e(e2, true);
+            } catch (Exception e) {
+                BdLog.e(e, true);
                 return null;
             }
         }
@@ -83,7 +83,7 @@ public class ImageLoggerHelper {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetCdnIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0 || n.B()) {
+                if (indexOf <= 0 || oi.B()) {
                     return "";
                 }
                 this.lastGetCdnIpTime = currentTimeMillis;
@@ -103,7 +103,7 @@ public class ImageLoggerHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (n.B()) {
+                if (oi.B()) {
                     return "";
                 }
                 this.lastGetTiebaIpTime = currentTimeMillis;

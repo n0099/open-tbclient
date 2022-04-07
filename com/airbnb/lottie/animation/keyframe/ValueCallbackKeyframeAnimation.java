@@ -5,7 +5,7 @@ import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.Collections;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<K, A> {
     public final LottieFrameInfo<A> frameInfo;
     public final A valueCallbackValue;
@@ -34,8 +34,8 @@ public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public void setProgress(float f2) {
-        this.progress = f2;
+    public void setProgress(float f) {
+        this.progress = f;
     }
 
     public ValueCallbackKeyframeAnimation(LottieValueCallback<A> lottieValueCallback, @Nullable A a) {
@@ -46,7 +46,7 @@ public class ValueCallbackKeyframeAnimation<K, A> extends BaseKeyframeAnimation<
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public A getValue(Keyframe<K> keyframe, float f2) {
+    public A getValue(Keyframe<K> keyframe, float f) {
         return getValue();
     }
 }

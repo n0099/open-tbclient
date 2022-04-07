@@ -21,7 +21,7 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CarUUID {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern a;
@@ -102,20 +102,20 @@ public class CarUUID {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
-            String b2 = b(context);
-            if (b2 != null) {
-                return b2;
+            String b = b(context);
+            if (b != null) {
+                return b;
             }
-            String c2 = c(context);
-            if (c2 != null) {
-                a(context, c2);
-                return c2;
+            String c = c(context);
+            if (c != null) {
+                a(context, c);
+                return c;
             }
-            String d2 = d(context);
-            if (d2 != null) {
-                a(context, d2);
-                b(context, d2);
-                return d2;
+            String d = d(context);
+            if (d != null) {
+                a(context, d);
+                b(context, d);
+                return d;
             }
             String a2 = a(context);
             if (a2 != null) {

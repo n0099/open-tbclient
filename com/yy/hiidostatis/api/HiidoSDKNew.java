@@ -75,7 +75,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HiidoSDKNew implements HiidoApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -120,12 +120,12 @@ public class HiidoSDKNew implements HiidoApi {
     public SessionReportWrapper sessionReport;
     public volatile boolean userAgreed;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class QuitTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -343,8 +343,8 @@ public class HiidoSDKNew implements HiidoApi {
                         this.config.setVer(ArdUtil.getVersionName(this.mContext));
                         this.metricsHandler.setVer(this.config.getVer());
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 this.mStatisAPI.onInitSuccess();
                 DataTrack.instance.init(this.mContext, this.mStatisOption, new DataTrack.IDataTrackListener(this) { // from class: com.yy.hiidostatis.api.HiidoSDKNew.5
@@ -691,8 +691,8 @@ public class HiidoSDKNew implements HiidoApi {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             try {
                                 Thread.sleep(1000L);
-                            } catch (InterruptedException e2) {
-                                e2.printStackTrace();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
                             }
                             DataTrack.instance.triggerTrack(true);
                         }
@@ -1589,10 +1589,10 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportCountEvent(long j, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) && checkSDKInit()) {
-            reportCountEvent(j, str, d2, null);
+        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) && checkSDKInit()) {
+            reportCountEvent(j, str, d, null);
         }
     }
 
@@ -1659,10 +1659,10 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportLocation(double d2, double d3, double d4) {
+    public void reportLocation(double d, double d2, double d3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)}) == null) && checkSDKInit()) {
-            this.mStatisAPI.reportLocation(this.mOnStatisListener.getCurrentUid(), d2, d3, d4, null);
+        if ((interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)}) == null) && checkSDKInit()) {
+            this.mStatisAPI.reportLocation(this.mOnStatisListener.getCurrentUid(), d, d2, d3, null);
         }
     }
 
@@ -1989,10 +1989,10 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportCountEvent(long j, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
-            reportCountEvent(j, str, d2, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            reportCountEvent(j, str, d, str2, null);
         }
     }
 
@@ -2029,10 +2029,10 @@ public class HiidoSDKNew implements HiidoApi {
     }
 
     @Override // com.yy.hiidostatis.api.HiidoApi
-    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) && checkSDKInit()) {
-            this.mStatisAPI.reportCountEvent(j, str, d2, str2, property);
+        if ((interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) && checkSDKInit()) {
+            this.mStatisAPI.reportCountEvent(j, str, d, str2, property);
         }
     }
 

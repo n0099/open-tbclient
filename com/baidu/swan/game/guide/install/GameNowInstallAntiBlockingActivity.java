@@ -9,18 +9,19 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import c.a.n0.a.p2.f0;
-import c.a.n0.a.p2.q0;
-import c.a.n0.a.p2.w;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ar3;
+import com.repackage.de3;
+import com.repackage.jd3;
+import com.repackage.sd3;
 import org.json.JSONObject;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GameNowInstallAntiBlockingActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TYPE = "type";
@@ -31,7 +32,7 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public String mType;
     public JSONObject mUbcParams;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +57,9 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 TextUtils.equals(this.a.mType, "authorize");
                 this.a.finish();
             }
@@ -83,43 +84,43 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = q0.c0(this);
+            int c0 = de3.c0(this);
             super.onCreate(bundle);
-            q0.g(this, c0);
-            c.a.n0.h.b.g.a.q();
-            setContentView(R.layout.obfuscated_res_0x7f0d00b5);
+            de3.g(this, c0);
+            ar3.q();
+            setContentView(R.layout.obfuscated_res_0x7f0d00b7);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mType = intent.getStringExtra("type");
                 this.mPackageName = intent.getStringExtra("packageName");
-                this.mUbcParams = w.d(intent.getStringExtra("ubc_params"));
+                this.mUbcParams = jd3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f0a);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f0c);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f05);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f07);
             if (TextUtils.equals(this.mType, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014f));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090f0b).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f090f06).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f090f08).setBackgroundResource(R.color.obfuscated_res_0x7f0603b0);
-                c.a.n0.h.b.g.a.n();
+                findViewById(R.id.obfuscated_res_0x7f090f03).setBackgroundResource(R.color.obfuscated_res_0x7f0603b0);
+                ar3.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014e));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090f0b).setVisibility(8);
-                if (f0.m()) {
+                findViewById(R.id.obfuscated_res_0x7f090f06).setVisibility(8);
+                if (sd3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (f0.n()) {
+                } else if (sd3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                } else if (f0.r()) {
+                } else if (sd3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090f08).setBackgroundResource(R.color.obfuscated_res_0x7f06037f);
-                c.a.n0.h.b.g.a.o();
+                findViewById(R.id.obfuscated_res_0x7f090f03).setBackgroundResource(R.color.obfuscated_res_0x7f06037f);
+                ar3.o();
             }
             findViewById.setOnClickListener(new a(this));
             LogUtil.logActivity(this, "onCreate");

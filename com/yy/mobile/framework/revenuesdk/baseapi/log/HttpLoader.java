@@ -17,7 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class HttpLoader {
                         try {
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream, "UTF-8"));
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                             }
                         } catch (Throwable th) {
                             th = th;
@@ -78,16 +78,16 @@ public class HttpLoader {
                         try {
                             str3 = bufferedReader.readLine();
                             bufferedReader2 = bufferedReader;
-                        } catch (Exception e3) {
+                        } catch (Exception e2) {
                             bufferedReader2 = bufferedReader;
-                            e = e3;
+                            e = e2;
                             e.printStackTrace();
                             Log.e("yyrevenue", "xxxxx > " + e.toString());
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
-                                } catch (IOException e4) {
-                                    e4.printStackTrace();
+                                } catch (IOException e3) {
+                                    e3.printStackTrace();
                                 }
                             }
                             if (gZIPInputStream != null) {
@@ -100,15 +100,15 @@ public class HttpLoader {
                             if (bufferedReader2 != null) {
                                 try {
                                     bufferedReader2.close();
-                                } catch (IOException e5) {
-                                    e5.printStackTrace();
+                                } catch (IOException e4) {
+                                    e4.printStackTrace();
                                 }
                             }
                             if (gZIPInputStream != null) {
                                 try {
                                     gZIPInputStream.close();
-                                } catch (Exception e6) {
-                                    e6.printStackTrace();
+                                } catch (Exception e5) {
+                                    e5.printStackTrace();
                                 }
                             }
                             throw th;
@@ -119,15 +119,15 @@ public class HttpLoader {
                     if (bufferedReader2 != null) {
                         try {
                             bufferedReader2.close();
-                        } catch (IOException e7) {
-                            e7.printStackTrace();
+                        } catch (IOException e6) {
+                            e6.printStackTrace();
                         }
                     }
-                } catch (Exception e8) {
-                    e8.printStackTrace();
+                } catch (Exception e7) {
+                    e7.printStackTrace();
                 }
-            } catch (Exception e9) {
-                e = e9;
+            } catch (Exception e8) {
+                e = e8;
                 gZIPInputStream = null;
             } catch (Throwable th3) {
                 th = th3;

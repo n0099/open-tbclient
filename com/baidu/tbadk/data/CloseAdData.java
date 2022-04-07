@@ -9,15 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 import tbclient.VipCloseAd;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CloseAdData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30449b;
+    public int b;
 
     public CloseAdData() {
         Interceptable interceptable = $ic;
@@ -41,7 +39,7 @@ public class CloseAdData extends OrmObject {
             return;
         }
         this.a = vipCloseAd.is_open.intValue();
-        this.f30449b = vipCloseAd.vip_close.intValue();
+        this.b = vipCloseAd.vip_close.intValue();
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -50,7 +48,7 @@ public class CloseAdData extends OrmObject {
             return;
         }
         this.a = jSONObject.optInt("is_open");
-        this.f30449b = jSONObject.optInt("vip_close");
+        this.b = jSONObject.optInt("vip_close");
     }
 
     public int y() {
@@ -62,6 +60,6 @@ public class CloseAdData extends OrmObject {
     public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30449b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.proguard.annotations.DoNotStrip;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YogaNative {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class YogaNative {
 
     public static native void jni_YGConfigSetLogger(long j, Object obj);
 
-    public static native void jni_YGConfigSetPointScaleFactor(long j, float f2);
+    public static native void jni_YGConfigSetPointScaleFactor(long j, float f);
 
     public static native void jni_YGConfigSetPrintTreeFlag(long j, boolean z);
 
@@ -62,7 +62,7 @@ public class YogaNative {
 
     public static native void jni_YGConfigSetUseWebDefaults(long j, boolean z);
 
-    public static native void jni_YGNodeCalculateLayout(long j, float f2, float f3, long[] jArr, YogaNodeJNIBase[] yogaNodeJNIBaseArr);
+    public static native void jni_YGNodeCalculateLayout(long j, float f, float f2, long[] jArr, YogaNodeJNIBase[] yogaNodeJNIBaseArr);
 
     public static native void jni_YGNodeClearChildren(long j);
 
@@ -156,75 +156,75 @@ public class YogaNative {
 
     public static native void jni_YGNodeStyleSetAlignSelf(long j, int i);
 
-    public static native void jni_YGNodeStyleSetAspectRatio(long j, float f2);
+    public static native void jni_YGNodeStyleSetAspectRatio(long j, float f);
 
-    public static native void jni_YGNodeStyleSetBorder(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetBorder(long j, int i, float f);
 
     public static native void jni_YGNodeStyleSetDirection(long j, int i);
 
     public static native void jni_YGNodeStyleSetDisplay(long j, int i);
 
-    public static native void jni_YGNodeStyleSetFlex(long j, float f2);
+    public static native void jni_YGNodeStyleSetFlex(long j, float f);
 
-    public static native void jni_YGNodeStyleSetFlexBasis(long j, float f2);
+    public static native void jni_YGNodeStyleSetFlexBasis(long j, float f);
 
     public static native void jni_YGNodeStyleSetFlexBasisAuto(long j);
 
-    public static native void jni_YGNodeStyleSetFlexBasisPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetFlexBasisPercent(long j, float f);
 
     public static native void jni_YGNodeStyleSetFlexDirection(long j, int i);
 
-    public static native void jni_YGNodeStyleSetFlexGrow(long j, float f2);
+    public static native void jni_YGNodeStyleSetFlexGrow(long j, float f);
 
-    public static native void jni_YGNodeStyleSetFlexShrink(long j, float f2);
+    public static native void jni_YGNodeStyleSetFlexShrink(long j, float f);
 
     public static native void jni_YGNodeStyleSetFlexWrap(long j, int i);
 
-    public static native void jni_YGNodeStyleSetHeight(long j, float f2);
+    public static native void jni_YGNodeStyleSetHeight(long j, float f);
 
     public static native void jni_YGNodeStyleSetHeightAuto(long j);
 
-    public static native void jni_YGNodeStyleSetHeightPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetHeightPercent(long j, float f);
 
     public static native void jni_YGNodeStyleSetJustifyContent(long j, int i);
 
-    public static native void jni_YGNodeStyleSetMargin(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetMargin(long j, int i, float f);
 
     public static native void jni_YGNodeStyleSetMarginAuto(long j, int i);
 
-    public static native void jni_YGNodeStyleSetMarginPercent(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetMarginPercent(long j, int i, float f);
 
-    public static native void jni_YGNodeStyleSetMaxHeight(long j, float f2);
+    public static native void jni_YGNodeStyleSetMaxHeight(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMaxHeightPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetMaxHeightPercent(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMaxWidth(long j, float f2);
+    public static native void jni_YGNodeStyleSetMaxWidth(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMaxWidthPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetMaxWidthPercent(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMinHeight(long j, float f2);
+    public static native void jni_YGNodeStyleSetMinHeight(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMinHeightPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetMinHeightPercent(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMinWidth(long j, float f2);
+    public static native void jni_YGNodeStyleSetMinWidth(long j, float f);
 
-    public static native void jni_YGNodeStyleSetMinWidthPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetMinWidthPercent(long j, float f);
 
     public static native void jni_YGNodeStyleSetOverflow(long j, int i);
 
-    public static native void jni_YGNodeStyleSetPadding(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetPadding(long j, int i, float f);
 
-    public static native void jni_YGNodeStyleSetPaddingPercent(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetPaddingPercent(long j, int i, float f);
 
-    public static native void jni_YGNodeStyleSetPosition(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetPosition(long j, int i, float f);
 
-    public static native void jni_YGNodeStyleSetPositionPercent(long j, int i, float f2);
+    public static native void jni_YGNodeStyleSetPositionPercent(long j, int i, float f);
 
     public static native void jni_YGNodeStyleSetPositionType(long j, int i);
 
-    public static native void jni_YGNodeStyleSetWidth(long j, float f2);
+    public static native void jni_YGNodeStyleSetWidth(long j, float f);
 
     public static native void jni_YGNodeStyleSetWidthAuto(long j);
 
-    public static native void jni_YGNodeStyleSetWidthPercent(long j, float f2);
+    public static native void jni_YGNodeStyleSetWidthPercent(long j, float f);
 }

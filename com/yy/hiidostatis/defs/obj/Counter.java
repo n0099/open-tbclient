@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Counter implements IJsonSerialize, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,11 +103,11 @@ public class Counter implements IJsonSerialize, Cloneable {
                 jSONObject.put("value", j);
                 jSONObject.put("invokecount", (int) j2);
                 return jSONObject;
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return null;
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
                 return null;
             }
         }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e extends a implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class e extends a implements c {
             int i3 = this.mPreviewWidth / 2;
             int i4 = this.mPreviewHeight / 2;
             try {
-                int[] b2 = this.yw.b(Float.parseFloat(split[0].trim()), Float.parseFloat(split[1].trim()));
-                i3 = b2[0];
-                i2 = b2[1];
+                int[] b = this.yw.b(Float.parseFloat(split[0].trim()), Float.parseFloat(split[1].trim()));
+                i3 = b[0];
+                i2 = b[1];
                 i = i3;
             } catch (NumberFormatException unused) {
                 com.baidu.ar.h.b.aS("model position is not number !!!");

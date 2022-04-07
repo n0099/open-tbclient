@@ -16,15 +16,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.xm5;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AiAppsShareActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CustomMessageListener listener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,10 +106,10 @@ public class AiAppsShareActivity extends Activity {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            c.a.p0.b0.b.l.a aVar = new c.a.p0.b0.b.l.a();
+            xm5 xm5Var = new xm5();
             try {
-                aVar.p(new JSONObject(stringExtra));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, aVar, false)));
+                xm5Var.p(new JSONObject(stringExtra));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, xm5Var, false)));
                 MessageManager.getInstance().registerListener(this.listener);
                 LogUtil.logActivity(this, "onCreate");
             } catch (JSONException unused) {

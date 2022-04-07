@@ -24,7 +24,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class V8DebugServer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEBUG_BREAK_HANDLER = "__j2v8_debug_handler";
@@ -59,13 +59,13 @@ public class V8DebugServer {
     public boolean waitForConnection;
 
     /* renamed from: com.kwad.v8.debug.V8DebugServer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class ClientLoop implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,7 +243,7 @@ public class V8DebugServer {
                     }
                     startHandshake();
                     processClientRequests();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     synchronized (this.this$0.clientLock) {
                         if (this.this$0.client != null) {
                             try {
@@ -252,14 +252,14 @@ public class V8DebugServer {
                             }
                             this.this$0.client = null;
                         }
-                        this.this$0.logError(e2);
+                        this.this$0.logError(e);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class EventHandler implements JavaVoidCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -308,8 +308,8 @@ public class V8DebugServer {
             try {
                 integer = v8Array.getInteger(0);
                 object = v8Array.getObject(1);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 releasable = null;
             } catch (Throwable th) {
                 th = th;
@@ -359,8 +359,8 @@ public class V8DebugServer {
                 }
                 safeRelease(object);
                 safeRelease(object2);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 releasable = null;
                 v8Object2 = object;
                 try {
@@ -434,8 +434,8 @@ public class V8DebugServer {
             v8.executeVoidScript("(function() {\n " + DEBUG_OBJECT_NAME + ".Debug. " + MAKE_BREAK_EVENT + " = function (break_id,breakpoints_hit) {\n  return new " + DEBUG_OBJECT_NAME + ".BreakEvent(break_id,breakpoints_hit);\n }\n " + DEBUG_OBJECT_NAME + ".Debug. " + MAKE_COMPILE_EVENT + " = function(script,type) {\n  var scripts = " + DEBUG_OBJECT_NAME + ".Debug.scripts()\n  for (var i in scripts) {\n   if (scripts[i].id == script.id()) {\n     return new " + DEBUG_OBJECT_NAME + ".CompileEvent(scripts[i], type);\n   }\n  }\n  return {toJSONProtocol: function() {return ''}}\n }\n})()");
             try {
                 this.server = new ServerSocket(i);
-            } catch (Exception e2) {
-                logError(e2);
+            } catch (Exception e) {
+                logError(e);
             }
         } catch (Throwable th) {
             object.close();
@@ -694,8 +694,8 @@ public class V8DebugServer {
             for (String str : strArr) {
                 try {
                     processRequest(str);
-                } catch (Exception e2) {
-                    logError(e2);
+                } catch (Exception e) {
+                    logError(e);
                 }
             }
             if (strArr.length <= 0) {
@@ -756,8 +756,8 @@ public class V8DebugServer {
                         this.client = null;
                     }
                 }
-            } catch (IOException e2) {
-                logError(e2);
+            } catch (IOException e) {
+                logError(e);
             }
             V8Object v8Object = this.runningStateDcp;
             if (v8Object != null) {

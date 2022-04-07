@@ -16,13 +16,11 @@ import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class t {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "tun";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f38989b = "ppp";
+    public static final String b = "ppp";
     public transient /* synthetic */ FieldHolder $fh;
 
     public t() {
@@ -93,7 +91,7 @@ public class t {
                         break;
                     }
                     String a2 = c1.a(readLine);
-                    if (a2.contains(a) || a2.contains(f38989b)) {
+                    if (a2.contains(a) || a2.contains(b)) {
                         hashSet.add(a2.split("\t")[0]);
                     }
                 }
@@ -103,8 +101,8 @@ public class t {
                 }
                 try {
                     dataInputStream.close();
-                } catch (IOException e2) {
-                    x0.a(e2);
+                } catch (IOException e) {
+                    x0.a(e);
                 }
             } catch (Throwable th4) {
                 th = th4;
@@ -114,15 +112,15 @@ public class t {
                     if (dataInputStream != null) {
                         try {
                             dataInputStream.close();
-                        } catch (IOException e3) {
-                            x0.a(e3);
+                        } catch (IOException e2) {
+                            x0.a(e2);
                         }
                     }
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e4) {
-                            x0.a(e4);
+                        } catch (IOException e3) {
+                            x0.a(e3);
                         }
                     }
                 }

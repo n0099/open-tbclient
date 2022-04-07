@@ -5,7 +5,7 @@ import com.meizu.cloud.pushsdk.b.c.i;
 import com.meizu.cloud.pushsdk.b.c.k;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static String a;
 
@@ -13,25 +13,25 @@ public final class a {
         try {
             i.a a2 = new i.a().a(bVar.e());
             a(a2, bVar);
-            int d2 = bVar.d();
-            if (d2 == 0) {
+            int d = bVar.d();
+            if (d == 0) {
                 a2 = a2.a();
-            } else if (d2 == 1) {
+            } else if (d == 1) {
                 a2 = a2.a(bVar.m());
-            } else if (d2 == 2) {
+            } else if (d == 2) {
                 a2 = a2.c(bVar.m());
-            } else if (d2 == 3) {
+            } else if (d == 3) {
                 a2 = a2.b(bVar.m());
-            } else if (d2 == 4) {
+            } else if (d == 4) {
                 a2 = a2.b();
-            } else if (d2 == 5) {
+            } else if (d == 5) {
                 a2 = a2.d(bVar.m());
             }
-            i c2 = a2.c();
+            i c = a2.c();
             bVar.a(new e());
-            return bVar.l().a(c2);
-        } catch (IOException e2) {
-            throw new com.meizu.cloud.pushsdk.b.b.a(e2);
+            return bVar.l().a(c);
+        } catch (IOException e) {
+            throw new com.meizu.cloud.pushsdk.b.b.a(e);
         }
     }
 
@@ -71,21 +71,21 @@ public final class a {
         try {
             i.a a2 = new i.a().a(bVar.e());
             a(a2, bVar);
-            i c2 = a2.a().c();
+            i c = a2.a().c();
             bVar.a(new e());
-            k a3 = bVar.l().a(c2);
+            k a3 = bVar.l().a(c);
             com.meizu.cloud.pushsdk.b.i.b.a(a3, bVar.j(), bVar.k());
             return a3;
-        } catch (IOException e2) {
+        } catch (IOException e) {
             try {
                 File file = new File(bVar.j() + File.separator + bVar.k());
                 if (file.exists()) {
                     file.delete();
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            throw new com.meizu.cloud.pushsdk.b.b.a(e2);
+            throw new com.meizu.cloud.pushsdk.b.b.a(e);
         }
     }
 
@@ -93,11 +93,11 @@ public final class a {
         try {
             i.a a2 = new i.a().a(bVar.e());
             a(a2, bVar);
-            i c2 = a2.a(new b(bVar.n(), bVar.i())).c();
+            i c = a2.a(new b(bVar.n(), bVar.i())).c();
             bVar.a(new e());
-            return bVar.l().a(c2);
-        } catch (IOException e2) {
-            throw new com.meizu.cloud.pushsdk.b.b.a(e2);
+            return bVar.l().a(c);
+        } catch (IOException e) {
+            throw new com.meizu.cloud.pushsdk.b.b.a(e);
         }
     }
 }

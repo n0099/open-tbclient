@@ -38,7 +38,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypes;
@@ -54,7 +54,7 @@ public class AACTrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class AdtsHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -217,8 +217,8 @@ public class AACTrackImpl extends AbstractTrack {
             this.samples = new ArrayList();
             AdtsHeader readSamples = readSamples(dataSource);
             this.firstHeader = readSamples;
-            double d2 = readSamples.sampleRate / 1024.0d;
-            double size = this.samples.size() / d2;
+            double d = readSamples.sampleRate / 1024.0d;
+            double size = this.samples.size() / d;
             LinkedList linkedList = new LinkedList();
             Iterator<Sample> it = this.samples.iterator();
             long j = 0;
@@ -230,15 +230,15 @@ public class AACTrackImpl extends AbstractTrack {
                 int size2 = (int) it.next().getSize();
                 j += size2;
                 linkedList.add(Integer.valueOf(size2));
-                while (linkedList.size() > d2) {
+                while (linkedList.size() > d) {
                     linkedList.pop();
                 }
-                if (linkedList.size() == ((int) d2)) {
+                if (linkedList.size() == ((int) d)) {
                     Iterator it2 = linkedList.iterator();
                     while (it2.hasNext()) {
                         i += ((Integer) it2.next()).intValue();
                     }
-                    double size3 = ((i * 8.0d) / linkedList.size()) * d2;
+                    double size3 = ((i * 8.0d) / linkedList.size()) * d;
                     if (size3 > this.maxBitRate) {
                         this.maxBitRate = (int) size3;
                     }

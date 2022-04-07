@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FileZipUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,15 +78,15 @@ public class FileZipUtil {
                                     }
                                     fileInputStream2.close();
                                     fileInputStream = fileInputStream2;
-                                } catch (FileNotFoundException e2) {
-                                    e = e2;
+                                } catch (FileNotFoundException e) {
+                                    e = e;
                                     fileInputStream = fileInputStream2;
                                     e.printStackTrace();
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
-                                        } catch (IOException e3) {
-                                            e3.printStackTrace();
+                                        } catch (IOException e2) {
+                                            e2.printStackTrace();
                                         }
                                     }
                                     if (r2 != 0) {
@@ -99,15 +99,15 @@ public class FileZipUtil {
                                     if (fileInputStream != null) {
                                         try {
                                             fileInputStream.close();
-                                        } catch (IOException e4) {
-                                            e4.printStackTrace();
+                                        } catch (IOException e3) {
+                                            e3.printStackTrace();
                                         }
                                     }
                                     if (r2 != 0) {
                                         try {
                                             r2.close();
-                                        } catch (IOException e5) {
-                                            e5.printStackTrace();
+                                        } catch (IOException e4) {
+                                            e4.printStackTrace();
                                         }
                                     }
                                     throw th;
@@ -118,30 +118,30 @@ public class FileZipUtil {
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e6) {
-                                e6.printStackTrace();
+                            } catch (IOException e5) {
+                                e5.printStackTrace();
                             }
                         }
                         r2.close();
-                    } catch (FileNotFoundException e7) {
-                        e = e7;
+                    } catch (FileNotFoundException e6) {
+                        e = e6;
                     }
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (FileNotFoundException e8) {
-                e = e8;
+            } catch (FileNotFoundException e7) {
+                e = e7;
                 r2 = 0;
             } catch (Throwable th3) {
                 th = th3;
                 r2 = 0;
             }
-        } catch (IOException e9) {
-            e9.printStackTrace();
+        } catch (IOException e8) {
+            e8.printStackTrace();
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class ZipSrc {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

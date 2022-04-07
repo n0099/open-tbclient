@@ -12,22 +12,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IComOpenClient extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a extends Binder implements IComOpenClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C1762a implements IComOpenClient {
+        /* loaded from: classes2.dex */
+        public static class C0102a implements IComOpenClient {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1762a(IBinder iBinder) {
+            public C0102a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -110,7 +110,7 @@ public interface IComOpenClient extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IComOpenClient");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C1762a(iBinder) : (IComOpenClient) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IComOpenClient)) ? new C0102a(iBinder) : (IComOpenClient) queryLocalInterface;
             }
             return (IComOpenClient) invokeL.objValue;
         }

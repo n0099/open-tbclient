@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INVALID_COL_ID = Long.MIN_VALUE;
@@ -68,24 +68,24 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public int mSyncPosition;
     public long mSyncWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements ContextMenu.ContextMenuInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
-        public b(View view, int i, long j) {
+        public b(View view2, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Integer.valueOf(i), Long.valueOf(j)};
+                Object[] objArr = {view2, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -95,18 +95,16 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.a = view;
+            this.a = view2;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Parcelable a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ AdapterView f33616b;
+        public final /* synthetic */ AdapterView b;
 
         public c(AdapterView adapterView) {
             Interceptable interceptable = $ic;
@@ -123,7 +121,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                     return;
                 }
             }
-            this.f33616b = adapterView;
+            this.b = adapterView;
             this.a = null;
         }
 
@@ -132,22 +130,22 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             Parcelable parcelable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AdapterView adapterView = this.f33616b;
+                AdapterView adapterView = this.b;
                 adapterView.mDataChanged = true;
                 adapterView.mOldItemCount = adapterView.mItemCount;
                 adapterView.mItemCount = adapterView.getAdapter().getCount();
-                if (this.f33616b.getAdapter().hasStableIds() && (parcelable = this.a) != null) {
-                    AdapterView adapterView2 = this.f33616b;
+                if (this.b.getAdapter().hasStableIds() && (parcelable = this.a) != null) {
+                    AdapterView adapterView2 = this.b;
                     if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                         adapterView2.onRestoreInstanceState(parcelable);
                         this.a = null;
-                        this.f33616b.checkFocus();
-                        this.f33616b.requestLayout();
+                        this.b.checkFocus();
+                        this.b.requestLayout();
                     }
                 }
-                this.f33616b.rememberSyncState();
-                this.f33616b.checkFocus();
-                this.f33616b.requestLayout();
+                this.b.rememberSyncState();
+                this.b.checkFocus();
+                this.b.requestLayout();
             }
         }
 
@@ -155,12 +153,12 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                AdapterView adapterView = this.f33616b;
+                AdapterView adapterView = this.b;
                 adapterView.mDataChanged = true;
                 if (adapterView.getAdapter().hasStableIds()) {
-                    this.a = this.f33616b.onSaveInstanceState();
+                    this.a = this.b.onSaveInstanceState();
                 }
-                AdapterView adapterView2 = this.f33616b;
+                AdapterView adapterView2 = this.b;
                 adapterView2.mOldItemCount = adapterView2.mItemCount;
                 adapterView2.mItemCount = 0;
                 adapterView2.mSelectedPosition = -1;
@@ -169,29 +167,29 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                 adapterView2.mNextSelectedColId = Long.MIN_VALUE;
                 adapterView2.mNeedSync = false;
                 adapterView2.checkFocus();
-                this.f33616b.requestLayout();
+                this.b.requestLayout();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface d {
-        void a(AdapterView<?> adapterView, View view, int i, long j);
+        void a(AdapterView<?> adapterView, View view2, int i, long j);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface e {
-        boolean a(AdapterView<?> adapterView, View view, int i, long j);
+        boolean a(AdapterView<?> adapterView, View view2, int i, long j);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface f {
-        void a(AdapterView<?> adapterView, View view, int i, long j);
+        void a(AdapterView<?> adapterView, View view2, int i, long j);
 
         void b(AdapterView<?> adapterView);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,9 +307,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                 z = false;
             }
             if (z) {
-                View view = this.mEmptyView;
-                if (view != null) {
-                    view.setVisibility(0);
+                View view2 = this.mEmptyView;
+                if (view2 != null) {
+                    view2.setVisibility(0);
                     setVisibility(8);
                 } else {
                     setVisibility(0);
@@ -322,18 +320,18 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
                 }
                 return;
             }
-            View view2 = this.mEmptyView;
-            if (view2 != null) {
-                view2.setVisibility(8);
+            View view3 = this.mEmptyView;
+            if (view3 != null) {
+                view3.setVisibility(8);
             }
             setVisibility(0);
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view) {
+    public void addView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             throw new UnsupportedOperationException("addView(View) is not supported in AdapterView");
         }
     }
@@ -518,23 +516,23 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.mOnItemSelectedListener : (f) invokeV.objValue;
     }
 
-    public int getPositionForView(View view) {
+    public int getPositionForView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, view2)) == null) {
             while (true) {
                 try {
-                    View view2 = (View) view.getParent();
-                    if (view2.equals(this)) {
+                    View view3 = (View) view2.getParent();
+                    if (view3.equals(this)) {
                         break;
                     }
-                    view = view2;
+                    view2 = view3;
                 } catch (ClassCastException unused) {
                 }
             }
             int childCount = getChildCount();
             for (int i = 0; i < childCount; i++) {
-                if (getChildAt(i).equals(view)) {
+                if (getChildAt(i).equals(view2)) {
                     return this.mFirstPosition + i;
                 }
             }
@@ -697,14 +695,14 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
 
     @Override // android.view.ViewGroup
     @TargetApi(14)
-    public boolean onRequestSendAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public boolean onRequestSendAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, view, accessibilityEvent)) == null) {
-            if (super.onRequestSendAccessibilityEvent(view, accessibilityEvent)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048609, this, view2, accessibilityEvent)) == null) {
+            if (super.onRequestSendAccessibilityEvent(view2, accessibilityEvent)) {
                 AccessibilityEvent obtain = AccessibilityEvent.obtain();
                 onInitializeAccessibilityEvent(obtain);
-                view.dispatchPopulateAccessibilityEvent(obtain);
+                view2.dispatchPopulateAccessibilityEvent(obtain);
                 accessibilityEvent.appendRecord(obtain);
                 return true;
             }
@@ -713,16 +711,16 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
         return invokeLL.booleanValue;
     }
 
-    public boolean performItemClick(View view, int i, long j) {
+    public boolean performItemClick(View view2, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
             if (this.mOnItemClickListener != null) {
                 playSoundEffect(0);
-                if (view != null) {
-                    view.sendAccessibilityEvent(1);
+                if (view2 != null) {
+                    view2.sendAccessibilityEvent(1);
                 }
-                this.mOnItemClickListener.a(this, view, i, j);
+                this.mOnItemClickListener.a(this, view2, i, j);
                 return true;
             }
             return false;
@@ -772,9 +770,9 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void removeView(View view) {
+    public void removeView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048613, this, view2) == null) {
             throw new UnsupportedOperationException("removeView(View) is not supported in AdapterView");
         }
     }
@@ -807,10 +805,10 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public abstract void setAdapter(T t);
 
     @TargetApi(16)
-    public void setEmptyView(View view) {
+    public void setEmptyView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, view) == null) {
-            this.mEmptyView = view;
+        if (interceptable == null || interceptable.invokeL(1048617, this, view2) == null) {
+            this.mEmptyView = view2;
             T adapter = getAdapter();
             updateEmptyStatus(adapter == null || adapter.isEmpty());
         }
@@ -908,25 +906,25 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public abstract void setSelection(int i);
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i) {
+    public void addView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
             throw new UnsupportedOperationException("addView(View, int) is not supported in AdapterView");
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void addView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, layoutParams) == null) {
             throw new UnsupportedOperationException("addView(View, LayoutParams) is not supported in AdapterView");
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, layoutParams) == null) {
             throw new UnsupportedOperationException("addView(View, int, LayoutParams) is not supported in AdapterView");
         }
     }

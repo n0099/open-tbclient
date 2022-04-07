@@ -26,7 +26,7 @@ public abstract class LoaderManager {
         Loader<D> onCreateLoader(int i, @Nullable Bundle bundle);
 
         @MainThread
-        void onLoadFinished(@NonNull Loader<D> loader, D d2);
+        void onLoadFinished(@NonNull Loader<D> loader, D d);
 
         @MainThread
         void onLoaderReset(@NonNull Loader<D> loader);

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceLivenessProcessManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_JSON_KEY_BACK_FRAME = "3";
@@ -336,21 +336,26 @@ public class FaceLivenessProcessManager {
             SdkFacePrivateConfig sdkFacePrivateConfig = SdkFacePrivateConfig.getInstance(this.mContext);
             try {
                 sdkFacePrivateConfig.setDeviceCheckFlag(jSONObject.getInt("1") == 1);
+            } catch (JSONException e) {
+                CommonMethods.handleNuLException(e);
+            }
+            try {
+                sdkFacePrivateConfig.setUnknownContinueFlag(jSONObject.getInt("2") == 1);
             } catch (JSONException e2) {
                 CommonMethods.handleNuLException(e2);
             }
             try {
-                sdkFacePrivateConfig.setUnknownContinueFlag(jSONObject.getInt("2") == 1);
+                sdkFacePrivateConfig.setBackFrameFlag(jSONObject.getInt("3") == 1);
             } catch (JSONException e3) {
                 CommonMethods.handleNuLException(e3);
             }
             try {
-                sdkFacePrivateConfig.setBackFrameFlag(jSONObject.getInt("3") == 1);
+                sdkFacePrivateConfig.setPluginProcessFlag(jSONObject.getInt("4") == 1);
             } catch (JSONException e4) {
                 CommonMethods.handleNuLException(e4);
             }
             try {
-                sdkFacePrivateConfig.setPluginProcessFlag(jSONObject.getInt("4") == 1);
+                sdkFacePrivateConfig.setSingleSensorFlag(jSONObject.getInt("5") == 1);
             } catch (JSONException e5) {
                 CommonMethods.handleNuLException(e5);
             }
@@ -360,29 +365,24 @@ public class FaceLivenessProcessManager {
                 CommonMethods.handleNuLException(e6);
             }
             try {
-                sdkFacePrivateConfig.setSingleSensorFlag(jSONObject.getInt("5") == 1);
+                sdkFacePrivateConfig.setFaceInfoInterval(jSONObject.getLong("7"));
             } catch (JSONException e7) {
                 CommonMethods.handleNuLException(e7);
             }
             try {
-                sdkFacePrivateConfig.setFaceInfoInterval(jSONObject.getLong("7"));
+                sdkFacePrivateConfig.setFirstFrameFlag(jSONObject.getInt("8") == 1);
             } catch (JSONException e8) {
                 CommonMethods.handleNuLException(e8);
             }
             try {
-                sdkFacePrivateConfig.setFirstFrameFlag(jSONObject.getInt("8") == 1);
+                sdkFacePrivateConfig.setHostArray(jSONObject.getJSONArray("9").toString());
             } catch (JSONException e9) {
                 CommonMethods.handleNuLException(e9);
             }
             try {
-                sdkFacePrivateConfig.setHostArray(jSONObject.getJSONArray("9").toString());
+                sdkFacePrivateConfig.setBlockWhenNoPlugin(jSONObject.getInt("10") == 1);
             } catch (JSONException e10) {
                 CommonMethods.handleNuLException(e10);
-            }
-            try {
-                sdkFacePrivateConfig.setBlockWhenNoPlugin(jSONObject.getInt("10") == 1);
-            } catch (JSONException e11) {
-                CommonMethods.handleNuLException(e11);
             }
         } catch (Throwable th) {
             CommonMethods.handleNuLException(th);

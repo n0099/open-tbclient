@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,10 +43,10 @@ public abstract class e {
             try {
                 b a = b.a(bArr, i, i2);
                 a(a);
-                a.m204a(0);
+                a.m200a(0);
                 return this;
-            } catch (d e2) {
-                throw e2;
+            } catch (d e) {
+                throw e;
             } catch (IOException unused) {
                 throw new RuntimeException("Reading from a byte array threw an IOException (should never happen).");
             }
@@ -57,7 +57,7 @@ public abstract class e {
     public abstract void a(c cVar);
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m322a(byte[] bArr, int i, int i2) {
+    public void m318a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
             try {
@@ -73,17 +73,17 @@ public abstract class e {
     public boolean a(b bVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bVar, i)) == null) ? bVar.m206a(i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, bVar, i)) == null) ? bVar.m202a(i) : invokeLI.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m323a() {
+    public byte[] m319a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int b2 = b();
-            byte[] bArr = new byte[b2];
-            m322a(bArr, 0, b2);
+            int b = b();
+            byte[] bArr = new byte[b];
+            m318a(bArr, 0, b);
             return bArr;
         }
         return (byte[]) invokeV.objValue;

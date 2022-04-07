@@ -13,14 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public g a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f25474b;
+    public boolean b;
 
     public h() {
         Interceptable interceptable = $ic;
@@ -35,7 +33,7 @@ public class h {
                 return;
             }
         }
-        this.f25474b = false;
+        this.b = false;
         this.a = new g();
     }
 
@@ -54,8 +52,8 @@ public class h {
                         jSONArray.put(this.a.a());
                         jSONObject.put("items", jSONArray);
                         str = jSONObject.toString();
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     jSONObject.remove("cuid");
                     CyberLog.i("DpStatSessionImpl", "all session = " + jSONObject.toString());
@@ -139,7 +137,7 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                z = this.f25474b;
+                z = this.b;
             }
             return z;
         }
@@ -153,7 +151,7 @@ public class h {
                 if (this.a != null) {
                     this.a.b();
                 }
-                this.f25474b = false;
+                this.b = false;
             }
         }
     }
@@ -165,7 +163,7 @@ public class h {
             synchronized (this) {
                 if (kVar != null) {
                     if (this.a != null && (a = a()) != null) {
-                        this.f25474b = true;
+                        this.b = true;
                         DpSessionDatasUploader.getInstance().upload(a, "sailor_monitor");
                     }
                 }

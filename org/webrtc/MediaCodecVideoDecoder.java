@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import f.c.i0;
-import f.c.l0;
+import com.repackage.my9;
+import com.repackage.py9;
 import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -368,7 +368,7 @@ public class MediaCodecVideoDecoder {
         @javax.annotation.Nullable
         @Deprecated
         public /* synthetic */ VideoDecoder createDecoder(String str) {
-            return l0.$default$createDecoder(this, str);
+            return py9.$default$createDecoder(this, str);
         }
 
         @Override // org.webrtc.VideoDecoderFactory
@@ -725,8 +725,8 @@ public class MediaCodecVideoDecoder {
             checkOnMediaCodecThread();
             try {
                 return this.mediaCodec.dequeueInputBuffer(500000L);
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "dequeueIntputBuffer failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "dequeueIntputBuffer failed", e);
                 return -2;
             }
         }
@@ -904,8 +904,8 @@ public class MediaCodecVideoDecoder {
             for (int i = 0; i < MediaCodecList.getCodecCount(); i++) {
                 try {
                     mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
-                } catch (IllegalArgumentException e2) {
-                    Logging.e(TAG, "Cannot retrieve decoder codec info", e2);
+                } catch (IllegalArgumentException e) {
+                    Logging.e(TAG, "Cannot retrieve decoder codec info", e);
                     mediaCodecInfo = null;
                 }
                 if (mediaCodecInfo != null && !mediaCodecInfo.isEncoder()) {
@@ -963,8 +963,8 @@ public class MediaCodecVideoDecoder {
                                     }
                                 }
                                 continue;
-                            } catch (IllegalArgumentException e3) {
-                                Logging.e(TAG, "Cannot retrieve decoder capabilities", e3);
+                            } catch (IllegalArgumentException e2) {
+                                Logging.e(TAG, "Cannot retrieve decoder capabilities", e2);
                             }
                         } else {
                             continue;
@@ -1054,8 +1054,8 @@ public class MediaCodecVideoDecoder {
                         this.droppedFrames = 0;
                         Logging.d(TAG, "Input buffers: " + this.inputBuffers.length + ". Output buffers: " + this.outputBuffers.length);
                         return true;
-                    } catch (IllegalStateException e2) {
-                        Logging.e(TAG, "initDecode failed", e2);
+                    } catch (IllegalStateException e) {
+                        Logging.e(TAG, "initDecode failed", e);
                         return false;
                     }
                 }
@@ -1135,8 +1135,8 @@ public class MediaCodecVideoDecoder {
                 this.decodeStartTimeMs.add(new TimeStamps(SystemClock.elapsedRealtime(), j2, j3));
                 this.mediaCodec.queueInputBuffer(i, 0, i2, j, 0);
                 return true;
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "decode failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "decode failed", e);
                 return false;
             }
         }
@@ -1184,8 +1184,8 @@ public class MediaCodecVideoDecoder {
                             this.this$0.mediaCodec.stop();
                             this.this$0.mediaCodec.release();
                             Logging.d(MediaCodecVideoDecoder.TAG, "Java releaseDecoder on release thread done");
-                        } catch (Exception e2) {
-                            Logging.e(MediaCodecVideoDecoder.TAG, "Media decoder release failed", e2);
+                        } catch (Exception e) {
+                            Logging.e(MediaCodecVideoDecoder.TAG, "Media decoder release failed", e);
                         }
                         this.val$releaseDone.countDown();
                     }
@@ -1254,7 +1254,7 @@ public class MediaCodecVideoDecoder {
                 Logging.w(TAG, "Egl context already set.");
                 eglBase.release();
             }
-            eglBase = i0.b(context);
+            eglBase = my9.b(context);
         }
     }
 

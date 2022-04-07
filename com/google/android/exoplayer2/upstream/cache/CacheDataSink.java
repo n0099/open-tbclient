@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CacheDataSink implements DataSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 20480;
@@ -31,7 +31,7 @@ public final class CacheDataSink implements DataSink {
     public long outputStreamBytesWritten;
     public FileOutputStream underlyingFileOutputStream;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CacheDataSinkException extends Cache.CacheException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,8 +135,8 @@ public final class CacheDataSink implements DataSink {
         }
         try {
             closeCurrentOutputStream();
-        } catch (IOException e2) {
-            throw new CacheDataSinkException(e2);
+        } catch (IOException e) {
+            throw new CacheDataSinkException(e);
         }
     }
 
@@ -152,8 +152,8 @@ public final class CacheDataSink implements DataSink {
             this.dataSpecBytesWritten = 0L;
             try {
                 openNextOutputStream();
-            } catch (IOException e2) {
-                throw new CacheDataSinkException(e2);
+            } catch (IOException e) {
+                throw new CacheDataSinkException(e);
             }
         }
     }
@@ -177,8 +177,8 @@ public final class CacheDataSink implements DataSink {
                 long j = min;
                 this.outputStreamBytesWritten += j;
                 this.dataSpecBytesWritten += j;
-            } catch (IOException e2) {
-                throw new CacheDataSinkException(e2);
+            } catch (IOException e) {
+                throw new CacheDataSinkException(e);
             }
         }
     }

@@ -6,15 +6,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.util.zip.ZipFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Closes {
     public static boolean closeQuiet(Closeable closeable) {
         if (closeable != null) {
             try {
                 closeable.close();
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -26,8 +26,8 @@ public class Closes {
             try {
                 inputStream.close();
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -39,8 +39,8 @@ public class Closes {
             try {
                 outputStream.close();
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -52,8 +52,8 @@ public class Closes {
             try {
                 reader.close();
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -65,8 +65,8 @@ public class Closes {
             try {
                 zipFile.close();
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }

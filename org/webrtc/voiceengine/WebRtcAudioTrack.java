@@ -182,8 +182,8 @@ public class WebRtcAudioTrack {
                     try {
                         this.this$0.audioTrack.stop();
                         Logging.d(WebRtcAudioTrack.TAG, "AudioTrack.stop is done.");
-                    } catch (IllegalStateException e2) {
-                        Logging.e(WebRtcAudioTrack.TAG, "AudioTrack.stop failed: " + e2.getMessage());
+                    } catch (IllegalStateException e) {
+                        Logging.e(WebRtcAudioTrack.TAG, "AudioTrack.stop failed: " + e.getMessage());
                     }
                 }
             }
@@ -364,8 +364,8 @@ public class WebRtcAudioTrack {
                     reportWebRtcAudioTrackInitError("Initialization of audio track failed.");
                     releaseAudioResources();
                     return false;
-                } catch (IllegalArgumentException e2) {
-                    reportWebRtcAudioTrackInitError(e2.getMessage());
+                } catch (IllegalArgumentException e) {
+                    reportWebRtcAudioTrackInitError(e.getMessage());
                     releaseAudioResources();
                     return false;
                 }
@@ -555,9 +555,9 @@ public class WebRtcAudioTrack {
                 this.audioThread = audioTrackThread;
                 audioTrackThread.start();
                 return true;
-            } catch (IllegalStateException e2) {
+            } catch (IllegalStateException e) {
                 AudioTrackStartErrorCode audioTrackStartErrorCode2 = AudioTrackStartErrorCode.AUDIO_TRACK_START_EXCEPTION;
-                reportWebRtcAudioTrackStartError(audioTrackStartErrorCode2, "AudioTrack.play failed: " + e2.getMessage());
+                reportWebRtcAudioTrackStartError(audioTrackStartErrorCode2, "AudioTrack.play failed: " + e.getMessage());
                 releaseAudioResources();
                 return false;
             }

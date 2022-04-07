@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OrientationHelper extends OrientationEventListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ORIENTATION_CIRCLE_ANGLE = 360;
@@ -24,7 +24,7 @@ public class OrientationHelper extends OrientationEventListener {
     public int mLastOrientation;
     public IOrientationChange mListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface IOrientationChange {
         void onOrientationChanged(int i);
     }
@@ -81,8 +81,8 @@ public class OrientationHelper extends OrientationEventListener {
             try {
                 super.enable();
                 return true;
-            } catch (Exception e2) {
-                BdVideoLog.w("enableSensor()", e2);
+            } catch (Exception e) {
+                BdVideoLog.w("enableSensor()", e);
                 return false;
             }
         }

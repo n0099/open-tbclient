@@ -109,8 +109,8 @@ public abstract class BaseMediaObject implements Parcelable {
                     } catch (Throwable th) {
                         th = th;
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
                 try {
                     Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
@@ -118,8 +118,8 @@ public abstract class BaseMediaObject implements Parcelable {
                     this.thumbData = byteArrayOutputStream.toByteArray();
                     byteArrayOutputStream.close();
                     byteArrayOutputStream2 = compressFormat;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     byteArrayOutputStream2 = byteArrayOutputStream;
                     e.printStackTrace();
                     LogUtil.e("Weibo.BaseMediaObject", "put thumb failed");
@@ -133,14 +133,14 @@ public abstract class BaseMediaObject implements Parcelable {
                     if (byteArrayOutputStream2 != null) {
                         try {
                             byteArrayOutputStream2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (IOException e5) {
-                e5.printStackTrace();
+            } catch (IOException e4) {
+                e4.printStackTrace();
             }
         }
     }

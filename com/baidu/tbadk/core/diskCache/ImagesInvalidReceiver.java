@@ -3,13 +3,13 @@ package com.baidu.tbadk.core.diskCache;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.d.f.m.f;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.qg;
+/* loaded from: classes3.dex */
 public class ImagesInvalidReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SUCCESS = "success";
@@ -34,7 +34,7 @@ public class ImagesInvalidReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
             Intent intent = new Intent(BdBaseApplication.getInst().getContext(), ImagesInvalidReceiver.class);
             intent.putExtra("success", z);
-            f.a(BdBaseApplication.getInst().getContext(), intent);
+            qg.a(BdBaseApplication.getInst().getContext(), intent);
         }
     }
 

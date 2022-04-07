@@ -1,5 +1,5 @@
 package com.kuaishou.tachikoma.api.app;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface IRequestCallback {
     void onComplete(TKBaseResponse tKBaseResponse);
 

@@ -16,7 +16,7 @@ import java.security.cert.X509Certificate;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SignatureVerifier {
     public static final String TAG = "SigVerifier";
     public Context mContext;
@@ -25,7 +25,7 @@ public class SignatureVerifier {
     public final HashSet<String> mAllowedSigs = new HashSet<>();
 
     /* renamed from: com.baidu.titan.sdk.verifier.SignatureVerifier$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy;
 
@@ -101,8 +101,8 @@ public class SignatureVerifier {
                 return compareSignature(verify);
             }
             return false;
-        } catch (CertificateEncodingException e2) {
-            e2.printStackTrace();
+        } catch (CertificateEncodingException e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -116,14 +116,14 @@ public class SignatureVerifier {
                     return true;
                 }
             }
-        } catch (ApkSignatureSchemeV2Verifier.SignatureNotFoundException e2) {
+        } catch (ApkSignatureSchemeV2Verifier.SignatureNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e2) {
             e2.printStackTrace();
-        } catch (IOException e3) {
+        } catch (SecurityException e3) {
             e3.printStackTrace();
-        } catch (SecurityException e4) {
+        } catch (CertificateEncodingException e4) {
             e4.printStackTrace();
-        } catch (CertificateEncodingException e5) {
-            e5.printStackTrace();
         }
         return false;
     }

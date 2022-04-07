@@ -15,13 +15,13 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.UShort;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Marshallable extends PacketBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class ELenType {
         public static final /* synthetic */ ELenType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -381,10 +381,10 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    public final void pushInt8(byte b2) {
+    public final void pushInt8(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(1048595, this, b2) == null) {
-            this.buffer.put(b2);
+        if (interceptable == null || interceptable.invokeB(1048595, this, b) == null) {
+            this.buffer.put(b);
         }
     }
 
@@ -411,8 +411,8 @@ public class Marshallable extends PacketBase {
         }
         try {
             bArr = str.getBytes(IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
             bArr = new byte[0];
         }
         pushInt16((short) bArr.length);
@@ -427,8 +427,8 @@ public class Marshallable extends PacketBase {
         }
         try {
             bArr = str.getBytes(IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
             bArr = new byte[0];
         }
         pushInt32(bArr.length);
@@ -443,8 +443,8 @@ public class Marshallable extends PacketBase {
         }
         try {
             bArr = str.getBytes(IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e2) {
-            e2.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
             bArr = new byte[0];
         }
         this.buffer.put(bArr);

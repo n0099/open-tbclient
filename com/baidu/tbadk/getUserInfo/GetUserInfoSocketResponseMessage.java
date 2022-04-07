@@ -1,7 +1,5 @@
 package com.baidu.tbadk.getUserInfo;
 
-import c.a.o0.z.a;
-import c.a.o0.z.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,14 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b35;
+import com.repackage.c35;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mData;
+    public b35 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -38,10 +38,10 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public a getData() {
+    public b35 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : (b35) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,9 +50,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            a aVar = this.mData;
-            if (aVar != null && aVar.a() != null) {
-                b.d().i(this.mData.a());
+            b35 b35Var = this.mData;
+            if (b35Var != null && b35Var.a() != null) {
+                c35.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -73,8 +73,8 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         if (getError() != 0) {
             return;
         }
-        a aVar = new a();
-        this.mData = aVar;
-        aVar.b(getUserInfoResIdl.data);
+        b35 b35Var = new b35();
+        this.mData = b35Var;
+        b35Var.b(getUserInfoResIdl.data);
     }
 }

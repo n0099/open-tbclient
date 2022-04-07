@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class KeyEventDealContainerView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -23,13 +23,13 @@ public class KeyEventDealContainerView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KeyEventDealContainerView(Context context, View view, a aVar) {
+    public KeyEventDealContainerView(Context context, View view2, a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, aVar};
+            Object[] objArr = {context, view2, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,7 +44,7 @@ public class KeyEventDealContainerView extends LinearLayout {
         setFocusableInTouchMode(true);
         this.a = aVar;
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        addView(view);
+        addView(view2);
     }
 
     @Override // android.view.ViewGroup, android.view.View

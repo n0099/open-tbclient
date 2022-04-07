@@ -6,7 +6,7 @@ import com.kwad.sdk.core.report.ReportAction;
 import com.kwad.sdk.core.scene.URLPackage;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class dk implements com.kwad.sdk.core.d<ReportAction> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -14,13 +14,13 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
         if (jSONObject == null) {
             return;
         }
-        reportAction.f39692d = jSONObject.optLong("timestamp");
-        reportAction.f39693e = jSONObject.optString("sessionId");
+        reportAction.d = jSONObject.optLong("timestamp");
+        reportAction.e = jSONObject.optString("sessionId");
         if (jSONObject.opt("sessionId") == JSONObject.NULL) {
-            reportAction.f39693e = "";
+            reportAction.e = "";
         }
-        reportAction.f39694f = jSONObject.optLong("seq");
-        reportAction.f39696h = jSONObject.optLong("listId");
+        reportAction.f = jSONObject.optLong("seq");
+        reportAction.h = jSONObject.optLong("listId");
         reportAction.i = jSONObject.optLong("actionType");
         reportAction.j = jSONObject.optLong("llsid");
         reportAction.k = jSONObject.optJSONObject("extra");
@@ -258,10 +258,10 @@ public class dk implements com.kwad.sdk.core.d<ReportAction> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", reportAction.f39692d);
-        com.kwad.sdk.utils.t.a(jSONObject, "sessionId", reportAction.f39693e);
-        com.kwad.sdk.utils.t.a(jSONObject, "seq", reportAction.f39694f);
-        com.kwad.sdk.utils.t.a(jSONObject, "listId", reportAction.f39696h);
+        com.kwad.sdk.utils.t.a(jSONObject, "timestamp", reportAction.d);
+        com.kwad.sdk.utils.t.a(jSONObject, "sessionId", reportAction.e);
+        com.kwad.sdk.utils.t.a(jSONObject, "seq", reportAction.f);
+        com.kwad.sdk.utils.t.a(jSONObject, "listId", reportAction.h);
         com.kwad.sdk.utils.t.a(jSONObject, "actionType", reportAction.i);
         com.kwad.sdk.utils.t.a(jSONObject, "llsid", reportAction.j);
         com.kwad.sdk.utils.t.a(jSONObject, "extra", reportAction.k);

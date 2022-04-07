@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public Context a;
 
@@ -38,9 +38,9 @@ public class d {
             str = a(query);
             com.kwad.sdk.core.d.a.c("MeizuDeviceIDHelper", "getOAID oaid:" + str);
             ae.a(query);
-        } catch (Exception e2) {
+        } catch (Exception e) {
             com.kwad.sdk.core.d.a.c("MeizuDeviceIDHelper", "getOAID service not found;");
-            com.kwad.sdk.core.d.a.a(e2);
+            com.kwad.sdk.core.d.a.a(e);
         }
         return str;
     }

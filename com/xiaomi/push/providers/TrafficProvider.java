@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gq;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TrafficProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final UriMatcher a;
@@ -139,7 +139,7 @@ public class TrafficProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
             if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-                gq.m402a(contentValues.getAsString(BaseStatisContent.IMSI));
+                gq.m398a(contentValues.getAsString(BaseStatisContent.IMSI));
                 return 0;
             }
             return 0;

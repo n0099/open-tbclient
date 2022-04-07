@@ -11,17 +11,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<c> f25471b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c f25472c;
+    public List<c> b;
+    public c c;
 
     public f(int i) {
         Interceptable interceptable = $ic;
@@ -39,8 +35,8 @@ public class f {
             }
         }
         this.a = i;
-        this.f25472c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
-        this.f25471b = new ArrayList();
+        this.c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
+        this.b = new ArrayList();
     }
 
     public int a() {
@@ -53,11 +49,11 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            this.f25472c.a(jSONObject);
+            this.c.a(jSONObject);
             JSONArray jSONArray = new JSONArray();
-            for (int i = 0; i < this.f25471b.size(); i++) {
+            for (int i = 0; i < this.b.size(); i++) {
                 JSONObject jSONObject2 = new JSONObject();
-                if (this.f25471b.get(i).a(jSONObject2) != null) {
+                if (this.b.get(i).a(jSONObject2) != null) {
                     jSONArray.put(jSONObject2);
                 }
             }
@@ -72,7 +68,7 @@ public class f {
     public void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
-            this.f25472c.a(eVar);
+            this.c.a(eVar);
         }
     }
 }

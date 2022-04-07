@@ -42,7 +42,7 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public static final HttpClientFactory httpClientFactory;
@@ -252,12 +252,12 @@ public class BceHttpClient {
                     this.signer.sign(internalRequest, bceCredentials);
                 }
                 okHttpClient = this.httpClient;
-            } catch (BceServiceException e2) {
+            } catch (BceServiceException e) {
+                e = e;
+            } catch (BceClientException e2) {
                 e = e2;
-            } catch (BceClientException e3) {
+            } catch (Exception e3) {
                 e = e3;
-            } catch (Exception e4) {
-                e = e4;
             }
             try {
                 Request createHttpRequest = createHttpRequest(internalRequest, bceProgressCallback);
@@ -279,8 +279,8 @@ public class BceHttpClient {
                 for (int i2 = 0; i2 < length && !httpResponseHandlerArr[i2].handle(bceHttpResponse, newInstance); i2++) {
                 }
                 return newInstance;
-            } catch (BceServiceException e5) {
-                e = e5;
+            } catch (BceServiceException e4) {
+                e = e4;
                 BceServiceException bceServiceException2 = e;
                 boolean equals = ErrorCode.REQUEST_TIME_TOO_SKEWED.equals(bceServiceException2.getErrorCode());
                 bceServiceException = bceServiceException2;
@@ -305,21 +305,21 @@ public class BceHttpClient {
                             internalRequest.getContent().restart();
                         }
                         i++;
-                    } catch (InterruptedException e6) {
-                        throw new BceClientException("Delay interrupted", e6);
+                    } catch (InterruptedException e5) {
+                        throw new BceClientException("Delay interrupted", e5);
                     }
                 } else {
                     throw bceServiceException;
                 }
-            } catch (BceClientException e7) {
-                e = e7;
+            } catch (BceClientException e6) {
+                e = e6;
                 bceServiceException = e;
                 BLog.warn("Unable to execute HTTP request");
                 delayBeforeNextRetryInMillis = getDelayBeforeNextRetryInMillis(internalRequest, bceServiceException, i, this.config.getRetryPolicy());
                 if (delayBeforeNextRetryInMillis >= 0) {
                 }
-            } catch (Exception e8) {
-                e = e8;
+            } catch (Exception e7) {
+                e = e7;
                 if (internalRequest.getRequest() != null && internalRequest.getRequest().isCanceled()) {
                     bceServiceException = new BceClientException("Request is canceled!", e);
                 } else {
@@ -334,7 +334,7 @@ public class BceHttpClient {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

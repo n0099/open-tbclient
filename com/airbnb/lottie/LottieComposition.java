@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieComposition {
     public Rect bounds;
     public SparseArrayCompat<FontCharacter> characters;
@@ -42,10 +42,10 @@ public class LottieComposition {
     public int maskAndMatteCount = 0;
 
     @Deprecated
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Factory {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public static final class ListenerAdapter implements LottieListener<LottieComposition>, Cancellable {
             public boolean cancelled;
             public final OnCompositionLoadedListener listener;
@@ -250,11 +250,11 @@ public class LottieComposition {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public void init(Rect rect, float f2, float f3, float f4, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, LottieImageAsset> map2, SparseArrayCompat<FontCharacter> sparseArrayCompat, Map<String, Font> map3, List<Marker> list2) {
+    public void init(Rect rect, float f, float f2, float f3, List<Layer> list, LongSparseArray<Layer> longSparseArray, Map<String, List<Layer>> map, Map<String, LottieImageAsset> map2, SparseArrayCompat<FontCharacter> sparseArrayCompat, Map<String, Font> map3, List<Marker> list2) {
         this.bounds = rect;
-        this.startFrame = f2;
-        this.endFrame = f3;
-        this.frameRate = f4;
+        this.startFrame = f;
+        this.endFrame = f2;
+        this.frameRate = f3;
         this.layers = list;
         this.layerMap = longSparseArray;
         this.precomps = map;

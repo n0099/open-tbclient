@@ -6,20 +6,16 @@ import java.io.InputStream;
 /* loaded from: classes7.dex */
 public class d {
     public InputStream a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f43083b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f43084c;
+    public boolean b;
+    public int c;
 
     public d() {
     }
 
     public final void a(InputStream inputStream, boolean z) {
         this.a = inputStream;
-        this.f43083b = z;
-        this.f43084c = 0;
+        this.b = z;
+        this.c = 0;
     }
 
     public final int b() throws IOException {
@@ -30,7 +26,7 @@ public class d {
         if (i > 0) {
             long j = i;
             long skip = this.a.skip(j);
-            this.f43084c = (int) (this.f43084c + skip);
+            this.c = (int) (this.c + skip);
             if (skip != j) {
                 throw new EOFException();
             }
@@ -65,13 +61,13 @@ public class d {
     public final int a(int i) throws IOException {
         if (i >= 0 && i <= 4) {
             int i2 = 0;
-            if (this.f43083b) {
+            if (this.b) {
                 for (int i3 = (i - 1) * 8; i3 >= 0; i3 -= 8) {
                     int read = this.a.read();
                     if (read == -1) {
                         throw new EOFException();
                     }
-                    this.f43084c++;
+                    this.c++;
                     i2 |= read << i3;
                 }
                 return i2;
@@ -83,7 +79,7 @@ public class d {
                 if (read2 == -1) {
                     throw new EOFException();
                 }
-                this.f43084c++;
+                this.c++;
                 i5 |= read2 << i2;
                 i2 += 8;
             }

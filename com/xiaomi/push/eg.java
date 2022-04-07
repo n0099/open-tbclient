@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class eg implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class eg implements ed {
         if (interceptable == null || interceptable.invokeLL(65537, this, service, intent) == null) {
             String stringExtra = intent.getStringExtra("awake_info");
             if (!TextUtils.isEmpty(stringExtra)) {
-                String b2 = dv.b(stringExtra);
-                if (!TextUtils.isEmpty(b2)) {
-                    dw.a(service.getApplicationContext(), b2, 1007, "play with service successfully");
+                String b = dv.b(stringExtra);
+                if (!TextUtils.isEmpty(b)) {
+                    dw.a(service.getApplicationContext(), b, 1007, "play with service successfully");
                     return;
                 }
             }
@@ -46,37 +46,37 @@ public class eg implements ed {
     private void b(Context context, dz dzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
-            String m321a = dzVar.m321a();
-            String b2 = dzVar.b();
-            String d2 = dzVar.d();
+            String m317a = dzVar.m317a();
+            String b = dzVar.b();
+            String d = dzVar.d();
             int a = dzVar.a();
-            if (context == null || TextUtils.isEmpty(m321a) || TextUtils.isEmpty(b2) || TextUtils.isEmpty(d2)) {
-                if (TextUtils.isEmpty(d2)) {
+            if (context == null || TextUtils.isEmpty(m317a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+                if (TextUtils.isEmpty(d)) {
                     dw.a(context, "service", 1008, "argument error");
                 } else {
-                    dw.a(context, d2, 1008, "argument error");
+                    dw.a(context, d, 1008, "argument error");
                 }
-            } else if (!com.xiaomi.push.service.g.a(context, m321a, b2)) {
-                dw.a(context, d2, 1003, "B is not ready");
+            } else if (!com.xiaomi.push.service.g.a(context, m317a, b)) {
+                dw.a(context, d, 1003, "B is not ready");
             } else {
-                dw.a(context, d2, 1002, "B is ready");
-                dw.a(context, d2, 1004, "A is ready");
+                dw.a(context, d, 1002, "B is ready");
+                dw.a(context, d, 1004, "A is ready");
                 try {
                     Intent intent = new Intent();
-                    intent.setAction(b2);
-                    intent.setPackage(m321a);
-                    intent.putExtra("awake_info", dv.a(d2));
-                    if (a == 1 && !ea.m324a(context)) {
-                        dw.a(context, d2, 1008, "A not in foreground");
+                    intent.setAction(b);
+                    intent.setPackage(m317a);
+                    intent.putExtra("awake_info", dv.a(d));
+                    if (a == 1 && !ea.m320a(context)) {
+                        dw.a(context, d, 1008, "A not in foreground");
                     } else if (context.startService(intent) == null) {
-                        dw.a(context, d2, 1008, "A is fail to help B's service");
+                        dw.a(context, d, 1008, "A is fail to help B's service");
                     } else {
-                        dw.a(context, d2, 1005, "A is successful");
-                        dw.a(context, d2, 1006, "The job is finished");
+                        dw.a(context, d, 1005, "A is successful");
+                        dw.a(context, d, 1006, "The job is finished");
                     }
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
-                    dw.a(context, d2, 1008, "A meet a exception when help B's service");
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
+                    dw.a(context, d, 1008, "A meet a exception when help B's service");
                 }
             }
         }

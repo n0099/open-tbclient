@@ -15,7 +15,7 @@ import java.io.Reader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic;
     @VisibleForTesting
@@ -59,12 +59,12 @@ public final class Closeables {
         }
         try {
             closeable.close();
-        } catch (IOException e2) {
+        } catch (IOException e) {
             if (z) {
-                logger.log(Level.WARNING, "IOException thrown while closing Closeable.", (Throwable) e2);
+                logger.log(Level.WARNING, "IOException thrown while closing Closeable.", (Throwable) e);
                 return;
             }
-            throw e2;
+            throw e;
         }
     }
 
@@ -73,8 +73,8 @@ public final class Closeables {
         if (interceptable == null || interceptable.invokeL(65539, null, inputStream) == null) {
             try {
                 close(inputStream, true);
-            } catch (IOException e2) {
-                throw new AssertionError(e2);
+            } catch (IOException e) {
+                throw new AssertionError(e);
             }
         }
     }
@@ -84,8 +84,8 @@ public final class Closeables {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, reader) == null) {
             try {
                 close(reader, true);
-            } catch (IOException e2) {
-                throw new AssertionError(e2);
+            } catch (IOException e) {
+                throw new AssertionError(e);
             }
         }
     }

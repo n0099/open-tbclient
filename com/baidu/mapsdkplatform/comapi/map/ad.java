@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ad extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class ad extends Handler {
         if (r13 != null) goto L118;
      */
     /* JADX WARN: Code restructure failed: missing block: B:50:0x0101, code lost:
-        r13 = r12.a.f26684h;
+        r13 = r12.a.h;
         r13.a();
      */
     /* JADX WARN: Code restructure failed: missing block: B:53:0x0113, code lost:
@@ -101,33 +101,33 @@ public class ad extends Handler {
                 int i = message.what;
                 if (i == 4000) {
                     eVar33 = this.a.i;
-                    if (eVar33.f26705h == null) {
+                    if (eVar33.h == null) {
                         return;
                     }
                     eVar34 = this.a.i;
-                    for (l lVar : eVar34.f26705h) {
+                    for (l lVar : eVar34.h) {
                         Bitmap bitmap = null;
                         if (message.arg2 == 1) {
-                            int[] iArr = new int[ac.a * ac.f26678b];
-                            int[] iArr2 = new int[ac.a * ac.f26678b];
+                            int[] iArr = new int[ac.a * ac.b];
+                            int[] iArr2 = new int[ac.a * ac.b];
                             eVar35 = this.a.i;
                             if (eVar35.i == null) {
                                 return;
                             }
                             eVar36 = this.a.i;
-                            int[] a = eVar36.i.a(iArr, ac.a, ac.f26678b);
-                            for (int i2 = 0; i2 < ac.f26678b; i2++) {
+                            int[] a = eVar36.i.a(iArr, ac.a, ac.b);
+                            for (int i2 = 0; i2 < ac.b; i2++) {
                                 int i3 = 0;
                                 while (true) {
                                     int i4 = ac.a;
                                     if (i3 < i4) {
                                         int i5 = a[(i4 * i2) + i3];
-                                        iArr2[(((ac.f26678b - i2) - 1) * ac.a) + i3] = (i5 & (-16711936)) | ((i5 << 16) & 16711680) | ((i5 >> 16) & 255);
+                                        iArr2[(((ac.b - i2) - 1) * ac.a) + i3] = (i5 & (-16711936)) | ((i5 << 16) & 16711680) | ((i5 >> 16) & 255);
                                         i3++;
                                     }
                                 }
                             }
-                            bitmap = Bitmap.createBitmap(iArr2, ac.a, ac.f26678b, Bitmap.Config.ARGB_8888);
+                            bitmap = Bitmap.createBitmap(iArr2, ac.a, ac.b, Bitmap.Config.ARGB_8888);
                         }
                         if (lVar != null) {
                             lVar.a(bitmap);
@@ -146,33 +146,33 @@ public class ad extends Handler {
                         eVar20 = this.a.i;
                         eVar20.L();
                     } else if (i6 == 1) {
-                        mVar2 = this.a.f26684h;
+                        mVar2 = this.a.h;
                     } else if (i6 == 0) {
-                        mVar = this.a.f26684h;
+                        mVar = this.a.h;
                     } else if (i6 == 2) {
                         eVar18 = this.a.i;
-                        if (eVar18.f26705h == null) {
+                        if (eVar18.h == null) {
                             return;
                         }
                         eVar19 = this.a.i;
-                        for (l lVar2 : eVar19.f26705h) {
+                        for (l lVar2 : eVar19.h) {
                             if (lVar2 != null) {
                                 lVar2.c();
                             }
                         }
                     }
                     eVar21 = this.a.i;
-                    if (!eVar21.k && ac.f26678b > 0 && ac.a > 0) {
+                    if (!eVar21.k && ac.b > 0 && ac.a > 0) {
                         eVar28 = this.a.i;
                         if (eVar28.b(0, 0) != null) {
                             eVar29 = this.a.i;
                             eVar29.k = true;
                             eVar30 = this.a.i;
-                            if (eVar30.f26705h == null) {
+                            if (eVar30.h == null) {
                                 return;
                             }
                             eVar31 = this.a.i;
-                            for (l lVar3 : eVar31.f26705h) {
+                            for (l lVar3 : eVar31.h) {
                                 if (lVar3 != null) {
                                     lVar3.b();
                                 }
@@ -180,11 +180,11 @@ public class ad extends Handler {
                         }
                     }
                     eVar22 = this.a.i;
-                    if (eVar22.f26705h == null) {
+                    if (eVar22.h == null) {
                         return;
                     }
                     eVar23 = this.a.i;
-                    for (l lVar4 : eVar23.f26705h) {
+                    for (l lVar4 : eVar23.h) {
                         if (lVar4 != null) {
                             lVar4.a();
                         }
@@ -192,11 +192,11 @@ public class ad extends Handler {
                     eVar24 = this.a.i;
                     if (eVar24.q()) {
                         eVar25 = this.a.i;
-                        if (eVar25.f26705h == null) {
+                        if (eVar25.h == null) {
                             return;
                         }
                         eVar26 = this.a.i;
-                        for (l lVar5 : eVar26.f26705h) {
+                        for (l lVar5 : eVar26.h) {
                             if (lVar5 != null) {
                                 eVar27 = this.a.i;
                                 if (eVar27.E().a >= 18.0f) {
@@ -220,11 +220,11 @@ public class ad extends Handler {
                         }
                     }
                     eVar11 = this.a.i;
-                    if (eVar11.f26705h == null) {
+                    if (eVar11.h == null) {
                         return;
                     }
                     eVar12 = this.a.i;
-                    for (l lVar6 : eVar12.f26705h) {
+                    for (l lVar6 : eVar12.h) {
                         if (lVar6 != null) {
                             eVar13 = this.a.i;
                             lVar6.b(eVar13.E());
@@ -241,22 +241,22 @@ public class ad extends Handler {
                     }
                 } else if (i == 999) {
                     eVar7 = this.a.i;
-                    if (eVar7.f26705h == null) {
+                    if (eVar7.h == null) {
                         return;
                     }
                     eVar8 = this.a.i;
-                    for (l lVar7 : eVar8.f26705h) {
+                    for (l lVar7 : eVar8.h) {
                         if (lVar7 != null) {
                             lVar7.e();
                         }
                     }
                 } else if (i == 50) {
                     eVar4 = this.a.i;
-                    if (eVar4.f26705h == null) {
+                    if (eVar4.h == null) {
                         return;
                     }
                     eVar5 = this.a.i;
-                    for (l lVar8 : eVar5.f26705h) {
+                    for (l lVar8 : eVar5.h) {
                         if (lVar8 != null) {
                             int i7 = message.arg1;
                             if (i7 != 0) {

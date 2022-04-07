@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class VisualRandomAccessEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "rap ";
@@ -85,9 +85,9 @@ public class VisualRandomAccessEntry extends GroupEntry {
     public void parse(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, byteBuffer) == null) {
-            byte b2 = byteBuffer.get();
-            this.numLeadingSamplesKnown = (b2 & 128) == 128;
-            this.numLeadingSamples = (short) (b2 & ByteCompanionObject.MAX_VALUE);
+            byte b = byteBuffer.get();
+            this.numLeadingSamplesKnown = (b & 128) == 128;
+            this.numLeadingSamples = (short) (b & ByteCompanionObject.MAX_VALUE);
         }
     }
 

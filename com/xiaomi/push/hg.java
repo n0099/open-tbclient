@@ -8,16 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class hg {
     public static /* synthetic */ Interceptable $ic;
     public static final hg a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hg[] f454a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final hg f44329b;
+    public static final hg b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -38,7 +36,7 @@ public final class hg {
         }
         a = new hg("START", 0, 0);
         hg hgVar = new hg("BIND", 1, 1);
-        f44329b = hgVar;
+        b = hgVar;
         f454a = new hg[]{a, hgVar};
     }
 

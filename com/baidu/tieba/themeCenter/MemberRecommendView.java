@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.d.a.j;
-import c.a.p0.f4.h.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -25,31 +23,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.f9;
+import com.repackage.fr8;
+/* loaded from: classes4.dex */
 public class MemberRecommendView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public View b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public fr8 f;
+    public int g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public View f36282b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f36283c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f36284d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f36285e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public e f36286f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f36287g;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,13 +62,13 @@ public class MemberRecommendView extends FrameLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             String str;
             TbPageContext tbPageContext;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 int i = 9;
-                switch (this.a.f36287g) {
+                switch (this.a.g) {
                     case 1:
                         TiebaStatic.log("c10261");
                         i = 8;
@@ -90,7 +78,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 3:
                     case 9:
                         TiebaStatic.log("c10266");
-                        if (this.a.f36287g == 9) {
+                        if (this.a.g == 9) {
                             str = MemberPayStatistic.REFER_PAGE_PERSONALITY_CARDS;
                             break;
                         }
@@ -100,7 +88,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 5:
                         TiebaStatic.log("c10278");
                         i = 12;
-                        if (this.a.f36287g != 4) {
+                        if (this.a.g != 4) {
                             str = MemberPayStatistic.REFER_PAGE_ALL_BACKGROUND;
                             break;
                         } else {
@@ -111,7 +99,7 @@ public class MemberRecommendView extends FrameLayout {
                     case 7:
                         TiebaStatic.log("c10762");
                         i = 19;
-                        if (this.a.f36287g != 7) {
+                        if (this.a.g != 7) {
                             str = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
                             break;
                         } else {
@@ -128,7 +116,7 @@ public class MemberRecommendView extends FrameLayout {
                         str = "";
                         break;
                 }
-                if (this.a.f36286f == null || (tbPageContext = (TbPageContext) j.a(this.a.a)) == null) {
+                if (this.a.f == null || (tbPageContext = (TbPageContext) f9.a(this.a.a)) == null) {
                     return;
                 }
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(tbPageContext.getPageActivity(), TbadkCoreApplication.getCurrentMemberType(), "", i);
@@ -163,40 +151,40 @@ public class MemberRecommendView extends FrameLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundColor(this.f36282b, R.color.CAM_X0207);
-            SkinManager.setViewTextColor(this.f36284d, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
         }
     }
 
-    public void e(e eVar) {
+    public void e(fr8 fr8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar) == null) || eVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fr8Var) == null) || fr8Var == null) {
             return;
         }
-        this.f36286f = eVar;
-        this.f36283c.J(eVar.b(), 10, false);
-        this.f36284d.setText(this.f36286f.c());
-        if (StringUtils.isNull(this.f36286f.a())) {
-            this.f36285e.setVisibility(8);
+        this.f = fr8Var;
+        this.c.K(fr8Var.b(), 10, false);
+        this.d.setText(this.f.c());
+        if (StringUtils.isNull(this.f.a())) {
+            this.e.setVisibility(8);
             return;
         }
-        this.f36285e.setVisibility(0);
-        this.f36285e.setText(this.f36286f.a());
+        this.e.setVisibility(0);
+        this.e.setText(this.f.a());
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0541, this);
-            this.f36282b = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923f6);
-            this.f36283c = tbImageView;
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d053c, this);
+            this.b = inflate;
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d1);
+            this.c = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_vip_orange);
-            this.f36283c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f36283c.setAutoChangeStyle(true);
-            this.f36284d = (TextView) this.f36282b.findViewById(R.id.obfuscated_res_0x7f09205f);
-            TextView textView = (TextView) this.f36282b.findViewById(R.id.obfuscated_res_0x7f090ffd);
-            this.f36285e = textView;
+            this.c.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            this.c.setAutoChangeStyle(true);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092044);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090ff6);
+            this.e = textView;
             textView.setOnClickListener(new a(this));
         }
     }
@@ -204,19 +192,19 @@ public class MemberRecommendView extends FrameLayout {
     public View getButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36285e : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (View) invokeV.objValue;
     }
 
     public int getFromType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36287g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.intValue;
     }
 
     public void setFromType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f36287g = i;
+            this.g = i;
         }
     }
 

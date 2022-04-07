@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class GenericBucketRequest extends AbstractBceRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_BUCKET_NAME_LENGTH = 63;
@@ -29,10 +29,10 @@ public abstract class GenericBucketRequest extends AbstractBceRequest {
         }
     }
 
-    public static boolean isLowercaseOrDigit(char c2) {
+    public static boolean isLowercaseOrDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2)})) == null) ? Character.isDigit(c2) || (c2 >= 'a' && c2 <= 'z') : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) ? Character.isDigit(c) || (c >= 'a' && c <= 'z') : invokeCommon.booleanValue;
     }
 
     public String getBucketName() {

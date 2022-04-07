@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.o0.c1.s;
-import c.a.p0.u1.t.d;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,40 +18,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ic5;
+import com.repackage.z77;
 import tbclient.GetForumDetail.ManagerElectionTab;
 import tbclient.ManagerApplyInfo;
 import tbclient.PriManagerApplyInfo;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ItemMsgManage extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SettingTextSwitchView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f33830b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f33831c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public RelativeLayout f33832d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f33833e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f33834f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f33835g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f33836h;
+    public RelativeLayout b;
+    public RelativeLayout c;
+    public RelativeLayout d;
+    public RelativeLayout e;
+    public TextView f;
+    public RelativeLayout g;
+    public RelativeLayout h;
     public TextView i;
 
-    /* loaded from: classes5.dex */
-    public class a implements s<Boolean> {
+    /* loaded from: classes3.dex */
+    public class a implements ic5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ItemMsgManage a;
@@ -77,7 +63,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.s
+        @Override // com.repackage.ic5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -117,16 +103,16 @@ public class ItemMsgManage extends LinearLayout {
         int intValue = recommendForumInfo.forum_type.intValue();
         if (intValue == 0) {
             this.a.setVisibility(8);
-            this.f33830b.setVisibility(8);
-            this.f33831c.setVisibility(8);
+            this.b.setVisibility(8);
+            this.c.setVisibility(8);
         } else if (intValue == 1) {
             setVisibility(0);
             this.a.setVisibility(0);
-            this.f33830b.setVisibility(0);
-            this.f33831c.setVisibility(0);
+            this.b.setVisibility(0);
+            this.c.setVisibility(0);
         } else if (intValue == 2) {
-            this.f33831c.setVisibility(8);
-            this.f33830b.setVisibility(0);
+            this.c.setVisibility(8);
+            this.b.setVisibility(0);
             this.a.setVisibility(0);
             setVisibility(0);
         }
@@ -136,18 +122,18 @@ public class ItemMsgManage extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b2, (ViewGroup) this, true);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09031e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b3, (ViewGroup) this, true);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f090328);
             this.a = settingTextSwitchView;
             settingTextSwitchView.setTextLeftMargin(R.dimen.obfuscated_res_0x7f0701d5);
-            this.f33830b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09030f);
-            this.f33831c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090314);
-            this.f33832d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090317);
-            this.f33833e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090316);
-            this.f33834f = (TextView) findViewById(R.id.obfuscated_res_0x7f090318);
-            this.f33835g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090311);
-            this.f33836h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090319);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09031a);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090319);
+            this.c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09031e);
+            this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090321);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090320);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090322);
+            this.g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09031b);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090323);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090324);
             setVisibility(8);
         }
     }
@@ -169,59 +155,59 @@ public class ItemMsgManage extends LinearLayout {
             if (!TbadkCoreApplication.isLogin()) {
                 setVisibility(8);
             } else {
-                this.f33835g.setVisibility(z2 ? 0 : 8);
+                this.g.setVisibility(z2 ? 0 : 8);
                 if (recommendForumInfo.is_like.intValue() == 0) {
                     this.a.setVisibility(8);
-                    this.f33830b.setVisibility(8);
-                    this.f33831c.setVisibility(8);
-                    this.f33835g.setVisibility(8);
+                    this.b.setVisibility(8);
+                    this.c.setVisibility(8);
+                    this.g.setVisibility(8);
                 }
-                this.f33833e.setVisibility(z ? 0 : 8);
-                findViewById(R.id.obfuscated_res_0x7f090315).setVisibility(z ? 0 : 8);
+                this.e.setVisibility(z ? 0 : 8);
+                findViewById(R.id.obfuscated_res_0x7f09031f).setVisibility(z ? 0 : 8);
                 if (managerElectionTab != null) {
                     if (managerElectionTab.is_new_strategy.intValue() == 1) {
-                        this.f33836h.setVisibility(0);
+                        this.h.setVisibility(0);
                         this.i.setText(managerElectionTab.new_strategy_text);
                     } else {
-                        this.f33836h.setVisibility(8);
+                        this.h.setVisibility(8);
                     }
                 }
                 setVisibility(0);
             }
             if (!z3) {
-                this.f33834f.setVisibility(8);
+                this.f.setVisibility(8);
             } else if (priManagerApplyInfo != null) {
                 int intValue = priManagerApplyInfo.assist_apply_status.intValue();
                 int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
-                this.f33834f.setVisibility(0);
+                this.f.setVisibility(0);
                 if (intValue == -1) {
-                    String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f064e), StringHelper.numberUniformFormat(intValue2));
+                    String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f0655), StringHelper.numberUniformFormat(intValue2));
                     if (intValue2 > 0) {
-                        this.f33834f.setText(format);
+                        this.f.setText(format);
                     } else {
-                        this.f33834f.setVisibility(8);
+                        this.f.setVisibility(8);
                     }
                 } else if (intValue == 1) {
-                    this.f33834f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f064f));
+                    this.f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0656));
                 } else if (intValue == 2) {
-                    this.f33834f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f064d));
+                    this.f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0654));
                 } else {
-                    this.f33834f.setVisibility(8);
+                    this.f.setVisibility(8);
                 }
             }
-            d.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
+            z77.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
         }
     }
 
     public void setMsgOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f33830b.setOnClickListener(onClickListener);
-            this.f33831c.setOnClickListener(onClickListener);
-            this.f33832d.setOnClickListener(onClickListener);
-            this.f33833e.setOnClickListener(onClickListener);
-            this.f33835g.setOnClickListener(onClickListener);
-            this.f33836h.setOnClickListener(onClickListener);
+            this.b.setOnClickListener(onClickListener);
+            this.c.setOnClickListener(onClickListener);
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
+            this.g.setOnClickListener(onClickListener);
+            this.h.setOnClickListener(onClickListener);
         }
     }
 
@@ -231,7 +217,7 @@ public class ItemMsgManage extends LinearLayout {
             if (z) {
                 this.a.getSwitchView().l();
             } else {
-                this.a.getSwitchView().h();
+                this.a.getSwitchView().i();
             }
         }
     }

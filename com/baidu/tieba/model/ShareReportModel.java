@@ -1,8 +1,5 @@
 package com.baidu.tieba.model;
 
-import c.a.d.a.f;
-import c.a.d.f.m.b;
-import c.a.p0.a4.g0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -16,7 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+import com.repackage.dk8;
+import com.repackage.mg;
+/* loaded from: classes3.dex */
 public class ShareReportModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class ShareReportModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,8 +65,8 @@ public class ShareReportModel extends BdBaseModel {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.h(309480, ShareReportSocketResponseMessage.class, false, false);
-            a.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+            dk8.h(309480, ShareReportSocketResponseMessage.class, false, false);
+            dk8.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -74,8 +74,8 @@ public class ShareReportModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048579, this, str, str2, i) == null) {
             ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();
-            shareReportNetMessage.setFid(b.g(str, 0L));
-            shareReportNetMessage.setTid(b.g(str2, 0L));
+            shareReportNetMessage.setFid(mg.g(str, 0L));
+            shareReportNetMessage.setTid(mg.g(str2, 0L));
             shareReportNetMessage.setFrom(i);
             sendMessage(shareReportNetMessage);
         }

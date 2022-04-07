@@ -2,7 +2,6 @@ package com.baidu.nadcore.requester;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.a0.s.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,42 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lo0;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RequestParameters {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int f27628b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f27629c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final String f27630d;
+    public final int b;
+    public final String c;
+    public final String d;
     @Nullable
-
-    /* renamed from: e  reason: collision with root package name */
-    public final s f27631e;
+    public final lo0 e;
     @NonNull
-
-    /* renamed from: f  reason: collision with root package name */
-    public final RefreshType f27632f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final String f27633g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final String f27634h;
+    public final RefreshType f;
+    public final String g;
+    public final String h;
     public final String i;
     public final SlotType j;
     public final Map<String, String> k;
     public final boolean l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class RefreshType {
         public static final /* synthetic */ RefreshType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,7 +98,7 @@ public class RequestParameters {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class SlotType {
         public static final /* synthetic */ SlotType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -179,38 +165,24 @@ public class RequestParameters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f27635b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f27636c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f27637d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public s f27638e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public RefreshType f27639f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f27640g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public SlotType f27641h;
+        public int b;
+        public String c;
+        public String d;
+        public lo0 e;
+        public RefreshType f;
+        public String g;
+        public SlotType h;
         public String i;
         public String j;
         public Map<String, String> k;
@@ -229,9 +201,9 @@ public class RequestParameters {
                     return;
                 }
             }
-            this.f27635b = 1;
-            this.f27639f = RefreshType.NONE;
-            this.f27641h = SlotType.DEFAULT;
+            this.b = 1;
+            this.f = RefreshType.NONE;
+            this.h = SlotType.DEFAULT;
             this.l = false;
         }
 
@@ -245,7 +217,7 @@ public class RequestParameters {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.f27635b = (i <= 0 || i >= 10) ? 2 : 2;
+                this.b = (i <= 0 || i >= 10) ? 2 : 2;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -282,15 +254,15 @@ public class RequestParameters {
             }
         }
         this.a = bVar.a;
-        this.f27628b = bVar.f27635b;
-        this.f27629c = bVar.f27637d;
-        this.f27630d = bVar.f27636c;
-        this.f27631e = bVar.f27638e;
-        this.f27632f = bVar.f27639f;
-        this.f27633g = bVar.f27640g;
-        this.f27634h = bVar.i;
+        this.b = bVar.b;
+        this.c = bVar.d;
+        this.d = bVar.c;
+        this.e = bVar.e;
+        this.f = bVar.f;
+        this.g = bVar.g;
+        this.h = bVar.i;
         this.i = bVar.j;
-        this.j = bVar.f27641h;
+        this.j = bVar.h;
         this.k = bVar.k;
         this.l = bVar.l;
     }

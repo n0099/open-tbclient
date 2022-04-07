@@ -1,6 +1,5 @@
 package com.baidu.tieba.barselect.model;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -9,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.Search.DataReq;
 import tbclient.Search.SearchReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CandidateSearchReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class CandidateSearchReqMsg extends NetMessage {
             builder.apply_id = Integer.valueOf(this.applyId);
             builder.fid = Long.valueOf(this.fid);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                b0.a(builder, true);
+                rc5.a(builder, true);
             }
             SearchReqIdl.Builder builder2 = new SearchReqIdl.Builder();
             builder2.data = builder.build(false);

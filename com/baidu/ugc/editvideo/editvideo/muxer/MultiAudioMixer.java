@@ -1,31 +1,31 @@
 package com.baidu.ugc.editvideo.editvideo.muxer;
 
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tb9;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class MultiAudioMixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OnAudioMixListener mOnAudioMixListener;
 
     /* renamed from: com.baidu.ugc.editvideo.editvideo.muxer.MultiAudioMixer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AudioMixException extends IOException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -1344782236320621800L;
@@ -52,7 +52,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AverageAudioMixer extends MultiAudioMixer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public abstract class MultiAudioMixer {
                 }
                 for (int i = 0; i < bArr.length; i++) {
                     if (bArr[i].length != bArr2.length) {
-                        c.d("column of the road of audio + " + i + " is diffrent.");
+                        tb9.d("column of the road of audio + " + i + " is diffrent.");
                         return null;
                     }
                 }
@@ -125,7 +125,7 @@ public abstract class MultiAudioMixer {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnAudioMixListener {
         void onMixComplete();
 
@@ -177,15 +177,15 @@ public abstract class MultiAudioMixer {
                                         fileInputStream.close();
                                     }
                                     i++;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     throw th;
                                 }
                             }
                             throw th;
                         }
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                         if (this.mOnAudioMixListener != null) {
                             this.mOnAudioMixListener.onMixError(1);
                         }
@@ -198,8 +198,8 @@ public abstract class MultiAudioMixer {
                         }
                         return;
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                } catch (Exception e3) {
+                    e3.printStackTrace();
                     return;
                 }
             }

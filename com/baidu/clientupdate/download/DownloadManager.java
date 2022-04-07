@@ -54,7 +54,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DownloadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_DOWNLOAD_MERGE_STATUS = "com.baidu.clientupdate.download.STATUS_MERGE";
@@ -144,9 +144,9 @@ public final class DownloadManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2, str3, Integer.valueOf(i3), downDetail}) == null) {
                     d dVar = this.this$0.mLogUtils;
-                    String c2 = this.this$0.mBaiduParamManager.c();
-                    String b2 = this.this$0.mBaiduParamManager.b();
-                    dVar.a(c2, "0", b2, "a7", "1", (System.currentTimeMillis() / 1000) + "", "", "DownloadFail", "");
+                    String c = this.this$0.mBaiduParamManager.c();
+                    String b = this.this$0.mBaiduParamManager.b();
+                    dVar.a(c, "0", b, "a7", "1", (System.currentTimeMillis() / 1000) + "", "", "DownloadFail", "");
                     LogUtil.logE("DownloadManager", "--- onDownloadFail : " + j);
                     Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (download != null) {
@@ -173,9 +173,9 @@ public final class DownloadManager {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str2}) == null) {
                     d dVar = this.this$0.mLogUtils;
-                    String c2 = this.this$0.mBaiduParamManager.c();
-                    String b2 = this.this$0.mBaiduParamManager.b();
-                    dVar.a(c2, "0", b2, "a7", "-1", (System.currentTimeMillis() / 1000) + "", "", "DownloadPause", "");
+                    String c = this.this$0.mBaiduParamManager.c();
+                    String b = this.this$0.mBaiduParamManager.b();
+                    dVar.a(c, "0", b, "a7", "-1", (System.currentTimeMillis() / 1000) + "", "", "DownloadPause", "");
                     LogUtil.logE("DownloadManager", "--- onDownloadPause : " + j);
                     Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(j));
                     if (download != null) {
@@ -198,8 +198,8 @@ public final class DownloadManager {
                 DownloadManager downloadManager;
                 DownloadState downloadState;
                 d dVar;
-                String c2;
-                String b2;
+                String c;
+                String b;
                 String str6;
                 String str7;
                 String str8;
@@ -213,8 +213,8 @@ public final class DownloadManager {
                     if (download != null) {
                         if (download.mMimeType.equals(SchemeDescPatchListener.PATCH)) {
                             dVar = this.this$0.mLogUtils;
-                            c2 = this.this$0.mBaiduParamManager.c();
-                            b2 = this.this$0.mBaiduParamManager.b();
+                            c = this.this$0.mBaiduParamManager.c();
+                            b = this.this$0.mBaiduParamManager.b();
                             str6 = (System.currentTimeMillis() / 1000) + "";
                             str7 = "0";
                             str8 = "a6";
@@ -223,8 +223,8 @@ public final class DownloadManager {
                             str11 = "PatchDownload";
                         } else {
                             dVar = this.this$0.mLogUtils;
-                            c2 = this.this$0.mBaiduParamManager.c();
-                            b2 = this.this$0.mBaiduParamManager.b();
+                            c = this.this$0.mBaiduParamManager.c();
+                            b = this.this$0.mBaiduParamManager.b();
                             str6 = (System.currentTimeMillis() / 1000) + "";
                             str7 = "0";
                             str8 = "a6";
@@ -232,7 +232,7 @@ public final class DownloadManager {
                             str10 = "";
                             str11 = "normalDownload";
                         }
-                        dVar.a(c2, str7, b2, str8, str9, str6, str10, str11, "");
+                        dVar.a(c, str7, b, str8, str9, str6, str10, str11, "");
                         DownloadManager.processAPKInDataLocation(this.this$0.mContext, str3);
                         File file = new File(str3);
                         String parent = file.getParent();
@@ -295,16 +295,16 @@ public final class DownloadManager {
                     }
                     download.a = currentTimeMillis;
                     int progress = download.getProgress();
-                    if (progress != download.f25263c) {
+                    if (progress != download.c) {
                         this.this$0.notifyProgressChange(j, progress);
-                        download.f25263c = progress;
+                        download.c = progress;
                     }
-                    if (currentTimeMillis - download.f25262b > 2000) {
+                    if (currentTimeMillis - download.b > 2000) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         this.this$0.mDbHelper.b(download);
                         long currentTimeMillis3 = System.currentTimeMillis();
                         LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (currentTimeMillis3 - currentTimeMillis2) + "ms");
-                        download.f25262b = currentTimeMillis;
+                        download.b = currentTimeMillis;
                     }
                 }
             }
@@ -375,8 +375,8 @@ public final class DownloadManager {
         hashMap.put(Config.LAUNCH_REFERER, "https://update.baidu.com");
         try {
             queryAll();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -388,8 +388,8 @@ public final class DownloadManager {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() < 2) {
                     sb.append(0);
                 }
@@ -408,12 +408,12 @@ public final class DownloadManager {
             return;
         }
         if (downloadState == DownloadState.CANCEL) {
-            if (download.f25264d) {
+            if (download.d) {
                 try {
                     new File(download.mSavedPath, Uri.encode(download.mFileName)).delete();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     LogUtil.logE("DownloadManager", "delete download file error!!");
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             this.mDownloadMap.remove(Long.valueOf(j));
@@ -563,8 +563,8 @@ public final class DownloadManager {
                         try {
                             try {
                                 httpURLConnection = (HttpURLConnection) new URL(this.val$mUrl).openConnection();
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                             }
                         } catch (Throwable th) {
                             th = th;
@@ -606,8 +606,8 @@ public final class DownloadManager {
                             if (httpURLConnection != null) {
                                 httpURLConnection.disconnect();
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             httpURLConnection2 = httpURLConnection;
                             e.printStackTrace();
                             this.this$0.sendBroadcastRSAFail(e.toString());
@@ -656,8 +656,8 @@ public final class DownloadManager {
                 try {
                     new FileInputStream(file).read(bArr);
                     return "1F8B0800".equalsIgnoreCase(bytesToHexString(bArr));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -790,14 +790,14 @@ public final class DownloadManager {
                             this.this$0.mContext.sendBroadcast(intent2);
                             try {
                                 gDiffPatcher.patch(file2, file, file3);
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     jSONObject.put("msgId", "2");
-                                    jSONObject.put("messageDetail", e2.getMessage());
-                                } catch (JSONException e3) {
-                                    e3.printStackTrace();
+                                    jSONObject.put("messageDetail", e.getMessage());
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
                                 }
                                 ClientUpdater.getInstance(this.this$0.mContext).throwError(jSONObject);
                             }
@@ -859,10 +859,10 @@ public final class DownloadManager {
         if ((interceptable == null || interceptable.invokeLL(65559, null, context, str) == null) && str.startsWith(context.getFilesDir().getAbsolutePath())) {
             try {
                 context.openFileOutput(new File(str).getName(), 0).close();
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e2) {
                 e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
             }
         }
     }
@@ -926,9 +926,9 @@ public final class DownloadManager {
             intent.putExtra("download", this.download);
             this.mContext.sendBroadcast(intent);
             d dVar = this.mLogUtils;
-            String c2 = this.mBaiduParamManager.c();
-            String b2 = this.mBaiduParamManager.b();
-            dVar.a(c2, "0", b2, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, str);
+            String c = this.mBaiduParamManager.c();
+            String b = this.mBaiduParamManager.b();
+            dVar.a(c, "0", b, "a8", "1", (System.currentTimeMillis() / 1000) + "", "", RSAUtil.ALGORITHM_RSA, str);
         }
     }
 
@@ -963,8 +963,8 @@ public final class DownloadManager {
             if (str4 != null) {
                 try {
                     encode = Uri.encode(str4);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 file = (download.mSavedPath != null || download.mFileName == null) ? null : new File(download.mSavedPath, encode);
                 z = false;
@@ -985,8 +985,8 @@ public final class DownloadManager {
                     if (file2.exists()) {
                         try {
                             r7 = download.mMimeType.equals(SchemeDescPatchListener.PATCH);
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             r7 = path;
                         }
                         try {
@@ -1022,8 +1022,8 @@ public final class DownloadManager {
                                 }
                                 file2.delete();
                             }
-                        } catch (IOException e4) {
-                            e = e4;
+                        } catch (IOException e3) {
+                            e = e3;
                             file2.delete();
                             e.printStackTrace();
                             str2 = r7;
@@ -1050,8 +1050,8 @@ public final class DownloadManager {
                     try {
                         jSONObject.put("msgId", "5");
                         jSONObject.put("messageDetail", "not enough free space");
-                    } catch (JSONException e5) {
-                        e5.printStackTrace();
+                    } catch (JSONException e4) {
+                        e4.printStackTrace();
                     }
                     ClientUpdater.getInstance(this.mContext).throwError(jSONObject);
                 } else {
@@ -1115,7 +1115,7 @@ public final class DownloadManager {
                         for (int i = 0; i < this.val$downloadIds.length; i++) {
                             Download download = (Download) this.this$0.mDownloadMap.get(Long.valueOf(this.val$downloadIds[i]));
                             if (download != null) {
-                                download.f25264d = true;
+                                download.d = true;
                                 this.this$0.mTaskManager.stopDownload(download.mUrl, this.val$downloadIds[i], false);
                             }
                         }
@@ -1131,7 +1131,7 @@ public final class DownloadManager {
             for (int i = 0; i < jArr.length; i++) {
                 Download download = (Download) this.mDownloadMap.get(Long.valueOf(jArr[i]));
                 if (download != null) {
-                    download.f25264d = false;
+                    download.d = false;
                     this.mTaskManager.stopDownload(download.mUrl, jArr[i], false);
                 }
             }
@@ -1165,8 +1165,8 @@ public final class DownloadManager {
                 this.apkFile = new File(str);
                 this.privateApkFile = new File(str2);
                 new ProcessBuilder("chmod", "755", str2).start();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (!this.isUseRSA.booleanValue()) {
                 try {
@@ -1176,8 +1176,8 @@ public final class DownloadManager {
                         sendBroadcastRSAFail("");
                     }
                     return;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return;
                 }
             }
@@ -1208,16 +1208,16 @@ public final class DownloadManager {
                     } else {
                         sendBroadcastRSAFail("");
                     }
-                } catch (Exception e4) {
+                } catch (Exception e3) {
                     LogUtil.logE("DownloadManager", "RSA异常，下载公钥重新验证");
                     downloadPublicKey(str3, a2);
-                    LogUtil.logE("DownloadManager", e4.toString());
-                    LogUtil.logE("DownloadManager", e4.getMessage());
-                    e4.printStackTrace();
+                    LogUtil.logE("DownloadManager", e3.toString());
+                    LogUtil.logE("DownloadManager", e3.getMessage());
+                    e3.printStackTrace();
                 }
-            } catch (Exception e5) {
-                e5.printStackTrace();
-                sendBroadcastRSAFail(e5.toString());
+            } catch (Exception e4) {
+                e4.printStackTrace();
+                sendBroadcastRSAFail(e4.toString());
             }
         }
     }

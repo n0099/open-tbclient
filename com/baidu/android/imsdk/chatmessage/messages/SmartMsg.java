@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SmartMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SmartMsg> CREATOR;
@@ -42,7 +42,7 @@ public class SmartMsg extends NormalMsg {
     public String mValuationTxt;
     public String mValuationUrl;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Commodity> CREATOR;
@@ -428,8 +428,8 @@ public class SmartMsg extends NormalMsg {
                 this.mTopicId = jSONObject.optLong("topic_id");
                 this.mTopicName = jSONObject.optString(IntentConfig.TOPIC_NAME);
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e("SmartMsg", "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("SmartMsg", "parseJsonString JSONException", e);
                 return false;
             }
         }

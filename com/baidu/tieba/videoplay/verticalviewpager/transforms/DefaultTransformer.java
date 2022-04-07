@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultTransformer implements ViewPager.PageTransformer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,18 +26,18 @@ public class DefaultTransformer implements ViewPager.PageTransformer {
     }
 
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
-    public void transformPage(View view, float f2) {
+    public void transformPage(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, view, f2) == null) {
-            float f3 = 0.0f;
-            if (0.0f <= f2 && f2 <= 1.0f) {
-                f3 = 1.0f - f2;
-            } else if (-1.0f < f2 && f2 < 0.0f) {
-                f3 = f2 + 1.0f;
+        if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
+            float f2 = 0.0f;
+            if (0.0f <= f && f <= 1.0f) {
+                f2 = 1.0f - f;
+            } else if (-1.0f < f && f < 0.0f) {
+                f2 = f + 1.0f;
             }
-            view.setAlpha(f3);
-            view.setTranslationX(view.getWidth() * (-f2));
-            view.setTranslationY(f2 * view.getHeight());
+            view2.setAlpha(f2);
+            view2.setTranslationX(view2.getWidth() * (-f));
+            view2.setTranslationY(f * view2.getHeight());
         }
     }
 }

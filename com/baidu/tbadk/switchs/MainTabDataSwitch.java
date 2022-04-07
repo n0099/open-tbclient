@@ -1,7 +1,6 @@
 package com.baidu.tbadk.switchs;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
@@ -12,11 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 @ModifyClass
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MainTabDataSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String LAUNCH_UP_MAIN_TAB_DATA_ENABLE = "launch_up_main_tab_data";
+    public static final String LAUNCH_UP_MAIN_TAB_DATA_ENABLE = "launch_up_main_tab_data_23";
     public static final int TYPE_CACHE = 2;
     public static final int TYPE_OFF = 0;
     public static final int TYPE_PREFETCH = 1;
@@ -60,7 +60,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             if (type > 2) {
-                type = b.k().l("key_launch_up_main_tab_data", 1);
+                type = wt4.k().l("key_launch_up_main_tab_data", 1);
             }
             if (UbsABTestHelper.isMainTabDataCache()) {
                 type = 2;
@@ -92,7 +92,7 @@ public class MainTabDataSwitch extends BaseNormalSwitch {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? type == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.xe
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

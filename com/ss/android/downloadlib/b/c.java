@@ -7,21 +7,21 @@ import com.ss.android.socialbase.downloader.a.a;
 /* loaded from: classes7.dex */
 public class c {
     public static void a(final com.ss.android.downloadad.api.a.b bVar, @NonNull final com.ss.android.downloadlib.guide.install.a aVar) {
-        boolean b2 = com.ss.android.socialbase.downloader.a.a.a().b();
-        if (!b2 && Build.VERSION.SDK_INT >= 29) {
+        boolean b = com.ss.android.socialbase.downloader.a.a.a().b();
+        if (!b && Build.VERSION.SDK_INT >= 29) {
             l.b();
         }
-        boolean b3 = com.ss.android.socialbase.downloader.a.a.a().b();
-        if (!b2 && b3 && bVar != null) {
+        boolean b2 = com.ss.android.socialbase.downloader.a.a.a().b();
+        if (!b && b2 && bVar != null) {
             bVar.l(true);
         }
         aVar.a();
-        com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->isAppForegroundSecond:::" + b3);
-        if (b3) {
+        com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->isAppForegroundSecond:::" + b2);
+        if (b2) {
             return;
         }
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2053a() { // from class: com.ss.android.downloadlib.b.c.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0597a() { // from class: com.ss.android.downloadlib.b.c.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
             public void b() {
                 com.ss.android.socialbase.downloader.c.a.b("AppInstallOptimiseHelper", "AppInstallOptimiseHelper-->onAppForeground");
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
@@ -33,7 +33,7 @@ public class c {
                 aVar.a();
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
             public void c() {
             }
         });

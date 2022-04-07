@@ -1,7 +1,7 @@
 package com.airbnb.lottie.utils;
 
 import com.airbnb.lottie.LottieLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Logger {
     public static LottieLogger INSTANCE = new LogcatLogger();
 

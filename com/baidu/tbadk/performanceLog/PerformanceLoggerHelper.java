@@ -1,12 +1,6 @@
 package com.baidu.tbadk.performanceLog;
 
 import android.os.Process;
-import c.a.o0.r.j0.b;
-import c.a.o0.r0.e;
-import c.a.o0.r0.i;
-import c.a.o0.r0.j;
-import c.a.o0.r0.k;
-import c.a.o0.r0.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -19,9 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.m85;
+import com.repackage.mg;
+import com.repackage.mi;
+import com.repackage.q85;
+import com.repackage.r85;
+import com.repackage.s85;
+import com.repackage.t85;
+import com.repackage.wt4;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PerformanceLoggerHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_CLASS_2G = 1;
@@ -68,7 +70,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = b.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = wt4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -154,8 +156,8 @@ public class PerformanceLoggerHelper {
                                     }
                                 }
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             str = process;
                             process = exec;
                             try {
@@ -167,7 +169,7 @@ public class PerformanceLoggerHelper {
                                         str2 = str;
                                         if (str2 != null) {
                                         }
-                                        return c.a.d.f.m.b.e(str2, -1);
+                                        return mg.e(str2, -1);
                                     }
                                 }
                                 if (bufferedReader != null) {
@@ -176,7 +178,7 @@ public class PerformanceLoggerHelper {
                                 str2 = str;
                                 if (str2 != null) {
                                 }
-                                return c.a.d.f.m.b.e(str2, -1);
+                                return mg.e(str2, -1);
                             } catch (Throwable th) {
                                 th = th;
                                 if (process != null) {
@@ -210,8 +212,8 @@ public class PerformanceLoggerHelper {
                     }
                     bufferedReader.close();
                     str2 = process;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     bufferedReader = null;
                     process = exec;
                     str = null;
@@ -219,8 +221,8 @@ public class PerformanceLoggerHelper {
                     th = th3;
                     bufferedReader = null;
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 str = null;
                 bufferedReader = null;
             } catch (Throwable th4) {
@@ -233,7 +235,7 @@ public class PerformanceLoggerHelper {
                     str2 = split2[0];
                 }
             }
-            return c.a.d.f.m.b.e(str2, -1);
+            return mg.e(str2, -1);
         }
         return invokeV.intValue;
     }
@@ -281,8 +283,8 @@ public class PerformanceLoggerHelper {
                                 } else {
                                     break;
                                 }
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 e.printStackTrace();
                                 if (process != null) {
                                     process.destroy();
@@ -292,8 +294,8 @@ public class PerformanceLoggerHelper {
                         if (process != null) {
                             process.destroy();
                         }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         bufferedReader2 = null;
                     } catch (Throwable th2) {
                         th = th2;
@@ -313,8 +315,8 @@ public class PerformanceLoggerHelper {
                     }
                 } catch (Exception unused2) {
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 process = null;
                 bufferedReader2 = null;
             } catch (Throwable th3) {
@@ -339,80 +341,80 @@ public class PerformanceLoggerHelper {
             try {
                 Runtime runtime = Runtime.getRuntime();
                 return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
                 return -1L;
             }
         }
         return invokeV.longValue;
     }
 
-    public j getLoggerWithType(int i) {
+    public r85 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (isSmallFlow()) {
                 switch (i) {
                     case 1000:
-                        l lVar = new l();
-                        lVar.a = "frs";
-                        return lVar;
+                        t85 t85Var = new t85();
+                        t85Var.a = "frs";
+                        return t85Var;
                     case 1001:
-                        l lVar2 = new l();
-                        lVar2.a = "pb";
-                        return lVar2;
+                        t85 t85Var2 = new t85();
+                        t85Var2.a = "pb";
+                        return t85Var2;
                     case 1002:
-                        i iVar = new i();
-                        iVar.a = "im";
-                        return iVar;
+                        q85 q85Var = new q85();
+                        q85Var.a = "im";
+                        return q85Var;
                     case 1003:
                     case 1006:
                     case 1007:
                     default:
                         return null;
                     case 1004:
-                        l lVar3 = new l();
-                        lVar3.a = "photo_live";
-                        return lVar3;
+                        t85 t85Var3 = new t85();
+                        t85Var3.a = "photo_live";
+                        return t85Var3;
                     case 1005:
-                        e eVar = new e();
-                        eVar.a = "home_page";
-                        return eVar;
+                        m85 m85Var = new m85();
+                        m85Var.a = "home_page";
+                        return m85Var;
                     case 1008:
-                        l lVar4 = new l();
-                        lVar4.a = "user_center";
-                        return lVar4;
+                        t85 t85Var4 = new t85();
+                        t85Var4.a = "user_center";
+                        return t85Var4;
                     case 1009:
-                        l lVar5 = new l();
-                        lVar5.a = "sign_all";
-                        return lVar5;
+                        t85 t85Var5 = new t85();
+                        t85Var5.a = "sign_all";
+                        return t85Var5;
                     case 1010:
-                        l lVar6 = new l();
-                        lVar6.a = "person_center";
-                        return lVar6;
+                        t85 t85Var6 = new t85();
+                        t85Var6.a = "person_center";
+                        return t85Var6;
                     case 1011:
-                        l lVar7 = new l();
-                        lVar7.a = "person_center_home";
-                        return lVar7;
+                        t85 t85Var7 = new t85();
+                        t85Var7.a = "person_center_home";
+                        return t85Var7;
                     case 1012:
-                        l lVar8 = new l();
-                        lVar8.a = "person_center_post";
-                        return lVar8;
+                        t85 t85Var8 = new t85();
+                        t85Var8.a = "person_center_post";
+                        return t85Var8;
                     case 1013:
-                        l lVar9 = new l();
-                        lVar9.a = "person_center_dynamic";
-                        return lVar9;
+                        t85 t85Var9 = new t85();
+                        t85Var9.a = "person_center_dynamic";
+                        return t85Var9;
                 }
             }
             return null;
         }
-        return (j) invokeI.objValue;
+        return (r85) invokeI.objValue;
     }
 
     public String getNetType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !c.a.d.f.p.l.z() ? "N" : c.a.d.f.p.l.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : c.a.d.f.p.l.v() ? "4G" : c.a.d.f.p.l.u() ? "3G" : c.a.d.f.p.l.t() ? "2G" : "N" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !mi.z() ? "N" : mi.H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : mi.v() ? "4G" : mi.u() ? "3G" : mi.t() ? "2G" : "N" : (String) invokeV.objValue;
     }
 
     public boolean isSmallFlow() {
@@ -436,17 +438,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    b.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    wt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                b.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                wt4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                k.b().f();
+                s85.b().f();
             }
         }
     }

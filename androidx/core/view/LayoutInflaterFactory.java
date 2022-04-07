@@ -6,5 +6,5 @@ import android.view.View;
 @Deprecated
 /* loaded from: classes.dex */
 public interface LayoutInflaterFactory {
-    View onCreateView(View view, String str, Context context, AttributeSet attributeSet);
+    View onCreateView(View view2, String str, Context context, AttributeSet attributeSet);
 }

@@ -47,11 +47,11 @@ public final class CompositePageTransformer implements ViewPager2.PageTransforme
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.PageTransformer
-    public void transformPage(@NonNull View view, float f2) {
+    public void transformPage(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
             for (ViewPager2.PageTransformer pageTransformer : this.mTransformers) {
-                pageTransformer.transformPage(view, f2);
+                pageTransformer.transformPage(view2, f);
             }
         }
     }

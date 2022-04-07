@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Makeup extends BaseBeautyItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,10 +98,10 @@ public class Makeup extends BaseBeautyItem {
         }
     }
 
-    public void setValue(float f2) {
+    public void setValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.mValue = f2;
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.mValue = f;
         }
     }
 }

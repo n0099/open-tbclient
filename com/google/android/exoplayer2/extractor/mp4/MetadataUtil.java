@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.metadata.id3.Id3Frame;
 import com.google.android.exoplayer2.metadata.id3.TextInformationFrame;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MetadataUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LANGUAGE_UNDEFINED = "und";

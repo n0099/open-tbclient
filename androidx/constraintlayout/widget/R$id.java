@@ -7,34 +7,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$id {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int bottom = 2131297201;
-    public static final int end = 2131298512;
+    public static final int bottom = 2131297211;
+    public static final int end = 2131298519;
 
     /* renamed from: gone */
-    public static final int obfuscated = 2131299542;
+    public static final int obfuscated = 2131299549;
 
     /* renamed from: invisible */
-    public static final int obfuscated = 2131300176;
-    public static final int left = 2131300876;
+    public static final int obfuscated = 2131300170;
+    public static final int left = 2131300865;
 
     /* renamed from: packed */
-    public static final int obfuscated = 2131301954;
+    public static final int obfuscated = 2131301948;
 
     /* renamed from: parent */
-    public static final int obfuscated = 2131301959;
+    public static final int obfuscated = 2131301953;
 
     /* renamed from: percent */
-    public static final int obfuscated = 2131302243;
-    public static final int right = 2131303066;
+    public static final int obfuscated = 2131302240;
+    public static final int right = 2131303049;
 
     /* renamed from: spread */
-    public static final int obfuscated = 2131303778;
-    public static final int spread_inside = 2131303780;
-    public static final int start = 2131303834;
-    public static final int top = 2131304603;
+    public static final int obfuscated = 2131303759;
+    public static final int spread_inside = 2131303761;
+    public static final int start = 2131303815;
+    public static final int top = 2131304576;
 
     /* renamed from: wrap */
-    public static final int obfuscated = 2131305625;
+    public static final int obfuscated = 2131305588;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$id() {

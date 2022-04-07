@@ -17,7 +17,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMManagerImpl {
     public static /* synthetic */ Interceptable $ic;
     public static volatile IMManagerImpl mInstance;
@@ -115,8 +115,8 @@ public class IMManagerImpl {
                     return;
                 }
                 method.invoke(cls, sContext);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(sContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(sContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

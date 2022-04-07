@@ -35,7 +35,7 @@ import java.util.HashSet;
 import java.util.Queue;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlaylist> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ATTR_CLOSED_CAPTIONS_NONE = "CLOSED-CAPTIONS=NONE";
@@ -96,7 +96,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     public static final String TYPE_VIDEO = "VIDEO";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class LineIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +280,7 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
     */
     public static HlsMasterPlaylist parseMasterPlaylist(LineIterator lineIterator, String str) throws IOException {
         InterceptResult invokeLL;
-        char c2;
+        char c;
         int parseInt;
         String str2;
         int i;
@@ -310,26 +310,26 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                     int hashCode = parseStringAttr2.hashCode();
                     if (hashCode == -959297733) {
                         if (parseStringAttr2.equals(TYPE_SUBTITLES)) {
-                            c2 = 1;
-                            if (c2 != 0) {
+                            c = 1;
+                            if (c != 0) {
                             }
                         }
-                        c2 = 65535;
-                        if (c2 != 0) {
+                        c = 65535;
+                        if (c != 0) {
                         }
                     } else if (hashCode != -333210994) {
                         if (hashCode == 62628790 && parseStringAttr2.equals(TYPE_AUDIO)) {
-                            c2 = 0;
-                            if (c2 != 0) {
+                            c = 0;
+                            if (c != 0) {
                                 Format createAudioContainerFormat = Format.createAudioContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, null, null, -1, -1, -1, null, parseSelectionFlags, parseOptionalStringAttr2);
                                 if (parseOptionalStringAttr == null) {
                                     format = createAudioContainerFormat;
                                 } else {
                                     arrayList2.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, createAudioContainerFormat));
                                 }
-                            } else if (c2 == 1) {
+                            } else if (c == 1) {
                                 arrayList3.add(new HlsMasterPlaylist.HlsUrl(parseOptionalStringAttr, Format.createTextContainerFormat(parseStringAttr, MimeTypes.APPLICATION_M3U8, MimeTypes.TEXT_VTT, null, -1, parseSelectionFlags, parseOptionalStringAttr2)));
-                            } else if (c2 == 2) {
+                            } else if (c == 2) {
                                 String parseStringAttr3 = parseStringAttr(next, REGEX_INSTREAM_ID);
                                 if (parseStringAttr3.startsWith("CC")) {
                                     parseInt = Integer.parseInt(parseStringAttr3.substring(2));
@@ -346,17 +346,17 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
                                 arrayList5.add(Format.createTextContainerFormat(parseStringAttr, null, str3, null, -1, parseSelectionFlags, parseOptionalStringAttr2, i4));
                             }
                         }
-                        c2 = 65535;
-                        if (c2 != 0) {
+                        c = 65535;
+                        if (c != 0) {
                         }
                     } else {
                         if (parseStringAttr2.equals(TYPE_CLOSED_CAPTIONS)) {
-                            c2 = 2;
-                            if (c2 != 0) {
+                            c = 2;
+                            if (c != 0) {
                             }
                         }
-                        c2 = 65535;
-                        if (c2 != 0) {
+                        c = 65535;
+                        if (c != 0) {
                         }
                     }
                 } else if (next.startsWith(TAG_STREAM_INF)) {
@@ -573,8 +573,8 @@ public final class HlsPlaylistParser implements ParsingLoadable.Parser<HlsPlayli
             } else if (KEYFORMAT_WIDEVINE_PSSH_JSON.equals(str2)) {
                 try {
                     return new DrmInitData.SchemeData(C.WIDEVINE_UUID, "hls", str.getBytes("UTF-8"));
-                } catch (UnsupportedEncodingException e2) {
-                    throw new ParserException(e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new ParserException(e);
                 }
             } else {
                 return null;

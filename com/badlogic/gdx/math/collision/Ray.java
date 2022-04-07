@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Ray implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -620692054835390878L;
@@ -77,10 +77,10 @@ public class Ray implements Serializable {
         return invokeL.booleanValue;
     }
 
-    public Vector3 getEndPoint(Vector3 vector3, float f2) {
+    public Vector3 getEndPoint(Vector3 vector3, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, vector3, f2)) == null) ? vector3.set(this.direction).m21scl(f2).add(this.origin) : (Vector3) invokeLF.objValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, vector3, f)) == null) ? vector3.set(this.direction).m21scl(f).add(this.origin) : (Vector3) invokeLF.objValue;
     }
 
     public int hashCode() {
@@ -122,12 +122,12 @@ public class Ray implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public Ray set(float f2, float f3, float f4, float f5, float f6, float f7) {
+    public Ray set(float f, float f2, float f3, float f4, float f5, float f6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) {
-            this.origin.set(f2, f3, f4);
-            this.direction.set(f5, f6, f7).m20nor();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            this.origin.set(f, f2, f3);
+            this.direction.set(f4, f5, f6).m20nor();
             return this;
         }
         return (Ray) invokeCommon.objValue;

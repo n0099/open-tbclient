@@ -22,13 +22,13 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public class an {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class an {
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(inputStream, null, options);
             if (options.outWidth == -1 || options.outHeight == -1) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("decode dimension failed for bitmap.");
+                com.xiaomi.channel.commonutils.logger.b.m108a("decode dimension failed for bitmap.");
                 return 1;
             }
             int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
@@ -139,8 +139,8 @@ public class an {
                 th = th;
                 r0 = context;
             }
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e) {
+            e = e;
             inputStream = null;
             r1 = 0;
         } catch (Throwable th2) {
@@ -157,15 +157,15 @@ public class an {
                 com.xiaomi.push.y.a(inputStream);
                 com.xiaomi.push.y.a((Closeable) r1);
                 return decodeStream;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 com.xiaomi.push.y.a(inputStream);
                 com.xiaomi.push.y.a((Closeable) r1);
                 return null;
             }
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             inputStream = null;
         } catch (Throwable th3) {
             th = th3;
@@ -211,8 +211,8 @@ public class an {
         } catch (SocketTimeoutException unused) {
             httpURLConnection = null;
             inputStream = null;
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e) {
+            e = e;
             httpURLConnection = null;
             inputStream = null;
         } catch (Throwable th2) {
@@ -226,7 +226,7 @@ public class an {
             httpURLConnection.connect();
             int contentLength = httpURLConnection.getContentLength();
             if (z && contentLength > 102400) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                com.xiaomi.channel.commonutils.logger.b.m108a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -235,7 +235,7 @@ public class an {
             }
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode != 200) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("Invalid Http Response Code " + responseCode + " received");
+                com.xiaomi.channel.commonutils.logger.b.m108a("Invalid Http Response Code " + responseCode + " received");
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -256,7 +256,7 @@ public class an {
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
                 if (i <= 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m112a("length 102400 exhausted.");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("length 102400 exhausted.");
                     a aVar = new a(null, 102400);
                     com.xiaomi.push.y.a(inputStream);
                     if (httpURLConnection != null) {
@@ -274,15 +274,15 @@ public class an {
             } catch (SocketTimeoutException unused2) {
                 com.xiaomi.channel.commonutils.logger.b.d("Connect timeout to " + str);
                 com.xiaomi.push.y.a(inputStream);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 com.xiaomi.push.y.a(inputStream);
             }
         } catch (SocketTimeoutException unused3) {
             inputStream = null;
-        } catch (IOException e4) {
-            e = e4;
+        } catch (IOException e3) {
+            e = e3;
             inputStream = null;
         } catch (Throwable th3) {
             th = th3;
@@ -311,8 +311,8 @@ public class an {
         try {
             try {
                 a2 = a(str, z);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             if (a2 == null) {
                 com.xiaomi.push.y.a((Closeable) null);
@@ -329,8 +329,8 @@ public class an {
                         options.inSampleSize = a3;
                         bVar.f873a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         byteArrayInputStream = byteArrayInputStream2;
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         byteArrayInputStream = byteArrayInputStream2;
                         com.xiaomi.channel.commonutils.logger.b.a(e);
                         com.xiaomi.push.y.a(byteArrayInputStream);
@@ -369,8 +369,8 @@ public class an {
                                 listFiles[i].delete();
                             }
                         }
-                    } catch (Exception e2) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    } catch (Exception e) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                     a = 0L;
                 }
@@ -389,7 +389,7 @@ public class an {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, bArr, str) == null) {
             if (bArr == null) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("cannot save small icon cause bitmap is null");
+                com.xiaomi.channel.commonutils.logger.b.m108a("cannot save small icon cause bitmap is null");
                 return;
             }
             a(context);
@@ -407,8 +407,8 @@ public class an {
                 try {
                     try {
                         bufferedOutputStream = new BufferedOutputStream(fileOutputStream);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -417,8 +417,8 @@ public class an {
                     bufferedOutputStream.write(bArr);
                     bufferedOutputStream.flush();
                     com.xiaomi.push.y.a(bufferedOutputStream);
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     bufferedOutputStream2 = bufferedOutputStream;
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                     com.xiaomi.push.y.a(bufferedOutputStream2);
@@ -432,8 +432,8 @@ public class an {
                     com.xiaomi.push.y.a(fileOutputStream);
                     throw th;
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileOutputStream = null;
             } catch (Throwable th3) {
                 th = th3;
@@ -461,8 +461,8 @@ public class an {
                 try {
                     try {
                         fileInputStream = new FileInputStream(file);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         bitmap = null;
                     }
                 } catch (Throwable th2) {
@@ -475,8 +475,8 @@ public class an {
                     file.setLastModified(System.currentTimeMillis());
                     com.xiaomi.push.y.a(fileInputStream);
                     return bitmap2;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     Bitmap bitmap3 = bitmap2;
                     fileInputStream2 = fileInputStream;
                     bitmap = bitmap3;

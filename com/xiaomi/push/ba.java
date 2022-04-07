@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ba implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class ba implements Runnable {
         Object obj3;
         Object obj4;
         Context context;
-        String e2;
+        String e;
         Object obj5;
         Object obj6;
         Interceptable interceptable = $ic;
@@ -51,12 +51,12 @@ public class ba implements Runnable {
             try {
                 context = this.f128a.a.f121a;
                 String packageName = context.getPackageName();
-                e2 = this.f128a.a.e();
+                e = this.f128a.a.e();
                 ay.a aVar = new ay.a(this.f128a.a, null);
-                aVar.f125a = ay.c.a(this.a, packageName, e2, "GUID");
-                aVar.f44104b = ay.c.a(this.a, packageName, e2, "OUID");
-                aVar.f44105c = ay.c.a(this.a, packageName, e2, "DUID");
-                aVar.f44106d = ay.c.a(this.a, packageName, e2, "AUID");
+                aVar.f125a = ay.c.a(this.a, packageName, e, "GUID");
+                aVar.b = ay.c.a(this.a, packageName, e, "OUID");
+                aVar.c = ay.c.a(this.a, packageName, e, "DUID");
+                aVar.d = ay.c.a(this.a, packageName, e, "AUID");
                 this.f128a.a.f123a = aVar;
                 this.f128a.a.b();
                 this.f128a.a.f120a = 2;

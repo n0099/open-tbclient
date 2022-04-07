@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsCommonUtils";
@@ -42,9 +42,9 @@ public class CommonUtils {
         }
         try {
             closeable.close();
-        } catch (Exception e2) {
+        } catch (Exception e) {
             if (AppConfig.isDebug()) {
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }
@@ -65,8 +65,8 @@ public class CommonUtils {
                             }
                         }
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return ",errmsg:" + jSONObject.toString();

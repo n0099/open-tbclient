@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public Context a;
 
@@ -22,9 +22,9 @@ public class h {
                     str = cursor.getString(cursor.getColumnIndex("value"));
                     com.kwad.sdk.core.d.a.c("VivoDeviceIDHelper", "getOAID oaid:" + str);
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 com.kwad.sdk.core.d.a.c("VivoDeviceIDHelper", "getOAID fail");
-                com.kwad.sdk.core.d.a.b(e2);
+                com.kwad.sdk.core.d.a.b(e);
             }
             return str;
         } finally {

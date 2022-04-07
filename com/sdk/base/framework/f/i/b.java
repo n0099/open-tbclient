@@ -31,19 +31,19 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Long c2 = com.sdk.base.framework.f.b.a.c(context, "access_limit_time");
+            Long c = com.sdk.base.framework.f.b.a.c(context, "access_limit_time");
             long currentTimeMillis = System.currentTimeMillis();
-            if (c2 == null) {
+            if (c == null) {
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
                 return true;
-            } else if (currentTimeMillis - c2.longValue() > 600000) {
+            } else if (currentTimeMillis - c.longValue() > 600000) {
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_time", Long.valueOf(currentTimeMillis));
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_count", (Long) 0L);
                 return true;
             } else {
-                Long c3 = com.sdk.base.framework.f.b.a.c(context, "access_limit_count");
-                if (c3 != null) {
-                    return c3.longValue() <= 30;
+                Long c2 = com.sdk.base.framework.f.b.a.c(context, "access_limit_count");
+                if (c2 != null) {
+                    return c2.longValue() <= 30;
                 }
                 com.sdk.base.framework.f.b.a.a(context, "access_limit_count", (Long) 0L);
                 return true;
@@ -55,8 +55,8 @@ public final class b {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            Long c2 = com.sdk.base.framework.f.b.a.c(context, "access_limit_count");
-            com.sdk.base.framework.f.b.a.a(context, "access_limit_count", Long.valueOf(c2 == null ? 0L : c2.longValue() + 1));
+            Long c = com.sdk.base.framework.f.b.a.c(context, "access_limit_count");
+            com.sdk.base.framework.f.b.a.a(context, "access_limit_count", Long.valueOf(c == null ? 0L : c.longValue() + 1));
         }
     }
 }

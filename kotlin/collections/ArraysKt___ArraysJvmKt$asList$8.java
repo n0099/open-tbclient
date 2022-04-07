@@ -46,8 +46,8 @@ public final class ArraysKt___ArraysJvmKt$asList$8 extends AbstractList<Characte
         return -1;
     }
 
-    public boolean contains(char c2) {
-        return ArraysKt___ArraysKt.contains(this.$this_asList, c2);
+    public boolean contains(char c) {
+        return ArraysKt___ArraysKt.contains(this.$this_asList, c);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,11 +56,11 @@ public final class ArraysKt___ArraysJvmKt$asList$8 extends AbstractList<Characte
         return Character.valueOf(this.$this_asList[i]);
     }
 
-    public int indexOf(char c2) {
-        return ArraysKt___ArraysKt.indexOf(this.$this_asList, c2);
+    public int indexOf(char c) {
+        return ArraysKt___ArraysKt.indexOf(this.$this_asList, c);
     }
 
-    public int lastIndexOf(char c2) {
-        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, c2);
+    public int lastIndexOf(char c) {
+        return ArraysKt___ArraysKt.lastIndexOf(this.$this_asList, c);
     }
 }

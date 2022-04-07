@@ -89,8 +89,8 @@ public class TransitionInflater {
                         newInstance = constructor.newInstance(this.mContext, attributeSet);
                     }
                     return newInstance;
-                } catch (Exception e2) {
-                    throw new InflateException("Could not instantiate " + cls + " class " + attributeValue, e2);
+                } catch (Exception e) {
+                    throw new InflateException("Could not instantiate " + cls + " class " + attributeValue, e);
                 }
             }
             throw new InflateException(str + " tag must have a 'class' attribute");
@@ -254,9 +254,9 @@ public class TransitionInflater {
                                     if (namedString3 != null) {
                                         try {
                                             transition.excludeTarget(Class.forName(namedString3), true);
-                                        } catch (ClassNotFoundException e2) {
+                                        } catch (ClassNotFoundException e) {
                                             obtainStyledAttributes.recycle();
-                                            throw new RuntimeException("Could not create " + namedString3, e2);
+                                            throw new RuntimeException("Could not create " + namedString3, e);
                                         }
                                     } else {
                                         String namedString4 = TypedArrayUtils.getNamedString(obtainStyledAttributes, xmlPullParser, "targetClass", 0);
@@ -308,10 +308,10 @@ public class TransitionInflater {
             try {
                 try {
                     return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
-                } catch (IOException e2) {
-                    throw new InflateException(xml.getPositionDescription() + ": " + e2.getMessage(), e2);
-                } catch (XmlPullParserException e3) {
-                    throw new InflateException(e3.getMessage(), e3);
+                } catch (IOException e) {
+                    throw new InflateException(xml.getPositionDescription() + ": " + e.getMessage(), e);
+                } catch (XmlPullParserException e2) {
+                    throw new InflateException(e2.getMessage(), e2);
                 }
             } finally {
                 xml.close();
@@ -328,13 +328,13 @@ public class TransitionInflater {
             try {
                 try {
                     return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);
-                } catch (IOException e2) {
-                    InflateException inflateException = new InflateException(xml.getPositionDescription() + ": " + e2.getMessage());
-                    inflateException.initCause(e2);
+                } catch (IOException e) {
+                    InflateException inflateException = new InflateException(xml.getPositionDescription() + ": " + e.getMessage());
+                    inflateException.initCause(e);
                     throw inflateException;
-                } catch (XmlPullParserException e3) {
-                    InflateException inflateException2 = new InflateException(e3.getMessage());
-                    inflateException2.initCause(e3);
+                } catch (XmlPullParserException e2) {
+                    InflateException inflateException2 = new InflateException(e2.getMessage());
+                    inflateException2.initCause(e2);
                     throw inflateException2;
                 }
             } finally {

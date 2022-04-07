@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class jj extends jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,12 +38,12 @@ public class jj extends jl {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            byte[] m558a = this.f798a.m558a();
+            byte[] m554a = this.f798a.m554a();
             if (i2 > this.f798a.a() - this.a) {
                 i2 = this.f798a.a() - this.a;
             }
             if (i2 > 0) {
-                System.arraycopy(m558a, this.a, bArr, i, i2);
+                System.arraycopy(m554a, this.a, bArr, i, i2);
                 this.a += i2;
             }
             return i2;

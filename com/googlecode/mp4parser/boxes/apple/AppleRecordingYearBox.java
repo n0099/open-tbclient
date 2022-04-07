@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.TimeZone;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AppleRecordingYearBox extends AppleDataBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -109,8 +109,8 @@ public class AppleRecordingYearBox extends AppleDataBox {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
             try {
                 this.date = this.df.parse(iso8601toRfc822Date(IsoTypeReader.readString(byteBuffer, byteBuffer.remaining())));
-            } catch (ParseException e2) {
-                throw new RuntimeException(e2);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
             }
         }
     }

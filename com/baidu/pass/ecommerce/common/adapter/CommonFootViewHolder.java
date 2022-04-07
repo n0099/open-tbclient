@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,13 +18,13 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
     public View mFooterIc;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CommonFootViewHolder(@NonNull View view, boolean z) {
-        super(view);
+    public CommonFootViewHolder(@NonNull View view2, boolean z) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, Boolean.valueOf(z)};
+            Object[] objArr = {view2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,12 +35,12 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
                 return;
             }
         }
-        this.mFooterIc = view.findViewById(R.id.obfuscated_res_0x7f091ba4);
-        TextView textView = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091ba5);
+        this.mFooterIc = view2.findViewById(R.id.obfuscated_res_0x7f091b93);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b94);
         this.mFootTv = textView;
         this.isDarkMode = z;
         if (z) {
-            textView.setTextColor(view.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06096a));
+            textView.setTextColor(view2.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060979));
         }
     }
 

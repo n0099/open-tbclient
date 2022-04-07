@@ -10,9 +10,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class DownstreamExceptionElement implements CoroutineContext.Element {
     public static final Key Key = new Key(null);
     @JvmField
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Throwable f45364e;
+    public final Throwable e;
     public final CoroutineContext.Key<?> key = Key;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0002\u0018\u0002\n\u0002\b\u0004\b\u0086\u0003\u0018\u00002\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0002\u0010\u0003¨\u0006\u0004"}, d2 = {"Lkotlinx/coroutines/flow/internal/DownstreamExceptionElement$Key;", "kotlin/coroutines/CoroutineContext$Key", "<init>", "()V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
@@ -27,7 +25,7 @@ public final class DownstreamExceptionElement implements CoroutineContext.Elemen
     }
 
     public DownstreamExceptionElement(Throwable th) {
-        this.f45364e = th;
+        this.e = th;
     }
 
     @Override // kotlin.coroutines.CoroutineContext.Element, kotlin.coroutines.CoroutineContext

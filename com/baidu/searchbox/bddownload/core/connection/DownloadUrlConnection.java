@@ -22,7 +22,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DownloadUrlConnection implements DownloadConnection, DownloadConnection.Connected {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadUrlConnection";
@@ -32,7 +32,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
     public IRedirectHandler redirectHandler;
     public URL url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Configuration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +142,7 @@ public class DownloadUrlConnection implements DownloadConnection, DownloadConnec
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class RedirectHandler implements IRedirectHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

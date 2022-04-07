@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SegAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SegAR";
@@ -42,7 +42,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f24837io;
+    public byte[] f987io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -68,7 +68,7 @@ public class SegAR extends c {
     public int vz;
 
     /* renamed from: com.baidu.ar.seg.SegAR$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] vB;
@@ -179,7 +179,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f24837io = null;
+        this.f987io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -334,9 +334,9 @@ public class SegAR extends c {
         this.vn = d(bArr, i, i2);
         int i3 = this.vb;
         if (i3 == 1 || i3 == 3) {
-            float f2 = i2;
-            this.vm -= 16.0f / f2;
-            this.vn += 12.0f / f2;
+            float f = i2;
+            this.vm -= 16.0f / f;
+            this.vn += 12.0f / f;
         }
     }
 
@@ -658,9 +658,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f24837io = gd.gc();
+                                    this.vA.f987io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f24837io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f987io == null) {
                                         return;
                                     }
                                     j jVar = new j();

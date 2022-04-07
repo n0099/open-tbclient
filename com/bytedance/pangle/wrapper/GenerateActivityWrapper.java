@@ -62,7 +62,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.function.Consumer;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class GenerateActivityWrapper extends Activity implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,10 +84,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, layoutParams) == null) {
-            this.mOriginActivity.addContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
+            this.mOriginActivity.addContentView(view2, layoutParams);
         }
     }
 
@@ -626,10 +626,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.View.OnCreateContextMenuListener
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048651, this, contextMenu, view, contextMenuInfo) == null) {
-            this.mOriginActivity.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        if (interceptable == null || interceptable.invokeLLL(1048651, this, contextMenu, view2, contextMenuInfo) == null) {
+            this.mOriginActivity.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
         }
     }
 
@@ -879,10 +879,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048688, this, i, view, menu)) == null) ? this.mOriginActivity.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048688, this, i, view2, menu)) == null) ? this.mOriginActivity.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -1024,10 +1024,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void openContextMenu(View view) {
+    public void openContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048709, this, view) == null) {
-            this.mOriginActivity.openContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048709, this, view2) == null) {
+            this.mOriginActivity.openContextMenu(view2);
         }
     }
 
@@ -1072,10 +1072,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void registerForContextMenu(View view) {
+    public void registerForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048715, this, view) == null) {
-            this.mOriginActivity.registerForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048715, this, view2) == null) {
+            this.mOriginActivity.registerForContextMenu(view2);
         }
     }
 
@@ -1489,10 +1489,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void unregisterForContextMenu(View view) {
+    public void unregisterForContextMenu(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048782, this, view) == null) {
-            this.mOriginActivity.unregisterForContextMenu(view);
+        if (interceptable == null || interceptable.invokeL(1048782, this, view2) == null) {
+            this.mOriginActivity.unregisterForContextMenu(view2);
         }
     }
 
@@ -1504,10 +1504,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view, String str, Context context, AttributeSet attributeSet) {
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048658, this, view, str, context, attributeSet)) == null) ? this.mOriginActivity.onCreateView(view, str, context, attributeSet) : (View) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048658, this, view2, str, context, attributeSet)) == null) ? this.mOriginActivity.onCreateView(view2, str, context, attributeSet) : (View) invokeLLLL.objValue;
     }
 
     @Override // android.app.Activity
@@ -1541,10 +1541,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048723, this, view) == null) {
-            this.mOriginActivity.setContentView(view);
+        if (interceptable == null || interceptable.invokeL(1048723, this, view2) == null) {
+            this.mOriginActivity.setContentView(view2);
         }
     }
 
@@ -1642,10 +1642,10 @@ public abstract class GenerateActivityWrapper extends Activity implements a {
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048724, this, view, layoutParams) == null) {
-            this.mOriginActivity.setContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048724, this, view2, layoutParams) == null) {
+            this.mOriginActivity.setContentView(view2, layoutParams);
         }
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface DeepLinkCallback {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class DeepLinkResponse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,49 +82,49 @@ public interface DeepLinkCallback {
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         public void onFailed(String str, int i) {
-            char c2;
+            char c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
                 switch (str.hashCode()) {
                     case -1081306052:
                         if (str.equals("market")) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 96801:
                         if (str.equals("app")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 117588:
                         if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 100355670:
                         if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     this.mInnerResultCode = i;
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     this.mAppResultCode = i;
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     this.mMarketResultCode = i;
-                } else if (c2 != 3) {
+                } else if (c != 3) {
                     if (TbadkApplication.getInst().isDebugMode()) {
                         throw new IllegalArgumentException("invalid source code");
                     }
@@ -137,50 +137,50 @@ public interface DeepLinkCallback {
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
         public void onSucceed(String str) {
-            char c2;
+            char c;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
                 this.mOpenSource = str;
                 switch (str.hashCode()) {
                     case -1081306052:
                         if (str.equals("market")) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 96801:
                         if (str.equals("app")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 117588:
                         if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB)) {
-                            c2 = 3;
+                            c = 3;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case 100355670:
                         if (str.equals(DeepLinkCode.OpenAppSource.OPEN_SOURCE_INNER)) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     this.mInnerResultCode = 1;
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     this.mAppResultCode = 1;
-                } else if (c2 == 2) {
+                } else if (c == 2) {
                     this.mMarketResultCode = 1;
-                } else if (c2 != 3) {
+                } else if (c != 3) {
                     if (TbadkApplication.getInst().isDebugMode()) {
                         throw new IllegalArgumentException("invalid source code");
                     }

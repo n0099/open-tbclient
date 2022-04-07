@@ -11,19 +11,17 @@ import com.qq.e.comm.net.rr.Request;
 import com.qq.e.comm.net.rr.Response;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Future;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface NetworkClient {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Priority {
         public static /* synthetic */ Interceptable $ic;
         public static final Priority High;
         public static final Priority Low;
         public static final Priority Mid;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ Priority[] f42459b;
+        public static final /* synthetic */ Priority[] b;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
@@ -44,7 +42,7 @@ public interface NetworkClient {
             Mid = new Priority("Mid", 1, 2);
             Priority priority = new Priority("Low", 2, 3);
             Low = priority;
-            f42459b = new Priority[]{High, Mid, priority};
+            b = new Priority[]{High, Mid, priority};
         }
 
         public Priority(String str, int i, int i2) {
@@ -77,7 +75,7 @@ public interface NetworkClient {
         public static Priority[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) f42459b.clone() : (Priority[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Priority[]) b.clone() : (Priority[]) invokeV.objValue;
         }
 
         public int value() {

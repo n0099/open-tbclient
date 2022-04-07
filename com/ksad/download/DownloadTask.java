@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DownloadTask implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7092669850073266500L;
@@ -40,7 +40,7 @@ public class DownloadTask implements Serializable {
     public boolean mWakeInstallApk;
     public boolean notificationRemoved;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class DownloadRequest implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3638290207248829674L;
@@ -83,8 +83,8 @@ public class DownloadTask implements Serializable {
             }
             this.mDestinationDir = b.b().getPath();
             this.mDownloadUrl = str;
-            NetworkInfo c2 = com.ksad.download.c.b.c(b.a());
-            if (c2 == null || c2.getType() != 0) {
+            NetworkInfo c = com.ksad.download.c.b.c(b.a());
+            if (c == null || c.getType() != 0) {
                 this.mAllowedNetworkTypes = 2;
             } else {
                 this.mAllowedNetworkTypes = 3;
@@ -320,8 +320,8 @@ public class DownloadTask implements Serializable {
                 for (c cVar : this.mDownloadListeners) {
                     cVar.a(this);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -338,8 +338,8 @@ public class DownloadTask implements Serializable {
                 e.a().a(getId());
                 r.a().a(getId(), this.mBaseDownloadTask.o());
                 releaseDownloadTask();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -356,8 +356,8 @@ public class DownloadTask implements Serializable {
                 if (this.mWakeInstallApk) {
                     wakeInstallApk();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -370,8 +370,8 @@ public class DownloadTask implements Serializable {
             long j2 = i2;
             try {
                 j = com.ksad.download.c.a.a(new File(this.mDestinationDir).exists() ? this.mDestinationDir : Environment.getExternalStorageDirectory().getPath());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 j = j2;
             }
             if (j < j2) {
@@ -385,8 +385,8 @@ public class DownloadTask implements Serializable {
                     cVar.a(this, str, z, i, i2);
                 }
                 notifyDownloadProgress(aVar, false);
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -400,8 +400,8 @@ public class DownloadTask implements Serializable {
                     cVar.b(this, i, i2);
                 }
                 notifyDownloadProgress(this.mBaseDownloadTask, false);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -415,8 +415,8 @@ public class DownloadTask implements Serializable {
                     cVar.a(this, th);
                 }
                 notifyDownloadError(aVar);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -428,8 +428,8 @@ public class DownloadTask implements Serializable {
                 for (c cVar : this.mDownloadListeners) {
                     cVar.f(this);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -443,8 +443,8 @@ public class DownloadTask implements Serializable {
                     cVar.c(this, i, i2);
                 }
                 notifyDownloadProgress(aVar, true);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -458,8 +458,8 @@ public class DownloadTask implements Serializable {
                     cVar.a(this, i, i2);
                 }
                 notifyDownloadPending(aVar);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -472,8 +472,8 @@ public class DownloadTask implements Serializable {
                     cVar.d(this, i, i2);
                 }
                 notifyDownloadProgress(aVar, true);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -486,8 +486,8 @@ public class DownloadTask implements Serializable {
                 for (c cVar : this.mDownloadListeners) {
                     cVar.c(this);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -500,8 +500,8 @@ public class DownloadTask implements Serializable {
                 for (c cVar : this.mDownloadListeners) {
                     cVar.d(this);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -542,8 +542,8 @@ public class DownloadTask implements Serializable {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 onCanceled(this.mBaseDownloadTask);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -658,8 +658,8 @@ public class DownloadTask implements Serializable {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             try {
                 wakeInstallApk();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -852,8 +852,8 @@ public class DownloadTask implements Serializable {
                 }
                 submit();
                 onResume(this.mBaseDownloadTask, this.mBaseDownloadTask.q(), this.mBaseDownloadTask.s());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

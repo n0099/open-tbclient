@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -23,7 +22,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.fd5;
+/* loaded from: classes.dex */
 public class AlaCardBottomUserInfoLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_USERNAME_LENGTH = 10;
@@ -57,11 +57,11 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901c5);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901c6);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09021b);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090228);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ef, (ViewGroup) this, true);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901cd);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901ce);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f090223);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090230);
             initHeaderImg();
         }
     }
@@ -97,14 +97,14 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
-        if (o0.d(str) > 10) {
-            str = o0.n(str, 10) + StringHelper.STRING_MORE;
+        if (fd5.d(str) > 10) {
+            str = fd5.n(str, 10) + StringHelper.STRING_MORE;
         }
         if (alaUserInfoData != null) {
-            this.alaCardUserHeadImg.J(alaUserInfoData.portrait, 28, false);
+            this.alaCardUserHeadImg.K(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01fd), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01fe), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
     }
 
     public void setUserHeadImgVisible(int i) {

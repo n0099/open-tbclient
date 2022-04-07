@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbHttpMessageTask extends HttpMessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,6 +17,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
     public boolean mIsFromCDN;
     public boolean mIsNeedAddCommenParam;
     public boolean mIsNeedAddStatisticsParam;
+    public boolean mIsNeedCookie;
     public boolean mIsNeedLogin;
     public boolean mIsNeedTbs;
     public boolean mIsUseCurrentBDUSS;
@@ -46,6 +47,7 @@ public class TbHttpMessageTask extends HttpMessageTask {
         this.mIsNeedAddCommenParam = true;
         this.mIsBaiduServer = true;
         this.mIsNeedLogin = false;
+        this.mIsNeedCookie = false;
     }
 
     public boolean isBDImage() {
@@ -66,88 +68,101 @@ public class TbHttpMessageTask extends HttpMessageTask {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIsFromCDN : invokeV.booleanValue;
     }
 
+    public boolean isIsNeedCookie() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsNeedCookie : invokeV.booleanValue;
+    }
+
     public boolean isNeedAddCommenParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsNeedAddCommenParam : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsNeedAddCommenParam : invokeV.booleanValue;
     }
 
     public boolean isNeedAddStatisticsParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mIsNeedAddStatisticsParam : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsNeedAddStatisticsParam : invokeV.booleanValue;
     }
 
     public boolean isNeedLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsNeedLogin : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsNeedLogin : invokeV.booleanValue;
     }
 
     public boolean isNeedTbs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIsNeedTbs : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsNeedTbs : invokeV.booleanValue;
     }
 
     public boolean isUseCurrentBDUSS() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mIsUseCurrentBDUSS : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mIsUseCurrentBDUSS : invokeV.booleanValue;
     }
 
     public void setIsBDImage(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.mIsBDImage = z;
         }
     }
 
     public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.mIsFromCDN = z;
         }
     }
 
     public void setIsNeedAddCommenParam(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
             this.mIsNeedAddCommenParam = z;
         }
     }
 
     public void setIsNeedAddStatisticsParam(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.mIsNeedAddStatisticsParam = z;
+        }
+    }
+
+    public void setIsNeedCookie(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.mIsNeedCookie = z;
         }
     }
 
     public void setIsNeedLogin(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             this.mIsNeedLogin = z;
         }
     }
 
     public void setIsNeedTbs(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             this.mIsNeedTbs = z;
         }
     }
 
     public void setIsUseCurrentBDUSS(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             this.mIsUseCurrentBDUSS = z;
         }
     }
 
     public void setmIsNBaiduServer(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.mIsBaiduServer = z;
         }
     }

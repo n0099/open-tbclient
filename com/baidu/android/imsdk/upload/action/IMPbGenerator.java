@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class IMPbGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ALL_LENGTH = 800;
@@ -259,9 +259,9 @@ public final class IMPbGenerator {
                     return null;
                 }
                 return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName("im").setSdkVersion(IMConfigInternal.getInstance().getSDKVersionValue(context)).addAllActions(actionList).build().toByteArray();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 IMTrackDatabase.getInstance(context).clearAllTables();
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }
@@ -276,8 +276,8 @@ public final class IMPbGenerator {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(action);
                 return IMPushPb.PushImClient.newBuilder().setCommon(getIMCommon(context)).setSdkName("im").setSdkVersion(IMConfigInternal.getInstance().getSDKVersionValue(context)).addAllActions(arrayList).build().toByteArray();
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return null;
             }
         }

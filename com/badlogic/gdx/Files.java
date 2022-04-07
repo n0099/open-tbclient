@@ -1,6 +1,5 @@
 package com.badlogic.gdx;
 
-import c.b.b.m.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.h3;
+/* loaded from: classes.dex */
 public interface Files {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class FileType {
         public static final /* synthetic */ FileType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,13 +77,13 @@ public interface Files {
         }
     }
 
-    a a(String str);
+    h3 a(String str);
 
     String b();
 
-    a d(String str, FileType fileType);
+    h3 d(String str, FileType fileType);
 
     String e();
 
-    a f(String str);
+    h3 f(String str);
 }

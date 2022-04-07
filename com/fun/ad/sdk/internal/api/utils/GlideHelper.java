@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.Glide;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class GlideHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.fun.ad.sdk.internal.api.utils.GlideHelper$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class GlideHelperHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final GlideHelper a;
@@ -109,11 +109,11 @@ public final class GlideHelper {
         }
     }
 
-    public void load(View view, String str, ImageView imageView) {
+    public void load(View view2, String str, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view, str, imageView) == null) {
-            if (view != null) {
-                load(view.getContext(), str, imageView);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, str, imageView) == null) {
+            if (view2 != null) {
+                load(view2.getContext(), str, imageView);
                 return;
             }
             LogPrinter.e("GlideHelper: view is null when load: " + str, new Object[0]);

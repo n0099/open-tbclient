@@ -9,31 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static final h a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final h f26710b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final h f26711c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final h f26712d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final h f26713e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final h f26714f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final h f26715g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final h f26716h;
+    public static final h b;
+    public static final h c;
+    public static final h d;
+    public static final h e;
+    public static final h f;
+    public static final h g;
+    public static final h h;
     public static final h i;
     public static final h j;
     public static final /* synthetic */ h[] k;
@@ -53,17 +39,17 @@ public final class h {
             }
         }
         a = new h("logo", 0);
-        f26710b = new h("popup", 1);
-        f26711c = new h("marker", 2);
-        f26712d = new h("ground", 3);
-        f26713e = new h("text", 4);
-        f26714f = new h("arc", 5);
-        f26715g = new h("dot", 6);
-        f26716h = new h(Config.TRACE_CIRCLE, 7);
+        b = new h("popup", 1);
+        c = new h("marker", 2);
+        d = new h("ground", 3);
+        e = new h("text", 4);
+        f = new h("arc", 5);
+        g = new h("dot", 6);
+        h = new h(Config.TRACE_CIRCLE, 7);
         i = new h("polyline", 8);
         h hVar = new h("polygon", 9);
         j = hVar;
-        k = new h[]{a, f26710b, f26711c, f26712d, f26713e, f26714f, f26715g, f26716h, i, hVar};
+        k = new h[]{a, b, c, d, e, f, g, h, i, hVar};
     }
 
     public h(String str, int i2) {

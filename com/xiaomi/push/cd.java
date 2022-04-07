@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.push.cg;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cd extends cg.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class cd extends cg.e {
             contentValues.put("messageItemId", hjVar.d());
             contentValues.put("messageItem", a);
             contentValues.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bu.a(context).b());
-            contentValues.put("packageName", bu.a(context).m234a());
+            contentValues.put("packageName", bu.a(context).m230a());
             contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
             contentValues.put("uploadTimestamp", (Integer) 0);
             return new cd(str, contentValues, "a job build to insert message to db");

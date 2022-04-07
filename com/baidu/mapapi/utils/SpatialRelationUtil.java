@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SpatialRelationUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,20 +93,20 @@ public class SpatialRelationUtil {
                 LatLng latLng2 = list.get(i3);
                 i3++;
                 LatLng latLng3 = list.get(i3 % size);
-                double d2 = latLng2.latitude;
-                double d3 = latLng3.latitude;
-                if (d2 != d3 && latLng.latitude >= Math.min(d2, d3) && latLng.latitude <= Math.max(latLng2.latitude, latLng3.latitude)) {
-                    double d4 = latLng.latitude;
-                    double d5 = latLng2.latitude;
-                    double d6 = latLng3.longitude;
+                double d = latLng2.latitude;
+                double d2 = latLng3.latitude;
+                if (d != d2 && latLng.latitude >= Math.min(d, d2) && latLng.latitude <= Math.max(latLng2.latitude, latLng3.latitude)) {
+                    double d3 = latLng.latitude;
+                    double d4 = latLng2.latitude;
+                    double d5 = latLng3.longitude;
                     i = size;
-                    double d7 = latLng2.longitude;
-                    double d8 = (((d4 - d5) * (d6 - d7)) / (latLng3.latitude - d5)) + d7;
-                    double d9 = latLng.longitude;
-                    if (d8 == d9) {
+                    double d6 = latLng2.longitude;
+                    double d7 = (((d3 - d4) * (d5 - d6)) / (latLng3.latitude - d4)) + d6;
+                    double d8 = latLng.longitude;
+                    if (d7 == d8) {
                         return true;
                     }
-                    if (d8 < d9) {
+                    if (d7 < d8) {
                         i4++;
                     }
                 } else {

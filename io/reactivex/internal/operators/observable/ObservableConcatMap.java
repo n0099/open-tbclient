@@ -40,9 +40,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         public final Observer<? super R> actual;
         public final int bufferSize;
         public volatile boolean cancelled;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45328d;
+        public Disposable d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
@@ -102,7 +100,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                     ConcatMapDelayErrorObserver<?, R> concatMapDelayErrorObserver = this.parent;
                     if (concatMapDelayErrorObserver.error.addThrowable(th)) {
                         if (!concatMapDelayErrorObserver.tillTheEnd) {
-                            concatMapDelayErrorObserver.f45328d.dispose();
+                            concatMapDelayErrorObserver.d.dispose();
                         }
                         concatMapDelayErrorObserver.active = false;
                         concatMapDelayErrorObserver.drain();
@@ -157,7 +155,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.cancelled = true;
-                this.f45328d.dispose();
+                this.d.dispose();
                 this.observer.dispose();
             }
         }
@@ -215,7 +213,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                                 } catch (Throwable th2) {
                                     Exceptions.throwIfFatal(th2);
                                     this.cancelled = true;
-                                    this.f45328d.dispose();
+                                    this.d.dispose();
                                     simpleQueue.clear();
                                     atomicThrowable.addThrowable(th2);
                                     observer.onError(atomicThrowable.terminate());
@@ -225,7 +223,7 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
                         } catch (Throwable th3) {
                             Exceptions.throwIfFatal(th3);
                             this.cancelled = true;
-                            this.f45328d.dispose();
+                            this.d.dispose();
                             atomicThrowable.addThrowable(th3);
                             observer.onError(atomicThrowable.terminate());
                             return;
@@ -281,8 +279,8 @@ public final class ObservableConcatMap<T, U> extends AbstractObservableWithUpstr
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f45328d, disposable)) {
-                this.f45328d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     QueueDisposable queueDisposable = (QueueDisposable) disposable;
                     int requestFusion = queueDisposable.requestFusion(3);

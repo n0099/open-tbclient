@@ -113,7 +113,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Maybe<T> implements MaybeSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -1094,12 +1094,12 @@ public abstract class Maybe<T> implements MaybeSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final <E extends MaybeObserver<? super T>> E subscribeWith(E e2) {
+    public final <E extends MaybeObserver<? super T>> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, e2)) == null) {
-            subscribe(e2);
-            return e2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
         return (E) invokeL.objValue;
     }
@@ -1739,8 +1739,8 @@ public abstract class Maybe<T> implements MaybeSource<T> {
             ObjectHelper.requireNonNull(onSubscribe, "observer returned by the RxJavaPlugins hook is null");
             try {
                 subscribeActual(onSubscribe);
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 NullPointerException nullPointerException = new NullPointerException("subscribeActual failed");

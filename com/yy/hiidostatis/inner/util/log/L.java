@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class L {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
@@ -267,15 +267,15 @@ public class L {
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e2) {
-                                Log.e("L", "", e2);
+                            } catch (IOException e) {
+                                Log.e("L", "", e);
                             }
                         }
                         throw th3;
                     }
                 }
-            } catch (IOException e3) {
-                Log.e("L", "", e3);
+            } catch (IOException e2) {
+                Log.e("L", "", e2);
             }
         }
     }
@@ -299,8 +299,8 @@ public class L {
             try {
                 printWriter.close();
                 stringWriter.close();
-            } catch (IOException e2) {
-                Log.e("L", "", e2);
+            } catch (IOException e) {
+                Log.e("L", "", e);
             }
             return stringWriter2;
         }

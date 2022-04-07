@@ -49,12 +49,12 @@ public abstract class Visibility extends Transition {
         public final boolean mSuppressLayout;
         public final View mView;
 
-        public DisappearListener(View view, int i, boolean z) {
+        public DisappearListener(View view2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Integer.valueOf(i), Boolean.valueOf(z)};
+                Object[] objArr = {view2, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,9 +65,9 @@ public abstract class Visibility extends Transition {
                 }
             }
             this.mCanceled = false;
-            this.mView = view;
+            this.mView = view2;
             this.mFinalVisibility = i;
-            this.mParent = (ViewGroup) view.getParent();
+            this.mParent = (ViewGroup) view2.getParent();
             this.mSuppressLayout = z;
             suppressLayout(true);
         }
@@ -252,10 +252,10 @@ public abstract class Visibility extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            transitionValues.values.put(PROPNAME_VISIBILITY, Integer.valueOf(transitionValues.view.getVisibility()));
-            transitionValues.values.put(PROPNAME_PARENT, transitionValues.view.getParent());
+            transitionValues.values.put(PROPNAME_VISIBILITY, Integer.valueOf(transitionValues.f980view.getVisibility()));
+            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f980view.getParent());
             int[] iArr = new int[2];
-            transitionValues.view.getLocationOnScreen(iArr);
+            transitionValues.f980view.getLocationOnScreen(iArr);
             transitionValues.values.put(PROPNAME_SCREEN_LOCATION, iArr);
         }
     }
@@ -397,10 +397,10 @@ public abstract class Visibility extends Transition {
         return invokeL.booleanValue;
     }
 
-    public Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             return null;
         }
         return (Animator) invokeLLLL.objValue;
@@ -414,20 +414,20 @@ public abstract class Visibility extends Transition {
                 return null;
             }
             if (transitionValues == null) {
-                View view = (View) transitionValues2.view.getParent();
-                if (getVisibilityChangeInfo(getMatchedTransitionValues(view, false), getTransitionValues(view, false)).mVisibilityChange) {
+                View view2 = (View) transitionValues2.f980view.getParent();
+                if (getVisibilityChangeInfo(getMatchedTransitionValues(view2, false), getTransitionValues(view2, false)).mVisibilityChange) {
                     return null;
                 }
             }
-            return onAppear(viewGroup, transitionValues2.view, transitionValues, transitionValues2);
+            return onAppear(viewGroup, transitionValues2.f980view, transitionValues, transitionValues2);
         }
         return (Animator) invokeCommon.objValue;
     }
 
-    public Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             return null;
         }
         return (Animator) invokeLLLL.objValue;
@@ -442,32 +442,32 @@ public abstract class Visibility extends Transition {
     */
     public Animator onDisappear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
         InterceptResult invokeCommon;
-        View view;
+        View view2;
         boolean z;
         boolean z2;
-        View view2;
+        View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i), transitionValues2, Integer.valueOf(i2)})) == null) {
             if ((this.mMode & 2) == 2 && transitionValues != null) {
-                View view3 = transitionValues.view;
-                View view4 = transitionValues2 != null ? transitionValues2.view : null;
-                View view5 = (View) view3.getTag(R$id.save_overlay_view);
-                if (view5 != null) {
-                    view2 = null;
+                View view4 = transitionValues.f980view;
+                View view5 = transitionValues2 != null ? transitionValues2.f980view : null;
+                View view6 = (View) view4.getTag(R$id.save_overlay_view);
+                if (view6 != null) {
+                    view3 = null;
                     z2 = true;
-                } else if (view4 == null || view4.getParent() == null) {
-                    if (view4 != null) {
-                        view = null;
+                } else if (view5 == null || view5.getParent() == null) {
+                    if (view5 != null) {
+                        view2 = null;
                         z = false;
                         if (z) {
-                            if (view3.getParent() != null) {
-                                if (view3.getParent() instanceof View) {
-                                    View view6 = (View) view3.getParent();
-                                    if (!getVisibilityChangeInfo(getTransitionValues(view6, true), getMatchedTransitionValues(view6, true)).mVisibilityChange) {
-                                        view4 = TransitionUtils.copyViewImage(viewGroup, view3, view6);
+                            if (view4.getParent() != null) {
+                                if (view4.getParent() instanceof View) {
+                                    View view7 = (View) view4.getParent();
+                                    if (!getVisibilityChangeInfo(getTransitionValues(view7, true), getMatchedTransitionValues(view7, true)).mVisibilityChange) {
+                                        view5 = TransitionUtils.copyViewImage(viewGroup, view4, view7);
                                     } else {
-                                        int id = view6.getId();
-                                        if (view6.getParent() == null) {
+                                        int id = view7.getId();
+                                        if (view7.getParent() == null) {
                                             if (id != -1) {
                                                 if (viewGroup.findViewById(id) != null) {
                                                 }
@@ -476,58 +476,58 @@ public abstract class Visibility extends Transition {
                                     }
                                 }
                             }
-                            view2 = view;
+                            view3 = view2;
                             z2 = false;
-                            view5 = view3;
+                            view6 = view4;
                         }
                         z2 = false;
-                        View view7 = view;
-                        view5 = view4;
-                        view2 = view7;
+                        View view8 = view2;
+                        view6 = view5;
+                        view3 = view8;
                     }
-                    view4 = null;
-                    view = null;
+                    view5 = null;
+                    view2 = null;
                     z = true;
                     if (z) {
                     }
                     z2 = false;
-                    View view72 = view;
-                    view5 = view4;
-                    view2 = view72;
+                    View view82 = view2;
+                    view6 = view5;
+                    view3 = view82;
                 } else {
-                    if (i2 == 4 || view3 == view4) {
-                        view = view4;
+                    if (i2 == 4 || view4 == view5) {
+                        view2 = view5;
                         z = false;
-                        view4 = null;
+                        view5 = null;
                         if (z) {
                         }
                         z2 = false;
-                        View view722 = view;
-                        view5 = view4;
-                        view2 = view722;
+                        View view822 = view2;
+                        view6 = view5;
+                        view3 = view822;
                     }
-                    view4 = null;
-                    view = null;
+                    view5 = null;
+                    view2 = null;
                     z = true;
                     if (z) {
                     }
                     z2 = false;
-                    View view7222 = view;
-                    view5 = view4;
-                    view2 = view7222;
+                    View view8222 = view2;
+                    view6 = view5;
+                    view3 = view8222;
                 }
-                if (view5 == null) {
-                    if (view2 != null) {
-                        int visibility = view2.getVisibility();
-                        ViewUtils.setTransitionVisibility(view2, 0);
-                        Animator onDisappear = onDisappear(viewGroup, view2, transitionValues, transitionValues2);
+                if (view6 == null) {
+                    if (view3 != null) {
+                        int visibility = view3.getVisibility();
+                        ViewUtils.setTransitionVisibility(view3, 0);
+                        Animator onDisappear = onDisappear(viewGroup, view3, transitionValues, transitionValues2);
                         if (onDisappear != null) {
-                            DisappearListener disappearListener = new DisappearListener(view2, i2, true);
+                            DisappearListener disappearListener = new DisappearListener(view3, i2, true);
                             onDisappear.addListener(disappearListener);
                             AnimatorUtils.addPauseListener(onDisappear, disappearListener);
                             addListener(disappearListener);
                         } else {
-                            ViewUtils.setTransitionVisibility(view2, visibility);
+                            ViewUtils.setTransitionVisibility(view3, visibility);
                         }
                         return onDisappear;
                     }
@@ -539,17 +539,17 @@ public abstract class Visibility extends Transition {
                     int i4 = iArr[1];
                     int[] iArr2 = new int[2];
                     viewGroup.getLocationOnScreen(iArr2);
-                    view5.offsetLeftAndRight((i3 - iArr2[0]) - view5.getLeft());
-                    view5.offsetTopAndBottom((i4 - iArr2[1]) - view5.getTop());
-                    ViewGroupUtils.getOverlay(viewGroup).add(view5);
+                    view6.offsetLeftAndRight((i3 - iArr2[0]) - view6.getLeft());
+                    view6.offsetTopAndBottom((i4 - iArr2[1]) - view6.getTop());
+                    ViewGroupUtils.getOverlay(viewGroup).add(view6);
                 }
-                Animator onDisappear2 = onDisappear(viewGroup, view5, transitionValues, transitionValues2);
+                Animator onDisappear2 = onDisappear(viewGroup, view6, transitionValues, transitionValues2);
                 if (!z2) {
                     if (onDisappear2 == null) {
-                        ViewGroupUtils.getOverlay(viewGroup).remove(view5);
+                        ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                     } else {
-                        view3.setTag(R$id.save_overlay_view, view5);
-                        addListener(new TransitionListenerAdapter(this, viewGroup, view5, view3) { // from class: androidx.transition.Visibility.1
+                        view4.setTag(R$id.save_overlay_view, view6);
+                        addListener(new TransitionListenerAdapter(this, viewGroup, view6, view4) { // from class: androidx.transition.Visibility.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ Visibility this$0;
@@ -562,7 +562,7 @@ public abstract class Visibility extends Transition {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, viewGroup, view5, view3};
+                                    Object[] objArr = {this, viewGroup, view6, view4};
                                     interceptable2.invokeUnInit(65536, newInitContext);
                                     int i5 = newInitContext.flag;
                                     if ((i5 & 1) != 0) {
@@ -574,8 +574,8 @@ public abstract class Visibility extends Transition {
                                 }
                                 this.this$0 = this;
                                 this.val$overlayHost = viewGroup;
-                                this.val$finalOverlayView = view5;
-                                this.val$startView = view3;
+                                this.val$finalOverlayView = view6;
+                                this.val$startView = view4;
                             }
 
                             @Override // androidx.transition.TransitionListenerAdapter, androidx.transition.Transition.TransitionListener

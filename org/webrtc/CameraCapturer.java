@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.h0;
+import com.repackage.ly9;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
@@ -576,7 +576,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void addMediaRecorderToCamera(MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        h0.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
+        ly9.$default$addMediaRecorderToCamera(this, mediaRecorder, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer
@@ -656,7 +656,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     @Override // org.webrtc.CameraVideoCapturer
     @Deprecated
     public /* synthetic */ void removeMediaRecorderFromCamera(CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
-        h0.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
+        ly9.$default$removeMediaRecorderFromCamera(this, mediaRecorderHandler);
     }
 
     @Override // org.webrtc.VideoCapturer

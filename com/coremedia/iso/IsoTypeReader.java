@@ -13,7 +13,7 @@ import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class IsoTypeReader {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] codeBytes;
@@ -51,10 +51,10 @@ public final class IsoTypeReader {
         }
     }
 
-    public static int byte2int(byte b2) {
+    public static int byte2int(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) ? b2 < 0 ? b2 + 256 : b2 : invokeB.intValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? b < 0 ? b + 256 : b : invokeB.intValue;
     }
 
     public static String read4cc(ByteBuffer byteBuffer) {
@@ -72,8 +72,8 @@ public final class IsoTypeReader {
                 String str2 = new String(codeBytes, "ISO-8859-1");
                 codeCache.put(i, str2);
                 return str2;
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeL.objValue;
@@ -134,11 +134,11 @@ public final class IsoTypeReader {
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         while (true) {
-            byte b2 = byteBuffer.get();
-            if (b2 == 0) {
+            byte b = byteBuffer.get();
+            if (b == 0) {
                 return Utf8.convert(byteArrayOutputStream.toByteArray());
             }
-            byteArrayOutputStream.write(b2);
+            byteArrayOutputStream.write(b);
         }
     }
 

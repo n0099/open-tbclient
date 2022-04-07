@@ -180,12 +180,12 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         };
     }
 
-    public ExploreByTouchHelper(@NonNull View view) {
+    public ExploreByTouchHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -202,12 +202,12 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         this.mAccessibilityFocusedVirtualViewId = Integer.MIN_VALUE;
         this.mKeyboardFocusedVirtualViewId = Integer.MIN_VALUE;
         this.mHoveredVirtualViewId = Integer.MIN_VALUE;
-        if (view != null) {
-            this.mHost = view;
-            this.mManager = (AccessibilityManager) view.getContext().getSystemService("accessibility");
-            view.setFocusable(true);
-            if (ViewCompat.getImportantForAccessibility(view) == 0) {
-                ViewCompat.setImportantForAccessibility(view, 1);
+        if (view2 != null) {
+            this.mHost = view2;
+            this.mManager = (AccessibilityManager) view2.getContext().getSystemService("accessibility");
+            view2.setFocusable(true);
+            if (ViewCompat.getImportantForAccessibility(view2) == 0) {
+                ViewCompat.setImportantForAccessibility(view2, 1);
                 return;
             }
             return;
@@ -406,12 +406,12 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         }
     }
 
-    public static Rect guessPreviouslyFocusedRect(@NonNull View view, int i, @NonNull Rect rect) {
+    public static Rect guessPreviouslyFocusedRect(@NonNull View view2, int i, @NonNull Rect rect) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, null, view, i, rect)) == null) {
-            int width = view.getWidth();
-            int height = view.getHeight();
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65547, null, view2, i, rect)) == null) {
+            int width = view2.getWidth();
+            int height = view2.getHeight();
             if (i == 17) {
                 rect.set(width, 0, width, height);
             } else if (i == 33) {
@@ -437,11 +437,11 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
             }
             ViewParent parent = this.mHost.getParent();
             while (parent instanceof View) {
-                View view = (View) parent;
-                if (view.getAlpha() <= 0.0f || view.getVisibility() != 0) {
+                View view2 = (View) parent;
+                if (view2.getAlpha() <= 0.0f || view2.getVisibility() != 0) {
                     return false;
                 }
-                parent = view.getParent();
+                parent = view2.getParent();
             }
             return parent != null;
         }
@@ -643,10 +643,10 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     @Override // androidx.core.view.AccessibilityDelegateCompat
-    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view) {
+    public AccessibilityNodeProviderCompat getAccessibilityNodeProvider(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
             if (this.mNodeProvider == null) {
                 this.mNodeProvider = new MyNodeProvider(this);
             }
@@ -668,7 +668,7 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mKeyboardFocusedVirtualViewId : invokeV.intValue;
     }
 
-    public abstract int getVirtualViewAt(float f2, float f3);
+    public abstract int getVirtualViewAt(float f, float f2);
 
     public abstract void getVisibleVirtualViews(List<Integer> list);
 
@@ -713,19 +713,19 @@ public abstract class ExploreByTouchHelper extends AccessibilityDelegateCompat {
     }
 
     @Override // androidx.core.view.AccessibilityDelegateCompat
-    public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, view, accessibilityEvent) == null) {
-            super.onInitializeAccessibilityEvent(view, accessibilityEvent);
+        if (interceptable == null || interceptable.invokeLL(1048590, this, view2, accessibilityEvent) == null) {
+            super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
             onPopulateEventForHost(accessibilityEvent);
         }
     }
 
     @Override // androidx.core.view.AccessibilityDelegateCompat
-    public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, view, accessibilityNodeInfoCompat) == null) {
-            super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+        if (interceptable == null || interceptable.invokeLL(1048591, this, view2, accessibilityNodeInfoCompat) == null) {
+            super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
             onPopulateNodeForHost(accessibilityNodeInfoCompat);
         }
     }

@@ -3,15 +3,15 @@ package com.baidu.tbadk.core.util;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class TiebaMainDatabaseHelper extends c {
+import com.repackage.i9;
+/* loaded from: classes3.dex */
+public class TiebaMainDatabaseHelper extends i9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATABASE_VERSION = 24;
     public static final String TABLE_NAME_DOWNLOAD_INFO = "download_info";
@@ -46,7 +46,7 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    @Override // c.a.d.a.k.c
+    @Override // com.repackage.i9
     public void clearAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
@@ -83,7 +83,7 @@ public class TiebaMainDatabaseHelper extends c {
         }
     }
 
-    @Override // c.a.d.a.k.c
+    @Override // com.repackage.i9
     public void createAllTables(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
@@ -108,13 +108,13 @@ public class TiebaMainDatabaseHelper extends c {
                 prepareDBForV22(sQLiteDatabase);
                 prepareDBForV23(sQLiteDatabase);
                 prepareDBForV24(sQLiteDatabase);
-            } catch (Exception e2) {
-                TiebaStatic.printDBExceptionLog(e2, "DatabaseHelper.createTables", new Object[0]);
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
             }
         }
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper, c.a.d.a.k.a
+    @Override // android.database.sqlite.SQLiteOpenHelper, com.repackage.g9
     public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {

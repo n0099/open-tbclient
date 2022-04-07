@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UriBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_DEFAULT = 0;
@@ -95,9 +95,9 @@ public class UriBuilder {
                                     this.mExtra.putString(next, optString);
                                     this.mParamsObject.putString(next, optString);
                                 }
-                            } catch (Exception e2) {
+                            } catch (Exception e) {
                                 if (BdLog.isDebugMode()) {
-                                    BdLog.e("builder parseUri e = " + e2.toString());
+                                    BdLog.e("builder parseUri e = " + e.toString());
                                 }
                             }
                         } else {

@@ -2,7 +2,6 @@ package com.baidu.ugc.editvideo.record.entity;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.bean.MusicData;
+import com.repackage.f99;
 import java.io.File;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EffectInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class EffectInfo implements Serializable {
     public int type;
     public File unzipFile;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class EffectMusicData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return (EffectInfo) new b().b(str, EffectInfo.class);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                return (EffectInfo) new f99().b(str, EffectInfo.class);
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -139,9 +139,9 @@ public class EffectInfo implements Serializable {
                 return null;
             }
             try {
-                return new b().a(effectInfo);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                return new f99().a(effectInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

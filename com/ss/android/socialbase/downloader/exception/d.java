@@ -2,14 +2,12 @@ package com.ss.android.socialbase.downloader.exception;
 /* loaded from: classes7.dex */
 public class d extends BaseException {
     public final long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final long f43280b;
+    public final long b;
 
     public d(long j, long j2) {
         super(1006, String.format("space is not enough required space is : %s but available space is :%s", String.valueOf(j2), String.valueOf(j)));
         this.a = j;
-        this.f43280b = j2;
+        this.b = j2;
     }
 
     public long a() {
@@ -17,6 +15,6 @@ public class d extends BaseException {
     }
 
     public long b() {
-        return this.f43280b;
+        return this.b;
     }
 }

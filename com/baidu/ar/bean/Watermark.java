@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Watermark {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class Watermark {
     public StorageType mStorageType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class CoordinateType {
         public static final /* synthetic */ CoordinateType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -217,10 +217,10 @@ public class Watermark {
         }
     }
 
-    public void setScale(float f2) {
+    public void setScale(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.mScale = f2;
+        if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+            this.mScale = f;
         }
     }
 

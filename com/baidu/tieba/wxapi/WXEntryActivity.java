@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.p0.u2.a;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -24,6 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.eq7;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
@@ -31,7 +31,7 @@ import com.tencent.mm.sdk.modelmsg.ShowMessageFromWX;
 import com.tencent.mm.sdk.openapi.IWXAPI;
 import com.tencent.mm.sdk.openapi.IWXAPIEventHandler;
 import com.tencent.mm.sdk.openapi.WXAPIFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IWXAPIEventHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WX_NOTINSTALL_CODE = 123456;
@@ -117,15 +117,15 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04e6);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b34);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e1);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b23);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a4b));
+            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a4d));
             try {
                 this.mWxAPI = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             Intent intent = getIntent();
             this.mIntentForShare = intent;
@@ -167,10 +167,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
         int type = baseResp.getType();
         if (1 == type) {
-            a aVar = new a();
-            aVar.a = this;
-            aVar.f18950b = baseResp;
-            MessageManager.getInstance().runTask(2921351, null, aVar);
+            eq7 eq7Var = new eq7();
+            eq7Var.a = this;
+            eq7Var.b = baseResp;
+            MessageManager.getInstance().runTask(2921351, null, eq7Var);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;

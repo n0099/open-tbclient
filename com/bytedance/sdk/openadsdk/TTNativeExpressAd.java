@@ -4,26 +4,26 @@ import android.app.Activity;
 import android.view.View;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TTNativeExpressAd {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface AdInteractionListener extends ExpressAdInteractionListener {
         void onAdDismiss();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ExpressAdInteractionListener {
-        void onAdClicked(View view, int i);
+        void onAdClicked(View view2, int i);
 
-        void onAdShow(View view, int i);
+        void onAdShow(View view2, int i);
 
-        void onRenderFail(View view, String str, int i);
+        void onRenderFail(View view2, String str, int i);
 
-        void onRenderSuccess(View view, float f2, float f3);
+        void onRenderSuccess(View view2, float f, float f2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ExpressVideoAdListener {
         void onClickRetry();
 

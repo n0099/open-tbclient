@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StrictLineReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte CR = 13;
@@ -141,8 +141,8 @@ public class StrictLineReader implements Closeable {
                                 int i4 = ((ByteArrayOutputStream) this).count;
                                 try {
                                     return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, this.this$0.charset.name());
-                                } catch (UnsupportedEncodingException e2) {
-                                    throw new AssertionError(e2);
+                                } catch (UnsupportedEncodingException e) {
+                                    throw new AssertionError(e);
                                 }
                             }
                             return (String) invokeV2.objValue;

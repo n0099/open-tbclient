@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic;
     public static String openudid;
@@ -70,8 +70,8 @@ public class Util {
             StringBuilder sb = new StringBuilder();
             try {
                 deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (!isEmpty(deviceId)) {
                 sb.append(deviceId);
@@ -111,8 +111,8 @@ public class Util {
             }
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return packageInfo;
         }

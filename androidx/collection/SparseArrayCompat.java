@@ -79,12 +79,12 @@ public class SparseArrayCompat<E> implements Cloneable {
         }
     }
 
-    public void append(int i, E e2) {
+    public void append(int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, e2) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, e) == null) {
             int i2 = this.mSize;
             if (i2 != 0 && i <= this.mKeys[i2 - 1]) {
-                put(i, e2);
+                put(i, e);
                 return;
             }
             if (this.mGarbage && this.mSize >= this.mKeys.length) {
@@ -103,7 +103,7 @@ public class SparseArrayCompat<E> implements Cloneable {
                 this.mValues = objArr;
             }
             this.mKeys[i3] = i;
-            this.mValues[i3] = e2;
+            this.mValues[i3] = e;
             this.mSize = i3 + 1;
         }
     }
@@ -127,10 +127,10 @@ public class SparseArrayCompat<E> implements Cloneable {
         return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? indexOfKey(i) >= 0 : invokeI.booleanValue;
     }
 
-    public boolean containsValue(E e2) {
+    public boolean containsValue(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) ? indexOfValue(e2) >= 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) ? indexOfValue(e) >= 0 : invokeL.booleanValue;
     }
 
     @Deprecated
@@ -160,15 +160,15 @@ public class SparseArrayCompat<E> implements Cloneable {
         return invokeI.intValue;
     }
 
-    public int indexOfValue(E e2) {
+    public int indexOfValue(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, e2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, e)) == null) {
             if (this.mGarbage) {
                 gc();
             }
             for (int i = 0; i < this.mSize; i++) {
-                if (this.mValues[i] == e2) {
+                if (this.mValues[i] == e) {
                     return i;
                 }
             }
@@ -195,12 +195,12 @@ public class SparseArrayCompat<E> implements Cloneable {
         return invokeI.intValue;
     }
 
-    public void put(int i, E e2) {
+    public void put(int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048589, this, i, e2) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048589, this, i, e) == null) {
             int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
             if (binarySearch >= 0) {
-                this.mValues[binarySearch] = e2;
+                this.mValues[binarySearch] = e;
                 return;
             }
             int i2 = ~binarySearch;
@@ -208,7 +208,7 @@ public class SparseArrayCompat<E> implements Cloneable {
                 Object[] objArr = this.mValues;
                 if (objArr[i2] == DELETED) {
                     this.mKeys[i2] = i;
-                    objArr[i2] = e2;
+                    objArr[i2] = e;
                     return;
                 }
             }
@@ -237,7 +237,7 @@ public class SparseArrayCompat<E> implements Cloneable {
                 System.arraycopy(objArr4, i2, objArr4, i5, this.mSize - i2);
             }
             this.mKeys[i2] = i;
-            this.mValues[i2] = e2;
+            this.mValues[i2] = e;
             this.mSize++;
         }
     }
@@ -253,15 +253,15 @@ public class SparseArrayCompat<E> implements Cloneable {
     }
 
     @Nullable
-    public E putIfAbsent(int i, E e2) {
+    public E putIfAbsent(int i, E e) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, e2)) == null) {
-            E e3 = get(i);
-            if (e3 == null) {
-                put(i, e2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, e)) == null) {
+            E e2 = get(i);
+            if (e2 == null) {
+                put(i, e);
             }
-            return e3;
+            return e2;
         }
         return (E) invokeIL.objValue;
     }
@@ -306,29 +306,29 @@ public class SparseArrayCompat<E> implements Cloneable {
     }
 
     @Nullable
-    public E replace(int i, E e2) {
+    public E replace(int i, E e) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, e2)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, e)) == null) {
             int indexOfKey = indexOfKey(i);
             if (indexOfKey >= 0) {
                 Object[] objArr = this.mValues;
-                E e3 = (E) objArr[indexOfKey];
-                objArr[indexOfKey] = e2;
-                return e3;
+                E e2 = (E) objArr[indexOfKey];
+                objArr[indexOfKey] = e;
+                return e2;
             }
             return null;
         }
         return (E) invokeIL.objValue;
     }
 
-    public void setValueAt(int i, E e2) {
+    public void setValueAt(int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048598, this, i, e2) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048598, this, i, e) == null) {
             if (this.mGarbage) {
                 gc();
             }
-            this.mValues[i] = e2;
+            this.mValues[i] = e;
         }
     }
 
@@ -421,17 +421,17 @@ public class SparseArrayCompat<E> implements Cloneable {
                 sparseArrayCompat.mKeys = (int[]) this.mKeys.clone();
                 sparseArrayCompat.mValues = (Object[]) this.mValues.clone();
                 return sparseArrayCompat;
-            } catch (CloneNotSupportedException e2) {
-                throw new AssertionError(e2);
+            } catch (CloneNotSupportedException e) {
+                throw new AssertionError(e);
             }
         }
         return (SparseArrayCompat) invokeV.objValue;
     }
 
-    public E get(int i, E e2) {
+    public E get(int i, E e) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, e2)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, e)) == null) {
             int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, i);
             if (binarySearch >= 0) {
                 Object[] objArr = this.mValues;
@@ -439,20 +439,20 @@ public class SparseArrayCompat<E> implements Cloneable {
                     return (E) objArr[binarySearch];
                 }
             }
-            return e2;
+            return e;
         }
         return (E) invokeIL.objValue;
     }
 
-    public boolean replace(int i, E e2, E e3) {
+    public boolean replace(int i, E e, E e2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, e2, e3)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, e, e2)) == null) {
             int indexOfKey = indexOfKey(i);
             if (indexOfKey >= 0) {
                 Object obj = this.mValues[indexOfKey];
-                if (obj == e2 || (e2 != null && e2.equals(obj))) {
-                    this.mValues[indexOfKey] = e3;
+                if (obj == e || (e != null && e.equals(obj))) {
+                    this.mValues[indexOfKey] = e2;
                     return true;
                 }
                 return false;

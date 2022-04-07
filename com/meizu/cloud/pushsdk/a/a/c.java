@@ -3,25 +3,23 @@ package com.meizu.cloud.pushsdk.a.a;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f41864b;
+    public String b;
 
     public c(int i, String str) {
         this.a = i;
-        this.f41864b = str;
+        this.b = str;
     }
 
     public String toString() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("code", this.a);
-            jSONObject.put(TtmlNode.TAG_BODY, this.f41864b);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            jSONObject.put(TtmlNode.TAG_BODY, this.b);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return "[NetResponse] " + jSONObject.toString();
     }

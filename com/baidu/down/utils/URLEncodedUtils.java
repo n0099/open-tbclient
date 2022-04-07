@@ -14,7 +14,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class URLEncodedUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_TYPE = "application/x-www-form-urlencoded";
@@ -59,8 +59,8 @@ public class URLEncodedUtils {
             if (str2 == null) {
                 try {
                     str2 = DEFAULT_CONTENT_CHARSET;
-                } catch (UnsupportedEncodingException e2) {
-                    throw new IllegalArgumentException(e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new IllegalArgumentException(e);
                 }
             }
             return URLDecoder.decode(str, str2);
@@ -75,8 +75,8 @@ public class URLEncodedUtils {
             if (str2 == null) {
                 try {
                     str2 = DEFAULT_CONTENT_CHARSET;
-                } catch (UnsupportedEncodingException e2) {
-                    throw new IllegalArgumentException(e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new IllegalArgumentException(e);
                 }
             }
             return URLEncoder.encode(str, str2);

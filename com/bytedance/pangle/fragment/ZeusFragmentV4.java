@@ -15,7 +15,7 @@ import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusFragmentV4 extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,12 +37,12 @@ public class ZeusFragmentV4 extends Fragment {
             Field declaredField = Fragment.class.getDeclaredField("sClassMap");
             declaredField.setAccessible(true);
             ((SimpleArrayMap) declaredField.get(null)).put(getClass().getName(), ZeusFragmentV4.class);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
+    @Override // androidx.fragment.app.Fragment, com.repackage.d2
     @Nullable
     public Context getContext() {
         InterceptResult invokeV;
@@ -50,14 +50,14 @@ public class ZeusFragmentV4 extends Fragment {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 return ZeusTransformUtils.wrapperContext(super.getContext(), (String) MethodUtils.invokeStaticMethod(getClass(), "_GET_PLUGIN_PKG", new Object[0]));
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.getContext();
+            } catch (NoSuchMethodException e2) {
                 e2.printStackTrace();
                 return super.getContext();
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 e3.printStackTrace();
-                return super.getContext();
-            } catch (InvocationTargetException e4) {
-                e4.printStackTrace();
                 return super.getContext();
             }
         }

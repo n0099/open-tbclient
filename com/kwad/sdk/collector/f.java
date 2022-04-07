@@ -9,19 +9,19 @@ import com.kwad.sdk.utils.ah;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f {
     @Nullable
     public static JSONArray a(Context context) {
-        List<g> c2 = c(context);
-        c2.add(b(context));
-        return g.a(c2);
+        List<g> c = c(context);
+        c.add(b(context));
+        return g.a(c);
     }
 
     public static g b(Context context) {
         boolean a = ah.a(context);
         com.kwad.sdk.core.d.a.a("InfoCollector", "queryAccessibilityServicePermission result: " + a);
-        return new g(s.j, a ? g.f39202b : g.f39203c);
+        return new g(s.j, a ? g.b : g.c);
     }
 
     @NonNull
@@ -35,12 +35,12 @@ public class f {
             if (strArr != null) {
                 for (String str : strArr) {
                     int a = ah.a(context, str);
-                    arrayList.add(new g(str, a == 0 ? g.f39202b : a == -1 ? g.f39203c : g.a));
+                    arrayList.add(new g(str, a == 0 ? g.b : a == -1 ? g.c : g.a));
                 }
             }
             return arrayList;
-        } catch (PackageManager.NameNotFoundException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (PackageManager.NameNotFoundException e) {
+            com.kwad.sdk.core.d.a.a(e);
             return arrayList;
         }
     }

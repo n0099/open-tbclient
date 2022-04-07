@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TagSelect implements Jsonable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,8 +53,8 @@ public class TagSelect implements Jsonable, Serializable {
                 this.type = jSONObject.optString("type");
                 this.postId = jSONObject.optString("post_id");
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -72,8 +72,8 @@ public class TagSelect implements Jsonable, Serializable {
                 jSONObject.put("name", this.name);
                 jSONObject.put("type", this.type);
                 jSONObject.put("post_id", this.postId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

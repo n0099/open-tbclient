@@ -21,7 +21,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class StartupCountStats extends SimpleActivityLifeCycle implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -43,7 +43,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static UBCManager ubc;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ExtDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class StatsRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,9 +171,9 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
                 }
                 addData.put(StartupCountStatsUtils.SDK_FLAG_KEY, StartupCountStatsUtils.SDK_FLAG_VALUE);
                 jSONObject.put("ext", addData);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
             if (ubc == null) {
@@ -201,8 +201,8 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
                     addData.put(StartupCountStatsUtils.LAUNCH_SAMPLE, sUseDurationStatsType);
                 }
                 return addData.toString();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -297,8 +297,8 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("duration", "0");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             if (ubc == null) {
                 ubc = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);

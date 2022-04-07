@@ -66,12 +66,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Locale;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ay {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final ay f27274b;
+    public static final ay b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
 
@@ -88,7 +86,7 @@ public class ay {
                 return;
             }
         }
-        f27274b = new ay();
+        b = new ay();
     }
 
     public ay() {
@@ -111,7 +109,7 @@ public class ay {
     public static ay a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27274b : (ay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (ay) invokeV.objValue;
     }
 
     private void b() {

@@ -17,7 +17,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ScaleTypeDrawable extends ForwardingDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,9 +109,9 @@ public class ScaleTypeDrawable extends ForwardingDrawable {
                 ScalingUtils.ScaleType scaleType = this.mScaleType;
                 Matrix matrix = this.mTempMatrix;
                 PointF pointF = this.mFocusPoint;
-                float f2 = pointF != null ? pointF.x : 0.5f;
+                float f = pointF != null ? pointF.x : 0.5f;
                 PointF pointF2 = this.mFocusPoint;
-                scaleType.getTransform(matrix, bounds, intrinsicWidth, intrinsicHeight, f2, pointF2 != null ? pointF2.y : 0.5f);
+                scaleType.getTransform(matrix, bounds, intrinsicWidth, intrinsicHeight, f, pointF2 != null ? pointF2.y : 0.5f);
                 this.mDrawMatrix = this.mTempMatrix;
             }
         }

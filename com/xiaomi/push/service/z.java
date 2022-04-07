@@ -12,7 +12,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.service.bk;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class z extends bk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,12 +56,12 @@ public final class z extends bk.a {
             }
             bkVar.a("GAID", "gaid", a2);
             ie ieVar = new ie();
-            ieVar.b(this.f965a.f44583d);
-            ieVar.c(hp.f44364g.f490a);
+            ieVar.b(this.f965a.d);
+            ieVar.c(hp.g.f490a);
             ieVar.a(at.a());
             ieVar.a(new HashMap());
-            ieVar.m508a().put("gaid", a2);
-            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f965a.f44583d, ieVar, hf.i));
+            ieVar.m504a().put("gaid", a2);
+            byte[] a3 = ip.a(y.a(this.a.getPackageName(), this.f965a.d, ieVar, hf.i));
             XMPushService xMPushService = this.a;
             xMPushService.a(xMPushService.getPackageName(), a3, true);
         }

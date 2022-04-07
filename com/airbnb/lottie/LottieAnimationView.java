@@ -36,7 +36,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieAnimationView extends AppCompatImageView {
     public String animationName;
     @RawRes
@@ -75,7 +75,7 @@ public class LottieAnimationView extends AppCompatImageView {
     };
 
     /* renamed from: com.airbnb.lottie.LottieAnimationView$7  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass7 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$RenderMode;
 
@@ -97,7 +97,7 @@ public class LottieAnimationView extends AppCompatImageView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class SavedState extends View.BaseSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.airbnb.lottie.LottieAnimationView.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -178,7 +178,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(null, R.attr.obfuscated_res_0x7f0403fa);
+        init(null, R.attr.obfuscated_res_0x7f04043a);
     }
 
     private void cancelLoaderTask() {
@@ -250,7 +250,7 @@ public class LottieAnimationView extends AppCompatImageView {
 
     private void init(@Nullable AttributeSet attributeSet, @AttrRes int i) {
         String string;
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040274, R.attr.obfuscated_res_0x7f040275, R.attr.obfuscated_res_0x7f040276, R.attr.obfuscated_res_0x7f040277, R.attr.obfuscated_res_0x7f040278, R.attr.obfuscated_res_0x7f040279, R.attr.obfuscated_res_0x7f04027a, R.attr.obfuscated_res_0x7f04027b, R.attr.obfuscated_res_0x7f04027c, R.attr.obfuscated_res_0x7f04027d, R.attr.obfuscated_res_0x7f04027e, R.attr.obfuscated_res_0x7f04027f, R.attr.obfuscated_res_0x7f0403fb, R.attr.obfuscated_res_0x7f0403fc, R.attr.obfuscated_res_0x7f0403fd, R.attr.obfuscated_res_0x7f0403fe}, i, 0);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040274, R.attr.obfuscated_res_0x7f040275, R.attr.obfuscated_res_0x7f040276, R.attr.obfuscated_res_0x7f040277, R.attr.obfuscated_res_0x7f040278, R.attr.obfuscated_res_0x7f040279, R.attr.obfuscated_res_0x7f04027a, R.attr.obfuscated_res_0x7f04027b, R.attr.obfuscated_res_0x7f04027c, R.attr.obfuscated_res_0x7f04027d, R.attr.obfuscated_res_0x7f04027e, R.attr.obfuscated_res_0x7f04027f, R.attr.obfuscated_res_0x7f04043b, R.attr.obfuscated_res_0x7f04043c, R.attr.obfuscated_res_0x7f04043d, R.attr.obfuscated_res_0x7f04043e}, i, 0);
         this.cacheComposition = obtainStyledAttributes.getBoolean(12, true);
         boolean hasValue = obtainStyledAttributes.hasValue(7);
         boolean hasValue2 = obtainStyledAttributes.hasValue(3);
@@ -519,7 +519,7 @@ public class LottieAnimationView extends AppCompatImageView {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(@NonNull View view, int i) {
+    public void onVisibilityChanged(@NonNull View view2, int i) {
         if (this.isInitialized) {
             if (isShown()) {
                 if (this.wasAnimatingWhenNotShown) {
@@ -686,32 +686,32 @@ public class LottieAnimationView extends AppCompatImageView {
         this.lottieDrawable.setMaxFrame(i);
     }
 
-    public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.lottieDrawable.setMaxProgress(f2);
+    public void setMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        this.lottieDrawable.setMaxProgress(f);
     }
 
     public void setMinAndMaxFrame(String str) {
         this.lottieDrawable.setMinAndMaxFrame(str);
     }
 
-    public void setMinAndMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2, @FloatRange(from = 0.0d, to = 1.0d) float f3) {
-        this.lottieDrawable.setMinAndMaxProgress(f2, f3);
+    public void setMinAndMaxProgress(@FloatRange(from = 0.0d, to = 1.0d) float f, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+        this.lottieDrawable.setMinAndMaxProgress(f, f2);
     }
 
     public void setMinFrame(int i) {
         this.lottieDrawable.setMinFrame(i);
     }
 
-    public void setMinProgress(float f2) {
-        this.lottieDrawable.setMinProgress(f2);
+    public void setMinProgress(float f) {
+        this.lottieDrawable.setMinProgress(f);
     }
 
     public void setPerformanceTrackingEnabled(boolean z) {
         this.lottieDrawable.setPerformanceTrackingEnabled(z);
     }
 
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        this.lottieDrawable.setProgress(f2);
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        this.lottieDrawable.setProgress(f);
     }
 
     public void setRenderMode(RenderMode renderMode) {
@@ -731,8 +731,8 @@ public class LottieAnimationView extends AppCompatImageView {
         this.lottieDrawable.setSafeMode(z);
     }
 
-    public void setScale(float f2) {
-        this.lottieDrawable.setScale(f2);
+    public void setScale(float f) {
+        this.lottieDrawable.setScale(f);
         if (getDrawable() == this.lottieDrawable) {
             setImageDrawable(null);
             setImageDrawable(this.lottieDrawable);
@@ -748,8 +748,8 @@ public class LottieAnimationView extends AppCompatImageView {
         }
     }
 
-    public void setSpeed(float f2) {
-        this.lottieDrawable.setSpeed(f2);
+    public void setSpeed(float f) {
+        this.lottieDrawable.setSpeed(f);
     }
 
     public void setTextDelegate(TextDelegate textDelegate) {
@@ -835,7 +835,7 @@ public class LottieAnimationView extends AppCompatImageView {
         this.renderMode = RenderMode.AUTOMATIC;
         this.lottieOnCompositionLoadedListeners = new HashSet();
         this.buildDrawingCacheDepth = 0;
-        init(attributeSet, R.attr.obfuscated_res_0x7f0403fa);
+        init(attributeSet, R.attr.obfuscated_res_0x7f04043a);
     }
 
     public LottieAnimationView(Context context, AttributeSet attributeSet, int i) {

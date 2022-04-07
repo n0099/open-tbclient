@@ -12,13 +12,13 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bh {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<Class<?>, Class<?>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,14 +114,14 @@ public class bh {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, str)) == null) {
             try {
                 return (T) a(cls, (Object) null, str);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Meet exception when call getStaticField '");
                 sb.append(str);
                 sb.append("' in ");
                 sb.append(cls != null ? cls.getSimpleName() : "");
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                sb.append(e2);
+                sb.append(e);
                 Log.w("JavaCalls", sb.toString());
                 return null;
             }
@@ -132,7 +132,7 @@ public class bh {
     public static <T> T a(Class<?> cls, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m218a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, str, objArr)) == null) ? (T) a(cls, str, a(objArr)).invoke(null, m214a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static <T> T a(Object obj, String str) {
@@ -141,8 +141,8 @@ public class bh {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) {
             try {
                 return (T) a((Class<? extends Object>) obj.getClass(), obj, str);
-            } catch (Exception e2) {
-                Log.w("JavaCalls", "Meet exception when call getField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call getField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return null;
             }
         }
@@ -155,8 +155,8 @@ public class bh {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, obj, str, objArr)) == null) {
             try {
                 return (T) b(obj, str, objArr);
-            } catch (Exception e2) {
-                Log.w("JavaCalls", "Meet exception when call Method '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call Method '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return null;
             }
         }
@@ -169,8 +169,8 @@ public class bh {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
             try {
                 return (T) a((Class<? extends Object>) t.a(null, str), (Object) null, str2);
-            } catch (Exception e2) {
-                Log.w("JavaCalls", "Meet exception when call getStaticField '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call getStaticField '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return null;
             }
         }
@@ -183,8 +183,8 @@ public class bh {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, objArr)) == null) {
             try {
                 return (T) a(t.a(null, str), str2, objArr);
-            } catch (Exception e2) {
-                Log.w("JavaCalls", "Meet exception when call Method '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call Method '" + str2 + "' in " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return null;
             }
         }
@@ -230,8 +230,8 @@ public class bh {
         if (interceptable == null || interceptable.invokeLLL(65546, null, obj, str, obj2) == null) {
             try {
                 b(obj, str, obj2);
-            } catch (Exception e2) {
-                Log.w("JavaCalls", "Meet exception when call setField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2);
+            } catch (Exception e) {
+                Log.w("JavaCalls", "Meet exception when call setField '" + str + "' in " + obj + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
             }
         }
     }
@@ -280,7 +280,7 @@ public class bh {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Object[] m218a(Object... objArr) {
+    public static Object[] m214a(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, objArr)) == null) {
@@ -304,7 +304,7 @@ public class bh {
     public static <T> T b(Object obj, String str, Object... objArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m218a(objArr)) : (T) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, obj, str, objArr)) == null) ? (T) a(obj.getClass(), str, a(objArr)).invoke(obj, m214a(objArr)) : (T) invokeLLL.objValue;
     }
 
     public static void b(Object obj, String str, Object obj2) {

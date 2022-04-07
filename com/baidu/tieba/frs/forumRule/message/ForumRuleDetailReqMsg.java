@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.forumRule.message;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -10,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.ForumRuleDetail.DataReq;
 import tbclient.ForumRuleDetail.ForumRuleDetailReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ForumRuleDetailReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,13 +52,13 @@ public class ForumRuleDetailReqMsg extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.forum_id = getForumRuleId();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    b0.c(builder, true, true, false);
+                    rc5.c(builder, true, true, false);
                 }
                 ForumRuleDetailReqIdl.Builder builder2 = new ForumRuleDetailReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

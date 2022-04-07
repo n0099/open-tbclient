@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public final class e {
             com.vivo.push.b.x xVar = new com.vivo.push.b.x(j2);
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("messageID", String.valueOf(j));
-            String b2 = aa.b(context, context.getPackageName());
-            if (!TextUtils.isEmpty(b2)) {
-                hashMap.put("remoteAppId", b2);
+            String b = aa.b(context, context.getPackageName());
+            if (!TextUtils.isEmpty(b)) {
+                hashMap.put("remoteAppId", b);
             }
             xVar.a(hashMap);
             com.vivo.push.e.a().a(xVar);

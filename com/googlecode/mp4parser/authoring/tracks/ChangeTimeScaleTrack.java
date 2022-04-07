@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ChangeTimeScaleTrack implements Track {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
@@ -69,14 +69,14 @@ public class ChangeTimeScaleTrack implements Track {
         this.decodingTimes = adjustTts(track.getSampleDurations(), timescale, jArr, getTimes(track, jArr, j));
     }
 
-    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, double d2) {
+    public static List<CompositionTimeToSample.Entry> adjustCtts(List<CompositionTimeToSample.Entry> list, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, Double.valueOf(d)})) == null) {
             if (list != null) {
                 ArrayList arrayList = new ArrayList(list.size());
                 for (CompositionTimeToSample.Entry entry : list) {
-                    arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), (int) Math.round(entry.getOffset() * d2)));
+                    arrayList.add(new CompositionTimeToSample.Entry(entry.getCount(), (int) Math.round(entry.getOffset() * d)));
                 }
                 return arrayList;
             }
@@ -85,16 +85,16 @@ public class ChangeTimeScaleTrack implements Track {
         return (List) invokeCommon.objValue;
     }
 
-    public static long[] adjustTts(long[] jArr, double d2, long[] jArr2, long[] jArr3) {
+    public static long[] adjustTts(long[] jArr, double d, long[] jArr2, long[] jArr3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Double.valueOf(d2), jArr2, jArr3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Double.valueOf(d), jArr2, jArr3})) == null) {
             long[] jArr4 = new long[jArr.length];
             long j = 0;
             int i = 1;
             while (i <= jArr.length) {
                 int i2 = i - 1;
-                long round = Math.round(jArr[i2] * d2);
+                long round = Math.round(jArr[i2] * d);
                 int i3 = i + 1;
                 int binarySearch = Arrays.binarySearch(jArr2, i3);
                 if (binarySearch >= 0 && jArr3[binarySearch] != j) {

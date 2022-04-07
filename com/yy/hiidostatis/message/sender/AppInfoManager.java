@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppInfoManager implements AppInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public class AppInfoManager implements AppInfo {
                 for (File file2 : listFiles) {
                     file2.delete();
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -111,8 +111,8 @@ public class AppInfoManager implements AppInfo {
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             synchronized (this) {
                 try {
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 if (this.preFetchTime == 0 || System.currentTimeMillis() - this.preFetchTime >= 3000) {
                     if (this.preFetchTime > 0) {
@@ -175,8 +175,8 @@ public class AppInfoManager implements AppInfo {
                         try {
                             this.this$0.clearDir();
                             file.createNewFile();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                 }

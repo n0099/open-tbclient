@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.ShortBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SonicAudioProcessor implements AudioProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CLOSE_THRESHOLD = 0.01f;
@@ -230,21 +230,21 @@ public final class SonicAudioProcessor implements AudioProcessor {
         }
     }
 
-    public float setPitch(float f2) {
+    public float setPitch(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f2)) == null) {
-            this.pitch = Util.constrainValue(f2, 0.1f, 8.0f);
-            return f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
+            this.pitch = Util.constrainValue(f, 0.1f, 8.0f);
+            return f;
         }
         return invokeF.floatValue;
     }
 
-    public float setSpeed(float f2) {
+    public float setSpeed(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f2)) == null) {
-            float constrainValue = Util.constrainValue(f2, 0.1f, 8.0f);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f)) == null) {
+            float constrainValue = Util.constrainValue(f, 0.1f, 8.0f);
             this.speed = constrainValue;
             return constrainValue;
         }

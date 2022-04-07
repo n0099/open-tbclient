@@ -15,7 +15,7 @@ import com.baidu.yunjiasu.ping.Ping;
 import java.util.ArrayList;
 import java.util.Arrays;
 import kotlin.jvm.internal.CharCompanionObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HanziToPinyin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -40,7 +40,7 @@ public class HanziToPinyin {
     public short[] PINYIN_TABLE;
     public final boolean mHasChinaCollator;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DIGIT = 3;
@@ -338,11 +338,11 @@ public class HanziToPinyin {
         }
     }
 
-    private boolean buildPolyphonicToken(Token token, char c2) {
+    private boolean buildPolyphonicToken(Token token, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{token, Character.valueOf(c2)})) == null) {
-            char[] cArr = POLYPHONE.get(c2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{token, Character.valueOf(c)})) == null) {
+            char[] cArr = POLYPHONE.get(c);
             if (cArr == null) {
                 return false;
             }
@@ -350,7 +350,7 @@ public class HanziToPinyin {
             String[] strArr = new String[length];
             for (int i = length - 1; i >= 0; i--) {
                 if (POLYPHONE.indexOfKey(cArr[i]) > 0) {
-                    Log.e("Pinyin", c2 + " links to a polyphone: " + cArr[i] + "!!");
+                    Log.e("Pinyin", c + " links to a polyphone: " + cArr[i] + "!!");
                 }
                 strArr[i] = getToken(cArr[i], true).target;
             }
@@ -395,26 +395,26 @@ public class HanziToPinyin {
         return (HanziToPinyin) invokeV.objValue;
     }
 
-    private Token getToken(char c2, boolean z) {
+    private Token getToken(char c, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Character.valueOf(c2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Character.valueOf(c), Boolean.valueOf(z)})) == null) {
             Token token = new Token();
-            String ch = Character.toString(c2);
+            String ch = Character.toString(c);
             token.source = ch;
-            if (c2 < 256) {
+            if (c < 256) {
                 token.type = 1;
                 token.target = ch;
                 return token;
-            } else if (c2 < 11905) {
+            } else if (c < 11905) {
                 token.type = 5;
                 token.target = ch;
                 return token;
             } else {
-                short s = this.PINYIN_TABLE[65535 & c2];
+                short s = this.PINYIN_TABLE[65535 & c];
                 boolean z2 = (s & POLYPHONE_FLAG) > 0;
                 short s2 = (short) (s & (-16385));
-                if (z2 && !z && buildPolyphonicToken(token, c2)) {
+                if (z2 && !z && buildPolyphonicToken(token, c)) {
                     return token;
                 }
                 if (s2 < 0) {

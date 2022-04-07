@@ -9,7 +9,7 @@ import com.kwad.sdk.utils.at;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class WebCardGetDataResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final String TAG = "WebCardGetDataResponse";
     public static final long serialVersionUID = 2407409365862659643L;
@@ -34,8 +34,8 @@ public class WebCardGetDataResponse extends BaseResultData implements com.kwad.s
             }
             this.data = d.b(optString2);
             com.kwad.sdk.core.d.a.a(TAG, "WebCardGetDataResponse data=" + this.data);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 

@@ -55,8 +55,8 @@ public final class PopupWindowCompat {
                         Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
                         sOverlapAnchorField = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException e2) {
-                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
+                    } catch (NoSuchFieldException e) {
+                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e);
                     }
                     sOverlapAnchorFieldAttempted = true;
                 }
@@ -64,8 +64,8 @@ public final class PopupWindowCompat {
                 if (field != null) {
                     try {
                         return ((Boolean) field.get(popupWindow)).booleanValue();
-                    } catch (IllegalAccessException e3) {
-                        Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e3);
+                    } catch (IllegalAccessException e2) {
+                        Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e2);
                         return false;
                     }
                 }
@@ -116,8 +116,8 @@ public final class PopupWindowCompat {
                         Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
                         sOverlapAnchorField = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException e2) {
-                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
+                    } catch (NoSuchFieldException e) {
+                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e);
                     }
                     sOverlapAnchorFieldAttempted = true;
                 }
@@ -125,8 +125,8 @@ public final class PopupWindowCompat {
                 if (field != null) {
                     try {
                         field.set(popupWindow, Boolean.valueOf(z));
-                    } catch (IllegalAccessException e3) {
-                        Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e3);
+                    } catch (IllegalAccessException e2) {
+                        Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e2);
                     }
                 }
             }
@@ -159,17 +159,17 @@ public final class PopupWindowCompat {
         }
     }
 
-    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i, int i2, int i3) {
+    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view2, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{popupWindow, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                popupWindow.showAsDropDown(view, i, i2, i3);
+                popupWindow.showAsDropDown(view2, i, i2, i3);
                 return;
             }
-            if ((GravityCompat.getAbsoluteGravity(i3, ViewCompat.getLayoutDirection(view)) & 7) == 5) {
-                i -= popupWindow.getWidth() - view.getWidth();
+            if ((GravityCompat.getAbsoluteGravity(i3, ViewCompat.getLayoutDirection(view2)) & 7) == 5) {
+                i -= popupWindow.getWidth() - view2.getWidth();
             }
-            popupWindow.showAsDropDown(view, i, i2);
+            popupWindow.showAsDropDown(view2, i, i2);
         }
     }
 }

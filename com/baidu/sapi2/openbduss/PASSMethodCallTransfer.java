@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PASSMethodCallTransfer implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class DynamicCallbak {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERROR_CODE_NOT_FIND_CALL_METHOD = -1002;
@@ -48,7 +48,7 @@ public class PASSMethodCallTransfer implements NoProguard {
         public abstract void onFailure(int i, String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ParamsWap {
         public static /* synthetic */ Interceptable $ic = null;
         public static String BDUSS = "2";
@@ -156,8 +156,8 @@ public class PASSMethodCallTransfer implements NoProguard {
                     field.setAccessible(true);
                     field.set(str, str2);
                     return obj;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return obj;
                 }
             }
@@ -183,8 +183,8 @@ public class PASSMethodCallTransfer implements NoProguard {
                 }
                 try {
                     return cls.getDeclaredMethod(str, clsArr).invoke(obj, buildParams);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     dynamicCallbak.onFailure(-1002, DynamicCallbak.ERROR_MSG_NOT_FIND_CALL_METHOD);
                     return null;
                 }

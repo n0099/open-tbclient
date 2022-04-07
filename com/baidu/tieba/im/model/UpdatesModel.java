@@ -2,10 +2,6 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.k0;
-import c.a.o0.c1.n0;
-import c.a.o0.c1.s;
-import c.a.p0.u1.h.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -16,12 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ad5;
+import com.repackage.d67;
+import com.repackage.dd5;
+import com.repackage.ic5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UpdatesModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public class UpdatesModel {
                     return updatesItemData;
                 }
                 return (UpdatesItemData) OrmObject.objectWithJsonStr(content, UpdatesItemData.class);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -102,12 +102,12 @@ public class UpdatesModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteUpdatesData(UpdatesItemData updatesItemData, s<Boolean> sVar) {
+    public static void deleteUpdatesData(UpdatesItemData updatesItemData, ic5<Boolean> ic5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, sVar) == null) || updatesItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, ic5Var) == null) || updatesItemData == null) {
             return;
         }
-        n0.c(new k0<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+        dd5.c(new ad5<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UpdatesItemData val$data;
@@ -132,19 +132,19 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.o0.c1.k0
+            @Override // com.repackage.ad5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d67.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
-        }, sVar);
+        }, ic5Var);
     }
 
-    public static void requestUpdatesDataFromDB(s<LinkedList<GroupNewsPojo>> sVar) {
+    public static void requestUpdatesDataFromDB(ic5<LinkedList<GroupNewsPojo>> ic5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, sVar) == null) {
-            n0.c(new k0<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        if (interceptable == null || interceptable.invokeL(65541, null, ic5Var) == null) {
+            dd5.c(new ad5<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,26 +163,26 @@ public class UpdatesModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.o0.c1.k0
+                @Override // com.repackage.ad5
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d67.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
                 }
-            }, sVar);
+            }, ic5Var);
         }
     }
 
-    public static void updateUpdatesData(s<Boolean> sVar, UpdatesItemData... updatesItemDataArr) {
+    public static void updateUpdatesData(ic5<Boolean> ic5Var, UpdatesItemData... updatesItemDataArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, sVar, updatesItemDataArr) == null) || updatesItemDataArr == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, ic5Var, updatesItemDataArr) == null) || updatesItemDataArr == null) {
             return;
         }
         LinkedList linkedList = new LinkedList();
         for (UpdatesItemData updatesItemData : updatesItemDataArr) {
             linkedList.add(updatesItemData.toGroupNewsPojo());
         }
-        n0.c(new k0<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+        dd5.c(new ad5<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList val$list;
@@ -207,13 +207,13 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.o0.c1.k0
+            @Override // com.repackage.ad5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? d.f().n(this.val$list) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? d67.f().n(this.val$list) : (Boolean) invokeV.objValue;
             }
-        }, sVar);
+        }, ic5Var);
     }
 
     public void addSelect(UpdatesItemData updatesItemData) {
@@ -249,10 +249,10 @@ public class UpdatesModel {
         }
     }
 
-    public void deleteDatas(s<Boolean> sVar) {
+    public void deleteDatas(ic5<Boolean> ic5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sVar) == null) {
-            n0.c(new k0<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        if (interceptable == null || interceptable.invokeL(1048580, this, ic5Var) == null) {
+            dd5.c(new ad5<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UpdatesModel this$0;
@@ -277,13 +277,13 @@ public class UpdatesModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.o0.c1.k0
+                @Override // com.repackage.ad5
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(d67.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
                 }
-            }, sVar);
+            }, ic5Var);
         }
     }
 

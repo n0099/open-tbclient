@@ -14,9 +14,7 @@ import com.sdk.base.framework.f.c.a;
 public class BaseConfig implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String apk = "com.cucc.sdk.api_key";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f42600c = 36;
+    public static int c = 36;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
     public static String v = "安卓3.9.1.3开放版K200113";

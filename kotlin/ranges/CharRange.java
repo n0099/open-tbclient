@@ -26,8 +26,8 @@ public final class CharRange extends CharProgression implements ClosedRange<Char
         }
     }
 
-    public CharRange(char c2, char c3) {
-        super(c2, c3, 1);
+    public CharRange(char c, char c2) {
+        super(c, c2, 1);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
@@ -67,8 +67,8 @@ public final class CharRange extends CharProgression implements ClosedRange<Char
         return getFirst() + IStringUtil.TOP_PATH + getLast();
     }
 
-    public boolean contains(char c2) {
-        return Intrinsics.compare((int) getFirst(), (int) c2) <= 0 && Intrinsics.compare((int) c2, (int) getLast()) <= 0;
+    public boolean contains(char c) {
+        return Intrinsics.compare((int) getFirst(), (int) c) <= 0 && Intrinsics.compare((int) c, (int) getLast()) <= 0;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

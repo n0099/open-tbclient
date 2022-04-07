@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -131,11 +131,11 @@ public class e {
                     String string = jSONObject.has(PmsConstant.Statistic.STATISTIC_ERRMSG) ? jSONObject.getString(PmsConstant.Statistic.STATISTIC_ERRMSG) : "";
                     u("err_num: " + optInt + " " + string);
                 }
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (this.bS != null) {
-                    u(e2.getMessage());
+                    u(e.getMessage());
                 }
-                e2.printStackTrace();
+                e.printStackTrace();
             }
             return null;
         }
@@ -203,8 +203,8 @@ public class e {
                         if (t != null) {
                             this.bT.run(t);
                         }
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             }

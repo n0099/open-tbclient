@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMFetchSignalRtcInfo";
@@ -71,8 +71,8 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
                 JSONObject jSONObject = new JSONObject(str2);
                 bIMFetchSignalRtcInfo.setLimit(jSONObject.optInt(Constants.EXTRA_CONFIG_LIMIT));
                 bIMFetchSignalRtcInfo.setFetchTime(jSONObject.optLong("stime"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMFetchSignalRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMFetchSignalRtcInfo toRtcInfo Exception ", e);
             }
             return bIMFetchSignalRtcInfo;
         }
@@ -90,8 +90,8 @@ public class BIMFetchSignalRtcInfo extends BIMRtcInfo {
                 jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, this.mLimit);
                 jSONObject.put("stime", this.mFetchTime);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMFetchSignalRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMFetchSignalRtcInfo Exception ", e);
                 return "";
             }
         }

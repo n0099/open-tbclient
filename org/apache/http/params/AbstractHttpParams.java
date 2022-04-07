@@ -40,10 +40,10 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public double getDoubleParameter(String str, double d2) {
+    public double getDoubleParameter(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.doubleValue;
@@ -100,10 +100,10 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public HttpParams setDoubleParameter(String str, double d2) {
+    public HttpParams setDoubleParameter(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Double.valueOf(d)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (HttpParams) invokeCommon.objValue;

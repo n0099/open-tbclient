@@ -9,7 +9,7 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.message.e;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class aa implements e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,15 +64,15 @@ public class aa implements e.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, messageSnapshot) == null) {
             synchronized (Integer.toString(messageSnapshot.m()).intern()) {
-                List<a.b> b2 = h.a().b(messageSnapshot.m());
-                if (b2.size() > 0) {
-                    a F = b2.get(0).F();
+                List<a.b> b = h.a().b(messageSnapshot.m());
+                if (b.size() > 0) {
+                    a F = b.get(0).F();
                     if (com.kwai.filedownloader.e.d.a) {
-                        com.kwai.filedownloader.e.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b2.size()));
+                        com.kwai.filedownloader.e.d.c(this, "~~~callback %s old[%s] new[%s] %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(F.v()), Byte.valueOf(messageSnapshot.b()), Integer.valueOf(b.size()));
                     }
-                    if (!a(b2, messageSnapshot)) {
-                        StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.m() + " status:" + ((int) messageSnapshot.b()) + " task-count:" + b2.size());
-                        for (a.b bVar : b2) {
+                    if (!a(b, messageSnapshot)) {
+                        StringBuilder sb = new StringBuilder("The event isn't consumed, id:" + messageSnapshot.m() + " status:" + ((int) messageSnapshot.b()) + " task-count:" + b.size());
+                        for (a.b bVar : b) {
                             sb.append(" | ");
                             sb.append((int) bVar.F().v());
                         }

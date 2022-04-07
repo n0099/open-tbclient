@@ -24,7 +24,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +94,9 @@ public class i {
                 sb.append(str2);
                 SLog.v("openSDK_LOG.SystemUtils", sb.toString());
                 return str2;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                SLog.e("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString error", e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                SLog.e("openSDK_LOG.SystemUtils", "OpenUi, getSignValidString error", e);
                 return str2;
             }
         }
@@ -203,8 +203,8 @@ public class i {
                 byte[] bArr2 = new byte[16];
                 System.arraycopy(a, 8, bArr2, 0, 16);
                 return e.a(activity.getPackageName(), e.a(bArr2), bArr);
-            } catch (Exception e2) {
-                SLog.e("openSDK_LOG.SystemUtils", "getEncryptPkgName", e2);
+            } catch (Exception e) {
+                SLog.e("openSDK_LOG.SystemUtils", "getEncryptPkgName", e);
                 return "";
             }
         }
@@ -219,11 +219,11 @@ public class i {
                 context.getPackageManager().getPackageInfo("com.tencent.mobileqq", 0);
                 SLog.i("openSDK_LOG.SystemUtils", "isQQInstalled true");
                 return true;
-            } catch (PackageManager.NameNotFoundException e2) {
-                SLog.e("openSDK_LOG.SystemUtils", "PackageManager.NameNotFoundException", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                SLog.e("openSDK_LOG.SystemUtils", "PackageManager.NameNotFoundException", e);
                 return false;
-            } catch (Exception e3) {
-                SLog.e("openSDK_LOG.SystemUtils", "Exception", e3);
+            } catch (Exception e2) {
+                SLog.e("openSDK_LOG.SystemUtils", "Exception", e2);
                 return false;
             }
         }
@@ -267,8 +267,8 @@ public class i {
                 if (parentFile != null && parentFile.mkdirs()) {
                     try {
                         file.createNewFile();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                 }
             } else {
@@ -284,8 +284,8 @@ public class i {
             inputStream = null;
             try {
                 open = a.getAssets().open(str);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileOutputStream = null;
             } catch (Throwable th) {
                 th = th;
@@ -310,8 +310,8 @@ public class i {
                     }
                 }
                 return true;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 FileOutputStream fileOutputStream3 = fileOutputStream2;
                 inputStream = open;
                 fileOutputStream = fileOutputStream3;
@@ -401,11 +401,11 @@ public class i {
                 ApplicationInfo applicationInfo = activity.getPackageManager().getApplicationInfo(activity.getApplicationContext().getPackageName(), 128);
                 SLog.i("openSDK_LOG.SystemUtils", "apkPath=" + applicationInfo.sourceDir);
                 return applicationInfo.sourceDir;
-            } catch (PackageManager.NameNotFoundException e2) {
-                SLog.e("openSDK_LOG.SystemUtils", "NameNotFoundException", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                SLog.e("openSDK_LOG.SystemUtils", "NameNotFoundException", e);
                 return null;
-            } catch (Exception e3) {
-                SLog.e("openSDK_LOG.SystemUtils", "Exception", e3);
+            } catch (Exception e2) {
+                SLog.e("openSDK_LOG.SystemUtils", "Exception", e2);
                 return null;
             }
         }

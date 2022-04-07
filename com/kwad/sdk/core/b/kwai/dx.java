@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -10,7 +10,7 @@ public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b>
             return;
         }
         bVar.a = jSONObject.optLong("lastShowShakeTimestamp");
-        bVar.f41340b = jSONObject.optInt("currentDailyCount");
+        bVar.b = jSONObject.optInt("currentDailyCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,7 +20,7 @@ public class dx implements com.kwad.sdk.core.d<com.kwad.sdk.splashscreen.kwai.b>
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "lastShowShakeTimestamp", bVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "currentDailyCount", bVar.f41340b);
+        com.kwad.sdk.utils.t.a(jSONObject, "currentDailyCount", bVar.b);
         return jSONObject;
     }
 }

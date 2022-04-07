@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class k0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,13 +56,13 @@ public class k0 {
                 Map<String, String> map = System.getenv();
                 if (map != null) {
                     JSONObject jSONObject = new JSONObject();
-                    Set b2 = b();
+                    Set b = b();
                     String packageName = context.getPackageName();
                     for (String str : map.keySet()) {
                         String str2 = map.get(str);
-                        if (!str.contains("ANDROID_") && !str.contains("_ROOT") && !str2.contains(packageName) && !b2.contains(str)) {
+                        if (!str.contains("ANDROID_") && !str.contains("_ROOT") && !str2.contains(packageName) && !b.contains(str)) {
                             jSONObject.put(str, str2);
-                            if (b2.size() > 15) {
+                            if (b.size() > 15) {
                                 break;
                             }
                         }

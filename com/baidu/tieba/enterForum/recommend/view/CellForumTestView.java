@@ -9,12 +9,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.o0.r.j0.b;
-import c.a.p0.w0.m.c.f;
-import c.a.p0.w0.m.d.a;
-import c.a.p0.z3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -39,35 +33,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.j66;
+import com.repackage.k66;
+import com.repackage.lu4;
+import com.repackage.mi;
+import com.repackage.oi;
+import com.repackage.ui8;
+import com.repackage.wi8;
+import com.repackage.wt4;
+/* loaded from: classes3.dex */
 public class CellForumTestView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f31929b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbCornersImageView f31930c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f31931d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f31932e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f31933f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f31934g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f31935h;
+    public TbImageView b;
+    public TbCornersImageView c;
+    public ImageView d;
+    public TextView e;
+    public TBSpecificationBtn f;
+    public int g;
+    public int h;
     public int i;
     public BdUniqueId j;
-    public f k;
+    public j66 k;
     public boolean l;
     public float m;
     public float n;
@@ -80,7 +68,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public int u;
     public int v;
     public boolean w;
-    public a x;
+    public k66 x;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CellForumTestView(Context context) {
@@ -108,23 +96,23 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d1, (ViewGroup) this, true);
-            this.f31929b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905af);
-            this.f31930c = (TbCornersImageView) findViewById(R.id.obfuscated_res_0x7f0905b0);
-            this.f31931d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905ad);
-            this.f31932e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905ae);
-            this.f31933f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0905ac);
-            c.a.o0.r.l0.n.a aVar = new c.a.o0.r.l0.n.a();
-            this.f31933f.setTextSize(R.dimen.tbds42);
-            this.f31933f.setConfig(aVar);
-            int f2 = n.f(context, R.dimen.tbds10);
-            this.f31930c.setCornerTopLeftRadius(f2);
-            this.f31929b.setRadius(f2);
-            this.f31929b.setConrers(3);
-            this.f31929b.setPlaceHolder(3);
-            this.f31929b.setDrawCorner(true);
-            this.i = n.f(context, R.dimen.tbds262);
-            this.f31931d.setOnClickListener(this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01d2, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905b9);
+            this.c = (TbCornersImageView) findViewById(R.id.obfuscated_res_0x7f0905ba);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905b7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b8);
+            this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0905b6);
+            lu4 lu4Var = new lu4();
+            this.f.setTextSize(R.dimen.tbds42);
+            this.f.setConfig(lu4Var);
+            int f = oi.f(context, R.dimen.tbds10);
+            this.c.setCornerTopLeftRadius(f);
+            this.b.setRadius(f);
+            this.b.setConrers(3);
+            this.b.setPlaceHolder(3);
+            this.b.setDrawCorner(true);
+            this.i = oi.f(context, R.dimen.tbds262);
+            this.d.setOnClickListener(this);
             setOnClickListener(this);
             b();
         }
@@ -137,31 +125,31 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             return;
         }
         this.a = skinType;
-        TbImageView tbImageView = this.f31929b;
+        TbImageView tbImageView = this.b;
         if (tbImageView != null) {
             tbImageView.setSkinType(skinType);
         }
-        TBSpecificationBtn tBSpecificationBtn = this.f31933f;
+        TBSpecificationBtn tBSpecificationBtn = this.f;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.k();
         }
-        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.f31930c, R.drawable.obfuscated_res_0x7f0807c0, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0807c4, SvgManager.SvgResourceStateType.NORMAL);
         if (skinType != 1 && skinType != 4) {
-            ((ViewGroup.MarginLayoutParams) this.f31932e.getLayoutParams()).setMargins(0, 0, 0, 0);
-            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(n.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(n.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(n.f(getContext(), R.dimen.tbds5)).into(this.f31932e);
+            ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).setMargins(0, 0, 0, 0);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(oi.f(getContext(), R.dimen.tbds10)).setShadowColor(R.color.CAM_X0804).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(oi.f(getContext(), R.dimen.tbds10)).setOffsetX(0).setOffsetY(oi.f(getContext(), R.dimen.tbds5)).into(this.e);
         } else {
-            ((ViewGroup.MarginLayoutParams) this.f31932e.getLayoutParams()).setMargins(n.f(getContext(), R.dimen.tbds4), 0, n.f(getContext(), R.dimen.tbds9), 0);
-            float f2 = n.f(getContext(), R.dimen.tbds10);
-            TBSelector.makeDrawableSelector().blRadius(f2).brRadius(f2).defaultColor(R.color.CAM_X0207).into(this.f31932e);
+            ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).setMargins(oi.f(getContext(), R.dimen.tbds4), 0, oi.f(getContext(), R.dimen.tbds9), 0);
+            float f = oi.f(getContext(), R.dimen.tbds10);
+            TBSelector.makeDrawableSelector().blRadius(f).brRadius(f).defaultColor(R.color.CAM_X0207).into(this.e);
         }
-        SkinManager.setImageResource(this.f31931d, R.drawable.icon_ba_close);
-        SkinManager.setViewTextColor(this.f31932e, (int) R.color.CAM_X0105);
+        SkinManager.setImageResource(this.d, R.drawable.icon_ba_close);
+        SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
     }
 
-    public f getData() {
+    public j66 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.k : (j66) invokeV.objValue;
     }
 
     public int getDataIndex() {
@@ -225,17 +213,17 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         int i;
-        StatisticItem l;
+        StatisticItem j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view) == null) {
-            if (this.f31931d == view) {
-                if (l.A() && this.u == 1) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            if (this.d == view2) {
+                if (mi.A() && this.u == 1) {
                     TiebaStatic.log(new StatisticItem("c13373").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.k.a));
-                    a aVar = this.x;
-                    if (aVar != null) {
-                        aVar.a(this.u);
+                    k66 k66Var = this.x;
+                    if (k66Var != null) {
+                        k66Var.a(this.u);
                     }
                     RequestTestCloseMessage requestTestCloseMessage = new RequestTestCloseMessage();
                     requestTestCloseMessage.setTestId(this.k.a);
@@ -245,12 +233,12 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
             } else if (ViewHelper.checkUpIsLogin(getContext())) {
                 TiebaStatic.log(new StatisticItem("c13372").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_id", this.k.a));
                 int i2 = this.v;
-                f fVar = this.k;
-                if (fVar != null && i2 >= 0 && (l = c.a.p0.z3.a.l(true, "a065", "common_click", i, (i = i2 + 1), false, null, String.valueOf(fVar.a), 0)) != null) {
-                    c.g().c(this.j, l);
+                j66 j66Var = this.k;
+                if (j66Var != null && i2 >= 0 && (j = ui8.j(true, "a065", "common_click", i, (i = i2 + 1), false, null, String.valueOf(j66Var.a), 0)) != null) {
+                    wi8.g().c(this.j, j);
                 }
                 if (!this.l) {
-                    String q = b.k().q("enter_forum_test_id_list", "");
+                    String q = wt4.k().q("enter_forum_test_id_list", "");
                     String[] split = q.split("[|]");
                     String str = this.k.a + "*" + TbadkCoreApplication.getCurrentAccountId();
                     StringBuilder sb = new StringBuilder();
@@ -269,9 +257,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                         }
                         sb.append(str);
                     }
-                    b.k().y("enter_forum_test_id_list", sb.toString());
+                    wt4.k().y("enter_forum_test_id_list", sb.toString());
                 }
-                this.f31930c.setVisibility(8);
+                this.c.setVisibility(8);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumTestActivityConfig(getContext(), this.k.a)));
             }
         }
@@ -289,24 +277,24 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            this.f31934g = View.MeasureSpec.getSize(i);
-            this.f31935h = View.MeasureSpec.getSize(i2);
+            this.g = View.MeasureSpec.getSize(i);
+            this.h = View.MeasureSpec.getSize(i2);
             if (!this.w) {
-                this.f31929b.getLayoutParams().height = this.f31935h - this.i;
+                this.b.getLayoutParams().height = this.h - this.i;
             }
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.f31934g, 1073741824), View.MeasureSpec.makeMeasureSpec(this.f31935h, 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(this.g, 1073741824), View.MeasureSpec.makeMeasureSpec(this.h, 1073741824));
         }
     }
 
-    public void setData(f fVar) {
+    public void setData(j66 j66Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, fVar) == null) || fVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, j66Var) == null) || j66Var == null) {
             return;
         }
-        this.k = fVar;
-        this.f31929b.J(fVar.f19515d ? fVar.f19516e : fVar.f19514c, 10, false);
+        this.k = j66Var;
+        this.b.K(j66Var.d ? j66Var.e : j66Var.c, 10, false);
         this.l = false;
-        String q = b.k().q("enter_forum_test_id_list", "");
+        String q = wt4.k().q("enter_forum_test_id_list", "");
         String[] split = q.split("[|]");
         if (!StringUtils.isNull(q)) {
             int length = split.length;
@@ -317,7 +305,7 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 }
                 String str = split[i];
                 if (!StringUtils.isNull(str)) {
-                    if (str.equals(fVar.a + "*" + TbadkCoreApplication.getCurrentAccountId())) {
+                    if (str.equals(j66Var.a + "*" + TbadkCoreApplication.getCurrentAccountId())) {
                         this.l = true;
                         break;
                     }
@@ -325,13 +313,13 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
                 i++;
             }
         }
-        this.f31930c.setVisibility(this.l ? 8 : 0);
-        if (StringUtils.isNull(fVar.f19513b)) {
-            this.f31932e.setText(R.string.obfuscated_res_0x7f0f0388);
+        this.c.setVisibility(this.l ? 8 : 0);
+        if (StringUtils.isNull(j66Var.b)) {
+            this.e.setText(R.string.obfuscated_res_0x7f0f038a);
         } else {
-            this.f31932e.setText(fVar.f19513b);
+            this.e.setText(j66Var.b);
         }
-        this.f31933f.setText(getResources().getString(fVar.f19515d ? R.string.obfuscated_res_0x7f0f0386 : R.string.obfuscated_res_0x7f0f0387));
+        this.f.setText(getResources().getString(j66Var.d ? R.string.obfuscated_res_0x7f0f0388 : R.string.obfuscated_res_0x7f0f0389));
     }
 
     public void setDataIndex(int i) {
@@ -341,10 +329,10 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         }
     }
 
-    public void setForumTestDelClickListener(a aVar) {
+    public void setForumTestDelClickListener(k66 k66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
-            this.x = aVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, k66Var) == null) {
+            this.x = k66Var;
         }
     }
 
@@ -353,9 +341,9 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.u = i;
             if (i == 1) {
-                this.f31931d.setVisibility(0);
+                this.d.setVisibility(0);
             } else {
-                this.f31931d.setVisibility(8);
+                this.d.setVisibility(8);
             }
         }
     }
@@ -367,31 +355,31 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         }
     }
 
-    public void setMoveBottom(float f2) {
+    public void setMoveBottom(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
-            this.t = f2;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.t = f;
         }
     }
 
-    public void setMoveLeft(float f2) {
+    public void setMoveLeft(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
-            this.q = f2;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.q = f;
         }
     }
 
-    public void setMoveRight(float f2) {
+    public void setMoveRight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            this.s = f2;
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            this.s = f;
         }
     }
 
-    public void setMoveTop(float f2) {
+    public void setMoveTop(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
-            this.r = f2;
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            this.r = f;
         }
     }
 
@@ -402,31 +390,31 @@ public class CellForumTestView extends RelativeLayout implements View.OnClickLis
         }
     }
 
-    public void setViewBottom(float f2) {
+    public void setViewBottom(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048602, this, f2) == null) {
-            this.p = f2;
+        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
+            this.p = f;
         }
     }
 
-    public void setViewLeft(float f2) {
+    public void setViewLeft(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-            this.m = f2;
+        if (interceptable == null || interceptable.invokeF(1048603, this, f) == null) {
+            this.m = f;
         }
     }
 
-    public void setViewRight(float f2) {
+    public void setViewRight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
-            this.o = f2;
+        if (interceptable == null || interceptable.invokeF(1048604, this, f) == null) {
+            this.o = f;
         }
     }
 
-    public void setViewTop(float f2) {
+    public void setViewTop(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048605, this, f2) == null) {
-            this.n = f2;
+        if (interceptable == null || interceptable.invokeF(1048605, this, f) == null) {
+            this.n = f;
         }
     }
 

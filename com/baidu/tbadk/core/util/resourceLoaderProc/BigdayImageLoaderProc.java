@@ -3,12 +3,6 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.a.f.c;
-import c.a.d.f.l.b;
-import c.a.d.f.l.d;
-import c.a.d.f.l.e;
-import c.a.d.f.p.l;
-import c.a.d.o.d.a;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
@@ -21,8 +15,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class BigdayImageLoaderProc implements e<a> {
+import com.repackage.fo;
+import com.repackage.gg;
+import com.repackage.h35;
+import com.repackage.ig;
+import com.repackage.jg;
+import com.repackage.mi;
+import com.repackage.rb;
+import com.repackage.vb;
+/* loaded from: classes3.dex */
+public class BigdayImageLoaderProc implements jg<fo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -47,35 +49,35 @@ public class BigdayImageLoaderProc implements e<a> {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(d.h().g(str, 41)), DiskFileOperate.Action.INFO);
-            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.setIsFormatData(false);
-            cVar.setSdCard(false);
-            cVar.setSavedCache(true);
-            return cVar.call();
+            vb vbVar = new vb(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(ig.h().g(str, 41)), DiskFileOperate.Action.INFO);
+            vbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            vbVar.setIsFormatData(false);
+            vbVar.setSdCard(false);
+            vbVar.setSavedCache(true);
+            return vbVar.call();
         }
         return invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m45decodeToResource(byte[] bArr, Object... objArr) {
+    public fo m45decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
             return null;
         }
-        return (a) invokeLL.objValue;
+        return (fo) invokeLL.objValue;
     }
 
-    @Override // c.a.d.f.l.e
+    @Override // com.repackage.jg
     public BdAsyncTaskParallel getAsyncTaskParallel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ImageLoadSpeedRecorder.sharedInstance().getAsyncTaskParallel() : (BdAsyncTaskParallel) invokeV.objValue;
     }
 
-    @Override // c.a.d.f.l.e
+    @Override // com.repackage.jg
     public int getAsyncTaskPriority() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +87,7 @@ public class BigdayImageLoaderProc implements e<a> {
         return invokeV.intValue;
     }
 
-    @Override // c.a.d.f.l.e
+    @Override // com.repackage.jg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,38 +103,38 @@ public class BigdayImageLoaderProc implements e<a> {
         }
     }
 
-    @Override // c.a.d.f.l.e
+    @Override // com.repackage.jg
     public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof a)) {
-            a aVar = (a) obj;
-            if (aVar.u()) {
-                c.a.o0.b0.c.k().d(str, aVar);
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof fo)) {
+            fo foVar = (fo) obj;
+            if (foVar.u()) {
+                h35.k().d(str, foVar);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.d.f.l.e
-    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // com.repackage.jg
+    public fo getFromLocal(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
             byte[] bArr = new byte[0];
-            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
-            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.setSdCard(false);
-            cVar.setSavedCache(true);
-            cVar.setIsFormatData(false);
-            cVar.setLock(bArr);
-            if (bVar != null) {
+            vb vbVar = new vb(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
+            vbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            vbVar.setSdCard(false);
+            vbVar.setSavedCache(true);
+            vbVar.setIsFormatData(false);
+            vbVar.setLock(bArr);
+            if (ggVar != null) {
                 DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                diskCancelWorker.setOperate(cVar);
-                bVar.a = diskCancelWorker;
+                diskCancelWorker.setOperate(vbVar);
+                ggVar.a = diskCancelWorker;
             }
-            boolean H = l.H();
-            if (c.a.d.f.a.d.f().a(cVar)) {
+            boolean H = mi.H();
+            if (rb.f().a(vbVar)) {
                 int i3 = H ? 300 : 2000;
                 synchronized (bArr) {
                     try {
@@ -140,11 +142,11 @@ public class BigdayImageLoaderProc implements e<a> {
                     } catch (InterruptedException unused) {
                     }
                 }
-                if (cVar.isSuccess()) {
-                    cVar.formatData(cVar.getData());
-                    Bitmap bitmap = cVar.getBitmap();
+                if (vbVar.isSuccess()) {
+                    vbVar.formatData(vbVar.getData());
+                    Bitmap bitmap = vbVar.getBitmap();
                     if (bitmap != null) {
-                        return new a(bitmap, cVar.isGif(), str2);
+                        return new fo(bitmap, vbVar.isGif(), str2);
                     }
                     return null;
                 }
@@ -152,50 +154,50 @@ public class BigdayImageLoaderProc implements e<a> {
             }
             return null;
         }
-        return (a) invokeCommon.objValue;
+        return (fo) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.d.f.l.e
-    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.repackage.jg
+    public fo getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? c.a.o0.b0.c.k().m(str) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? h35.k().m(str) : (fo) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.d.f.l.e
-    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
+    @Override // com.repackage.jg
+    public fo getFromRemote(String str, String str2, int i, int i2, gg ggVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), ggVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
             WebClient webClient = new WebClient();
-            if (bVar != null) {
-                bVar.a = webClient;
+            if (ggVar != null) {
+                ggVar.a = webClient;
             }
             byte[] downloadImageBytes = webClient.downloadImageBytes(str, false);
             boolean needCache = webClient.needCache();
             if ((downloadImageBytes != null || webClient.getResponse().a) && needCache && !webClient.isCrackPic) {
-                c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
-                cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-                cVar.setData(downloadImageBytes);
-                cVar.setSdCard(false);
-                cVar.setSavedCache(true);
-                cVar.setGif(false);
-                c.a.d.f.a.d.f().a(cVar);
-                if (bVar != null) {
+                vb vbVar = new vb(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.WRITE);
+                vbVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+                vbVar.setData(downloadImageBytes);
+                vbVar.setSdCard(false);
+                vbVar.setSavedCache(true);
+                vbVar.setGif(false);
+                rb.f().a(vbVar);
+                if (ggVar != null) {
                     DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
-                    diskCancelWorker.setOperate(cVar);
-                    bVar.a = diskCancelWorker;
+                    diskCancelWorker.setOperate(vbVar);
+                    ggVar.a = diskCancelWorker;
                 }
             }
             return null;
         }
-        return (a) invokeCommon.objValue;
+        return (fo) invokeCommon.objValue;
     }
 }

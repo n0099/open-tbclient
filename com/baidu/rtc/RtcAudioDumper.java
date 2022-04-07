@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, RTCAudioSamples.RTCRemoteSamplesReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_FILE_SIZE_IN_BYTES = 58348800;
@@ -63,7 +63,7 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                         openRawAudioOutputFile(rTCAudioSamples.getSampleRate(), rTCAudioSamples.getChannelCount());
                         this.fileSizeInBytes = 0L;
                     }
-                    this.executor.execute(new Runnable() { // from class: c.a.h0.c
+                    this.executor.execute(new Runnable() { // from class: com.repackage.kc1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -101,8 +101,8 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
             String sb2 = sb.toString();
             try {
                 this.rawAudioFileOutputStream = new FileOutputStream(new File(sb2));
-            } catch (FileNotFoundException e2) {
-                Log.e(TAG, "Failed to open audio output file: " + e2.getMessage());
+            } catch (FileNotFoundException e) {
+                Log.e(TAG, "Failed to open audio output file: " + e.getMessage());
             }
             Log.d(TAG, "Opened file for recording: " + sb2);
         }
@@ -116,8 +116,8 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                     outputStream.write(rTCAudioSamples.getData());
                     this.fileSizeInBytes += rTCAudioSamples.getData().length;
                 }
-            } catch (IOException e2) {
-                Log.e(TAG, "Failed to write audio to file: " + e2.getMessage());
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to write audio to file: " + e.getMessage());
             }
         }
     }
@@ -164,8 +164,8 @@ public class RtcAudioDumper implements RTCAudioSamples.RTCSamplesReadyCallback, 
                 if (this.rawAudioFileOutputStream != null) {
                     try {
                         this.rawAudioFileOutputStream.close();
-                    } catch (IOException e2) {
-                        Log.e(TAG, "Failed to close file with saved input audio: " + e2);
+                    } catch (IOException e) {
+                        Log.e(TAG, "Failed to close file with saved input audio: " + e);
                     }
                     this.rawAudioFileOutputStream = null;
                 }

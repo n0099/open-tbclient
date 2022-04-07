@@ -84,7 +84,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SapiAccountService implements ISAccountService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUSINESS_FROM_ONE_KEY_LOGIN = "business_from_one_key_login";

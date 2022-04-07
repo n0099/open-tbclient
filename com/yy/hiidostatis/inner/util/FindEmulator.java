@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FindEmulator {
     public static /* synthetic */ Interceptable $ic;
     public static int emurs;
@@ -37,7 +37,7 @@ public class FindEmulator {
     public static final String[] known_qemu_drivers;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Property {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class FindEmulator {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class tcp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -351,8 +351,8 @@ public class FindEmulator {
                         fileInputStream.read(bArr);
                         try {
                             fileInputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     } catch (Throwable th2) {
                         th = th2;
@@ -370,8 +370,8 @@ public class FindEmulator {
                             if (fileInputStream2 != null) {
                                 try {
                                     fileInputStream2.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
                                 }
                             }
                             throw th3;

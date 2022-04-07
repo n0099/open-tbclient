@@ -24,7 +24,7 @@ import com.tachikoma.core.event.view.TKInputEvent;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKInput extends TKBase<EditText> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -230,10 +230,10 @@ public class TKInput extends TKBase<EditText> {
             }
 
             @Override // android.view.View.OnKeyListener
-            public boolean onKey(View view, int i3, KeyEvent keyEvent) {
+            public boolean onKey(View view2, int i3, KeyEvent keyEvent) {
                 InterceptResult invokeLIL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i3, keyEvent)) == null) {
+                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view2, i3, keyEvent)) == null) {
                     if (i3 == 67 && keyEvent.getAction() == 0 && this.this$0.getView() != null && TextUtils.isEmpty(this.this$0.getView().getText())) {
                         this.this$0.dispatchEvent("input", new TKEventProcess.EventInterface(this) { // from class: com.tachikoma.core.component.input.TKInput.2.1
                             public static /* synthetic */ Interceptable $ic;
@@ -401,10 +401,10 @@ public class TKInput extends TKBase<EditText> {
         }
     }
 
-    public void setPlaceholderFontSize(float f2) {
+    public void setPlaceholderFontSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.mProperty.setPlaceholderFontSize(f2);
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.mProperty.setPlaceholderFontSize(f);
         }
     }
 

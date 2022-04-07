@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class w extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,7 @@ public final class w extends XMPushService.i {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f962a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f44592b;
+    public final /* synthetic */ String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public w(int i, XMPushService xMPushService, ib ibVar, String str, String str2) {
@@ -46,7 +44,7 @@ public final class w extends XMPushService.i {
         this.f961a = xMPushService;
         this.a = ibVar;
         this.f962a = str;
-        this.f44592b = str2;
+        this.b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -63,11 +61,11 @@ public final class w extends XMPushService.i {
             try {
                 ib a = q.a((Context) this.f961a, this.a);
                 a.f613a.a("error", this.f962a);
-                a.f613a.a("reason", this.f44592b);
+                a.f613a.a("reason", this.b);
                 y.a(this.f961a, a);
-            } catch (fw e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f961a.a(10, e2);
+            } catch (fw e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
+                this.f961a.a(10, e);
             }
         }
     }

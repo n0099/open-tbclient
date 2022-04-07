@@ -33,7 +33,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -73,8 +73,8 @@ public class FileUtils {
             if (checkSD() && !TextUtils.isEmpty(str)) {
                 try {
                     return new File(str).exists();
-                } catch (Exception e2) {
-                    Log.e("FileUtils", e2.getMessage());
+                } catch (Exception e) {
+                    Log.e("FileUtils", e.getMessage());
                 }
             }
             return false;
@@ -88,8 +88,8 @@ public class FileUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             try {
                 return Environment.getExternalStorageState().equals("mounted");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -152,8 +152,8 @@ public class FileUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, file)) == null) {
             try {
                 return file.delete();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -180,8 +180,8 @@ public class FileUtils {
                 }
                 file.delete();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -237,8 +237,8 @@ public class FileUtils {
                     fileInputStream = new FileInputStream((File) file);
                     try {
                         file = new FileOutputStream((File) file2);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         file = 0;
                         fileChannel = null;
                     } catch (Throwable th) {
@@ -249,8 +249,8 @@ public class FileUtils {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 file = 0;
                 fileChannel = null;
                 fileInputStream = null;
@@ -272,8 +272,8 @@ public class FileUtils {
                     }
                     z = true;
                     closeable = file;
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     Log.e("FileUtils", e.getMessage());
                     closeable = file;
                     CloseHelper.close(fileChannel2);
@@ -282,8 +282,8 @@ public class FileUtils {
                     CloseHelper.close(fileInputStream);
                     return z;
                 }
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e4) {
+                e = e4;
                 fileChannel = null;
             } catch (Throwable th4) {
                 th = th4;
@@ -357,8 +357,8 @@ public class FileUtils {
                         try {
                             j = fileInputStream2.available();
                             fileInputStream = fileInputStream2;
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             fileInputStream = fileInputStream2;
                             Log.e("FileUtils", e.getMessage());
                             CloseHelper.close(fileInputStream);
@@ -373,8 +373,8 @@ public class FileUtils {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
             CloseHelper.close(fileInputStream);
             return j;
@@ -458,8 +458,8 @@ public class FileUtils {
             }
             try {
                 inputStream = context.getAssets().open(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return loadDataFromStream(inputStream);
         }
@@ -473,8 +473,8 @@ public class FileUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
             try {
                 fileInputStream = new FileInputStream(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 fileInputStream = null;
             }
             return loadDataFromStream(fileInputStream);
@@ -495,24 +495,24 @@ public class FileUtils {
                     inputStream.read(bArr);
                     try {
                         inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     return bArr;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     try {
                         inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                     return null;
                 }
             } catch (Throwable th) {
                 try {
                     inputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
                 throw th;
             }
@@ -551,8 +551,8 @@ public class FileUtils {
             if (file != null && file.exists()) {
                 try {
                     return readText(new FileInputStream(file));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return null;
@@ -604,9 +604,9 @@ public class FileUtils {
                     String absolutePath = file2.getAbsolutePath();
                     CloseHelper.close(fileOutputStream3);
                     return absolutePath;
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     fileOutputStream = fileOutputStream3;
-                    e = e2;
+                    e = e;
                     try {
                         Log.e("FileUtils", e.getMessage());
                         CloseHelper.close(fileOutputStream);
@@ -624,8 +624,8 @@ public class FileUtils {
                     throw th;
                 }
             }
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             fileOutputStream = null;
         } catch (Throwable th3) {
             th = th3;
@@ -656,8 +656,8 @@ public class FileUtils {
             try {
                 try {
                     fileOutputStream = new FileOutputStream(str);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -666,19 +666,19 @@ public class FileUtils {
                 fileOutputStream.write(str2.getBytes());
                 try {
                     fileOutputStream.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
                 return true;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 return false;
@@ -688,8 +688,8 @@ public class FileUtils {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e6) {
-                        e6.printStackTrace();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;
@@ -756,8 +756,8 @@ public class FileUtils {
                         file.createNewFile();
                     }
                     fileOutputStream = new FileOutputStream(file, z);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -767,8 +767,8 @@ public class FileUtils {
                 fileOutputStream.flush();
                 CloseHelper.close(fileOutputStream);
                 return true;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 CloseHelper.close(fileOutputStream2);
@@ -809,8 +809,8 @@ public class FileUtils {
                 zipOutputStream.close();
                 fileOutputStream.close();
                 arrayList.clear();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -887,8 +887,8 @@ public class FileUtils {
                     return;
                 }
             }
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -982,24 +982,24 @@ public class FileUtils {
                     String sb2 = sb.toString();
                     try {
                         inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     return sb2;
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     try {
                         inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                     return null;
                 }
             } catch (Throwable th) {
                 try {
                     inputStream.close();
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
                 throw th;
             }
@@ -1016,8 +1016,8 @@ public class FileUtils {
                     return 0L;
                 }
                 return new File(str).length();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 0L;
             }
         }

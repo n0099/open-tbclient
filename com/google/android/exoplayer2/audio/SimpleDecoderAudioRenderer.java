@@ -29,7 +29,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements MediaClock {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REINITIALIZATION_STATE_NONE = 0;
@@ -61,13 +61,13 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     public boolean waitingForKeys;
 
     /* renamed from: com.google.android.exoplayer2.audio.SimpleDecoderAudioRenderer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -276,8 +276,8 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                 long elapsedRealtime2 = SystemClock.elapsedRealtime();
                 this.eventDispatcher.decoderInitialized(this.decoder.getName(), elapsedRealtime2, elapsedRealtime2 - elapsedRealtime);
                 this.decoderCounters.decoderInitCount++;
-            } catch (AudioDecoderException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, getIndex());
+            } catch (AudioDecoderException e) {
+                throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
         }
     }
@@ -565,8 +565,8 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                 try {
                     this.audioSink.playToEndOfStream();
                     return;
-                } catch (AudioSink.WriteException e2) {
-                    throw ExoPlaybackException.createForRenderer(e2, getIndex());
+                } catch (AudioSink.WriteException e) {
+                    throw ExoPlaybackException.createForRenderer(e, getIndex());
                 }
             }
             if (this.inputFormat == null) {
@@ -593,8 +593,8 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                     }
                     TraceUtil.endSection();
                     this.decoderCounters.ensureUpdated();
-                } catch (AudioDecoderException | AudioSink.ConfigurationException | AudioSink.InitializationException | AudioSink.WriteException e3) {
-                    throw ExoPlaybackException.createForRenderer(e3, getIndex());
+                } catch (AudioDecoderException | AudioSink.ConfigurationException | AudioSink.InitializationException | AudioSink.WriteException e2) {
+                    throw ExoPlaybackException.createForRenderer(e2, getIndex());
                 }
             }
         }

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.webrtc.StatsReport;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HUDStatistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_STATES_STREAMING_ALL = 31;
@@ -168,8 +168,8 @@ public class HUDStatistics {
                 if (!TextUtils.isEmpty(str)) {
                     this.mAudioJitterBufferMs = Integer.valueOf(str).intValue();
                 }
-            } catch (NumberFormatException e2) {
-                Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e2);
+            } catch (NumberFormatException e) {
+                Log.e("HUDStatistic", "parseAudioRecvStatsReport" + e);
             }
             this.mAudioCurrentDelay = map.get("googCurrentDelayMs");
             this.mAudioRecvCodec = map.get("googCodecName");
@@ -197,8 +197,8 @@ public class HUDStatistics {
                 this.mActualEncBitrate = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googActualEncBitrate")));
                 this.mAvailableSendBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googAvailableSendBandwidth")));
                 this.mAvailableRevBW = RTCBitrateTracker.bitrateStringForBitrate(Double.parseDouble(map.get("googAvailableReceiveBandwidth")));
-            } catch (NumberFormatException e2) {
-                Log.e("HUDStatistics", "parseBweStatsReport: " + e2);
+            } catch (NumberFormatException e) {
+                Log.e("HUDStatistics", "parseBweStatsReport: " + e);
             }
         }
     }
@@ -213,8 +213,8 @@ public class HUDStatistics {
                 this.mConnRecvBitrate = this.mConnRecvBitrateTracker.bitRateString();
                 this.mConnSendBitrateTradker.updataBitrateWidhCurrentByteCount(Long.parseLong(map.get("bytesSent")));
                 this.mConnSendBitrate = this.mConnSendBitrateTradker.bitRateString();
-            } catch (NumberFormatException e2) {
-                Log.e("HUDStatistics", "parseConnectionStatsReport" + e2);
+            } catch (NumberFormatException e) {
+                Log.e("HUDStatistics", "parseConnectionStatsReport" + e);
             }
             this.mConnRtt = map.get("googRtt");
             this.mLocalCandType = map.get("googLocalCandidateType");
@@ -281,8 +281,8 @@ public class HUDStatistics {
                 if (str3 != null) {
                     this.mFrameEncoded = Integer.parseInt(str3);
                 }
-            } catch (NumberFormatException e2) {
-                Log.e("HUDStatistic", "parseVideoSendStatsReport: " + e2);
+            } catch (NumberFormatException e) {
+                Log.e("HUDStatistic", "parseVideoSendStatsReport: " + e);
             }
         }
     }
@@ -384,8 +384,8 @@ public class HUDStatistics {
                     map.put("packetloss_r", Integer.valueOf(this.mVideoRecvPacketLostRatio));
                     map.put("fps_r", Integer.valueOf(this.mVideoRecvFps));
                     return;
-                } catch (NumberFormatException e2) {
-                    Log.e("HUDStatistics", "getStatsRecvInfo: " + e2);
+                } catch (NumberFormatException e) {
+                    Log.e("HUDStatistics", "getStatsRecvInfo: " + e);
                     return;
                 }
             }
@@ -410,8 +410,8 @@ public class HUDStatistics {
                     map.put("fps_s", Integer.valueOf(this.mVideoSendFps));
                     map.put("fps_i", Integer.valueOf(this.mVideoInputFps));
                     return;
-                } catch (NumberFormatException e2) {
-                    Log.e("HUDStatistics", "getStatsSendInfo: " + e2);
+                } catch (NumberFormatException e) {
+                    Log.e("HUDStatistics", "getStatsSendInfo: " + e);
                     return;
                 }
             }

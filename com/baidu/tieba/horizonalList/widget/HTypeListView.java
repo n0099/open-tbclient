@@ -3,8 +3,6 @@ package com.baidu.tieba.horizonalList.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListAdapter;
-import c.a.d.o.e.a;
-import c.a.d.o.e.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ho;
+import com.repackage.uo;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HTypeListView extends HListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,10 +42,10 @@ public class HTypeListView extends HListView {
         b();
     }
 
-    public void a(List<a> list) {
+    public void a(List<ho> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator<a> it = list.iterator();
+            Iterator<ho> it = list.iterator();
             while (it.hasNext()) {
                 this.a.a(it.next());
             }
@@ -60,13 +60,13 @@ public class HTypeListView extends HListView {
         }
     }
 
-    public List<n> getData() {
+    public List<uo> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.d() : (List) invokeV.objValue;
     }
 
-    public void setData(List<? extends n> list) {
+    public void setData(List<? extends uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.a.h(list);

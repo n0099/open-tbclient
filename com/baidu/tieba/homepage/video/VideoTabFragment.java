@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.f1.o0;
-import c.a.p0.q1.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,16 +21,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.me6;
+import com.repackage.v27;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class VideoTabFragment extends BaseFragment implements o0 {
+/* loaded from: classes3.dex */
+public class VideoTabFragment extends BaseFragment implements me6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f33581b;
+    public v27 a;
+    public boolean b;
 
     public VideoTabFragment() {
         Interceptable interceptable = $ic;
@@ -47,17 +45,17 @@ public class VideoTabFragment extends BaseFragment implements o0 {
                 return;
             }
         }
-        this.f33581b = false;
+        this.b = false;
     }
 
-    @Override // c.a.p0.f1.o0
+    @Override // com.repackage.me6
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // c.a.p0.f1.o0
+    @Override // com.repackage.me6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -65,14 +63,14 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a067" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.v75
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -91,14 +89,14 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         return (List) invokeV.objValue;
     }
 
-    @Override // c.a.p0.f1.o0
-    public void n() {
-        a aVar;
+    @Override // com.repackage.me6
+    public void m() {
+        v27 v27Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (v27Var = this.a) == null) {
             return;
         }
-        aVar.o();
+        v27Var.o();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -106,9 +104,9 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.g();
+            v27 v27Var = this.a;
+            if (v27Var != null) {
+                v27Var.g();
             }
         }
     }
@@ -120,7 +118,7 @@ public class VideoTabFragment extends BaseFragment implements o0 {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             if (this.a == null) {
-                this.a = new a(getPageContext(), getUniqueId());
+                this.a = new v27(getPageContext(), getUniqueId());
             }
             this.a.k();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_END_STAMP_KEY);
@@ -134,8 +132,8 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
-            a aVar = this.a;
-            if (aVar != null && aVar.j() != null) {
+            v27 v27Var = this.a;
+            if (v27Var != null && v27Var.j() != null) {
                 if (this.a.j().getParent() instanceof ViewGroup) {
                     ((ViewGroup) this.a.j().getParent()).removeView(this.a.j());
                 }
@@ -153,9 +151,9 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.m();
+            v27 v27Var = this.a;
+            if (v27Var != null) {
+                v27Var.m();
             }
             TbadkCoreApplication.getInst().getPersonalizeViewData().a();
         }
@@ -166,9 +164,9 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onLazyLoad();
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.l();
+            v27 v27Var = this.a;
+            if (v27Var != null) {
+                v27Var.l();
             }
         }
     }
@@ -178,9 +176,9 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.n();
+            v27 v27Var = this.a;
+            if (v27Var != null) {
+                v27Var.n();
             }
         }
     }
@@ -191,20 +189,20 @@ public class VideoTabFragment extends BaseFragment implements o0 {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
-                if (!this.f33581b) {
-                    this.f33581b = true;
+                if (!this.b) {
+                    this.b = true;
                     TiebaStatic.log(new StatisticItem("c13579"));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.p(isPrimary());
+            v27 v27Var = this.a;
+            if (v27Var != null) {
+                v27Var.p(isPrimary());
             }
         }
     }
 
-    @Override // c.a.p0.f1.o0
+    @Override // com.repackage.me6
     public void r() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

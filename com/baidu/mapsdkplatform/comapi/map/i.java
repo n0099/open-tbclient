@@ -20,13 +20,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Context f26717b;
+    public static Context b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +40,7 @@ public class i {
                 return;
             }
         }
-        f26717b = BMapManager.getContext();
+        b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -58,13 +56,13 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             if (a == 0) {
-                if (f26717b == null) {
+                if (b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
                 VMsg.init();
-                AppEngine.InitEngine(f26717b);
+                AppEngine.InitEngine(b);
                 AppEngine.StartSocketProc();
-                NetworkUtil.updateNetworkProxy(f26717b);
+                NetworkUtil.updateNetworkProxy(b);
             }
             a++;
         }
@@ -121,11 +119,11 @@ public class i {
                         com.baidu.mapsdkplatform.comapi.commonutils.a.a(strArr[i], strArr2[i], context);
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e3) {
-            e3.printStackTrace();
+        } catch (Exception e2) {
+            e2.printStackTrace();
         }
     }
 

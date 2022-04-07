@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.profession.permission;
 
-import c.a.p0.f1.i2.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nn6;
 import com.squareup.wire.Wire;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
-/* loaded from: classes5.dex */
-public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<b, ZoneRightResIdl> {
+/* loaded from: classes3.dex */
+public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<nn6, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -50,11 +50,11 @@ public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessag
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             try {
-                b bVar = new b();
-                bVar.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
-                setData(bVar);
-            } catch (IOException e2) {
-                e2.printStackTrace();
+                nn6 nn6Var = new nn6();
+                nn6Var.initByProtobuf((ZoneRightResIdl) new Wire(new Class[0]).parseFrom(bArr, ZoneRightResIdl.class));
+                setData(nn6Var);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

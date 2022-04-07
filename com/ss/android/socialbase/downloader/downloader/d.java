@@ -18,15 +18,9 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class d {
     public static volatile d a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<Boolean> f43252b = new SparseArray<>();
-
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f43253c = new Handler(Looper.getMainLooper());
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile List<ac> f43254d = new ArrayList();
+    public volatile SparseArray<Boolean> b = new SparseArray<>();
+    public Handler c = new Handler(Looper.getMainLooper());
+    public volatile List<ac> d = new ArrayList();
 
     public static d a() {
         if (a == null) {
@@ -41,9 +35,9 @@ public class d {
         if (acVar == null) {
             return;
         }
-        synchronized (this.f43254d) {
-            if (this.f43254d.contains(acVar)) {
-                this.f43254d.remove(acVar);
+        synchronized (this.d) {
+            if (this.d.contains(acVar)) {
+                this.d.remove(acVar);
             }
         }
     }
@@ -54,99 +48,99 @@ public class d {
     }
 
     public void d(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.a(i);
+        c.a(i);
     }
 
     public boolean e(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return false;
         }
-        return c2.b(i);
+        return c.b(i);
     }
 
     public void f(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.c(i);
+        c.c(i);
     }
 
     public void g(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.d(i);
+        c.d(i);
     }
 
     public long h(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return 0L;
         }
-        return c2.e(i);
+        return c.e(i);
     }
 
     public int i(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return 0;
         }
-        return c2.f(i);
+        return c.f(i);
     }
 
     public boolean j(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return false;
         }
-        return c2.g(i);
+        return c.g(i);
     }
 
     public DownloadInfo k(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return null;
         }
-        return c2.h(i);
+        return c.h(i);
     }
 
     public z l(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return null;
         }
-        return c2.q(i);
+        return c.q(i);
     }
 
     public af m(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return null;
         }
-        return c2.r(i);
+        return c.r(i);
     }
 
     public void n(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.j(i);
+        c.j(i);
     }
 
     public boolean o(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return false;
         }
-        return c2.l(i);
+        return c.l(i);
     }
 
     public void p(int i) {
@@ -173,11 +167,11 @@ public class d {
     }
 
     public IDownloadFileUriProvider r(int i) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return null;
         }
-        return c2.s(i);
+        return c.s(i);
     }
 
     public void c(int i, boolean z) {
@@ -205,27 +199,27 @@ public class d {
             }
             return;
         }
-        m c2 = c(i);
-        if (c2 != null) {
-            c2.a(i, z);
+        m c = c(i);
+        if (c != null) {
+            c.a(i, z);
         }
         com.ss.android.socialbase.downloader.impls.l.a(true).a(2, i);
     }
 
     public void d(int i, boolean z) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.b(i, z);
+        c.b(i, z);
     }
 
     public List<DownloadInfo> e(String str) {
         SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
         m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> e2 = a2 != null ? a2.e(str) : null;
+        List<DownloadInfo> e = a2 != null ? a2.e(str) : null;
         m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(e2, a3 != null ? a3.e(str) : null, sparseArray);
+        return a(e, a3 != null ? a3.e(str) : null, sparseArray);
     }
 
     public boolean f() {
@@ -237,8 +231,8 @@ public class d {
     }
 
     public void b() {
-        synchronized (this.f43254d) {
-            for (ac acVar : this.f43254d) {
+        synchronized (this.d) {
+            for (ac acVar : this.d) {
                 if (acVar != null) {
                     acVar.a();
                 }
@@ -261,9 +255,9 @@ public class d {
         if (com.ss.android.socialbase.downloader.impls.l.a(true).g()) {
             acVar.a();
         }
-        synchronized (this.f43254d) {
-            if (!this.f43254d.contains(acVar)) {
-                this.f43254d.add(acVar);
+        synchronized (this.d) {
+            if (!this.d.contains(acVar)) {
+                this.d.add(acVar);
             }
         }
     }
@@ -271,28 +265,28 @@ public class d {
     public List<DownloadInfo> d(String str) {
         SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
         m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> d2 = a2 != null ? a2.d(str) : null;
+        List<DownloadInfo> d = a2 != null ? a2.d(str) : null;
         m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(d2, a3 != null ? a3.d(str) : null, sparseArray);
+        return a(d, a3 != null ? a3.d(str) : null, sparseArray);
     }
 
     public List<DownloadInfo> e() {
         SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
         m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> d2 = a2 != null ? a2.d() : null;
+        List<DownloadInfo> d = a2 != null ? a2.d() : null;
         m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(d2, a3 != null ? a3.d() : null, sparseArray);
+        return a(d, a3 != null ? a3.d() : null, sparseArray);
     }
 
     public synchronized void b(int i, boolean z) {
-        this.f43252b.put(i, z ? Boolean.TRUE : Boolean.FALSE);
+        this.b.put(i, z ? Boolean.TRUE : Boolean.FALSE);
     }
 
     public synchronized int b(int i) {
-        if (this.f43252b.get(i) == null) {
+        if (this.b.get(i) == null) {
             return -1;
         }
-        return this.f43252b.get(i).booleanValue() ? 1 : 0;
+        return this.b.get(i).booleanValue() ? 1 : 0;
     }
 
     public void a(int i, boolean z) {
@@ -338,11 +332,11 @@ public class d {
                 if (a2 == 1) {
                     if (com.ss.android.socialbase.downloader.i.f.a()) {
                         com.ss.android.socialbase.downloader.impls.l.a(true).a(downloadInfo.getId());
-                        DownloadInfo h2 = com.ss.android.socialbase.downloader.impls.l.a(true).h(downloadInfo.getId());
-                        if (h2 != null) {
-                            com.ss.android.socialbase.downloader.impls.l.a(false).b(h2);
+                        DownloadInfo h = com.ss.android.socialbase.downloader.impls.l.a(true).h(downloadInfo.getId());
+                        if (h != null) {
+                            com.ss.android.socialbase.downloader.impls.l.a(false).b(h);
                         }
-                        if (h2.getChunkCount() > 1 && (i = com.ss.android.socialbase.downloader.impls.l.a(true).i(downloadInfo.getId())) != null) {
+                        if (h.getChunkCount() > 1 && (i = com.ss.android.socialbase.downloader.impls.l.a(true).i(downloadInfo.getId())) != null) {
                             com.ss.android.socialbase.downloader.impls.l.a(false).a(downloadInfo.getId(), com.ss.android.socialbase.downloader.i.f.a(i));
                         }
                     }
@@ -366,9 +360,9 @@ public class d {
     public List<DownloadInfo> c(String str) {
         SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
         m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> c2 = a2 != null ? a2.c(str) : null;
+        List<DownloadInfo> c = a2 != null ? a2.c(str) : null;
         m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(c2, a3 != null ? a3.c(str) : null, sparseArray);
+        return a(c, a3 != null ? a3.c(str) : null, sparseArray);
     }
 
     public int a(int i) {
@@ -400,11 +394,11 @@ public class d {
     }
 
     public void a(int i, z zVar) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.a(i, zVar);
+        c.a(i, zVar);
     }
 
     private List<DownloadInfo> a(List<DownloadInfo> list, List<DownloadInfo> list2, SparseArray<DownloadInfo> sparseArray) {
@@ -431,19 +425,19 @@ public class d {
 
     public DownloadInfo b(String str, String str2) {
         int a2 = a(str, str2);
-        m c2 = c(a2);
-        if (c2 == null) {
+        m c = c(a2);
+        if (c == null) {
             return null;
         }
-        return c2.h(a2);
+        return c.h(a2);
     }
 
     public List<DownloadInfo> b(String str) {
         SparseArray<DownloadInfo> sparseArray = new SparseArray<>();
         m a2 = com.ss.android.socialbase.downloader.impls.l.a(false);
-        List<DownloadInfo> b2 = a2 != null ? a2.b(str) : null;
+        List<DownloadInfo> b = a2 != null ? a2.b(str) : null;
         m a3 = com.ss.android.socialbase.downloader.impls.l.a(true);
-        return a(b2, a3 != null ? a3.b(str) : null, sparseArray);
+        return a(b, a3 != null ? a3.b(str) : null, sparseArray);
     }
 
     public void a(List<String> list) {
@@ -469,27 +463,27 @@ public class d {
     }
 
     public void a(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.b(i, iDownloadListener == null ? 0 : iDownloadListener.hashCode(), iDownloadListener, fVar, z);
+        c.b(i, iDownloadListener == null ? 0 : iDownloadListener.hashCode(), iDownloadListener, fVar, z);
     }
 
     public void b(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z);
+        c.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z);
     }
 
     public void a(int i, IDownloadListener iDownloadListener, com.ss.android.socialbase.downloader.constants.f fVar, boolean z, boolean z2) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z, z2);
+        c.a(i, iDownloadListener.hashCode(), iDownloadListener, fVar, z, z2);
     }
 
     public void b(com.ss.android.socialbase.downloader.depend.k kVar) {
@@ -497,28 +491,28 @@ public class d {
     }
 
     public boolean a(DownloadInfo downloadInfo) {
-        m c2;
-        if (downloadInfo == null || (c2 = c(downloadInfo.getId())) == null) {
+        m c;
+        if (downloadInfo == null || (c = c(downloadInfo.getId())) == null) {
             return false;
         }
-        return c2.a(downloadInfo);
+        return c.a(downloadInfo);
     }
 
     public void a(final DownloadTask downloadTask) {
-        final m b2 = b(downloadTask);
-        if (b2 == null) {
+        final m b = b(downloadTask);
+        if (b == null) {
             if (downloadTask != null) {
                 com.ss.android.socialbase.downloader.d.a.a(downloadTask.getMonitorDepend(), downloadTask.getDownloadInfo(), new BaseException(1003, "tryDownload but getDownloadHandler failed"), downloadTask.getDownloadInfo() != null ? downloadTask.getDownloadInfo().getStatus() : 0);
             }
         } else if (downloadTask.isNeedDelayForCacheSync()) {
-            this.f43253c.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.d.1
+            this.c.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.downloader.downloader.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    b2.a(downloadTask);
+                    b.a(downloadTask);
                 }
             }, 500L);
         } else {
-            b2.a(downloadTask);
+            b.a(downloadTask);
         }
     }
 
@@ -527,10 +521,10 @@ public class d {
     }
 
     public void a(int i, long j) {
-        m c2 = c(i);
-        if (c2 == null) {
+        m c = c(i);
+        if (c == null) {
             return;
         }
-        c2.a(i, j);
+        c.a(i, j);
     }
 }

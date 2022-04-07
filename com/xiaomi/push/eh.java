@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class eh implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class eh implements ed {
             } else if (TextUtils.isEmpty(stringExtra2)) {
                 dw.a(service.getApplicationContext(), stringExtra, 1007, "play with service ");
             } else {
-                String b2 = dv.b(stringExtra2);
-                boolean isEmpty = TextUtils.isEmpty(b2);
+                String b = dv.b(stringExtra2);
+                boolean isEmpty = TextUtils.isEmpty(b);
                 Context applicationContext = service.getApplicationContext();
                 if (isEmpty) {
                     dw.a(applicationContext, "service", 1008, "B get a incorrect message");
                 } else {
-                    dw.a(applicationContext, b2, 1007, "old version message ");
+                    dw.a(applicationContext, b, 1007, "old version message ");
                 }
             }
         }
@@ -76,8 +76,8 @@ public class eh implements ed {
                     }
                     dw.a(context, str3, 1005, "A is successful");
                     dw.a(context, str3, 1006, "The job is finished");
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                     dw.a(context, str3, 1008, "A meet a exception when help B's service");
                 }
             }
@@ -98,6 +98,6 @@ public class eh implements ed {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dzVar) == null) || dzVar == null) {
             return;
         }
-        a(context, dzVar.m321a(), dzVar.c(), dzVar.d());
+        a(context, dzVar.m317a(), dzVar.c(), dzVar.d());
     }
 }

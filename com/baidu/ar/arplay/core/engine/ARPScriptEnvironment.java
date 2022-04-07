@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPScriptEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AR_KEY = "ar_key";
@@ -108,8 +108,8 @@ public class ARPScriptEnvironment {
             try {
                 try {
                     obj = nativeGetSharedEnvironment();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     this.mLock.unlock();
                     obj = null;
                 }
@@ -171,8 +171,8 @@ public class ARPScriptEnvironment {
             if (obj == null) {
                 try {
                     this.mEnvironment.remove(str);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             this.mEnvironment.put(str, obj);
@@ -189,8 +189,8 @@ public class ARPScriptEnvironment {
             try {
                 try {
                     nativeSetSharedEnvironment(this.mEnvironment);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 this.mLock.unlock();

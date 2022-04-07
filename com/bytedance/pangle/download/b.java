@@ -9,23 +9,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static b f38067d;
+    public static b d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<a> f38068b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f38069c;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f38070e;
+    public List<a> b;
+    public boolean c;
+    public int e;
 
     static {
         InterceptResult invokeClinit;
@@ -55,21 +47,21 @@ public class b {
                 return;
             }
         }
-        this.f38070e = 0;
+        this.e = 0;
         this.a = true;
-        this.f38068b = new ArrayList();
-        this.f38069c = false;
+        this.b = new ArrayList();
+        this.c = false;
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i = bVar.f38070e;
-        bVar.f38070e = i + 1;
+        int i = bVar.e;
+        bVar.e = i + 1;
         return i;
     }
 
     public static /* synthetic */ int d(b bVar) {
-        int i = bVar.f38070e;
-        bVar.f38070e = i - 1;
+        int i = bVar.e;
+        bVar.e = i - 1;
         return i;
     }
 
@@ -77,14 +69,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f38067d == null) {
+            if (d == null) {
                 synchronized (b.class) {
-                    if (f38067d == null) {
-                        f38067d = new b();
+                    if (d == null) {
+                        d = new b();
                     }
                 }
             }
-            return f38067d;
+            return d;
         }
         return (b) invokeV.objValue;
     }

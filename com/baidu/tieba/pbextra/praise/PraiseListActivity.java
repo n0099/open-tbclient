@@ -4,11 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.o0.c1.a0;
-import c.a.p0.x2.c.a;
-import c.a.p0.x2.c.d;
-import c.a.p0.x2.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,14 +17,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.m08;
+import com.repackage.ni;
+import com.repackage.p08;
+import com.repackage.q08;
+import com.repackage.qc5;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements d.b, View.OnClickListener, AdapterView.OnItemClickListener {
+/* loaded from: classes3.dex */
+public class PraiseListActivity extends BaseActivity<PraiseListActivity> implements p08.b, View.OnClickListener, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTENT_KEY_PRAISE_TOTAL = "KeyIntentPraiseId";
     public transient /* synthetic */ FieldHolder $fh;
-    public d mZanListModel;
-    public e mZanListView;
+    public p08 mZanListModel;
+    public q08 mZanListView;
     public int pageType;
 
     public PraiseListActivity() {
@@ -51,19 +51,19 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     private void beforeFinishActivity() {
-        d dVar;
+        p08 p08Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (dVar = this.mZanListModel) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (p08Var = this.mZanListModel) == null) {
             return;
         }
-        dVar.v();
+        p08Var.v();
     }
 
-    public void changSkinType(View view) {
+    public void changSkinType(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
-            getLayoutMode().j(view);
+            getLayoutMode().j(view2);
         }
     }
 
@@ -71,22 +71,22 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mZanListView.c(getLayoutMode(), i);
+            this.mZanListView.e(getLayoutMode(), i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view == this.mZanListView.g()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2 == this.mZanListView.g()) {
                 beforeFinishActivity();
                 if (this.mZanListModel.l()) {
                     finish();
                     return;
                 }
-                a0.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
-            } else if (view != this.mZanListView.d() || this.mZanListView.h()) {
+                qc5.a(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(this.mZanListModel.k(), null, "praise_list"));
+            } else if (view2 != this.mZanListView.f() || this.mZanListView.h()) {
             } else {
                 this.mZanListView.k(true);
                 this.mZanListModel.m(this.pageType);
@@ -103,23 +103,23 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
             if (bundle != null) {
                 this.pageType = bundle.getInt(IntentConfig.LIST_TYPE, 0);
                 z = bundle.getBoolean(PraiseListActivityConfig.IS_AUTHOR);
-                d dVar = new d(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
-                this.mZanListModel = dVar;
-                dVar.u(bundle.getInt(INTENT_KEY_PRAISE_TOTAL));
+                p08 p08Var = new p08(bundle.getString("thread_id"), bundle.getString("post_id"), bundle.getString(IntentConfig.POST_DESC), bundle.getBoolean(IntentConfig.IS_FROM_PB, true), this);
+                this.mZanListModel = p08Var;
+                p08Var.u(bundle.getInt(INTENT_KEY_PRAISE_TOTAL));
             } else if (getIntent() != null) {
                 this.pageType = getIntent().getIntExtra(IntentConfig.LIST_TYPE, 0);
                 z = getIntent().getBooleanExtra(PraiseListActivityConfig.IS_AUTHOR, false);
-                this.mZanListModel = new d(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
+                this.mZanListModel = new p08(getIntent().getStringExtra("thread_id"), getIntent().getStringExtra("post_id"), getIntent().getStringExtra(IntentConfig.POST_DESC), getIntent().getBooleanExtra(IntentConfig.IS_FROM_PB, true), this);
             } else {
                 z = false;
             }
             if (this.mZanListModel == null) {
-                this.mZanListModel = new d();
+                this.mZanListModel = new p08();
             }
             this.mZanListModel.t(z);
-            e eVar = new e(this, this.mZanListModel.i());
-            this.mZanListView = eVar;
-            eVar.k(false);
+            q08 q08Var = new q08(this, this.mZanListModel.i());
+            this.mZanListView = q08Var;
+            q08Var.k(false);
             this.mZanListModel.m(this.pageType);
         }
     }
@@ -134,29 +134,29 @@ public class PraiseListActivity extends BaseActivity<PraiseListActivity> impleme
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
-        a j2;
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+        m08 j2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.mZanListModel.j(i)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (j2 = this.mZanListModel.j(i)) == null) {
             return;
         }
-        a0.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
+        qc5.a(2002003, new PersonInfoActivityConfig(getPageContext().getPageActivity(), j2.c(), j2.b(), null, AddFriendActivityConfig.TYPE_FAVOR_LIST));
     }
 
-    @Override // c.a.p0.x2.c.d.b
+    @Override // com.repackage.p08.b
     public void onLoadFailed(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (m.isEmpty(str)) {
-                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+            if (ni.isEmpty(str)) {
+                str = getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
             }
             this.mZanListView.l();
             this.mZanListView.j(str, this.pageType);
         }
     }
 
-    @Override // c.a.p0.x2.c.d.b
-    public void onLoadSuccessed(int i, List<a> list, int i2, int i3) {
+    @Override // com.repackage.p08.b
+    public void onLoadSuccessed(int i, List<m08> list, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), list, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             this.mZanListView.m(i, list, i2, i3);

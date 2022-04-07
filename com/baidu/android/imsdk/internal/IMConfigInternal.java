@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMConfigInternal {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMConfigInternal";
@@ -58,15 +58,15 @@ public class IMConfigInternal {
                 if (cls != null) {
                     try {
                         return (IIMConfig) cls.newInstance();
-                    } catch (Exception e2) {
-                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    } catch (Exception e) {
+                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                         LogUtils.d(TAG, "Product line of jar is ERROR!");
                     }
                 }
                 LogUtils.d(TAG, "Init ERROR!");
                 return null;
-            } catch (ClassNotFoundException e3) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e3)).build();
+            } catch (ClassNotFoundException e2) {
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
                 LogUtils.d(TAG, "Product line of jar is ERROR!");
                 return null;
             }
@@ -132,8 +132,8 @@ public class IMConfigInternal {
             try {
                 int productLine = getProductLine(context);
                 return Integer.valueOf("740" + String.format("%03d", Integer.valueOf(productLine)) + "6").intValue();
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 return 0;
             }
         }

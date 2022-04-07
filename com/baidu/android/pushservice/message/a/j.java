@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: com.baidu.android.pushservice.message.a.j$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -37,31 +37,31 @@ public class j {
             int[] iArr = new int[k.a().length];
             a = iArr;
             try {
-                iArr[k.f24761b.ordinal()] = 1;
+                iArr[k.b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[k.f24762c.ordinal()] = 2;
+                a[k.c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[k.f24766g.ordinal()] = 3;
+                a[k.g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[k.f24763d.ordinal()] = 4;
+                a[k.d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[k.f24764e.ordinal()] = 5;
+                a[k.e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[k.f24765f.ordinal()] = 6;
+                a[k.f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                a[k.f24767h.ordinal()] = 7;
+                a[k.h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {

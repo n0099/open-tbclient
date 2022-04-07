@@ -182,20 +182,20 @@ public class LoaderManagerImpl extends LoaderManager {
         }
 
         @Override // androidx.loader.content.Loader.OnLoadCompleteListener
-        public void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d2) {
+        public void onLoadComplete(@NonNull Loader<D> loader, @Nullable D d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048583, this, loader, d2) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048583, this, loader, d) == null) {
                 if (LoaderManagerImpl.DEBUG) {
                     Log.v("LoaderManager", "onLoadComplete: " + this);
                 }
                 if (Looper.myLooper() == Looper.getMainLooper()) {
-                    setValue(d2);
+                    setValue(d);
                     return;
                 }
                 if (LoaderManagerImpl.DEBUG) {
                     Log.w("LoaderManager", "onLoadComplete was incorrectly called on a background thread");
                 }
-                postValue(d2);
+                postValue(d);
             }
         }
 
@@ -231,10 +231,10 @@ public class LoaderManagerImpl extends LoaderManager {
         }
 
         @Override // androidx.lifecycle.MutableLiveData, androidx.lifecycle.LiveData
-        public void setValue(D d2) {
+        public void setValue(D d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, d2) == null) {
-                super.setValue(d2);
+            if (interceptable == null || interceptable.invokeL(1048586, this, d) == null) {
+                super.setValue(d);
                 Loader<D> loader = this.mPriorLoader;
                 if (loader != null) {
                     loader.reset();
@@ -307,13 +307,13 @@ public class LoaderManagerImpl extends LoaderManager {
         }
 
         @Override // androidx.lifecycle.Observer
-        public void onChanged(@Nullable D d2) {
+        public void onChanged(@Nullable D d) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    Log.v("LoaderManager", "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d2));
+                    Log.v("LoaderManager", "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d));
                 }
-                this.mCallback.onLoadFinished(this.mLoader, d2);
+                this.mCallback.onLoadFinished(this.mLoader, d);
                 this.mDeliveredData = true;
             }
         }

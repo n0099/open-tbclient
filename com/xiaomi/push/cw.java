@@ -16,12 +16,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class cw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends cv {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,11 +148,11 @@ public abstract class cw {
                 try {
                     ArrayList<String> arrayList = new ArrayList<>();
                     if (z) {
-                        co m271a = cs.a().m271a(str);
-                        if (m271a != null) {
-                            arrayList = m271a.a(str);
+                        co m267a = cs.a().m267a(str);
+                        if (m267a != null) {
+                            arrayList = m267a.a(str);
                         }
-                        coVar = m271a;
+                        coVar = m267a;
                     } else {
                         coVar = null;
                     }
@@ -166,25 +166,25 @@ public abstract class cw {
                         ArrayList arrayList2 = list != null ? new ArrayList(list) : null;
                         long currentTimeMillis = System.currentTimeMillis();
                         try {
-                        } catch (IOException e2) {
-                            iOException = e2;
+                        } catch (IOException e) {
+                            iOException = e;
                             str2 = str4;
                         }
-                        if (!cvVar.m280a(context, next, (List<bf>) arrayList2)) {
+                        if (!cvVar.m276a(context, next, (List<bf>) arrayList2)) {
                             return str4;
                         }
                         String a2 = cvVar.a(context, next, (List<bf>) arrayList2);
                         try {
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             str3 = a2;
                         }
                         if (!TextUtils.isEmpty(a2)) {
                             if (coVar != null) {
                                 try {
                                     coVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cvVar, next, arrayList2, a2));
-                                } catch (IOException e4) {
-                                    iOException = e4;
+                                } catch (IOException e3) {
+                                    iOException = e3;
                                     str2 = a2;
                                     if (coVar != null) {
                                         coVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cvVar, next, arrayList2, str2), iOException);
@@ -199,8 +199,8 @@ public abstract class cw {
                             str3 = a2;
                             try {
                                 coVar.a(next, System.currentTimeMillis() - currentTimeMillis, a(cvVar, next, arrayList2, a2), null);
-                            } catch (IOException e5) {
-                                e = e5;
+                            } catch (IOException e4) {
+                                e = e4;
                                 String str5 = str3;
                                 iOException = e;
                                 str2 = str5;
@@ -215,8 +215,8 @@ public abstract class cw {
                         str4 = str3;
                     }
                     return str4;
-                } catch (MalformedURLException e6) {
-                    e6.printStackTrace();
+                } catch (MalformedURLException e5) {
+                    e5.printStackTrace();
                 }
             }
             return null;

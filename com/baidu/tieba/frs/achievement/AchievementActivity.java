@@ -2,7 +2,6 @@ package com.baidu.tieba.frs.achievement;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.p0.f1.h1.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
@@ -11,15 +10,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.vf6;
+import com.repackage.xf6;
+/* loaded from: classes3.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.f1.h1.a inviteLetter;
+    public vf6 inviteLetter;
     public View.OnClickListener onShareClickListener;
-    public c thanksLetter;
+    public xf6 thanksLetter;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +45,9 @@ public class AchievementActivity extends BaseActivity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.thanksLetter.h(false);
                 this.a.inviteLetter.h(true);
             }
@@ -102,13 +103,13 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            c cVar = new c(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911fb));
-            this.thanksLetter = cVar;
-            cVar.h(true);
+            xf6 xf6Var = new xf6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911f0));
+            this.thanksLetter = xf6Var;
+            xf6Var.h(true);
             this.thanksLetter.j(this.onShareClickListener);
-            c.a.p0.f1.h1.a aVar = new c.a.p0.f1.h1.a(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911e3));
-            this.inviteLetter = aVar;
-            aVar.h(false);
+            vf6 vf6Var = new vf6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911d8));
+            this.inviteLetter = vf6Var;
+            vf6Var.h(false);
         }
     }
 }

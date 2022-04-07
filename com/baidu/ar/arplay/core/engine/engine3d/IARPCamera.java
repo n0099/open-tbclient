@@ -1,5 +1,5 @@
 package com.baidu.ar.arplay.core.engine.engine3d;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IARPCamera extends IARPNode {
     float getFieldOfView();
 
@@ -9,11 +9,11 @@ public interface IARPCamera extends IARPNode {
 
     float getZNear();
 
-    void setFieldOfView(float f2);
+    void setFieldOfView(float f);
 
     void setViewMatrix(float[] fArr);
 
-    void setZFar(float f2);
+    void setZFar(float f);
 
-    void setZNear(float f2);
+    void setZNear(float f);
 }

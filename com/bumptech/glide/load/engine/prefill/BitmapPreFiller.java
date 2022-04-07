@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.load.engine.prefill.PreFillType;
 import com.bumptech.glide.util.Util;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class BitmapPreFiller {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,10 +63,10 @@ public final class BitmapPreFiller {
             for (PreFillType preFillType : preFillTypeArr) {
                 i += preFillType.getWeight();
             }
-            float f2 = ((float) maxSize) / i;
+            float f = ((float) maxSize) / i;
             HashMap hashMap = new HashMap();
             for (PreFillType preFillType2 : preFillTypeArr) {
-                hashMap.put(preFillType2, Integer.valueOf(Math.round(preFillType2.getWeight() * f2) / getSizeInBytes(preFillType2)));
+                hashMap.put(preFillType2, Integer.valueOf(Math.round(preFillType2.getWeight() * f) / getSizeInBytes(preFillType2)));
             }
             return new PreFillQueue(hashMap);
         }

@@ -101,10 +101,10 @@ public class ChangeImageTransform extends Transition {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.animation.TypeEvaluator
-            public Matrix evaluate(float f2, Matrix matrix, Matrix matrix2) {
+            public Matrix evaluate(float f, Matrix matrix, Matrix matrix2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), matrix, matrix2})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), matrix, matrix2})) == null) {
                     return null;
                 }
                 return (Matrix) invokeCommon.objValue;
@@ -174,14 +174,14 @@ public class ChangeImageTransform extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view = transitionValues.view;
-            if ((view instanceof ImageView) && view.getVisibility() == 0) {
-                ImageView imageView = (ImageView) view;
+            View view2 = transitionValues.f980view;
+            if ((view2 instanceof ImageView) && view2.getVisibility() == 0) {
+                ImageView imageView = (ImageView) view2;
                 if (imageView.getDrawable() == null) {
                     return;
                 }
                 Map<String, Object> map = transitionValues.values;
-                map.put(PROPNAME_BOUNDS, new Rect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom()));
+                map.put(PROPNAME_BOUNDS, new Rect(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom()));
                 map.put(PROPNAME_MATRIX, copyImageMatrix(imageView));
             }
         }
@@ -194,13 +194,13 @@ public class ChangeImageTransform extends Transition {
             Drawable drawable = imageView.getDrawable();
             int intrinsicWidth = drawable.getIntrinsicWidth();
             float width = imageView.getWidth();
-            float f2 = intrinsicWidth;
+            float f = intrinsicWidth;
             int intrinsicHeight = drawable.getIntrinsicHeight();
             float height = imageView.getHeight();
-            float f3 = intrinsicHeight;
-            float max = Math.max(width / f2, height / f3);
-            int round = Math.round((width - (f2 * max)) / 2.0f);
-            int round2 = Math.round((height - (f3 * max)) / 2.0f);
+            float f2 = intrinsicHeight;
+            float max = Math.max(width / f, height / f2);
+            int round = Math.round((width - (f * max)) / 2.0f);
+            int round2 = Math.round((height - (f2 * max)) / 2.0f);
             Matrix matrix = new Matrix();
             matrix.postScale(max, max);
             matrix.postTranslate(round, round2);
@@ -295,7 +295,7 @@ public class ChangeImageTransform extends Transition {
             if (rect.equals(rect2) && z) {
                 return null;
             }
-            ImageView imageView = (ImageView) transitionValues2.view;
+            ImageView imageView = (ImageView) transitionValues2.f980view;
             Drawable drawable = imageView.getDrawable();
             int intrinsicWidth = drawable.getIntrinsicWidth();
             int intrinsicHeight = drawable.getIntrinsicHeight();

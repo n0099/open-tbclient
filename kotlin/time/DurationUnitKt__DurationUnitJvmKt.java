@@ -14,11 +14,11 @@ public class DurationUnitKt__DurationUnitJvmKt {
 
     @SinceKotlin(version = "1.3")
     @ExperimentalTime
-    public static final double convertDurationUnit(double d2, TimeUnit sourceUnit, TimeUnit targetUnit) {
+    public static final double convertDurationUnit(double d, TimeUnit sourceUnit, TimeUnit targetUnit) {
         Intrinsics.checkNotNullParameter(sourceUnit, "sourceUnit");
         Intrinsics.checkNotNullParameter(targetUnit, "targetUnit");
         long convert = targetUnit.convert(1L, sourceUnit);
-        return convert > 0 ? d2 * convert : d2 / sourceUnit.convert(1L, targetUnit);
+        return convert > 0 ? d * convert : d / sourceUnit.convert(1L, targetUnit);
     }
 
     @SinceKotlin(version = "1.5")

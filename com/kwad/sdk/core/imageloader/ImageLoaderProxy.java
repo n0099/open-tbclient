@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import com.kwad.sdk.core.imageloader.core.DisplayImageOptionsCompat;
 import com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public enum ImageLoaderProxy implements IImageLoader {
     INSTANCE;
     
@@ -91,10 +91,10 @@ public enum ImageLoaderProxy implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f2) {
+    public void load(@NonNull KsFragment ksFragment, @NonNull String str, @NonNull ImageView imageView, @NonNull Drawable drawable, @NonNull Drawable drawable2, float f) {
         IImageLoader iImageLoader = this.mDelegate;
         if (iImageLoader != null) {
-            iImageLoader.load(ksFragment, str, imageView, drawable, drawable2, f2);
+            iImageLoader.load(ksFragment, str, imageView, drawable, drawable2, f);
         }
     }
 

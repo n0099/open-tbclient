@@ -16,7 +16,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SysUtils {
     public static /* synthetic */ Interceptable $ic;
     public static Boolean a;
@@ -61,8 +61,8 @@ public class SysUtils {
             try {
                 try {
                     fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-                } catch (Exception e2) {
-                    Log.w("SysUtils", "Cannot get total physical size from /proc/meminfo", e2);
+                } catch (Exception e) {
+                    Log.w("SysUtils", "Cannot get total physical size from /proc/meminfo", e);
                 }
                 try {
                     BufferedReader bufferedReader = new BufferedReader(fileReader);

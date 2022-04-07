@@ -9,26 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.yxcorp.kuaishou.addfp.a.a.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f44601b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f44602c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f44603d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public e f44604e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f44605f;
+    public String b;
+    public String c;
+    public String d;
+    public e e;
+    public boolean f;
 
     public a(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         Interceptable interceptable = $ic;
@@ -45,19 +35,19 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
                 return;
             }
         }
-        this.f44601b = "";
-        this.f44602c = "";
-        this.f44603d = "";
-        this.f44605f = false;
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.f = false;
         this.a = aVar;
-        this.f44604e = new e(context);
+        this.e = new e(context);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f44604e.a(this);
+            this.e.a(this);
         }
     }
 
@@ -65,7 +55,7 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f44601b = str;
+            this.b = str;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -97,7 +87,7 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f44601b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -114,7 +104,7 @@ public final class a implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     public final void d() {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (eVar = this.f44604e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (eVar = this.e) == null) {
             return;
         }
         eVar.a();

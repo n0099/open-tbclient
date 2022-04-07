@@ -23,19 +23,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdTagTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final char[] f35768b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f35769c;
+    public static final char[] b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class VerticalImageSpan extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,12 +58,12 @@ public class AdTagTextView extends LinearLayout {
         }
 
         @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, Paint paint) {
+        public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
                 Drawable drawable = getDrawable();
                 canvas.save();
-                canvas.translate(f2, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
+                canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
                 drawable.draw(canvas);
                 canvas.restore();
             }
@@ -112,8 +108,8 @@ public class AdTagTextView extends LinearLayout {
                 return;
             }
         }
-        f35768b = new char[]{21704};
-        f35769c = new String(f35768b);
+        b = new char[]{21704};
+        c = new String(b);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -143,7 +139,7 @@ public class AdTagTextView extends LinearLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0800c8);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) f35769c);
+            spannableStringBuilder.append((CharSequence) " ").append((CharSequence) c);
             drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds83), UtilHelper.getDimenPixelSize(R.dimen.tbds47));
             spannableStringBuilder.setSpan(new VerticalImageSpan(drawable), str.length() + 1, spannableStringBuilder.length(), 17);
             return spannableStringBuilder;
@@ -154,14 +150,14 @@ public class AdTagTextView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f090781);
+            this.a = (TextView) LayoutInflater.from(context).inflate(c(), this).findViewById(R.id.obfuscated_res_0x7f09078a);
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0074 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d0076 : invokeV.intValue;
     }
 
     public void onChangeSkinType() {

@@ -3,7 +3,7 @@ package com.kwad.sdk.feed.widget;
 import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f extends a {
     public f(@NonNull Context context) {
         super(context);
@@ -11,6 +11,6 @@ public class f extends a {
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d043b;
+        return R.layout.obfuscated_res_0x7f0d0436;
     }
 }

@@ -49,7 +49,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Utility";
@@ -79,9 +79,9 @@ public class Utility {
             }
             try {
                 z = file.createNewFile();
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (LLog.sDebug) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 z = false;
             }
@@ -189,8 +189,8 @@ public class Utility {
             try {
                 try {
                     fileWriter = new FileWriter(file, true);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -203,8 +203,8 @@ public class Utility {
                 }
                 fileWriter.flush();
                 Closeables.closeSafely(fileWriter);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileWriter2 = fileWriter;
                 e.printStackTrace();
                 Closeables.closeSafely(fileWriter2);
@@ -237,12 +237,12 @@ public class Utility {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
             int i = displayMetrics.widthPixels;
             int i2 = displayMetrics.heightPixels;
-            float f2 = displayMetrics.density;
+            float f = displayMetrics.density;
             FileWriter fileWriter2 = new FileWriter(file, true);
             try {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Devices info = ");
-                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i + "*" + i2 + "*" + f2);
+                sb.append(replace + "_" + replace2 + "_" + valueOf + "_" + str2 + "_" + i + "*" + i2 + "*" + f);
                 fileWriter2.write(sb.toString());
                 fileWriter2.write("\nRuntime.getRuntime().availableProcessors() = " + Runtime.getRuntime().availableProcessors());
                 fileWriter2.write("\nRomName = " + RomUtils.getName() + ", RomVersion = " + RomUtils.getVersion());
@@ -275,12 +275,12 @@ public class Utility {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
                 e = e2;
-            } catch (IOException e3) {
+            } catch (Exception e3) {
                 e = e3;
-            } catch (Exception e4) {
-                e = e4;
             }
             try {
                 fileWriter.write("data/app/{package_name-x} start\n");
@@ -317,18 +317,18 @@ public class Utility {
                 }
                 fileWriter.write("/data/data/{package_name}/files/{released_so_directory} end\n\n\n");
                 Closeables.closeSafely(fileWriter);
-            } catch (FileNotFoundException e5) {
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileWriter2 = fileWriter;
+                e.printStackTrace();
+                Closeables.closeSafely(fileWriter2);
+            } catch (IOException e5) {
                 e = e5;
                 fileWriter2 = fileWriter;
                 e.printStackTrace();
                 Closeables.closeSafely(fileWriter2);
-            } catch (IOException e6) {
+            } catch (Exception e6) {
                 e = e6;
-                fileWriter2 = fileWriter;
-                e.printStackTrace();
-                Closeables.closeSafely(fileWriter2);
-            } catch (Exception e7) {
-                e = e7;
                 fileWriter2 = fileWriter;
                 e.printStackTrace();
                 Closeables.closeSafely(fileWriter2);
@@ -379,8 +379,8 @@ public class Utility {
                                 }
                                 r1.write(readLine.getBytes());
                                 r1.write("\n".getBytes());
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 bufferedReader = bufferedReader2;
                                 e.printStackTrace();
                                 Closeables.closeSafely(bufferedReader);
@@ -397,14 +397,14 @@ public class Utility {
                         r1.flush();
                         Closeables.closeSafely(bufferedReader2);
                         r1 = r1;
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                     }
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 r1 = 0;
             } catch (Throwable th3) {
                 th = th3;
@@ -490,8 +490,8 @@ public class Utility {
                     Runtime runtime = Runtime.getRuntime();
                     inputStream = runtime.exec("ls -l " + ("/proc/" + Process.myPid() + "/fd")).getInputStream();
                     FileUtils.saveToFile(inputStream, file);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             } finally {
                 Closeables.closeSafely(inputStream);
@@ -529,8 +529,8 @@ public class Utility {
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     fileWriter2.write("\nPackageInfo: " + packageInfo.versionCode + "_" + packageInfo.versionName);
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                 }
                 fileWriter2.write("\nSystemClock.elapsedRealTime()=" + elapsedRealtime);
                 fileWriter2.write("\nandroid.os.Process.getStartElapsedRealTime()=" + processStartElapsedRealTime);
@@ -610,8 +610,8 @@ public class Utility {
             try {
                 try {
                     fileWriter = new FileWriter(file, true);
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -642,8 +642,8 @@ public class Utility {
                 }
                 fileWriter.flush();
                 Closeables.closeSafely(fileWriter);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 fileWriter2 = fileWriter;
                 e.printStackTrace();
                 Closeables.closeSafely(fileWriter2);
@@ -668,8 +668,8 @@ public class Utility {
                 if (LLog.sDebug) {
                     Log.d("Utility", str + file.getAbsolutePath() + "\n");
                 }
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             if (file.isDirectory()) {
                 File[] listFiles = file.listFiles();
@@ -684,7 +684,7 @@ public class Utility {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:40:0x006c */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v1 */
     /* JADX WARN: Type inference failed for: r8v13 */
@@ -710,12 +710,12 @@ public class Utility {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (FileNotFoundException e2) {
-            e = e2;
+        } catch (FileNotFoundException e) {
+            e = e;
             byteArrayOutputStream = null;
             fileInputStream = null;
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             byteArrayOutputStream = null;
             fileInputStream = null;
         } catch (Throwable th2) {
@@ -749,24 +749,24 @@ public class Utility {
                 Closeables.closeSafely(fileInputStream);
                 Closeables.closeSafely(byteArrayOutputStream);
                 return pair;
-            } catch (FileNotFoundException e4) {
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                e.printStackTrace();
+                Closeables.closeSafely(fileInputStream);
+                Closeables.closeSafely(byteArrayOutputStream);
+                return null;
+            } catch (IOException e4) {
                 e = e4;
                 e.printStackTrace();
                 Closeables.closeSafely(fileInputStream);
                 Closeables.closeSafely(byteArrayOutputStream);
                 return null;
-            } catch (IOException e5) {
-                e = e5;
-                e.printStackTrace();
-                Closeables.closeSafely(fileInputStream);
-                Closeables.closeSafely(byteArrayOutputStream);
-                return null;
             }
-        } catch (FileNotFoundException e6) {
-            e = e6;
+        } catch (FileNotFoundException e5) {
+            e = e5;
             byteArrayOutputStream = null;
-        } catch (IOException e7) {
-            e = e7;
+        } catch (IOException e6) {
+            e = e6;
             byteArrayOutputStream = null;
         } catch (Throwable th3) {
             th = th3;
@@ -798,8 +798,8 @@ public class Utility {
             if (absolutePath.endsWith(".db")) {
                 try {
                     fileWriter.write("\n" + absolutePath + "=" + file.length());
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -823,15 +823,15 @@ public class Utility {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 fileOutputStream.write(str.getBytes());
                 fileOutputStream.flush();
                 Closeables.closeSafely(fileOutputStream);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 Closeables.closeSafely(fileOutputStream2);

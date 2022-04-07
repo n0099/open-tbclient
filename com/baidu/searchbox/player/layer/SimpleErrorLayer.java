@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,10 +76,10 @@ public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
     }
 
     @Override // com.baidu.searchbox.player.layer.ElementLayer, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view.getId() == R.id.obfuscated_res_0x7f0903f7 || view.getId() == R.id.obfuscated_res_0x7f09185b) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090400 || view2.getId() == R.id.obfuscated_res_0x7f091856) {
                 onRetryClick();
             }
         }

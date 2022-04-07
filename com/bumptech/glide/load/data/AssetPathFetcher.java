@@ -13,7 +13,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AssetPathFetcher";
@@ -79,11 +79,11 @@ public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
                 T loadResource = loadResource(this.assetManager, this.assetPath);
                 this.data = loadResource;
                 dataCallback.onDataReady(loadResource);
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to load data from asset manager", e2);
+                    Log.d(TAG, "Failed to load data from asset manager", e);
                 }
-                dataCallback.onLoadFailed(e2);
+                dataCallback.onLoadFailed(e);
             }
         }
     }

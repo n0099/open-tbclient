@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Property implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_PROPERTY = ",";
@@ -125,18 +125,18 @@ public class Property implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public synchronized void putDouble(String str, double d2) {
+    public synchronized void putDouble(String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Double.valueOf(d)}) == null) {
             synchronized (this) {
                 if (isOverSize()) {
-                    L.warn(this, "Property max size is %d,now is %d,so get up this inParam:key=[%s],value=[%s]", 30, Integer.valueOf(size()), str + "", d2 + "");
+                    L.warn(this, "Property max size is %d,now is %d,so get up this inParam:key=[%s],value=[%s]", 30, Integer.valueOf(size()), str + "", d + "");
                 } else if (Util.empty(str)) {
                     L.debug(this, "key is not allow null.", new Object[0]);
                 } else if (str.getBytes().length > 256) {
                     L.warn(this, "key[%s] bytes[%d] must under %d bytes", str, Integer.valueOf(str.getBytes().length), 256);
                 } else {
-                    this.mParams.put(str, new PropertyPair(str, d2));
+                    this.mParams.put(str, new PropertyPair(str, d));
                 }
             }
         }

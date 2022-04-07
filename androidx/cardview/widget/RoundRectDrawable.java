@@ -36,12 +36,12 @@ public class RoundRectDrawable extends Drawable {
     public PorterDuffColorFilter mTintFilter;
     public PorterDuff.Mode mTintMode;
 
-    public RoundRectDrawable(ColorStateList colorStateList, float f2) {
+    public RoundRectDrawable(ColorStateList colorStateList, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {colorStateList, Float.valueOf(f2)};
+            Object[] objArr = {colorStateList, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,7 +54,7 @@ public class RoundRectDrawable extends Drawable {
         this.mInsetForPadding = false;
         this.mInsetForRadius = true;
         this.mTintMode = PorterDuff.Mode.SRC_IN;
-        this.mRadius = f2;
+        this.mRadius = f;
         this.mPaint = new Paint(5);
         setBackground(colorStateList);
         this.mBoundsF = new RectF();
@@ -113,8 +113,8 @@ public class RoundRectDrawable extends Drawable {
                 z = true;
             }
             RectF rectF = this.mBoundsF;
-            float f2 = this.mRadius;
-            canvas.drawRoundRect(rectF, f2, f2, paint);
+            float f = this.mRadius;
+            canvas.drawRoundRect(rectF, f, f, paint);
             if (z) {
                 paint.setColorFilter(null);
             }
@@ -224,13 +224,13 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    public void setPadding(float f2, boolean z, boolean z2) {
+    public void setPadding(float f, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            if (f2 == this.mPadding && this.mInsetForPadding == z && this.mInsetForRadius == z2) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (f == this.mPadding && this.mInsetForPadding == z && this.mInsetForRadius == z2) {
                 return;
             }
-            this.mPadding = f2;
+            this.mPadding = f;
             this.mInsetForPadding = z;
             this.mInsetForRadius = z2;
             updateBounds(null);
@@ -238,12 +238,12 @@ public class RoundRectDrawable extends Drawable {
         }
     }
 
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048589, this, f2) == null) || f2 == this.mRadius) {
+        if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || f == this.mRadius) {
             return;
         }
-        this.mRadius = f2;
+        this.mRadius = f;
         updateBounds(null);
         invalidateSelf();
     }

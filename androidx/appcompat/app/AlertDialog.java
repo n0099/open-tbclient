@@ -131,11 +131,11 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeLLL.objValue;
         }
 
-        public Builder setCustomTitle(@Nullable View view) {
+        public Builder setCustomTitle(@Nullable View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) {
-                this.P.mCustomTitleView = view;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
+                this.P.mCustomTitleView = view2;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -476,12 +476,12 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setView(View view) {
+        public Builder setView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, view)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, view2)) == null) {
                 AlertController.AlertParams alertParams = this.P;
-                alertParams.mView = view;
+                alertParams.mView = view2;
                 alertParams.mViewLayoutResId = 0;
                 alertParams.mViewSpacingSpecified = false;
                 return this;
@@ -520,12 +520,12 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
         @Deprecated
-        public Builder setView(View view, int i, int i2, int i3, int i4) {
+        public Builder setView(View view2, int i, int i2, int i3, int i4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048615, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
                 AlertController.AlertParams alertParams = this.P;
-                alertParams.mView = view;
+                alertParams.mView = view2;
                 alertParams.mViewLayoutResId = 0;
                 alertParams.mViewSpacingSpecified = true;
                 alertParams.mViewSpacingLeft = i;
@@ -678,10 +678,10 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         }
     }
 
-    public void setCustomTitle(View view) {
+    public void setCustomTitle(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            this.mAlert.setCustomTitle(view);
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.mAlert.setCustomTitle(view2);
         }
     }
 
@@ -717,10 +717,10 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         }
     }
 
-    public void setView(View view) {
+    public void setView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
-            this.mAlert.setView(view);
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
+            this.mAlert.setView(view2);
         }
     }
 
@@ -760,10 +760,10 @@ public class AlertDialog extends AppCompatDialog implements DialogInterface {
         }
     }
 
-    public void setView(View view, int i, int i2, int i3, int i4) {
+    public void setView(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mAlert.setView(view, i, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mAlert.setView(view2, i, i2, i3, i4);
         }
     }
 

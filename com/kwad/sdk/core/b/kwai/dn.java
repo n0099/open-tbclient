@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.jshandler.w;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class dn implements com.kwad.sdk.core.d<w.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -14,13 +14,13 @@ public class dn implements com.kwad.sdk.core.d<w.a> {
         if (jSONObject.opt("url") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f40106b = jSONObject.optString("method");
+        aVar.b = jSONObject.optString("method");
         if (jSONObject.opt("method") == JSONObject.NULL) {
-            aVar.f40106b = "";
+            aVar.b = "";
         }
-        aVar.f40107c = jSONObject.optString("params");
+        aVar.c = jSONObject.optString("params");
         if (jSONObject.opt("params") == JSONObject.NULL) {
-            aVar.f40107c = "";
+            aVar.c = "";
         }
     }
 
@@ -31,8 +31,8 @@ public class dn implements com.kwad.sdk.core.d<w.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "method", aVar.f40106b);
-        com.kwad.sdk.utils.t.a(jSONObject, "params", aVar.f40107c);
+        com.kwad.sdk.utils.t.a(jSONObject, "method", aVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, "params", aVar.c);
         return jSONObject;
     }
 }

@@ -26,7 +26,7 @@ public final class FormatToDecimalsKt {
         return decimalFormat;
     }
 
-    public static final String formatToExactDecimals(double d2, int i) {
+    public static final String formatToExactDecimals(double d, int i) {
         DecimalFormat createFormatForDecimals;
         ThreadLocal<DecimalFormat>[] threadLocalArr = precisionFormats;
         if (i < threadLocalArr.length) {
@@ -40,15 +40,15 @@ public final class FormatToDecimalsKt {
         } else {
             createFormatForDecimals = createFormatForDecimals(i);
         }
-        String format = createFormatForDecimals.format(d2);
+        String format = createFormatForDecimals.format(d);
         Intrinsics.checkNotNullExpressionValue(format, "format.format(value)");
         return format;
     }
 
-    public static final String formatUpToDecimals(double d2, int i) {
+    public static final String formatUpToDecimals(double d, int i) {
         DecimalFormat createFormatForDecimals = createFormatForDecimals(0);
         createFormatForDecimals.setMaximumFractionDigits(i);
-        String format = createFormatForDecimals.format(d2);
+        String format = createFormatForDecimals.format(d);
         Intrinsics.checkNotNullExpressionValue(format, "createFormatForDecimals(… }\n        .format(value)");
         return format;
     }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FansGroupCardMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<FansGroupCardMsg> CREATOR;
@@ -139,8 +139,8 @@ public class FansGroupCardMsg extends NormalMsg {
                     this.mSize = jSONObject.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE);
                     this.mGroupImage = jSONObject.optString("group_image");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "parse json err!", e);
                 }
             }
             return false;

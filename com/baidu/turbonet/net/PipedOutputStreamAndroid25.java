@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PipedOutputStreamAndroid25 extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,11 +33,11 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
             synchronized (this) {
                 try {
                     if (pipedInputStreamAndroid25 != null) {
-                        if (this.a == null && !pipedInputStreamAndroid25.f37731c) {
+                        if (this.a == null && !pipedInputStreamAndroid25.c) {
                             this.a = pipedInputStreamAndroid25;
-                            pipedInputStreamAndroid25.f37735g = -1;
-                            pipedInputStreamAndroid25.f37736h = 0;
-                            pipedInputStreamAndroid25.f37731c = true;
+                            pipedInputStreamAndroid25.g = -1;
+                            pipedInputStreamAndroid25.h = 0;
+                            pipedInputStreamAndroid25.c = true;
                         } else {
                             throw new IOException("Already connected");
                         }

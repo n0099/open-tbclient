@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CutoutDrawable extends MaterialShapeDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +60,9 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         if (interceptable == null || interceptable.invokeL(65539, this, canvas) == null) {
             Drawable.Callback callback = getCallback();
             if (useHardwareLayer(callback)) {
-                View view = (View) callback;
-                if (view.getLayerType() != 2) {
-                    view.setLayerType(2, null);
+                View view2 = (View) callback;
+                if (view2.getLayerType() != 2) {
+                    view2.setLayerType(2, null);
                     return;
                 }
                 return;
@@ -121,14 +121,14 @@ public class CutoutDrawable extends MaterialShapeDrawable {
         }
     }
 
-    public void setCutout(float f2, float f3, float f4, float f5) {
+    public void setCutout(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             RectF rectF = this.cutoutBounds;
-            if (f2 == rectF.left && f3 == rectF.top && f4 == rectF.right && f5 == rectF.bottom) {
+            if (f == rectF.left && f2 == rectF.top && f3 == rectF.right && f4 == rectF.bottom) {
                 return;
             }
-            this.cutoutBounds.set(f2, f3, f4, f5);
+            this.cutoutBounds.set(f, f2, f3, f4);
             invalidateSelf();
         }
     }

@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WrapLineLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<List<View>> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f30226b;
+    public List<Integer> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WrapLineLayout(Context context) {
@@ -40,7 +38,7 @@ public class WrapLineLayout extends ViewGroup {
             }
         }
         this.a = new ArrayList();
-        this.f30226b = new ArrayList();
+        this.b = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -62,7 +60,7 @@ public class WrapLineLayout extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.a.clear();
-            this.f30226b.clear();
+            this.b.clear();
             int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
             ArrayList arrayList = new ArrayList();
             int childCount = getChildCount();
@@ -74,7 +72,7 @@ public class WrapLineLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if (marginLayoutParams.leftMargin + measuredWidth + marginLayoutParams.rightMargin + i6 > width) {
-                    this.f30226b.add(Integer.valueOf(i5));
+                    this.b.add(Integer.valueOf(i5));
                     this.a.add(arrayList);
                     arrayList = new ArrayList();
                     i6 = 0;
@@ -83,22 +81,22 @@ public class WrapLineLayout extends ViewGroup {
                 i5 = Math.max(i5, measuredHeight + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin);
                 arrayList.add(childAt);
             }
-            this.f30226b.add(Integer.valueOf(i5));
+            this.b.add(Integer.valueOf(i5));
             this.a.add(arrayList);
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
             int size = this.a.size();
             for (int i8 = 0; i8 < size; i8++) {
                 List<View> list = this.a.get(i8);
-                int intValue = this.f30226b.get(i8).intValue();
+                int intValue = this.b.get(i8).intValue();
                 for (int i9 = 0; i9 < list.size(); i9++) {
-                    View view = list.get(i9);
-                    if (view.getVisibility() != 8) {
-                        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+                    View view2 = list.get(i9);
+                    if (view2.getVisibility() != 8) {
+                        ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
                         int i10 = marginLayoutParams2.leftMargin + paddingLeft;
                         int i11 = marginLayoutParams2.topMargin + paddingTop;
-                        view.layout(i10, i11, view.getMeasuredWidth() + i10, view.getMeasuredHeight() + i11);
-                        paddingLeft += view.getMeasuredWidth() + marginLayoutParams2.rightMargin + marginLayoutParams2.leftMargin;
+                        view2.layout(i10, i11, view2.getMeasuredWidth() + i10, view2.getMeasuredHeight() + i11);
+                        paddingLeft += view2.getMeasuredWidth() + marginLayoutParams2.rightMargin + marginLayoutParams2.leftMargin;
                     }
                 }
                 paddingLeft = getPaddingLeft();
@@ -186,6 +184,6 @@ public class WrapLineLayout extends ViewGroup {
             }
         }
         this.a = new ArrayList();
-        this.f30226b = new ArrayList();
+        this.b = new ArrayList();
     }
 }

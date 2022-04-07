@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UIUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,22 +56,22 @@ public class UIUtils {
         }
     }
 
-    public static int dip2px(@Nullable Context context, float f2) {
+    public static int dip2px(@Nullable Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) {
             if (context == null) {
                 return 0;
             }
-            return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+            return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
         }
         return invokeLF.intValue;
     }
 
-    public static float dp2px(Context context, float f2) {
+    public static float dp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f2)) == null) ? f2 * (context.getResources().getDisplayMetrics().densityDpi / 160.0f) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? f * (context.getResources().getDisplayMetrics().densityDpi / 160.0f) : invokeLF.floatValue;
     }
 
     public static float getDensity(@Nullable Context context) {
@@ -95,7 +95,7 @@ public class UIUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             synchronized (UIUtils.class) {
                 if (!get) {
-                    int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+                    int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
                     if (identifier > 0) {
                         statusBarHeight = context.getResources().getDimensionPixelSize(identifier);
                         get = true;
@@ -115,7 +115,7 @@ public class UIUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = AppRuntime.getAppContext().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
             int i = 0;
             if (identifier > 0) {
                 try {

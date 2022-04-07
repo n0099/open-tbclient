@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionComparatorSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float mAgeWeight;
     public final float mSizeWeight;
 
-    public ScoreBasedEvictionComparatorSupplier(float f2, float f3) {
+    public ScoreBasedEvictionComparatorSupplier(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,8 +30,8 @@ public class ScoreBasedEvictionComparatorSupplier implements EntryEvictionCompar
                 return;
             }
         }
-        this.mAgeWeight = f2;
-        this.mSizeWeight = f3;
+        this.mAgeWeight = f;
+        this.mSizeWeight = f2;
     }
 
     @VisibleForTesting

@@ -12,12 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.e;
-import c.a.d.f.p.m;
-import c.a.o0.c1.k0;
-import c.a.o0.c1.n0;
-import c.a.o0.e1.n.f;
-import c.a.o0.e1.n.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -44,31 +38,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.a9;
+import com.repackage.ad5;
+import com.repackage.dd5;
+import com.repackage.dg;
+import com.repackage.ff5;
+import com.repackage.if5;
+import com.repackage.ni;
+import com.repackage.ta7;
+import com.repackage.xx4;
+import com.repackage.z77;
+/* loaded from: classes3.dex */
 public class OfficialNotificationFragment extends BaseFragment implements NoNetworkView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public ta7 b;
+    public OfficialNotificationListModel c;
+    public String d;
+    public CustomMessageListener e;
+    public a9 f;
+    public if5 g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public c.a.p0.v1.b.q.b f34051b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public OfficialNotificationListModel f34052c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f34053d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f34054e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public e f34055f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public i f34056g;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,21 +91,19 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f.a)) {
-                f.a aVar = (f.a) customResponsedMessage.getData();
-                f.a(this.a.getPageContext().getPageActivity(), this.a.f34056g, aVar.a, aVar.f10185b, aVar.f10186c);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ff5.a)) {
+                ff5.a aVar = (ff5.a) customResponsedMessage.getData();
+                ff5.a(this.a.getPageContext().getPageActivity(), this.a.g, aVar.a, aVar.b, aVar.c);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends k0<Void> {
+    /* loaded from: classes3.dex */
+    public class b extends ad5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ OfficialNotificationFragment f34057b;
+        public final /* synthetic */ OfficialNotificationFragment b;
 
         public b(OfficialNotificationFragment officialNotificationFragment, UserData userData) {
             Interceptable interceptable = $ic;
@@ -130,26 +120,26 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
                     return;
                 }
             }
-            this.f34057b = officialNotificationFragment;
+            this.b = officialNotificationFragment;
             this.a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.k0
+        @Override // com.repackage.ad5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.p0.u1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.a);
+                z77.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends e {
+    /* loaded from: classes3.dex */
+    public class c extends a9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialNotificationFragment a;
@@ -172,26 +162,26 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
             this.a = officialNotificationFragment;
         }
 
-        @Override // c.a.d.a.e
+        @Override // com.repackage.a9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.a.f34052c == null || this.a.f34051b == null || m.isEmpty(this.a.f34053d) || this.a.f34052c.getUser() == null || !StringHelper.equals(this.a.f34053d, this.a.f34052c.getUser().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || this.a.c == null || this.a.b == null || ni.isEmpty(this.a.d) || this.a.c.getUser() == null || !StringHelper.equals(this.a.d, this.a.c.getUser().getUserId())) {
                 return;
             }
-            int loadDataMode = this.a.f34052c.getLoadDataMode();
+            int loadDataMode = this.a.c.getLoadDataMode();
             if (loadDataMode == 1) {
-                this.a.f34051b.l(this.a.f34052c.getData());
+                this.a.b.l(this.a.c.getData());
             } else if (loadDataMode == 2) {
-                this.a.f34051b.n(this.a.f34052c.getData());
+                this.a.b.n(this.a.c.getData());
             } else if (loadDataMode != 3) {
             } else {
-                this.a.f34051b.k(this.a.f34052c.getData());
+                this.a.b.k(this.a.c.getData());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements i {
+    /* loaded from: classes3.dex */
+    public class d implements if5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialNotificationFragment a;
@@ -214,37 +204,37 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
             this.a = officialNotificationFragment;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<GifView> getGifViewPool() {
+        @Override // com.repackage.if5
+        public dg<GifView> getGifViewPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<ImageView> getImageViewPool() {
+        @Override // com.repackage.if5
+        public dg<ImageView> getImageViewPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<ItemCardView> getItemCardViewPool() {
+        @Override // com.repackage.if5
+        public dg<ItemCardView> getItemCardViewPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public ListView getListView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -254,17 +244,17 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
             return (ListView) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<RelativeLayout> getRelativeLayoutPool() {
+        @Override // com.repackage.if5
+        public dg<RelativeLayout> getRelativeLayoutPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public int getRichTextViewId() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -274,61 +264,61 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
             return invokeV.intValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<TextView> getTextViewPool() {
+        @Override // com.repackage.if5
+        public dg<TextView> getTextViewPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<LinearLayout> getTextVoiceViewPool() {
+        @Override // com.repackage.if5
+        public dg<LinearLayout> getTextVoiceViewPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<TiebaPlusRecommendCard> getTiejiaRecommendPool() {
+        @Override // com.repackage.if5
+        public dg<TiebaPlusRecommendCard> getTiejiaRecommendPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
-        public c.a.d.f.k.b<View> getVoiceViewPool() {
+        @Override // com.repackage.if5
+        public dg<View> getVoiceViewPool() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                 return null;
             }
-            return (c.a.d.f.k.b) invokeV.objValue;
+            return (dg) invokeV.objValue;
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onAtClicked(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
             }
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onLinkButtonClicked(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) {
             }
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onLinkClicked(Context context, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048588, this, context, str, z) == null) {
@@ -336,28 +326,28 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
             }
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onPhoneClicked(Context context, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048589, this, context, str, str2) == null) {
             }
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onSongClicked(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048590, this, context, str) == null) {
             }
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onVideoClicked(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048591, this, context, str) == null) {
             }
         }
 
-        @Override // c.a.o0.e1.n.i
+        @Override // com.repackage.if5
         public void onVideoP2PClicked(Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048592, this, context, str) == null) {
@@ -378,100 +368,100 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
                 return;
             }
         }
-        this.f34054e = new a(this, 2001332);
-        this.f34055f = new c(this);
-        this.f34056g = new d(this);
+        this.e = new a(this, 2001332);
+        this.f = new c(this);
+        this.g = new d(this);
     }
 
-    public boolean F0() {
+    public boolean E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            OfficialNotificationListModel officialNotificationListModel = this.f34052c;
+            OfficialNotificationListModel officialNotificationListModel = this.c;
             if (officialNotificationListModel == null || officialNotificationListModel.getData() == null) {
                 return true;
             }
-            return this.f34052c.getData().getIsNewAdd();
+            return this.c.getData().getIsNewAdd();
         }
         return invokeV.booleanValue;
     }
 
-    public boolean G0(Bundle bundle) {
+    public boolean F0(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            this.f34053d = c.a.o0.s.d.b.g0().D();
+            this.d = xx4.g0().D();
             OfficialNotificationListModel officialNotificationListModel = new OfficialNotificationListModel(this.a);
-            this.f34052c = officialNotificationListModel;
-            officialNotificationListModel.setLoadDataCallBack(this.f34055f);
+            this.c = officialNotificationListModel;
+            officialNotificationListModel.setLoadDataCallBack(this.f);
             if (bundle != null) {
-                I0(bundle);
+                H0(bundle);
                 return true;
             }
-            H0();
+            G0();
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void H0() {
+    public void G0() {
         OfficialNotificationListModel officialNotificationListModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (officialNotificationListModel = this.f34052c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (officialNotificationListModel = this.c) == null) {
             return;
         }
         officialNotificationListModel.setIsAcceptNotify(true);
-        K0();
+        J0();
     }
 
-    public void I0(Bundle bundle) {
+    public void H0(Bundle bundle) {
         OfficialNotificationListModel officialNotificationListModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) || (officialNotificationListModel = this.f34052c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) || (officialNotificationListModel = this.c) == null) {
             return;
         }
         officialNotificationListModel.setIsAcceptNotify(true);
-        L0(bundle);
+        K0(bundle);
     }
 
-    public void J0() {
+    public void I0() {
         OfficialNotificationListModel officialNotificationListModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (officialNotificationListModel = this.f34052c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (officialNotificationListModel = this.c) == null) {
             return;
         }
         officialNotificationListModel.loadPrepage();
     }
 
-    public void K0() {
+    public void J0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || m.isEmpty(this.f34053d) || this.a == null || this.f34052c == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || ni.isEmpty(this.d) || this.a == null || this.c == null) {
             return;
         }
-        UserData userData = new UserData(Long.parseLong(this.f34053d), this.a.getString(R.string.obfuscated_res_0x7f0f1311), null, 0);
-        M0(userData);
-        this.f34052c.setUser(userData);
+        UserData userData = new UserData(Long.parseLong(this.d), this.a.getString(R.string.obfuscated_res_0x7f0f1319), null, 0);
+        L0(userData);
+        this.c.setUser(userData);
     }
 
-    public void L0(Bundle bundle) {
+    public void K0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) || bundle == null || bundle.getString("user") == null) {
             return;
         }
         UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
-        M0(userData);
-        this.f34052c.setUser(userData);
+        L0(userData);
+        this.c.setUser(userData);
     }
 
-    public void M0(UserData userData) {
+    public void L0(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, userData) == null) {
-            n0.c(new b(this, userData), null);
+            dd5.c(new b(this, userData), null);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-    public void f(boolean z) {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
         }
@@ -482,22 +472,22 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            c.a.p0.v1.b.q.b bVar = this.f34051b;
-            if (bVar != null) {
-                bVar.j();
+            ta7 ta7Var = this.b;
+            if (ta7Var != null) {
+                ta7Var.j();
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            super.onClick(view);
-            int id = view.getId();
-            if ((id == R.id.obfuscated_res_0x7f090fd6 || id == R.id.obfuscated_res_0x7f092229) && !m.isEmpty(this.f34053d)) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+            super.onClick(view2);
+            int id = view2.getId();
+            if ((id == R.id.obfuscated_res_0x7f090fd0 || id == R.id.obfuscated_res_0x7f09220c) && !ni.isEmpty(this.d)) {
                 TiebaStatic.log("c12938");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.f34053d))));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RecommendDetailActivityConfig(getPageContext().getPageActivity(), null, Long.parseLong(this.d))));
             }
         }
     }
@@ -508,7 +498,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
             this.a = getPageContext();
-            G0(bundle);
+            F0(bundle);
         }
     }
 
@@ -518,14 +508,14 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048588, this, layoutInflater, viewGroup, bundle)) == null) {
-            c.a.p0.v1.b.q.b bVar = new c.a.p0.v1.b.q.b(this.a, this, viewGroup);
-            this.f34051b = bVar;
-            OfficialNotificationListModel officialNotificationListModel = this.f34052c;
+            ta7 ta7Var = new ta7(this.a, this, viewGroup);
+            this.b = ta7Var;
+            OfficialNotificationListModel officialNotificationListModel = this.c;
             if (officialNotificationListModel != null) {
-                bVar.f(officialNotificationListModel.getData());
-                this.f34052c.loadFirst(null);
+                ta7Var.f(officialNotificationListModel.getData());
+                this.c.loadFirst(null);
             }
-            return this.f34051b.i();
+            return this.b.i();
         }
         return (View) invokeLLL.objValue;
     }
@@ -535,8 +525,8 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onDestroy();
-            this.f34052c.onDestroy();
-            this.f34052c.setLoadDataCallBack(null);
+            this.c.onDestroy();
+            this.c.setLoadDataCallBack(null);
         }
     }
 
@@ -545,7 +535,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            MessageManager.getInstance().unRegisterListener(this.f34054e);
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 
@@ -554,7 +544,7 @@ public class OfficialNotificationFragment extends BaseFragment implements NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onResume();
-            registerListener(this.f34054e);
+            registerListener(this.e);
         }
     }
 }

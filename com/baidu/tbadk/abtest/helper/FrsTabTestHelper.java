@@ -1,7 +1,6 @@
 package com.baidu.tbadk.abtest.helper;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.j0.b;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -12,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.wt4;
+/* loaded from: classes2.dex */
 public class FrsTabTestHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static String FRS_NEW_AREA_TAB_SORT_KEY = "key_frs_new_area_tab_sort_";
@@ -37,8 +37,8 @@ public class FrsTabTestHelper {
                 return;
             }
         }
-        HOT_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06f0);
-        NEW_AREA_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0710);
+        HOT_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06f5);
+        NEW_AREA_TAB_NAME = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0715);
     }
 
     public FrsTabTestHelper() {
@@ -94,19 +94,19 @@ public class FrsTabTestHelper {
     public static int getFrsNewAreaTabSort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? wt4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
     }
 
     public static String getUserLastAccessTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? b.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? wt4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
     }
 
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            b.k().w(generateFrsNewAreaTabSortKey(), i);
+            wt4.k().w(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -114,7 +114,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                b.k().y(generateUserLastAccessKey(), str);
+                wt4.k().y(generateUserLastAccessKey(), str);
             }
         }
     }

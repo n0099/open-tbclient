@@ -1,8 +1,5 @@
 package com.baidu.tieba.myAttentionAndFans.message;
 
-import c.a.d.f.d.l;
-import c.a.o0.r.r.g1;
-import c.a.o0.r.s.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,12 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
+import com.repackage.qe;
+import com.repackage.xp4;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g1 data;
+    public xp4 data;
     public int mErrCode;
     public String mErrMsg;
     public PersonListModel mModel;
@@ -56,17 +56,17 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                g1 g1Var = new g1();
-                this.data = g1Var;
-                g1Var.c(jSONObject);
+                xp4 xp4Var = new xp4();
+                this.data = xp4Var;
+                xp4Var.c(jSONObject);
             }
         }
     }
 
-    public g1 getData() {
+    public xp4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (g1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (xp4) invokeV.objValue;
     }
 
     public String getErrMsg() {
@@ -101,11 +101,11 @@ public class ResponseNetPersonFollowMessage extends JsonHttpResponsedMessage {
                     BdUniqueId tag = ((HttpMessage) getOrginalMessage()).getTag();
                     z = (tag == null || !tag.equals(PersonListModel.FOLLOWME)) ? false : false;
                     String str = new String(bArr);
-                    a.f();
-                    l<String> g2 = a.g("tb.my_pages");
-                    if (g2 != null) {
+                    cr4.f();
+                    qe<String> g = cr4.g("tb.my_pages");
+                    if (g != null) {
                         String str2 = z ? "personal_followme" : "personal_myfollow";
-                        g2.e(str2 + "_" + this.mModel.getId(), str, 604800000L);
+                        g.e(str2 + "_" + this.mModel.getId(), str, 604800000L);
                     }
                 }
             }

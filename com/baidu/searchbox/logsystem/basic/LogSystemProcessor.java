@@ -51,7 +51,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogSystemProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEEP_ALIVE_TIME = 60000;
@@ -64,7 +64,7 @@ public class LogSystemProcessor {
     public List<BaseUploaderStrategy> mUploaderStrategies;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.LogSystemProcessor$4  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType;
         public static /* synthetic */ Interceptable $ic;
@@ -251,8 +251,8 @@ public class LogSystemProcessor {
                                 }
                             }
                         }
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e) {
+                        e = e;
                         bufferedReader = bufferedReader2;
                         e.printStackTrace();
                         Closeables.closeSafely(bufferedReader);
@@ -265,8 +265,8 @@ public class LogSystemProcessor {
                     }
                 }
                 Closeables.closeSafely(bufferedReader2);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
             }
             return arrayList;
         } catch (Throwable th2) {
@@ -446,9 +446,9 @@ public class LogSystemProcessor {
                                         }
                                         try {
                                             baseUploaderStrategy.upload(applicationContext, this.val$logObject, obtainProcessLogFiles, generateDeviceUploadFile, list);
-                                        } catch (Exception e2) {
+                                        } catch (Exception e) {
                                             if (LLog.sDebug) {
-                                                e2.printStackTrace();
+                                                e.printStackTrace();
                                             }
                                         }
                                     }

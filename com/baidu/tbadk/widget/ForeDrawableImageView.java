@@ -8,7 +8,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewParent;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,7 +15,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.cn4;
+/* loaded from: classes3.dex */
 public class ForeDrawableImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class ForeDrawableImageView extends TbImageView {
         this.y0 = new Paint();
     }
 
-    public final void P(Canvas canvas, int i, int i2) {
+    public final void Q(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || l.c().g()) {
+        if (!(interceptable == null || interceptable.invokeLII(1048576, this, canvas, i, i2) == null) || StringUtils.isNull(this.w0) || cn4.c().g()) {
             return;
         }
         canvas.drawText(this.w0, (int) (i - (this.y0.measureText(this.w0) / 2.0f)), i2 + this.x0, this.y0);
@@ -88,7 +88,7 @@ public class ForeDrawableImageView extends TbImageView {
                 canvas.translate(i2, height);
                 this.v0.draw(canvas);
                 canvas.restore();
-                P(canvas, i2 + i, height + intrinsicHeight);
+                Q(canvas, i2 + i, height + intrinsicHeight);
             }
         }
     }
@@ -121,12 +121,12 @@ public class ForeDrawableImageView extends TbImageView {
         }
     }
 
-    public void setNoImageBottomTextSize(float f2) {
+    public void setNoImageBottomTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) || f2 <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) || f <= 0.0f) {
             return;
         }
-        this.y0.setTextSize(f2);
+        this.y0.setTextSize(f);
     }
 
     public void setForegroundDrawable(Drawable drawable) {

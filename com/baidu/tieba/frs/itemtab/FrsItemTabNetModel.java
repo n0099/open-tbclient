@@ -1,7 +1,5 @@
 package com.baidu.tieba.frs.itemtab;
 
-import c.a.o0.k0.b.g;
-import c.a.p0.f1.d2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
@@ -14,8 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, d, T> {
+import com.repackage.o65;
+import com.repackage.tl6;
+/* loaded from: classes3.dex */
+public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, tl6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, d
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (g) objArr2[1]);
+                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,6 +82,6 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, d
     public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? tl6.class : (Class) invokeV.objValue;
     }
 }

@@ -52,14 +52,14 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         this.mItemLayoutRes = i2;
     }
 
-    public void addItemView(View view, int i) {
+    public void addItemView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
-            ViewGroup viewGroup = (ViewGroup) view.getParent();
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            ViewGroup viewGroup = (ViewGroup) view2.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(view);
+                viewGroup.removeView(view2);
             }
-            ((ViewGroup) this.mMenuView).addView(view, i);
+            ((ViewGroup) this.mMenuView).addView(view2, i);
         }
     }
 
@@ -124,13 +124,13 @@ public abstract class BaseMenuPresenter implements MenuPresenter {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mId : invokeV.intValue;
     }
 
-    public View getItemView(MenuItemImpl menuItemImpl, View view, ViewGroup viewGroup) {
+    public View getItemView(MenuItemImpl menuItemImpl, View view2, ViewGroup viewGroup) {
         InterceptResult invokeLLL;
         MenuView.ItemView createItemView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, menuItemImpl, view, viewGroup)) == null) {
-            if (view instanceof MenuView.ItemView) {
-                createItemView = (MenuView.ItemView) view;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, menuItemImpl, view2, viewGroup)) == null) {
+            if (view2 instanceof MenuView.ItemView) {
+                createItemView = (MenuView.ItemView) view2;
             } else {
                 createItemView = createItemView(viewGroup);
             }

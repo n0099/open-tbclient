@@ -16,5 +16,5 @@ public interface KMutableProperty2<D, E, V> extends KProperty2<D, E, V>, KMutabl
     @Override // kotlin.reflect.KMutableProperty, kotlin.reflect.KMutableProperty0
     Setter<D, E, V> getSetter();
 
-    void set(D d2, E e2, V v);
+    void set(D d, E e, V v);
 }

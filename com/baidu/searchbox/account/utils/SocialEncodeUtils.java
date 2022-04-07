@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SocialEncodeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -60,16 +60,16 @@ public final class SocialEncodeUtils {
             }
             try {
                 return new String(NativeBds.dae(str2, Base64.decode(str, 11)));
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.i(TAG, "getSocialDecrypt plainText:" + str + ", exception:" + e2);
+                    Log.i(TAG, "getSocialDecrypt plainText:" + str + ", exception:" + e);
                     return "";
                 }
                 return "";
-            } catch (UnsatisfiedLinkError e3) {
+            } catch (UnsatisfiedLinkError e2) {
                 if (DEBUG) {
-                    Log.i(TAG, "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e3);
-                    throw e3;
+                    Log.i(TAG, "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e2);
+                    throw e2;
                 }
                 return "";
             }
@@ -86,9 +86,9 @@ public final class SocialEncodeUtils {
             }
             try {
                 return new String(Base64.encode(NativeBds.ae(str2, str), 11));
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.i(TAG, "getSocialEncryption plainText:" + str + ", exception:" + e2);
+                    Log.i(TAG, "getSocialEncryption plainText:" + str + ", exception:" + e);
                 }
                 return "";
             }

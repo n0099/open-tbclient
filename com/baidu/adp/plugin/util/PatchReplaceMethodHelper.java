@@ -11,18 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.em;
 import dalvik.system.DexFile;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Enumeration;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PatchReplaceMethodHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a extends ClassLoader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,11 +84,11 @@ public class PatchReplaceMethodHelper {
 
     public static boolean loadPatch(Plugin plugin2, Context context, String str) {
         InterceptResult invokeLLL;
-        PluginSetting v;
+        PluginSetting q;
         PluginPatchAnnotation pluginPatchAnnotation;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, plugin2, context, str)) == null) {
-            if (plugin2 != null && context != null && (v = PluginPackageManager.u().v(plugin2.getPackageName())) != null && !TextUtils.isEmpty(v.replaceMethodClasses)) {
+            if (plugin2 != null && context != null && (q = PluginPackageManager.p().q(plugin2.getPackageName())) != null && !TextUtils.isEmpty(q.replaceMethodClasses)) {
                 try {
                     DexFile loadDex = DexFile.loadDex(plugin2.getPluginApkFilePath(), str, 0);
                     a aVar = new a(context.getClassLoader(), loadDex);
@@ -106,14 +107,14 @@ public class PatchReplaceMethodHelper {
                         }
                         setFieldsFlag(cls);
                     }
-                } catch (IOException e2) {
-                    c.a.d.j.h.a b2 = c.a.d.j.h.a.b();
+                } catch (IOException e) {
+                    em b = em.b();
+                    b.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e.getMessage());
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e2) {
+                    em b2 = em.b();
                     b2.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e2.getMessage());
                     e2.printStackTrace();
-                } catch (ClassNotFoundException e3) {
-                    c.a.d.j.h.a b3 = c.a.d.j.h.a.b();
-                    b3.p("plugin_load", "createClassLoader_failed", "method_patch_replace", "load_failed!" + e3.getMessage());
-                    e3.printStackTrace();
                 }
             }
             return false;

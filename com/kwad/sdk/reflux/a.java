@@ -14,13 +14,13 @@ import com.kwad.sdk.utils.ap;
 import com.kwad.sdk.utils.ax;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static int a = 12;
 
     /* renamed from: com.kwad.sdk.reflux.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1987a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0327a {
         void a(int i, String str);
 
         void a(@Nullable List<AdTemplate> list);
@@ -65,13 +65,13 @@ public class a {
                     return;
                 }
                 d.a aVar3 = aVar;
-                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.f39580e;
+                com.kwad.sdk.core.network.f fVar2 = com.kwad.sdk.core.network.f.e;
                 aVar3.a(fVar2.n, fVar2.o);
             }
         });
     }
 
-    public static void a(@NonNull SceneImpl sceneImpl, final InterfaceC1987a interfaceC1987a) {
+    public static void a(@NonNull SceneImpl sceneImpl, final InterfaceC0327a interfaceC0327a) {
         boolean a2 = ap.a().a(sceneImpl, "loadInterstitialAd");
         final long elapsedRealtime = SystemClock.elapsedRealtime();
         sceneImpl.setAdStyle(11);
@@ -83,7 +83,7 @@ public class a {
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.e("RefluxAdLoadManager", "loadRefluxAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
-                        InterfaceC1987a.this.a(i, str);
+                        InterfaceC0327a.this.a(i, str);
                     }
                 });
             }
@@ -94,7 +94,7 @@ public class a {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            InterfaceC1987a.this.a_(adResultData.adTemplateList.size());
+                            InterfaceC0327a.this.a_(adResultData.adTemplateList.size());
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -103,7 +103,7 @@ public class a {
                 ax.a(new Runnable() { // from class: com.kwad.sdk.reflux.a.1.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        InterfaceC1987a.this.a(adResultData.adTemplateList);
+                        InterfaceC0327a.this.a(adResultData.adTemplateList);
                         a.b(adResultData, elapsedRealtime);
                     }
                 });

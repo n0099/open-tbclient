@@ -5,7 +5,7 @@ import android.view.animation.Interpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Keyframe<T> {
     public static final float UNSET_FLOAT = -3987645.8f;
     public static final int UNSET_INT = 784923401;
@@ -29,7 +29,7 @@ public class Keyframe<T> {
     public float startValueFloat;
     public int startValueInt;
 
-    public Keyframe(LottieComposition lottieComposition, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f2, @Nullable Float f3) {
+    public Keyframe(LottieComposition lottieComposition, @Nullable T t, @Nullable T t2, @Nullable Interpolator interpolator, float f, @Nullable Float f2) {
         this.startValueFloat = -3987645.8f;
         this.endValueFloat = -3987645.8f;
         this.startValueInt = UNSET_INT;
@@ -42,12 +42,12 @@ public class Keyframe<T> {
         this.startValue = t;
         this.endValue = t2;
         this.interpolator = interpolator;
-        this.startFrame = f2;
-        this.endFrame = f3;
+        this.startFrame = f;
+        this.endFrame = f2;
     }
 
-    public boolean containsProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        return f2 >= getStartProgress() && f2 < getEndProgress();
+    public boolean containsProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        return f >= getStartProgress() && f < getEndProgress();
     }
 
     public float getEndProgress() {

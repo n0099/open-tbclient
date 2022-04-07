@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThreadRecommendInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ThreadRecommendInfoData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.showNum = jSONObject.optInt("show_num");
                 this.showType = jSONObject.optString(RecordVideoActivityConfig.SHOW_TYPE);
                 this.recommendReason = jSONObject.optString("recommend_reason");
-            } catch (Exception e2) {
-                BdLog.e(e2);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
         }
     }

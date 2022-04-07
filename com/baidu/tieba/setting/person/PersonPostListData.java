@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.PostInfoList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonPostListData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_IMAGE = 3;
@@ -24,7 +24,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     public int hide_post;
     public List<PostList> post_list;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Abs implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class AnchorInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,13 +131,13 @@ public class PersonPostListData extends OrmObject implements Serializable {
                 this.publisherPortrait = anchorInfo.publisherPortrait;
                 this.publisher_name = anchorInfo.publisherName;
                 this.publisher_id = anchorInfo.publisherId.longValue();
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Content implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,13 +195,13 @@ public class PersonPostListData extends OrmObject implements Serializable {
             }
             try {
                 this.lat = lbsInfo.lat;
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Media implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -243,14 +243,14 @@ public class PersonPostListData extends OrmObject implements Serializable {
                     this.water_pic = media.water_pic;
                     this.vsrc = media.vsrc;
                     this.vpic = media.vpic;
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class PostList extends AbstractImageProvider implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,7 +327,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class Quote implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,8 +370,8 @@ public class PersonPostListData extends OrmObject implements Serializable {
                     this.ip = Long.parseLong(quote.ip);
                 }
                 this.content = quote.content;
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
@@ -435,8 +435,8 @@ public class PersonPostListData extends OrmObject implements Serializable {
                     postList.lbs_info.parserData(postInfoList.lbs_info);
                     postList.is_post_deleted = postInfoList.is_post_deleted.intValue();
                     arrayList.add(postList);
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
             }
             this.post_list = arrayList;
@@ -485,8 +485,8 @@ public class PersonPostListData extends OrmObject implements Serializable {
                     postList.lbs_info.parserData(postInfoList.lbs_info);
                     postList.is_post_deleted = postInfoList.is_post_deleted.intValue();
                     arrayList.add(postList);
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
             }
             this.post_list = arrayList;

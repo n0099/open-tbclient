@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewTransition<R> implements Transition<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ViewTransitionAnimationFactory viewTransitionAnimationFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ViewTransitionAnimationFactory {
         Animation build(Context context);
     }
@@ -43,10 +43,10 @@ public class ViewTransition<R> implements Transition<R> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, r, viewAdapter)) == null) {
-            View view = viewAdapter.getView();
-            if (view != null) {
-                view.clearAnimation();
-                view.startAnimation(this.viewTransitionAnimationFactory.build(view.getContext()));
+            View view2 = viewAdapter.getView();
+            if (view2 != null) {
+                view2.clearAnimation();
+                view2.startAnimation(this.viewTransitionAnimationFactory.build(view2.getContext()));
                 return false;
             }
             return false;

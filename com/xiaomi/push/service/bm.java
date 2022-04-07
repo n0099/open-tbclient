@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bm {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -94,23 +94,23 @@ public class bm {
                 for (int i4 = 0; i4 < list.size(); i4++) {
                     hj hjVar = list.get(i4);
                     if (hjVar != null) {
-                        if (hjVar.m418a() == null || !hjVar.m418a().containsKey("item_size")) {
+                        if (hjVar.m414a() == null || !hjVar.m414a().containsKey("item_size")) {
                             i2 = 0;
                         } else {
-                            String str4 = hjVar.m418a().get("item_size");
+                            String str4 = hjVar.m414a().get("item_size");
                             if (!TextUtils.isEmpty(str4)) {
                                 try {
                                     i2 = Integer.parseInt(str4);
                                 } catch (Exception unused) {
                                 }
-                                if (hjVar.m418a().size() != 1) {
+                                if (hjVar.m414a().size() != 1) {
                                     hjVar.a((Map<String, String>) null);
                                 } else {
-                                    hjVar.m418a().remove("item_size");
+                                    hjVar.m414a().remove("item_size");
                                 }
                             }
                             i2 = 0;
-                            if (hjVar.m418a().size() != 1) {
+                            if (hjVar.m414a().size() != 1) {
                             }
                         }
                         if (i2 <= 0) {
@@ -173,9 +173,9 @@ public class bm {
                 str = "item.category is null or empty, verfiy ClientUploadDataItem failed.";
             } else if (TextUtils.isEmpty(hjVar.f468c)) {
                 str = "item.name is null or empty, verfiy ClientUploadDataItem failed.";
-            } else if (!com.xiaomi.push.bm.m223a(hjVar.f469d)) {
+            } else if (!com.xiaomi.push.bm.m219a(hjVar.f469d)) {
                 str = "item.category can only contain ascii char, verfiy ClientUploadDataItem failed.";
-            } else if (com.xiaomi.push.bm.m223a(hjVar.f468c)) {
+            } else if (com.xiaomi.push.bm.m219a(hjVar.f468c)) {
                 String str2 = hjVar.f467b;
                 if (str2 == null || str2.length() <= 10240) {
                     return false;
@@ -184,7 +184,7 @@ public class bm {
             } else {
                 str = "item.name can only contain ascii char, verfiy ClientUploadDataItem failed.";
             }
-            com.xiaomi.channel.commonutils.logger.b.m112a(str);
+            com.xiaomi.channel.commonutils.logger.b.m108a(str);
             return true;
         }
         return invokeLZ.booleanValue;
@@ -193,6 +193,6 @@ public class bm {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !com.xiaomi.push.t.m683b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !com.xiaomi.push.t.m679b() || Constants.HYBRID_PACKAGE_NAME.equals(str) : invokeL.booleanValue;
     }
 }

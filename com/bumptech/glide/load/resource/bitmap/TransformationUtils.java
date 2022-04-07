@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TransformationUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Lock BITMAP_DRAWABLE_LOCK;
@@ -45,7 +45,7 @@ public final class TransformationUtils {
     public static final String TAG = "TransformationUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class NoLock implements Lock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,17 +178,17 @@ public final class TransformationUtils {
                 return bitmap;
             }
             Matrix matrix = new Matrix();
-            float f2 = 0.0f;
+            float f = 0.0f;
             if (bitmap.getWidth() * i2 > bitmap.getHeight() * i) {
                 width = i2 / bitmap.getHeight();
-                f2 = (i - (bitmap.getWidth() * width)) * 0.5f;
+                f = (i - (bitmap.getWidth() * width)) * 0.5f;
                 height = 0.0f;
             } else {
                 width = i / bitmap.getWidth();
                 height = (i2 - (bitmap.getHeight() * width)) * 0.5f;
             }
             matrix.setScale(width, width);
-            matrix.postTranslate((int) (f2 + 0.5f), (int) (height + 0.5f));
+            matrix.postTranslate((int) (f + 0.5f), (int) (height + 0.5f));
             Bitmap bitmap2 = bitmapPool.get(i, i2, getNonNullConfig(bitmap));
             setAlpha(bitmap, bitmap2);
             applyMatrix(bitmap, bitmap2, matrix);
@@ -220,23 +220,23 @@ public final class TransformationUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmapPool, bitmap, i, i2)) == null) {
             int min = Math.min(i, i2);
-            float f2 = min;
-            float f3 = f2 / 2.0f;
+            float f = min;
+            float f2 = f / 2.0f;
             float width = bitmap.getWidth();
             float height = bitmap.getHeight();
-            float max = Math.max(f2 / width, f2 / height);
-            float f4 = width * max;
-            float f5 = max * height;
-            float f6 = (f2 - f4) / 2.0f;
-            float f7 = (f2 - f5) / 2.0f;
-            RectF rectF = new RectF(f6, f7, f4 + f6, f5 + f7);
+            float max = Math.max(f / width, f / height);
+            float f3 = width * max;
+            float f4 = max * height;
+            float f5 = (f - f3) / 2.0f;
+            float f6 = (f - f4) / 2.0f;
+            RectF rectF = new RectF(f5, f6, f3 + f5, f4 + f6);
             Bitmap alphaSafeBitmap = getAlphaSafeBitmap(bitmapPool, bitmap);
             Bitmap bitmap2 = bitmapPool.get(min, min, getAlphaSafeConfig(bitmap));
             bitmap2.setHasAlpha(true);
             BITMAP_DRAWABLE_LOCK.lock();
             try {
                 Canvas canvas = new Canvas(bitmap2);
-                canvas.drawCircle(f3, f3, f3, CIRCLE_CROP_SHAPE_PAINT);
+                canvas.drawCircle(f2, f2, f2, CIRCLE_CROP_SHAPE_PAINT);
                 canvas.drawBitmap(alphaSafeBitmap, (Rect) null, rectF, CIRCLE_CROP_BITMAP_PAINT);
                 clear(canvas);
                 BITMAP_DRAWABLE_LOCK.unlock();
@@ -423,9 +423,9 @@ public final class TransformationUtils {
                     Matrix matrix = new Matrix();
                     matrix.setRotate(i);
                     return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (Log.isLoggable(TAG, 6)) {
-                        Log.e(TAG, "Exception when trying to orient image", e2);
+                        Log.e(TAG, "Exception when trying to orient image", e);
                         return bitmap;
                     }
                     return bitmap;
@@ -488,8 +488,8 @@ public final class TransformationUtils {
             try {
                 Canvas canvas = new Canvas(bitmap2);
                 canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                float f2 = i;
-                canvas.drawRoundRect(rectF, f2, f2, paint);
+                float f = i;
+                canvas.drawRoundRect(rectF, f, f, paint);
                 clear(canvas);
                 BITMAP_DRAWABLE_LOCK.unlock();
                 if (!alphaSafeBitmap.equals(bitmap)) {

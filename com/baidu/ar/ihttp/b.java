@@ -1,5 +1,5 @@
 package com.baidu.ar.ihttp;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface b {
     IHttpRequest newRequest();
 

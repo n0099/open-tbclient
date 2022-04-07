@@ -8,8 +8,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import c.a.p0.f4.e.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -21,39 +19,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.kq8;
+import com.repackage.oi;
+/* loaded from: classes4.dex */
 public class BackgroundItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f36316b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f36317c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TbImageView f36318d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TbImageView f36319e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f36320f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f36321g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public SkinProgressView f36322h;
+    public View b;
+    public TbImageView c;
+    public TbImageView d;
+    public TbImageView e;
+    public ImageView f;
+    public TextView g;
+    public SkinProgressView h;
     public DressItemData i;
     public int j;
     public int k;
-    public d l;
+    public kq8 l;
     public View.OnClickListener m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,15 +64,15 @@ public class BackgroundItemView extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.a.i == null || this.a.l == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || this.a.i == null || this.a.l == null) {
                 return;
             }
-            if (view == this.a.f36322h) {
+            if (view2 == this.a.h) {
                 TiebaStatic.log(new StatisticItem("c10280").param("obj_id", this.a.i.getPropsId()));
                 this.a.l.e(this.a.i, false);
-            } else if (view == this.a.f36317c) {
+            } else if (view2 == this.a.c) {
                 TiebaStatic.log(new StatisticItem("c10279").param("obj_id", this.a.i.getPropsId()));
                 this.a.l.b(this.a.i);
             }
@@ -124,24 +110,24 @@ public class BackgroundItemView extends LinearLayout {
         this.i = dressItemData;
         Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
         if (dressItemData.getPropsId() == 0) {
-            SkinManager.setImageResource(this.f36317c, R.drawable.pic_bg_moren);
+            SkinManager.setImageResource(this.c, R.drawable.pic_bg_moren);
         } else {
-            this.f36317c.setImageBitmap(null);
-            this.f36317c.J(dressItemData.getExampleImgUrl(), 10, false);
+            this.c.setImageBitmap(null);
+            this.c.K(dressItemData.getExampleImgUrl(), 10, false);
         }
-        this.f36321g.setText(dressItemData.getTitle());
+        this.g.setText(dressItemData.getTitle());
         if (valueOf.booleanValue()) {
-            this.f36320f.setVisibility(0);
-            SkinManager.setImageResource(this.f36320f, R.drawable.icon_choose_photo);
+            this.f.setVisibility(0);
+            SkinManager.setImageResource(this.f, R.drawable.icon_choose_photo);
         } else {
-            this.f36320f.setVisibility(8);
+            this.f.setVisibility(8);
         }
-        this.f36318d.J(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f36319e.J(dressItemData.getPropsStateImg(), 10, false);
+        this.d.K(dressItemData.getPermissionImgUrl(), 10, false);
+        this.e.K(dressItemData.getPropsStateImg(), 10, false);
         if (valueOf.booleanValue()) {
-            this.f36322h.c(0, 0.0f);
+            this.h.c(0, 0.0f);
         } else {
-            this.f36322h.c(4, 0.0f);
+            this.h.c(4, 0.0f);
         }
         setVisibility(0);
     }
@@ -156,37 +142,37 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = (n.k(this.a) - n.f(this.a, R.dimen.obfuscated_res_0x7f0702ff)) / 3;
+            int k = (oi.k(this.a) - oi.f(this.a, R.dimen.obfuscated_res_0x7f070309)) / 3;
             this.j = k;
             this.k = (int) (k / 0.66d);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012f, this);
-            this.f36316b = inflate;
-            this.f36317c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
-            TbImageView tbImageView = (TbImageView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f09176d);
-            this.f36318d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f36318d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
-            TbImageView tbImageView2 = (TbImageView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f091da2);
-            this.f36319e = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f36319e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f36320f = (ImageView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f090615);
-            this.f36321g = (TextView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f091f29);
-            SkinProgressView skinProgressView = (SkinProgressView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f0923b0);
-            this.f36322h = skinProgressView;
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0131, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090368);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09176a);
+            this.d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d8f);
+            this.e = tbImageView2;
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09061f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f15);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f09238d);
+            this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
-            this.f36317c.setOnClickListener(this.m);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f36317c.getLayoutParams();
+            this.c.setOnClickListener(this.m);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.height = this.k;
             layoutParams.width = this.j;
-            this.f36317c.setLayoutParams(layoutParams);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
-    public void setController(d dVar) {
+    public void setController(kq8 kq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            this.l = dVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kq8Var) == null) {
+            this.l = kq8Var;
         }
     }
 

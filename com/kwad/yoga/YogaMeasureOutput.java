@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YogaMeasureOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class YogaMeasureOutput {
         return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? Float.intBitsToFloat((int) ((j >> 32) & (-1))) : invokeJ.floatValue;
     }
 
-    public static long make(float f2, float f3) {
+    public static long make(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Float.floatToRawIntBits(f3) | (Float.floatToRawIntBits(f2) << 32) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? Float.floatToRawIntBits(f2) | (Float.floatToRawIntBits(f) << 32) : invokeCommon.longValue;
     }
 
     public static long make(int i, int i2) {

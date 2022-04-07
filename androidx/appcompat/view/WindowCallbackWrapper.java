@@ -184,10 +184,10 @@ public class WindowCallbackWrapper implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i, view, menu)) == null) ? this.mWrapped.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i, view2, menu)) == null) ? this.mWrapped.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.view.Window.Callback

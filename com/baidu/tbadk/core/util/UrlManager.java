@@ -5,9 +5,6 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.e;
-import c.a.d.f.p.n;
-import c.a.o0.e1.n.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.cmdRouter.CmdRouter;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -25,6 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ff5;
+import com.repackage.oi;
+import com.repackage.pg;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UrlManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PARAM = "default_param";
@@ -51,22 +51,22 @@ public class UrlManager {
     public final List<UrlDealListener> mListeners;
     public UrlWebDealListener mWebListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface UrlDealListener {
         int deal(TbPageContext<?> tbPageContext, String[] strArr);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface UrlSchemaHandler {
         void deal(TbPageContext<?> tbPageContext, Map<String, String> map);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface UrlWebDealListener {
         void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2, Bundle bundle);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface UrlWebDialogCancelListener {
         void onCancel();
     }
@@ -129,7 +129,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new f(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new ff5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -263,10 +263,10 @@ public class UrlManager {
     public void addListener(UrlDealListener urlDealListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlDealListener) == null) {
-            if (n.B()) {
+            if (oi.B()) {
                 addListenerInner(urlDealListener);
             } else {
-                e.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
+                pg.a().post(new Runnable(this, urlDealListener) { // from class: com.baidu.tbadk.core.util.UrlManager.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UrlManager this$0;
@@ -498,8 +498,8 @@ public class UrlManager {
                     }
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap)));
                     return false;
-                } catch (Exception e2) {
-                    BdLog.e(e2);
+                } catch (Exception e) {
+                    BdLog.e(e);
                     return false;
                 }
             }

@@ -8,9 +8,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.l.q;
-import c.a.o0.r.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,36 +19,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gz;
+import com.repackage.oi;
+import com.repackage.uu4;
+import com.repackage.wr4;
 import tbclient.RecentUpdate;
-/* loaded from: classes5.dex */
-public class CardItemRecentUpdateLayout extends LinearLayout implements q {
+/* loaded from: classes3.dex */
+public class CardItemRecentUpdateLayout extends LinearLayout implements gz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32727b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32728c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f32729d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f32730e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public MultiLineEllipsizeTextView f32731f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public EMTextView f32732g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f32733h;
+    public TextView b;
+    public TextView c;
+    public View d;
+    public FrameLayout e;
+    public MultiLineEllipsizeTextView f;
+    public EMTextView g;
+    public String h;
     public boolean i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements MultiLineEllipsizeTextView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,12 +66,12 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a.f32732g.setVisibility((z || this.a.i) ? 0 : 8);
+                this.a.g.setVisibility((z || this.a.i) ? 0 : 8);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,20 +96,20 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.a;
                 cardItemRecentUpdateLayout.i = !cardItemRecentUpdateLayout.i;
                 if (!this.a.i) {
-                    this.a.f32732g.setText(R.string.obfuscated_res_0x7f0f05ba);
-                    this.a.f32731f.setMaxLines(3);
+                    this.a.g.setText(R.string.obfuscated_res_0x7f0f05c1);
+                    this.a.f.setMaxLines(3);
                     return;
                 }
-                this.a.f32732g.setText(R.string.obfuscated_res_0x7f0f0620);
-                this.a.f32731f.setMaxLines(Integer.MAX_VALUE);
-                this.a.f32731f.setText(this.a.f32733h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new c.a.o0.r.l0.p.b(10)));
+                this.a.g.setText(R.string.obfuscated_res_0x7f0f0627);
+                this.a.f.setMaxLines(Integer.MAX_VALUE);
+                this.a.f.setText(this.a.h);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new uu4(10)));
             }
         }
     }
@@ -151,59 +138,59 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a7, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f93);
-            this.f32727b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f94);
-            this.f32728c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f90);
-            this.f32729d = findViewById(R.id.obfuscated_res_0x7f090f92);
-            this.f32730e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f91);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a9, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8d);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f8a);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090f8c);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f8b);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
-            this.f32731f = multiLineEllipsizeTextView;
+            this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
-            MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f32731f;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05ba))));
-            c d2 = c.d(this.f32731f);
-            d2.z(R.dimen.T_X06);
-            d2.w(R.dimen.M_T_X002);
-            this.f32731f.setPadding(n.f(context, R.dimen.M_W_X005), 0, 0, n.f(context, R.dimen.M_H_X005));
-            this.f32730e.addView(this.f32731f, new LinearLayout.LayoutParams(-1, -2));
-            this.f32731f.setOnTextMeasuredCallback(new a(this));
+            MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05c1))));
+            wr4 d = wr4.d(this.f);
+            d.z(R.dimen.T_X06);
+            d.w(R.dimen.M_T_X002);
+            this.f.setPadding(oi.f(context, R.dimen.M_W_X005), 0, 0, oi.f(context, R.dimen.M_H_X005));
+            this.e.addView(this.f, new LinearLayout.LayoutParams(-1, -2));
+            this.f.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
-            this.f32732g = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05ba);
-            c.d(this.f32731f).z(R.dimen.T_X06);
-            this.f32732g.setPadding(n.f(context, R.dimen.M_W_X005), n.f(context, R.dimen.M_H_X005), 0, n.f(context, R.dimen.M_H_X005));
-            this.f32732g.setVisibility(8);
+            this.g = eMTextView;
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05c1);
+            wr4.d(this.f).z(R.dimen.T_X06);
+            this.g.setPadding(oi.f(context, R.dimen.M_W_X005), oi.f(context, R.dimen.M_H_X005), 0, oi.f(context, R.dimen.M_H_X005));
+            this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
-            this.f32730e.addView(this.f32732g, layoutParams);
-            this.f32732g.setOnClickListener(new b(this));
+            this.e.addView(this.g, layoutParams);
+            this.g.setOnClickListener(new b(this));
         }
     }
 
-    @Override // c.a.l.q
+    @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            c d2 = c.d(this);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0201);
-            c d3 = c.d(this.a);
-            d3.A(R.string.F_X02);
-            d3.v(R.color.CAM_X0105);
-            c d4 = c.d(this.f32727b);
+            wr4 d = wr4.d(this);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
+            wr4 d2 = wr4.d(this.a);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            wr4 d3 = wr4.d(this.b);
+            d3.A(R.string.F_X01);
+            d3.v(R.color.CAM_X0108);
+            wr4 d4 = wr4.d(this.c);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0108);
-            c d5 = c.d(this.f32728c);
+            wr4 d5 = wr4.d(this.f);
             d5.A(R.string.F_X01);
-            d5.v(R.color.CAM_X0108);
-            c d6 = c.d(this.f32731f);
+            d5.v(R.color.CAM_X0105);
+            wr4 d6 = wr4.d(this.g);
             d6.A(R.string.F_X01);
-            d6.v(R.color.CAM_X0105);
-            c d7 = c.d(this.f32732g);
-            d7.A(R.string.F_X01);
-            d7.v(R.color.CAM_X0304);
-            c.d(this.f32729d).f(R.color.CAM_X0111);
+            d6.v(R.color.CAM_X0304);
+            wr4.d(this.d).f(R.color.CAM_X0111);
         }
     }
 
@@ -213,10 +200,10 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements q {
             return;
         }
         String str = recentUpdate.log;
-        this.f32733h = str;
-        this.f32731f.setText(str);
-        this.f32727b.setText(recentUpdate.version);
-        this.f32728c.setText(recentUpdate.update_time);
+        this.h = str;
+        this.f.setText(str);
+        this.b.setText(recentUpdate.version);
+        this.c.setText(recentUpdate.update_time);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

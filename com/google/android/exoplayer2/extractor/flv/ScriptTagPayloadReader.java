@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ScriptTagPayloadReader extends TagPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AMF_TYPE_BOOLEAN = 1;

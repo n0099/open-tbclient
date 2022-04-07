@@ -27,7 +27,7 @@ import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BitmapAnimationBackend implements AnimationBackend, AnimationBackendDelegateWithInactivityCheck.InactivityListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_TYPE_CACHED = 0;
@@ -54,7 +54,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     public final Paint mPaint;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface FrameListener {
         void onDrawFrameStart(BitmapAnimationBackend bitmapAnimationBackend, int i);
 
@@ -64,7 +64,7 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface FrameType {
     }
 
@@ -170,8 +170,8 @@ public class BitmapAnimationBackend implements AnimationBackend, AnimationBacken
                 }
                 CloseableReference.closeSafely(cachedFrame);
                 return (drawBitmapAndCache || i3 == -1) ? drawBitmapAndCache : drawFrameOrFallback(canvas, i, i3);
-            } catch (RuntimeException e2) {
-                FLog.w(TAG, "Failed to create frame bitmap", e2);
+            } catch (RuntimeException e) {
+                FLog.w(TAG, "Failed to create frame bitmap", e);
                 return false;
             } finally {
                 CloseableReference.closeSafely((CloseableReference<?>) null);

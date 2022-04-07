@@ -19,13 +19,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,11 +68,11 @@ public final class b {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Object b2 = b(context);
-                Object a = a(b2, "mWhiteList");
+                Object b = b(context);
+                Object a = a(b, "mWhiteList");
                 if (!(a instanceof String[])) {
-                    if (b2 != null) {
-                        FieldUtils.writeField(b2, "mResourceConfig", (Object) null);
+                    if (b != null) {
+                        FieldUtils.writeField(b, "mResourceConfig", (Object) null);
                         return false;
                     }
                     return false;
@@ -80,13 +80,13 @@ public final class b {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(context.getPackageName());
                 Collections.addAll(arrayList, (String[]) a);
-                FieldUtils.writeField(b2, "mWhiteList", arrayList.toArray(new String[arrayList.size()]));
+                FieldUtils.writeField(b, "mWhiteList", arrayList.toArray(new String[arrayList.size()]));
                 return true;
             }
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ a(byte b2) {
+        public /* synthetic */ a(byte b) {
             this();
         }
 
@@ -114,13 +114,13 @@ public final class b {
     }
 
     /* renamed from: com.bytedance.pangle.receiver.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1921b extends e {
+    /* loaded from: classes4.dex */
+    public static class C0261b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1921b() {
+        public C0261b() {
             super((byte) 0);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -147,17 +147,17 @@ public final class b {
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ C1921b(byte b2) {
+        public /* synthetic */ C0261b(byte b) {
             this();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         boolean a(Context context);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class d extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,12 +195,12 @@ public final class b {
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ d(byte b2) {
+        public /* synthetic */ d(byte b) {
             this();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class e extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -244,7 +244,7 @@ public final class b {
             return invokeL.booleanValue;
         }
 
-        public /* synthetic */ e(byte b2) {
+        public /* synthetic */ e(byte b) {
             this();
         }
     }
@@ -270,7 +270,7 @@ public final class b {
         } else if (i < 28) {
             a = new e((byte) 0);
         } else {
-            a = new C1921b((byte) 0);
+            a = new C0261b((byte) 0);
         }
     }
 

@@ -6,22 +6,16 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f39527b = true;
+    public volatile boolean b = true;
     @Nullable
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.g.a f39528c;
+    public com.kwad.sdk.core.g.a c;
     @Nullable
+    public a d;
 
-    /* renamed from: d  reason: collision with root package name */
-    public a f39529d;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements SensorEventListener {
         public a() {
         }
@@ -33,28 +27,28 @@ public class b {
         @Override // android.hardware.SensorEventListener
         public void onSensorChanged(SensorEvent sensorEvent) {
             float[] fArr = sensorEvent.values;
-            float f2 = fArr[0];
-            float f3 = fArr[1];
-            float f4 = fArr[2];
-            double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
-            if (!b.this.f39527b || sqrt < b.this.a || b.this.f39528c == null) {
+            float f = fArr[0];
+            float f2 = fArr[1];
+            float f3 = fArr[2];
+            double sqrt = Math.sqrt((f * f) + (f2 * f2) + (f3 * f3));
+            if (!b.this.b || sqrt < b.this.a || b.this.c == null) {
                 return;
             }
-            b.this.f39527b = false;
-            b.this.f39528c.a(sqrt);
+            b.this.b = false;
+            b.this.c.a(sqrt);
         }
     }
 
-    public b(float f2) {
-        this.a = f2 <= 0.0f ? 5.0f : f2;
+    public b(float f) {
+        this.a = f <= 0.0f ? 5.0f : f;
     }
 
     public synchronized void a() {
-        this.f39527b = true;
+        this.b = true;
     }
 
-    public void a(float f2) {
-        this.a = f2;
+    public void a(float f) {
+        this.a = f;
     }
 
     public void a(Context context) {
@@ -68,20 +62,20 @@ public class b {
             com.kwad.sdk.core.d.a.a("ShakeDetector", "startDetect default linear acceleration is null");
             return;
         }
-        if (this.f39529d == null) {
-            this.f39529d = new a();
+        if (this.d == null) {
+            this.d = new a();
         }
-        sensorManager.registerListener(this.f39529d, defaultSensor, 2);
+        sensorManager.registerListener(this.d, defaultSensor, 2);
     }
 
     public void a(@Nullable com.kwad.sdk.core.g.a aVar) {
-        this.f39528c = aVar;
+        this.c = aVar;
     }
 
     public void b(Context context) {
-        if (context == null || this.f39529d == null) {
+        if (context == null || this.d == null) {
             return;
         }
-        ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.f39529d);
+        ((SensorManager) context.getSystemService("sensor")).unregisterListener(this.d);
     }
 }

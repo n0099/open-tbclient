@@ -18,6 +18,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +47,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CROP_BOTTOM = "crop-bottom";
@@ -94,13 +95,13 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public OnFrameRenderedListenerV23 tunnelingOnFrameRenderedListener;
 
     /* renamed from: com.google.android.exoplayer2.video.MediaCodecVideoRenderer$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class CodecMaxValues {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +131,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     }
 
     @TargetApi(23)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class OnFrameRenderedListenerV23 implements MediaCodec.OnFrameRenderedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -266,9 +267,9 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
             boolean z = format.height > format.width;
             int i = z ? format.height : format.width;
             int i2 = z ? format.width : format.height;
-            float f2 = i2 / i;
+            float f = i2 / i;
             for (int i3 : STANDARD_LONG_EDGE_VIDEO_PX) {
-                int i4 = (int) (i3 * f2);
+                int i4 = (int) (i3 * f);
                 if (i3 <= i || i4 <= i2) {
                     break;
                 }
@@ -319,11 +320,11 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, format)) == null) {
-            float f2 = format.pixelWidthHeightRatio;
-            if (f2 == -1.0f) {
+            float f = format.pixelWidthHeightRatio;
+            if (f == -1.0f) {
                 return 1.0f;
             }
-            return f2;
+            return f;
         }
         return invokeL.floatValue;
     }
@@ -572,8 +573,8 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{format, codecMaxValues, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             MediaFormat frameworkMediaFormatV16 = format.getFrameworkMediaFormatV16();
-            frameworkMediaFormatV16.setInteger("max-width", codecMaxValues.width);
-            frameworkMediaFormatV16.setInteger("max-height", codecMaxValues.height);
+            frameworkMediaFormatV16.setInteger(CriusAttrConstants.MAX_WIDTH, codecMaxValues.width);
+            frameworkMediaFormatV16.setInteger(CriusAttrConstants.MAX_HEIGHT, codecMaxValues.height);
             int i2 = codecMaxValues.inputSize;
             if (i2 != -1) {
                 frameworkMediaFormatV16.setInteger("max-input-size", i2);
@@ -1130,7 +1131,7 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int getMaxInputSize(String str, int i, int i2) {
         InterceptResult invokeLII;
-        char c2;
+        char c;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, null, str, i, i2)) == null) {
@@ -1141,60 +1142,60 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
             switch (str.hashCode()) {
                 case -1664118616:
                     if (str.equals(MimeTypes.VIDEO_H263)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1662541442:
                     if (str.equals(MimeTypes.VIDEO_H265)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1187890754:
                     if (str.equals(MimeTypes.VIDEO_MP4V)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1331836730:
                     if (str.equals("video/avc")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1599127256:
                     if (str.equals("video/x-vnd.on2.vp8")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1599127257:
                     if (str.equals("video/x-vnd.on2.vp9")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 != 0 && c2 != 1) {
-                if (c2 == 2) {
+            if (c != 0 && c != 1) {
+                if (c == 2) {
                     if ("BRAVIA 4K 2015".equals(Util.MODEL)) {
                         return -1;
                     }
                     i3 = Util.ceilDivide(i, 16) * Util.ceilDivide(i2, 16) * 16 * 16;
                     i4 = 2;
                     return (i3 * 3) / (i4 * 2);
-                } else if (c2 != 3) {
-                    if (c2 == 4 || c2 == 5) {
+                } else if (c != 3) {
+                    if (c == 4 || c == 5) {
                         i3 = i * i2;
                         return (i3 * 3) / (i4 * 2);
                     }

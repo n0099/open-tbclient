@@ -3,7 +3,6 @@ package com.baidu.searchbox.block.impl;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.e.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -19,12 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
+import com.repackage.gl9;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 @Singleton
 @Service
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BlockMonitor implements IBlockMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_TIMEOUT = 2000;
@@ -33,18 +33,18 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER;
     public static String sBlockTimeStamp;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mBlockWatchDog;
+    public gl9 mBlockWatchDog;
     public boolean mMonitorStarted;
 
     /* renamed from: com.baidu.searchbox.block.impl.BlockMonitor$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
-    public static class BlockListenerImpl implements a.f {
+    /* loaded from: classes2.dex */
+    public static class BlockListenerImpl implements gl9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +62,7 @@ public class BlockMonitor implements IBlockMonitor {
             }
         }
 
-        @Override // c.e.a.a.f
+        @Override // com.repackage.gl9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -154,8 +154,8 @@ public class BlockMonitor implements IBlockMonitor {
                             sb.append(stackTraceElement.toString() + "\r\n");
                         }
                     }
-                } catch (Exception e2) {
-                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e2);
+                } catch (Exception e) {
+                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e);
                 }
             }
             return sb.toString();
@@ -177,9 +177,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        a aVar = new a(i);
-        this.mBlockWatchDog = aVar;
-        aVar.e();
+        gl9 gl9Var = new gl9(i);
+        this.mBlockWatchDog = gl9Var;
+        gl9Var.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl(null));
         if (AppConfig.isDebug()) {
@@ -190,10 +190,10 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        a aVar;
+        gl9 gl9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (aVar = this.mBlockWatchDog) != null) {
-            aVar.interrupt();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.mMonitorStarted && (gl9Var = this.mBlockWatchDog) != null) {
+            gl9Var.interrupt();
             this.mMonitorStarted = false;
         }
     }

@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DuPaEvaluationMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<DuPaEvaluationMsg> CREATOR;
@@ -28,7 +28,7 @@ public class DuPaEvaluationMsg extends ChatMsg {
     public List<EvaluationItem> mItems;
     public String mText;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class EvaluationItem implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<EvaluationItem> CREATOR;
@@ -217,8 +217,8 @@ public class DuPaEvaluationMsg extends ChatMsg {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(DuPaBManualMsg.B_CALLBACK_KEY, this.mCallbackKey);
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getManualContentJson :", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getManualContentJson :", e);
             }
             return jSONObject.toString();
         }
@@ -265,8 +265,8 @@ public class DuPaEvaluationMsg extends ChatMsg {
                     }
                 }
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "parse json err!", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "parse json err!", e);
                 return false;
             }
         }

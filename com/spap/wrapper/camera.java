@@ -143,14 +143,14 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
         }
     }
 
-    public int set_compensation(double d2) {
+    public int set_compensation(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d2)})) == null) {
-            if (d2 == 0.0d) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)})) == null) {
+            if (d == 0.0d) {
                 return 0;
             }
-            int exposureCompensation = ((int) (d2 / this.mCompensationStep)) + this.mMyCamera.getParameters().getExposureCompensation();
+            int exposureCompensation = ((int) (d / this.mCompensationStep)) + this.mMyCamera.getParameters().getExposureCompensation();
             int i = this.mMaxCompensationIndex;
             if (exposureCompensation > i) {
                 exposureCompensation = i;

@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,17 +53,17 @@ public class cy {
                         try {
                             if (iqVar instanceof hw) {
                                 String str = ((hw) iqVar).f575d;
-                                if (!TextUtils.isEmpty(str) && ek.a(ek.m327a(str)) != -1) {
-                                    a = ek.a(ek.m327a(str));
+                                if (!TextUtils.isEmpty(str) && ek.a(ek.m323a(str)) != -1) {
+                                    a = ek.a(ek.m323a(str));
                                     break;
                                 }
                             } else if (iqVar instanceof ie) {
                                 String str2 = ((ie) iqVar).f636d;
                                 if (!TextUtils.isEmpty(str2)) {
-                                    if (ek.a(ek.m327a(str2)) != -1) {
-                                        a = ek.a(ek.m327a(str2));
+                                    if (ek.a(ek.m323a(str2)) != -1) {
+                                        a = ek.a(ek.m323a(str2));
                                     }
-                                    if (hp.B.equals(ek.m327a(str2))) {
+                                    if (hp.B.equals(ek.m323a(str2))) {
                                         return -1;
                                     }
                                 }
@@ -79,9 +79,9 @@ public class cy {
                     if (iqVar != null) {
                         try {
                             if (iqVar instanceof ia) {
-                                String b2 = ((ia) iqVar).b();
-                                if (!TextUtils.isEmpty(b2) && ev.a(b2) != -1) {
-                                    a = ev.a(b2);
+                                String b = ((ia) iqVar).b();
+                                if (!TextUtils.isEmpty(b) && ev.a(b) != -1) {
+                                    a = ev.a(b);
                                     break;
                                 }
                             } else if (iqVar instanceof hz) {
@@ -146,7 +146,7 @@ public class cy {
             ip.a(ibVar, bArr);
             a(str, context, ibVar, bArr.length);
         } catch (iv unused) {
-            com.xiaomi.channel.commonutils.logger.b.m112a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m108a("fail to convert bytes to container");
         }
     }
 }

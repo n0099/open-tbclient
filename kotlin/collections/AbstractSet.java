@@ -21,18 +21,18 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
         public Companion() {
         }
 
-        public final boolean setEquals$kotlin_stdlib(Set<?> c2, Set<?> other) {
-            Intrinsics.checkNotNullParameter(c2, "c");
+        public final boolean setEquals$kotlin_stdlib(Set<?> c, Set<?> other) {
+            Intrinsics.checkNotNullParameter(c, "c");
             Intrinsics.checkNotNullParameter(other, "other");
-            if (c2.size() != other.size()) {
+            if (c.size() != other.size()) {
                 return false;
             }
-            return c2.containsAll(other);
+            return c.containsAll(other);
         }
 
-        public final int unorderedHashCode$kotlin_stdlib(Collection<?> c2) {
-            Intrinsics.checkNotNullParameter(c2, "c");
-            Iterator<?> it = c2.iterator();
+        public final int unorderedHashCode$kotlin_stdlib(Collection<?> c) {
+            Intrinsics.checkNotNullParameter(c, "c");
+            Iterator<?> it = c.iterator();
             int i = 0;
             while (it.hasNext()) {
                 Object next = it.next();

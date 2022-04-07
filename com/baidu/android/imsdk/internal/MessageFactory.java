@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MessageFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MessageFactory";
@@ -92,8 +92,8 @@ public class MessageFactory {
                     if (method != 0) {
                         try {
                             message2 = (Message) method.invoke(cls, objArr);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             Message message3 = message2;
                             message2 = method;
                             message = message3;
@@ -106,8 +106,8 @@ public class MessageFactory {
                     if (intent != null && message2 != null && intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
                         message2.setListenerKey(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     message = null;
                 }
                 return message2;
@@ -122,8 +122,8 @@ public class MessageFactory {
             synchronized (mInstance) {
                 try {
                     this.classMap.put(Integer.valueOf(i), cls);
-                } catch (SecurityException e2) {
-                    LogUtils.e(LogUtils.TAG, "", e2);
+                } catch (SecurityException e) {
+                    LogUtils.e(LogUtils.TAG, "", e);
                 }
             }
         }

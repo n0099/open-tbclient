@@ -84,10 +84,10 @@ public class ActivityCompat extends ContextCompat {
         }
 
         @Override // android.app.SharedElementCallback
-        public Parcelable onCaptureSharedElementSnapshot(View view, Matrix matrix, RectF rectF) {
+        public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view, matrix, rectF)) == null) ? this.mCallback.onCaptureSharedElementSnapshot(view, matrix, rectF) : (Parcelable) invokeLLL.objValue;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view2, matrix, rectF)) == null) ? this.mCallback.onCaptureSharedElementSnapshot(view2, matrix, rectF) : (Parcelable) invokeLLL.objValue;
         }
 
         @Override // android.app.SharedElementCallback

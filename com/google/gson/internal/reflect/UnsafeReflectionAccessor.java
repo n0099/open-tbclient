@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonIOException;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class UnsafeReflectionAccessor extends ReflectionAccessor {
     public static /* synthetic */ Interceptable $ic;
     public static Class unsafeClass;
@@ -73,8 +73,8 @@ public final class UnsafeReflectionAccessor extends ReflectionAccessor {
         }
         try {
             accessibleObject.setAccessible(true);
-        } catch (SecurityException e2) {
-            throw new JsonIOException("Gson couldn't modify fields for " + accessibleObject + "\nand sun.misc.Unsafe not found.\nEither write a custom type adapter, or make fields accessible, or include sun.misc.Unsafe.", e2);
+        } catch (SecurityException e) {
+            throw new JsonIOException("Gson couldn't modify fields for " + accessibleObject + "\nand sun.misc.Unsafe not found.\nEither write a custom type adapter, or make fields accessible, or include sun.misc.Unsafe.", e);
         }
     }
 

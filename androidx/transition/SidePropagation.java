@@ -48,10 +48,10 @@ public class SidePropagation extends VisibilityPropagation {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int distance(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+    private int distance(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
             int i9 = this.mSide;
             if (i9 != 8388611) {
                 if (i9 == 8388613) {
@@ -131,11 +131,11 @@ public class SidePropagation extends VisibilityPropagation {
         return invokeLLLL.longValue;
     }
 
-    public void setPropagationSpeed(float f2) {
+    public void setPropagationSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            if (f2 != 0.0f) {
-                this.mPropagationSpeed = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            if (f != 0.0f) {
+                this.mPropagationSpeed = f;
                 return;
             }
             throw new IllegalArgumentException("propagationSpeed may not be 0");

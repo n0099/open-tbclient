@@ -10,7 +10,7 @@ import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class RulesTargetNative extends NativeObject implements d {
     public static final long serialVersionUID = -4726982809581153390L;
 
@@ -47,9 +47,9 @@ public class RulesTargetNative extends NativeObject implements d {
                 }
                 AppStatusNative.rulesTargetSetPaths(this, strArr);
             }
-        } catch (Exception e2) {
-            a.a(e2);
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            a.a(e);
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 

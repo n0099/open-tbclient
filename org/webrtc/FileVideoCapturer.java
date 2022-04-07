@@ -127,8 +127,8 @@ public class FileVideoCapturer implements VideoCapturer {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     this.mediaFile.close();
-                } catch (IOException e2) {
-                    Logging.e(TAG, "Problem closing file", e2);
+                } catch (IOException e) {
+                    Logging.e(TAG, "Problem closing file", e);
                 }
             }
         }
@@ -163,8 +163,8 @@ public class FileVideoCapturer implements VideoCapturer {
                         return new VideoFrame(allocate, 0, nanos);
                     }
                     throw new RuntimeException("Frames should be delimited by FRAME plus newline, found delimter was: '" + str + "'");
-                } catch (IOException e2) {
-                    throw new RuntimeException(e2);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
             return (VideoFrame) invokeV.objValue;
@@ -220,9 +220,9 @@ public class FileVideoCapturer implements VideoCapturer {
         };
         try {
             this.videoReader = new VideoReaderY4M(str);
-        } catch (IOException e2) {
+        } catch (IOException e) {
             Logging.d(TAG, "Could not open video file: " + str);
-            throw e2;
+            throw e;
         }
     }
 

@@ -12,7 +12,7 @@ import java.io.StringWriter;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public final class d {
                 a = "unknown";
             }
             try {
-                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).f38078h)));
+                jSONObject.putOpt("net_type", a(Integer.valueOf(com.bytedance.pangle.download.d.b(Zeus.getAppApplication()).h)));
                 jSONObject.putOpt(ContentProviderManager.PLUGIN_PROCESS_NAME, a(a));
                 Plugin plugin2 = Zeus.getPlugin(jSONObject.optString("plugin_package_name", ""), false);
                 jSONObject.putOpt("plugin_api_version", a(Integer.valueOf(plugin2 != null ? plugin2.getApiVersionCode() : -1)));
                 jSONObject.putOpt("zeus_sdk_version", a("0.0.1-beta.53-bugfix.19-pangle"));
                 ZeusLogger.v(ZeusLogger.TAG_REPORTER, "eventName: " + str + "\ncategoryData:" + jSONObject.toString(1) + "\nmetricData:" + jSONObject2.toString(1) + "\nlogExtrData:" + jSONObject3.toString(1));
-                IZeusReporter reporter = g.a().f38133b.getReporter();
+                IZeusReporter reporter = g.a().b.getReporter();
                 if (reporter != null) {
                     JSONObject jSONObject4 = new JSONObject();
                     Iterator<String> keys = jSONObject.keys();
@@ -62,8 +62,8 @@ public final class d {
                 }
                 a.a();
                 a.a(str, jSONObject, jSONObject2, jSONObject3);
-            } catch (JSONException e2) {
-                ZeusLogger.e(ZeusLogger.TAG_REPORTER, e2.getMessage(), e2);
+            } catch (JSONException e) {
+                ZeusLogger.e(ZeusLogger.TAG_REPORTER, e.getMessage(), e);
             }
         }
     }

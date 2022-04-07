@@ -11,35 +11,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ElasticTask implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Runnable a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f27646b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f27647c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f27648d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f27649e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f27650f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f27651g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Status f27652h;
+    public a b;
+    public String c;
+    public int d;
+    public long e;
+    public long f;
+    public long g;
+    public Status h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -100,7 +86,7 @@ public class ElasticTask implements Runnable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void afterExecuteTask();
 
@@ -122,22 +108,22 @@ public class ElasticTask implements Runnable {
                 return;
             }
         }
-        this.f27652h = Status.WAITING;
+        this.h = Status.WAITING;
         this.a = runnable;
-        this.f27647c = str;
-        this.f27648d = i;
+        this.c = str;
+        this.d = i;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27647c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27648d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public synchronized long c() {
@@ -145,10 +131,10 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                if (this.f27652h == Status.WAITING) {
+                if (this.h == Status.WAITING) {
                     return 0L;
                 }
-                return Math.max(0L, (this.f27652h == Status.RUNNING ? SystemClock.elapsedRealtime() : this.f27651g) - this.f27650f);
+                return Math.max(0L, (this.h == Status.RUNNING ? SystemClock.elapsedRealtime() : this.g) - this.f);
             }
         }
         return invokeV.longValue;
@@ -159,10 +145,10 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                if (this.f27649e == 0) {
+                if (this.e == 0) {
                     return 0L;
                 }
-                return Math.max(0L, (this.f27652h == Status.WAITING ? SystemClock.elapsedRealtime() : this.f27650f) - this.f27649e);
+                return Math.max(0L, (this.h == Status.WAITING ? SystemClock.elapsedRealtime() : this.f) - this.e);
             }
         }
         return invokeV.longValue;
@@ -172,8 +158,8 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
-                this.f27652h = Status.COMPLETE;
-                this.f27651g = SystemClock.elapsedRealtime();
+                this.h = Status.COMPLETE;
+                this.g = SystemClock.elapsedRealtime();
             }
         }
     }
@@ -182,8 +168,8 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                this.f27652h = Status.WAITING;
-                this.f27649e = SystemClock.elapsedRealtime();
+                this.h = Status.WAITING;
+                this.e = SystemClock.elapsedRealtime();
             }
         }
     }
@@ -192,8 +178,8 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
-                this.f27652h = Status.RUNNING;
-                this.f27650f = SystemClock.elapsedRealtime();
+                this.h = Status.RUNNING;
+                this.f = SystemClock.elapsedRealtime();
             }
         }
     }
@@ -201,7 +187,7 @@ public class ElasticTask implements Runnable {
     public void h(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
-            this.f27646b = aVar;
+            this.b = aVar;
         }
     }
 
@@ -210,15 +196,15 @@ public class ElasticTask implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             try {
-                if (this.f27646b != null) {
-                    this.f27646b.beforeExecuteTask();
+                if (this.b != null) {
+                    this.b.beforeExecuteTask();
                 }
             } catch (Exception unused) {
             }
             this.a.run();
             try {
-                if (this.f27646b != null) {
-                    this.f27646b.afterExecuteTask();
+                if (this.b != null) {
+                    this.b.afterExecuteTask();
                 }
             } catch (Exception unused2) {
             }

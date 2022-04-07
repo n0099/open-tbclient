@@ -3,15 +3,11 @@ package com.kwad.sdk.pngencrypt;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class n {
     public static Charset a = Charset.forName("ISO-8859-1");
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Charset f40688b = Charset.forName("UTF-8");
-
-    /* renamed from: c  reason: collision with root package name */
-    public static ThreadLocal<Boolean> f40689c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
+    public static Charset b = Charset.forName("UTF-8");
+    public static ThreadLocal<Boolean> c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.lang.ThreadLocal
         /* renamed from: a */
@@ -35,8 +31,8 @@ public final class n {
     public static int a(InputStream inputStream) {
         try {
             return inputStream.read();
-        } catch (IOException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (IOException e) {
+            com.kwad.sdk.core.d.a.a(e);
             return -1;
         }
     }
@@ -59,8 +55,8 @@ public final class n {
                 return -1;
             }
             return (read << 24) | (read2 << 16) | ((read3 << 8) + read4);
-        } catch (IOException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (IOException e) {
+            com.kwad.sdk.core.d.a.a(e);
             return -1;
         }
     }

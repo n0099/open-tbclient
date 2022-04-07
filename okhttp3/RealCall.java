@@ -62,7 +62,7 @@ public final class RealCall implements Call {
 
         @Override // okhttp3.internal.NamedRunnable
         public void execute() {
-            IOException e2;
+            IOException e;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean z = true;
@@ -75,21 +75,21 @@ public final class RealCall implements Call {
                             } else {
                                 this.responseCallback.onResponse(this.this$0, responseWithInterceptorChain);
                             }
-                        } catch (IOException e3) {
-                            e2 = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             if (!z) {
-                                this.this$0.eventListener.callFailed(this.this$0, e2);
-                                this.responseCallback.onFailure(this.this$0, e2);
+                                this.this$0.eventListener.callFailed(this.this$0, e);
+                                this.responseCallback.onFailure(this.this$0, e);
                             } else {
                                 Platform platform = Platform.get();
-                                platform.log(4, "Callback failure for " + this.this$0.toLoggableString(), e2);
+                                platform.log(4, "Callback failure for " + this.this$0.toLoggableString(), e);
                             }
                         }
                     } finally {
                         this.this$0.client.dispatcher().finished(this);
                     }
-                } catch (IOException e4) {
-                    e2 = e4;
+                } catch (IOException e3) {
+                    e = e3;
                     z = false;
                 }
             }
@@ -200,9 +200,9 @@ public final class RealCall implements Call {
                         return responseWithInterceptorChain;
                     }
                     throw new IOException("Canceled");
-                } catch (IOException e2) {
-                    this.eventListener.callFailed(this, e2);
-                    throw e2;
+                } catch (IOException e) {
+                    this.eventListener.callFailed(this, e);
+                    throw e;
                 }
             } finally {
                 this.client.dispatcher().finished(this);

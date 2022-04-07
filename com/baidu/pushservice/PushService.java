@@ -15,25 +15,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PushService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
+    public Handler b;
+    public boolean c;
+    public final Runnable d;
+    public final Runnable e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f28309b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f28310c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Runnable f28311d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Runnable f28312e;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +59,7 @@ public class PushService extends Service {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,10 +106,10 @@ public class PushService extends Service {
             }
         }
         this.a = false;
-        this.f28309b = new Handler();
-        this.f28310c = false;
-        this.f28311d = new a(this);
-        this.f28312e = new b(this);
+        this.b = new Handler();
+        this.c = false;
+        this.d = new a(this);
+        this.e = new b(this);
     }
 
     private void a(boolean z, boolean z2) {
@@ -126,11 +118,11 @@ public class PushService extends Service {
             this.a = z;
             com.baidu.android.pushservice.f.a.a("PushService", "stopSelf : exitOnDestroy=" + z + " --- immediate=" + z2, getApplicationContext());
             if (z2) {
-                this.f28311d.run();
+                this.d.run();
                 return;
             }
-            this.f28309b.removeCallbacks(this.f28311d);
-            this.f28309b.postDelayed(this.f28311d, 1000L);
+            this.b.removeCallbacks(this.d);
+            this.b.postDelayed(this.d, 1000L);
         }
     }
 
@@ -161,10 +153,10 @@ public class PushService extends Service {
             com.baidu.android.pushservice.f.a.a("PushService", "onDestroy from : " + getPackageName(), getApplicationContext());
             f.a();
             if (this.a) {
-                this.f28309b.removeCallbacks(this.f28312e);
-                this.f28309b.postDelayed(this.f28312e, 1000L);
+                this.b.removeCallbacks(this.e);
+                this.b.postDelayed(this.e, 1000L);
             }
-            if (this.f28310c) {
+            if (this.c) {
                 try {
                     sendBroadcast(e.a(this));
                 } catch (Exception unused) {
@@ -184,23 +176,23 @@ public class PushService extends Service {
             } else {
                 try {
                     intent.toUri(0);
-                } catch (Exception e2) {
-                    new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+                } catch (Exception e) {
+                    new b.c(getApplicationContext()).a(Log.getStackTraceString(e)).a();
                 }
             }
-            this.f28309b.removeCallbacks(this.f28311d);
-            this.f28309b.removeCallbacks(this.f28312e);
+            this.b.removeCallbacks(this.d);
+            this.b.removeCallbacks(this.e);
             try {
                 boolean a2 = f.a(this).a(intent);
-                this.f28310c = a2;
+                this.c = a2;
                 if (a2) {
                     return 1;
                 }
                 a(true, true);
                 return 2;
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 a(true, true);
-                new b.c(getApplicationContext()).a(Log.getStackTraceString(e3)).a();
+                new b.c(getApplicationContext()).a(Log.getStackTraceString(e2)).a();
                 return 2;
             }
         }

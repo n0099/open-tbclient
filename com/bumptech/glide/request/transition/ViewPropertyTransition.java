@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewPropertyTransition<R> implements Transition<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Animator animator;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface Animator {
-        void animate(View view);
+        void animate(View view2);
     }
 
     public ViewPropertyTransition(Animator animator) {

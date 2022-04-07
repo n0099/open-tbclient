@@ -22,7 +22,7 @@ import com.googlecode.mp4parser.util.Path;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -123,8 +123,8 @@ public abstract class AbstractBox implements Box {
                         logger.logDebug("mem mapping " + getType());
                         this.content = this.dataSource.map(this.contentStartPosition, this.memMapSize);
                         this.isRead = true;
-                    } catch (IOException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
                 }
             }
@@ -156,10 +156,10 @@ public abstract class AbstractBox implements Box {
             int limit = byteBuffer.limit() - 1;
             int limit2 = allocate.limit() - 1;
             while (limit >= position) {
-                byte b2 = byteBuffer.get(limit);
-                byte b3 = allocate.get(limit2);
-                if (b2 != b3) {
-                    LOG.logError(String.format("%s: buffers differ at %d: %2X/%2X", getType(), Integer.valueOf(limit), Byte.valueOf(b2), Byte.valueOf(b3)));
+                byte b = byteBuffer.get(limit);
+                byte b2 = allocate.get(limit2);
+                if (b != b2) {
+                    LOG.logError(String.format("%s: buffers differ at %d: %2X/%2X", getType(), Integer.valueOf(limit), Byte.valueOf(b), Byte.valueOf(b2)));
                     byte[] bArr = new byte[byteBuffer.remaining()];
                     byte[] bArr2 = new byte[allocate.remaining()];
                     byteBuffer.get(bArr);

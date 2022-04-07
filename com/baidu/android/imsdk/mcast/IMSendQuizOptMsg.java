@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSendQuizOptMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendQuizOptMsg";
@@ -82,9 +82,9 @@ public class IMSendQuizOptMsg extends Message {
                 long j = 0;
                 try {
                     j = Long.parseLong(Utility.readUid(this.mContext));
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     LogUtils.e(TAG, "bd uid is null");
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
                 jSONObject.put("bd_uid", j);
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
@@ -94,9 +94,9 @@ public class IMSendQuizOptMsg extends Message {
                 jSONObject.put("op_ext", this.mOptExt);
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e3) {
-                LogUtils.e(TAG, "Exception ", e3);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+            } catch (JSONException e2) {
+                LogUtils.e(TAG, "Exception ", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
         }
     }

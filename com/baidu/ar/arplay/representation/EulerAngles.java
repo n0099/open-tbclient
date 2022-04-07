@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class EulerAngles {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,12 +14,12 @@ public class EulerAngles {
     public float roll;
     public float yaw;
 
-    public EulerAngles(float f2, float f3, float f4) {
+    public EulerAngles(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,9 +29,9 @@ public class EulerAngles {
                 return;
             }
         }
-        this.yaw = f2;
-        this.pitch = f3;
-        this.roll = f4;
+        this.yaw = f;
+        this.pitch = f2;
+        this.roll = f3;
     }
 
     public float getPitch() {

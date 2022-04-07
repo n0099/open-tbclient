@@ -27,8 +27,8 @@ public class f {
                             i2 = 2;
                         }
                         jSONObject.putOpt("deeplink_source", Integer.valueOf(i2));
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     com.ss.android.downloadlib.d.a.a().a("deeplink_success_2", jSONObject, com.ss.android.downloadad.api.a.b.this);
                     return;
@@ -66,12 +66,12 @@ public class f {
     }
 
     public static void a(final com.ss.android.downloadad.api.a.b bVar, @NonNull final h hVar) {
-        boolean b2 = com.ss.android.socialbase.downloader.a.a.a().b();
-        if (!b2 && Build.VERSION.SDK_INT >= 29) {
+        boolean b = com.ss.android.socialbase.downloader.a.a.a().b();
+        if (!b && Build.VERSION.SDK_INT >= 29) {
             l.b();
         }
-        boolean b3 = com.ss.android.socialbase.downloader.a.a.a().b();
-        boolean z = !b2 && b3;
+        boolean b2 = com.ss.android.socialbase.downloader.a.a.a().b();
+        boolean z = !b && b2;
         if (bVar != null) {
             bVar.l(z);
         }
@@ -80,24 +80,24 @@ public class f {
             return;
         }
         b(bVar, j(bVar));
-        if (b3) {
+        if (b2) {
             return;
         }
         final long currentTimeMillis = System.currentTimeMillis();
-        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC2053a() { // from class: com.ss.android.downloadlib.b.f.1
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
+        com.ss.android.socialbase.downloader.a.a.a().a(new a.InterfaceC0597a() { // from class: com.ss.android.downloadlib.b.f.1
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
             public void b() {
                 com.ss.android.socialbase.downloader.a.a.a().b(this);
                 com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.b.f.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        boolean c2 = l.c(com.ss.android.downloadad.api.a.b.this.e());
-                        long e2 = f.e(com.ss.android.downloadad.api.a.b.this);
-                        if (!c2 || e2 >= System.currentTimeMillis() - currentTimeMillis) {
-                            long h2 = f.h(com.ss.android.downloadad.api.a.b.this);
+                        boolean c = l.c(com.ss.android.downloadad.api.a.b.this.e());
+                        long e = f.e(com.ss.android.downloadad.api.a.b.this);
+                        if (!c || e >= System.currentTimeMillis() - currentTimeMillis) {
+                            long h = f.h(com.ss.android.downloadad.api.a.b.this);
                             long currentTimeMillis2 = System.currentTimeMillis();
                             AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
-                            if (currentTimeMillis2 - currentTimeMillis > h2) {
+                            if (currentTimeMillis2 - currentTimeMillis > h) {
                                 com.ss.android.downloadlib.d.a.a().a("deeplink_delay_timeout", com.ss.android.downloadad.api.a.b.this);
                                 return;
                             }
@@ -111,7 +111,7 @@ public class f {
                 });
             }
 
-            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
+            @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
             public void c() {
             }
         });

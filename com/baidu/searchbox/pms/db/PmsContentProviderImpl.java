@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PmsContentProviderImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -91,8 +91,8 @@ public class PmsContentProviderImpl {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, context, uri, str, strArr)) == null) {
             try {
                 return context.getContentResolver().delete(uri, str, strArr);
-            } catch (IllegalArgumentException e2) {
-                DebugUtils.throwExceptionForDebug(e2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
                 return 0;
             }
         }
@@ -104,8 +104,8 @@ public class PmsContentProviderImpl {
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
             try {
                 context.getContentResolver().query(CONTENT_URI_EXECUTE_SQL, null, str, null, null);
-            } catch (IllegalArgumentException e2) {
-                DebugUtils.throwExceptionForDebug(e2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
             }
         }
     }
@@ -142,8 +142,8 @@ public class PmsContentProviderImpl {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, context, uri, contentValues)) == null) {
             try {
                 uri2 = context.getContentResolver().insert(uri, contentValues);
-            } catch (IllegalArgumentException e2) {
-                DebugUtils.throwExceptionForDebug(e2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
                 uri2 = null;
             }
             if (uri2 == null) {
@@ -151,8 +151,8 @@ public class PmsContentProviderImpl {
             }
             try {
                 return Long.parseLong(uri2.getQueryParameter("id"));
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 return 0L;
             }
         }
@@ -165,8 +165,8 @@ public class PmsContentProviderImpl {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, uri, strArr, str, strArr2, str2})) == null) {
             try {
                 return context.getContentResolver().query(uri, strArr, str, strArr2, str2);
-            } catch (IllegalArgumentException e2) {
-                DebugUtils.throwExceptionForDebug(e2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
                 return null;
             }
         }
@@ -179,8 +179,8 @@ public class PmsContentProviderImpl {
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65545, null, context, uri, contentValues, str, strArr)) == null) {
             try {
                 return context.getContentResolver().update(uri, contentValues, str, strArr);
-            } catch (IllegalArgumentException e2) {
-                DebugUtils.throwExceptionForDebug(e2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
                 return 0;
             }
         }
@@ -197,11 +197,11 @@ public class PmsContentProviderImpl {
             }
             try {
                 return getDbHelper().getWritableDatabase().delete(type, str, strArr);
-            } catch (SQLiteFullException e2) {
-                DebugUtils.printStackTrace(e2);
+            } catch (SQLiteFullException e) {
+                DebugUtils.printStackTrace(e);
                 return 0;
-            } catch (SQLiteReadOnlyDatabaseException e3) {
-                DebugUtils.printStackTrace(e3);
+            } catch (SQLiteReadOnlyDatabaseException e2) {
+                DebugUtils.printStackTrace(e2);
                 return 0;
             }
         }
@@ -220,10 +220,10 @@ public class PmsContentProviderImpl {
             long j = 0;
             try {
                 j = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
-            } catch (SQLiteFullException e2) {
+            } catch (SQLiteFullException e) {
+                DebugUtils.printStackTrace(e);
+            } catch (SQLiteReadOnlyDatabaseException e2) {
                 DebugUtils.printStackTrace(e2);
-            } catch (SQLiteReadOnlyDatabaseException e3) {
-                DebugUtils.printStackTrace(e3);
             }
             Uri.Builder appendPath = BASE_URI.buildUpon().appendPath(type);
             return appendPath.appendQueryParameter("id", j + "").build();
@@ -250,8 +250,8 @@ public class PmsContentProviderImpl {
                     return null;
                 }
                 return getDbHelper().getReadableDatabase().rawQuery(str, strArr2);
-            } catch (Exception e2) {
-                DebugUtils.printStackTrace(e2);
+            } catch (Exception e) {
+                DebugUtils.printStackTrace(e);
                 return null;
             }
         }
@@ -268,11 +268,11 @@ public class PmsContentProviderImpl {
             }
             try {
                 return getDbHelper().getWritableDatabase().update(type, contentValues, str, strArr);
-            } catch (SQLiteFullException e2) {
-                DebugUtils.printStackTrace(e2);
+            } catch (SQLiteFullException e) {
+                DebugUtils.printStackTrace(e);
                 return 0;
-            } catch (SQLiteReadOnlyDatabaseException e3) {
-                DebugUtils.printStackTrace(e3);
+            } catch (SQLiteReadOnlyDatabaseException e2) {
+                DebugUtils.printStackTrace(e2);
                 return 0;
             }
         }
@@ -285,8 +285,8 @@ public class PmsContentProviderImpl {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, str, strArr)) == null) {
             try {
                 return context.getContentResolver().query(CONTENT_URI_QUERY_SQL, null, str, strArr, null);
-            } catch (IllegalArgumentException e2) {
-                DebugUtils.throwExceptionForDebug(e2);
+            } catch (IllegalArgumentException e) {
+                DebugUtils.throwExceptionForDebug(e);
                 return null;
             }
         }

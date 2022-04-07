@@ -1,8 +1,5 @@
 package com.baidu.tieba.ala.alasquare.live.message;
 
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -14,9 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.oi;
+import com.repackage.rc5;
 import tbclient.LiveSquare.DataReq;
 import tbclient.LiveSquare.LiveSquareReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaSquareLiveRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,13 +53,13 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.pn = this.mPn;
-                builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
-                builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
+                builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
                 builder.q_type = 0;
-                builder.scr_dip = Integer.valueOf((int) n.h(TbadkCoreApplication.getInst()));
-                builder.network_type = String.valueOf(l.K());
+                builder.scr_dip = Integer.valueOf((int) oi.h(TbadkCoreApplication.getInst()));
+                builder.network_type = String.valueOf(mi.K());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    b0.a(builder, true);
+                    rc5.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

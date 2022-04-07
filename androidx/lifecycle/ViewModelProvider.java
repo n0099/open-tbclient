@@ -65,14 +65,14 @@ public class ViewModelProvider {
                 if (AndroidViewModel.class.isAssignableFrom(cls)) {
                     try {
                         return cls.getConstructor(Application.class).newInstance(this.mApplication);
-                    } catch (IllegalAccessException e2) {
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException("Cannot create an instance of " + cls, e);
+                    } catch (InstantiationException e2) {
                         throw new RuntimeException("Cannot create an instance of " + cls, e2);
-                    } catch (InstantiationException e3) {
+                    } catch (NoSuchMethodException e3) {
                         throw new RuntimeException("Cannot create an instance of " + cls, e3);
-                    } catch (NoSuchMethodException e4) {
+                    } catch (InvocationTargetException e4) {
                         throw new RuntimeException("Cannot create an instance of " + cls, e4);
-                    } catch (InvocationTargetException e5) {
-                        throw new RuntimeException("Cannot create an instance of " + cls, e5);
                     }
                 }
                 return (T) super.create(cls);
@@ -161,10 +161,10 @@ public class ViewModelProvider {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
                 try {
                     return cls.newInstance();
-                } catch (IllegalAccessException e2) {
+                } catch (IllegalAccessException e) {
+                    throw new RuntimeException("Cannot create an instance of " + cls, e);
+                } catch (InstantiationException e2) {
                     throw new RuntimeException("Cannot create an instance of " + cls, e2);
-                } catch (InstantiationException e3) {
-                    throw new RuntimeException("Cannot create an instance of " + cls, e3);
                 }
             }
             return (T) invokeL.objValue;

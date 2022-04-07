@@ -17,7 +17,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b extends ExtractorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public class b extends ExtractorProvider {
                             bundle.putInt("width", trackFormat.getInteger("width"));
                             bundle.putInt("height", trackFormat.getInteger("height"));
                         }
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         CyberLog.e("MediaExtractorImpl", "getMediaMeta Exception");
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
             }
@@ -113,8 +113,8 @@ public class b extends ExtractorProvider {
         }
         try {
             mediaExtractor.setDataSource(context, uri, (Map<String, String>) null);
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -127,8 +127,8 @@ public class b extends ExtractorProvider {
         }
         try {
             mediaExtractor.setDataSource(context, uri, map);
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -141,8 +141,8 @@ public class b extends ExtractorProvider {
         }
         try {
             mediaExtractor.setDataSource(fileDescriptor);
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -155,8 +155,8 @@ public class b extends ExtractorProvider {
         }
         try {
             mediaExtractor.setDataSource(str);
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

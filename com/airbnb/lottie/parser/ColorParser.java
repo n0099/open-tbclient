@@ -3,14 +3,14 @@ package com.airbnb.lottie.parser;
 import android.graphics.Color;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ColorParser implements ValueParser<Integer> {
     public static final ColorParser INSTANCE = new ColorParser();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
-    public Integer parse(JsonReader jsonReader, float f2) throws IOException {
+    public Integer parse(JsonReader jsonReader, float f) throws IOException {
         boolean z = jsonReader.peek() == JsonReader.Token.BEGIN_ARRAY;
         if (z) {
             jsonReader.beginArray();

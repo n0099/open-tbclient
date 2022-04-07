@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdGeoLocationInfo implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOR_TYPE_GCJ = "gcj02";
@@ -148,17 +148,17 @@ public class BdGeoLocationInfo implements INoProGuard {
         }
     }
 
-    public void setLatitude(double d2) {
+    public void setLatitude(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mLatitude = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mLatitude = d;
         }
     }
 
-    public void setLongitude(double d2) {
+    public void setLongitude(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mLongitude = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mLongitude = d;
         }
     }
 
@@ -172,10 +172,10 @@ public class BdGeoLocationInfo implements INoProGuard {
         }
     }
 
-    public void setRadius(double d2) {
+    public void setRadius(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.mRadius = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.mRadius = d;
         }
     }
 

@@ -27,7 +27,7 @@ public final class ULongProgressionIterator extends ULongIterator {
             z = false;
         }
         this.hasNext = z;
-        this.step = ULong.m864constructorimpl(j3);
+        this.step = ULong.m860constructorimpl(j3);
         this.next = this.hasNext ? j : this.finalElement;
     }
 
@@ -38,7 +38,7 @@ public final class ULongProgressionIterator extends ULongIterator {
 
     @Override // kotlin.collections.ULongIterator
     /* renamed from: nextULong-s-VKNKU */
-    public long mo933nextULongsVKNKU() {
+    public long mo929nextULongsVKNKU() {
         long j = this.next;
         if (j == this.finalElement) {
             if (this.hasNext) {
@@ -47,7 +47,7 @@ public final class ULongProgressionIterator extends ULongIterator {
                 throw new NoSuchElementException();
             }
         } else {
-            this.next = ULong.m864constructorimpl(this.step + j);
+            this.next = ULong.m860constructorimpl(this.step + j);
         }
         return j;
     }

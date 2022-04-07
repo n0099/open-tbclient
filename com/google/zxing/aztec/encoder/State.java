@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.BitArray;
 import java.util.LinkedList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class State {
     public static /* synthetic */ Interceptable $ic;
     public static final State INITIAL_STATE;

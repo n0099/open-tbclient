@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public TextView tipsTv;
     public TextView titleTv;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
 
@@ -55,17 +55,17 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06ea : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (aVar = this.optionOnClickListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (aVar = this.optionOnClickListener) == null) {
             return;
         }
-        aVar.onOptionClick(view.getId());
+        aVar.onOptionClick(view2.getId());
     }
 
     @Override // android.app.DialogFragment, android.content.DialogInterface.OnDismissListener
@@ -81,17 +81,17 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     }
 
     @Override // android.app.Fragment
-    public void onViewCreated(View view, Bundle bundle) {
+    public void onViewCreated(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view, bundle) == null) {
-            super.onViewCreated(view, bundle);
-            this.titleTv = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09187a);
-            this.tipsTv = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091879);
-            this.tipsImageView = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f091876);
-            this.singleBtn = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091878);
-            this.layoutActionOfBtn = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f091874);
-            this.leftActionBtn = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091875);
-            this.rightActionBtn = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091877);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
+            super.onViewCreated(view2, bundle);
+            this.titleTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186d);
+            this.tipsTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186c);
+            this.tipsImageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091869);
+            this.singleBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186b);
+            this.layoutActionOfBtn = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091867);
+            this.leftActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091868);
+            this.rightActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09186a);
             this.singleBtn.setOnClickListener(this);
             this.leftActionBtn.setOnClickListener(this);
             this.rightActionBtn.setOnClickListener(this);
@@ -157,7 +157,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.tipsImageView.setVisibility(0);
-            this.tipsImageView.startAnimation(AnimationUtils.loadAnimation(this.tipsImageView.getContext(), R.anim.obfuscated_res_0x7f01008f));
+            this.tipsImageView.startAnimation(AnimationUtils.loadAnimation(this.tipsImageView.getContext(), R.anim.obfuscated_res_0x7f010090));
         }
     }
 

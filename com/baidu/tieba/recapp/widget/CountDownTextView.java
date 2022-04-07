@@ -13,34 +13,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CountDownTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public Handler b;
+    public c c;
+    public Runnable d;
+    public boolean e;
+    public String f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f35833b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c f35834c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Runnable f35835d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f35836e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f35837f;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +69,9 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
-        void onTimeout(View view);
+        void onTimeout(View view2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,9 +92,9 @@ public class CountDownTextView extends TextView {
                 return;
             }
         }
-        this.f35833b = null;
-        this.f35834c = null;
-        this.f35836e = true;
+        this.b = null;
+        this.c = null;
+        this.e = true;
         d();
     }
 
@@ -115,45 +105,45 @@ public class CountDownTextView extends TextView {
         }
         int i2 = this.a;
         if (i2 == 0) {
-            if (this.f35834c != null && this.f35836e && getVisibility() == 0) {
-                this.f35834c.onTimeout(this);
+            if (this.c != null && this.e && getVisibility() == 0) {
+                this.c.onTimeout(this);
             }
             String valueOf = String.valueOf(this.a);
-            String str = this.f35837f;
+            String str = this.f;
             if (str != null) {
                 valueOf = String.format(str, valueOf);
             }
             setText(valueOf);
             setVisibility(8);
-            this.f35833b.removeCallbacksAndMessages(null);
+            this.b.removeCallbacksAndMessages(null);
             return;
         }
         if (i2 > 0) {
             setVisibility(0);
             String valueOf2 = String.valueOf(this.a);
-            String str2 = this.f35837f;
+            String str2 = this.f;
             if (str2 != null) {
                 valueOf2 = String.format(str2, valueOf2);
             }
             setText(valueOf2);
         }
-        this.f35833b.removeCallbacks(this.f35835d);
-        this.f35833b.postDelayed(this.f35835d, 1000L);
+        this.b.removeCallbacks(this.d);
+        this.b.postDelayed(this.d, 1000L);
         this.a -= i;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f35833b.removeCallbacksAndMessages(null);
+            this.b.removeCallbacksAndMessages(null);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35835d = new b(this, null);
-            this.f35833b = new Handler();
+            this.d = new b(this, null);
+            this.b = new Handler();
         }
     }
 
@@ -193,21 +183,21 @@ public class CountDownTextView extends TextView {
     public void setEnableTimeoutListener(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f35836e = z;
+            this.e = z;
         }
     }
 
     public void setFormatString(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f35837f = str;
+            this.f = str;
         }
     }
 
     public void setTimeoutListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-            this.f35834c = cVar;
+            this.c = cVar;
         }
     }
 
@@ -237,9 +227,9 @@ public class CountDownTextView extends TextView {
                 return;
             }
         }
-        this.f35833b = null;
-        this.f35834c = null;
-        this.f35836e = true;
+        this.b = null;
+        this.c = null;
+        this.e = true;
         d();
     }
 
@@ -262,9 +252,9 @@ public class CountDownTextView extends TextView {
                 return;
             }
         }
-        this.f35833b = null;
-        this.f35834c = null;
-        this.f35836e = true;
+        this.b = null;
+        this.c = null;
+        this.e = true;
         d();
     }
 }

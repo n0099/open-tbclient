@@ -5,9 +5,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.b0;
-import c.a.r0.d;
-import c.a.s0.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,10 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.IRemoteUBCService;
+import com.repackage.r49;
+import com.repackage.t39;
+import com.repackage.y59;
 import java.util.Map;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class UBC {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_KEY_DURATION = "duration";
@@ -57,7 +57,7 @@ public class UBC {
                 return;
             }
         }
-        DEBUG = b0.m();
+        DEBUG = r49.m();
     }
 
     public UBC() {
@@ -83,7 +83,7 @@ public class UBC {
     public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? b0.b() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? r49.b() : (Context) invokeV.objValue;
     }
 
     public static IRemoteUBCService getProxy() throws RemoteException {
@@ -93,12 +93,12 @@ public class UBC {
             if (sProxy == null) {
                 synchronized (UBC.class) {
                     if (sProxy == null) {
-                        IBinder e2 = b0.e(UBC_REMOTE_SERVICE_NAME);
-                        if (e2 == null) {
+                        IBinder e = r49.e(UBC_REMOTE_SERVICE_NAME);
+                        if (e == null) {
                             throw new RemoteException("UBC get remote service empty !");
                         }
-                        if (e2 != null) {
-                            sProxy = IRemoteUBCService.Stub.asInterface(e2);
+                        if (e != null) {
+                            sProxy = IRemoteUBCService.Stub.asInterface(e);
                         }
                     }
                 }
@@ -118,11 +118,11 @@ public class UBC {
     public static void onMutilProcessEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
-            String a = a.a(str3);
+            String a = y59.a(str3);
             if (DEBUG) {
                 Log.d(TAG, "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a);
             }
-            d.w().z(str, str2, a, 8);
+            t39.w().z(str, str2, a, 8);
         }
     }
 

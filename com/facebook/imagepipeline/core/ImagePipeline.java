@@ -36,15 +36,15 @@ import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-import e.d;
-import e.e;
+import com.repackage.e0;
+import com.repackage.f0;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ImagePipeline {
     public static /* synthetic */ Interceptable $ic;
     public static final CancellationException PREFETCH_EXCEPTION;
@@ -63,7 +63,7 @@ public class ImagePipeline {
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
     /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$8  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass8 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice;
         public static /* synthetic */ Interceptable $ic;
@@ -209,8 +209,8 @@ public class ImagePipeline {
                     if (FrescoSystrace.isTracing()) {
                     }
                     return create2;
-                } catch (Exception e2) {
-                    DataSource<CloseableReference<T>> immediateFailedDataSource = DataSources.immediateFailedDataSource(e2);
+                } catch (Exception e) {
+                    DataSource<CloseableReference<T>> immediateFailedDataSource = DataSources.immediateFailedDataSource(e);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }
@@ -233,8 +233,8 @@ public class ImagePipeline {
             RequestListener requestListenerForRequest = getRequestListenerForRequest(imageRequest, null);
             try {
                 return ProducerToDataSourceAdapter.create(producer, new SettableProducerContext(imageRequest, generateUniqueFutureId(), requestListenerForRequest, obj, ImageRequest.RequestLevel.getMax(imageRequest.getLowestPermittedRequestLevel(), requestLevel), true, false, priority), requestListenerForRequest);
-            } catch (Exception e2) {
-                return DataSources.immediateFailedDataSource(e2);
+            } catch (Exception e) {
+                return DataSources.immediateFailedDataSource(e);
             }
         }
         return (DataSource) invokeLLLLL.objValue;
@@ -652,8 +652,8 @@ public class ImagePipeline {
                     decodedImagePrefetchProducerSequence = this.mProducerSequenceFactory.getDecodedImagePrefetchProducerSequence(imageRequest);
                 }
                 return submitPrefetchRequest(decodedImagePrefetchProducerSequence, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, Priority.MEDIUM);
-            } catch (Exception e2) {
-                return DataSources.immediateFailedDataSource(e2);
+            } catch (Exception e) {
+                return DataSources.immediateFailedDataSource(e);
             }
         }
         return (DataSource) invokeLL.objValue;
@@ -698,8 +698,8 @@ public class ImagePipeline {
                     imageRequest = ImageRequestBuilder.fromRequest(imageRequest).setResizeOptions(null).build();
                 }
                 return submitFetchRequest(encodedImageProducerSequence, imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, requestListener);
-            } catch (Exception e2) {
-                return DataSources.immediateFailedDataSource(e2);
+            } catch (Exception e) {
+                return DataSources.immediateFailedDataSource(e);
             }
         }
         return (DataSource) invokeLLL.objValue;
@@ -756,14 +756,14 @@ public class ImagePipeline {
         } : (Supplier) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: e.d<java.lang.Boolean, e.e<java.lang.Boolean>>, e.d<java.lang.Boolean, e.e<TContinuationResult>> */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: com.repackage.e0<java.lang.Boolean, com.repackage.f0<java.lang.Boolean>>, com.repackage.e0<java.lang.Boolean, com.repackage.f0<TContinuationResult>> */
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, imageRequest)) == null) {
             CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
             SimpleDataSource create = SimpleDataSource.create();
-            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new d<Boolean, e<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
+            this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new e0<Boolean, f0<Boolean>>(this, encodedCacheKey) { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -790,19 +790,19 @@ public class ImagePipeline {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // e.d
-                public e<Boolean> then(e<Boolean> eVar) throws Exception {
+                @Override // com.repackage.e0
+                public f0<Boolean> then(f0<Boolean> f0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) {
-                        if (eVar.n() || eVar.p() || !eVar.l().booleanValue()) {
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, f0Var)) == null) {
+                        if (f0Var.n() || f0Var.p() || !f0Var.l().booleanValue()) {
                             return this.this$0.mSmallImageBufferedDiskCache.contains(this.val$cacheKey);
                         }
-                        return e.j(Boolean.TRUE);
+                        return f0.j(Boolean.TRUE);
                     }
-                    return (e) invokeL2.objValue;
+                    return (f0) invokeL2.objValue;
                 }
-            }).e(new d<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.5
+            }).e(new e0<Boolean, Void>(this, create) { // from class: com.facebook.imagepipeline.core.ImagePipeline.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ImagePipeline this$0;
@@ -828,12 +828,12 @@ public class ImagePipeline {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // e.d
-                public Void then(e<Boolean> eVar) throws Exception {
+                @Override // com.repackage.e0
+                public Void then(f0<Boolean> f0Var) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar)) == null) {
-                        this.val$dataSource.setResult(Boolean.valueOf((eVar.n() || eVar.p() || !eVar.l().booleanValue()) ? false : true));
+                    if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f0Var)) == null) {
+                        this.val$dataSource.setResult(Boolean.valueOf((f0Var.n() || f0Var.p() || !f0Var.l().booleanValue()) ? false : true));
                         return null;
                     }
                     return (Void) invokeL2.objValue;
@@ -853,8 +853,8 @@ public class ImagePipeline {
             }
             try {
                 return submitPrefetchRequest(this.mProducerSequenceFactory.getEncodedImagePrefetchProducerSequence(imageRequest), imageRequest, ImageRequest.RequestLevel.FULL_FETCH, obj, priority);
-            } catch (Exception e2) {
-                return DataSources.immediateFailedDataSource(e2);
+            } catch (Exception e) {
+                return DataSources.immediateFailedDataSource(e);
             }
         }
         return (DataSource) invokeLLL.objValue;
@@ -907,8 +907,8 @@ public class ImagePipeline {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048587, this, imageRequest, obj, requestLevel, requestListener)) == null) {
             try {
                 return submitFetchRequest(this.mProducerSequenceFactory.getDecodedImageProducerSequence(imageRequest), imageRequest, requestLevel, obj, requestListener);
-            } catch (Exception e2) {
-                return DataSources.immediateFailedDataSource(e2);
+            } catch (Exception e) {
+                return DataSources.immediateFailedDataSource(e);
             }
         }
         return (DataSource) invokeLLLL.objValue;
@@ -946,8 +946,8 @@ public class ImagePipeline {
                         FrescoSystrace.endSection();
                     }
                     return create;
-                } catch (Exception e2) {
-                    DataSource<CloseableReference<T>> immediateFailedDataSource = DataSources.immediateFailedDataSource(e2);
+                } catch (Exception e) {
+                    DataSource<CloseableReference<T>> immediateFailedDataSource = DataSources.immediateFailedDataSource(e);
                     if (FrescoSystrace.isTracing()) {
                         FrescoSystrace.endSection();
                     }

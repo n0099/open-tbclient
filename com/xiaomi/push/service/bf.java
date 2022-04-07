@@ -10,12 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gx;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bf {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f44569d = 300000;
+    public static int d = 300000;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -24,12 +22,8 @@ public class bf {
 
     /* renamed from: a  reason: collision with other field name */
     public XMPushService f908a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f44570b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f44571c;
+    public int b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -61,8 +55,8 @@ public class bf {
                 return;
             }
         }
-        this.f44570b = 0;
-        this.f44571c = 0;
+        this.b = 0;
+        this.c = 0;
         this.f908a = xMPushService;
         this.a = 500;
         this.f907a = 0L;
@@ -72,11 +66,11 @@ public class bf {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (this.f44570b > 8) {
+            if (this.b > 8) {
                 return 300000;
             }
             double random = (Math.random() * 2.0d) + 1.0d;
-            int i = this.f44570b;
+            int i = this.b;
             if (i > 4) {
                 return (int) (random * 60000.0d);
             }
@@ -88,16 +82,16 @@ public class bf {
             }
             if (System.currentTimeMillis() - this.f907a >= 310000) {
                 this.a = 1000;
-                this.f44571c = 0;
+                this.c = 0;
                 return 0;
             }
             int i2 = this.a;
-            int i3 = f44569d;
+            int i3 = d;
             if (i2 >= i3) {
                 return i2;
             }
-            int i4 = this.f44571c + 1;
-            this.f44571c = i4;
+            int i4 = this.c + 1;
+            this.c = i4;
             if (i4 >= 4) {
                 return i3;
             }
@@ -108,40 +102,40 @@ public class bf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m653a() {
+    public void m649a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.f907a = System.currentTimeMillis();
             this.f908a.a(1);
-            this.f44570b = 0;
+            this.b = 0;
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (!this.f908a.m605a()) {
+            if (!this.f908a.m601a()) {
                 com.xiaomi.channel.commonutils.logger.b.c("should not reconnect as no client or network.");
             } else if (z) {
-                if (!this.f908a.m606a(1)) {
-                    this.f44570b++;
+                if (!this.f908a.m602a(1)) {
+                    this.b++;
                 }
                 this.f908a.a(1);
                 XMPushService xMPushService = this.f908a;
                 xMPushService.getClass();
                 xMPushService.a(new XMPushService.d(xMPushService));
-            } else if (this.f908a.m606a(1)) {
+            } else if (this.f908a.m602a(1)) {
             } else {
                 int a = a();
-                this.f44570b++;
-                com.xiaomi.channel.commonutils.logger.b.m112a("schedule reconnect in " + a + "ms");
+                this.b++;
+                com.xiaomi.channel.commonutils.logger.b.m108a("schedule reconnect in " + a + "ms");
                 XMPushService xMPushService2 = this.f908a;
                 xMPushService2.getClass();
                 xMPushService2.a(new XMPushService.d(xMPushService2), (long) a);
-                if (this.f44570b == 2 && gx.m405a().m410a()) {
+                if (this.b == 2 && gx.m401a().m406a()) {
                     ag.b();
                 }
-                if (this.f44570b == 3) {
+                if (this.b == 3) {
                     ag.a();
                 }
             }

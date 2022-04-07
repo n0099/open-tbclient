@@ -25,16 +25,16 @@ public class MathUtils {
         }
     }
 
-    public static double clamp(double d2, double d3, double d4) {
+    public static double clamp(double d, double d2, double d3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)})) == null) ? d2 < d3 ? d3 : d2 > d4 ? d4 : d2 : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)})) == null) ? d < d2 ? d2 : d > d3 ? d3 : d : invokeCommon.doubleValue;
     }
 
-    public static float clamp(float f2, float f3, float f4) {
+    public static float clamp(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 < f3 ? f3 : f2 > f4 ? f4 : f2 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f < f2 ? f2 : f > f3 ? f3 : f : invokeCommon.floatValue;
     }
 
     public static int clamp(int i, int i2, int i3) {

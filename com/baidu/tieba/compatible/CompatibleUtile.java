@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CompatibleUtile {
     public static /* synthetic */ Interceptable $ic;
     public static CompatibleUtile mCompatibleUtile;
@@ -42,7 +42,7 @@ public class CompatibleUtile {
     public static Object9 mObject9;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class FullscreenableChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class CompatibleUtile {
         public FrameLayout mFullscreenContainer;
         public int mOriginalOrientation;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class FullscreenHolder extends FrameLayout {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,9 @@ public class CompatibleUtile {
                     attributes.flags |= 1024;
                 } else {
                     attributes.flags &= -1025;
-                    View view = this.mCustomView;
-                    if (view != null) {
-                        view.setSystemUiVisibility(0);
+                    View view2 = this.mCustomView;
+                    if (view2 != null) {
+                        view2.setSystemUiVisibility(0);
                     } else {
                         this.mContentView.setSystemUiVisibility(0);
                     }
@@ -155,9 +155,9 @@ public class CompatibleUtile {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+        public void onShowCustomView(View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, customViewCallback) == null) {
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view2, i, customViewCallback) == null) {
                 if (this.mCustomView != null) {
                     customViewCallback.onCustomViewHidden();
                     return;
@@ -165,18 +165,18 @@ public class CompatibleUtile {
                 this.mOriginalOrientation = this.mActivity.getRequestedOrientation();
                 FullscreenHolder fullscreenHolder = new FullscreenHolder(this, this.mActivity);
                 this.mFullscreenContainer = fullscreenHolder;
-                fullscreenHolder.addView(view, this.COVER_SCREEN_PARAMS);
+                fullscreenHolder.addView(view2, this.COVER_SCREEN_PARAMS);
                 ((FrameLayout) this.mActivity.getWindow().getDecorView()).addView(this.mFullscreenContainer, this.COVER_SCREEN_PARAMS);
-                this.mCustomView = view;
+                this.mCustomView = view2;
                 setFullscreen(true);
                 this.mCustomViewCallback = customViewCallback;
                 this.mActivity.setRequestedOrientation(i);
-                super.onShowCustomView(view, i, customViewCallback);
+                super.onShowCustomView(view2, i, customViewCallback);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class Object14 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,7 +211,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class Object5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +286,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class Object7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,7 +327,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class Object8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -369,8 +369,8 @@ public class CompatibleUtile {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
                 try {
                     return Settings.System.getInt(context.getContentResolver(), "screen_brightness_mode") == 1;
-                } catch (Settings.SettingNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (Settings.SettingNotFoundException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -400,7 +400,7 @@ public class CompatibleUtile {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class Object9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -493,8 +493,8 @@ public class CompatibleUtile {
                     Method method2 = cls.getMethod("enablePlatformNotifications", new Class[0]);
                     method.invoke(null, new Object[0]);
                     method2.invoke(null, new Object[0]);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             if (webSettings == null || Build.VERSION.SDK_INT > 18) {
@@ -502,8 +502,8 @@ public class CompatibleUtile {
             }
             try {
                 webSettings.getClass().getMethod("setPluginsEnabled", Boolean.class).invoke(webSettings, Boolean.TRUE);
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }
@@ -636,12 +636,12 @@ public class CompatibleUtile {
         getObject5().WebViewNoDataBase(webSettings);
     }
 
-    public void closeViewGpu(View view) {
+    public void closeViewGpu(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || getObject11() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || getObject11() == null) {
             return;
         }
-        getObject11().closeViewGpu(view);
+        getObject11().closeViewGpu(view2);
     }
 
     public int getActionPointerDown() {
@@ -756,12 +756,12 @@ public class CompatibleUtile {
         return invokeI.longValue;
     }
 
-    public int getViewLayer(View view) {
+    public int getViewLayer(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
             if (getObject11() != null) {
-                return getObject11().getViewLayer(view);
+                return getObject11().getViewLayer(view2);
             }
             return 0;
         }
@@ -792,12 +792,12 @@ public class CompatibleUtile {
         return invokeL.booleanValue;
     }
 
-    public boolean isUseHw(View view) {
+    public boolean isUseHw(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view2)) == null) {
             if (getObject11() != null) {
-                return getObject11().isUseHw(view);
+                return getObject11().isUseHw(view2);
             }
             return false;
         }
@@ -815,12 +815,12 @@ public class CompatibleUtile {
         }
     }
 
-    public void noneViewGpu(View view) {
+    public void noneViewGpu(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, view) == null) || getObject11() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, view2) == null) || getObject11() == null) {
             return;
         }
-        getObject11().noneViewGpu(view);
+        getObject11().noneViewGpu(view2);
     }
 
     public void openGpu(Activity activity) {
@@ -831,12 +831,12 @@ public class CompatibleUtile {
         getObject11().openGpu(activity);
     }
 
-    public void openViewGpu(View view) {
+    public void openViewGpu(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, view) == null) || getObject11() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048594, this, view2) == null) || getObject11() == null) {
             return;
         }
-        getObject11().openViewGpu(view);
+        getObject11().openViewGpu(view2);
     }
 
     public void removeJavascriptInterface(WebView webView) {
@@ -867,7 +867,7 @@ public class CompatibleUtile {
         return invokeL.booleanValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class Object11 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -893,10 +893,10 @@ public class CompatibleUtile {
             this.STATUSBAR_ATTRS = new int[]{16842904};
         }
 
-        public void closeViewGpu(View view) {
+        public void closeViewGpu(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view.isHardwareAccelerated()) {
-                view.setLayerType(1, null);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.isHardwareAccelerated()) {
+                view2.setLayerType(1, null);
             }
         }
 
@@ -906,30 +906,30 @@ public class CompatibleUtile {
             return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? context.obtainStyledAttributes(16973928, this.STATUSBAR_ATTRS).getColor(0, 0) : invokeL.intValue;
         }
 
-        public int getViewLayer(View view) {
+        public int getViewLayer(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-                if (view != null) {
-                    return view.getLayerType();
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+                if (view2 != null) {
+                    return view2.getLayerType();
                 }
                 return 0;
             }
             return invokeL.intValue;
         }
 
-        public boolean isUseHw(View view) {
+        public boolean isUseHw(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) ? view != null && view.isHardwareAccelerated() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) ? view2 != null && view2.isHardwareAccelerated() : invokeL.booleanValue;
         }
 
-        public void noneViewGpu(View view) {
+        public void noneViewGpu(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || view == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || view2 == null) {
                 return;
             }
-            view.setLayerType(0, null);
+            view2.setLayerType(0, null);
         }
 
         public void openGpu(Activity activity) {
@@ -939,12 +939,12 @@ public class CompatibleUtile {
             }
         }
 
-        public void openViewGpu(View view) {
+        public void openViewGpu(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, view) == null) || view == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2 == null) {
                 return;
             }
-            view.setLayerType(2, null);
+            view2.setLayerType(2, null);
         }
 
         public void removeJavascriptInterface(WebView webView) {

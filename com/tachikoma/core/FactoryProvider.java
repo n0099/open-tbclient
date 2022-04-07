@@ -55,7 +55,7 @@ import com.tachikoma.core.module.TKWebCardBridgeImplFactory;
 import com.tachikoma.core.module.handler.TKLifeCycleFactory;
 import com.tachikoma.core.router.TKRouterFactory;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FactoryProvider implements IProvider<IFactory> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, IFactory> factoryMap;

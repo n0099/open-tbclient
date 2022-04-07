@@ -1,13 +1,14 @@
 package com.baidu.searchbox.logsystem.exceptionhandler.impl;
 
-import c.a.g0.a.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements a {
+import com.repackage.cn;
+import com.repackage.pb1;
+/* loaded from: classes2.dex */
+public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider implements pb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,10 +26,10 @@ public class IExceptionHandlerContext_ExceptionHandlerComponent_Provider impleme
         }
     }
 
-    @Override // c.a.g0.a.a
+    @Override // com.repackage.pb1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new c.a.d.l.a() : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cn() : invokeV.objValue;
     }
 }

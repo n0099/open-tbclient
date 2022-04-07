@@ -46,9 +46,9 @@ public class FragmentAnim {
     public static void animateRemoveFragment(@NonNull Fragment fragment, @NonNull AnimationOrAnimator animationOrAnimator, @NonNull FragmentTransition.Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, fragment, animationOrAnimator, callback) == null) {
-            View view = fragment.mView;
+            View view2 = fragment.mView;
             ViewGroup viewGroup = fragment.mContainer;
-            viewGroup.startViewTransition(view);
+            viewGroup.startViewTransition(view2);
             CancellationSignal cancellationSignal = new CancellationSignal();
             cancellationSignal.setOnCancelListener(new CancellationSignal.OnCancelListener(fragment) { // from class: androidx.fragment.app.FragmentAnim.1
                 public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class FragmentAnim {
             });
             callback.onStart(fragment, cancellationSignal);
             if (animationOrAnimator.animation != null) {
-                EndViewTransitionAnimation endViewTransitionAnimation = new EndViewTransitionAnimation(animationOrAnimator.animation, viewGroup, view);
+                EndViewTransitionAnimation endViewTransitionAnimation = new EndViewTransitionAnimation(animationOrAnimator.animation, viewGroup, view2);
                 fragment.setAnimatingAway(fragment.mView);
                 endViewTransitionAnimation.setAnimationListener(new Animation.AnimationListener(viewGroup, fragment, callback, cancellationSignal) { // from class: androidx.fragment.app.FragmentAnim.2
                     public static /* synthetic */ Interceptable $ic;
@@ -179,7 +179,7 @@ public class FragmentAnim {
             }
             Animator animator = animationOrAnimator.animator;
             fragment.setAnimator(animator);
-            animator.addListener(new AnimatorListenerAdapter(viewGroup, view, fragment, callback, cancellationSignal) { // from class: androidx.fragment.app.FragmentAnim.3
+            animator.addListener(new AnimatorListenerAdapter(viewGroup, view2, fragment, callback, cancellationSignal) { // from class: androidx.fragment.app.FragmentAnim.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FragmentTransition.Callback val$callback;
@@ -193,7 +193,7 @@ public class FragmentAnim {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {viewGroup, view, fragment, callback, cancellationSignal};
+                        Object[] objArr = {viewGroup, view2, fragment, callback, cancellationSignal};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -204,7 +204,7 @@ public class FragmentAnim {
                         }
                     }
                     this.val$container = viewGroup;
-                    this.val$viewToAnimate = view;
+                    this.val$viewToAnimate = view2;
                     this.val$fragment = fragment;
                     this.val$callback = callback;
                     this.val$signal = cancellationSignal;
@@ -261,8 +261,8 @@ public class FragmentAnim {
                                 return new AnimationOrAnimator(loadAnimation);
                             }
                             z2 = true;
-                        } catch (Resources.NotFoundException e2) {
-                            throw e2;
+                        } catch (Resources.NotFoundException e) {
+                            throw e;
                         } catch (RuntimeException unused) {
                         }
                     }
@@ -272,14 +272,14 @@ public class FragmentAnim {
                             if (loadAnimator != null) {
                                 return new AnimationOrAnimator(loadAnimator);
                             }
-                        } catch (RuntimeException e3) {
+                        } catch (RuntimeException e2) {
                             if (!equals) {
                                 Animation loadAnimation2 = AnimationUtils.loadAnimation(context, nextAnim);
                                 if (loadAnimation2 != null) {
                                     return new AnimationOrAnimator(loadAnimation2);
                                 }
                             } else {
-                                throw e3;
+                                throw e2;
                             }
                         }
                     }
@@ -375,13 +375,13 @@ public class FragmentAnim {
         public boolean mTransitionEnded;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EndViewTransitionAnimation(@NonNull Animation animation, @NonNull ViewGroup viewGroup, @NonNull View view) {
+        public EndViewTransitionAnimation(@NonNull Animation animation, @NonNull ViewGroup viewGroup, @NonNull View view2) {
             super(false);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {animation, viewGroup, view};
+                Object[] objArr = {animation, viewGroup, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -394,7 +394,7 @@ public class FragmentAnim {
             }
             this.mAnimating = true;
             this.mParent = viewGroup;
-            this.mChild = view;
+            this.mChild = view2;
             addAnimation(animation);
             this.mParent.post(this);
         }
@@ -432,15 +432,15 @@ public class FragmentAnim {
         }
 
         @Override // android.view.animation.Animation
-        public boolean getTransformation(long j, @NonNull Transformation transformation, float f2) {
+        public boolean getTransformation(long j, @NonNull Transformation transformation, float f) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), transformation, Float.valueOf(f2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), transformation, Float.valueOf(f)})) == null) {
                 this.mAnimating = true;
                 if (this.mEnded) {
                     return !this.mTransitionEnded;
                 }
-                if (!super.getTransformation(j, transformation, f2)) {
+                if (!super.getTransformation(j, transformation, f)) {
                     this.mEnded = true;
                     OneShotPreDrawListener.add(this.mParent, this);
                 }

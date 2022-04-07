@@ -2,7 +2,6 @@ package com.baidu.tieba.model;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -20,19 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+/* loaded from: classes3.dex */
 public class ReportUserInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long TIME_INTERVAL = 300000;
     public static final int TYPE_ADDRESS = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f34535b;
+    public final HttpMessageListener b;
     public long timeInterval;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +72,7 @@ public class ReportUserInfoModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onError(int i, String str);
 
@@ -93,14 +91,14 @@ public class ReportUserInfoModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.timeInterval = 300000L;
-        this.f34535b = new a(this, CmdConfigHttp.REPORT_USER_INFO);
+        this.b = new a(this, CmdConfigHttp.REPORT_USER_INFO);
     }
 
     public void A() {
@@ -110,17 +108,17 @@ public class ReportUserInfoModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.REPORT_USER_INFO, TbConfig.SERVER_ADDRESS + "c/c/user/report");
             tbHttpMessageTask.setResponsedClass(ResponseReportUserInfoMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            messageManager.registerListener(this.f34535b);
+            messageManager.registerListener(this.b);
         }
     }
 
-    public void B(int i, float f2, float f3) {
+    public void B(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.REPORT_USER_INFO);
             httpMessage.addParam("type", String.valueOf(i));
-            httpMessage.addParam(SuggestAddrField.KEY_LNG, String.valueOf(f2));
-            httpMessage.addParam(SuggestAddrField.KEY_LAT, String.valueOf(f3));
+            httpMessage.addParam(SuggestAddrField.KEY_LNG, String.valueOf(f));
+            httpMessage.addParam(SuggestAddrField.KEY_LAT, String.valueOf(f2));
             MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
@@ -169,7 +167,7 @@ public class ReportUserInfoModel extends BdBaseModel {
     public void unRegisterListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f34535b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 

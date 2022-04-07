@@ -37,12 +37,12 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     public final Runnable mShowRunnable;
     public final CharSequence mTooltipText;
 
-    public TooltipCompatHandler(View view, CharSequence charSequence) {
+    public TooltipCompatHandler(View view2, CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, charSequence};
+            Object[] objArr = {view2, charSequence};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -114,9 +114,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
                 }
             }
         };
-        this.mAnchor = view;
+        this.mAnchor = view2;
         this.mTooltipText = charSequence;
-        this.mHoverSlop = ViewConfigurationCompat.getScaledHoverSlop(ViewConfiguration.get(view.getContext()));
+        this.mHoverSlop = ViewConfigurationCompat.getScaledHoverSlop(ViewConfiguration.get(view2.getContext()));
         clearAnchorPos();
         this.mAnchor.setOnLongClickListener(this);
         this.mAnchor.setOnHoverListener(this);
@@ -158,24 +158,24 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
         }
     }
 
-    public static void setTooltipText(View view, CharSequence charSequence) {
+    public static void setTooltipText(View view2, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, view, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(65541, null, view2, charSequence) == null) {
             TooltipCompatHandler tooltipCompatHandler = sPendingHandler;
-            if (tooltipCompatHandler != null && tooltipCompatHandler.mAnchor == view) {
+            if (tooltipCompatHandler != null && tooltipCompatHandler.mAnchor == view2) {
                 setPendingHandler(null);
             }
             if (TextUtils.isEmpty(charSequence)) {
                 TooltipCompatHandler tooltipCompatHandler2 = sActiveHandler;
-                if (tooltipCompatHandler2 != null && tooltipCompatHandler2.mAnchor == view) {
+                if (tooltipCompatHandler2 != null && tooltipCompatHandler2.mAnchor == view2) {
                     tooltipCompatHandler2.hide();
                 }
-                view.setOnLongClickListener(null);
-                view.setLongClickable(false);
-                view.setOnHoverListener(null);
+                view2.setOnLongClickListener(null);
+                view2.setLongClickable(false);
+                view2.setOnHoverListener(null);
                 return;
             }
-            new TooltipCompatHandler(view, charSequence);
+            new TooltipCompatHandler(view2, charSequence);
         }
     }
 
@@ -218,10 +218,10 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     @Override // android.view.View.OnHoverListener
-    public boolean onHover(View view, MotionEvent motionEvent) {
+    public boolean onHover(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
             if (this.mPopup == null || !this.mFromTouch) {
                 AccessibilityManager accessibilityManager = (AccessibilityManager) this.mAnchor.getContext().getSystemService("accessibility");
                 if (accessibilityManager.isEnabled() && accessibilityManager.isTouchExplorationEnabled()) {
@@ -244,12 +244,12 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     @Override // android.view.View.OnLongClickListener
-    public boolean onLongClick(View view) {
+    public boolean onLongClick(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view)) == null) {
-            this.mAnchorX = view.getWidth() / 2;
-            this.mAnchorY = view.getHeight() / 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            this.mAnchorX = view2.getWidth() / 2;
+            this.mAnchorY = view2.getHeight() / 2;
             show(true);
             return true;
         }
@@ -257,16 +257,16 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewAttachedToWindow(View view) {
+    public void onViewAttachedToWindow(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
     @Override // android.view.View.OnAttachStateChangeListener
-    public void onViewDetachedFromWindow(View view) {
+    public void onViewDetachedFromWindow(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             hide();
         }
     }

@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface HiidoApi {
     void addActAdditionListener(ActListener actListener);
 
@@ -88,11 +88,11 @@ public interface HiidoApi {
 
     void reportCount(String str, int i, String str2, String str3, long j, int i2);
 
-    void reportCountEvent(long j, String str, double d2);
+    void reportCountEvent(long j, String str, double d);
 
-    void reportCountEvent(long j, String str, double d2, String str2);
+    void reportCountEvent(long j, String str, double d, String str2);
 
-    void reportCountEvent(long j, String str, double d2, String str2, Property property);
+    void reportCountEvent(long j, String str, double d, String str2, Property property);
 
     void reportCrash(long j, String str);
 
@@ -108,7 +108,7 @@ public interface HiidoApi {
 
     void reportIM(String str, String str2, String str3, Date date, Date date2, String str4, int i, String str5);
 
-    void reportLocation(double d2, double d3, double d4);
+    void reportLocation(double d, double d2, double d3);
 
     void reportLogin(long j);
 

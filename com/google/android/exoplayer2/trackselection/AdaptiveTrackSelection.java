@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.source.chunk.MediaChunk;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.upstream.BandwidthMeter;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AdaptiveTrackSelection extends BaseTrackSelection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_BANDWIDTH_FRACTION = 0.75f;
@@ -35,7 +35,7 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
     public int reason;
     public int selectedIndex;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,13 +69,13 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Factory(BandwidthMeter bandwidthMeter, int i, int i2, int i3, int i4, float f2) {
-            this(bandwidthMeter, i, i2, i3, i4, f2, 0.75f);
+        public Factory(BandwidthMeter bandwidthMeter, int i, int i2, int i3, int i4, float f) {
+            this(bandwidthMeter, i, i2, i3, i4, f, 0.75f);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bandwidthMeter, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)};
+                Object[] objArr = {bandwidthMeter, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -97,12 +97,12 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, trackGroup, iArr)) == null) ? new AdaptiveTrackSelection(trackGroup, iArr, this.bandwidthMeter, this.maxInitialBitrate, this.minDurationForQualityIncreaseMs, this.maxDurationForQualityDecreaseMs, this.minDurationToRetainAfterDiscardMs, this.bandwidthFraction, this.bufferedFractionToLiveEdgeForQualityIncrease) : (AdaptiveTrackSelection) invokeLL.objValue;
         }
 
-        public Factory(BandwidthMeter bandwidthMeter, int i, int i2, int i3, int i4, float f2, float f3) {
+        public Factory(BandwidthMeter bandwidthMeter, int i, int i2, int i3, int i4, float f, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bandwidthMeter, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Float.valueOf(f3)};
+                Object[] objArr = {bandwidthMeter, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65538, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -117,8 +117,8 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
             this.minDurationForQualityIncreaseMs = i2;
             this.maxDurationForQualityDecreaseMs = i3;
             this.minDurationToRetainAfterDiscardMs = i4;
-            this.bandwidthFraction = f2;
-            this.bufferedFractionToLiveEdgeForQualityIncrease = f3;
+            this.bandwidthFraction = f;
+            this.bufferedFractionToLiveEdgeForQualityIncrease = f2;
         }
     }
 
@@ -250,13 +250,13 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdaptiveTrackSelection(TrackGroup trackGroup, int[] iArr, BandwidthMeter bandwidthMeter, int i, long j, long j2, long j3, float f2, float f3) {
+    public AdaptiveTrackSelection(TrackGroup trackGroup, int[] iArr, BandwidthMeter bandwidthMeter, int i, long j, long j2, long j3, float f, float f2) {
         super(trackGroup, iArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {trackGroup, iArr, bandwidthMeter, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {trackGroup, iArr, bandwidthMeter, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -273,8 +273,8 @@ public class AdaptiveTrackSelection extends BaseTrackSelection {
         this.minDurationForQualityIncreaseUs = j * 1000;
         this.maxDurationForQualityDecreaseUs = j2 * 1000;
         this.minDurationToRetainAfterDiscardUs = j3 * 1000;
-        this.bandwidthFraction = f2;
-        this.bufferedFractionToLiveEdgeForQualityIncrease = f3;
+        this.bandwidthFraction = f;
+        this.bufferedFractionToLiveEdgeForQualityIncrease = f2;
         this.selectedIndex = determineIdealSelectedIndex(Long.MIN_VALUE);
         this.reason = 1;
     }

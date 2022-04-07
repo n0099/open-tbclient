@@ -10,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetHasChargeInActivityRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,8 +59,8 @@ public class GetHasChargeInActivityRequest implements IRequestProtocol {
                 jSONObject.put("currencyType", this.currencyType);
                 jSONObject.put("activityId", this.activityId);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                RLog.error("GetHasChargeInActivityRequest", "constructPSCIMessageRequest error.", e2);
+            } catch (JSONException e) {
+                RLog.error("GetHasChargeInActivityRequest", "constructPSCIMessageRequest error.", e);
                 return "";
             }
         }

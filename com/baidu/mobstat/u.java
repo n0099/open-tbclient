@@ -4,7 +4,7 @@ import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
@@ -18,7 +18,7 @@ public class u {
         InterceptResult invokeL;
         a aVar;
         a aVar2;
-        Exception e2;
+        Exception e;
         Class<?> a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
@@ -28,17 +28,17 @@ public class u {
                 if (aVar == null) {
                     try {
                         a2 = x.a(context, "com.baidu.bottom.remote.BPStretegyController2");
-                    } catch (Exception e3) {
+                    } catch (Exception e2) {
                         aVar2 = aVar;
-                        e2 = e3;
+                        e = e2;
                     }
                     if (a2 != null) {
                         aVar2 = new w(a2.newInstance());
                         try {
                             bb.c().a("Get BPStretegyController load remote class v2");
-                        } catch (Exception e4) {
-                            e2 = e4;
-                            bb.c().a(e2);
+                        } catch (Exception e3) {
+                            e = e3;
+                            bb.c().a(e);
                             aVar = aVar2;
                             if (aVar == null) {
                             }

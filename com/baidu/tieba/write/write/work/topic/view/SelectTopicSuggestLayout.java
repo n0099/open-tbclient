@@ -6,7 +6,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.t1.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,20 +20,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.q47;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SelectTopicSuggestLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f37596c;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
+    public VideoHotTopicSearchAdapter b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public VideoHotTopicSearchAdapter f37597b;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements VideoHotTopicSearchAdapter.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,10 +55,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(f fVar) {
+        public void a(q47 q47Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, fVar));
+            if (interceptable == null || interceptable.invokeL(1048576, this, q47Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, q47Var));
             }
         }
     }
@@ -80,7 +76,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
                 return;
             }
         }
-        f37596c = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+        c = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -104,10 +100,10 @@ public class SelectTopicSuggestLayout extends LinearLayout {
         b();
     }
 
-    public void a(String str, List<f> list) {
+    public void a(String str, List<q47> list) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) || (videoHotTopicSearchAdapter = this.f37597b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) || (videoHotTopicSearchAdapter = this.b) == null) {
             return;
         }
         videoHotTopicSearchAdapter.d(str, list);
@@ -120,13 +116,13 @@ public class SelectTopicSuggestLayout extends LinearLayout {
             this.a = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             RecyclerView recyclerView2 = this.a;
-            int i = f37596c;
+            int i = c;
             recyclerView2.setPadding(i, 0, i, 0);
             VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = new VideoHotTopicSearchAdapter(TbadkApplication.getInst().getCurrentPageContext(getContext()));
-            this.f37597b = videoHotTopicSearchAdapter;
+            this.b = videoHotTopicSearchAdapter;
             videoHotTopicSearchAdapter.g(1);
-            this.f37597b.e(new a(this));
-            this.a.setAdapter(this.f37597b);
+            this.b.e(new a(this));
+            this.a.setAdapter(this.b);
             addView(this.a, new LinearLayout.LayoutParams(-1, -1));
         }
     }
@@ -134,7 +130,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     public void c() {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoHotTopicSearchAdapter = this.f37597b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoHotTopicSearchAdapter = this.b) == null) {
             return;
         }
         videoHotTopicSearchAdapter.notifyDataSetChanged();
@@ -143,7 +139,6 @@ public class SelectTopicSuggestLayout extends LinearLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f37597b.getItemCount();
         }
     }
 

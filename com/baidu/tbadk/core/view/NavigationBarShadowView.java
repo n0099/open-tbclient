@@ -14,19 +14,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NavigationBarShadowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public AlphaAnimation b;
+    public AlphaAnimation c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public AlphaAnimation f30037b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AlphaAnimation f30038c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,14 +93,14 @@ public class NavigationBarShadowView extends View {
     public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getVisibility() == 0) {
-            if (this.f30038c == null) {
+            if (this.c == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                this.f30038c = alphaAnimation;
+                this.c = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f30038c.setDuration(300L);
-                this.f30038c.setAnimationListener(new a(this));
+                this.c.setDuration(300L);
+                this.c.setAnimationListener(new a(this));
             }
-            startAnimation(this.f30038c);
+            startAnimation(this.c);
         }
     }
 
@@ -125,13 +121,13 @@ public class NavigationBarShadowView extends View {
                 return;
             }
             setVisibility(0);
-            if (this.f30037b == null) {
+            if (this.b == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                this.f30037b = alphaAnimation;
+                this.b = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f30037b.setDuration(300L);
+                this.b.setDuration(300L);
             }
-            startAnimation(this.f30037b);
+            startAnimation(this.b);
         }
     }
 

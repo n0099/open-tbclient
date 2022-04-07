@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +24,8 @@ public class l {
                     if (packageInfo.packageName.equals(str)) {
                         return packageInfo.signatures[0].toByteArray();
                     }
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                 }
             }
             return null;

@@ -48,7 +48,7 @@ public class LinearOutSlowInInterpolator extends LookupTableInterpolator {
     }
 
     @Override // androidx.interpolator.view.animation.LookupTableInterpolator, android.animation.TimeInterpolator
-    public /* bridge */ /* synthetic */ float getInterpolation(float f2) {
-        return super.getInterpolation(f2);
+    public /* bridge */ /* synthetic */ float getInterpolation(float f) {
+        return super.getInterpolation(f);
     }
 }

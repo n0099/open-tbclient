@@ -1,6 +1,5 @@
 package com.baidu.tieba.ala.personcenter.messages;
 
-import c.a.p0.c0.l.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.bu5;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c data;
+    public bu5 data;
     public int errCode;
     public String errMsg;
 
@@ -37,7 +37,7 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         }
         this.errCode = 0;
         this.errMsg = "";
-        this.data = new c();
+        this.data = new bu5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -67,10 +67,10 @@ public class AlaPersonCenterResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.errMsg : (String) invokeV.objValue;
     }
 
-    public c getPersonCenterData() {
+    public bu5 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (bu5) invokeV.objValue;
     }
 
     public void setErrCode(int i) {

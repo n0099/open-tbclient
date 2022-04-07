@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AnchorInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -154,8 +154,8 @@ public class AnchorInfoData extends OrmObject implements Serializable {
             this.group_id = jSONObject.optLong("group_id", 0L);
             this.intro = jSONObject.getString("intro");
             this.publisherPortrait = jSONObject.getString("publisherPortrait");
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 

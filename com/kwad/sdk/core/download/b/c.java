@@ -6,7 +6,7 @@ import android.widget.RemoteViews;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.IProgressRemoteView;
 import com.kwad.sdk.api.core.RemoteViewBuilder;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public IProgressRemoteView a;
 

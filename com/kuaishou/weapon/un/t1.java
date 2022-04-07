@@ -9,18 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class t1 {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final t1 f38990b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f38991c = 1;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f38992d = 1;
+    public static final t1 b;
+    public static final int c = 1;
+    public static final int d = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final ExecutorService a;
 
@@ -37,7 +31,7 @@ public class t1 {
                 return;
             }
         }
-        f38990b = new t1();
+        b = new t1();
     }
 
     public t1() {
@@ -59,7 +53,7 @@ public class t1 {
     public static t1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f38990b : (t1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (t1) invokeV.objValue;
     }
 
     public void a(Runnable runnable) {

@@ -47,8 +47,8 @@ public final class TraceCompat {
             sAsyncTraceBeginMethod = Trace.class.getMethod("asyncTraceBegin", Long.TYPE, String.class, Integer.TYPE);
             sAsyncTraceEndMethod = Trace.class.getMethod("asyncTraceEnd", Long.TYPE, String.class, Integer.TYPE);
             sTraceCounterMethod = Trace.class.getMethod("traceCounter", Long.TYPE, String.class, Integer.TYPE);
-        } catch (Exception e2) {
-            Log.i(TAG, "Unable to initialize via reflection.", e2);
+        } catch (Exception e) {
+            Log.i(TAG, "Unable to initialize via reflection.", e);
         }
     }
 

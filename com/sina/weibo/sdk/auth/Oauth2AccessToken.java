@@ -71,8 +71,8 @@ public class Oauth2AccessToken {
                 oauth2AccessToken.setRefreshToken(jSONObject.optString("refresh_token"));
                 oauth2AccessToken.setPhoneNum(jSONObject.optString(KEY_PHONE_NUM));
                 return oauth2AccessToken;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -211,8 +211,8 @@ public class Oauth2AccessToken {
             setExpiresIn(jSONObject.optString("expires_in"));
             setRefreshToken(jSONObject.optString("refresh_token"));
             setPhoneNum(jSONObject.optString(KEY_PHONE_NUM));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 

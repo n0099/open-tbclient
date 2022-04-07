@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LikeData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1250162253971653314L;
@@ -112,8 +112,8 @@ public class LikeData implements Serializable {
             this.mNameShow = jSONObject.optString("name_show");
             this.mPortrait = jSONObject.optString("portrait");
             this.mIsMyFriend = jSONObject.optInt("is_friend");
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
@@ -135,8 +135,8 @@ public class LikeData implements Serializable {
                 this.mGodData = godUserData;
                 godUserData.parserProtobuf(user.god_data);
             }
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

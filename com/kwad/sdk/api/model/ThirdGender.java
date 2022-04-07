@@ -5,7 +5,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @Keep
 @Retention(RetentionPolicy.SOURCE)
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public @interface ThirdGender {
     public static final int GENDER_MAN = 1;
     public static final int GENDER_UNKNOW = 0;

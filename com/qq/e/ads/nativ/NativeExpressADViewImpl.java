@@ -19,17 +19,13 @@ import com.qq.e.comm.pi.NEADVI;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NativeExpressADViewImpl extends NativeExpressADView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdData a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public NativeExpressADView.ViewBindStatusListener f42359b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final NativeExpressADCore f42360c;
+    public NativeExpressADView.ViewBindStatusListener b;
+    public final NativeExpressADCore c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NativeExpressADViewImpl(NEADI neadi, NEADVI neadvi, NativeExpressADData2 nativeExpressADData2, Context context, ADSize aDSize, String str, String str2, String str3, JSONObject jSONObject, HashMap<String, Object> hashMap) {
@@ -49,7 +45,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
                 return;
             }
         }
-        this.f42360c = new NativeExpressADCore(this, neadi, neadvi, nativeExpressADData2, context, aDSize, str2, jSONObject, hashMap);
+        this.c = new NativeExpressADCore(this, neadi, neadvi, nativeExpressADData2, context, aDSize, str2, jSONObject, hashMap);
         this.a = a(hashMap);
     }
 
@@ -90,7 +86,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f42360c.destroy();
+            this.c.destroy();
         }
     }
 
@@ -98,7 +94,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public String getApkInfoUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42360c.getApkInfoUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getApkInfoUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeExpressADView
@@ -112,21 +108,21 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public int getECPM() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42360c.getECPM() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getECPM() : invokeV.intValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeExpressADView
     public String getECPMLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42360c.getECPMLevel() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c.getECPMLevel() : (String) invokeV.objValue;
     }
 
     @Override // com.qq.e.ads.nativ.NativeExpressADView
     public void negativeFeedback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f42360c.negativeFeedback();
+            this.c.negativeFeedback();
         }
     }
 
@@ -135,7 +131,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.f42359b;
+            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.b;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onAttachedToWindow();
             }
@@ -147,7 +143,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.f42359b;
+            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.b;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onDetachedFromWindow();
             }
@@ -166,7 +162,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onFinishTemporaryDetach();
-            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.f42359b;
+            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.b;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onFinishTemporaryDetach();
             }
@@ -178,7 +174,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onStartTemporaryDetach();
-            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.f42359b;
+            NativeExpressADView.ViewBindStatusListener viewBindStatusListener = this.b;
             if (viewBindStatusListener != null) {
                 viewBindStatusListener.onStartTemporaryDetach();
             }
@@ -189,7 +185,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void preloadVideo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f42360c.preloadVideo();
+            this.c.preloadVideo();
         }
     }
 
@@ -197,7 +193,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void render() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f42360c.render();
+            this.c.render();
         }
     }
 
@@ -205,7 +201,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void sendLossNotification(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
-            this.f42360c.sendLossNotification(i, i2, str);
+            this.c.sendLossNotification(i, i2, str);
         }
     }
 
@@ -213,7 +209,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void sendWinNotification(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.f42360c.sendWinNotification(i);
+            this.c.sendWinNotification(i);
         }
     }
 
@@ -222,7 +218,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void setAdSize(ADSize aDSize) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aDSize) == null) {
-            this.f42360c.setAdSize(aDSize);
+            this.c.setAdSize(aDSize);
         }
     }
 
@@ -230,7 +226,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void setBidECPM(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f42360c.setBidECPM(i);
+            this.c.setBidECPM(i);
         }
     }
 
@@ -238,7 +234,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void setDownloadConfirmListener(DownloadConfirmListener downloadConfirmListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, downloadConfirmListener) == null) {
-            this.f42360c.setDownloadConfirmListener(downloadConfirmListener);
+            this.c.setDownloadConfirmListener(downloadConfirmListener);
         }
     }
 
@@ -246,7 +242,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void setMediaListener(NativeExpressMediaListener nativeExpressMediaListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, nativeExpressMediaListener) == null) {
-            this.f42360c.a(nativeExpressMediaListener);
+            this.c.a(nativeExpressMediaListener);
         }
     }
 
@@ -254,7 +250,7 @@ public class NativeExpressADViewImpl extends NativeExpressADView {
     public void setViewBindStatusListener(NativeExpressADView.ViewBindStatusListener viewBindStatusListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, viewBindStatusListener) == null) {
-            this.f42359b = viewBindStatusListener;
+            this.b = viewBindStatusListener;
         }
     }
 }

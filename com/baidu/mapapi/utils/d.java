@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class d implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,22 +46,22 @@ public final class d implements ServiceConnection {
                 thread2 = b.v;
                 thread2.interrupt();
             }
-            str = b.f26556c;
+            str = b.c;
             Log.d(str, "onServiceConnected " + componentName);
             try {
-                aVar2 = b.f26557d;
+                aVar2 = b.d;
                 if (aVar2 != null) {
-                    com.baidu.mapframework.open.aidl.a unused = b.f26557d = null;
+                    com.baidu.mapframework.open.aidl.a unused = b.d = null;
                 }
-                com.baidu.mapframework.open.aidl.a unused2 = b.f26557d = a.AbstractBinderC1763a.a(iBinder);
-                aVar3 = b.f26557d;
+                com.baidu.mapframework.open.aidl.a unused2 = b.d = a.AbstractBinderC0103a.a(iBinder);
+                aVar3 = b.d;
                 aVar3.a(new e(this));
-            } catch (RemoteException e2) {
-                str2 = b.f26556c;
-                Log.d(str2, "getComOpenClient ", e2);
-                aVar = b.f26557d;
+            } catch (RemoteException e) {
+                str2 = b.c;
+                Log.d(str2, "getComOpenClient ", e);
+                aVar = b.d;
                 if (aVar != null) {
-                    com.baidu.mapframework.open.aidl.a unused3 = b.f26557d = null;
+                    com.baidu.mapframework.open.aidl.a unused3 = b.d = null;
                 }
             }
         }
@@ -73,11 +73,11 @@ public final class d implements ServiceConnection {
         com.baidu.mapframework.open.aidl.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            str = b.f26556c;
+            str = b.c;
             Log.d(str, "onServiceDisconnected " + componentName);
-            aVar = b.f26557d;
+            aVar = b.d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused = b.f26557d = null;
+                com.baidu.mapframework.open.aidl.a unused = b.d = null;
                 boolean unused2 = b.u = false;
             }
         }

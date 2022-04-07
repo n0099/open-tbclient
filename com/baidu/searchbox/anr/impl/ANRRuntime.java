@@ -1,8 +1,6 @@
 package com.baidu.searchbox.anr.impl;
 
 import android.util.Log;
-import c.a.g0.a.b.b;
-import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
@@ -14,13 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.rb1;
+import com.repackage.tb1;
+/* loaded from: classes2.dex */
 public class ANRRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static ANRRuntime sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public d<IANRRegister> mIANRMonitorList;
+    public tb1<IANRRegister> mIANRMonitorList;
 
     public ANRRuntime() {
         Interceptable interceptable = $ic;
@@ -58,8 +58,8 @@ public class ANRRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            d<IANRRegister> dVar = this.mIANRMonitorList;
-            if (dVar == null || dVar.getList() == null) {
+            tb1<IANRRegister> tb1Var = this.mIANRMonitorList;
+            if (tb1Var == null || tb1Var.getList() == null) {
                 return false;
             }
             for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
@@ -76,18 +76,18 @@ public class ANRRuntime {
         return invokeV.booleanValue;
     }
 
-    public d<IANRRegister> getIANRUploadList() {
+    public tb1<IANRRegister> getIANRUploadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIANRMonitorList : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIANRMonitorList : (tb1) invokeV.objValue;
     }
 
     public void initmIANRMonitorList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b b2 = b.b();
-            this.mIANRMonitorList = b2;
-            b2.a(new IANRRegister_ANRRuntime_ListProvider());
+            rb1 b = rb1.b();
+            this.mIANRMonitorList = b;
+            b.a(new IANRRegister_ANRRuntime_ListProvider());
         }
     }
 }

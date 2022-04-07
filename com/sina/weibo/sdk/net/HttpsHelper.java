@@ -75,8 +75,8 @@ public final class HttpsHelper {
                     return;
                 }
                 throw new RuntimeException("Couldn't find any X509TrustManagers");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
@@ -139,16 +139,16 @@ public final class HttpsHelper {
                     SSLContext sSLContext = SSLContext.getInstance("TLS");
                     sSLContext.init(null, new TrustManager[]{new CustomX509TrustManager(keyStore)}, null);
                     this.mSSLSocketFactory = sSLContext.getSocketFactory();
-                } catch (IOException e2) {
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (KeyManagementException e2) {
                     e2.printStackTrace();
-                } catch (KeyManagementException e3) {
+                } catch (KeyStoreException e3) {
                     e3.printStackTrace();
-                } catch (KeyStoreException e4) {
+                } catch (NoSuchAlgorithmException e4) {
                     e4.printStackTrace();
-                } catch (NoSuchAlgorithmException e5) {
+                } catch (CertificateException e5) {
                     e5.printStackTrace();
-                } catch (CertificateException e6) {
-                    e6.printStackTrace();
                 }
             }
             return this.mSSLSocketFactory;

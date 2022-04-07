@@ -1,7 +1,6 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
-import c.a.d.o.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fo;
+/* loaded from: classes3.dex */
 public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public a decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public fo decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -48,9 +48,9 @@ public class SimpleBlurLoaderProc extends SimpleLoaderProc {
             if (fastblur != p) {
                 p.recycle();
             }
-            return new a(fastblur);
+            return new fo(fastblur);
         }
-        return (a) invokeLII.objValue;
+        return (fo) invokeLII.objValue;
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc, com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc

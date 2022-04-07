@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MMSharedPreferences implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.SharedPreferences";
@@ -29,7 +29,7 @@ public class MMSharedPreferences implements SharedPreferences {
     public REditor editor;
     public final HashMap<String, Object> values;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class REditor implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,11 +157,11 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putFloat(String str, float f2) {
+        public SharedPreferences.Editor putFloat(String str, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
-                this.values.put(str, Float.valueOf(f2));
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
+                this.values.put(str, Float.valueOf(f));
                 this.remove.remove(str);
                 return this;
             }
@@ -259,8 +259,8 @@ public class MMSharedPreferences implements SharedPreferences {
                 Object a = query.moveToFirst() ? c.a.a(query.getInt(query.getColumnIndex("type")), query.getString(query.getColumnIndex("value"))) : null;
                 query.close();
                 return a;
-            } catch (Exception e2) {
-                Log.e(TAG, "getValue exception:" + e2.getMessage());
+            } catch (Exception e) {
+                Log.e(TAG, "getValue exception:" + e.getMessage());
                 return null;
             }
         }
@@ -305,8 +305,8 @@ public class MMSharedPreferences implements SharedPreferences {
                 }
                 query.close();
                 return this.values;
-            } catch (Exception e2) {
-                Log.e(TAG, "getAll exception:" + e2.getMessage());
+            } catch (Exception e) {
+                Log.e(TAG, "getAll exception:" + e.getMessage());
                 return this.values;
             }
         }
@@ -325,12 +325,12 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f2) {
+    public float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
             Object value = getValue(str);
-            return (value == null || !(value instanceof Float)) ? f2 : ((Float) value).floatValue();
+            return (value == null || !(value instanceof Float)) ? f : ((Float) value).floatValue();
         }
         return invokeLF.floatValue;
     }

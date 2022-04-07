@@ -1,7 +1,5 @@
 package com.baidu.tieba.addresslist.relationship;
 
-import c.a.o0.r.j0.b;
-import c.a.p0.z.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,14 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nk5;
+import com.repackage.wt4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mAddressListData;
+    public nk5 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -37,16 +37,16 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         }
     }
 
-    public a getAddressListData() {
+    public nk5 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAddressListData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAddressListData : (nk5) invokeV.objValue;
     }
 
-    public void setAddressListData(a aVar) {
+    public void setAddressListData(nk5 nk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.mAddressListData = aVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nk5Var) == null) {
+            this.mAddressListData = nk5Var;
         }
     }
 
@@ -59,10 +59,10 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             return;
         }
         if (getAddressListResIdl.data != null) {
-            a aVar = new a();
-            this.mAddressListData = aVar;
-            if (aVar.c(getAddressListResIdl.data)) {
-                b k = b.k();
+            nk5 nk5Var = new nk5();
+            this.mAddressListData = nk5Var;
+            if (nk5Var.c(getAddressListResIdl.data)) {
+                wt4 k = wt4.k();
                 k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             }
         }

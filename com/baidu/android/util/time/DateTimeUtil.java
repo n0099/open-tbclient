@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DateTimeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -161,8 +161,8 @@ public final class DateTimeUtil {
         }
         try {
             mDelta = Long.parseLong(str) - (System.currentTimeMillis() / 1000);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             mDelta = 0L;
         }
     }

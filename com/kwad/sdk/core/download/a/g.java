@@ -5,7 +5,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.an;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static String a(Context context) {
         String str = "";
@@ -15,9 +15,9 @@ public class g {
                 str = a(query);
                 com.kwad.sdk.core.d.a.c("MiMarketHelper", "detailStyle" + str);
                 ae.a(query);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 com.kwad.sdk.core.d.a.c("MiMarketHelper", "getDetailStyle service not found;");
-                com.kwad.sdk.core.d.a.a(e2);
+                com.kwad.sdk.core.d.a.a(e);
             }
             return str;
         }

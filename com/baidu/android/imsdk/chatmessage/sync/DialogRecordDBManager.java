@@ -24,14 +24,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DialogRecordDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DialogRecordDBManager";
     public static DialogRecordDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Parse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,14 +175,14 @@ public class DialogRecordDBManager extends DBBase {
                 try {
                     sQLiteDatabase = openDatabase();
                     try {
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 sQLiteDatabase = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -243,8 +243,8 @@ public class DialogRecordDBManager extends DBBase {
                             break;
                         }
                         j2 = 0;
-                    } catch (Exception e4) {
-                        e = e4;
+                    } catch (Exception e3) {
+                        e = e3;
                         cursor2 = query;
                         try {
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -275,8 +275,8 @@ public class DialogRecordDBManager extends DBBase {
                         }
                         throw th;
                     }
-                } catch (Exception e5) {
-                    e = e5;
+                } catch (Exception e4) {
+                    e = e4;
                     cursor2 = cursor3;
                 } catch (Throwable th5) {
                     th = th5;
@@ -354,9 +354,9 @@ public class DialogRecordDBManager extends DBBase {
                         j = cursor.getLong(0);
                     }
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "maxMsgid:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "maxMsgid:", e);
             }
         } finally {
             if (0 != 0) {
@@ -403,8 +403,8 @@ public class DialogRecordDBManager extends DBBase {
                         if (cursor.moveToNext()) {
                             i = cursor.getInt(0);
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         i2 = 0;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getUnCompleteItemCount:", e);
@@ -421,15 +421,15 @@ public class DialogRecordDBManager extends DBBase {
                         return i;
                     }
                     return i;
-                } catch (Exception e3) {
+                } catch (Exception e2) {
                     i2 = i;
-                    e = e3;
+                    e = e2;
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                     LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                     return i2;
                 }
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
             }
         } finally {
             if (0 != 0) {
@@ -483,8 +483,8 @@ public class DialogRecordDBManager extends DBBase {
                         if (cursor.moveToNext()) {
                             i = cursor.getInt(0);
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getUnCompleteItemCount:", e);
                     }
@@ -498,8 +498,8 @@ public class DialogRecordDBManager extends DBBase {
                     cursor.close();
                 }
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             i = -1;
         }
     }

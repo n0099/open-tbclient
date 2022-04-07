@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public class MD5Utils {
             synchronized (MD5Utils.class) {
                 str2 = "";
                 try {
-                    for (byte b2 : MessageDigest.getInstance(PackageTable.MD5).digest(str.getBytes())) {
-                        String hexString = Integer.toHexString(b2 & 255);
+                    for (byte b : MessageDigest.getInstance(PackageTable.MD5).digest(str.getBytes())) {
+                        String hexString = Integer.toHexString(b & 255);
                         if (hexString.length() == 1) {
                             hexString = "0" + hexString;
                         }

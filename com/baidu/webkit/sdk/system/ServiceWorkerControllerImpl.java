@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.ServiceWorkerClient;
 import com.baidu.webkit.sdk.ServiceWorkerController;
 import com.baidu.webkit.sdk.ServiceWorkerWebSettings;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ServiceWorkerControllerImpl extends ServiceWorkerController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

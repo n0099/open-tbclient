@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMRtcInfo> CREATOR;
@@ -197,8 +197,8 @@ public class BIMRtcInfo implements Parcelable {
                 bIMRtcInfo.setRtcRoomId(str);
                 bIMRtcInfo.setRtcExt(jSONObject.optString("ext"));
                 bIMRtcInfo.setRtcDeviceId(jSONObject.optString("rtc_device_id"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMRtcInfo toRtcInfo Exception ", e);
             }
             return bIMRtcInfo;
         }
@@ -224,8 +224,8 @@ public class BIMRtcInfo implements Parcelable {
                     jSONObject.put("ext", this.mRtcExt);
                 }
                 jSONObject.put("rtc_device_id", this.mCuid);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "IMSyncRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMSyncRtcInfo Exception ", e);
             }
             String jSONObject2 = jSONObject.toString();
             this.mObj = jSONObject2;

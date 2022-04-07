@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ViewUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialShapeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,30 +59,30 @@ public class MaterialShapeUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new EdgeTreatment() : (EdgeTreatment) invokeV.objValue;
     }
 
-    public static void setElevation(@NonNull View view, float f2) {
+    public static void setElevation(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, view, f2) == null) {
-            Drawable background = view.getBackground();
+        if (interceptable == null || interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, f) == null) {
+            Drawable background = view2.getBackground();
             if (background instanceof MaterialShapeDrawable) {
-                ((MaterialShapeDrawable) background).setElevation(f2);
+                ((MaterialShapeDrawable) background).setElevation(f);
             }
         }
     }
 
-    public static void setParentAbsoluteElevation(@NonNull View view) {
+    public static void setParentAbsoluteElevation(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, view) == null) {
-            Drawable background = view.getBackground();
+        if (interceptable == null || interceptable.invokeL(65541, null, view2) == null) {
+            Drawable background = view2.getBackground();
             if (background instanceof MaterialShapeDrawable) {
-                setParentAbsoluteElevation(view, (MaterialShapeDrawable) background);
+                setParentAbsoluteElevation(view2, (MaterialShapeDrawable) background);
             }
         }
     }
 
-    public static void setParentAbsoluteElevation(@NonNull View view, @NonNull MaterialShapeDrawable materialShapeDrawable) {
+    public static void setParentAbsoluteElevation(@NonNull View view2, @NonNull MaterialShapeDrawable materialShapeDrawable) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, view, materialShapeDrawable) == null) && materialShapeDrawable.isElevationOverlayEnabled()) {
-            materialShapeDrawable.setParentAbsoluteElevation(ViewUtils.getParentAbsoluteElevation(view));
+        if ((interceptable == null || interceptable.invokeLL(65542, null, view2, materialShapeDrawable) == null) && materialShapeDrawable.isElevationOverlayEnabled()) {
+            materialShapeDrawable.setParentAbsoluteElevation(ViewUtils.getParentAbsoluteElevation(view2));
         }
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,8 +26,8 @@ public class e {
             matrix.postScale(-1.0f, 1.0f);
             try {
                 return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -61,8 +61,8 @@ public class e {
                 bitmap = BitmapFactory.decodeStream(open);
                 open.close();
                 return bitmap;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return bitmap;
             }
         }
@@ -71,32 +71,32 @@ public class e {
 
     public static Bitmap rotateBitmap(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             Matrix matrix = new Matrix();
-            float f3 = width / 2.0f;
-            float f4 = height / 2.0f;
-            matrix.setRotate(i, f3, f4);
-            float f5 = 0.0f;
+            float f2 = width / 2.0f;
+            float f3 = height / 2.0f;
+            matrix.setRotate(i, f2, f3);
+            float f4 = 0.0f;
             if (i != 90 && i != 270) {
-                f2 = 0.0f;
+                f = 0.0f;
             } else if (width > height) {
-                float f6 = f4 - f3;
-                f2 = 0.0f - f6;
-                f5 = f6;
+                float f5 = f3 - f2;
+                f = 0.0f - f5;
+                f4 = f5;
             } else {
-                f2 = f3 - f4;
-                f5 = 0.0f - f2;
+                f = f2 - f3;
+                f4 = 0.0f - f;
             }
-            matrix.postTranslate(f5, f2);
+            matrix.postTranslate(f4, f);
             Bitmap bitmap2 = null;
             try {
                 bitmap2 = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             new Canvas(bitmap2).drawBitmap(bitmap, matrix, new Paint());
             return bitmap2;

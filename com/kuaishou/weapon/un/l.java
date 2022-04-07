@@ -12,12 +12,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final long f38896b = 1;
+    public static final long b = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<m> a;
 
@@ -45,20 +43,20 @@ public class l {
         for (int i3 = 0; i3 < length; i3++) {
             if (activityInfoArr[i3] != null) {
                 m mVar = new m();
-                mVar.f38907h = activityInfoArr[i3].configChanges;
-                mVar.f38905f = activityInfoArr[i3].flags;
+                mVar.h = activityInfoArr[i3].configChanges;
+                mVar.f = activityInfoArr[i3].flags;
                 mVar.m = activityInfoArr[i3].labelRes;
-                mVar.f38901b = activityInfoArr[i3].launchMode;
+                mVar.b = activityInfoArr[i3].launchMode;
                 if (activityInfoArr[i3].nonLocalizedLabel != null) {
                     mVar.n = activityInfoArr[i3].nonLocalizedLabel.toString();
                 }
                 mVar.k = activityInfoArr[i3].name;
                 mVar.l = activityInfoArr[i3].packageName;
-                mVar.f38902c = activityInfoArr[i3].permission;
-                mVar.f38906g = activityInfoArr[i3].screenOrientation;
+                mVar.c = activityInfoArr[i3].permission;
+                mVar.g = activityInfoArr[i3].screenOrientation;
                 mVar.i = activityInfoArr[i3].softInputMode;
-                mVar.f38904e = activityInfoArr[i3].targetActivity;
-                mVar.f38903d = activityInfoArr[i3].taskAffinity;
+                mVar.e = activityInfoArr[i3].targetActivity;
+                mVar.d = activityInfoArr[i3].taskAffinity;
                 mVar.a = activityInfoArr[i3].theme;
                 this.a.add(mVar);
             }
@@ -82,16 +80,16 @@ public class l {
                     try {
                         objectInputStream.close();
                         byteArrayInputStream.close();
-                    } catch (IOException e2) {
-                        l1.a(e2);
+                    } catch (IOException e) {
+                        l1.a(e);
                     }
                     return arrayList;
                 } catch (Throwable unused) {
                     if (objectInputStream != null) {
                         try {
                             objectInputStream.close();
-                        } catch (IOException e3) {
-                            l1.a(e3);
+                        } catch (IOException e2) {
+                            l1.a(e2);
                             return null;
                         }
                     }
@@ -141,16 +139,16 @@ public class l {
                 try {
                     objectOutputStream.close();
                     byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    l1.a(e2);
+                } catch (IOException e) {
+                    l1.a(e);
                 }
                 return byteArray;
             } catch (IOException unused3) {
                 if (objectOutputStream != null) {
                     try {
                         objectOutputStream.close();
-                    } catch (IOException e3) {
-                        l1.a(e3);
+                    } catch (IOException e2) {
+                        l1.a(e2);
                         return null;
                     }
                 }
@@ -164,8 +162,8 @@ public class l {
                 if (objectOutputStream2 != null) {
                     try {
                         objectOutputStream2.close();
-                    } catch (IOException e4) {
-                        l1.a(e4);
+                    } catch (IOException e3) {
+                        l1.a(e3);
                         throw th;
                     }
                 }

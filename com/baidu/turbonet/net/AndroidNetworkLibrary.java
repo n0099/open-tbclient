@@ -24,7 +24,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AndroidNetworkLibrary {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -136,8 +136,8 @@ public class AndroidNetworkLibrary {
                     }
                 }
                 return true;
-            } catch (Exception e2) {
-                Log.w("AndroidNetworkLibrary", "could not get network interfaces: " + e2);
+            } catch (Exception e) {
+                Log.w("AndroidNetworkLibrary", "could not get network interfaces: " + e);
                 return false;
             }
         }
@@ -162,8 +162,8 @@ public class AndroidNetworkLibrary {
                 }
                 context.startActivity(createInstallIntent);
                 return true;
-            } catch (ActivityNotFoundException e2) {
-                Log.w("AndroidNetworkLibrary", "could not store crypto file: " + e2);
+            } catch (ActivityNotFoundException e) {
+                Log.w("AndroidNetworkLibrary", "could not store crypto file: " + e);
                 return false;
             }
         }
@@ -182,8 +182,8 @@ public class AndroidNetworkLibrary {
                 createInstallIntent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 context.startActivity(createInstallIntent);
                 return true;
-            } catch (ActivityNotFoundException e2) {
-                Log.w("AndroidNetworkLibrary", "could not store key pair: " + e2);
+            } catch (ActivityNotFoundException e) {
+                Log.w("AndroidNetworkLibrary", "could not store key pair: " + e);
                 return false;
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RC4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_LENGTH = 256;
@@ -51,9 +51,9 @@ public class RC4 {
                     byte[] bArr3 = this.engineState;
                     int i6 = (bArr3[i5] + this.y) & 255;
                     this.y = i6;
-                    byte b2 = bArr3[i5];
+                    byte b = bArr3[i5];
                     bArr3[i5] = bArr3[i6];
-                    bArr3[i6] = b2;
+                    bArr3[i6] = b;
                     bArr2[i4 + i3] = (byte) (bArr3[(bArr3[i5] + bArr3[i6]) & 255] ^ bArr[i4 + i]);
                 }
                 return;
@@ -85,9 +85,9 @@ public class RC4 {
             for (int i4 = 0; i4 < 256; i4++) {
                 byte[] bArr2 = this.engineState;
                 i3 = ((bArr[i2] & 255) + bArr2[i4] + i3) & 255;
-                byte b2 = bArr2[i4];
+                byte b = bArr2[i4];
                 bArr2[i4] = bArr2[i3];
-                bArr2[i3] = b2;
+                bArr2[i3] = b;
                 i2 = (i2 + 1) % bArr.length;
             }
         }

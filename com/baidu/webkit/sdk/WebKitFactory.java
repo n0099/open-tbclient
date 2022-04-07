@@ -46,7 +46,7 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -106,7 +106,7 @@ public final class WebKitFactory {
     public static boolean sZeusSupportedLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DelayedInitTask extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,10 +220,10 @@ public final class WebKitFactory {
                         str2 = new String(bArr, IMAudioTransRequest.CHARSET);
                     }
                     Statistics.init(str + "error.log", str + "phoenix_ad.log", str2);
-                } catch (FileNotFoundException e2) {
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e2) {
                     e2.printStackTrace();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -299,7 +299,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface IForceInitZeusListener {
         @Keep
         void onForceInitZeusFinish(boolean z);
@@ -309,7 +309,7 @@ public final class WebKitFactory {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -370,7 +370,7 @@ public final class WebKitFactory {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface WebkitInstallListener {
         public static final int RET_CANCELED = 3;
         public static final int RET_FAILED_ALREADY_RUNNING = 8;
@@ -836,8 +836,8 @@ public final class WebKitFactory {
                     int size = arrayList.size();
                     sStartUpFreq = size;
                     return size;
-                } catch (IOException e2) {
-                    str = "read private file " + str3 + " failed: " + e2.getMessage();
+                } catch (IOException e) {
+                    str = "read private file " + str3 + " failed: " + e.getMessage();
                     Log.v(TAG, str);
                     ArrayList arrayList2 = new ArrayList();
                     if (bArr != null) {
@@ -1020,8 +1020,8 @@ public final class WebKitFactory {
         if (!TextUtils.isEmpty(GetCloudSettingsValue)) {
             try {
                 intValue = Integer.valueOf(GetCloudSettingsValue).intValue();
-            } catch (Exception e2) {
-                Log.e(TAG, "in isPlatformSupported, cloudSetting is not digit", e2);
+            } catch (Exception e) {
+                Log.e(TAG, "in isPlatformSupported, cloudSetting is not digit", e);
             }
             int i = Build.VERSION.SDK_INT;
             return i >= 14 && i <= intValue;
@@ -1055,10 +1055,10 @@ public final class WebKitFactory {
                 boolean z2 = !TextUtils.isEmpty(property) && property.endsWith(OS_64);
                 if (!TextUtils.isEmpty(property) && property.toLowerCase().contains("armv")) {
                     try {
-                    } catch (NumberFormatException e2) {
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    } catch (Exception e2) {
                         e2.printStackTrace();
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
                     }
                     if (Integer.valueOf(property.substring(4, 5)).intValue() >= 7) {
                         z = true;
@@ -1094,8 +1094,8 @@ public final class WebKitFactory {
                     Log.i(EngineManager.LOG_TAG, " lockUpdateZeus time = " + (System.currentTimeMillis() - currentTimeMillis));
                     return mLock != null;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return false;
         }
@@ -1613,8 +1613,8 @@ public final class WebKitFactory {
                     mLock = null;
                     Log.i(EngineManager.LOG_TAG, " unLockUpdateZeus");
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

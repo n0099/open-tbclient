@@ -1,7 +1,5 @@
 package com.baidu.tbadk.core.bigday;
 
-import c.a.d.f.d.l;
-import c.a.o0.r.o.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,17 +7,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
+import com.repackage.ln4;
+import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> bigdayInfos;
+    public ArrayList<ln4> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -48,10 +49,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            c.a.o0.r.s.a.f();
-            l<byte[]> d2 = c.a.o0.r.s.a.d("tb.bigday_datas");
-            d2.remove("tb.bigday_datas");
-            d2.g("tb.bigday_datas", bArr);
+            cr4.f();
+            qe<byte[]> d = cr4.d("tb.bigday_datas");
+            d.remove("tb.bigday_datas");
+            d.g("tb.bigday_datas", bArr);
         }
     }
 
@@ -75,10 +76,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
         this.bigdayInfos = new ArrayList<>();
         for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
             if (bigdayInfo != null) {
-                a aVar = new a();
-                aVar.b(bigdayInfo);
-                if (aVar.a()) {
-                    this.bigdayInfos.add(aVar);
+                ln4 ln4Var = new ln4();
+                ln4Var.b(bigdayInfo);
+                if (ln4Var.a()) {
+                    this.bigdayInfos.add(ln4Var);
                 }
             }
         }

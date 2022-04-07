@@ -12,18 +12,10 @@ import java.util.HashMap;
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "aes_key";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f42567b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static boolean f42568c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static boolean f42569d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static boolean f42570e;
+    public static boolean b;
+    public static boolean c;
+    public static boolean d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,10 +32,10 @@ public class f {
             }
         }
         new HashMap();
-        f42567b = false;
-        f42568c = true;
-        f42569d = false;
-        f42570e = false;
+        b = false;
+        c = true;
+        d = false;
+        e = false;
     }
 
     public f() {

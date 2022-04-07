@@ -40,8 +40,8 @@ public class b implements Runnable {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("quite_clean_size", Long.valueOf(a3 - a2));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             com.ss.android.downloadlib.d.a.a().a("cleanspace_download_after_quite_clean", jSONObject, a);
             Downloader.getInstance(j.getContext()).restart(this.a.getId());
@@ -56,8 +56,8 @@ public class b implements Runnable {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.putOpt("show_dialog_result", 3);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             com.ss.android.downloadlib.d.a.a().a("cleanspace_window_show", jSONObject2, a);
         }

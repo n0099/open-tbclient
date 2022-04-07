@@ -11,7 +11,7 @@ import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @Descriptor(tags = {6})
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SLConfigDescriptor extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

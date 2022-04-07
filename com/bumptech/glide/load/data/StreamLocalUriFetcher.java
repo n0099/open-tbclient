@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StreamLocalUriFetcher extends LocalUriFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_CONTACTS_CONTACT = 3;

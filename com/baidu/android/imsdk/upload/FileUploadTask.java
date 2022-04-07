@@ -25,7 +25,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
@@ -151,10 +151,10 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                     return 1008;
                 }
                 return 1007;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str5 = TAG;
-                LogUtils.e(str5, "IOException:" + e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str5, "IOException:" + e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 return 1008;
             }
         }
@@ -168,10 +168,10 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                 if (this.mListener != null) {
                     this.mListener.onFailed(i, "upload failure");
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str = TAG;
-                LogUtils.e(str, "IOException notifyFailed:" + e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str, "IOException notifyFailed:" + e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -183,10 +183,10 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                 if (this.mListener != null) {
                     this.mListener.onFinished(0);
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str = TAG;
-                LogUtils.e(str, "IOException notifyFinished:" + e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                LogUtils.e(str, "IOException notifyFinished:" + e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

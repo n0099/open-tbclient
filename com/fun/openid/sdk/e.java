@@ -9,17 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final OnGetOaidListener f38666b;
+    public final OnGetOaidListener b;
 
     public e(Context context, OnGetOaidListener onGetOaidListener) {
         Interceptable interceptable = $ic;
@@ -37,14 +34,14 @@ public class e implements Runnable {
             }
         }
         this.a = context.getApplicationContext();
-        this.f38666b = onGetOaidListener;
+        this.b = onGetOaidListener;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = this.a;
-            f.a aVar = new f.a() { // from class: c.d.e0.a.a
+            f.a aVar = new f.a() { // from class: com.repackage.tk9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -52,7 +49,7 @@ public class e implements Runnable {
                 public final void a(boolean z, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeZL(1048576, this, z, str) == null) {
-                        e.this.a(z, str);
+                        com.fun.openid.sdk.e.this.a(z, str);
                     }
                 }
             };
@@ -63,11 +60,11 @@ public class e implements Runnable {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     throw new IllegalStateException("Cannot be called from the main thread");
                 }
-                if (i.a == null && !i.f38667b) {
+                if (i.a == null && !i.b) {
                     synchronized (i.class) {
-                        if (i.a == null && !i.f38667b) {
+                        if (i.a == null && !i.b) {
                             i.a = b.a();
-                            i.f38667b = true;
+                            i.b = true;
                         }
                     }
                 }
@@ -93,7 +90,7 @@ public class e implements Runnable {
             if (FunOpenIDSdk.isLogEnabled()) {
                 Log.e(FunOpenIDSdk.TAG, "==========在缓存中查找到oaid，直接返回 oaid = " + string);
             }
-            OnGetOaidListener onGetOaidListener = this.f38666b;
+            OnGetOaidListener onGetOaidListener = this.b;
             if (onGetOaidListener != null) {
                 onGetOaidListener.onGetOaid(string);
             }
@@ -124,22 +121,22 @@ public class e implements Runnable {
                         this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putInt("key_retry_count", i + 1).apply();
                         a();
                         return;
-                    } catch (InterruptedException e2) {
-                        e2.printStackTrace();
-                        onGetOaidListener = this.f38666b;
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                        onGetOaidListener = this.b;
                         if (onGetOaidListener == null) {
                             return;
                         }
                     }
                 } else {
-                    onGetOaidListener = this.f38666b;
+                    onGetOaidListener = this.b;
                     if (onGetOaidListener == null) {
                         return;
                     }
                 }
                 str = null;
             } else {
-                onGetOaidListener = this.f38666b;
+                onGetOaidListener = this.b;
                 if (onGetOaidListener == null) {
                     return;
                 }

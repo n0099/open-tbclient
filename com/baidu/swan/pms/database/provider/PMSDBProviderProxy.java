@@ -9,8 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.n0.q.f.e.b;
-import c.a.n0.q.o.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,14 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kd4;
+import com.repackage.z84;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final a LOG;
+    public static final kd4 LOG;
     public static final String TAG = "PMSDBProviderProxy";
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile b mProvider;
+    public volatile z84 mProvider;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        LOG = a.c();
+        LOG = kd4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -90,8 +90,8 @@ public class PMSDBProviderProxy extends ContentProvider {
                         }
                     }
                     return applyBatch;
-                } catch (Exception e2) {
-                    LOG.g(TAG, "#applyBatch error", e2);
+                } catch (Exception e) {
+                    LOG.g(TAG, "#applyBatch error", e);
                     writableDatabase.endTransaction();
                     LOG.i(TAG, "#applyBatch endTransaction");
                     return new ContentProviderResult[0];
@@ -111,20 +111,20 @@ public class PMSDBProviderProxy extends ContentProvider {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? getProvider().delete(uri, str, strArr) : invokeLLL.intValue;
     }
 
-    public b getProvider() {
+    public z84 getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mProvider == null) {
-                synchronized (b.class) {
+                synchronized (z84.class) {
                     if (this.mProvider == null) {
-                        this.mProvider = new b(getContext());
+                        this.mProvider = new z84(getContext());
                     }
                 }
             }
             return this.mProvider;
         }
-        return (b) invokeV.objValue;
+        return (z84) invokeV.objValue;
     }
 
     @Override // android.content.ContentProvider

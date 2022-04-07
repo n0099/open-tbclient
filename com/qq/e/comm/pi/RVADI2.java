@@ -2,7 +2,7 @@ package com.qq.e.comm.pi;
 
 import android.app.Activity;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface RVADI2 extends LADI {
     void destroy();
 

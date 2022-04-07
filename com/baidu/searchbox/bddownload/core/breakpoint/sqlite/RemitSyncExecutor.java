@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RemitSyncExecutor implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemitSyncExecutor";
@@ -33,7 +33,7 @@ public class RemitSyncExecutor implements Handler.Callback {
     @NonNull
     public final Handler handler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface RemitAgent {
         void removeInfo(int i);
 

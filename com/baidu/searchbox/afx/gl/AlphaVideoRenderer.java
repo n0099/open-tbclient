@@ -20,7 +20,7 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AlphaVideoRenderer";
@@ -44,7 +44,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     public int uMVPMatrixHandle;
     public int uSTMatrixHandle;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSurfacePrepareListener {
         void onSurfacePrepared(Surface surface);
     }
@@ -174,7 +174,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
     public void onDrawFrame(GL10 gl10) {
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gl10) == null) {
             synchronized (this) {
@@ -212,10 +212,10 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
             GLES20.glDrawArrays(5, 0, 4);
             checkGlError("glDrawArrays");
             synchronized (this) {
-                f2 = this.clearLastFrame ? -1.0f : 0.0f;
-                this.mDismissFlag = f2;
+                f = this.clearLastFrame ? -1.0f : 0.0f;
+                this.mDismissFlag = f;
             }
-            GLES20.glUniform1f(this.uDismissFlagHandle, f2);
+            GLES20.glUniform1f(this.uDismissFlagHandle, f);
             GLES20.glFinish();
         }
     }
@@ -300,15 +300,15 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         }
     }
 
-    public void setDarkFilter(float f2) {
+    public void setDarkFilter(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            if (f2 < 0.0f) {
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            if (f < 0.0f) {
                 this.mFilterFactor = 0.0f;
-            } else if (f2 > 1.0f) {
+            } else if (f > 1.0f) {
                 this.mFilterFactor = 1.0f;
             } else {
-                this.mFilterFactor = f2;
+                this.mFilterFactor = f;
             }
         }
     }

@@ -99,9 +99,9 @@ public class SupportMenuInflater extends MenuInflater {
             Class<?> cls = obj.getClass();
             try {
                 this.mMethod = cls.getMethod(str, PARAM_TYPES);
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 InflateException inflateException = new InflateException("Couldn't resolve menu item onClick handler " + str + " in class " + cls.getName());
-                inflateException.initCause(e2);
+                inflateException.initCause(e);
                 throw inflateException;
             }
         }
@@ -117,8 +117,8 @@ public class SupportMenuInflater extends MenuInflater {
                     }
                     this.mMethod.invoke(this.mRealOwner, menuItem);
                     return true;
-                } catch (Exception e2) {
-                    throw new RuntimeException(e2);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             }
             return invokeL.booleanValue;
@@ -212,8 +212,8 @@ public class SupportMenuInflater extends MenuInflater {
                     Constructor<?> constructor = Class.forName(str, false, this.this$0.mContext.getClassLoader()).getConstructor(clsArr);
                     constructor.setAccessible(true);
                     return (T) constructor.newInstance(objArr);
-                } catch (Exception e2) {
-                    Log.w(SupportMenuInflater.LOG_TAG, "Cannot instantiate class: " + str, e2);
+                } catch (Exception e) {
+                    Log.w(SupportMenuInflater.LOG_TAG, "Cannot instantiate class: " + str, e);
                     return null;
                 }
             }
@@ -521,10 +521,10 @@ public class SupportMenuInflater extends MenuInflater {
                 try {
                     xmlResourceParser = this.mContext.getResources().getLayout(i);
                     parseMenu(xmlResourceParser, Xml.asAttributeSet(xmlResourceParser), menu);
-                } catch (IOException e2) {
+                } catch (IOException e) {
+                    throw new InflateException("Error inflating menu XML", e);
+                } catch (XmlPullParserException e2) {
                     throw new InflateException("Error inflating menu XML", e2);
-                } catch (XmlPullParserException e3) {
-                    throw new InflateException("Error inflating menu XML", e3);
                 }
             } finally {
                 if (xmlResourceParser != null) {

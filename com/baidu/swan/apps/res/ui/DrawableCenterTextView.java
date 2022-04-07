@@ -17,40 +17,26 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ae3;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DrawableCenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GradientDrawable a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Paint f29096b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Pair<Object, Object> f29097c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Object f29098d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Object f29099e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f29100f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f29101g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f29102h;
+    public Paint b;
+    public Pair<Object, Object> c;
+    public Object d;
+    public Object e;
+    public int f;
+    public boolean g;
+    public boolean h;
     public boolean i;
     public boolean j;
     public float k;
@@ -123,53 +109,53 @@ public class DrawableCenterTextView extends TextView {
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f29096b == null) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b == null) {
             Paint paint = new Paint();
-            this.f29096b = paint;
+            this.b = paint;
             paint.setColor(0);
-            this.f29096b.setStyle(Paint.Style.STROKE);
-            this.f29096b.setAntiAlias(true);
-            this.f29096b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+            this.b.setStyle(Paint.Style.STROKE);
+            this.b.setAntiAlias(true);
+            this.b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         }
     }
 
     public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29101g && this.f29097c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g && this.c != null : invokeV.booleanValue;
     }
 
     public final void f(Canvas canvas) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) && e()) {
-            float f2 = this.k;
-            if (f2 >= 0.0f) {
-                this.a.setCornerRadius(f2);
+            float f = this.k;
+            if (f >= 0.0f) {
+                this.a.setCornerRadius(f);
             } else {
                 this.a.setCornerRadius(4.0f);
             }
-            if (this.f29102h) {
-                int f3 = n0.f(getContext(), 0.5f);
-                Object obj = this.f29098d;
+            if (this.h) {
+                int f2 = ae3.f(getContext(), 0.5f);
+                Object obj = this.d;
                 if (obj instanceof String) {
-                    this.a.setStroke(f3, Color.parseColor(obj.toString()));
+                    this.a.setStroke(f2, Color.parseColor(obj.toString()));
                 } else if (obj instanceof Integer) {
-                    this.a.setStroke(f3, getResources().getColor(Integer.valueOf(this.f29098d.toString()).intValue()));
+                    this.a.setStroke(f2, getResources().getColor(Integer.valueOf(this.d.toString()).intValue()));
                 }
             }
             if (this.j) {
-                Object obj2 = this.f29097c.second;
+                Object obj2 = this.c.second;
                 if (obj2 instanceof String) {
                     this.a.setColor(Color.parseColor(obj2.toString()));
                 } else if (obj2 instanceof Integer) {
-                    this.a.setColor(getResources().getColor(Integer.valueOf(this.f29097c.second.toString()).intValue()));
+                    this.a.setColor(getResources().getColor(Integer.valueOf(this.c.second.toString()).intValue()));
                 }
             } else {
-                Object obj3 = this.f29097c.first;
+                Object obj3 = this.c.first;
                 if (obj3 instanceof String) {
                     this.a.setColor(Color.parseColor(obj3.toString()));
                 } else if (obj3 instanceof Integer) {
-                    this.a.setColor(getResources().getColor(Integer.valueOf(this.f29097c.first.toString()).intValue()));
+                    this.a.setColor(getResources().getColor(Integer.valueOf(this.c.first.toString()).intValue()));
                 }
             }
             canvas.save();
@@ -187,47 +173,47 @@ public class DrawableCenterTextView extends TextView {
     }
 
     public final void g(Canvas canvas) {
+        float f;
         float f2;
         float f3;
-        float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             float width = getWidth();
             float height = getHeight();
             Paint paint = new Paint();
-            paint.setStrokeWidth(n0.f(getContext(), 0.5f));
-            Object obj = this.f29099e;
+            paint.setStrokeWidth(ae3.f(getContext(), 0.5f));
+            Object obj = this.e;
             if (obj instanceof String) {
                 paint.setColor(Color.parseColor(obj.toString()));
             } else if (obj instanceof Integer) {
-                paint.setColor(getResources().getColor(Integer.valueOf(this.f29099e.toString()).intValue()));
+                paint.setColor(getResources().getColor(Integer.valueOf(this.e.toString()).intValue()));
             }
-            int i = this.f29100f;
-            float f5 = 0.0f;
+            int i = this.f;
+            float f4 = 0.0f;
             if (i == 0) {
-                f2 = height;
+                f = height;
+                f2 = 0.0f;
                 f3 = 0.0f;
-                f4 = 0.0f;
             } else if (i != 1) {
                 if (i == 2) {
-                    f4 = width;
-                    f2 = height;
-                    f5 = getWidth();
+                    f3 = width;
+                    f = height;
+                    f4 = getWidth();
                 } else if (i != 3) {
-                    f4 = width;
-                    f2 = height;
+                    f3 = width;
+                    f = height;
                 } else {
-                    f4 = width;
-                    f2 = height;
-                    f3 = getHeight();
+                    f3 = width;
+                    f = height;
+                    f2 = getHeight();
                 }
-                f3 = 0.0f;
-            } else {
-                f4 = width;
-                f3 = 0.0f;
                 f2 = 0.0f;
+            } else {
+                f3 = width;
+                f2 = 0.0f;
+                f = 0.0f;
             }
-            canvas.drawLine(f5, f3, f4, f2, paint);
+            canvas.drawLine(f4, f2, f3, f, paint);
         }
     }
 
@@ -256,8 +242,8 @@ public class DrawableCenterTextView extends TextView {
             }
             drawable = null;
             i = -1;
-            int w = n0.w(this);
-            int v = n0.v(this);
+            int w = ae3.w(this);
+            int v = ae3.v(this);
             int compoundDrawablePadding = getCompoundDrawablePadding();
             if (drawable != null) {
                 Rect bounds = drawable.getBounds();
@@ -344,31 +330,31 @@ public class DrawableCenterTextView extends TextView {
         }
     }
 
-    public void setAnimationPercent(float f2) {
+    public void setAnimationPercent(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048587, this, f2) == null) || this.l == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048587, this, f) == null) || this.l == f) {
             return;
         }
-        this.l = f2;
+        this.l = f;
         postInvalidate();
     }
 
     @Override // android.widget.TextView
-    public void setShadowLayer(float f2, float f3, float f4, int i) {
+    public void setShadowLayer(float f, float f2, float f3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)}) == null) {
             d();
-            RectF rectF = new RectF(f2, f2, f2, f2);
-            rectF.offset(f3, f4);
-            float f5 = rectF.left;
-            int i2 = f5 < 0.0f ? 0 : (int) (f5 + 0.5f);
-            float f6 = rectF.right;
-            int i3 = f6 < 0.0f ? 0 : (int) (f6 + 0.5f);
-            float f7 = rectF.top;
-            int i4 = f7 < 0.0f ? 0 : (int) (f7 + 0.5f);
-            float f8 = rectF.bottom;
-            setPadding(i2, i4, i3, f8 >= 0.0f ? (int) (f8 + 0.5f) : 0);
-            this.f29096b.setShadowLayer(f2, f3, f4, i);
+            RectF rectF = new RectF(f, f, f, f);
+            rectF.offset(f2, f3);
+            float f4 = rectF.left;
+            int i2 = f4 < 0.0f ? 0 : (int) (f4 + 0.5f);
+            float f5 = rectF.right;
+            int i3 = f5 < 0.0f ? 0 : (int) (f5 + 0.5f);
+            float f6 = rectF.top;
+            int i4 = f6 < 0.0f ? 0 : (int) (f6 + 0.5f);
+            float f7 = rectF.bottom;
+            setPadding(i2, i4, i3, f7 >= 0.0f ? (int) (f7 + 0.5f) : 0);
+            this.b.setShadowLayer(f, f2, f3, i);
         }
     }
 
@@ -392,9 +378,9 @@ public class DrawableCenterTextView extends TextView {
             }
         }
         this.a = new GradientDrawable();
-        this.f29096b = null;
+        this.b = null;
         new Path();
-        this.f29097c = null;
+        this.c = null;
         this.j = false;
         this.k = -1.0f;
         this.l = 0.0f;

@@ -2,7 +2,7 @@ package com.baidu.ar.filter;
 
 import android.graphics.Point;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IFilter {
     void clearAllFilter();
 
@@ -10,7 +10,7 @@ public interface IFilter {
 
     void setFilterStateListener(FilterStateListener filterStateListener);
 
-    void updateFilter(FilterParam filterParam, float f2);
+    void updateFilter(FilterParam filterParam, float f);
 
     void updateFilter(FilterParam filterParam, int i);
 

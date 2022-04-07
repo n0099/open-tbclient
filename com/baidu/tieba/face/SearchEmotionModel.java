@@ -1,7 +1,6 @@
 package com.baidu.tieba.face;
 
 import android.text.TextUtils;
-import c.a.d.f.p.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -20,16 +19,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+import com.repackage.t86;
+/* loaded from: classes3.dex */
 public class SearchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f32011b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,16 +69,16 @@ public class SearchEmotionModel extends BdBaseModel {
                     return;
                 }
                 if (!TextUtils.isEmpty(searchEmotionResponseMessage.getErrorString())) {
-                    n.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
+                    oi.N(TbadkCoreApplication.getInst(), searchEmotionResponseMessage.getErrorString());
                 }
                 this.a.a.onFail(searchEmotionResponseMessage.getError(), searchEmotionResponseMessage.getErrorString());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
-        void a(String str, c.a.p0.z0.c.a aVar);
+        void a(String str, t86 t86Var);
 
         void onFail(int i, String str);
     }
@@ -97,12 +96,12 @@ public class SearchEmotionModel extends BdBaseModel {
                 return;
             }
         }
-        this.f32011b = new a(this, CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
+        this.b = new a(this, CmdConfigHttp.CMD_SEARCH_PB_EMOTION);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f32011b.setTag(getUniqueId());
-        this.f32011b.setSelfListener(true);
-        registerListener(this.f32011b);
+        this.b.setTag(getUniqueId());
+        this.b.setSelfListener(true);
+        registerListener(this.b);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

@@ -12,17 +12,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
+    public final boolean b = false;
+    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final boolean f40026b = false;
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> f40027c;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public List<AdTemplate> a;
 
@@ -38,8 +34,8 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                 if (!TextUtils.isEmpty(adTemplate.mOriginJString)) {
                     try {
                         jSONArray.put(new JSONObject(adTemplate.mOriginJString));
-                    } catch (JSONException e2) {
-                        com.kwad.sdk.core.d.a.a(e2);
+                    } catch (JSONException e) {
+                        com.kwad.sdk.core.d.a.a(e);
                     }
                 }
                 jSONArray.put(adTemplate.toJson());
@@ -60,7 +56,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
     }
 
     public void a(final com.kwad.sdk.core.request.model.f fVar, final com.kwad.sdk.core.webview.kwai.c cVar) {
-        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f40027c;
+        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.c;
         if (iVar != null) {
             iVar.e();
         }
@@ -84,7 +80,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
                 return adResultData;
             }
         };
-        this.f40027c = iVar2;
+        this.c = iVar2;
         iVar2.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.request.a, AdResultData>() { // from class: com.kwad.sdk.core.webview.jshandler.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
@@ -105,7 +101,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
             public void a(@NonNull com.kwad.sdk.core.request.a aVar, @NonNull final AdResultData adResultData) {
                 Runnable runnable;
                 if (adResultData.isAdResultDataEmpty()) {
-                    com.kwad.sdk.core.d.a.a("WebCardGetKsAdDataHandler", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(com.kwad.sdk.core.network.f.f39580e.n), com.kwad.sdk.core.network.f.f39580e.o));
+                    com.kwad.sdk.core.d.a.a("WebCardGetKsAdDataHandler", "onError:" + String.format("code:%s__msg:%s", Integer.valueOf(com.kwad.sdk.core.network.f.e.n), com.kwad.sdk.core.network.f.e.o));
                     runnable = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.f.2.1
                         @Override // java.lang.Runnable
                         public void run() {
@@ -131,7 +127,7 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
-        if (!this.f40026b) {
+        if (!this.b) {
             if (this.a.c()) {
                 cVar.a(-1, "native adTemplate is null");
                 return;
@@ -145,17 +141,17 @@ public class f implements com.kwad.sdk.core.webview.kwai.a {
         com.kwad.sdk.core.request.model.f fVar = new com.kwad.sdk.core.request.model.f(a2.mAdScene);
         SceneImpl sceneImpl = a2.mAdScene;
         if (sceneImpl != null) {
-            fVar.f39828b = sceneImpl.getPageScene();
+            fVar.b = sceneImpl.getPageScene();
         }
-        fVar.f39829c = 106L;
+        fVar.c = 106L;
         fVar.a.setAdNum(12);
-        fVar.f39830d = com.kwad.sdk.core.response.a.d.x(a2);
+        fVar.d = com.kwad.sdk.core.response.a.d.x(a2);
         a(fVar, cVar);
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.f40027c;
+        com.kwad.sdk.core.network.i<com.kwad.sdk.core.request.a, AdResultData> iVar = this.c;
         if (iVar != null) {
             iVar.e();
         }

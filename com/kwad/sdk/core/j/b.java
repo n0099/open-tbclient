@@ -4,22 +4,16 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.fragment.KsFragment;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends a {
+    public final AtomicBoolean b;
+    public KsFragment c;
+    public String d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f39558b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public KsFragment f39559c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f39560d;
-
-    public b(@NonNull KsFragment ksFragment, @NonNull View view, int i) {
-        super(view, i);
-        this.f39558b = new AtomicBoolean(false);
-        this.f39559c = ksFragment;
+    public b(@NonNull KsFragment ksFragment, @NonNull View view2, int i) {
+        super(view2, i);
+        this.b = new AtomicBoolean(false);
+        this.c = ksFragment;
     }
 
     private boolean a(@NonNull KsFragment ksFragment) {
@@ -31,22 +25,22 @@ public class b extends a {
 
     @Override // com.kwad.sdk.core.j.a
     public boolean c() {
-        KsFragment ksFragment = this.f39559c;
+        KsFragment ksFragment = this.c;
         if (ksFragment == null) {
             return false;
         }
         if (a(ksFragment)) {
-            this.f39560d = "message fragment";
+            this.d = "message fragment";
             return false;
         }
-        this.f39560d = "message view";
+        this.d = "message view";
         return d();
     }
 
     @Override // com.kwad.sdk.core.j.a
     public void g() {
         super.g();
-        this.f39559c = null;
+        this.c = null;
     }
 
     public void h() {
@@ -54,7 +48,7 @@ public class b extends a {
 
     public void i() {
         com.kwad.sdk.core.d.a.c("FragmentPageVisibleHelper", "onFragmentPause");
-        this.f39560d = "onFragmentPause";
+        this.d = "onFragmentPause";
         f();
     }
 }

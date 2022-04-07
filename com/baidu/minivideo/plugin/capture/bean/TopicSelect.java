@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TopicSelect implements Jsonable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_HIDDEN = -1;
@@ -74,8 +74,8 @@ public class TopicSelect implements Jsonable, Serializable {
                 jSONObject.put("tid", this.id);
                 jSONObject.put("name", this.name);
                 jSONObject.put("selected", this.selected);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

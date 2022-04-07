@@ -71,7 +71,7 @@ import java.util.Map;
 import java.util.TimeZone;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.PreviewCallback, SurfaceHolder.Callback, ISecurityCallback, IFaceProcess {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEVICE_CHECK_RESULT_CALLBACK_PASS = 1;
@@ -150,7 +150,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
     public int mSurfaceWidth;
     public FaceLivenessViewCallback mViewCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class BackCameraCallback implements Camera.ErrorCallback, Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -206,7 +206,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class FaceDetectStrategyCallback implements IDetectStrategyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -269,7 +269,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class FaceLivenessStrategyCallback implements ILivenessStrategyCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -332,7 +332,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class FaceLivenessViewCallback implements ILivenessViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -413,7 +413,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class RemoteFaceVerifyRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -608,8 +608,8 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                     if (!this.mBackCameraError) {
                         try {
                             wait(2000L);
-                        } catch (InterruptedException e2) {
-                            CommonMethods.handleNuLException(e2);
+                        } catch (InterruptedException e) {
+                            CommonMethods.handleNuLException(e);
                         }
                     }
                     this.mIsCollectingBackFrame = false;
@@ -832,7 +832,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                 jSONObject.put(SdkConfigOptions.LivenessConfigOption.q, faceInfo.pitch);
                 jSONObject.put("bluriness", faceInfo.bluriness);
                 jSONObject.put("illum", faceInfo.illum);
-                double d2 = 0.0d;
+                double d = 0.0d;
                 jSONObject.put("occlusion_leftEye", faceInfo.occlusion == null ? 0.0d : faceInfo.occlusion.leftEye);
                 jSONObject.put("occlusion_rightEye", faceInfo.occlusion == null ? 0.0d : faceInfo.occlusion.rightEye);
                 jSONObject.put("occlusion_leftCheek", faceInfo.occlusion == null ? 0.0d : faceInfo.occlusion.leftCheek);
@@ -840,9 +840,9 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                 jSONObject.put("occlusion_mouth", faceInfo.occlusion == null ? 0.0d : faceInfo.occlusion.mouth);
                 jSONObject.put("occlusion_nose", faceInfo.occlusion == null ? 0.0d : faceInfo.occlusion.nose);
                 if (faceInfo.occlusion != null) {
-                    d2 = faceInfo.occlusion.chin;
+                    d = faceInfo.occlusion.chin;
                 }
-                jSONObject.put("occlusion_chin", d2);
+                jSONObject.put("occlusion_chin", d);
                 jSONObject.put("age", faceInfo.age);
                 jSONObject.put("race", faceInfo.race == null ? "" : faceInfo.race.name());
                 jSONObject.put("glasses", faceInfo.glasses == null ? "" : faceInfo.glasses.name());
@@ -1348,16 +1348,16 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
     public void getPreviewDetectRect(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
-            float f2 = i / 2;
-            float f3 = f2 - (0.33f * f2);
-            float f4 = i2 / 2;
-            float f5 = i3 / 2;
-            float f6 = f5 - (0.1f * f5);
-            if (f4 <= f3) {
-                f3 = f4;
+            float f = i / 2;
+            float f2 = f - (0.33f * f);
+            float f3 = i2 / 2;
+            float f4 = i3 / 2;
+            float f5 = f4 - (0.1f * f4);
+            if (f3 <= f2) {
+                f2 = f3;
             }
-            float f7 = (0.2f * f3) + f3;
-            this.mDetectRect.set((int) (f4 - f3), (int) (f6 - f7), (int) (f4 + f3), (int) (f6 + f7));
+            float f6 = (0.2f * f2) + f2;
+            this.mDetectRect.set((int) (f3 - f2), (int) (f5 - f6), (int) (f3 + f2), (int) (f5 + f6));
         }
     }
 
@@ -1686,7 +1686,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                     */
                     public void run() {
                         Pair<Integer, Object> callSync;
-                        char c2;
+                        char c;
                         int i;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null && interceptable2.invokeV(1048576, this) != null) {
@@ -1745,14 +1745,14 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                                         if (this.this$0.mConfig.getDeviceCheckFlag() && this.this$0.mDeviceCheckTimeout > 0 && (callSync = FH.callSync(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.this$0.mFaceAuthId, Integer.valueOf(this.this$0.mDeviceCheckTimeout))) != null && ((Integer) callSync.first).intValue() == 0) {
                                             int intValue = ((Integer) callSync.second).intValue();
                                             if (intValue == 1) {
-                                                c2 = 1;
+                                                c = 1;
                                             } else if (intValue == 2) {
-                                                c2 = 65534;
+                                                c = 65534;
                                             }
                                             if (!this.this$0.mCancel) {
                                                 return;
                                             }
-                                            if (c2 != 65534 && (c2 == 1 || !this.this$0.mConfig.getUnknownContinueFlag())) {
+                                            if (c != 65534 && (c == 1 || !this.this$0.mConfig.getUnknownContinueFlag())) {
                                                 i = 1;
                                                 if (this.this$0.mCallback != null && this.this$0.mActivity != null) {
                                                     this.this$0.mActivity.runOnUiThread(new Runnable(this, i) { // from class: com.baidu.sofire.facesrc.FaceLivenessProcess.1.2
@@ -1790,7 +1790,7 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                                                         }
                                                     });
                                                 }
-                                                if (c2 != 65534) {
+                                                if (c != 65534) {
                                                     this.this$0.processEnd(-3);
                                                     return;
                                                 } else if (i == -1) {
@@ -1887,13 +1887,13 @@ public class FaceLivenessProcess implements Camera.ErrorCallback, Camera.Preview
                                                     }
                                                 });
                                             }
-                                            if (c2 != 65534) {
+                                            if (c != 65534) {
                                             }
                                         }
                                     } else {
                                         FH.call(1, "fdrv", new Class[]{String.class, Integer.TYPE}, this.this$0.mFaceAuthId, Integer.valueOf(this.this$0.mDeviceCheckTimeout));
                                     }
-                                    c2 = 65535;
+                                    c = 65535;
                                     if (!this.this$0.mCancel) {
                                     }
                                 } else {

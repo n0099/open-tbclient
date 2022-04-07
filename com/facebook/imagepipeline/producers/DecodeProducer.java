@@ -37,7 +37,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DecodeProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -60,7 +60,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
     public final int mMaxBitmapSize;
     public final ProgressiveJpegConfig mProgressiveJpegConfig;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class LocalImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class NetworkImagesProgressiveDecoder extends ProgressiveDecoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,7 +193,7 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public abstract class ProgressiveDecoder extends DelegatingConsumer<EncodedImage, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DECODE_EXCEPTION_MESSAGE_NUM_HEADER_BYTES = 10;
@@ -404,8 +404,8 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                         this.mProducerListener.onProducerFinishWithSuccess(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, getExtraMap(decode, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf));
                         handleResult(decode, i2);
                         return;
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         CloseableImage closeableImage = decode;
                         Map<String, String> extraMap = getExtraMap(closeableImage, queuedTime, qualityInfo2, isLast, name, str2, str, valueOf);
                         this.mProducerListener.onProducerFinishWithFailure(this.mProducerContext.getId(), DecodeProducer.PRODUCER_NAME, e, extraMap);
@@ -414,10 +414,10 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
                         return;
                     }
                     decode = this.this$0.mImageDecoder.decode(encodedImage, size, qualityInfo2, this.mImageDecodeOptions);
-                } catch (DecodeException e3) {
-                    EncodedImage encodedImage2 = e3.getEncodedImage();
-                    FLog.w("ProgressiveDecoder", "%s, {uri: %s, firstEncodedBytes: %s, length: %d}", e3.getMessage(), valueOf2, encodedImage2.getFirstBytesAsHexString(10), Integer.valueOf(encodedImage2.getSize()));
-                    throw e3;
+                } catch (DecodeException e2) {
+                    EncodedImage encodedImage2 = e2.getEncodedImage();
+                    FLog.w("ProgressiveDecoder", "%s, {uri: %s, firstEncodedBytes: %s, length: %d}", e2.getMessage(), valueOf2, encodedImage2.getFirstBytesAsHexString(10), Integer.valueOf(encodedImage2.getSize()));
+                    throw e2;
                 }
                 size = encodedImage.getSize();
                 qualityInfo = ImmutableQualityInfo.FULL_QUALITY;
@@ -544,10 +544,10 @@ public class DecodeProducer implements Producer<CloseableReference<CloseableImag
         }
 
         @Override // com.facebook.imagepipeline.producers.DelegatingConsumer, com.facebook.imagepipeline.producers.BaseConsumer
-        public void onProgressUpdateImpl(float f2) {
+        public void onProgressUpdateImpl(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-                super.onProgressUpdateImpl(f2 * 0.99f);
+            if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+                super.onProgressUpdateImpl(f * 0.99f);
             }
         }
 

@@ -3,18 +3,18 @@ package com.baidu.tbadk.widget.layout;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
-import c.a.o0.e1.j.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.qe5;
+/* loaded from: classes3.dex */
 public class ObservedChangeRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
+    public qe5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeRelativeLayout(Context context) {
@@ -36,10 +36,10 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public e getOnSizeChangeListener() {
+    public qe5 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (qe5) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -47,9 +47,9 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            e eVar = this.a;
-            if (eVar != null) {
-                eVar.a(this, i, i2, i3, i4);
+            qe5 qe5Var = this.a;
+            if (qe5Var != null) {
+                qe5Var.a(this, i, i2, i3, i4);
             }
         }
     }
@@ -62,10 +62,10 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void setOnSizeChangeListener(e eVar) {
+    public void setOnSizeChangeListener(qe5 qe5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, eVar) == null) {
-            this.a = eVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qe5Var) == null) {
+            this.a = qe5Var;
         }
     }
 

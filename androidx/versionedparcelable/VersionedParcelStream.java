@@ -255,8 +255,8 @@ public class VersionedParcelStream extends VersionedParcel {
                 this.mFieldBuffer.flushField();
             }
             this.mFieldBuffer = null;
-        } catch (IOException e2) {
-            throw new VersionedParcel.ParcelException(e2);
+        } catch (IOException e) {
+            throw new VersionedParcel.ParcelException(e);
         }
     }
 
@@ -284,8 +284,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
                 return this.mCurrentInput.readBoolean();
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return invokeV.booleanValue;
@@ -322,8 +322,8 @@ public class VersionedParcelStream extends VersionedParcel {
                     return bArr;
                 }
                 return null;
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return (byte[]) invokeV.objValue;
@@ -346,8 +346,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
                 return this.mCurrentInput.readDouble();
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return invokeV.doubleValue;
@@ -391,8 +391,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             try {
                 return this.mCurrentInput.readFloat();
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return invokeV.floatValue;
@@ -405,8 +405,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             try {
                 return this.mCurrentInput.readInt();
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return invokeV.intValue;
@@ -419,8 +419,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             try {
                 return this.mCurrentInput.readLong();
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return invokeV.longValue;
@@ -449,8 +449,8 @@ public class VersionedParcelStream extends VersionedParcel {
                     return new String(bArr, UTF_16);
                 }
                 return null;
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
         return (String) invokeV.objValue;
@@ -495,8 +495,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             try {
                 this.mCurrentOutput.writeBoolean(z);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -516,8 +516,8 @@ public class VersionedParcelStream extends VersionedParcel {
                     return;
                 }
                 this.mCurrentOutput.writeInt(-1);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -533,8 +533,8 @@ public class VersionedParcelStream extends VersionedParcel {
                     return;
                 }
                 this.mCurrentOutput.writeInt(-1);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -548,25 +548,25 @@ public class VersionedParcelStream extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeDouble(double d2) {
+    public void writeDouble(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Double.valueOf(d)}) == null) {
             try {
-                this.mCurrentOutput.writeDouble(d2);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+                this.mCurrentOutput.writeDouble(d);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeFloat(float f2) {
+    public void writeFloat(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
             try {
-                this.mCurrentOutput.writeFloat(f2);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+                this.mCurrentOutput.writeFloat(f);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -577,8 +577,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
             try {
                 this.mCurrentOutput.writeInt(i);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -589,8 +589,8 @@ public class VersionedParcelStream extends VersionedParcel {
         if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
             try {
                 this.mCurrentOutput.writeLong(j);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -615,8 +615,8 @@ public class VersionedParcelStream extends VersionedParcel {
                     return;
                 }
                 this.mCurrentOutput.writeInt(-1);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }
@@ -757,8 +757,8 @@ public class VersionedParcelStream extends VersionedParcel {
                     return;
                 }
                 this.mCurrentOutput.writeInt(-1);
-            } catch (IOException e2) {
-                throw new VersionedParcel.ParcelException(e2);
+            } catch (IOException e) {
+                throw new VersionedParcel.ParcelException(e);
             }
         }
     }

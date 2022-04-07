@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UniKV implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -128,12 +128,12 @@ public class UniKV implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f2) {
+    public float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
             SharedPreferences sharedPreferences = this.mInstance;
-            return sharedPreferences == null ? f2 : sharedPreferences.getFloat(str, f2);
+            return sharedPreferences == null ? f : sharedPreferences.getFloat(str, f);
         }
         return invokeLF.floatValue;
     }
@@ -191,13 +191,13 @@ public class UniKV implements SharedPreferences {
         sharedPreferences.edit().putBoolean(str, z).apply();
     }
 
-    public void putFloat(String str, float f2) {
+    public void putFloat(String str, float f) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(1048586, this, str, f2) == null) || (sharedPreferences = this.mInstance) == null) {
+        if (!(interceptable == null || interceptable.invokeLF(1048586, this, str, f) == null) || (sharedPreferences = this.mInstance) == null) {
             return;
         }
-        sharedPreferences.edit().putFloat(str, f2).apply();
+        sharedPreferences.edit().putFloat(str, f).apply();
     }
 
     public void putInt(String str, int i) {

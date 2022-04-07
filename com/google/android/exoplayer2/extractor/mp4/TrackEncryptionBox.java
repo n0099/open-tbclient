@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TrackEncryptionBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TrackEncryptionBox";
@@ -52,37 +52,37 @@ public final class TrackEncryptionBox {
             if (str == null) {
                 return 1;
             }
-            char c2 = 65535;
+            char c = 65535;
             switch (str.hashCode()) {
                 case 3046605:
                     if (str.equals(C.CENC_TYPE_cbc1)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
                     break;
                 case 3046671:
                     if (str.equals(C.CENC_TYPE_cbcs)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
                     break;
                 case 3049879:
                     if (str.equals("cenc")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
                     break;
                 case 3049895:
                     if (str.equals(C.CENC_TYPE_cens)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
                     break;
             }
-            if (c2 == 0 || c2 == 1) {
+            if (c == 0 || c == 1) {
                 return 1;
             }
-            if (c2 == 2 || c2 == 3) {
+            if (c == 2 || c == 3) {
                 return 2;
             }
             Log.w(TAG, "Unsupported protection scheme type '" + str + "'. Assuming AES-CTR crypto mode.");

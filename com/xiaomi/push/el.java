@@ -13,7 +13,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class el {
     public static /* synthetic */ Interceptable $ic;
     public static volatile el a;
@@ -83,7 +83,7 @@ public class el {
         if (!(interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, intent, i, str2) == null) || intent == null) {
             return;
         }
-        a(str, ek.m328a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
+        a(str, ek.m324a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), i, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, Intent intent, String str2) {
@@ -91,7 +91,7 @@ public class el {
         if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, intent, str2) == null) || intent == null) {
             return;
         }
-        a(str, ek.m328a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
+        a(str, ek.m324a(intent.getIntExtra("eventMessageType", -1)), intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID), 5001, System.currentTimeMillis(), str2);
     }
 
     public void a(String str, String str2, String str3, int i, long j, String str4) {

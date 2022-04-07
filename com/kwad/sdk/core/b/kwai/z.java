@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.jshandler.q;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class z implements com.kwad.sdk.core.d<q.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,7 +11,7 @@ public class z implements com.kwad.sdk.core.d<q.a> {
             return;
         }
         aVar.a = jSONObject.optDouble("progress");
-        aVar.f40080b = jSONObject.optInt("status");
+        aVar.b = jSONObject.optInt("status");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,7 +21,7 @@ public class z implements com.kwad.sdk.core.d<q.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "progress", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.f40080b);
+        com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.b);
         return jSONObject;
     }
 }

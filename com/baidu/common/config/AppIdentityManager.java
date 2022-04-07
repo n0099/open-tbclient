@@ -1,14 +1,14 @@
 package com.baidu.common.config;
 
 import android.text.TextUtils;
-import c.a.n.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.w20;
+/* loaded from: classes.dex */
 public class AppIdentityManager {
     public static /* synthetic */ Interceptable $ic;
     public static AppIdentityManager sAppIdentity;
@@ -52,7 +52,7 @@ public class AppIdentityManager {
             if (!TextUtils.isEmpty(this.mAppName)) {
                 return this.mAppName;
             }
-            return a.a().getAppName();
+            return w20.a().getAppName();
         }
         return (String) invokeV.objValue;
     }
@@ -61,7 +61,7 @@ public class AppIdentityManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String a = a.b().a();
+            String a = w20.b().a();
             return TextUtils.isEmpty(a) ? getAppName() : a;
         }
         return (String) invokeV.objValue;

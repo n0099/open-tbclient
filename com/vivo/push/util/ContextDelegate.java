@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ContextDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ContextDelegate";
@@ -21,7 +21,7 @@ public class ContextDelegate {
     public static Boolean mIsFbeProject;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static ContextDelegate a;
@@ -82,8 +82,8 @@ public class ContextDelegate {
                     mCreateCredentialProtectedStorageContext = Context.class.getMethod("createCredentialProtectedStorageContext", new Class[0]);
                 }
                 return (Context) mCreateCredentialProtectedStorageContext.invoke(context, new Object[0]);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return context;
             }
         }
@@ -99,8 +99,8 @@ public class ContextDelegate {
                     mCreateDeviceProtectedStorageContext = Context.class.getMethod("createDeviceProtectedStorageContext", new Class[0]);
                 }
                 return (Context) mCreateDeviceProtectedStorageContext.invoke(context, new Object[0]);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return context;
             }
         }
@@ -138,8 +138,8 @@ public class ContextDelegate {
                 try {
                     mIsFbeProject = Boolean.valueOf("file".equals(j.a("ro.crypto.type", "unknow")));
                     p.b(TAG, "mIsFbeProject = " + mIsFbeProject.toString());
-                } catch (Exception e2) {
-                    p.a(TAG, "mIsFbeProject = " + e2.getMessage());
+                } catch (Exception e) {
+                    p.a(TAG, "mIsFbeProject = " + e.getMessage());
                 }
             }
             Boolean bool = mIsFbeProject;

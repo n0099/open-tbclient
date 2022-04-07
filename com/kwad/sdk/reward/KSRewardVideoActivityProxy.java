@@ -30,8 +30,8 @@ import java.io.Serializable;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
-/* loaded from: classes7.dex */
-public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> implements b.InterfaceC1989b {
+/* loaded from: classes5.dex */
+public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> implements b.InterfaceC0329b {
     public static final String KEY_REWARD_TYPE = "key_template_reward_type";
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_VIDEO_PLAY_CONFIG = "key_video_play_config";
@@ -138,7 +138,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
     }
 
     private boolean initData() {
-        File b2;
+        File b;
         String str;
         Serializable serializableExtra = getIntent().getSerializableExtra("key_video_play_config");
         if (serializableExtra instanceof KsVideoPlayConfig) {
@@ -156,7 +156,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
                 AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate2);
                 this.mAdInfo = j;
                 String a = com.kwad.sdk.core.response.a.a.a(j);
-                if (com.kwad.sdk.core.config.b.C() >= 0 || ((b2 = com.kwad.sdk.core.diskcache.a.a.a().b(a)) != null && b2.exists())) {
+                if (com.kwad.sdk.core.config.b.C() >= 0 || ((b = com.kwad.sdk.core.diskcache.a.a.a().b(a)) != null && b.exists())) {
                     KsVideoPlayConfig ksVideoPlayConfig = (KsVideoPlayConfig) serializableExtra;
                     this.mVideoPlayConfig = ksVideoPlayConfig;
                     this.mScreenOrientation = ksVideoPlayConfig.isShowLandscape() ? 1 : 0;
@@ -188,9 +188,9 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091131);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09112a);
         this.mRootContainer = adBaseFrameLayout;
-        this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091177);
+        this.mDetailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091170);
         boolean z = !af.e(this.mContext);
         if ((isRewardLaunchAppTask() || isRewardLandPageOpenTask()) && z) {
             this.mDetailVideoView.setForce(true);
@@ -233,7 +233,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
         this.mPageDismissCalled = true;
         if (z) {
             adTemplate = this.mAdTemplate;
-            jSONObject = this.mCallerContext.f40745e;
+            jSONObject = this.mCallerContext.e;
         } else {
             adTemplate = this.mAdTemplate;
             i = 6;
@@ -350,7 +350,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
             return;
         }
         this.mContext = Wrapper.wrapContextIfNeed(getActivity());
-        setContentView(R.layout.obfuscated_res_0x7f0d041f);
+        setContentView(R.layout.obfuscated_res_0x7f0d041a);
         initView();
         onActivityCreated(this.mRootContainer);
         d.a().a(this.mRewardVerifyListener);
@@ -359,17 +359,17 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
     @Override // com.kwad.sdk.core.e.a
     public a onCreateCallerContext() {
         a aVar = new a();
-        aVar.f40748h = getActivity();
+        aVar.h = getActivity();
         aVar.i = this.mContext;
-        aVar.f40742b = this.mAdOpenInteractionListener;
-        aVar.f40743c = this.mAdRewardStepListener;
-        aVar.f40746f = this.mScreenOrientation;
+        aVar.b = this.mAdOpenInteractionListener;
+        aVar.c = this.mAdRewardStepListener;
+        aVar.f = this.mScreenOrientation;
         KsVideoPlayConfig ksVideoPlayConfig = this.mVideoPlayConfig;
-        aVar.f40744d = ksVideoPlayConfig;
-        aVar.f40745e = this.mReportExtData;
+        aVar.d = ksVideoPlayConfig;
+        aVar.e = this.mReportExtData;
         aVar.j = this.mRootContainer;
         AdTemplate adTemplate = this.mAdTemplate;
-        aVar.f40747g = adTemplate;
+        aVar.g = adTemplate;
         com.kwad.sdk.reward.c.a aVar2 = new com.kwad.sdk.reward.c.a(adTemplate, this.mDetailVideoView, ksVideoPlayConfig, this.rewardType == 2);
         aVar.k = aVar2;
         aVar.a.add(aVar2);
@@ -387,7 +387,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
         aVar.r = true;
         aVar.s = this.mRewardTopBarNewStyle;
         if (com.kwad.sdk.core.response.a.a.an(this.mAdInfo)) {
-            aVar.m = new com.kwad.sdk.widget.e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910c4));
+            aVar.m = new com.kwad.sdk.widget.e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910bd));
         }
         return aVar;
     }
@@ -478,7 +478,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.sdk.core.e.a<a> impleme
         h.a().b();
     }
 
-    @Override // com.kwad.sdk.reward.b.InterfaceC1989b
+    @Override // com.kwad.sdk.reward.b.InterfaceC0329b
     public void onPageClose() {
         finish();
     }

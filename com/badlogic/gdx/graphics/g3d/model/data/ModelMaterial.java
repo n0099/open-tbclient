@@ -1,7 +1,5 @@
 package com.badlogic.gdx.graphics.g3d.model.data;
 
-import c.b.b.n.a;
-import c.b.b.n.l.g.g.i;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,36 +7,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.a5;
+import com.repackage.i3;
+import com.repackage.y6;
+/* loaded from: classes.dex */
 public class ModelMaterial {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f23770b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a f23771c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f23772d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f23773e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public a f23774f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f23775g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f23776h;
-    public c.b.b.q.a<i> i;
+    public i3 b;
+    public i3 c;
+    public i3 d;
+    public i3 e;
+    public i3 f;
+    public float g;
+    public float h;
+    public y6<a5> i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class MaterialType {
         public static final /* synthetic */ MaterialType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,6 +97,6 @@ public class ModelMaterial {
                 return;
             }
         }
-        this.f23776h = 1.0f;
+        this.h = 1.0f;
     }
 }

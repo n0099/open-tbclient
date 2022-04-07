@@ -15,7 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MP4Transform {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_TYPE_BOX = "ftyp";
@@ -129,7 +129,7 @@ public class MP4Transform {
     public static byte[][] getAllBoxs(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         int i;
-        char c2;
+        char c;
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
@@ -157,28 +157,28 @@ public class MP4Transform {
                 int hashCode = boxType.hashCode();
                 if (hashCode == 3154021) {
                     if (boxType.equals("ftyp")) {
-                        c2 = 2;
+                        c = 2;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else if (hashCode != 3346442) {
                     if (hashCode == 3357449 && boxType.equals("moov")) {
-                        c2 = 1;
+                        c = 1;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else {
                     if (boxType.equals("mdat")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 }
-                if (c2 != 0) {
-                    if (c2 == 1) {
+                if (c != 0) {
+                    if (c == 1) {
                         System.arraycopy(intToByteArray(i3, false), 0, bArr3, 8, 4);
                         System.arraycopy(intToByteArray((int) boxSize322, false), 0, bArr3, 12, 4);
                         int i4 = (int) ((boxSize322 - 8) - i);
                         bArr2[0] = new byte[i4 + i2];
                         System.arraycopy(bArr, i3 + 8 + i, bArr2[0], i2, i4);
-                    } else if (c2 != 2) {
+                    } else if (c != 2) {
                         j = j2;
                     } else {
                         subBytes(bArr, i3 + 8 + i, (int) ((boxSize322 - j2) - i));
@@ -291,8 +291,8 @@ public class MP4Transform {
             }
             try {
                 return MessageDigest.getInstance("MD5").digest(bArr);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException("NoSuchAlgorithmException", e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException("NoSuchAlgorithmException", e);
             }
         }
         return (byte[]) invokeL.objValue;
@@ -332,7 +332,7 @@ public class MP4Transform {
         InterceptResult invokeL;
         byte[][] bArr2;
         int i;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, bArr)) == null) {
             if (bArr == null || bArr.length < 4) {
@@ -364,20 +364,20 @@ public class MP4Transform {
                 int hashCode = boxType.hashCode();
                 if (hashCode != 3346442) {
                     if (hashCode == 3357449 && boxType.equals("moov")) {
-                        c2 = 1;
+                        c = 1;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else {
                     if (boxType.equals("mdat")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 }
-                if (c2 == 0) {
+                if (c == 0) {
                     i10 = (boxSize322 - 8) - i;
                     i8 = boxSize322;
                     i7 = i4;
-                } else if (c2 == 1) {
+                } else if (c == 1) {
                     i9 = (boxSize322 - 8) - i;
                     i6 = boxSize322;
                     i5 = i4;
@@ -668,8 +668,8 @@ public class MP4Transform {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 messageDigest.update(bArr, i, i2);
                 return messageDigest.digest(bArr2, i3, i4);
-            } catch (DigestException | NoSuchAlgorithmException e2) {
-                throw new RuntimeException("NoSuchAlgorithmException", e2);
+            } catch (DigestException | NoSuchAlgorithmException e) {
+                throw new RuntimeException("NoSuchAlgorithmException", e);
             }
         }
         return invokeCommon.intValue;

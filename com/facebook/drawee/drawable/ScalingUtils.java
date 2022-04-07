@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ScalingUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class AbstractScaleType implements ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,20 +39,20 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.ScaleType
-        public Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f2, float f3) {
+        public Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                getTransformImpl(matrix, rect, i, i2, f2, f3, rect.width() / i, rect.height() / i2);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                getTransformImpl(matrix, rect, i, i2, f, f2, rect.width() / i, rect.height() / i2);
                 return matrix;
             }
             return (Matrix) invokeCommon.objValue;
         }
 
-        public abstract void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5);
+        public abstract void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ScaleType {
         public static final ScaleType FIT_XY = ScaleTypeFitXY.INSTANCE;
         public static final ScaleType FIT_START = ScaleTypeFitStart.INSTANCE;
@@ -64,10 +64,10 @@ public class ScalingUtils {
         public static final ScaleType FOCUS_CROP = ScaleTypeFocusCrop.INSTANCE;
         public static final ScaleType FIT_BOTTOM_START = ScaleTypeFitBottomStart.INSTANCE;
 
-        Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f2, float f3);
+        Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -104,9 +104,9 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
                 matrix.setTranslate((int) (rect.left + ((rect.width() - i) * 0.5f) + 0.5f), (int) (rect.top + ((rect.height() - i2) * 0.5f) + 0.5f));
             }
         }
@@ -118,7 +118,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeCenterCrop extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -155,21 +155,21 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             float height;
-            float f6;
+            float f5;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                if (f5 > f4) {
-                    f6 = rect.left + ((rect.width() - (i * f5)) * 0.5f);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                if (f4 > f3) {
+                    f5 = rect.left + ((rect.width() - (i * f4)) * 0.5f);
                     height = rect.top;
-                    f4 = f5;
+                    f3 = f4;
                 } else {
-                    height = ((rect.height() - (i2 * f4)) * 0.5f) + rect.top;
-                    f6 = rect.left;
+                    height = ((rect.height() - (i2 * f3)) * 0.5f) + rect.top;
+                    f5 = rect.left;
                 }
-                matrix.setScale(f4, f4);
-                matrix.postTranslate((int) (f6 + 0.5f), (int) (height + 0.5f));
+                matrix.setScale(f3, f3);
+                matrix.postTranslate((int) (f5 + 0.5f), (int) (height + 0.5f));
             }
         }
 
@@ -180,7 +180,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeCenterInside extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -217,10 +217,10 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                float min = Math.min(Math.min(f4, f5), 1.0f);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                float min = Math.min(Math.min(f3, f4), 1.0f);
                 float width = rect.left + ((rect.width() - (i * min)) * 0.5f);
                 float height = rect.top + ((rect.height() - (i2 * min)) * 0.5f);
                 matrix.setScale(min, min);
@@ -235,7 +235,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeFitBottomStart extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -272,10 +272,10 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                float min = Math.min(f4, f5);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                float min = Math.min(f3, f4);
                 matrix.setScale(min, min);
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (rect.top + (rect.height() - (i2 * min)) + 0.5f));
             }
@@ -288,7 +288,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeFitCenter extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -325,10 +325,10 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                float min = Math.min(f4, f5);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                float min = Math.min(f3, f4);
                 float width = rect.left + ((rect.width() - (i * min)) * 0.5f);
                 float height = rect.top + ((rect.height() - (i2 * min)) * 0.5f);
                 matrix.setScale(min, min);
@@ -343,7 +343,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeFitEnd extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -380,10 +380,10 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                float min = Math.min(f4, f5);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                float min = Math.min(f3, f4);
                 matrix.setScale(min, min);
                 matrix.postTranslate((int) (rect.left + (rect.width() - (i * min)) + 0.5f), (int) (rect.top + (rect.height() - (i2 * min)) + 0.5f));
             }
@@ -396,7 +396,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeFitStart extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -433,10 +433,10 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                float min = Math.min(f4, f5);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                float min = Math.min(f3, f4);
                 matrix.setScale(min, min);
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (rect.top + 0.5f));
             }
@@ -449,7 +449,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeFitXY extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -486,10 +486,10 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                matrix.setScale(f4, f5);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                matrix.setScale(f3, f4);
                 matrix.postTranslate((int) (rect.left + 0.5f), (int) (rect.top + 0.5f));
             }
         }
@@ -501,7 +501,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ScaleTypeFocusCrop extends AbstractScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType INSTANCE;
@@ -538,23 +538,23 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.AbstractScaleType
-        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f2, float f3, float f4, float f5) {
-            float f6;
+        public void getTransformImpl(Matrix matrix, Rect rect, int i, int i2, float f, float f2, float f3, float f4) {
+            float f5;
             float max;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-                if (f5 > f4) {
-                    float f7 = i * f5;
-                    f6 = rect.left + Math.max(Math.min((rect.width() * 0.5f) - (f2 * f7), 0.0f), rect.width() - f7);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+                if (f4 > f3) {
+                    float f6 = i * f4;
+                    f5 = rect.left + Math.max(Math.min((rect.width() * 0.5f) - (f * f6), 0.0f), rect.width() - f6);
                     max = rect.top;
-                    f4 = f5;
+                    f3 = f4;
                 } else {
-                    f6 = rect.left;
-                    float f8 = i2 * f4;
-                    max = Math.max(Math.min((rect.height() * 0.5f) - (f3 * f8), 0.0f), rect.height() - f8) + rect.top;
+                    f5 = rect.left;
+                    float f7 = i2 * f3;
+                    max = Math.max(Math.min((rect.height() * 0.5f) - (f2 * f7), 0.0f), rect.height() - f7) + rect.top;
                 }
-                matrix.setScale(f4, f4);
-                matrix.postTranslate((int) (f6 + 0.5f), (int) (max + 0.5f));
+                matrix.setScale(f3, f3);
+                matrix.postTranslate((int) (f5 + 0.5f), (int) (max + 0.5f));
             }
         }
 
@@ -565,7 +565,7 @@ public class ScalingUtils {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface StatefulScaleType {
         Object getState();
     }
@@ -613,7 +613,7 @@ public class ScalingUtils {
         return (ScaleTypeDrawable) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class InterpolatingScaleType implements ScaleType, StatefulScaleType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -706,31 +706,31 @@ public class ScalingUtils {
         }
 
         @Override // com.facebook.drawee.drawable.ScalingUtils.ScaleType
-        public Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f2, float f3) {
+        public Matrix getTransform(Matrix matrix, Rect rect, int i, int i2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{matrix, rect, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)})) == null) {
                 Rect rect2 = this.mBoundsFrom;
                 Rect rect3 = rect2 != null ? rect2 : rect;
                 Rect rect4 = this.mBoundsTo;
                 Rect rect5 = rect4 != null ? rect4 : rect;
                 ScaleType scaleType = this.mScaleTypeFrom;
                 PointF pointF = this.mFocusPointFrom;
-                float f4 = pointF == null ? f2 : pointF.x;
+                float f3 = pointF == null ? f : pointF.x;
                 PointF pointF2 = this.mFocusPointFrom;
-                scaleType.getTransform(matrix, rect3, i, i2, f4, pointF2 == null ? f3 : pointF2.y);
+                scaleType.getTransform(matrix, rect3, i, i2, f3, pointF2 == null ? f2 : pointF2.y);
                 matrix.getValues(this.mMatrixValuesFrom);
                 ScaleType scaleType2 = this.mScaleTypeTo;
                 PointF pointF3 = this.mFocusPointTo;
-                float f5 = pointF3 == null ? f2 : pointF3.x;
+                float f4 = pointF3 == null ? f : pointF3.x;
                 PointF pointF4 = this.mFocusPointTo;
-                scaleType2.getTransform(matrix, rect5, i, i2, f5, pointF4 == null ? f3 : pointF4.y);
+                scaleType2.getTransform(matrix, rect5, i, i2, f4, pointF4 == null ? f2 : pointF4.y);
                 matrix.getValues(this.mMatrixValuesTo);
                 for (int i3 = 0; i3 < 9; i3++) {
                     float[] fArr = this.mMatrixValuesInterpolated;
-                    float f6 = this.mMatrixValuesFrom[i3];
-                    float f7 = this.mInterpolatingValue;
-                    fArr[i3] = (f6 * (1.0f - f7)) + (this.mMatrixValuesTo[i3] * f7);
+                    float f5 = this.mMatrixValuesFrom[i3];
+                    float f6 = this.mInterpolatingValue;
+                    fArr[i3] = (f5 * (1.0f - f6)) + (this.mMatrixValuesTo[i3] * f6);
                 }
                 matrix.setValues(this.mMatrixValuesInterpolated);
                 return matrix;
@@ -744,10 +744,10 @@ public class ScalingUtils {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mInterpolatingValue : invokeV.floatValue;
         }
 
-        public void setValue(float f2) {
+        public void setValue(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-                this.mInterpolatingValue = f2;
+            if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+                this.mInterpolatingValue = f;
             }
         }
 

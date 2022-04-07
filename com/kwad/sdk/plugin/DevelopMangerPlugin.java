@@ -1,10 +1,10 @@
 package com.kwad.sdk.plugin;
 
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface DevelopMangerPlugin extends d {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class DevelopValue implements Serializable {
         public static final long serialVersionUID = 2793333073373146040L;
         public Serializable mValue;

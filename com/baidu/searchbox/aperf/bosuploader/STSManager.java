@@ -19,7 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class STSManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long RETRY_TIME_LIMIT_HOUR;
@@ -101,8 +101,8 @@ public class STSManager {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 file = new File(AppRuntime.getAppContext().getFilesDir(), STS_FILE_PATH);
-            } catch (FileNotFoundException e2) {
-                e = e2;
+            } catch (FileNotFoundException e) {
+                e = e;
                 fileInputStream = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -131,8 +131,8 @@ public class STSManager {
                             Closeables.closeSafely(fileInputStream);
                             return createSTSInfo;
                         }
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
                         Log.e(TAG, e.getMessage(), e);
                         Closeables.closeSafely(fileInputStream);
                         return null;

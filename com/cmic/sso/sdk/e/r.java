@@ -17,25 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public static r a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConnectivityManager b;
+    public Network c;
+    public ConnectivityManager.NetworkCallback d;
+    public boolean e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ConnectivityManager f38492b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Network f38493c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ConnectivityManager.NetworkCallback f38494d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f38495e;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(Network network);
     }
@@ -71,34 +63,34 @@ public class r {
             }
         }
         try {
-            this.f38492b = (ConnectivityManager) context.getSystemService("connectivity");
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            this.b = (ConnectivityManager) context.getSystemService("connectivity");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public void b() {
         ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (connectivityManager = this.f38492b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (connectivityManager = this.b) == null) {
             return;
         }
         try {
-            if (Build.VERSION.SDK_INT < 21 || this.f38494d == null) {
+            if (Build.VERSION.SDK_INT < 21 || this.d == null) {
                 return;
             }
-            connectivityManager.unregisterNetworkCallback(this.f38494d);
-            this.f38494d = null;
-            this.f38493c = null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+            connectivityManager.unregisterNetworkCallback(this.d);
+            this.d = null;
+            this.c = null;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 21 && this.f38493c != null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 21 && this.c != null : invokeV.booleanValue;
     }
 
     public static r a(Context context) {
@@ -123,25 +115,25 @@ public class r {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             synchronized (this) {
-                ConnectivityManager connectivityManager = this.f38492b;
+                ConnectivityManager connectivityManager = this.b;
                 if (connectivityManager == null) {
                     c.a("WifiNetworkUtils", "mConnectivityManager 为空");
                     aVar.a(null);
                     return;
                 }
-                Network network = this.f38493c;
-                if (network != null && !this.f38495e && (networkInfo = connectivityManager.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
+                Network network = this.c;
+                if (network != null && !this.e && (networkInfo = connectivityManager.getNetworkInfo(network)) != null && networkInfo.isAvailable()) {
                     Log.e("HttpUtils", "reuse network: ");
-                    aVar.a(this.f38493c);
+                    aVar.a(this.c);
                     return;
                 }
-                ConnectivityManager.NetworkCallback networkCallback = this.f38494d;
+                ConnectivityManager.NetworkCallback networkCallback = this.d;
                 if (networkCallback != null) {
                     try {
-                        this.f38492b.unregisterNetworkCallback(networkCallback);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                        this.f38494d = null;
+                        this.b.unregisterNetworkCallback(networkCallback);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        this.d = null;
                     }
                     Log.e("HttpUtils", "clear: ");
                 }
@@ -150,9 +142,7 @@ public class r {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ r f38496b;
+                    public final /* synthetic */ r b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -169,7 +159,7 @@ public class r {
                                 return;
                             }
                         }
-                        this.f38496b = this;
+                        this.b = this;
                         this.a = aVar;
                     }
 
@@ -178,19 +168,19 @@ public class r {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, network2) == null) {
                             try {
-                                if (this.f38496b.f38492b.getNetworkCapabilities(network2).hasTransport(0)) {
-                                    this.f38496b.f38493c = network2;
+                                if (this.b.b.getNetworkCapabilities(network2).hasTransport(0)) {
+                                    this.b.c = network2;
                                     this.a.a(network2);
-                                    this.f38496b.f38495e = false;
+                                    this.b.e = false;
                                 } else {
                                     c.a("WifiNetworkUtils", "切换失败，未开启数据网络");
-                                    this.f38496b.f38493c = null;
+                                    this.b.c = null;
                                     this.a.a(null);
-                                    this.f38496b.f38492b.unregisterNetworkCallback(this.f38496b.f38494d);
+                                    this.b.b.unregisterNetworkCallback(this.b.d);
                                 }
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                                this.f38496b.f38493c = null;
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
+                                this.b.c = null;
                                 this.a.a(null);
                             }
                         }
@@ -200,15 +190,15 @@ public class r {
                     public void onLost(Network network2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, network2) == null) {
-                            this.f38496b.f38495e = true;
+                            this.b.e = true;
                         }
                     }
                 };
-                this.f38494d = networkCallback2;
+                this.d = networkCallback2;
                 try {
-                    this.f38492b.requestNetwork(build, networkCallback2);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                    this.b.requestNetwork(build, networkCallback2);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     aVar.a(null);
                 }
             }

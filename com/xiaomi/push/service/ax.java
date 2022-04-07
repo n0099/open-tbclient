@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ax extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class ax extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             av.b.c cVar = this.a;
             if (cVar.a == cVar.f899a.f886a) {
-                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f899a.f44551g);
+                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f899a.g);
                 this.a.f899a.f886a = null;
             }
         }

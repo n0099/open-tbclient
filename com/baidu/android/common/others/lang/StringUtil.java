@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class StringUtil implements IStringUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARRAY_ELEMENT_SEPARATOR = ", ";
@@ -379,8 +379,8 @@ public final class StringUtil implements IStringUtil {
             while (true) {
                 try {
                     i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException e2) {
-                    Log.e(TAG, e2.toString());
+                } catch (IOException e) {
+                    Log.e(TAG, e.toString());
                     i = 0;
                 }
                 if (i == -1) {
@@ -391,8 +391,8 @@ public final class StringUtil implements IStringUtil {
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             try {
                 byteArrayOutputStream.close();
-            } catch (IOException e3) {
-                Log.e(TAG, e3.toString());
+            } catch (IOException e2) {
+                Log.e(TAG, e2.toString());
             }
             return byteArray;
         }
@@ -448,24 +448,24 @@ public final class StringUtil implements IStringUtil {
                         } else {
                             return null;
                         }
-                    } catch (Exception e2) {
-                        Log.e(TAG, " getStringFromInput exception: ", e2);
+                    } catch (Exception e) {
+                        Log.e(TAG, " getStringFromInput exception: ", e);
                         if (inputStream != null) {
                             inputStream.close();
                             return null;
                         }
                         return null;
                     }
-                } catch (Exception e3) {
-                    Log.e(TAG, e3.toString());
+                } catch (Exception e2) {
+                    Log.e(TAG, e2.toString());
                     return null;
                 }
             } finally {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e4) {
-                        Log.e(TAG, e4.toString());
+                    } catch (Exception e3) {
+                        Log.e(TAG, e3.toString());
                     }
                 }
             }
@@ -881,13 +881,13 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String trimLeadingCharacter(String str, char c2) {
+    public static String trimLeadingCharacter(String str, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, Character.valueOf(c)})) == null) {
             if (hasLength(str)) {
                 StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && sb.charAt(0) == c2) {
+                while (sb.length() > 0 && sb.charAt(0) == c) {
                     sb.deleteCharAt(0);
                 }
                 return sb.toString();
@@ -915,13 +915,13 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String trimTrailingCharacter(String str, char c2) {
+    public static String trimTrailingCharacter(String str, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65617, null, new Object[]{str, Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65617, null, new Object[]{str, Character.valueOf(c)})) == null) {
             if (hasLength(str)) {
                 StringBuilder sb = new StringBuilder(str);
-                while (sb.length() > 0 && sb.charAt(sb.length() - 1) == c2) {
+                while (sb.length() > 0 && sb.charAt(sb.length() - 1) == c) {
                     sb.deleteCharAt(sb.length() - 1);
                 }
                 return sb.toString();
@@ -1115,10 +1115,10 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static String unqualify(String str, char c2) {
+    public static String unqualify(String str, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65622, null, new Object[]{str, Character.valueOf(c2)})) == null) ? str.substring(str.lastIndexOf(c2) + 1) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65622, null, new Object[]{str, Character.valueOf(c)})) == null) ? str.substring(str.lastIndexOf(c) + 1) : (String) invokeCommon.objValue;
     }
 
     @Deprecated

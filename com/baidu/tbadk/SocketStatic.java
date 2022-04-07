@@ -1,8 +1,6 @@
 package com.baidu.tbadk;
 
 import android.os.Build;
-import c.a.d.e.a;
-import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -18,8 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.nb;
+import com.repackage.z35;
 import org.apache.http.conn.params.ConnRoutePNames;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SocketStatic {
     public static /* synthetic */ Interceptable $ic = null;
     public static String Tag = "tag";
@@ -67,7 +68,7 @@ public class SocketStatic {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 Interceptable interceptable2 = $ic;
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof NetWorkChangedMessage) && PermissionUtil.isAgreePrivacyPolicy() && Build.VERSION.SDK_INT >= 24 && TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    a.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
+                    nb.b().a("startSocketService", new Runnable(this) { // from class: com.baidu.tbadk.SocketStatic.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 this$0;
@@ -93,9 +94,9 @@ public class SocketStatic {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && l.z()) {
+                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && mi.z()) {
                                 if (BdSocketLinkService.isClose()) {
-                                    c.a.o0.e0.a.b(0, 0, 0, 1, 6);
+                                    z35.b(0, 0, 0, 1, 6);
                                     BdSocketLinkService.setAvailable(true);
                                     BdSocketLinkService.startService(false, "net succ");
                                 }

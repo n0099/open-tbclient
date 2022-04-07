@@ -35,7 +35,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PlaybackControlView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
@@ -89,7 +89,7 @@ public class PlaybackControlView extends FrameLayout {
     public VisibilityListener visibilityListener;
     public final Timeline.Window window;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class ComponentListener extends Player.DefaultEventListener implements TimeBar.OnScrubListener, View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,24 +114,24 @@ public class PlaybackControlView extends FrameLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.this$0.player != null) {
-                    if (this.this$0.nextButton == view) {
+                    if (this.this$0.nextButton == view2) {
                         this.this$0.next();
-                    } else if (this.this$0.previousButton == view) {
+                    } else if (this.this$0.previousButton == view2) {
                         this.this$0.previous();
-                    } else if (this.this$0.fastForwardButton == view) {
+                    } else if (this.this$0.fastForwardButton == view2) {
                         this.this$0.fastForward();
-                    } else if (this.this$0.rewindButton == view) {
+                    } else if (this.this$0.rewindButton == view2) {
                         this.this$0.rewind();
-                    } else if (this.this$0.playButton == view) {
+                    } else if (this.this$0.playButton == view2) {
                         this.this$0.controlDispatcher.dispatchSetPlayWhenReady(this.this$0.player, true);
-                    } else if (this.this$0.pauseButton == view) {
+                    } else if (this.this$0.pauseButton == view2) {
                         this.this$0.controlDispatcher.dispatchSetPlayWhenReady(this.this$0.player, false);
-                    } else if (this.this$0.repeatToggleButton != view) {
-                        if (this.this$0.shuffleButton == view) {
+                    } else if (this.this$0.repeatToggleButton != view2) {
+                        if (this.this$0.shuffleButton == view2) {
                             this.this$0.controlDispatcher.dispatchSetShuffleModeEnabled(this.this$0.player, true ^ this.this$0.player.getShuffleModeEnabled());
                         }
                     } else {
@@ -221,11 +221,11 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ControlDispatcher extends com.google.android.exoplayer2.ControlDispatcher {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DefaultControlDispatcher extends com.google.android.exoplayer2.DefaultControlDispatcher implements ControlDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,7 +245,7 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface VisibilityListener {
         void onVisibilityChange(int i);
     }
@@ -400,17 +400,17 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     private void requestPlayPauseFocus() {
-        View view;
         View view2;
+        View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65576, this) == null) {
             Player player = this.player;
             boolean z = player != null && player.getPlayWhenReady();
-            if (!z && (view2 = this.playButton) != null) {
-                view2.requestFocus();
-            } else if (!z || (view = this.pauseButton) == null) {
+            if (!z && (view3 = this.playButton) != null) {
+                view3.requestFocus();
+            } else if (!z || (view2 = this.pauseButton) == null) {
             } else {
-                view.requestFocus();
+                view2.requestFocus();
             }
         }
     }
@@ -459,14 +459,14 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    private void setButtonEnabled(boolean z, View view) {
+    private void setButtonEnabled(boolean z, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(65581, this, z, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeZL(65581, this, z, view2) == null) || view2 == null) {
             return;
         }
-        view.setEnabled(z);
-        view.setAlpha(z ? 1.0f : 0.3f);
-        view.setVisibility(0);
+        view2.setEnabled(z);
+        view2.setAlpha(z ? 1.0f : 0.3f);
+        view2.setVisibility(0);
     }
 
     private void updateAll() {
@@ -538,16 +538,16 @@ public class PlaybackControlView extends FrameLayout {
             Player player = this.player;
             boolean z2 = true;
             boolean z3 = player != null && player.getPlayWhenReady();
-            View view = this.playButton;
-            if (view != null) {
-                z = (z3 && view.isFocused()) | false;
+            View view2 = this.playButton;
+            if (view2 != null) {
+                z = (z3 && view2.isFocused()) | false;
                 this.playButton.setVisibility(z3 ? 8 : 0);
             } else {
                 z = false;
             }
-            View view2 = this.pauseButton;
-            if (view2 != null) {
-                z |= (z3 || !view2.isFocused()) ? false : false;
+            View view3 = this.pauseButton;
+            if (view3 != null) {
+                z |= (z3 || !view3.isFocused()) ? false : false;
                 this.pauseButton.setVisibility(z3 ? 0 : 8);
             }
             if (z) {
@@ -690,16 +690,16 @@ public class PlaybackControlView extends FrameLayout {
             }
             long j7 = 1000;
             if (this.player.getPlayWhenReady() && playbackState == 3) {
-                float f2 = this.player.getPlaybackParameters().speed;
-                if (f2 > 0.1f) {
-                    if (f2 <= 5.0f) {
-                        long max = 1000 / Math.max(1, Math.round(1.0f / f2));
+                float f = this.player.getPlaybackParameters().speed;
+                if (f > 0.1f) {
+                    if (f <= 5.0f) {
+                        long max = 1000 / Math.max(1, Math.round(1.0f / f));
                         long j8 = max - (j % max);
                         if (j8 < max / 5) {
                             j8 += max;
                         }
-                        if (f2 != 1.0f) {
-                            j8 = ((float) j8) / f2;
+                        if (f != 1.0f) {
+                            j8 = ((float) j8) / f;
                         }
                         j7 = j8;
                     } else {
@@ -740,19 +740,19 @@ public class PlaybackControlView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateShuffleButton() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65587, this) == null) && isVisible() && this.isAttachedToWindow && (view = this.shuffleButton) != null) {
+        if ((interceptable == null || interceptable.invokeV(65587, this) == null) && isVisible() && this.isAttachedToWindow && (view2 = this.shuffleButton) != null) {
             if (!this.showShuffleButton) {
-                view.setVisibility(8);
+                view2.setVisibility(8);
                 return;
             }
             Player player = this.player;
             if (player == null) {
-                setButtonEnabled(false, view);
+                setButtonEnabled(false, view2);
                 return;
             }
-            view.setAlpha(player.getShuffleModeEnabled() ? 1.0f : 0.3f);
+            view2.setAlpha(player.getShuffleModeEnabled() ? 1.0f : 0.3f);
             this.shuffleButton.setEnabled(true);
             this.shuffleButton.setVisibility(0);
         }
@@ -1140,14 +1140,14 @@ public class PlaybackControlView extends FrameLayout {
         this.showTimeoutMs = 5000;
         this.repeatToggleModes = 0;
         this.showShuffleButton = false;
-        int i4 = R.layout.obfuscated_res_0x7f0d0283;
+        int i4 = R.layout.obfuscated_res_0x7f0d0284;
         if (attributeSet2 != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.obfuscated_res_0x7f04017f, R.attr.obfuscated_res_0x7f04020d, R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404fa, R.attr.obfuscated_res_0x7f040559, R.attr.obfuscated_res_0x7f04055a}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.obfuscated_res_0x7f040182, R.attr.obfuscated_res_0x7f040287, R.attr.obfuscated_res_0x7f040533, R.attr.obfuscated_res_0x7f040538, R.attr.obfuscated_res_0x7f040597, R.attr.obfuscated_res_0x7f040598}, 0, 0);
             try {
                 this.rewindMs = obtainStyledAttributes.getInt(3, this.rewindMs);
                 this.fastForwardMs = obtainStyledAttributes.getInt(1, this.fastForwardMs);
                 this.showTimeoutMs = obtainStyledAttributes.getInt(5, this.showTimeoutMs);
-                i4 = obtainStyledAttributes.getResourceId(0, R.layout.obfuscated_res_0x7f0d0283);
+                i4 = obtainStyledAttributes.getResourceId(0, R.layout.obfuscated_res_0x7f0d0284);
                 this.repeatToggleModes = getRepeatToggleModes(obtainStyledAttributes, this.repeatToggleModes);
                 this.showShuffleButton = obtainStyledAttributes.getBoolean(4, this.showShuffleButton);
             } finally {
@@ -1166,59 +1166,59 @@ public class PlaybackControlView extends FrameLayout {
         this.controlDispatcher = new com.google.android.exoplayer2.DefaultControlDispatcher();
         LayoutInflater.from(context).inflate(i4, this);
         setDescendantFocusability(262144);
-        this.durationView = (TextView) findViewById(R.id.obfuscated_res_0x7f090920);
-        this.positionView = (TextView) findViewById(R.id.obfuscated_res_0x7f090926);
-        TimeBar timeBar = (TimeBar) findViewById(R.id.obfuscated_res_0x7f090928);
+        this.durationView = (TextView) findViewById(R.id.obfuscated_res_0x7f090927);
+        this.positionView = (TextView) findViewById(R.id.obfuscated_res_0x7f09092d);
+        TimeBar timeBar = (TimeBar) findViewById(R.id.obfuscated_res_0x7f09092f);
         this.timeBar = timeBar;
         if (timeBar != null) {
             timeBar.addListener(this.componentListener);
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090925);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f09092c);
         this.playButton = findViewById;
         if (findViewById != null) {
             findViewById.setOnClickListener(this.componentListener);
         }
-        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090924);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f09092b);
         this.pauseButton = findViewById2;
         if (findViewById2 != null) {
             findViewById2.setOnClickListener(this.componentListener);
         }
-        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090927);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09092e);
         this.previousButton = findViewById3;
         if (findViewById3 != null) {
             findViewById3.setOnClickListener(this.componentListener);
         }
-        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090922);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090929);
         this.nextButton = findViewById4;
         if (findViewById4 != null) {
             findViewById4.setOnClickListener(this.componentListener);
         }
-        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f09092a);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f090931);
         this.rewindButton = findViewById5;
         if (findViewById5 != null) {
             findViewById5.setOnClickListener(this.componentListener);
         }
-        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f090921);
+        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f090928);
         this.fastForwardButton = findViewById6;
         if (findViewById6 != null) {
             findViewById6.setOnClickListener(this.componentListener);
         }
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090929);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090930);
         this.repeatToggleButton = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(this.componentListener);
         }
-        View findViewById7 = findViewById(R.id.obfuscated_res_0x7f09092b);
+        View findViewById7 = findViewById(R.id.obfuscated_res_0x7f090932);
         this.shuffleButton = findViewById7;
         if (findViewById7 != null) {
             findViewById7.setOnClickListener(this.componentListener);
         }
         Resources resources = context.getResources();
-        this.repeatOffButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e3);
-        this.repeatOneButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e4);
-        this.repeatAllButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e2);
-        this.repeatOffButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05b5);
-        this.repeatOneButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05b6);
-        this.repeatAllButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05b4);
+        this.repeatOffButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e1);
+        this.repeatOneButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e2);
+        this.repeatAllButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e0);
+        this.repeatOffButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05bc);
+        this.repeatOneButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05bd);
+        this.repeatAllButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05bb);
     }
 }

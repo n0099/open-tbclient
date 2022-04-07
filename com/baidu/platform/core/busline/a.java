@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,8 +97,8 @@ public class a extends d {
                     try {
                         busLineResult.setStartTime(simpleDateFormat.parse(optJSONObject2.optString(FetchLog.START_TIME)));
                         busLineResult.setEndTime(simpleDateFormat.parse(optJSONObject2.optString(FetchLog.END_TIME)));
-                    } catch (ParseException e2) {
-                        e2.printStackTrace();
+                    } catch (ParseException e) {
+                        e.printStackTrace();
                     }
                     busLineResult.setBusLineName(optJSONObject2.optString("name"));
                     busLineResult.setMonthTicket(optJSONObject2.optInt("isMonTicket") == 1);
@@ -137,8 +137,8 @@ public class a extends d {
                     }
                     busLineResult.error = SearchResult.ERRORNO.NO_ERROR;
                     return true;
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
                 }
             }
             return false;

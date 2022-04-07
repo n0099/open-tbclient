@@ -52,25 +52,25 @@ public class h {
         a2.h(System.currentTimeMillis());
         a2.i(0L);
         com.ss.android.socialbase.downloader.g.a a3 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-        if (!a(fVar, a3, a) && eVar.f42774b.isShowToast()) {
-            String startToast = eVar.f42774b.getStartToast();
+        if (!a(fVar, a3, a) && eVar.b.isShowToast()) {
+            String startToast = eVar.b.getStartToast();
             if (TextUtils.isEmpty(startToast)) {
                 startToast = a3.c("download_start_toast_text");
             }
             if (TextUtils.isEmpty(startToast)) {
                 startToast = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            j.c().a(2, fVar.getContext(), eVar.f42774b, startToast, null, 0);
+            j.c().a(2, fVar.getContext(), eVar.b, startToast, null, 0);
         }
         return a;
     }
 
     public static com.ss.android.downloadad.api.a.b a(com.ss.android.downloadlib.addownload.b.e eVar, int i) {
-        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f42774b, eVar.f42775c, eVar.f42776d, i);
+        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.b, eVar.c, eVar.d, i);
         boolean z = true;
         if (com.ss.android.socialbase.downloader.g.a.a(i).a("download_event_opt", 1) > 1) {
             try {
-                String packageName = eVar.f42774b.getPackageName();
+                String packageName = eVar.b.getPackageName();
                 if (!TextUtils.isEmpty(packageName)) {
                     if (j.getContext().getPackageManager().getPackageInfo(packageName, 0) == null) {
                         z = false;
@@ -85,78 +85,78 @@ public class h {
 
     public static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.g.a aVar, int i) {
         String optString;
-        JSONArray e2 = aVar.e("ah_plans");
-        if (e2 != null && e2.length() != 0) {
-            int length = e2.length();
+        JSONArray e = aVar.e("ah_plans");
+        if (e != null && e.length() != 0) {
+            int length = e.length();
             JSONObject jSONObject = null;
             int i2 = 0;
             while (true) {
                 if (i2 < length) {
-                    JSONObject optJSONObject = e2.optJSONObject(i2);
+                    JSONObject optJSONObject = e.optJSONObject(i2);
                     if (optJSONObject != null && ((optString = optJSONObject.optString("type")) == "plan_c" || com.ss.android.socialbase.appdownloader.f.a.a(optJSONObject))) {
-                        char c2 = 65535;
+                        char c = 65535;
                         switch (optString.hashCode()) {
                             case -985763637:
                                 if (optString.equals("plan_a")) {
-                                    c2 = 0;
+                                    c = 0;
                                     break;
                                 }
                                 break;
                             case -985763636:
                                 if (optString.equals("plan_b")) {
-                                    c2 = 1;
+                                    c = 1;
                                     break;
                                 }
                                 break;
                             case -985763635:
                                 if (optString.equals("plan_c")) {
-                                    c2 = 7;
+                                    c = 7;
                                     break;
                                 }
                                 break;
                             case -985763634:
                                 if (optString.equals("plan_d")) {
-                                    c2 = 4;
+                                    c = 4;
                                     break;
                                 }
                                 break;
                             case -985763633:
                                 if (optString.equals("plan_e")) {
-                                    c2 = 2;
+                                    c = 2;
                                     break;
                                 }
                                 break;
                             case -985763632:
                                 if (optString.equals("plan_f")) {
-                                    c2 = 3;
+                                    c = 3;
                                     break;
                                 }
                                 break;
                             case -985763631:
                                 if (optString.equals("plan_g")) {
-                                    c2 = 6;
+                                    c = 6;
                                     break;
                                 }
                                 break;
                             case -985763630:
                                 if (optString.equals("plan_h")) {
-                                    c2 = 5;
+                                    c = 5;
                                     break;
                                 }
                                 break;
                         }
-                        switch (c2) {
+                        switch (c) {
                             case 0:
                             case 1:
                             case 2:
                             case 3:
-                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f43002b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).b == 0) {
                                     break;
                                 } else {
                                     continue;
                                 }
                             case 6:
-                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f43002b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).b == 0) {
                                     break;
                                 } else {
                                     continue;
@@ -187,34 +187,34 @@ public class h {
             if (!TextUtils.isEmpty(extra)) {
                 return new JSONObject(extra).optString("notification_jump_url", null);
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
 
     public static int a(com.ss.android.socialbase.appdownloader.f fVar, String str) {
         com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-        JSONObject d2 = a.d("download_dir");
-        if (d2 == null || TextUtils.isEmpty(d2.optString("dir_name"))) {
+        JSONObject d = a.d("download_dir");
+        if (d == null || TextUtils.isEmpty(d.optString("dir_name"))) {
             return -1;
         }
-        String b2 = fVar.b();
+        String b = fVar.b();
         String L = fVar.L();
         if (TextUtils.isEmpty(L)) {
-            L = com.ss.android.socialbase.appdownloader.c.a(str, b2, fVar.l(), true);
+            L = com.ss.android.socialbase.appdownloader.c.a(str, b, fVar.l(), true);
         }
         if (L.length() > 255) {
             L = L.substring(L.length() - 255);
         }
-        if (TextUtils.isEmpty(b2)) {
-            b2 = L;
+        if (TextUtils.isEmpty(b)) {
+            b = L;
         }
-        String c2 = fVar.c();
-        if (TextUtils.isEmpty(c2)) {
-            c2 = com.ss.android.socialbase.appdownloader.c.b();
+        String c = fVar.c();
+        if (TextUtils.isEmpty(c)) {
+            c = com.ss.android.socialbase.appdownloader.c.b();
         }
-        String str2 = c2 + File.separator + com.ss.android.socialbase.appdownloader.c.a(b2, a);
+        String str2 = c + File.separator + com.ss.android.socialbase.appdownloader.c.a(b, a);
         DownloadInfo a2 = com.ss.android.socialbase.appdownloader.d.j().a(fVar.getContext(), str);
         if (a2 != null && a2.isSavePathRedirected()) {
             fVar.c(a2.getSavePath());

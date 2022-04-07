@@ -176,8 +176,8 @@ public final class SavedStateRegistry {
                     cls.getDeclaredConstructor(new Class[0]);
                     this.mRecreatorProvider.add(cls.getName());
                     return;
-                } catch (NoSuchMethodException e2) {
-                    throw new IllegalArgumentException("Class" + cls.getSimpleName() + " must have default constructor in order to be automatically recreated", e2);
+                } catch (NoSuchMethodException e) {
+                    throw new IllegalArgumentException("Class" + cls.getSimpleName() + " must have default constructor in order to be automatically recreated", e);
                 }
             }
             throw new IllegalStateException("Can not perform this action after onSaveInstanceState");

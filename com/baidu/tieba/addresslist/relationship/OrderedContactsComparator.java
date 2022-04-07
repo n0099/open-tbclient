@@ -1,16 +1,16 @@
 package com.baidu.tieba.addresslist.relationship;
 
 import android.text.TextUtils;
-import c.a.p0.z.f.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rk5;
 import java.io.Serializable;
 import java.util.Comparator;
-/* loaded from: classes5.dex */
-public final class OrderedContactsComparator implements Comparator<e>, Serializable {
+/* loaded from: classes3.dex */
+public final class OrderedContactsComparator implements Comparator<rk5>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LAST_KEY = "#";
     public static final long serialVersionUID = 1284474050586872045L;
@@ -32,28 +32,28 @@ public final class OrderedContactsComparator implements Comparator<e>, Serializa
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Comparator
-    public int compare(e eVar, e eVar2) {
+    public int compare(rk5 rk5Var, rk5 rk5Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, eVar, eVar2)) == null) {
-            if (eVar == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, rk5Var, rk5Var2)) == null) {
+            if (rk5Var == null) {
                 return -1;
             }
-            if (eVar2 == null) {
+            if (rk5Var2 == null) {
                 return 1;
             }
-            String b2 = eVar.b();
-            String b3 = eVar2.b();
+            String b = rk5Var.b();
+            String b2 = rk5Var2.b();
+            if ("#".equals(b)) {
+                return 1;
+            }
             if ("#".equals(b2)) {
-                return 1;
-            }
-            if ("#".equals(b3)) {
                 return -1;
             }
-            if (TextUtils.isEmpty(b2) || TextUtils.isEmpty(b3)) {
+            if (TextUtils.isEmpty(b) || TextUtils.isEmpty(b2)) {
                 return 0;
             }
-            return b2.compareToIgnoreCase(b3);
+            return b.compareToIgnoreCase(b2);
         }
         return invokeLL.intValue;
     }

@@ -5,9 +5,6 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
-import c.a.a0.s.p;
-import c.a.a0.s.r;
-import c.a.a0.s.t;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.player.tail.AdBaseTailFrameView;
@@ -19,28 +16,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ez0;
+import com.repackage.io0;
+import com.repackage.ko0;
+import com.repackage.mo0;
+/* loaded from: classes2.dex */
 public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t m;
+    public mo0 m;
     public SimpleAdInfoView n;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements SimpleAdInfoView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r a;
+        public final /* synthetic */ ko0 a;
+        public final /* synthetic */ HorizontalVideoTailView b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HorizontalVideoTailView f27811b;
-
-        public a(HorizontalVideoTailView horizontalVideoTailView, r rVar) {
+        public a(HorizontalVideoTailView horizontalVideoTailView, ko0 ko0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {horizontalVideoTailView, rVar};
+                Object[] objArr = {horizontalVideoTailView, ko0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -50,15 +49,15 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
                     return;
                 }
             }
-            this.f27811b = horizontalVideoTailView;
-            this.a = rVar;
+            this.b = horizontalVideoTailView;
+            this.a = ko0Var;
         }
 
         @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.f27811b.m(ClogBuilder.LogType.FREE_CLICK, str, this.a);
+                this.b.m(ClogBuilder.LogType.FREE_CLICK, str, this.a);
             }
         }
     }
@@ -97,26 +96,26 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05b3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d05af : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
-    public boolean k(r rVar) {
+    public boolean k(ko0 ko0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rVar)) == null) {
-            rVar.o = false;
-            boolean k = super.k(rVar);
-            t tVar = this.m;
-            if (tVar != null && tVar.k) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ko0Var)) == null) {
+            ko0Var.o = false;
+            boolean k = super.k(ko0Var);
+            mo0 mo0Var = this.m;
+            if (mo0Var != null && mo0Var.k) {
                 Resources resources = getContext().getResources();
                 FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.n.getLayoutParams();
-                layoutParams.leftMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704d1);
-                layoutParams.rightMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704d1);
+                layoutParams.leftMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704dc);
+                layoutParams.rightMargin = resources.getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0704dc);
                 this.n.setLayoutParams(layoutParams);
                 this.n.setAdInfo(this.m);
                 this.n.setVisibility(0);
-                this.n.setAfterListener(new a(this, rVar));
+                this.n.setAfterListener(new a(this, ko0Var));
             } else {
                 this.n.setVisibility(8);
             }
@@ -125,35 +124,35 @@ public class HorizontalVideoTailView extends AdBaseTailFrameView {
         return invokeL.booleanValue;
     }
 
-    public final void m(ClogBuilder.LogType logType, String str, r rVar) {
+    public final void m(ClogBuilder.LogType logType, String str, ko0 ko0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, logType, str, rVar) == null) || rVar == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, logType, str, ko0Var) == null) || ko0Var == null) {
             return;
         }
         ClogBuilder clogBuilder = new ClogBuilder();
         clogBuilder.s(logType);
         clogBuilder.h(str);
-        clogBuilder.n(rVar.l);
-        c.a.a0.a0.a.b(clogBuilder);
+        clogBuilder.n(ko0Var.l);
+        ez0.b(clogBuilder);
     }
 
     public boolean n(AdBaseModel adBaseModel) {
         InterceptResult invokeL;
-        p pVar;
+        io0 io0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, adBaseModel)) == null) {
-            if (adBaseModel == null || (pVar = adBaseModel.j) == null) {
+            if (adBaseModel == null || (io0Var = adBaseModel.j) == null) {
                 return false;
             }
-            return k(pVar.f1560f);
+            return k(io0Var.f);
         }
         return invokeL.booleanValue;
     }
 
-    public void setAdInfo(t tVar) {
+    public void setAdInfo(mo0 mo0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tVar) == null) {
-            this.m = tVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mo0Var) == null) {
+            this.m = mo0Var;
         }
     }
 

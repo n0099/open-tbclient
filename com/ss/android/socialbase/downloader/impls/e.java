@@ -13,12 +13,10 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
 /* loaded from: classes7.dex */
 public class e extends a {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static com.ss.android.socialbase.downloader.h.d f43419b;
+    public static com.ss.android.socialbase.downloader.h.d b;
 
     public e() {
-        f43419b = new com.ss.android.socialbase.downloader.h.d();
+        b = new com.ss.android.socialbase.downloader.h.d();
     }
 
     public static void c(List<Callable<Object>> list) throws InterruptedException {
@@ -70,12 +68,12 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public boolean a(int i) {
-        DownloadInfo d2;
-        com.ss.android.socialbase.downloader.h.d dVar = f43419b;
-        if (dVar == null || !dVar.a(i) || (d2 = d(i)) == null) {
+        DownloadInfo d;
+        com.ss.android.socialbase.downloader.h.d dVar = b;
+        if (dVar == null || !dVar.a(i) || (d = d(i)) == null) {
             return false;
         }
-        if (DownloadStatus.isDownloading(d2.getStatus())) {
+        if (DownloadStatus.isDownloading(d.getStatus())) {
             return true;
         }
         b(i);
@@ -84,7 +82,7 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void b(int i) {
-        com.ss.android.socialbase.downloader.h.d dVar = f43419b;
+        com.ss.android.socialbase.downloader.h.d dVar = b;
         if (dVar == null) {
             return;
         }
@@ -93,7 +91,7 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public com.ss.android.socialbase.downloader.h.c c(int i) {
-        com.ss.android.socialbase.downloader.h.d dVar = f43419b;
+        com.ss.android.socialbase.downloader.h.d dVar = b;
         if (dVar == null) {
             return null;
         }
@@ -102,7 +100,7 @@ public class e extends a {
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(com.ss.android.socialbase.downloader.h.c cVar) {
-        com.ss.android.socialbase.downloader.h.d dVar = f43419b;
+        com.ss.android.socialbase.downloader.h.d dVar = b;
         if (dVar == null) {
             return;
         }
@@ -115,17 +113,17 @@ public class e extends a {
             return;
         }
         com.ss.android.socialbase.downloader.c.a.b("DownloadTask", "start doDownload for task : " + i);
-        f43419b.a(new com.ss.android.socialbase.downloader.h.c(downloadTask, this.a));
+        b.a(new com.ss.android.socialbase.downloader.h.c(downloadTask, this.a));
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public List<Integer> a() {
-        return f43419b.a();
+        return b.a();
     }
 
     @Override // com.ss.android.socialbase.downloader.impls.a
     public void a(int i, long j) {
-        com.ss.android.socialbase.downloader.h.d dVar = f43419b;
+        com.ss.android.socialbase.downloader.h.d dVar = b;
         if (dVar == null) {
             return;
         }

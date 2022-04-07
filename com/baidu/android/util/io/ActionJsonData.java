@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ActionJsonData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DEFAULT = -1;
@@ -36,7 +36,7 @@ public class ActionJsonData {
     public int mStatus;
     public int mVersion;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Link {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class ActionJsonData {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Notification {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class ActionJsonData {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class SignIn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,8 +145,8 @@ public class ActionJsonData {
                     link.mSignIn = signIn;
                     actionJsonData.setLink(link);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject(TAG_DATASET);
             JSONArray optJSONArray = jSONObject.optJSONArray(TAG_DATASET);
@@ -243,8 +243,8 @@ public class ActionJsonData {
             }
             try {
                 return fromJson(new JSONObject(str));
-            } catch (JSONException e2) {
-                Log.i(TAG, e2.toString());
+            } catch (JSONException e) {
+                Log.i(TAG, e.toString());
                 return null;
             }
         }

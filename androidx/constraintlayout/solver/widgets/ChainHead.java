@@ -81,12 +81,12 @@ public class ChainHead {
                             this.mWidgetsMatchCount++;
                             float[] fArr = constraintWidget.mWeight;
                             int i4 = this.mOrientation;
-                            float f2 = fArr[i4];
-                            if (f2 > 0.0f) {
+                            float f = fArr[i4];
+                            if (f > 0.0f) {
                                 this.mTotalWeight += fArr[i4];
                             }
                             if (isMatchConstraintEqualityCandidate(constraintWidget, this.mOrientation)) {
-                                if (f2 < 0.0f) {
+                                if (f < 0.0f) {
                                     this.mHasUndefinedWeights = true;
                                 } else {
                                     this.mHasDefinedWeights = true;

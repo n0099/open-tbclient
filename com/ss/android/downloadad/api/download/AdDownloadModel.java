@@ -324,8 +324,8 @@ public class AdDownloadModel implements DownloadModel {
             appendTrackUrlFromJson(jSONObject, builder);
             appendHeaderMapFromJson(jSONObject, builder);
             appendBackupUrlsFromJson(jSONObject, builder);
-        } catch (Exception e2) {
-            j.s().a(e2, "AdDownloadModel fromJson");
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadModel fromJson");
         }
         return builder.build();
     }
@@ -774,8 +774,8 @@ public class AdDownloadModel implements DownloadModel {
                 jSONObject.put("header_keys", jSONArray3);
                 jSONObject.put("header_values", jSONArray4);
             }
-        } catch (Exception e2) {
-            j.s().a(e2, "AdDownloadModel toJson");
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadModel toJson");
         }
         return jSONObject;
     }

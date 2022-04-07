@@ -5,7 +5,7 @@ import android.os.Environment;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class aq {
     @NonNull
     public static String a(Context context) {
@@ -19,8 +19,8 @@ public class aq {
         if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
             try {
                 file = context.getExternalFilesDir(null);
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
                 file = null;
             }
             if (file != null) {
@@ -44,8 +44,8 @@ public class aq {
         if ("mounted".equals(str) || !Environment.isExternalStorageRemovable()) {
             try {
                 file = context.getExternalCacheDir();
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
                 file = null;
             }
             if (file != null) {

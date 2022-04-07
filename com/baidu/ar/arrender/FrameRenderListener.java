@@ -1,5 +1,5 @@
 package com.baidu.ar.arrender;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface FrameRenderListener {
     void onRenderFinished(long j);
 

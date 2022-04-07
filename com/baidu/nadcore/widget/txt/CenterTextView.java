@@ -7,23 +7,19 @@ import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import c.a.a0.h0.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.c11;
+/* loaded from: classes2.dex */
 public class CenterTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public StaticLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextPaint f27797b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f27798c;
+    public TextPaint b;
+    public boolean c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CenterTextView(Context context) {
@@ -43,18 +39,18 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f27798c = true;
+        this.c = true;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             TextPaint textPaint = new TextPaint(1);
-            this.f27797b = textPaint;
+            this.b = textPaint;
             textPaint.setTextSize(getTextSize());
-            this.f27797b.setFakeBoldText(this.f27798c);
-            this.f27797b.setColor(getCurrentTextColor());
-            this.a = new StaticLayout(getText(), this.f27797b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, f.c.a(getContext(), 6.0f), false);
+            this.b.setFakeBoldText(this.c);
+            this.b.setColor(getCurrentTextColor());
+            this.a = new StaticLayout(getText(), this.b, getWidth(), Layout.Alignment.ALIGN_CENTER, 1.0f, c11.c.a(getContext(), 6.0f), false);
         }
     }
 
@@ -83,7 +79,7 @@ public class CenterTextView extends TextView {
     public void setTextBold(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f27798c = z;
+            this.c = z;
         }
     }
 
@@ -106,7 +102,7 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f27798c = true;
+        this.c = true;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -128,6 +124,6 @@ public class CenterTextView extends TextView {
                 return;
             }
         }
-        this.f27798c = true;
+        this.c = true;
     }
 }

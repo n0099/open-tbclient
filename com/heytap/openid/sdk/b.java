@@ -21,25 +21,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.openid.a;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile com.heytap.openid.a a;
+    public String b;
+    public String c;
+    public final Object d;
+    public ServiceConnection e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f38727b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f38728c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Object f38729d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f38730e;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,9 +59,9 @@ public class b {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.a.a = a.AbstractBinderC1935a.a(iBinder);
-                synchronized (this.a.f38729d) {
-                    this.a.f38729d.notify();
+                this.a.a = a.AbstractBinderC0275a.a(iBinder);
+                synchronized (this.a.d) {
+                    this.a.d.notify();
                 }
             }
         }
@@ -84,8 +76,8 @@ public class b {
     }
 
     /* renamed from: com.heytap.openid.sdk.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1937b {
+    /* loaded from: classes5.dex */
+    public static class C0277b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,10 +113,10 @@ public class b {
             }
         }
         this.a = null;
-        this.f38727b = null;
-        this.f38728c = null;
-        this.f38729d = new Object();
-        this.f38730e = new a(this);
+        this.b = null;
+        this.c = null;
+        this.d = new Object();
+        this.e = new a(this);
     }
 
     public synchronized String a(Context context, String str) {
@@ -145,23 +137,23 @@ public class b {
                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
                 try {
-                    if (!context.bindService(intent, this.f38730e, 1)) {
+                    if (!context.bindService(intent, this.e, 1)) {
                         Log.e("OpenIDHelper", "bindService fail.");
                     } else if (this.a == null) {
-                        synchronized (this.f38729d) {
+                        synchronized (this.d) {
                             try {
                                 if (this.a == null) {
-                                    this.f38729d.wait(3000L);
+                                    this.d.wait(3000L);
                                 }
                             } catch (InterruptedException unused2) {
                                 Log.e("OpenIDHelper", "ex:InterruptedException");
                             }
                         }
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("ex:");
-                    sb.append(e2.getMessage() != null ? e2.getMessage() : e2.getLocalizedMessage());
+                    sb.append(e.getMessage() != null ? e.getMessage() : e.getLocalizedMessage());
                     Log.e("OpenIDHelper", sb.toString());
                 }
                 if (this.a == null) {
@@ -184,15 +176,15 @@ public class b {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f38727b)) {
-                this.f38727b = context.getPackageName();
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f38728c)) {
+            if (TextUtils.isEmpty(this.c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f38727b, 64).signatures;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                    signatureArr = context.getPackageManager().getPackageInfo(this.b, 64).signatures;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                     signatureArr = null;
                 }
                 if (signatureArr != null && signatureArr.length > 0) {
@@ -202,19 +194,19 @@ public class b {
                         if (messageDigest != null) {
                             byte[] digest = messageDigest.digest(byteArray);
                             StringBuilder sb = new StringBuilder();
-                            for (byte b2 : digest) {
-                                sb.append(Integer.toHexString((b2 & 255) | 256).substring(1, 3));
+                            for (byte b : digest) {
+                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
                             }
                             str2 = sb.toString();
                         }
-                    } catch (NoSuchAlgorithmException e3) {
-                        e3.printStackTrace();
+                    } catch (NoSuchAlgorithmException e2) {
+                        e2.printStackTrace();
                     }
                 }
-                this.f38728c = str2;
+                this.c = str2;
             }
             if (this.a != null) {
-                String a2 = this.a.a(this.f38727b, this.f38728c, str);
+                String a2 = this.a.a(this.b, this.c, str);
                 return TextUtils.isEmpty(a2) ? "" : a2;
             }
             Log.e("OpenIDHelper", context.getPackageName() + ":openIDService is NULL, return NULL");

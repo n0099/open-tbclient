@@ -5,14 +5,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FixedMultiPartBodyProvider extends UploadDataProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f37704b;
+    public int b;
 
     @Override // com.baidu.turbonet.net.UploadDataProvider
     public long a() {
@@ -26,11 +24,11 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
             if (byteBuffer.hasRemaining()) {
-                if (byteBuffer.remaining() >= this.a.length() - this.f37704b) {
-                    byteBuffer.put(this.a.getBytes(), this.f37704b, this.a.getBytes().length - this.f37704b);
+                if (byteBuffer.remaining() >= this.a.length() - this.b) {
+                    byteBuffer.put(this.a.getBytes(), this.b, this.a.getBytes().length - this.b);
                 } else {
-                    byteBuffer.put(this.a.getBytes(), this.f37704b, byteBuffer.remaining());
-                    this.f37704b += byteBuffer.remaining();
+                    byteBuffer.put(this.a.getBytes(), this.b, byteBuffer.remaining());
+                    this.b += byteBuffer.remaining();
                 }
                 uploadDataSink.c(false);
                 return;
@@ -43,7 +41,7 @@ public class FixedMultiPartBodyProvider extends UploadDataProvider {
     public void c(UploadDataSink uploadDataSink) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
-            this.f37704b = 0;
+            this.b = 0;
             uploadDataSink.a();
         }
     }

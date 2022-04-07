@@ -3,7 +3,6 @@ package com.baidu.android.imsdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.s.a;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -15,7 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.p70;
+/* loaded from: classes.dex */
 public class IMReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMReceiver";
@@ -38,12 +38,12 @@ public class IMReceiver extends BroadcastReceiver {
     private void startService(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            Intent intent = new Intent(context, a.class);
+            Intent intent = new Intent(context, p70.class);
             intent.setAction(Constants.ACTION_START);
             try {
-                a.g(context).f(context, intent);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+                p70.g(context).f(context, intent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }
@@ -86,11 +86,11 @@ public class IMReceiver extends BroadcastReceiver {
                 startService(context);
                 return;
             }
-            intent.setClass(context, a.class);
+            intent.setClass(context, p70.class);
             try {
-                a.g(context).f(context, intent);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+                p70.g(context).f(context, intent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
         }
     }

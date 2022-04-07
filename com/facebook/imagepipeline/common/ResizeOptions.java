@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ResizeOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ROUNDUP_FRACTION = 0.6666667f;
@@ -96,13 +96,13 @@ public class ResizeOptions {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ResizeOptions(int i, int i2, float f2) {
-        this(i, i2, f2, 0.6666667f);
+    public ResizeOptions(int i, int i2, float f) {
+        this(i, i2, f, 0.6666667f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -116,12 +116,12 @@ public class ResizeOptions {
         }
     }
 
-    public ResizeOptions(int i, int i2, float f2, float f3) {
+    public ResizeOptions(int i, int i2, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -135,7 +135,7 @@ public class ResizeOptions {
         Preconditions.checkArgument(i2 > 0);
         this.width = i;
         this.height = i2;
-        this.maxBitmapSize = f2;
-        this.roundUpFraction = f3;
+        this.maxBitmapSize = f;
+        this.roundUpFraction = f2;
     }
 }

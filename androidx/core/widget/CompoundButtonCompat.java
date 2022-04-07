@@ -50,8 +50,8 @@ public final class CompoundButtonCompat {
                     Field declaredField = CompoundButton.class.getDeclaredField("mButtonDrawable");
                     sButtonDrawableField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    Log.i(TAG, "Failed to retrieve mButtonDrawable field", e2);
+                } catch (NoSuchFieldException e) {
+                    Log.i(TAG, "Failed to retrieve mButtonDrawable field", e);
                 }
                 sButtonDrawableFieldFetched = true;
             }
@@ -59,8 +59,8 @@ public final class CompoundButtonCompat {
             if (field != null) {
                 try {
                     return (Drawable) field.get(compoundButton);
-                } catch (IllegalAccessException e3) {
-                    Log.i(TAG, "Failed to get button drawable via reflection", e3);
+                } catch (IllegalAccessException e2) {
+                    Log.i(TAG, "Failed to get button drawable via reflection", e2);
                     sButtonDrawableField = null;
                 }
             }

@@ -15,7 +15,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;

@@ -39,31 +39,17 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = -1;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static ServiceConnection f26555b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f26556c = "com.baidu.mapapi.utils.b";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static com.baidu.mapframework.open.aidl.a f26557d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static IComOpenClient f26558e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f26559f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f26560g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f26561h;
+    public static ServiceConnection b = null;
+    public static final String c = "com.baidu.mapapi.utils.b";
+    public static com.baidu.mapframework.open.aidl.a d;
+    public static IComOpenClient e;
+    public static int f;
+    public static String g;
+    public static String h;
     public static String i;
     public static List<DispathcPoiData> j;
     public static LatLng k;
@@ -104,7 +90,7 @@ public class b {
         s = 0;
         t = false;
         u = false;
-        f26555b = new d();
+        b = new d();
     }
 
     public b() {
@@ -164,7 +150,7 @@ public class b {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65542, null, context) == null) && u) {
-            context.unbindService(f26555b);
+            context.unbindService(b);
             u = false;
         }
     }
@@ -172,8 +158,8 @@ public class b {
     public static void a(List<DispathcPoiData> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, list, context) == null) {
-            f26560g = context.getPackageName();
-            f26561h = b(context);
+            g = context.getPackageName();
+            h = b(context);
             i = "";
             List<DispathcPoiData> list2 = j;
             if (list2 != null) {
@@ -222,7 +208,7 @@ public class b {
                 e2.printStackTrace();
             }
             if (!com.baidu.platform.comapi.a.a.a(context)) {
-                Log.d(f26556c, "package sign verify failed");
+                Log.d(c, "package sign verify failed");
                 return false;
             }
             t = false;
@@ -261,13 +247,13 @@ public class b {
             if (i2 == 9) {
                 u = false;
             }
-            if (f26557d == null || !u) {
+            if (d == null || !u) {
                 b(context, i2);
-            } else if (f26558e != null) {
+            } else if (e != null) {
                 t = true;
                 return a(i2);
             } else {
-                f26557d.a(new c(i2));
+                d.a(new c(i2));
             }
             return true;
         }
@@ -346,7 +332,7 @@ public class b {
             intent.setAction("com.baidu.map.action.OPEN_SERVICE");
             intent.setPackage("com.baidu.BaiduMap");
             if (i2 != 9) {
-                u = context.bindService(intent, f26555b, 1);
+                u = context.bindService(intent, b, 1);
             }
             if (!u) {
                 Log.e("baidumapsdk", "bind service failed，call openapi");
@@ -363,7 +349,7 @@ public class b {
     public static void b(NaviParaOption naviParaOption, Context context, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65554, null, naviParaOption, context, i2) == null) {
-            f26560g = context.getPackageName();
+            g = context.getPackageName();
             m = null;
             k = null;
             n = null;
@@ -390,7 +376,7 @@ public class b {
             q = null;
             r = null;
             s = 0;
-            f26560g = context.getPackageName();
+            g = context.getPackageName();
             if (poiParaOption.getUid() != null) {
                 p = poiParaOption.getUid();
             }
@@ -414,7 +400,7 @@ public class b {
             k = null;
             n = null;
             l = null;
-            f26560g = context.getPackageName();
+            g = context.getPackageName();
             if (routeParaOption.getStartPoint() != null) {
                 k = routeParaOption.getStartPoint();
             }
@@ -441,7 +427,7 @@ public class b {
             } else {
                 i3 = 0;
             }
-            f26559f = i3;
+            f = i3;
         }
     }
 
@@ -459,21 +445,21 @@ public class b {
             sb.append("&show_type=");
             sb.append("detail_page");
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0077, code lost:
         if (r2 != null) goto L16;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00cf, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00cc, code lost:
         if (r2 != null) goto L27;
      */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00c7  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x00ca  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -514,7 +500,7 @@ public class b {
                     sb.append("&target=");
                     sb.append("1");
                     sb.append("&src=");
-                    sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+                    sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
                     Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
                     intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     context.startActivity(intent);
@@ -531,7 +517,7 @@ public class b {
                 sb.append("&target=");
                 sb.append("1");
                 sb.append("&src=");
-                sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+                sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
                 Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
                 intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 context.startActivity(intent2);
@@ -556,7 +542,7 @@ public class b {
             sb.append("&target=");
             sb.append("1");
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent22 = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent22.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent22);
@@ -584,7 +570,7 @@ public class b {
             sb.append("&radius=");
             sb.append(s);
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
@@ -613,7 +599,7 @@ public class b {
             sb.append(",");
             sb.append(l.longitude);
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
@@ -642,7 +628,7 @@ public class b {
             sb.append(",");
             sb.append(l.longitude);
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
@@ -671,7 +657,7 @@ public class b {
             sb.append(",");
             sb.append(l.longitude);
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             context.startActivity(intent);
@@ -684,19 +670,19 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             try {
-                Log.d(f26556c, "callDispatchTakeOutRoute");
-                a2 = f26558e.a("map.android.baidu.mainmap");
+                Log.d(c, "callDispatchTakeOutRoute");
+                a2 = e.a("map.android.baidu.mainmap");
             } catch (RemoteException e2) {
-                Log.d(f26556c, "callDispatchTakeOut exception", e2);
+                Log.d(c, "callDispatchTakeOut exception", e2);
             }
             if (a2 == null) {
-                Log.d(f26556c, "callDispatchTakeOut com not found");
+                Log.d(c, "callDispatchTakeOut com not found");
                 return false;
             }
             Bundle bundle = new Bundle();
             bundle.putString("target", "route_search_page");
             Bundle bundle2 = new Bundle();
-            bundle2.putInt("route_type", f26559f);
+            bundle2.putInt("route_type", f);
             bundle2.putInt("bus_strategy", o.ordinal());
             bundle2.putInt("cross_city_bus_strategy", 5);
             if (k != null) {
@@ -731,9 +717,9 @@ public class b {
             bundle2.putString("end_uid", "");
             bundle.putBundle("base_params", bundle2);
             Bundle bundle3 = new Bundle();
-            bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             bundle.putBundle("ext_params", bundle3);
-            return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+            return e.a("map.android.baidu.mainmap", a2, bundle);
         }
         return invokeV.booleanValue;
     }
@@ -762,7 +748,7 @@ public class b {
             sb.append("&mode=");
             sb.append("walking_ar");
             sb.append("&src=");
-            sb.append("sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            sb.append("sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             Log.e("test", sb.toString());
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(sb.toString()));
             intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -775,10 +761,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
             try {
-                Log.d(f26556c, "callDispatchTakeOutPoiDetials");
-                String a2 = f26558e.a("map.android.baidu.mainmap");
+                Log.d(c, "callDispatchTakeOutPoiDetials");
+                String a2 = e.a("map.android.baidu.mainmap");
                 if (a2 == null) {
-                    Log.d(f26556c, "callDispatchTakeOut com not found");
+                    Log.d(c, "callDispatchTakeOut com not found");
                     return false;
                 }
                 Bundle bundle = new Bundle();
@@ -787,11 +773,11 @@ public class b {
                 bundle2.putString("uid", p != null ? p : "");
                 bundle.putBundle("base_params", bundle2);
                 Bundle bundle3 = new Bundle();
-                bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+                bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
                 bundle.putBundle("ext_params", bundle3);
-                return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+                return e.a("map.android.baidu.mainmap", a2, bundle);
             } catch (RemoteException e2) {
-                Log.d(f26556c, "callDispatchTakeOut exception", e2);
+                Log.d(c, "callDispatchTakeOut exception", e2);
                 return false;
             }
         }
@@ -805,8 +791,8 @@ public class b {
             List<DispathcPoiData> list = j;
             if (list != null && list.size() > 0) {
                 try {
-                    Log.d(f26556c, "callDispatchPoiToBaiduMap");
-                    String a2 = f26558e.a("map.android.baidu.mainmap");
+                    Log.d(c, "callDispatchPoiToBaiduMap");
+                    String a2 = e.a("map.android.baidu.mainmap");
                     if (a2 != null) {
                         Bundle bundle = new Bundle();
                         bundle.putString("target", "favorite_page");
@@ -834,19 +820,19 @@ public class b {
                             return false;
                         }
                         bundle2.putString("data", jSONArray.toString());
-                        bundle2.putString("from", f26561h);
-                        bundle2.putString("pkg", f26560g);
+                        bundle2.putString("from", h);
+                        bundle2.putString("pkg", g);
                         bundle2.putString("cls", i);
                         bundle2.putInt("count", i2);
                         bundle.putBundle("base_params", bundle2);
                         Bundle bundle3 = new Bundle();
-                        bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+                        bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
                         bundle.putBundle("ext_params", bundle3);
-                        return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+                        return e.a("map.android.baidu.mainmap", a2, bundle);
                     }
-                    Log.d(f26556c, "callDispatchPoiToBaiduMap com not found");
+                    Log.d(c, "callDispatchPoiToBaiduMap com not found");
                 } catch (RemoteException e3) {
-                    Log.d(f26556c, "callDispatchPoiToBaiduMap exception", e3);
+                    Log.d(c, "callDispatchPoiToBaiduMap exception", e3);
                 }
             }
             return false;
@@ -860,13 +846,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) {
             try {
-                Log.d(f26556c, "callDispatchTakeOutRouteNavi");
-                a2 = f26558e.a("map.android.baidu.mainmap");
+                Log.d(c, "callDispatchTakeOutRouteNavi");
+                a2 = e.a("map.android.baidu.mainmap");
             } catch (RemoteException e2) {
-                Log.d(f26556c, "callDispatchTakeOut exception", e2);
+                Log.d(c, "callDispatchTakeOut exception", e2);
             }
             if (a2 == null) {
-                Log.d(f26556c, "callDispatchTakeOut com not found");
+                Log.d(c, "callDispatchTakeOut com not found");
                 return false;
             }
             Bundle bundle = new Bundle();
@@ -894,9 +880,9 @@ public class b {
             bundle2.putString("destination", stringBuffer2.toString());
             bundle.putBundle("base_params", bundle2);
             Bundle bundle3 = new Bundle();
-            bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             bundle.putBundle("ext_params", bundle3);
-            return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+            return e.a("map.android.baidu.mainmap", a2, bundle);
         }
         return invokeV.booleanValue;
     }
@@ -907,13 +893,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
-                Log.d(f26556c, "callDispatchTakeOutRouteNavi");
-                a2 = f26558e.a("map.android.baidu.mainmap");
+                Log.d(c, "callDispatchTakeOutRouteNavi");
+                a2 = e.a("map.android.baidu.mainmap");
             } catch (Exception e2) {
-                Log.d(f26556c, "callDispatchTakeOut exception", e2);
+                Log.d(c, "callDispatchTakeOut exception", e2);
             }
             if (a2 == null) {
-                Log.d(f26556c, "callDispatchTakeOut com not found");
+                Log.d(c, "callDispatchTakeOut com not found");
                 return false;
             }
             Bundle bundle = new Bundle();
@@ -940,9 +926,9 @@ public class b {
             bundle2.putString("destination", stringBuffer2.toString());
             bundle.putBundle("base_params", bundle2);
             Bundle bundle3 = new Bundle();
-            bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             bundle.putBundle("ext_params", bundle3);
-            return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+            return e.a("map.android.baidu.mainmap", a2, bundle);
         }
         return invokeV.booleanValue;
     }
@@ -953,13 +939,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             try {
-                Log.d(f26556c, "callDispatchTakeOutRouteRidingNavi");
-                a2 = f26558e.a("map.android.baidu.mainmap");
+                Log.d(c, "callDispatchTakeOutRouteRidingNavi");
+                a2 = e.a("map.android.baidu.mainmap");
             } catch (RemoteException e2) {
-                Log.d(f26556c, "callDispatchTakeOut exception", e2);
+                Log.d(c, "callDispatchTakeOut exception", e2);
             }
             if (a2 == null) {
-                Log.d(f26556c, "callDispatchTakeOut com not found");
+                Log.d(c, "callDispatchTakeOut com not found");
                 return false;
             }
             Bundle bundle = new Bundle();
@@ -986,9 +972,9 @@ public class b {
             bundle2.putString("destination", stringBuffer2.toString());
             bundle.putBundle("base_params", bundle2);
             Bundle bundle3 = new Bundle();
-            bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+            bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
             bundle.putBundle("ext_params", bundle3);
-            return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+            return e.a("map.android.baidu.mainmap", a2, bundle);
         }
         return invokeV.booleanValue;
     }
@@ -998,10 +984,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             try {
-                Log.d(f26556c, "callDispatchTakeOutPoiNearbySearch");
-                String a2 = f26558e.a("map.android.baidu.mainmap");
+                Log.d(c, "callDispatchTakeOutPoiNearbySearch");
+                String a2 = e.a("map.android.baidu.mainmap");
                 if (a2 == null) {
-                    Log.d(f26556c, "callDispatchTakeOut com not found");
+                    Log.d(c, "callDispatchTakeOut com not found");
                     return false;
                 }
                 Bundle bundle = new Bundle();
@@ -1027,11 +1013,11 @@ public class b {
                 bundle2.putBoolean("is_direct_area_search", true);
                 bundle.putBundle("base_params", bundle2);
                 Bundle bundle3 = new Bundle();
-                bundle3.putString("launch_from", "sdk_[" + f26560g + PreferencesUtil.RIGHT_MOUNT);
+                bundle3.putString("launch_from", "sdk_[" + g + PreferencesUtil.RIGHT_MOUNT);
                 bundle.putBundle("ext_params", bundle3);
-                return f26558e.a("map.android.baidu.mainmap", a2, bundle);
+                return e.a("map.android.baidu.mainmap", a2, bundle);
             } catch (RemoteException e2) {
-                Log.d(f26556c, "callDispatchTakeOut exception", e2);
+                Log.d(c, "callDispatchTakeOut exception", e2);
                 return false;
             }
         }

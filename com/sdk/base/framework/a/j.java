@@ -17,27 +17,13 @@ import org.apache.http.client.methods.HttpTrace;
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final j a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final j f42537b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static j f42538c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static j f42539d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static j f42540e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static j f42541f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static j f42542g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static j f42543h;
+    public static final j b;
+    public static j c;
+    public static j d;
+    public static j e;
+    public static j f;
+    public static j g;
+    public static j h;
     public static j i;
     public static j j;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,13 +43,13 @@ public final class j {
             }
         }
         a = new j("GET", 0, "GET");
-        f42537b = new j("POST", 1, "POST");
-        f42538c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
-        f42539d = new j("HEAD", 3, "HEAD");
-        f42540e = new j("MOVE", 4, "MOVE");
-        f42541f = new j("COPY", 5, "COPY");
-        f42542g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
-        f42543h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+        b = new j("POST", 1, "POST");
+        c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+        d = new j("HEAD", 3, "HEAD");
+        e = new j("MOVE", 4, "MOVE");
+        f = new j("COPY", 5, "COPY");
+        g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+        h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
         i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
         j = new j("CONNECT", 9, "CONNECT");
     }

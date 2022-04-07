@@ -14,12 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public static final c a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final c f42587b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final c f42588c;
+    public static final c b;
+    public static final c c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -70,7 +66,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f42587b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
+        b = new c("NET", 1) { // from class: com.sdk.base.framework.f.g.e
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +101,7 @@ public abstract class c {
                 return invokeV.intValue;
             }
         };
-        f42588c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
+        c = new c("UNKNOW", 2) { // from class: com.sdk.base.framework.f.g.f
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

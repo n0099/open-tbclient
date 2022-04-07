@@ -11,23 +11,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.yxcorp.kuaishou.addfp.a.b.b a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f44610b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public d f44611c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f44612d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f44613e;
+    public Context b;
+    public d c;
+    public CountDownLatch d;
+    public ServiceConnection e;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -44,10 +36,10 @@ public final class a {
                 return;
             }
         }
-        this.f44611c = null;
-        this.f44612d = new CountDownLatch(1);
-        this.f44613e = new b(this);
-        this.f44610b = context;
+        this.c = null;
+        this.d = new CountDownLatch(1);
+        this.e = new b(this);
+        this.b = context;
     }
 
     private void a(boolean z) {
@@ -58,7 +50,7 @@ public final class a {
                     this.a.e();
                     return;
                 }
-                String a = this.f44611c.a();
+                String a = this.c.a();
                 if (TextUtils.isEmpty(a)) {
                     this.a.a(a);
                 }
@@ -72,7 +64,7 @@ public final class a {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f44613e) == null || (context = this.f44610b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.e) == null || (context = this.b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -85,12 +77,12 @@ public final class a {
                 this.a = bVar;
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (!this.f44610b.bindService(intent, this.f44613e, 1)) {
+                if (!this.b.bindService(intent, this.e, 1)) {
                     a(false);
                     return;
                 }
-                this.f44612d.await(10L, TimeUnit.SECONDS);
-                if (this.f44611c != null) {
+                this.d.await(10L, TimeUnit.SECONDS);
+                if (this.c != null) {
                     a(true);
                 } else {
                     a(false);

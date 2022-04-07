@@ -4,18 +4,16 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.config.b;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f extends b<ReportAction, e> {
     public static volatile boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static f f39723b = new f();
+    public static f b = new f();
 
     public static void a(@NonNull ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        if (com.kwad.sdk.b.f39154c.booleanValue()) {
+        if (com.kwad.sdk.b.c.booleanValue()) {
             com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.i);
         }
         if (b(reportAction.i)) {
@@ -29,7 +27,7 @@ public class f extends b<ReportAction, e> {
         if (reportAction == null) {
             return;
         }
-        f39723b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
+        b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */
@@ -44,14 +42,14 @@ public class f extends b<ReportAction, e> {
     }
 
     public static f c() {
-        return f39723b;
+        return b;
     }
 
     public static void c(final ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        f39723b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
+        b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */

@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class AtomParsers {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AtomParsers";
@@ -46,7 +46,7 @@ public final class AtomParsers {
     public static final int TYPE_vide;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ChunkIterator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface SampleSizeBox {
         int getSampleCount();
 
@@ -118,7 +118,7 @@ public final class AtomParsers {
         int readNextSampleSize();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class StsdData {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STSD_HEADER_SIZE = 8;
@@ -148,7 +148,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class StszSampleSizeBox implements SampleSizeBox {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -204,7 +204,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Stz2SampleSizeBox implements SampleSizeBox {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public final class AtomParsers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class TkhdData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1086,13 +1086,13 @@ public final class AtomParsers {
                 }
                 long[] jArr11 = track2.editListDurations;
                 if (jArr11.length == 1) {
-                    char c2 = 0;
+                    char c = 0;
                     if (jArr11[0] == 0) {
                         int i33 = 0;
                         while (i33 < jArr2.length) {
-                            jArr2[i33] = Util.scaleLargeTimestamp(jArr2[i33] - track2.editListMediaTimes[c2], 1000000L, track2.timescale);
+                            jArr2[i33] = Util.scaleLargeTimestamp(jArr2[i33] - track2.editListMediaTimes[c], 1000000L, track2.timescale);
                             i33++;
-                            c2 = 0;
+                            c = 0;
                         }
                         return new TrackSampleTable(jArr, iArr2, i4, jArr2, iArr);
                     }
@@ -1455,7 +1455,7 @@ public final class AtomParsers {
             List<byte[]> list = null;
             byte[] bArr = null;
             boolean z = false;
-            float f2 = 1.0f;
+            float f = 1.0f;
             int i8 = -1;
             while (position - i2 < i3) {
                 parsableByteArray.setPosition(position);
@@ -1473,7 +1473,7 @@ public final class AtomParsers {
                     list = parse.initializationData;
                     stsdData.nalUnitLengthFieldLength = parse.nalUnitLengthFieldLength;
                     if (!z) {
-                        f2 = parse.pixelWidthAspectRatio;
+                        f = parse.pixelWidthAspectRatio;
                     }
                     str = "video/avc";
                 } else if (readInt2 == Atom.TYPE_hvcC) {
@@ -1495,7 +1495,7 @@ public final class AtomParsers {
                     str = (String) parseEsdsFromParent.first;
                     list = Collections.singletonList(parseEsdsFromParent.second);
                 } else if (readInt2 == Atom.TYPE_pasp) {
-                    f2 = parsePaspFromParent(parsableByteArray, position2);
+                    f = parsePaspFromParent(parsableByteArray, position2);
                     z = true;
                 } else if (readInt2 == Atom.TYPE_sv3d) {
                     bArr = parseProjFromParent(parsableByteArray, position2, readInt);
@@ -1520,7 +1520,7 @@ public final class AtomParsers {
             if (str == null) {
                 return;
             }
-            stsdData.format = Format.createVideoSampleFormat(Integer.toString(i4), str, null, -1, -1, readUnsignedShort, readUnsignedShort2, -1.0f, list, i5, f2, bArr, i8, null, drmInitData3);
+            stsdData.format = Format.createVideoSampleFormat(Integer.toString(i4), str, null, -1, -1, readUnsignedShort, readUnsignedShort2, -1.0f, list, i5, f, bArr, i8, null, drmInitData3);
         }
     }
 }

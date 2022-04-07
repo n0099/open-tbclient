@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bt {
     public static /* synthetic */ Interceptable $ic;
     public static volatile bt a;
@@ -86,7 +86,7 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m230a(String str, String str2, long j) {
+    public synchronized void m226a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             synchronized (this) {
@@ -98,7 +98,7 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m231a(String str, String str2, String str3) {
+    public synchronized void m227a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             synchronized (this) {

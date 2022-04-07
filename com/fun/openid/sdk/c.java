@@ -21,25 +21,17 @@ import com.fun.openid.sdk.a;
 import com.heytap.openid.IOpenID;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.fun.openid.sdk.a a = null;
+    public String b = null;
+    public String c = null;
+    public final Object d = new Object();
+    public ServiceConnection e = new a(this);
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f38661b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f38662c = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Object f38663d = new Object();
-
-    /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f38664e = new a(this);
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,20 +57,20 @@ public class c {
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            com.fun.openid.sdk.a c1932a;
+            com.fun.openid.sdk.a c0272a;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
                 c cVar = this.a;
-                int i = a.AbstractBinderC1931a.a;
+                int i = a.AbstractBinderC0271a.a;
                 if (iBinder == null) {
-                    c1932a = null;
+                    c0272a = null;
                 } else {
                     IInterface queryLocalInterface = iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
-                    c1932a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC1931a.C1932a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
+                    c0272a = (queryLocalInterface == null || !(queryLocalInterface instanceof com.fun.openid.sdk.a)) ? new a.AbstractBinderC0271a.C0272a(iBinder) : (com.fun.openid.sdk.a) queryLocalInterface;
                 }
-                cVar.a = c1932a;
-                synchronized (this.a.f38663d) {
-                    this.a.f38663d.notify();
+                cVar.a = c0272a;
+                synchronized (this.a.d) {
+                    this.a.d.notify();
                 }
             }
         }
@@ -92,7 +84,7 @@ public class c {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -120,15 +112,15 @@ public class c {
         Signature[] signatureArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (TextUtils.isEmpty(this.f38661b)) {
-                this.f38661b = context.getPackageName();
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = context.getPackageName();
             }
-            if (TextUtils.isEmpty(this.f38662c)) {
+            if (TextUtils.isEmpty(this.c)) {
                 String str2 = null;
                 try {
-                    signatureArr = context.getPackageManager().getPackageInfo(this.f38661b, 64).signatures;
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                    signatureArr = context.getPackageManager().getPackageInfo(this.b, 64).signatures;
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                     signatureArr = null;
                 }
                 if (signatureArr != null && signatureArr.length > 0) {
@@ -143,17 +135,17 @@ public class c {
                             }
                             str2 = sb.toString();
                         }
-                    } catch (NoSuchAlgorithmException e3) {
-                        e3.printStackTrace();
+                    } catch (NoSuchAlgorithmException e2) {
+                        e2.printStackTrace();
                     }
                 }
-                this.f38662c = str2;
+                this.c = str2;
             }
             com.fun.openid.sdk.a aVar = this.a;
-            String str3 = this.f38661b;
-            String str4 = this.f38662c;
-            a.AbstractBinderC1931a.C1932a c1932a = (a.AbstractBinderC1931a.C1932a) aVar;
-            c1932a.getClass();
+            String str3 = this.b;
+            String str4 = this.c;
+            a.AbstractBinderC0271a.C0272a c0272a = (a.AbstractBinderC0271a.C0272a) aVar;
+            c0272a.getClass();
             Parcel obtain = Parcel.obtain();
             Parcel obtain2 = Parcel.obtain();
             try {
@@ -161,7 +153,7 @@ public class c {
                 obtain.writeString(str3);
                 obtain.writeString(str4);
                 obtain.writeString(str);
-                c1932a.a.transact(1, obtain, obtain2, 0);
+                c0272a.a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 String readString = obtain2.readString();
                 obtain2.recycle();

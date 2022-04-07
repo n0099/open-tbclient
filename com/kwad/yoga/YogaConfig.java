@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YogaConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int SPACING_TYPE = 1;
@@ -85,10 +85,10 @@ public class YogaConfig {
         }
     }
 
-    public void setPointScaleFactor(float f2) {
+    public void setPointScaleFactor(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            YogaNative.jni_YGConfigSetPointScaleFactor(this.mNativePointer, f2);
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            YogaNative.jni_YGConfigSetPointScaleFactor(this.mNativePointer, f);
         }
     }
 

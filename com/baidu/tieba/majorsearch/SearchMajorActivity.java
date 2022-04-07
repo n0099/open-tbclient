@@ -2,7 +2,6 @@ package com.baidu.tieba.majorsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.p0.h2.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.data.ErrorData;
@@ -12,12 +11,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gg7;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> implements SearchMajorModel.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mController;
+    public gg7 mController;
     public SearchMajorModel mModel;
 
     public SearchMajorActivity() {
@@ -47,9 +47,9 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            a aVar = this.mController;
-            if (aVar != null) {
-                aVar.i(i);
+            gg7 gg7Var = this.mController;
+            if (gg7Var != null) {
+                gg7Var.i(i);
             }
         }
     }
@@ -59,22 +59,22 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mController = new a(this);
+            this.mController = new gg7(this);
             this.mModel = new SearchMajorModel(getPageContext(), this);
         }
     }
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.b
     public void onError(ErrorData errorData) {
-        a aVar;
+        gg7 gg7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, errorData) == null) || (aVar = this.mController) == null || aVar.g() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, errorData) == null) || (gg7Var = this.mController) == null || gg7Var.g() == null) {
             return;
         }
         this.mController.m(errorData);
         getRefreshView().h(R.drawable.new_pic_emotion_07);
         showNetRefreshViewNoClick(this.mController.g().d(), null);
-        getRefreshView().o(getString(R.string.obfuscated_res_0x7f0f109c));
+        getRefreshView().o(getString(R.string.obfuscated_res_0x7f0f10a4));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -88,9 +88,9 @@ public class SearchMajorActivity extends BaseActivity<SearchMajorActivity> imple
 
     @Override // com.baidu.tieba.majorsearch.model.SearchMajorModel.b
     public void onSuccess(List<String> list) {
-        a aVar;
+        gg7 gg7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || (aVar = this.mController) == null || aVar.g() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || (gg7Var = this.mController) == null || gg7Var.g() == null) {
             return;
         }
         this.mController.l(list);

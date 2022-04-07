@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CoordUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,10 +31,10 @@ public class CoordUtil {
         }
     }
 
-    public static LatLng Coordinate_encryptEx(float f2, float f3, String str) {
+    public static LatLng Coordinate_encryptEx(float f, float f2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), str})) == null) ? com.baidu.mapsdkplatform.comapi.util.b.a(f2, f3, str) : (LatLng) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), str})) == null) ? com.baidu.mapsdkplatform.comapi.util.b.a(f, f2, str) : (LatLng) invokeCommon.objValue;
     }
 
     public static LatLng decodeLocation(String str) {
@@ -67,8 +67,8 @@ public class CoordUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             CoordType coordType = SDKInitializer.getCoordType();
             CoordType coordType2 = CoordType.GCJ02;
-            LatLng b2 = com.baidu.mapsdkplatform.comapi.util.b.b(str);
-            return coordType == coordType2 ? CoordTrans.baiduToGcj(b2) : b2;
+            LatLng b = com.baidu.mapsdkplatform.comapi.util.b.b(str);
+            return coordType == coordType2 ? CoordTrans.baiduToGcj(b) : b;
         }
         return (LatLng) invokeL.objValue;
     }

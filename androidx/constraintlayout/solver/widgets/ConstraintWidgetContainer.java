@@ -294,7 +294,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
     public void layout() {
         int i;
         int i2;
-        char c2;
+        char c;
         int i3;
         boolean z;
         int max;
@@ -383,8 +383,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     this.mChildren.get(i11).createObjectVariables(this.mSystem);
                                     i11++;
                                     z6 = z8;
-                                } catch (Exception e2) {
-                                    e = e2;
+                                } catch (Exception e) {
+                                    e = e;
                                     z6 = z8;
                                     e.printStackTrace();
                                     PrintStream printStream = System.out;
@@ -397,7 +397,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     z6 = z9;
                                     if (z6) {
                                     }
-                                    c2 = 2;
+                                    c = 2;
                                     if (z3) {
                                     }
                                     i3 = i10;
@@ -420,8 +420,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                             if (z6) {
                                 try {
                                     this.mSystem.minimize();
-                                } catch (Exception e3) {
-                                    e = e3;
+                                } catch (Exception e2) {
+                                    e = e2;
                                     e.printStackTrace();
                                     PrintStream printStream2 = System.out;
                                     boolean z92 = z6;
@@ -433,7 +433,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     z6 = z92;
                                     if (z6) {
                                     }
-                                    c2 = 2;
+                                    c = 2;
                                     if (z3) {
                                     }
                                     i3 = i10;
@@ -453,8 +453,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                 }
                             }
                             i2 = size;
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                         }
                         if (z6) {
                             updateChildrenFromSolver(this.mSystem, Optimizer.flags);
@@ -470,14 +470,14 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     Optimizer.flags[2] = true;
                                     break;
                                 } else if (constraintWidget2.mListDimensionBehaviors[1] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget2.getHeight() < constraintWidget2.getWrapHeight()) {
-                                    c2 = 2;
+                                    c = 2;
                                     Optimizer.flags[2] = true;
                                     break;
                                 } else {
                                     i12++;
                                 }
                             }
-                            if (z3 || i10 >= 8 || !Optimizer.flags[c2]) {
+                            if (z3 || i10 >= 8 || !Optimizer.flags[c]) {
                                 i3 = i10;
                                 z = false;
                             } else {
@@ -550,7 +550,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                             i9 = i3;
                             size = i2;
                         }
-                        c2 = 2;
+                        c = 2;
                         if (z3) {
                         }
                         i3 = i10;

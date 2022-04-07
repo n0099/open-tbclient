@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ff {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,13 +53,13 @@ public class ff {
                     return gk.a(this.a, flVar);
                 }
                 if (name.equals("presence")) {
-                    return gk.m394a(this.a);
+                    return gk.m390a(this.a);
                 }
                 if (this.a.getName().equals("stream")) {
                     return null;
                 }
                 if (this.a.getName().equals("error")) {
-                    throw new fw(gk.m395a(this.a));
+                    throw new fw(gk.m391a(this.a));
                 }
                 if (!this.a.getName().equals("warning")) {
                     this.a.getName().equals("bind");

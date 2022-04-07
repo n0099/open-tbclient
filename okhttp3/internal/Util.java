@@ -279,8 +279,8 @@ public final class Util {
         }
         try {
             closeable.close();
-        } catch (RuntimeException e2) {
-            throw e2;
+        } catch (RuntimeException e) {
+            throw e;
         } catch (Exception unused) {
         }
     }
@@ -313,21 +313,21 @@ public final class Util {
         return invokeL.booleanValue;
     }
 
-    public static int decodeHexDigit(char c2) {
+    public static int decodeHexDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < '0' || c2 > '9') {
-                char c3 = 'a';
-                if (c2 < 'a' || c2 > 'f') {
-                    c3 = 'A';
-                    if (c2 < 'A' || c2 > 'F') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
                         return -1;
                     }
                 }
-                return (c2 - c3) + 10;
+                return (c - c2) + 10;
             }
-            return c2 - '0';
+            return c - '0';
         }
         return invokeCommon.intValue;
     }
@@ -672,8 +672,8 @@ public final class Util {
                     return (X509TrustManager) trustManagers[0];
                 }
                 throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
-            } catch (GeneralSecurityException e2) {
-                throw assertionError("No System TLS", e2);
+            } catch (GeneralSecurityException e) {
+                throw assertionError("No System TLS", e);
             }
         }
         return (X509TrustManager) invokeV.objValue;
@@ -806,12 +806,12 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
     }
 
-    public static int delimiterOffset(String str, int i, int i2, char c2) {
+    public static int delimiterOffset(String str, int i, int i2, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
             while (i < i2) {
-                if (str.charAt(i) == c2) {
+                if (str.charAt(i) == c) {
                     return i;
                 }
                 i++;
@@ -834,12 +834,12 @@ public final class Util {
         }
         try {
             socket.close();
-        } catch (AssertionError e2) {
-            if (!isAndroidGetsocknameError(e2)) {
-                throw e2;
+        } catch (AssertionError e) {
+            if (!isAndroidGetsocknameError(e)) {
+                throw e;
             }
-        } catch (RuntimeException e3) {
-            throw e3;
+        } catch (RuntimeException e2) {
+            throw e2;
         } catch (Exception unused) {
         }
     }
@@ -851,8 +851,8 @@ public final class Util {
         }
         try {
             serverSocket.close();
-        } catch (RuntimeException e2) {
-            throw e2;
+        } catch (RuntimeException e) {
+            throw e;
         } catch (Exception unused) {
         }
     }

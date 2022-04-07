@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.n;
 import com.baidu.ala.data.TabData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,9 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public int mTextSize;
     public OnTabClickListener onTabClickListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,11 +89,11 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i, float f, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
                 if (this.this$0.mScrollTabPageListener != null) {
-                    this.this$0.mScrollTabPageListener.onPageScrolled(i, f2, i2);
+                    this.this$0.mScrollTabPageListener.onPageScrolled(i, f, i2);
                 }
                 if (this.this$0.mTabsContainer.getChildCount() == 0 || this.this$0.mIsClicked) {
                     return;
@@ -102,9 +102,9 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                     this.mLastPosition = this.this$0.mCurrentTabIndex;
                 }
                 this.this$0.mCurrentTabIndex = i;
-                this.this$0.mCurrentPositionOffset = f2;
+                this.this$0.mCurrentPositionOffset = f;
                 ScrollHorizontalTabView scrollHorizontalTabView = this.this$0;
-                scrollHorizontalTabView.scrollToChild(i, (int) (f2 * scrollHorizontalTabView.mTabsContainer.getChildAt(i).getWidth()));
+                scrollHorizontalTabView.scrollToChild(i, (int) (f * scrollHorizontalTabView.mTabsContainer.getChildAt(i).getWidth()));
                 this.this$0.updateTabStyles();
                 this.this$0.invalidate();
             }
@@ -134,21 +134,21 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface OnTabClickListener {
         void onClick(int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface ScrollTabPageListener {
-        void onPageScrolled(int i, float f2, int i2);
+        void onPageScrolled(int i, float f, int i2);
 
         void onPageSelected(int i, TabData tabData);
 
         boolean onPrePageSelect(int i, TabData tabData);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,12 +156,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         public final /* synthetic */ ScrollHorizontalTabView this$0;
         public TextView title;
 
-        public ViewHolder(ScrollHorizontalTabView scrollHorizontalTabView, View view) {
+        public ViewHolder(ScrollHorizontalTabView scrollHorizontalTabView, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scrollHorizontalTabView, view};
+                Object[] objArr = {scrollHorizontalTabView, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -172,8 +172,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                 }
             }
             this.this$0 = scrollHorizontalTabView;
-            this.title = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921c7);
-            this.icon = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921c3);
+            this.title = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921aa);
+            this.icon = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a6);
         }
     }
 
@@ -197,8 +197,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ca);
-        this.mIndicatorWidth = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d4);
+        this.mIndicatorWidth = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -230,16 +230,16 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     int size = this.this$0.mTabItemView.size();
                     int i3 = 0;
                     int i4 = 0;
                     while (true) {
                         if (i4 >= size) {
                             break;
-                        } else if (view == this.this$0.mTabItemView.get(i4)) {
+                        } else if (view2 == this.this$0.mTabItemView.get(i4)) {
                             i3 = i4;
                             break;
                         } else {
@@ -342,7 +342,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207);
             if (size > size2) {
                 while (size2 < size) {
-                    View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0748, (ViewGroup) null, false);
+                    View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d073f, (ViewGroup) null, false);
                     inflate.setOnClickListener(this.mOnItemClickListener);
                     TextView textView = new ViewHolder(this, inflate).title;
                     if (textView != null) {
@@ -412,19 +412,19 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             int width = (childAt.getWidth() - childAt.getPaddingLeft()) - childAt.getPaddingRight();
             int left = this.mTabsContainer.getLeft() + childAt.getLeft() + childAt.getPaddingLeft();
             int i = this.mIndicatorWidth;
-            float f2 = left + ((width - i) / 2);
-            float f3 = i + f2;
+            float f = left + ((width - i) / 2);
+            float f2 = i + f;
             if (this.mCurrentPositionOffset > 0.0f && this.mCurrentTabIndex < this.mTabsContainer.getChildCount() - 1) {
                 View childAt2 = this.mTabsContainer.getChildAt(this.mCurrentTabIndex + 1);
                 int width2 = (childAt2.getWidth() - childAt2.getPaddingRight()) - childAt2.getPaddingLeft();
                 int left2 = childAt2.getLeft() + childAt2.getPaddingLeft() + this.mTabsContainer.getLeft();
                 int i2 = this.mIndicatorWidth;
-                float f4 = left2 + ((width2 - i2) / 2);
-                float f5 = this.mCurrentPositionOffset;
-                f2 = (f4 * f5) + ((1.0f - f5) * f2);
-                f3 = ((i2 + f4) * f5) + ((1.0f - f5) * f3);
+                float f3 = left2 + ((width2 - i2) / 2);
+                float f4 = this.mCurrentPositionOffset;
+                f = (f3 * f4) + ((1.0f - f4) * f);
+                f2 = ((i2 + f3) * f4) + ((1.0f - f4) * f2);
             }
-            canvas.drawRoundRect(new RectF(f2, height - this.mIndicatorHeight, f3, height), 10.0f, 10.0f, this.mRectPaint);
+            canvas.drawRoundRect(new RectF(f, height - this.mIndicatorHeight, f2, height), 10.0f, 10.0f, this.mRectPaint);
         }
     }
 
@@ -514,8 +514,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             if (z) {
                 int[] iArr = new int[2];
                 ((View) ListUtils.getItem(this.mTabItemView, i)).getLocationOnScreen(iArr);
-                int k = n.k(getContext()) - iArr[0];
-                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024b);
+                int k = oi.k(getContext()) - iArr[0];
+                int dimensionPixelSize = getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070256);
                 if (iArr[0] < 0) {
                     post(new Runnable(this, dimensionPixelSize) { // from class: com.baidu.ala.view.ScrollHorizontalTabView.3
                         public static /* synthetic */ Interceptable $ic;
@@ -579,7 +579,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                 ScrollHorizontalTabView scrollHorizontalTabView = this.this$0;
-                                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07024b), 0);
+                                scrollHorizontalTabView.scrollBy(scrollHorizontalTabView.getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070256), 0);
                             }
                         }
                     });
@@ -624,8 +624,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ca);
-        this.mIndicatorWidth = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d4);
+        this.mIndicatorWidth = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -657,16 +657,16 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     int size = this.this$0.mTabItemView.size();
                     int i3 = 0;
                     int i4 = 0;
                     while (true) {
                         if (i4 >= size) {
                             break;
-                        } else if (view == this.this$0.mTabItemView.get(i4)) {
+                        } else if (view2 == this.this$0.mTabItemView.get(i4)) {
                             i3 = i4;
                             break;
                         } else {
@@ -707,8 +707,8 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
         this.mTabDataList = new ArrayList();
         this.mTabItemView = new ArrayList();
-        this.mIndicatorHeight = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ca);
-        this.mIndicatorWidth = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
+        this.mIndicatorHeight = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702d4);
+        this.mIndicatorWidth = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070258);
         this.mIsClicked = false;
         this.mCurrentTabIndex = 0;
         this.mSelectorColor = SkinManager.getColor(R.color.CAM_X0302);
@@ -740,16 +740,16 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     int size = this.this$0.mTabItemView.size();
                     int i32 = 0;
                     int i4 = 0;
                     while (true) {
                         if (i4 >= size) {
                             break;
-                        } else if (view == this.this$0.mTabItemView.get(i4)) {
+                        } else if (view2 == this.this$0.mTabItemView.get(i4)) {
                             i32 = i4;
                             break;
                         } else {

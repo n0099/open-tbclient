@@ -25,7 +25,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.LoaderErrorThrower;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<SsChunkSource>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIALIZATION_VECTOR_SIZE = 8;
@@ -132,9 +132,9 @@ public final class SsMediaPeriod implements MediaPeriod, SequenceableLoader.Call
     public static void swap(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(65541, null, bArr, i, i2) == null) {
-            byte b2 = bArr[i];
+            byte b = bArr[i];
             bArr[i] = bArr[i2];
-            bArr[i2] = b2;
+            bArr[i2] = b;
         }
     }
 

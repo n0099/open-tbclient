@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BaiduMapPoiSearch {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
@@ -74,9 +74,9 @@ public class BaiduMapPoiSearch {
             StringBuilder sb = new StringBuilder();
             sb.append("http://api.map.baidu.com/place/search?");
             sb.append("query=");
-            sb.append(poiParaOption.f26563b);
+            sb.append(poiParaOption.b);
             sb.append("&location=");
-            LatLng latLng = poiParaOption.f26564c;
+            LatLng latLng = poiParaOption.c;
             if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                 latLng = CoordTrans.gcjToBaidu(latLng);
             }
@@ -84,7 +84,7 @@ public class BaiduMapPoiSearch {
             sb.append(",");
             sb.append(latLng.longitude);
             sb.append("&radius=");
-            sb.append(poiParaOption.f26565d);
+            sb.append(poiParaOption.d);
             sb.append("&output=html");
             sb.append("&src=");
             sb.append(context.getPackageName());
@@ -206,14 +206,14 @@ public class BaiduMapPoiSearch {
             if (poiParaOption == null || context == null) {
                 throw new IllegalPoiSearchArgumentException("BDMapSDKException: para or context can not be null.");
             }
-            String str = poiParaOption.f26563b;
+            String str = poiParaOption.b;
             if (str != null) {
-                LatLng latLng = poiParaOption.f26564c;
+                LatLng latLng = poiParaOption.c;
                 if (latLng != null) {
                     if (latLng.longitude == 0.0d || latLng.latitude == 0.0d) {
                         throw new IllegalPoiSearchArgumentException("BDMapSDKException: poi search center longitude or latitude can not be 0.");
                     }
-                    if (poiParaOption.f26565d != 0) {
+                    if (poiParaOption.d != 0) {
                         if (str.equals("")) {
                             Log.e(BaiduMapRoutePlan.class.getName(), "poi key can not be empty string");
                             return false;

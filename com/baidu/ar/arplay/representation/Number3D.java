@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Number3D {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int M00 = 0;
@@ -37,7 +37,7 @@ public class Number3D {
     public float z;
 
     /* renamed from: com.baidu.ar.arplay.representation.Number3D$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis;
         public static /* synthetic */ Interceptable $ic;
@@ -74,7 +74,7 @@ public class Number3D {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class Axis {
         public static final /* synthetic */ Axis[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -169,12 +169,12 @@ public class Number3D {
         this.z = 0.0f;
     }
 
-    public Number3D(double d2, double d3, double d4) {
+    public Number3D(double d, double d2, double d3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,17 +184,17 @@ public class Number3D {
                 return;
             }
         }
-        this.x = (float) d2;
-        this.y = (float) d3;
-        this.z = (float) d4;
+        this.x = (float) d;
+        this.y = (float) d2;
+        this.z = (float) d3;
     }
 
-    public Number3D(float f2, float f3, float f4) {
+    public Number3D(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -204,9 +204,9 @@ public class Number3D {
                 return;
             }
         }
-        this.x = f2;
-        this.y = f3;
-        this.z = f4;
+        this.x = f;
+        this.y = f2;
+        this.z = f3;
     }
 
     public Number3D(Number3D number3D) {
@@ -251,8 +251,8 @@ public class Number3D {
             this.x = Float.parseFloat(strArr[0]);
             this.y = Float.parseFloat(strArr[1]);
             this.z = Float.parseFloat(strArr[2]);
-        } catch (NumberFormatException e2) {
-            e2.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
         }
     }
 
@@ -266,13 +266,13 @@ public class Number3D {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, number3D, number3D2)) == null) {
-            float f2 = number3D2.y;
-            float f3 = number3D.z;
-            float f4 = number3D2.z;
-            float f5 = number3D.y;
-            float f6 = number3D.x;
-            float f7 = number3D2.x;
-            return new Number3D((f2 * f3) - (f4 * f5), (f4 * f6) - (f3 * f7), (f7 * f5) - (f2 * f6));
+            float f = number3D2.y;
+            float f2 = number3D.z;
+            float f3 = number3D2.z;
+            float f4 = number3D.y;
+            float f5 = number3D.x;
+            float f6 = number3D2.x;
+            return new Number3D((f * f2) - (f3 * f4), (f3 * f5) - (f2 * f6), (f6 * f4) - (f * f5));
         }
         return (Number3D) invokeLL.objValue;
     }
@@ -307,26 +307,26 @@ public class Number3D {
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? new Number3D(0.0f, 1.0f, 0.0f) : (Number3D) invokeV.objValue;
     }
 
-    public static Number3D lerp(Number3D number3D, Number3D number3D2, float f2) {
+    public static Number3D lerp(Number3D number3D, Number3D number3D2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{number3D, number3D2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{number3D, number3D2, Float.valueOf(f)})) == null) {
             Number3D number3D3 = new Number3D();
-            float f3 = number3D.x;
-            number3D3.x = f3 + ((number3D2.x - f3) * f2);
-            float f4 = number3D.y;
-            number3D3.y = f4 + ((number3D2.y - f4) * f2);
-            float f5 = number3D.z;
-            number3D3.z = f5 + ((number3D2.z - f5) * f2);
+            float f2 = number3D.x;
+            number3D3.x = f2 + ((number3D2.x - f2) * f);
+            float f3 = number3D.y;
+            number3D3.y = f3 + ((number3D2.y - f3) * f);
+            float f4 = number3D.z;
+            number3D3.z = f4 + ((number3D2.z - f4) * f);
             return number3D3;
         }
         return (Number3D) invokeCommon.objValue;
     }
 
-    public static Number3D multiply(Number3D number3D, float f2) {
+    public static Number3D multiply(Number3D number3D, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65548, null, number3D, f2)) == null) ? new Number3D(number3D.x * f2, number3D.y * f2, number3D.z * f2) : (Number3D) invokeLF.objValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65548, null, number3D, f)) == null) ? new Number3D(number3D.x * f, number3D.y * f, number3D.z * f) : (Number3D) invokeLF.objValue;
     }
 
     public static Number3D multiply(Number3D number3D, Number3D number3D2) {
@@ -341,13 +341,13 @@ public class Number3D {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, number3D, number3D2)) == null) ? new Number3D(number3D.x - number3D2.x, number3D.y - number3D2.y, number3D.z - number3D2.z) : (Number3D) invokeLL.objValue;
     }
 
-    public Number3D add(float f2, float f3, float f4) {
+    public Number3D add(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            this.x += f2;
-            this.y += f3;
-            this.z += f4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            this.x += f;
+            this.y += f2;
+            this.z += f3;
             return this;
         }
         return (Number3D) invokeCommon.objValue;
@@ -378,15 +378,15 @@ public class Number3D {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, number3D)) == null) {
             _temp.setAllFrom(this);
-            float f2 = number3D.y;
+            float f = number3D.y;
             Number3D number3D2 = _temp;
-            float f3 = number3D2.z;
-            float f4 = number3D.z;
-            this.x = (f2 * f3) - (number3D2.y * f4);
-            float f5 = number3D2.x;
-            float f6 = number3D.x;
-            this.y = (f4 * f5) - (f3 * f6);
-            this.z = (f6 * number3D2.y) - (number3D.y * f5);
+            float f2 = number3D2.z;
+            float f3 = number3D.z;
+            this.x = (f * f2) - (number3D2.y * f3);
+            float f4 = number3D2.x;
+            float f5 = number3D.x;
+            this.y = (f3 * f4) - (f2 * f5);
+            this.z = (f5 * number3D2.y) - (number3D.y * f4);
             return this;
         }
         return (Number3D) invokeL.objValue;
@@ -396,14 +396,14 @@ public class Number3D {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, number3D)) == null) {
-            float f2 = this.x;
-            float f3 = number3D.x;
-            float f4 = (f2 - f3) * (f2 - f3);
-            float f5 = this.y;
-            float f6 = number3D.y;
-            float f7 = this.z;
-            float f8 = number3D.z;
-            return (float) Math.sqrt(f4 + ((f5 - f6) * (f5 - f6)) + ((f7 - f8) * (f7 - f8)));
+            float f = this.x;
+            float f2 = number3D.x;
+            float f3 = (f - f2) * (f - f2);
+            float f4 = this.y;
+            float f5 = number3D.y;
+            float f6 = this.z;
+            float f7 = number3D.z;
+            return (float) Math.sqrt(f3 + ((f4 - f5) * (f4 - f5)) + ((f6 - f7) * (f6 - f7)));
         }
         return invokeL.floatValue;
     }
@@ -459,12 +459,12 @@ public class Number3D {
                 quaternion.setAxisAngle(new Vector3f(cross.x, cross.y, cross.z), (float) Math.toDegrees(3.141592653589793d));
             } else {
                 double sqrt = Math.sqrt((dot + 1.0f) * 2.0f);
-                double d2 = 1.0d / sqrt;
+                double d = 1.0d / sqrt;
                 Number3D cross2 = cross(this, number3D);
                 float[] fArr = quaternion.points;
-                fArr[0] = (float) (cross2.x * d2);
-                fArr[1] = (float) (cross2.y * d2);
-                fArr[2] = (float) (cross2.z * d2);
+                fArr[0] = (float) (cross2.x * d);
+                fArr[1] = (float) (cross2.y * d);
+                fArr[2] = (float) (cross2.z * d);
                 fArr[3] = (float) (sqrt * 0.5d);
                 quaternion.normalize();
             }
@@ -483,34 +483,34 @@ public class Number3D {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            float f2 = this.x;
-            float f3 = this.y;
-            float f4 = (f2 * f2) + (f3 * f3);
-            float f5 = this.z;
-            return (float) Math.sqrt(f4 + (f5 * f5));
+            float f = this.x;
+            float f2 = this.y;
+            float f3 = (f * f) + (f2 * f2);
+            float f4 = this.z;
+            return (float) Math.sqrt(f3 + (f4 * f4));
         }
         return invokeV.floatValue;
     }
 
-    public void lerpSelf(Number3D number3D, Number3D number3D2, float f2) {
+    public void lerpSelf(Number3D number3D, Number3D number3D2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{number3D, number3D2, Float.valueOf(f2)}) == null) {
-            float f3 = number3D.x;
-            this.x = f3 + ((number3D2.x - f3) * f2);
-            float f4 = number3D.y;
-            this.y = f4 + ((number3D2.y - f4) * f2);
-            float f5 = number3D.z;
-            this.z = f5 + ((number3D2.z - f5) * f2);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{number3D, number3D2, Float.valueOf(f)}) == null) {
+            float f2 = number3D.x;
+            this.x = f2 + ((number3D2.x - f2) * f);
+            float f3 = number3D.y;
+            this.y = f3 + ((number3D2.y - f3) * f);
+            float f4 = number3D.z;
+            this.z = f4 + ((number3D2.z - f4) * f);
         }
     }
 
-    public Number3D multiply(float f2) {
+    public Number3D multiply(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f2)) == null) {
-            this.x *= f2;
-            this.y *= f2;
-            this.z *= f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
+            this.x *= f;
+            this.y *= f;
+            this.z *= f;
             return this;
         }
         return (Number3D) invokeF.objValue;
@@ -528,12 +528,12 @@ public class Number3D {
     public void multiply(float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fArr) == null) {
-            float f2 = this.x;
-            float f3 = this.y;
-            float f4 = this.z;
-            this.x = (fArr[0] * f2) + (fArr[4] * f3) + (fArr[8] * f4) + fArr[12];
-            this.y = (fArr[1] * f2) + (fArr[5] * f3) + (fArr[9] * f4) + fArr[13];
-            this.z = (f2 * fArr[2]) + (f3 * fArr[6]) + (f4 * fArr[10]) + fArr[14];
+            float f = this.x;
+            float f2 = this.y;
+            float f3 = this.z;
+            this.x = (fArr[0] * f) + (fArr[4] * f2) + (fArr[8] * f3) + fArr[12];
+            this.y = (fArr[1] * f) + (fArr[5] * f2) + (fArr[9] * f3) + fArr[13];
+            this.z = (f * fArr[2]) + (f2 * fArr[6]) + (f3 * fArr[10]) + fArr[14];
         }
     }
 
@@ -541,11 +541,11 @@ public class Number3D {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            float f2 = this.x;
-            float f3 = this.y;
-            float f4 = (f2 * f2) + (f3 * f3);
-            float f5 = this.z;
-            double sqrt = Math.sqrt(f4 + (f5 * f5));
+            float f = this.x;
+            float f2 = this.y;
+            float f3 = (f * f) + (f2 * f2);
+            float f4 = this.z;
+            double sqrt = Math.sqrt(f3 + (f4 * f4));
             if (sqrt != 0.0d && sqrt != 1.0d) {
                 sqrt = 1.0d / sqrt;
                 this.x = (float) (this.x * sqrt);
@@ -562,71 +562,71 @@ public class Number3D {
         if (!(interceptable == null || interceptable.invokeL(1048593, this, fArr) == null) || fArr == null || fArr.length <= 15) {
             return;
         }
-        float f2 = this.x;
-        float f3 = this.y;
-        float f4 = (fArr[3] * f2) + (fArr[7] * f3);
-        float f5 = this.z;
-        float f6 = f4 + (fArr[11] * f5) + fArr[15];
-        setAll(((((fArr[0] * f2) + (fArr[4] * f3)) + (fArr[8] * f5)) + fArr[12]) / f6, ((((fArr[1] * f2) + (fArr[5] * f3)) + (fArr[9] * f5)) + fArr[13]) / f6, ((((f2 * fArr[2]) + (f3 * fArr[6])) + (f5 * fArr[10])) + fArr[14]) / f6);
+        float f = this.x;
+        float f2 = this.y;
+        float f3 = (fArr[3] * f) + (fArr[7] * f2);
+        float f4 = this.z;
+        float f5 = f3 + (fArr[11] * f4) + fArr[15];
+        setAll(((((fArr[0] * f) + (fArr[4] * f2)) + (fArr[8] * f4)) + fArr[12]) / f5, ((((fArr[1] * f) + (fArr[5] * f2)) + (fArr[9] * f4)) + fArr[13]) / f5, ((((f * fArr[2]) + (f2 * fArr[6])) + (f4 * fArr[10])) + fArr[14]) / f5);
     }
 
-    public void rotateX(float f2) {
+    public void rotateX(float f) {
         Number3D number3D;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            double d2 = f2;
-            double cos = Math.cos(d2);
-            double sin = Math.sin(d2);
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            double d = f;
+            double cos = Math.cos(d);
+            double sin = Math.sin(d);
             _temp.setAll(this.x, this.y, this.z);
-            float f3 = _temp.z;
-            this.y = (float) ((number3D.y * cos) - (f3 * sin));
-            this.z = (float) ((number3D.y * sin) + (f3 * cos));
+            float f2 = _temp.z;
+            this.y = (float) ((number3D.y * cos) - (f2 * sin));
+            this.z = (float) ((number3D.y * sin) + (f2 * cos));
         }
     }
 
-    public void rotateY(float f2) {
+    public void rotateY(float f) {
         Number3D number3D;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            double d2 = f2;
-            double cos = Math.cos(d2);
-            double sin = Math.sin(d2);
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            double d = f;
+            double cos = Math.cos(d);
+            double sin = Math.sin(d);
             _temp.setAll(this.x, this.y, this.z);
-            float f3 = _temp.z;
-            this.x = (float) ((number3D.x * cos) + (f3 * sin));
-            this.z = (float) ((number3D.x * (-sin)) + (f3 * cos));
+            float f2 = _temp.z;
+            this.x = (float) ((number3D.x * cos) + (f2 * sin));
+            this.z = (float) ((number3D.x * (-sin)) + (f2 * cos));
         }
     }
 
-    public void rotateZ(float f2) {
+    public void rotateZ(float f) {
         Number3D number3D;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            double d2 = f2;
-            double cos = Math.cos(d2);
-            double sin = Math.sin(d2);
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            double d = f;
+            double cos = Math.cos(d);
+            double sin = Math.sin(d);
             _temp.setAll(this.x, this.y, this.z);
-            float f3 = _temp.y;
-            this.x = (float) ((number3D.x * cos) - (f3 * sin));
-            this.y = (float) ((number3D.x * sin) + (f3 * cos));
+            float f2 = _temp.y;
+            this.x = (float) ((number3D.x * cos) - (f2 * sin));
+            this.y = (float) ((number3D.x * sin) + (f2 * cos));
         }
     }
 
-    public void setAll(double d2, double d3, double d4) {
+    public void setAll(double d, double d2, double d3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)}) == null) {
-            this.x = (float) d2;
-            this.y = (float) d3;
-            this.z = (float) d4;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
+            this.x = (float) d;
+            this.y = (float) d2;
+            this.z = (float) d3;
         }
     }
 
-    public void setAll(float f2, float f3, float f4) {
+    public void setAll(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.x = f2;
-            this.y = f3;
-            this.z = f4;
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            this.x = f;
+            this.y = f2;
+            this.z = f3;
         }
     }
 

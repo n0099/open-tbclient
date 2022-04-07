@@ -33,7 +33,7 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern RESERVED_CHARS_PATTERN;
@@ -163,8 +163,8 @@ public final class FileUtils {
             FileInputStream fileInputStream = new FileInputStream(file);
             try {
                 fileOutputStream = new FileOutputStream(file2);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
                 fileOutputStream = null;
                 fileChannel = null;
             } catch (Throwable th) {
@@ -181,8 +181,8 @@ public final class FileUtils {
                     a.a(fileChannel);
                     a.a(fileOutputStream);
                     a.a(fileChannel3);
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     fileChannel2 = fileChannel3;
                     fileChannel3 = fileInputStream;
                     try {
@@ -209,8 +209,8 @@ public final class FileUtils {
                     a.a(fileChannel2);
                     throw th;
                 }
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 fileChannel = null;
                 fileChannel3 = fileInputStream;
                 fileChannel2 = fileChannel;
@@ -230,8 +230,8 @@ public final class FileUtils {
                 a.a(fileChannel2);
                 throw th;
             }
-        } catch (IOException e5) {
-            e = e5;
+        } catch (IOException e4) {
+            e = e4;
             fileOutputStream = null;
             fileChannel = null;
         } catch (Throwable th5) {
@@ -252,14 +252,14 @@ public final class FileUtils {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 a.a(fileInputStream, new File(str2));
                 a.a((Closeable) fileInputStream);
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 fileInputStream2 = fileInputStream;
                 e.printStackTrace();
                 a.a((Closeable) fileInputStream2);
@@ -648,11 +648,11 @@ public final class FileUtils {
                     fileInputStream = new FileInputStream(file);
                     try {
                         try {
-                            byte[] b2 = a.b(fileInputStream);
+                            byte[] b = a.b(fileInputStream);
                             a.a((Closeable) fileInputStream);
-                            return b2;
-                        } catch (IOException e2) {
-                            e = e2;
+                            return b;
+                        } catch (IOException e) {
+                            e = e;
                             e.printStackTrace();
                             a.a((Closeable) fileInputStream);
                             return null;
@@ -663,8 +663,8 @@ public final class FileUtils {
                         a.a((Closeable) fileInputStream2);
                         throw th;
                     }
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     fileInputStream = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -691,8 +691,8 @@ public final class FileUtils {
                             String a = a.a((InputStream) fileInputStream);
                             a.a((Closeable) fileInputStream);
                             return a;
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             e.printStackTrace();
                             a.a((Closeable) fileInputStream);
                             return null;
@@ -703,8 +703,8 @@ public final class FileUtils {
                         a.a((Closeable) fileInputStream2);
                         throw th;
                     }
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     fileInputStream = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -744,8 +744,8 @@ public final class FileUtils {
                     String a = a.a(fileInputStream, str2);
                     a.a((Closeable) fileInputStream);
                     return a;
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     e.printStackTrace();
                     a.a((Closeable) fileInputStream);
                     return null;
@@ -756,8 +756,8 @@ public final class FileUtils {
                 a.a((Closeable) fileInputStream2);
                 throw th;
             }
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             fileInputStream = null;
         } catch (Throwable th2) {
             th = th2;
@@ -798,8 +798,8 @@ public final class FileUtils {
         try {
             try {
                 outputStreamWriter = new OutputStreamWriter(new FileOutputStream(file, z), str2);
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
         } catch (Throwable th) {
             th = th;
@@ -807,8 +807,8 @@ public final class FileUtils {
         try {
             outputStreamWriter.write(str);
             a.a(outputStreamWriter);
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             outputStreamWriter2 = outputStreamWriter;
             e.printStackTrace();
             a.a(outputStreamWriter2);
@@ -831,8 +831,8 @@ public final class FileUtils {
         try {
             try {
                 fileOutputStream = new FileOutputStream(file);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
         } catch (Throwable th) {
             th = th;
@@ -840,8 +840,8 @@ public final class FileUtils {
         try {
             fileOutputStream.write(bArr);
             a.a(fileOutputStream);
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             fileOutputStream2 = fileOutputStream;
             e.printStackTrace();
             a.a(fileOutputStream2);
@@ -866,15 +866,15 @@ public final class FileUtils {
                 readableByteChannel = Channels.newChannel(new ByteArrayInputStream(bArr));
                 try {
                     fileOutputStream = new FileOutputStream(file);
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     fileChannel = null;
                 } catch (Throwable th) {
                     th = th;
                     fileChannel = null;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 fileChannel = null;
                 readableByteChannel = null;
             } catch (Throwable th2) {
@@ -888,8 +888,8 @@ public final class FileUtils {
                 a.a(fileOutputStream);
                 a.a(readableByteChannel);
                 a.a(fileChannel2);
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 fileChannel = fileChannel2;
                 fileChannel2 = fileOutputStream;
                 try {
@@ -931,15 +931,15 @@ public final class FileUtils {
                 readableByteChannel = Channels.newChannel(inputStream);
                 try {
                     fileOutputStream = new FileOutputStream(file);
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     fileChannel = null;
                 } catch (Throwable th) {
                     th = th;
                     fileChannel = null;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 readableByteChannel = null;
                 fileChannel = null;
             } catch (Throwable th2) {
@@ -953,8 +953,8 @@ public final class FileUtils {
                 a.a(fileOutputStream);
                 a.a(readableByteChannel);
                 a.a(fileChannel2);
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 fileChannel = fileChannel2;
                 fileChannel2 = fileOutputStream;
                 try {

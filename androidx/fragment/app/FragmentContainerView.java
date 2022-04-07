@@ -52,40 +52,40 @@ public final class FragmentContainerView extends FrameLayout {
         this.mDrawDisappearingViewsFirst = true;
     }
 
-    private void addDisappearingFragmentView(@NonNull View view) {
+    private void addDisappearingFragmentView(@NonNull View view2) {
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) {
-            if (view.getAnimation() != null || ((arrayList = this.mTransitioningFragmentViews) != null && arrayList.contains(view))) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2) == null) {
+            if (view2.getAnimation() != null || ((arrayList = this.mTransitioningFragmentViews) != null && arrayList.contains(view2))) {
                 if (this.mDisappearingFragmentChildren == null) {
                     this.mDisappearingFragmentChildren = new ArrayList<>();
                 }
-                this.mDisappearingFragmentChildren.add(view);
+                this.mDisappearingFragmentChildren.add(view2);
             }
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(@NonNull View view, int i, @Nullable ViewGroup.LayoutParams layoutParams) {
+    public void addView(@NonNull View view2, int i, @Nullable ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, layoutParams) == null) {
-            if (FragmentManager.getViewFragment(view) != null) {
-                super.addView(view, i, layoutParams);
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, layoutParams) == null) {
+            if (FragmentManager.getViewFragment(view2) != null) {
+                super.addView(view2, i, layoutParams);
                 return;
             }
-            throw new IllegalStateException("Views added to a FragmentContainerView must be associated with a Fragment. View " + view + " is not associated with a Fragment.");
+            throw new IllegalStateException("Views added to a FragmentContainerView must be associated with a Fragment. View " + view2 + " is not associated with a Fragment.");
         }
     }
 
     @Override // android.view.ViewGroup
-    public boolean addViewInLayout(@NonNull View view, int i, @Nullable ViewGroup.LayoutParams layoutParams, boolean z) {
+    public boolean addViewInLayout(@NonNull View view2, int i, @Nullable ViewGroup.LayoutParams layoutParams, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Integer.valueOf(i), layoutParams, Boolean.valueOf(z)})) == null) {
-            if (FragmentManager.getViewFragment(view) != null) {
-                return super.addViewInLayout(view, i, layoutParams, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), layoutParams, Boolean.valueOf(z)})) == null) {
+            if (FragmentManager.getViewFragment(view2) != null) {
+                return super.addViewInLayout(view2, i, layoutParams, z);
             }
-            throw new IllegalStateException("Views added to a FragmentContainerView must be associated with a Fragment. View " + view + " is not associated with a Fragment.");
+            throw new IllegalStateException("Views added to a FragmentContainerView must be associated with a Fragment. View " + view2 + " is not associated with a Fragment.");
         }
         return invokeCommon.booleanValue;
     }
@@ -104,13 +104,13 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j) {
+    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view2, long j) {
         InterceptResult invokeCommon;
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
-            if (!this.mDrawDisappearingViewsFirst || (arrayList = this.mDisappearingFragmentChildren) == null || arrayList.size() <= 0 || !this.mDisappearingFragmentChildren.contains(view)) {
-                return super.drawChild(canvas, view, j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view2, Long.valueOf(j)})) == null) {
+            if (!this.mDrawDisappearingViewsFirst || (arrayList = this.mDisappearingFragmentChildren) == null || arrayList.size() <= 0 || !this.mDisappearingFragmentChildren.contains(view2)) {
+                return super.drawChild(canvas, view2, j);
             }
             return false;
         }
@@ -118,18 +118,18 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void endViewTransition(@NonNull View view) {
+    public void endViewTransition(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             ArrayList<View> arrayList = this.mTransitioningFragmentViews;
             if (arrayList != null) {
-                arrayList.remove(view);
+                arrayList.remove(view2);
                 ArrayList<View> arrayList2 = this.mDisappearingFragmentChildren;
-                if (arrayList2 != null && arrayList2.remove(view)) {
+                if (arrayList2 != null && arrayList2.remove(view2)) {
                     this.mDrawDisappearingViewsFirst = true;
                 }
             }
-            super.endViewTransition(view);
+            super.endViewTransition(view2);
         }
     }
 
@@ -160,22 +160,22 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeDetachedView(@NonNull View view, boolean z) {
+    public void removeDetachedView(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, view2, z) == null) {
             if (z) {
-                addDisappearingFragmentView(view);
+                addDisappearingFragmentView(view2);
             }
-            super.removeDetachedView(view, z);
+            super.removeDetachedView(view2, z);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewManager
-    public void removeView(@NonNull View view) {
+    public void removeView(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            addDisappearingFragmentView(view);
-            super.removeView(view);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            addDisappearingFragmentView(view2);
+            super.removeView(view2);
         }
     }
 
@@ -189,11 +189,11 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewInLayout(@NonNull View view) {
+    public void removeViewInLayout(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
-            addDisappearingFragmentView(view);
-            super.removeViewInLayout(view);
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+            addDisappearingFragmentView(view2);
+            super.removeViewInLayout(view2);
         }
     }
 
@@ -239,16 +239,16 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void startViewTransition(@NonNull View view) {
+    public void startViewTransition(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view) == null) {
-            if (view.getParent() == this) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
+            if (view2.getParent() == this) {
                 if (this.mTransitioningFragmentViews == null) {
                     this.mTransitioningFragmentViews = new ArrayList<>();
                 }
-                this.mTransitioningFragmentViews.add(view);
+                this.mTransitioningFragmentViews.add(view2);
             }
-            super.startViewTransition(view);
+            super.startViewTransition(view2);
         }
     }
 

@@ -15,9 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.g.a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f42586b;
+    public static final Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,7 +31,7 @@ public class a {
                 return;
             }
         }
-        f42586b = Boolean.valueOf(com.sdk.base.framework.c.f.f42567b);
+        b = Boolean.valueOf(com.sdk.base.framework.c.f.b);
     }
 
     public a() {
@@ -54,7 +52,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c cVar = c.f42588c;
+            c cVar = c.c;
             if (context == null) {
                 return cVar;
             }
@@ -63,13 +61,13 @@ public class a {
                 if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
                     String typeName = activeNetworkInfo.getTypeName();
                     if ("MOBILE".equalsIgnoreCase(typeName)) {
-                        cVar = c.f42587b;
+                        cVar = c.b;
                     } else if (CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING.equalsIgnoreCase(typeName)) {
                         cVar = c.a;
                     }
                 }
             } catch (Throwable th) {
-                com.sdk.base.framework.a.a.c.b(a, th.getMessage(), f42586b);
+                com.sdk.base.framework.a.a.c.b(a, th.getMessage(), b);
             }
             return cVar;
         }

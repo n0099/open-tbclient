@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARPRenderer implements d, IARPRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_FRAME_COUNT = 100;
@@ -211,11 +211,11 @@ public class ARPRenderer implements d, IARPRenderer {
         if (!(interceptable == null || interceptable.invokeLL(65543, this, pointF, fArr) == null) || fArr == null || fArr.length < 6) {
             return;
         }
-        float f2 = fArr[0];
-        float f3 = pointF.x;
-        float f4 = fArr[4];
-        float f5 = pointF.y;
-        pointF.set((f2 * f3) + (f4 * f5), (fArr[1] * f3) + (fArr[5] * f5));
+        float f = fArr[0];
+        float f2 = pointF.x;
+        float f3 = fArr[4];
+        float f4 = pointF.y;
+        pointF.set((f * f2) + (f3 * f4), (fArr[1] * f2) + (fArr[5] * f4));
     }
 
     private native String nativeAddOutputSurface(Surface surface, int i, int i2, int i3, int i4);
@@ -228,7 +228,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeAdjustFilterWithFloatArrayParam(String str, String str2, float[] fArr);
 
-    private native void nativeAdjustFilterWithFloatParam(String str, String str2, float f2);
+    private native void nativeAdjustFilterWithFloatParam(String str, String str2, float f);
 
     private native void nativeAdjustFilterWithIntParam(String str, String str2, int i);
 
@@ -252,7 +252,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeCreateInputSource(int i, int i2);
 
-    private native void nativeCreatePixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f2, float f3, String str, int i5);
+    private native void nativeCreatePixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f, float f2, String str, int i5);
 
     private native void nativeCreateSyncInputSource(int i, int i2);
 
@@ -260,7 +260,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeDestroyInputSource();
 
-    private native void nativeDestroyPixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f2, float f3, String str, int i5);
+    private native void nativeDestroyPixelReaderByPreFilterID(int i, int i2, int i3, int i4, float f, float f2, String str, int i5);
 
     private native void nativeDisableCaseLutTexture();
 
@@ -306,7 +306,7 @@ public class ARPRenderer implements d, IARPRenderer {
 
     private native void nativeSetPixelReaderRotation(int i);
 
-    private native void nativeSetPixelReaderRotationByPixelInfo(int i, int i2, int i3, int i4, float f2, float f3, String str, int i5, int i6);
+    private native void nativeSetPixelReaderRotationByPixelInfo(int i, int i2, int i3, int i4, float f, float f2, String str, int i5, int i6);
 
     private native void nativeSetSnapShotPic(Bitmap bitmap, int i, int i2);
 
@@ -442,10 +442,10 @@ public class ARPRenderer implements d, IARPRenderer {
         }
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) {
-            nativeAdjustFilterWithFloatParam(str, str2, f2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Float.valueOf(f), Long.valueOf(j)}) == null) {
+            nativeAdjustFilterWithFloatParam(str, str2, f);
         }
     }
 
@@ -473,8 +473,8 @@ public class ARPRenderer implements d, IARPRenderer {
             Bitmap bitmap = null;
             try {
                 bitmap = BitmapFactory.decodeStream(this.softContext.get().getAssets().open(str3.substring(str3.lastIndexOf(AssetUriLoader.ASSET_PATH_SEGMENT) + 13 + 1)));
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             if (bitmap != null) {
                 String str4 = "texture_width";

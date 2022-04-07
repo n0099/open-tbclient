@@ -20,7 +20,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKProviderCollection {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<IProvider> attributeProviderList;

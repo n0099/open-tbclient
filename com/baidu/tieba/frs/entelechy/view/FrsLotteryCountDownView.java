@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.m.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,9 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pg;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsLotteryCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final long l;
@@ -31,38 +31,24 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public static final long o;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f32474b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32475c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32476d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f32477e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f32478f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f32479g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f32480h;
+    public View b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
     public TextView i;
     public TextView j;
     public CountDownTimer k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +87,7 @@ public class FrsLotteryCountDownView extends LinearLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,13 +131,13 @@ public class FrsLotteryCountDownView extends LinearLayout {
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
                 FrsLotteryCountDownView frsLotteryCountDownView = this.a.get();
                 if (frsLotteryCountDownView != null) {
-                    frsLotteryCountDownView.f32475c.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.l)));
-                    frsLotteryCountDownView.f32477e.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.l) / FrsLotteryCountDownView.m)));
-                    frsLotteryCountDownView.f32479g.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) / FrsLotteryCountDownView.n)));
+                    frsLotteryCountDownView.c.setText(StringUtils.string(Long.valueOf(j / FrsLotteryCountDownView.l)));
+                    frsLotteryCountDownView.e.setText(StringUtils.string(Long.valueOf((j % FrsLotteryCountDownView.l) / FrsLotteryCountDownView.m)));
+                    frsLotteryCountDownView.g.setText(StringUtils.string(Long.valueOf(((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) / FrsLotteryCountDownView.n)));
                     frsLotteryCountDownView.i.setText(StringUtils.string(Long.valueOf((((j % FrsLotteryCountDownView.l) % FrsLotteryCountDownView.m) % FrsLotteryCountDownView.n) / FrsLotteryCountDownView.o)));
                     return;
                 }
-                e.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
+                pg.a().postDelayed(new b(new WeakReference(this), null), TimeUnit.SECONDS.toSeconds(3L));
             }
         }
     }
@@ -202,47 +188,47 @@ public class FrsLotteryCountDownView extends LinearLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d033b, (ViewGroup) this, true);
-            this.f32474b = inflate;
-            this.f32475c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09133f);
-            this.f32476d = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091340);
-            this.f32477e = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091341);
-            this.f32478f = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091342);
-            this.f32479g = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091343);
-            this.f32480h = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091344);
-            this.i = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091345);
-            this.j = (TextView) this.f32474b.findViewById(R.id.obfuscated_res_0x7f091346);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d033c, (ViewGroup) this, true);
+            this.b = inflate;
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091333);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091334);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091335);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091336);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091337);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091338);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091339);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09133a);
         }
     }
 
     public void setData(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            SkinManager.setViewTextColor(this.f32475c, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f32476d, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f32475c, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.f32477e, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f32478f, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f32477e, R.color.common_color_10060);
-            SkinManager.setViewTextColor(this.f32479g, (int) R.color.CAM_X0111);
-            SkinManager.setViewTextColor(this.f32480h, (int) R.color.CAM_X0108);
-            SkinManager.setBackgroundColor(this.f32479g, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.c, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.e, R.color.common_color_10060);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0111);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
+            SkinManager.setBackgroundColor(this.g, R.color.common_color_10060);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0111);
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.i, R.color.common_color_10060);
             if (j <= o) {
-                this.f32475c.setText("0");
-                this.f32477e.setText("0");
-                this.f32479g.setText("0");
+                this.c.setText("0");
+                this.e.setText("0");
+                this.g.setText("0");
                 this.i.setText("0");
                 return;
             }
             if (j / l <= 0) {
-                this.f32475c.setVisibility(8);
-                this.f32476d.setVisibility(8);
+                this.c.setVisibility(8);
+                this.d.setVisibility(8);
             } else {
-                this.f32475c.setVisibility(0);
-                this.f32476d.setVisibility(0);
+                this.c.setVisibility(0);
+                this.d.setVisibility(0);
             }
             CountDownTimer countDownTimer = this.k;
             if (countDownTimer != null) {

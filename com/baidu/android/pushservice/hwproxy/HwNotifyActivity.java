@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HwNotifyActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class HwNotifyActivity extends Activity {
             try {
                 Intent intent = getIntent();
                 if (intent != null && intent.getData() != null) {
-                    String d2 = e.d(this, intent);
-                    String c2 = e.c(this, intent);
-                    if (!TextUtils.isEmpty(c2)) {
-                        m.c(getApplicationContext(), intent, d2, c2);
+                    String d = e.d(this, intent);
+                    String c = e.c(this, intent);
+                    if (!TextUtils.isEmpty(c)) {
+                        m.c(getApplicationContext(), intent, d, c);
                     }
                 }
             } catch (Exception unused) {

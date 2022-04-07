@@ -24,7 +24,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AsyncHttpClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -208,8 +208,8 @@ public class AsyncHttpClient {
             if (map == null) {
                 try {
                     map = new HashMap<>();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return;
                 }
             }

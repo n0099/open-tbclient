@@ -54,7 +54,6 @@ import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -74,7 +73,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiJsInterpreters {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SapiJsInterpreters";
@@ -86,7 +85,7 @@ public class SapiJsInterpreters {
     public long preShareClickTime;
     public SapiWebView sapiWebView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public abstract class AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +112,7 @@ public class SapiJsInterpreters {
         public abstract String interpret(SapiWebView.Command command);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionBindWidgetPhoneNumberExist extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +155,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionFaceLoginSwitch extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -195,8 +194,8 @@ public class SapiJsInterpreters {
                     }
                     new FaceLoginService().syncFaceLoginUID(this.this$0.context, optString);
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -204,7 +203,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionForgetPwd extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,7 +241,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionGenerateSign extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -283,8 +282,8 @@ public class SapiJsInterpreters {
                         String next = keys.next();
                         hashMap.put(next, jSONObject.optString(next));
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 return SapiUtils.calculateSig(hashMap, this.this$0.configuration.appSignKey);
             }
@@ -292,7 +291,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionGetLoadtime extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -335,7 +334,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionGetSmsCheckCodeFromClip extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -384,7 +383,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionGloryLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -430,7 +429,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionHuaweiLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -476,7 +475,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionJoinLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,8 +534,8 @@ public class SapiJsInterpreters {
                         }
                         jSONObject.put("agreement", jSONArray);
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -544,7 +543,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionLoadExternalWebview extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -589,7 +588,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionLoadSlideWebview extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -633,8 +632,8 @@ public class SapiJsInterpreters {
                         JSONObject jSONObject2 = new JSONObject();
                         jSONObject2.put("errno", "0");
                         return jSONObject2.toString();
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                         return null;
                     }
                 }
@@ -644,7 +643,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionRemoveShareAccount extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -682,7 +681,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionSetTitle extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -725,7 +724,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionShareAccountsViewBtnClicked extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -767,7 +766,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionShareClickOther extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -806,7 +805,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionShareV2Login extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -841,7 +840,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionShareV2LoginClick extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -880,7 +879,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionShareV2LoginFail extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -919,7 +918,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionSocialMeizuSso extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -965,7 +964,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionSocialQqSso extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1011,7 +1010,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionSocialSinaSso extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1057,7 +1056,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionSocialSso extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1085,7 +1084,7 @@ public class SapiJsInterpreters {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x007a, code lost:
             if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L10;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -1098,72 +1097,72 @@ public class SapiJsInterpreters {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 if (this.this$0.jsCallBacks.socialLoginHandler != null) {
-                    char c2 = 0;
+                    char c = 0;
                     String str = command.getActionParams().get(0);
                     switch (str.hashCode()) {
                         case -1519161818:
                             break;
                         case -1506464740:
                             if (str.equals(FastLoginFeature.SSOLoginType.MEIZU)) {
-                                c2 = 7;
+                                c = 7;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -952571024:
                             if (str.equals(FastLoginFeature.SSOLoginType.QQ)) {
-                                c2 = 3;
+                                c = 3;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -19158255:
                             if (str.equals(FastLoginFeature.SSOLoginType.HUAWEI)) {
-                                c2 = 4;
+                                c = 4;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 3872:
                             if (str.equals("yy")) {
-                                c2 = '\b';
+                                c = '\b';
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 110658813:
                             if (str.equals("tsina")) {
-                                c2 = 2;
+                                c = 2;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 738596251:
                             if (str.equals(FastLoginFeature.SSOLoginType.HONOR)) {
-                                c2 = 5;
+                                c = 5;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 1288743885:
                             if (str.equals(FastLoginFeature.SSOLoginType.SINA_SSO)) {
-                                c2 = 1;
+                                c = 1;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 1587088523:
                             if (str.equals(FastLoginFeature.SSOLoginType.XIAOMI)) {
-                                c2 = 6;
+                                c = 6;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         default:
-                            c2 = 65535;
+                            c = 65535;
                             break;
                     }
-                    switch (c2) {
+                    switch (c) {
                         case 0:
                             SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.WECHAT;
                             socialType = SocialType.WEIXIN;
@@ -1214,7 +1213,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionSocialWeixinSso extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1260,7 +1259,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionStopSlideWebview extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1296,8 +1295,8 @@ public class SapiJsInterpreters {
                     boolean z = false;
                     try {
                         z = new JSONObject(command.getActionParams().get(0)).optBoolean("isStop");
-                    } catch (Exception e2) {
-                        Log.e(e2);
+                    } catch (Exception e) {
+                        Log.e(e);
                     }
                     this.this$0.jsCallBacks.stopSlideWebviewCallback.onStopSlide(z);
                     return null;
@@ -1308,7 +1307,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ActionXiaoMiSso extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1354,7 +1353,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AddressManageGetPasteboard extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1402,7 +1401,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AuthorizedResponse extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1525,8 +1524,8 @@ public class SapiJsInterpreters {
                                 JSONObject jSONObject = new JSONObject();
                                 try {
                                     jSONObject.put("errno", 0);
-                                } catch (JSONException e2) {
-                                    Log.e(e2);
+                                } catch (JSONException e) {
+                                    Log.e(e);
                                 }
                                 return jSONObject.toString();
                             }
@@ -1576,7 +1575,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class Back extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1615,7 +1614,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ConfigFastloginFeatures extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1673,7 +1672,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ConfigLoginShareStrategy extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1708,7 +1707,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class CurrentAccountBdussExpired extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1750,7 +1749,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class CurrentPageName extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1786,8 +1785,8 @@ public class SapiJsInterpreters {
                     try {
                         this.this$0.jsCallBacks.getCurrentPageNameCallback.getCurrentPageName(new JSONObject(command.getActionParams().get(0)).optString("name"));
                         return null;
-                    } catch (Exception e2) {
-                        Log.e(e2);
+                    } catch (Exception e) {
+                        Log.e(e);
                         return null;
                     }
                 }
@@ -1797,7 +1796,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class Finish extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1833,8 +1832,8 @@ public class SapiJsInterpreters {
                 if (command.getActionParams().size() > 0) {
                     try {
                         this.this$0.sapiWebView.finish(new JSONObject(command.getActionParams().get(0)).optString("page"));
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                     }
                 } else {
                     this.this$0.sapiWebView.finish();
@@ -1849,7 +1848,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class FocusEdittextCoordinateY extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1885,8 +1884,8 @@ public class SapiJsInterpreters {
                     try {
                         this.this$0.jsCallBacks.focusEdittextCoordinateYCallBack.onCallback(new JSONObject(command.getActionParams().get(0)).optInt("coordinateY"));
                         return null;
-                    } catch (Exception e2) {
-                        Log.e(e2);
+                    } catch (Exception e) {
+                        Log.e(e);
                         return null;
                     }
                 }
@@ -1896,7 +1895,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class GetAllClientAccounts extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1952,8 +1951,8 @@ public class SapiJsInterpreters {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("errno", 0);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
                 List<SapiAccount> touchidAccounts = sapiContext.getTouchidAccounts();
                 try {
@@ -1980,34 +1979,34 @@ public class SapiJsInterpreters {
                         jSONArray.put(jSONObject2);
                     }
                     jSONObject.put("fingerAccounts", jSONArray);
+                } catch (Exception e2) {
+                    Log.e(e2);
+                }
+                try {
+                    jSONObject.put("onekeyAccounts", new OneKeyLoginSdkCall().getEncryptPhone());
                 } catch (Exception e3) {
                     Log.e(e3);
                 }
                 try {
-                    jSONObject.put("onekeyAccounts", new OneKeyLoginSdkCall().getEncryptPhone());
+                    jSONObject.put("faceAccounts", sapiContext.getV2FaceLoginCheckResults());
                 } catch (Exception e4) {
                     Log.e(e4);
-                }
-                try {
-                    jSONObject.put("faceAccounts", sapiContext.getV2FaceLoginCheckResults());
-                } catch (Exception e5) {
-                    Log.e(e5);
                 }
                 try {
                     Object jSONArray2 = LoginHistoryItem.toJSONArray(LoginHistoryLoginModel.getAvailableLoginHistoryItems());
                     if (jSONArray2 != null) {
                         jSONObject.put("history", jSONArray2);
                     }
-                } catch (Exception e6) {
-                    e6.printStackTrace();
+                } catch (Exception e5) {
+                    e5.printStackTrace();
                 }
                 try {
                     jSONObject.put("recentLoginUid", sapiContext.getDecryptStr(SapiContext.KEY_LAST_LOGIN_UID));
                     if (this.this$0.sapiWebView != null && this.this$0.sapiWebView.mExcludeTypes != null) {
                         jSONObject.put("excludeTypes", this.this$0.sapiWebView.mExcludeTypes.getName());
                     }
-                } catch (JSONException e7) {
-                    Log.e(e7);
+                } catch (JSONException e6) {
+                    Log.e(e6);
                 }
                 try {
                     if (!isShareEnable()) {
@@ -2056,17 +2055,17 @@ public class SapiJsInterpreters {
                                     Log.d(ShareUtils.TAG, "shareV2 value=" + this.val$result.toString());
                                     SapiStatUtil.statShareV2Open(list, null, this.this$1.this$0.sapiWebView.extras);
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(this.val$result.toString());
-                                } catch (JSONException e8) {
+                                } catch (JSONException e7) {
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(this.val$result.toString());
-                                    e8.printStackTrace();
+                                    e7.printStackTrace();
                                 }
                             }
                         }
                     });
                     return null;
-                } catch (Exception e8) {
+                } catch (Exception e7) {
                     this.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                    Log.e(e8);
+                    Log.e(e7);
                     return null;
                 }
             }
@@ -2074,7 +2073,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class GetCurrentAccountInfo extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2114,8 +2113,8 @@ public class SapiJsInterpreters {
                         jSONObject.put("currentAccount", currentAccount.toJSONObject());
                         jSONObject.put("errno", 0);
                         return jSONObject.toString();
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                         return null;
                     }
                 }
@@ -2125,7 +2124,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class GetPresetPhoneNumber extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2170,7 +2169,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class GrantWebLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2209,8 +2208,8 @@ public class SapiJsInterpreters {
                         return null;
                     }
                     return null;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -2218,7 +2217,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class InvoiceBuildSelectedInvoice extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2264,7 +2263,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class NormalizeGuestAccount extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2329,8 +2328,8 @@ public class SapiJsInterpreters {
                             }
                         }
                     }
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     if (this.this$0.jsCallBacks.normalizeGuestAccountCallback != null) {
                         this.this$0.jsCallBacks.normalizeGuestAccountCallback.onFailure(-202, "网络连接失败，请检查网络设置");
                     }
@@ -2341,7 +2340,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class NormalizeGuestDescription extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2379,8 +2378,8 @@ public class SapiJsInterpreters {
                     if (!TextUtils.isEmpty(this.this$0.jsCallBacks.normalizeGuestAccountDesc)) {
                         jSONObject.put("description", new JSONObject(this.this$0.jsCallBacks.normalizeGuestAccountDesc));
                     }
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -2388,7 +2387,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class OauthCallBaidu extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2430,7 +2429,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class OauthSsoHash extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2500,7 +2499,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class RealNameVerifySucceed extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2542,7 +2541,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionAccountCenterFastloginFeatures extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2606,7 +2605,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionAccountDestroy extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2648,7 +2647,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionAccountFreeze extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2690,7 +2689,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionBdussChanged extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2801,7 +2800,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionCheckLoginStatus extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2838,8 +2837,8 @@ public class SapiJsInterpreters {
                     if (this.this$0.jsCallBacks.loginStatusChangeCallback != null) {
                         jSONObject.put("sup", true);
                     }
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -2847,7 +2846,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionCheckMethodSupport extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2919,7 +2918,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionChinaMobileOauth extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2997,7 +2996,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionCoverWebBduss extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3071,7 +3070,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionCurrentLoginType extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3119,7 +3118,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionDeliverParams extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3154,7 +3153,7 @@ public class SapiJsInterpreters {
                 try {
                     JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     String optString = jSONObject.optString("username");
-                    boolean equals = jSONObject.optString(IntentConfig.CLOSE, "0").equals("1");
+                    boolean equals = jSONObject.optString("close", "0").equals("1");
                     SapiWebView.PreFillUserNameCallback.PreFillUserNameResult preFillUserNameResult = new SapiWebView.PreFillUserNameCallback.PreFillUserNameResult();
                     preFillUserNameResult.userName = optString;
                     if (this.this$0.jsCallBacks.prefillUserNameCallback != null) {
@@ -3165,8 +3164,8 @@ public class SapiJsInterpreters {
                         return null;
                     }
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -3174,7 +3173,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionDirectedLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3211,8 +3210,8 @@ public class SapiJsInterpreters {
                     jSONObject.put("encryptedId", this.this$0.jsCallBacks.directedLoginParams.encryptedId);
                     jSONObject.put("displayname", this.this$0.jsCallBacks.directedLoginParams.displayname);
                     jSONObject.put("errno", 0);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -3220,7 +3219,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionGetAppTpl extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3255,7 +3254,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionGetNaUiConfig extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3309,7 +3308,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionGetSecurityZid extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3347,8 +3346,8 @@ public class SapiJsInterpreters {
                     jSONObject.put("errno", "0");
                     jSONObject.put("zid", Security.getZid(ServiceManager.getInstance().getIsAccountManager().getConfignation().context, optInt));
                     return jSONObject.toString();
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -3356,7 +3355,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionHandleBackButton extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3399,7 +3398,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionHideSuccessTip extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3435,8 +3434,8 @@ public class SapiJsInterpreters {
                 try {
                     jSONObject.put("hideTip", this.this$0.jsCallBacks.hideSuccessTip ? "1" : "0");
                     jSONObject.put("errno", 0);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -3444,7 +3443,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionJumpToUri extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3487,8 +3486,8 @@ public class SapiJsInterpreters {
                         if (this.this$0.jsCallBacks.promptResult != null) {
                             this.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                         }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                         if (this.this$0.jsCallBacks.promptResult != null) {
                             this.this$0.jsCallBacks.promptResult.cancel();
                         }
@@ -3502,7 +3501,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionLastLoginType extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3538,8 +3537,8 @@ public class SapiJsInterpreters {
                 try {
                     jSONObject.put("lastLoginType", SapiUtils.getLastLoginType());
                     jSONObject.put("errno", 0);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -3547,7 +3546,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionListenIsForbidRecord extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3587,8 +3586,8 @@ public class SapiJsInterpreters {
                     if (this.this$0.jsCallBacks.isForbidRecordCallBack != null) {
                         this.this$0.jsCallBacks.isForbidRecordCallBack.onForbidRecord(Boolean.valueOf("1".equals(str)));
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return null;
             }
@@ -3596,7 +3595,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionLoginStatusChange extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3638,7 +3637,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionMakeVibrate extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3689,8 +3688,8 @@ public class SapiJsInterpreters {
                     }
                     this.this$0.jsCallBacks.makeVibrateCallBack.vibrate(jArr, optInt, optString);
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.e(SapiJsInterpreters.TAG, e.getMessage());
                     if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
                         return null;
                     }
@@ -3702,7 +3701,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionMiniDi extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3747,8 +3746,8 @@ public class SapiJsInterpreters {
                         }
                     }
                     return SapiDeviceInfo.getDiCookieInfo(arrayList, false);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -3756,7 +3755,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionPasteboardSet extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3793,8 +3792,8 @@ public class SapiJsInterpreters {
                     ((ClipboardManager) this.this$0.context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("address", new JSONObject(command.getActionParams().get(0)).optString("content")));
                     jSONObject.put("errno", 0);
                     return jSONObject.toString();
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return jSONObject.toString();
                 }
             }
@@ -3802,7 +3801,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionPickDate extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3840,8 +3839,8 @@ public class SapiJsInterpreters {
                 Date time = calendar.getTime();
                 try {
                     calendar.setTime(new SimpleDateFormat("yyyyMMdd").parse(str));
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 int i = calendar.get(1);
                 int i2 = calendar.get(2);
@@ -3925,7 +3924,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionPickImage extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -3960,8 +3959,8 @@ public class SapiJsInterpreters {
                 int i = 0;
                 try {
                     i = Integer.parseInt(command.getActionParams().get(0));
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 int i2 = 512;
                 int i3 = 1;
@@ -3970,8 +3969,8 @@ public class SapiJsInterpreters {
                         JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
                         i3 = jSONObject.optInt("sence", 1);
                         i2 = jSONObject.optInt("size", 512);
-                    } catch (JSONException e3) {
-                        Log.e(e3);
+                    } catch (JSONException e2) {
+                        Log.e(e2);
                     }
                 }
                 this.this$0.jsCallBacks.pickPhotoCallback.onPickImage(i, i3, i2, new SapiWebView.PickPhotoResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
@@ -4012,7 +4011,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionQrLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4066,8 +4065,8 @@ public class SapiJsInterpreters {
                         return null;
                     }
                     return null;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -4075,7 +4074,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionRealname extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4122,8 +4121,8 @@ public class SapiJsInterpreters {
                         return null;
                     }
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -4131,7 +4130,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionScAppCheck extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4170,8 +4169,8 @@ public class SapiJsInterpreters {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("state", new SapiScheme().getInvokeScState(this.this$0.context, optString, this.this$0.jsCallBacks.invokeScAppCallback));
                     return jSONObject2.toString();
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -4179,7 +4178,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionScAppInvoke extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4255,8 +4254,8 @@ public class SapiJsInterpreters {
                         }
                     });
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -4264,7 +4263,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionSwitchAccount extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4310,8 +4309,8 @@ public class SapiJsInterpreters {
                                 result.switchAccountType = 2;
                                 this.this$0.jsCallBacks.switchAccountCallback.onAccountSwitch(result);
                                 return null;
-                            } catch (JSONException e2) {
-                                Log.e(e2);
+                            } catch (JSONException e) {
+                                Log.e(e);
                             }
                         } else {
                             result.userName = actionParams.get(0);
@@ -4329,7 +4328,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionThirdInstalledInfo extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4376,8 +4375,8 @@ public class SapiJsInterpreters {
                     }
                     jSONObject.put("types", jSONArray);
                     return jSONObject.toString();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     return "";
                 }
             }
@@ -4385,7 +4384,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionThirdSafetyVerification extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4421,8 +4420,8 @@ public class SapiJsInterpreters {
                     try {
                         this.this$0.jsCallBacks.socialVerificationHandler.sendMessage(ThirdPartyUtil.getVerificationMsg(new JSONObject(command.getActionParams().get(0)).optString("type")));
                         return null;
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                         if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
                             return null;
                         }
@@ -4437,7 +4436,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionUpdateNavigator extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4480,7 +4479,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiActionUpsms extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4526,7 +4525,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiBiometricsIdentification extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4603,8 +4602,8 @@ public class SapiJsInterpreters {
                 if (command.getActionParams().size() > 3) {
                     try {
                         biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(3)).optInt("hideGuidePage", 0);
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                     }
                 }
                 biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
@@ -4618,7 +4617,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiBiometricsIdentificationLive extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4688,8 +4687,8 @@ public class SapiJsInterpreters {
                                     jSONObject.put("errno", 0);
                                     jSONObject.put("businessno", passFaceRecogResult.getResultCode());
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                                } catch (JSONException e2) {
-                                    e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                     this.this$1.this$0.jsCallBacks.promptResult.cancel();
                                 }
                             }
@@ -4706,16 +4705,16 @@ public class SapiJsInterpreters {
                                     jSONObject.put("originalimage", passFaceRecogResult.originalImage);
                                     jSONObject.put("credentialKey", passFaceRecogResult.callbackkey);
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                                } catch (JSONException e2) {
-                                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                                } catch (JSONException e) {
+                                    Log.e(SapiJsInterpreters.TAG, e.getMessage());
                                     this.this$1.this$0.jsCallBacks.promptResult.cancel();
                                 }
                             }
                         }
                     });
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.e(SapiJsInterpreters.TAG, e.getMessage());
                     if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
                         return null;
                     }
@@ -4727,7 +4726,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiBiometricsIdentificationNoBduss extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4810,8 +4809,8 @@ public class SapiJsInterpreters {
                 if (command.getActionParams().size() > 6) {
                     try {
                         biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(6)).optInt("hideGuidePage", 0);
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                     }
                 }
                 biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
@@ -4825,7 +4824,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiBiometricsIdentificationWithAuthtoken extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -4903,8 +4902,8 @@ public class SapiJsInterpreters {
                 if (command.getActionParams().size() > 4) {
                     try {
                         biometricsIdentifyResult.showGuidePage = 1 - new JSONObject(command.getActionParams().get(4)).optInt("hideGuidePage", 0);
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                     }
                 }
                 biometricsIdentifyResult.subPro = TextUtils.isEmpty(biometricsIdentifyResult.subPro) ? "pp" : biometricsIdentifyResult.subPro;
@@ -4918,7 +4917,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiBiometricsIdentificationWithUid extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5002,8 +5001,8 @@ public class SapiJsInterpreters {
                         }
                     }
                     this.this$0.jsCallBacks.bioScanFaceCallback.onBioScanFace(bioScanFaceResult);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
                 return null;
             }
@@ -5011,7 +5010,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiClientHistoryLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5046,8 +5045,8 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 try {
                     jSONObject = new JSONObject(command.getActionParams().get(0));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     jSONObject = null;
                 }
                 if (jSONObject != null) {
@@ -5084,8 +5083,8 @@ public class SapiJsInterpreters {
                                     JSONObject jSONObject2 = new JSONObject();
                                     jSONObject2.put("errno", -1);
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject2.toString());
-                                } catch (JSONException e3) {
-                                    e3.printStackTrace();
+                                } catch (JSONException e2) {
+                                    e2.printStackTrace();
                                 }
                             }
                         }
@@ -5107,7 +5106,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiGoBack extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5150,7 +5149,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiIdcardOcrImage extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5220,8 +5219,8 @@ public class SapiJsInterpreters {
                                     jSONObject2.put("errno", idcardOcrImageRusult.getResultCode());
                                     jSONObject2.put("errmsg", idcardOcrImageRusult.getResultMsg());
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject2.toString());
-                                } catch (JSONException e2) {
-                                    e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                     this.this$1.this$0.jsCallBacks.promptResult.cancel();
                                 }
                             }
@@ -5238,16 +5237,16 @@ public class SapiJsInterpreters {
                                     jSONObject2.put("type", idcardOcrImageRusult.type);
                                     jSONObject2.put("image", idcardOcrImageRusult.image);
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject2.toString());
-                                } catch (JSONException e2) {
-                                    e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                     this.this$1.this$0.jsCallBacks.promptResult.cancel();
                                 }
                             }
                         }
                     });
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(SapiJsInterpreters.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.e(SapiJsInterpreters.TAG, e.getMessage());
                     if (this.this$0.jsCallBacks == null || this.this$0.jsCallBacks.promptResult == null) {
                         return null;
                     }
@@ -5259,7 +5258,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiOnekeyOauthToken extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5329,7 +5328,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiRemoveLoginHistory extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5371,8 +5370,8 @@ public class SapiJsInterpreters {
                 try {
                     jSONObject2.put("errno", 0);
                     jSONObject = new JSONObject(command.getActionParams().get(0));
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
                 try {
                     String optString = jSONObject.optString("portraitSign");
@@ -5392,8 +5391,8 @@ public class SapiJsInterpreters {
                         }
                         ShareUtils.markAsDeleteShareLogin(str);
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     jSONObject3 = jSONObject;
                     Log.e(e);
                     jSONObject = jSONObject3;
@@ -5406,8 +5405,8 @@ public class SapiJsInterpreters {
                         if (TextUtils.equals(jSONObject.optString("loginType"), "history")) {
                             LoginHistoryLoginModel.delBdussLoginHistoryInfo(jSONObject.optString("bduss"));
                         }
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
                     }
                 }
                 return jSONObject2.toString();
@@ -5416,7 +5415,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SapiShareAccountClick extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5465,8 +5464,8 @@ public class SapiJsInterpreters {
                         this.this$0.jsCallBacks.promptResult.confirm("finish");
                         ShareLoginStat.MakeShareLoginStat.sValueSence = "in";
                         this.this$0.jsCallBacks.shareAccountClickCallback.onClick(optString2, optString, optString4, optString5, optString3);
-                    } catch (Exception e2) {
-                        Log.e(e2);
+                    } catch (Exception e) {
+                        Log.e(e);
                     }
                 }
                 return null;
@@ -5475,7 +5474,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SpeechRecognitionGetContent extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5541,8 +5540,8 @@ public class SapiJsInterpreters {
                             jSONObject.put("errno", i);
                             jSONObject.put("text", str);
                             this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                        } catch (JSONException e2) {
-                            Log.e(e2);
+                        } catch (JSONException e) {
+                            Log.e(e);
                         }
                     }
                 });
@@ -5552,7 +5551,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SwitchAccountGetAccounts extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5601,8 +5600,8 @@ public class SapiJsInterpreters {
                     }
                     jSONObject.put("errno", 0);
                     jSONObject.put("accountList", jSONArray);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -5610,7 +5609,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SwitchAccountGetConfig extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5647,8 +5646,8 @@ public class SapiJsInterpreters {
                     jSONObject.put("errno", 0);
                     jSONObject.put("showSwitchAccount", this.this$0.sapiWebView.showSwitchAccount ? 1 : 0);
                     jSONObject.put("showLinkAccount", this.this$0.sapiWebView.showLinkAccount ? 1 : 0);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -5656,7 +5655,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SwitchAccountRemoveAccount extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5702,8 +5701,8 @@ public class SapiJsInterpreters {
                         }
                     }
                     return null;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -5711,7 +5710,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class SwitchStyleForCloseBtnAndStatusBar extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5747,8 +5746,8 @@ public class SapiJsInterpreters {
                     try {
                         this.this$0.jsCallBacks.mSwitchStyleForCloseBtnAndStatusBarCallBack.switchStyle(new JSONObject(command.getActionParams().get(0)).optString("styleType"));
                         return null;
-                    } catch (Exception e2) {
-                        Log.e(e2);
+                    } catch (Exception e) {
+                        Log.e(e);
                         return null;
                     }
                 }
@@ -5758,7 +5757,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TouchidChangeStatus extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5785,8 +5784,8 @@ public class SapiJsInterpreters {
             this.this$0 = sapiJsInterpreters;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:18:0x0056  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0073  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x0055  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0072  */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -5808,8 +5807,8 @@ public class SapiJsInterpreters {
                         str2 = jSONObject2.optString("portrait");
                         try {
                             str3 = jSONObject2.optString("portraitSign");
-                        } catch (JSONException e2) {
-                            e = e2;
+                        } catch (JSONException e) {
+                            e = e;
                             Log.e(e);
                             str3 = null;
                             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
@@ -5817,12 +5816,12 @@ public class SapiJsInterpreters {
                             if (!"open".equals(str)) {
                             }
                         }
-                    } catch (JSONException e3) {
-                        e = e3;
+                    } catch (JSONException e2) {
+                        e = e2;
                         str2 = null;
                     }
-                } catch (JSONException e4) {
-                    e = e4;
+                } catch (JSONException e3) {
+                    e = e3;
                     str = null;
                     str2 = null;
                 }
@@ -5867,8 +5866,8 @@ public class SapiJsInterpreters {
                                         SapiContext.getInstance().addTouchidAccounts(this.val$currentAccount);
                                     }
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(this.val$json.toString());
-                                } catch (Exception e5) {
-                                    Log.e(e5);
+                                } catch (Exception e4) {
+                                    Log.e(e4);
                                 }
                             }
                         }
@@ -5887,7 +5886,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TouchidCheckGuideStatus extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -5966,8 +5965,8 @@ public class SapiJsInterpreters {
                     if (i == 1) {
                         SapiContext.getInstance().addTouchidLoginRecord(optString);
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -5975,7 +5974,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TouchidGetStatus extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -6034,8 +6033,8 @@ public class SapiJsInterpreters {
                     }
                     jSONObject.put("errno", 0);
                     jSONObject.put("status", i);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return jSONObject.toString();
             }
@@ -6043,7 +6042,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TouchidLogin extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -6107,8 +6106,8 @@ public class SapiJsInterpreters {
                                 jSONObject.put("errno", 0);
                                 jSONObject.put("status", i);
                                 this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                            } catch (Exception e2) {
-                                Log.e(e2);
+                            } catch (Exception e) {
+                                Log.e(e);
                             }
                         }
                     }
@@ -6125,7 +6124,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class TouchidOpenGuide extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -6207,12 +6206,12 @@ public class SapiJsInterpreters {
                                         }
                                         this.this$1.this$0.jsCallBacks.touchidPortraitAndSign[1] = optString2;
                                         this.this$1.this$0.sapiWebView.touchidPortraitAndSign[1] = optString2;
-                                    } catch (Exception e2) {
-                                        Log.e(e2);
+                                    } catch (Exception e) {
+                                        Log.e(e);
                                     }
                                 }
-                            } catch (Exception e3) {
-                                Log.e(e3);
+                            } catch (Exception e2) {
+                                Log.e(e2);
                             }
                         }
                     }
@@ -6227,7 +6226,7 @@ public class SapiJsInterpreters {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class UniteVerifyResult extends AbstractInterpreter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -6275,8 +6274,8 @@ public class SapiJsInterpreters {
                     }
                     this.this$0.jsCallBacks.uniteVerifyCallback.onSuccess(optString, optString2, sapiAccount);
                     return null;
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                     return null;
                 }
             }
@@ -6315,8 +6314,8 @@ public class SapiJsInterpreters {
             }
             try {
                 return (AbstractInterpreter) Class.forName(interpreterNameToClassFullName(str)).getDeclaredConstructor(getClass()).newInstance(this);
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return null;
             }
         }

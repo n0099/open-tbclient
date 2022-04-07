@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "d";
@@ -62,8 +62,8 @@ public class d {
                     if (addTrack >= 0) {
                         return addTrack;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 com.baidu.ar.h.b.b(TAG, "addMuxerTrack error!!!");
                 return -1;
@@ -102,9 +102,9 @@ public class d {
                 this.uo = eVar;
                 this.uW = false;
                 return true;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 com.baidu.ar.h.b.b(TAG, "initMovieMuxer init error!!!");
-                e2.printStackTrace();
+                e.printStackTrace();
                 return false;
             }
         }

@@ -31,13 +31,13 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     public final View mView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GhostViewPort(View view) {
-        super(view.getContext());
+    public GhostViewPort(View view2) {
+        super(view2.getContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,16 +74,16 @@ public class GhostViewPort extends ViewGroup implements GhostView {
             @Override // android.view.ViewTreeObserver.OnPreDrawListener
             public boolean onPreDraw() {
                 InterceptResult invokeV;
-                View view2;
+                View view3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     ViewCompat.postInvalidateOnAnimation(this.this$0);
                     GhostViewPort ghostViewPort = this.this$0;
                     ViewGroup viewGroup = ghostViewPort.mStartParent;
-                    if (viewGroup == null || (view2 = ghostViewPort.mStartView) == null) {
+                    if (viewGroup == null || (view3 = ghostViewPort.mStartView) == null) {
                         return true;
                     }
-                    viewGroup.endViewTransition(view2);
+                    viewGroup.endViewTransition(view3);
                     ViewCompat.postInvalidateOnAnimation(this.this$0.mStartParent);
                     GhostViewPort ghostViewPort2 = this.this$0;
                     ghostViewPort2.mStartParent = null;
@@ -93,19 +93,19 @@ public class GhostViewPort extends ViewGroup implements GhostView {
                 return invokeV.booleanValue;
             }
         };
-        this.mView = view;
+        this.mView = view2;
         setWillNotDraw(false);
         setLayerType(2, null);
     }
 
-    public static GhostViewPort addGhost(View view, ViewGroup viewGroup, Matrix matrix) {
+    public static GhostViewPort addGhost(View view2, ViewGroup viewGroup, Matrix matrix) {
         InterceptResult invokeLLL;
         GhostViewHolder ghostViewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view, viewGroup, matrix)) == null) {
-            if (view.getParent() instanceof ViewGroup) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, viewGroup, matrix)) == null) {
+            if (view2.getParent() instanceof ViewGroup) {
                 GhostViewHolder holder = GhostViewHolder.getHolder(viewGroup);
-                GhostViewPort ghostView = getGhostView(view);
+                GhostViewPort ghostView = getGhostView(view2);
                 int i = 0;
                 if (ghostView != null && (ghostViewHolder = (GhostViewHolder) ghostView.getParent()) != holder) {
                     i = ghostView.mReferences;
@@ -115,9 +115,9 @@ public class GhostViewPort extends ViewGroup implements GhostView {
                 if (ghostView == null) {
                     if (matrix == null) {
                         matrix = new Matrix();
-                        calculateMatrix(view, viewGroup, matrix);
+                        calculateMatrix(view2, viewGroup, matrix);
                     }
-                    ghostView = new GhostViewPort(view);
+                    ghostView = new GhostViewPort(view2);
                     ghostView.setMatrix(matrix);
                     if (holder == null) {
                         holder = new GhostViewHolder(viewGroup);
@@ -139,10 +139,10 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         return (GhostViewPort) invokeLLL.objValue;
     }
 
-    public static void calculateMatrix(View view, ViewGroup viewGroup, Matrix matrix) {
+    public static void calculateMatrix(View view2, ViewGroup viewGroup, Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, view, viewGroup, matrix) == null) {
-            ViewGroup viewGroup2 = (ViewGroup) view.getParent();
+        if (interceptable == null || interceptable.invokeLLL(65538, null, view2, viewGroup, matrix) == null) {
+            ViewGroup viewGroup2 = (ViewGroup) view2.getParent();
             matrix.reset();
             ViewUtils.transformMatrixToGlobal(viewGroup2, matrix);
             matrix.preTranslate(-viewGroup2.getScrollX(), -viewGroup2.getScrollY());
@@ -150,23 +150,23 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         }
     }
 
-    public static void copySize(View view, View view2) {
+    public static void copySize(View view2, View view3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view, view2) == null) {
-            ViewUtils.setLeftTopRightBottom(view2, view2.getLeft(), view2.getTop(), view2.getLeft() + view.getWidth(), view2.getTop() + view.getHeight());
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            ViewUtils.setLeftTopRightBottom(view3, view3.getLeft(), view3.getTop(), view3.getLeft() + view2.getWidth(), view3.getTop() + view2.getHeight());
         }
     }
 
-    public static GhostViewPort getGhostView(View view) {
+    public static GhostViewPort getGhostView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? (GhostViewPort) view.getTag(R$id.ghost_view) : (GhostViewPort) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? (GhostViewPort) view2.getTag(R$id.ghost_view) : (GhostViewPort) invokeL.objValue;
     }
 
-    public static void removeGhost(View view) {
+    public static void removeGhost(View view2) {
         GhostViewPort ghostView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, view) == null) || (ghostView = getGhostView(view)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65541, null, view2) == null) || (ghostView = getGhostView(view2)) == null) {
             return;
         }
         int i = ghostView.mReferences - 1;
@@ -176,10 +176,10 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         }
     }
 
-    public static void setGhostView(@NonNull View view, @Nullable GhostViewPort ghostViewPort) {
+    public static void setGhostView(@NonNull View view2, @Nullable GhostViewPort ghostViewPort) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view, ghostViewPort) == null) {
-            view.setTag(R$id.ghost_view, ghostViewPort);
+        if (interceptable == null || interceptable.invokeLL(65542, null, view2, ghostViewPort) == null) {
+            view2.setTag(R$id.ghost_view, ghostViewPort);
         }
     }
 
@@ -233,11 +233,11 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     }
 
     @Override // androidx.transition.GhostView
-    public void reserveEndViewTransition(ViewGroup viewGroup, View view) {
+    public void reserveEndViewTransition(ViewGroup viewGroup, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, view) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, viewGroup, view2) == null) {
             this.mStartParent = viewGroup;
-            this.mStartView = view;
+            this.mStartView = view2;
         }
     }
 

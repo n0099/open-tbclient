@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +41,8 @@ public class a {
             options.inJustDecodeBounds = true;
             try {
                 BitmapFactory.decodeFile(str, options);
-            } catch (OutOfMemoryError e2) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "isBitMapNeedToCompress exception:", e2);
+            } catch (OutOfMemoryError e) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "isBitMapNeedToCompress exception:", e);
             }
             int i3 = options.outWidth;
             int i4 = options.outHeight;
@@ -113,12 +113,8 @@ public class a {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f43668b;
-
-                    /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Context f43669c;
+                    public final /* synthetic */ Handler b;
+                    public final /* synthetic */ Context c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -136,8 +132,8 @@ public class a {
                             }
                         }
                         this.a = str;
-                        this.f43668b = r7;
-                        this.f43669c = context;
+                        this.b = r7;
+                        this.c = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -155,15 +151,15 @@ public class a {
                                         str3 = a.getAbsolutePath() + File.separator + Constants.QQ_SHARE_TEMP_DIR + File.separator;
                                         str2 = null;
                                     } else {
-                                        File d2 = f.d();
-                                        if (d2 == null) {
+                                        File d = f.d();
+                                        if (d == null) {
                                             SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() getCacheDir = null,return error");
-                                            Message obtainMessage = this.f43668b.obtainMessage();
+                                            Message obtainMessage = this.b.obtainMessage();
                                             obtainMessage.arg1 = 102;
-                                            this.f43668b.sendMessage(obtainMessage);
+                                            this.b.sendMessage(obtainMessage);
                                             return;
                                         }
-                                        String absolutePath = d2.getAbsolutePath();
+                                        String absolutePath = d.getAbsolutePath();
                                         String str5 = absolutePath + File.separator + Constants.QQ_SHARE_TEMP_DIR + File.separator;
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() use cache dir=" + str5);
                                         str2 = absolutePath;
@@ -187,7 +183,7 @@ public class a {
                                         str4 = str7;
                                     } else if (TextUtils.isEmpty(str2)) {
                                         String str8 = str3 + str6;
-                                        boolean a4 = l.a(this.f43669c, str7, str8);
+                                        boolean a4 = l.a(this.c, str7, str8);
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() sd permission not denied. copy to app sepcific:" + str8 + ",isSuccess=" + a4);
                                         if (a4) {
                                             str4 = str8;
@@ -197,19 +193,19 @@ public class a {
                                     arrayList.add(str4);
                                     if (arrayList.size() >= 2 && (arrayList.get(0) != null || arrayList.get(1) != null)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return success ! destFilePath=[" + ((String) arrayList.get(0)) + "," + ((String) arrayList.get(1)) + PreferencesUtil.RIGHT_MOUNT);
-                                        Message obtainMessage2 = this.f43668b.obtainMessage(101);
+                                        Message obtainMessage2 = this.b.obtainMessage(101);
                                         obtainMessage2.obj = arrayList;
-                                        this.f43668b.sendMessage(obtainMessage2);
+                                        this.b.sendMessage(obtainMessage2);
                                         return;
                                     }
                                 }
-                            } catch (Exception e2) {
-                                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage runnable exception e:", e2);
+                            } catch (Exception e) {
+                                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage runnable exception e:", e);
                             }
                             SLog.d("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return failed!");
-                            Message obtainMessage3 = this.f43668b.obtainMessage(102);
+                            Message obtainMessage3 = this.b.obtainMessage(102);
                             obtainMessage3.arg1 = 3;
-                            this.f43668b.sendMessage(obtainMessage3);
+                            this.b.sendMessage(obtainMessage3);
                         }
                     }
                 }).start();
@@ -227,8 +223,8 @@ public class a {
             if (width <= height) {
                 width = height;
             }
-            float f2 = i / width;
-            matrix.postScale(f2, f2);
+            float f = i / width;
+            matrix.postScale(f, f);
             return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
         return (Bitmap) invokeLI.objValue;
@@ -239,14 +235,14 @@ public class a {
         int min;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i, i2)) == null) {
-            double d2 = options.outWidth;
-            double d3 = options.outHeight;
-            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
+            double d = options.outWidth;
+            double d2 = options.outHeight;
+            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d * d2) / i2));
             if (i == -1) {
                 min = 128;
             } else {
-                double d4 = i;
-                min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
+                double d3 = i;
+                min = (int) Math.min(Math.floor(d / d3), Math.floor(d2 / d3));
             }
             if (min < ceil) {
                 return ceil;
@@ -282,11 +278,11 @@ public class a {
                     fileOutputStream.close();
                     bitmap.recycle();
                     return stringBuffer2;
-                } catch (FileNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
                     return null;
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     return null;
                 }
             }
@@ -312,8 +308,8 @@ public class a {
             options.inJustDecodeBounds = true;
             try {
                 BitmapFactory.decodeFile(str, options);
-            } catch (OutOfMemoryError e2) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception1:", e2);
+            } catch (OutOfMemoryError e) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception1:", e);
             }
             int i2 = options.outWidth;
             int i3 = options.outHeight;
@@ -330,13 +326,13 @@ public class a {
             options.inJustDecodeBounds = false;
             try {
                 bitmap = BitmapFactory.decodeFile(str, options);
-            } catch (Exception e3) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception2:", e3);
+            } catch (Exception e2) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception2:", e2);
                 bitmap = null;
                 if (bitmap == null) {
                 }
-            } catch (OutOfMemoryError e4) {
-                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap OutOfMemoryError:", e4);
+            } catch (OutOfMemoryError e3) {
+                SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap OutOfMemoryError:", e3);
                 bitmap = null;
                 if (bitmap == null) {
                 }
@@ -359,15 +355,15 @@ public class a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
-            int b2 = b(options, i, i2);
-            if (b2 <= 8) {
+            int b = b(options, i, i2);
+            if (b <= 8) {
                 int i3 = 1;
-                while (i3 < b2) {
+                while (i3 < b) {
                     i3 <<= 1;
                 }
                 return i3;
             }
-            return ((b2 + 7) / 8) * 8;
+            return ((b + 7) / 8) * 8;
         }
         return invokeLII.intValue;
     }

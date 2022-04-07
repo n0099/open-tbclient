@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HandDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HandDetector";
@@ -121,7 +121,7 @@ public class HandDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
-                    boolean z = aVar.f24836tv;
+                    boolean z = aVar.f986tv;
                     String[] strArr = aVar.tw;
                     return z ? ARMdlInterfaceJNI.initHandSkeletonFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initHandSkeleton(strArr[0], strArr[1]);
                 }
@@ -253,16 +253,16 @@ public class HandDetector extends com.baidu.ar.b.a.a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, framePixels2)) == null) {
                     long timestamp = framePixels2.getTimestamp();
-                    int d2 = this.qw.d(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
+                    int d = this.qw.d(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
                     long elapsedRealtime = SystemClock.elapsedRealtime();
                     try {
                         long createHandle = this.qw.cb.createHandle();
                         this.qw.cb.setHandleInput(createHandle, 19, framePixels2.getTimestamp(), 0, framePixels2.getWidth(), framePixels2.getHeight(), framePixels2.isFrontCamera(), framePixels2.getSegOrientation().getValue(), false, framePixels2.getPixelsAddress());
-                        ARMdlInterfaceJNI.predictHandSkeletonByHandle(createHandle, d2);
+                        ARMdlInterfaceJNI.predictHandSkeletonByHandle(createHandle, d);
                         StatisticApi.getPerformanceApi().recordAlgoTimeCost("finger_gesture", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                         return new a(this.qw.getName(), createHandle, timestamp);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return null;
                     }
                 }

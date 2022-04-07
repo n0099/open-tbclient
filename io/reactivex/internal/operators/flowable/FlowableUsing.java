@@ -40,12 +40,12 @@ public final class FlowableUsing<T, D> extends Flowable<T> {
         public final D resource;
         public Subscription s;
 
-        public UsingSubscriber(Subscriber<? super T> subscriber, D d2, Consumer<? super D> consumer, boolean z) {
+        public UsingSubscriber(Subscriber<? super T> subscriber, D d, Consumer<? super D> consumer, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, d2, consumer, Boolean.valueOf(z)};
+                Object[] objArr = {subscriber, d, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class FlowableUsing<T, D> extends Flowable<T> {
                 }
             }
             this.actual = subscriber;
-            this.resource = d2;
+            this.resource = d;
             this.disposer = consumer;
             this.eager = z;
         }

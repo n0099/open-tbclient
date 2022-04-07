@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +126,9 @@ public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, St
                 Uri resolveToUri = UriUtil.resolveToUri(hlsMasterPlaylist.baseUri, str);
                 try {
                     hlsMediaPlaylist = (HlsMediaPlaylist) loadManifest(dataSource, resolveToUri);
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     if (!z) {
-                        throw e2;
+                        throw e;
                     }
                 }
                 arrayList.add(new SegmentDownloader.Segment(hlsMediaPlaylist != null ? hlsMediaPlaylist.startTimeUs : Long.MIN_VALUE, new DataSpec(resolveToUri)));

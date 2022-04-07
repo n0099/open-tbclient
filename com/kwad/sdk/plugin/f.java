@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class f {
     public static final Map<Class, d> a = new ConcurrentHashMap();
 
@@ -28,8 +28,8 @@ public final class f {
                 return t2;
             }
             return null;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

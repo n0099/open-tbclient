@@ -1,9 +1,6 @@
 package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.d.l;
-import c.a.o0.r.r.f1;
-import c.a.o0.r.s.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,13 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cr4;
+import com.repackage.qe;
+import com.repackage.wp4;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public f1 data;
+    public wp4 data;
     public int errCode;
     public String resultString;
 
@@ -42,7 +42,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = -1;
-        this.data = new f1();
+        this.data = new wp4();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -66,10 +66,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.errCode : invokeV.intValue;
     }
 
-    public f1 getPersonFriendData() {
+    public wp4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (f1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.data : (wp4) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -85,10 +85,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonFriendData(f1 f1Var) {
+    public void setPersonFriendData(wp4 wp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, f1Var) == null) {
-            this.data = f1Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, wp4Var) == null) {
+            this.data = wp4Var;
         }
     }
 
@@ -110,14 +110,14 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     String parseToString = parseToString(bArr);
                     if (parseToString != null) {
-                        a.f();
-                        l<String> g2 = a.g("tb.my_pages");
-                        if (g2 != null) {
-                            g2.e("personal_myfollow_" + id, parseToString, 604800000L);
+                        cr4.f();
+                        qe<String> g = cr4.g("tb.my_pages");
+                        if (g != null) {
+                            g.e("personal_myfollow_" + id, parseToString, 604800000L);
                         }
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }

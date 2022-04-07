@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OpenBdussResult extends SapiResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NOT_LOGIN = -901;
@@ -84,8 +84,8 @@ public class OpenBdussResult extends SapiResult implements NoProguard {
                     }
                 }
                 return openBdussResult;
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
                 return null;
             }
         }
@@ -113,8 +113,8 @@ public class OpenBdussResult extends SapiResult implements NoProguard {
                     }
                     jSONObject.put("stoken_list", jSONObject2);
                 }
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
             }
             return jSONObject;
         }

@@ -1,8 +1,6 @@
 package com.baidu.tbadk.img;
 
 import android.text.TextUtils;
-import c.a.o0.c0.c;
-import c.a.o0.l.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -18,18 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l35;
+import com.repackage.zl4;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f30569b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,11 +70,11 @@ public class GetEmotionInfosModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onFail(int i, String str);
 
-        void onSuccess(List<c> list);
+        void onSuccess(List<l35> list);
     }
 
     public GetEmotionInfosModel() {
@@ -92,12 +90,12 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 return;
             }
         }
-        this.f30569b = new a(this, CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+        this.b = new a(this, CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f30569b.setTag(getUniqueId());
-        this.f30569b.setSelfListener(true);
-        registerListener(this.f30569b);
+        this.b.setTag(getUniqueId());
+        this.b.setSelfListener(true);
+        registerListener(this.b);
     }
 
     public void A(List<String> list, b bVar) {
@@ -119,7 +117,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
                 }
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-            httpMessage.addParam("pic_urls", e.q(jSONArray.toString()));
+            httpMessage.addParam("pic_urls", zl4.q(jSONArray.toString()));
             sendMessage(httpMessage);
         }
     }
@@ -129,7 +127,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f30569b);
+            MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
             return true;
         }

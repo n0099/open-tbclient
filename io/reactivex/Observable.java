@@ -203,13 +203,13 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class Observable<T> implements ObservableSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: io.reactivex.Observable$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -1945,12 +1945,12 @@ public abstract class Observable<T> implements ObservableSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final <E extends Observer<? super T>> E subscribeWith(E e2) {
+    public final <E extends Observer<? super T>> E subscribeWith(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048818, this, e2)) == null) {
-            subscribe(e2);
-            return e2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048818, this, e)) == null) {
+            subscribe(e);
+            return e;
         }
         return (E) invokeL.objValue;
     }
@@ -4554,8 +4554,8 @@ public abstract class Observable<T> implements ObservableSource<T> {
                 Observer<? super T> onSubscribe = RxJavaPlugins.onSubscribe(this, observer);
                 ObjectHelper.requireNonNull(onSubscribe, "Plugin returned null Observer");
                 subscribeActual(onSubscribe);
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

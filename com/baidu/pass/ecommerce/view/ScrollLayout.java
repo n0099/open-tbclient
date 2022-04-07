@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ScrollLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAG_SPEED_MULTIPLIER = 1.2f;
@@ -55,7 +55,7 @@ public class ScrollLayout extends FrameLayout {
     public Scroller scroller;
 
     /* renamed from: com.baidu.pass.ecommerce.view.ScrollLayout$3  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class InnerStatus {
         public static final /* synthetic */ InnerStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -153,17 +153,17 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnScrollChangedListener {
         void onChildScroll(int i);
 
         void onScrollFinished(Status status);
 
-        void onScrollProgressChanged(float f2);
+        void onScrollProgressChanged(float f);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -277,11 +277,11 @@ public class ScrollLayout extends FrameLayout {
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                    if (f3 > 80.0f) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                    if (f2 > 80.0f) {
                         if (this.this$0.lastFlingStatus.equals(Status.HALF) && (-this.this$0.getScrollY()) > this.this$0.maxOffset) {
                             this.this$0.lastFlingStatus = Status.EXIT;
                             this.this$0.scrollToExit();
@@ -291,7 +291,7 @@ public class ScrollLayout extends FrameLayout {
                         }
                         return true;
                     }
-                    int i3 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                    int i3 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
                     if (i3 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
                         if (i3 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
                             return false;
@@ -355,14 +355,14 @@ public class ScrollLayout extends FrameLayout {
     private void completeMove() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            float f2 = -((this.maxOffset - this.openedOffset) * 0.5f);
-            if (getScrollY() > f2) {
+            float f = -((this.maxOffset - this.openedOffset) * 0.5f);
+            if (getScrollY() > f) {
                 scrollToOpened();
             } else if (this.isSupportExit) {
                 int i = this.exitOffset;
                 int i2 = this.maxOffset;
-                float f3 = -(((i - i2) * 0.8f) + i2);
-                if (getScrollY() <= f2 && getScrollY() > f3) {
+                float f2 = -(((i - i2) * 0.8f) + i2);
+                if (getScrollY() <= f && getScrollY() > f2) {
                     scrollToHalf();
                 } else {
                     scrollToExit();
@@ -433,13 +433,13 @@ public class ScrollLayout extends FrameLayout {
         onScrollChangedListener.onScrollFinished(status);
     }
 
-    private void onScrollProgressChanged(float f2) {
+    private void onScrollProgressChanged(float f) {
         OnScrollChangedListener onScrollChangedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65547, this, f2) == null) || (onScrollChangedListener = this.onScrollChangedListener) == null) {
+        if (!(interceptable == null || interceptable.invokeF(65547, this, f) == null) || (onScrollChangedListener = this.onScrollChangedListener) == null) {
             return;
         }
-        onScrollChangedListener.onScrollProgressChanged(f2);
+        onScrollChangedListener.onScrollProgressChanged(f);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -878,11 +878,11 @@ public class ScrollLayout extends FrameLayout {
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                    if (f3 > 80.0f) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                    if (f2 > 80.0f) {
                         if (this.this$0.lastFlingStatus.equals(Status.HALF) && (-this.this$0.getScrollY()) > this.this$0.maxOffset) {
                             this.this$0.lastFlingStatus = Status.EXIT;
                             this.this$0.scrollToExit();
@@ -892,7 +892,7 @@ public class ScrollLayout extends FrameLayout {
                         }
                         return true;
                     }
-                    int i3 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                    int i3 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
                     if (i3 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
                         if (i3 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
                             return false;
@@ -1008,11 +1008,11 @@ public class ScrollLayout extends FrameLayout {
             }
 
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                    if (f3 > 80.0f) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+                    if (f2 > 80.0f) {
                         if (this.this$0.lastFlingStatus.equals(Status.HALF) && (-this.this$0.getScrollY()) > this.this$0.maxOffset) {
                             this.this$0.lastFlingStatus = Status.EXIT;
                             this.this$0.scrollToExit();
@@ -1022,7 +1022,7 @@ public class ScrollLayout extends FrameLayout {
                         }
                         return true;
                     }
-                    int i32 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                    int i32 = (f2 > 80.0f ? 1 : (f2 == 80.0f ? 0 : -1));
                     if (i32 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
                         if (i32 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
                             return false;

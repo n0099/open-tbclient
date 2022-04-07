@@ -17,7 +17,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusThreadPoolUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_COUNT;
@@ -30,7 +30,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
     public static volatile boolean sIsZeusLoaded;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class ZeusThreadPoolUtil implements INoProGuard {
             }
         }
 
-        public /* synthetic */ a(byte b2) {
+        public /* synthetic */ a(byte b) {
             this();
         }
 
@@ -172,8 +172,8 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                         threadPoolExecutor.allowCoreThreadTimeOut(true);
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -189,8 +189,8 @@ public class ZeusThreadPoolUtil implements INoProGuard {
                         mExecutor = null;
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

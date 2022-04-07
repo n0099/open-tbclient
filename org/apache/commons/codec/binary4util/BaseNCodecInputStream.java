@@ -81,8 +81,8 @@ public class BaseNCodecInputStream extends FilterInputStream {
                 read = read(this.singleByte, 0, 1);
             }
             if (read > 0) {
-                byte b2 = this.singleByte[0];
-                return b2 < 0 ? b2 + 256 : b2;
+                byte b = this.singleByte[0];
+                return b < 0 ? b + 256 : b;
             }
             return -1;
         }

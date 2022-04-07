@@ -13,8 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.s1.b.e.a;
-import c.a.n0.a.s1.b.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,41 +20,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qj2;
+import com.repackage.tz2;
+import com.repackage.uz2;
+import com.repackage.x53;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
-public class CommonOverflowMenuView extends LinearLayout implements a.g {
+/* loaded from: classes2.dex */
+public class CommonOverflowMenuView extends LinearLayout implements tz2.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29086b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ColorStateList f29087c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<ImageView> f29088d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<TextView> f29089e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public HashMap<b, ImageView> f29090f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f29091g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public LinearLayout f29092h;
+    public int b;
+    public ColorStateList c;
+    public List<ImageView> d;
+    public List<TextView> e;
+    public HashMap<uz2, ImageView> f;
+    public View g;
+    public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
-    /* loaded from: classes4.dex */
-    public class a implements c.a.n0.a.z1.a {
+    /* loaded from: classes2.dex */
+    public class a implements x53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonOverflowMenuView a;
@@ -99,10 +87,10 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
             }
         }
         this.a = R.drawable.obfuscated_res_0x7f08014c;
-        this.f29086b = R.color.obfuscated_res_0x7f0603ae;
-        this.f29088d = new ArrayList();
-        this.f29089e = new ArrayList();
-        this.f29090f = new HashMap<>();
+        this.b = R.color.obfuscated_res_0x7f0603ae;
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new HashMap<>();
         new SparseArray();
         this.j = new Object();
         a(context);
@@ -111,10 +99,10 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c0, (ViewGroup) this, true);
-            this.f29091g = inflate;
-            this.f29092h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913f0);
-            this.i = (SwanAppScrollView) this.f29091g.findViewById(R.id.obfuscated_res_0x7f0913f3);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c2, (ViewGroup) this, true);
+            this.g = inflate;
+            this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0913e9);
+            this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f0913ec);
             setFocusable(true);
             setFocusableInTouchMode(true);
             b();
@@ -124,15 +112,15 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f29087c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060391);
+            this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060391);
             setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014b));
-            for (ImageView imageView : this.f29088d) {
-                imageView.setBackgroundColor(getResources().getColor(this.f29086b));
+            for (ImageView imageView : this.d) {
+                imageView.setBackgroundColor(getResources().getColor(this.b));
             }
-            for (TextView textView : this.f29089e) {
-                textView.setTextColor(this.f29087c);
+            for (TextView textView : this.e) {
+                textView.setTextColor(this.c);
             }
-            for (Map.Entry<b, ImageView> entry : this.f29090f.entrySet()) {
+            for (Map.Entry<uz2, ImageView> entry : this.f.entrySet()) {
                 entry.getValue().setImageDrawable(entry.getKey().b());
             }
         }
@@ -147,13 +135,13 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public LinearLayout getLinearContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29092h : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (LinearLayout) invokeV.objValue;
     }
 
     public ColorStateList getTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29087c : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (ColorStateList) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -161,7 +149,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            c.a.n0.a.s0.a.M().f(this.j, new a(this));
+            qj2.M().f(this.j, new a(this));
             b();
         }
     }
@@ -171,7 +159,7 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            c.a.n0.a.s0.a.M().g(this.j);
+            qj2.M().g(this.j);
         }
     }
 
@@ -185,14 +173,14 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
     public void setItemDivider(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            this.f29086b = i;
+            this.b = i;
         }
     }
 
     public void setItemTextColor(@ColorRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f29087c = AppCompatResources.getColorStateList(getContext(), i);
+            this.c = AppCompatResources.getColorStateList(getContext(), i);
         }
     }
 
@@ -230,10 +218,10 @@ public class CommonOverflowMenuView extends LinearLayout implements a.g {
             }
         }
         this.a = R.drawable.obfuscated_res_0x7f08014c;
-        this.f29086b = R.color.obfuscated_res_0x7f0603ae;
-        this.f29088d = new ArrayList();
-        this.f29089e = new ArrayList();
-        this.f29090f = new HashMap<>();
+        this.b = R.color.obfuscated_res_0x7f0603ae;
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new HashMap<>();
         new SparseArray();
         this.j = new Object();
         a(context);

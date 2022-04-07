@@ -8,68 +8,50 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bf;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public WebView a;
+    public AdTemplate b;
+    public com.kwad.sdk.core.webview.a c;
+    public KsAppDownloadListener d;
+    public boolean e;
+    public com.kwad.sdk.core.download.a.b f;
+    public int g = -100;
+    public int h = 0;
 
-    /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f40120b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f40121c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public KsAppDownloadListener f40122d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f40123e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f40124f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f40125g = -100;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f40126h = 0;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f40128b;
+        public String b;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class b extends com.kwad.sdk.core.response.kwai.a {
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f40129b;
+        public int b;
     }
 
     public h(WebView webView, com.kwad.sdk.core.webview.a aVar) {
         this.a = webView;
-        this.f40120b = aVar.a();
-        this.f40121c = aVar;
+        this.b = aVar.a();
+        this.c = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, int i2) {
-        this.f40126h = i2;
-        if (this.f40125g != i) {
-            this.f40125g = i;
+        this.h = i2;
+        if (this.g != i) {
+            this.g = i;
             c("onDownLoadStatusCallback", i + "");
         }
     }
 
     private void a(String str, String str2) {
-        this.f40124f = new com.kwad.sdk.core.download.a.b(this.f40120b, null, str, str2);
-        if (this.f40122d == null) {
+        this.f = new com.kwad.sdk.core.download.a.b(this.b, null, str, str2);
+        if (this.d == null) {
             KsAppDownloadListener b2 = b();
-            this.f40122d = b2;
-            this.f40124f.a(b2);
+            this.d = b2;
+            this.f.a(b2);
         }
     }
 
@@ -117,17 +99,17 @@ public class h {
 
     private void c(String str, String str2) {
         WebView webView;
-        if (this.f40123e || TextUtils.isEmpty(str) || (webView = this.a) == null) {
+        if (this.e || TextUtils.isEmpty(str) || (webView = this.a) == null) {
             return;
         }
         bf.a(webView, str, str2);
     }
 
     public void a() {
-        this.f40123e = true;
-        com.kwad.sdk.core.download.a.b bVar = this.f40124f;
+        this.e = true;
+        com.kwad.sdk.core.download.a.b bVar = this.f;
         if (bVar != null) {
-            bVar.b(this.f40122d);
+            bVar.b(this.d);
         }
     }
 
@@ -136,10 +118,10 @@ public class h {
         if (b(str, str2)) {
             return 0;
         }
-        if (this.f40124f == null) {
+        if (this.f == null) {
             a(str, str2);
         }
-        return this.f40124f.c();
+        return this.f.c();
     }
 
     @JavascriptInterface
@@ -147,10 +129,10 @@ public class h {
         if (b(str, str2)) {
             return 0;
         }
-        if (this.f40124f == null) {
+        if (this.f == null) {
             a(str, str2);
         }
-        return this.f40126h;
+        return this.h;
     }
 
     @JavascriptInterface
@@ -158,19 +140,19 @@ public class h {
         try {
             a aVar = new a();
             aVar.parseJson(new JSONObject(str));
-            if (b(aVar.a, aVar.f40128b)) {
+            if (b(aVar.a, aVar.b)) {
                 return;
             }
-            if (this.f40124f == null) {
-                a(aVar.a, aVar.f40128b);
+            if (this.f == null) {
+                a(aVar.a, aVar.b);
             }
-            if (this.f40124f.f()) {
+            if (this.f.f()) {
                 return;
             }
-            this.f40124f.c(this.f40122d);
-            this.f40124f.a(this.f40121c.f39984e.getContext(), true);
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+            this.f.c(this.d);
+            this.f.a(this.c.e.getContext(), true);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 }

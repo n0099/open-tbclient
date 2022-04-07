@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Deprecated
@@ -64,7 +64,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+    public void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -155,7 +155,7 @@ public abstract class AbstractIFragmentLifecycle implements IFragmentLifecycle {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
+    public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragmentLifecycle

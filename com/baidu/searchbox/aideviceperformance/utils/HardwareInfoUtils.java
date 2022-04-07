@@ -22,7 +22,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HardwareInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CPU_INFO_DIR = "/sys/devices/system/cpu/";
@@ -98,16 +98,16 @@ public class HardwareInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             int i = 0;
-            float f2 = 0.0f;
+            float f = 0.0f;
             for (int i2 = 0; i2 < getNumCores(); i2++) {
                 float singleCpuFrequency = getSingleCpuFrequency(getCpuInfoFilePath(i2));
                 if (singleCpuFrequency > 0.0f) {
-                    f2 += singleCpuFrequency;
+                    f += singleCpuFrequency;
                     i++;
                 }
             }
             if (i > 0) {
-                return f2 / i;
+                return f / i;
             }
             return -1.0f;
         }
@@ -156,9 +156,9 @@ public class HardwareInfoUtils {
                 try {
                     File[] listFiles = new File("/sys/devices/system/cpu/").listFiles(fileFilter);
                     sCoreNum = listFiles == null ? -1 : listFiles.length;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.e(TAG, "getNumCores exception occurred, e= ", e2);
+                        Log.e(TAG, "getNumCores exception occurred, e= ", e);
                     }
                     sCoreNum = -1;
                 }
@@ -179,7 +179,7 @@ public class HardwareInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            float f2 = displayMetrics.density;
+            float f = displayMetrics.density;
             int i = displayMetrics.densityDpi;
             int i2 = displayMetrics.widthPixels;
             int i3 = displayMetrics.heightPixels;
@@ -220,16 +220,16 @@ public class HardwareInfoUtils {
         FileInputStream fileInputStream;
         Throwable th;
         BufferedReader bufferedReader;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65548, null, str)) != null) {
             return invokeL.floatValue;
         }
         try {
             fileInputStream = new FileInputStream(new File(str));
-        } catch (Exception e3) {
+        } catch (Exception e2) {
             fileInputStream = null;
-            e2 = e3;
+            e = e2;
             bufferedReader = null;
         } catch (Throwable th2) {
             fileInputStream = null;
@@ -250,10 +250,10 @@ public class HardwareInfoUtils {
                     } catch (IOException unused2) {
                     }
                     return parseLong;
-                } catch (Exception e4) {
-                    e2 = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     if (DEBUG) {
-                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e2);
+                        Log.e(TAG, "getCpuFrequency Exception occurred, e=", e);
                     }
                     if (fileInputStream != null) {
                         try {
@@ -285,8 +285,8 @@ public class HardwareInfoUtils {
                 }
                 throw th;
             }
-        } catch (Exception e5) {
-            e2 = e5;
+        } catch (Exception e4) {
+            e = e4;
             bufferedReader = null;
         } catch (Throwable th4) {
             th = th4;
@@ -313,15 +313,15 @@ public class HardwareInfoUtils {
         BufferedReader bufferedReader;
         Throwable th;
         BufferedReader bufferedReader2;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65549, null)) != null) {
             return invokeV.floatValue;
         }
-        float f2 = sTotalMemory;
-        FileReader fileReader = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+        float f = sTotalMemory;
+        FileReader fileReader = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
         if (fileReader >= 0) {
-            return f2;
+            return f;
         }
         try {
             try {
@@ -342,7 +342,7 @@ public class HardwareInfoUtils {
                             }
                         }
                     }
-                    float f3 = sTotalMemory;
+                    float f2 = sTotalMemory;
                     try {
                         bufferedReader2.close();
                     } catch (IOException unused) {
@@ -351,11 +351,11 @@ public class HardwareInfoUtils {
                         fileReader.close();
                     } catch (IOException unused2) {
                     }
-                    return f3;
-                } catch (Exception e3) {
-                    e2 = e3;
+                    return f2;
+                } catch (Exception e2) {
+                    e = e2;
                     if (DEBUG) {
-                        Log.e(TAG, "getTotalMemory Exception occured,e=", e2);
+                        Log.e(TAG, "getTotalMemory Exception occured,e=", e);
                     }
                     if (bufferedReader2 != null) {
                         try {
@@ -371,9 +371,9 @@ public class HardwareInfoUtils {
                     }
                     return -1.0f;
                 }
-            } catch (Exception e4) {
+            } catch (Exception e3) {
                 bufferedReader2 = null;
-                e2 = e4;
+                e = e3;
             } catch (Throwable th3) {
                 bufferedReader = null;
                 th = th3;
@@ -391,9 +391,9 @@ public class HardwareInfoUtils {
                 }
                 throw th;
             }
-        } catch (Exception e5) {
+        } catch (Exception e4) {
             bufferedReader2 = null;
-            e2 = e5;
+            e = e4;
             fileReader = 0;
         } catch (Throwable th4) {
             bufferedReader = null;

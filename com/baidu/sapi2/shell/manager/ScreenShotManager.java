@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ScreenShotManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] KEYWORDS;
@@ -33,7 +33,7 @@ public class ScreenShotManager {
     public MediaContentObserver mInternalObserver;
     public IScreenShotListener mScreenShotListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class MediaContentObserver extends ContentObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,8 +127,8 @@ public class ScreenShotManager {
             try {
                 try {
                     cursor = this.mContentResolver.query(uri, MEDIA_PROJECTIONS, null, null, "date_added desc limit 1");
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     if (cursor == null || cursor.isClosed()) {
                         return;
                     }
@@ -158,8 +158,8 @@ public class ScreenShotManager {
                 j2 += 100;
                 try {
                     Thread.sleep(100L);
-                } catch (InterruptedException e2) {
-                    Log.e(e2);
+                } catch (InterruptedException e) {
+                    Log.e(e);
                 }
             }
             if (!isScreenShot(str) || (iScreenShotListener = this.mScreenShotListener) == null) {

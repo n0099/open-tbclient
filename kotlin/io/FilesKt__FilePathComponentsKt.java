@@ -22,8 +22,8 @@ public class FilesKt__FilePathComponentsKt {
         if (indexOf$default2 == 0) {
             if (str.length() > 1) {
                 char charAt = str.charAt(1);
-                char c2 = File.separatorChar;
-                if (charAt == c2 && (indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, c2, 2, false, 4, (Object) null)) >= 0) {
+                char c = File.separatorChar;
+                if (charAt == c && (indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) str, c, 2, false, 4, (Object) null)) >= 0) {
                     int indexOf$default3 = StringsKt__StringsKt.indexOf$default((CharSequence) str, File.separatorChar, indexOf$default + 1, false, 4, (Object) null);
                     return indexOf$default3 >= 0 ? indexOf$default3 + 1 : str.length();
                 }

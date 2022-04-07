@@ -19,26 +19,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f42366g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f42367h;
+    public int g;
+    public int h;
     public VideoOption2 i;
     public AdLoadListener j;
     public List<Integer> k;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface AdLoadListener extends NativeAbstractAD.BasicADListener {
         void onLoadSuccess(List<NativeExpressADData2> list);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class AdLoadListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +121,7 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, neiadi) == null) {
             super.a((NativeExpressAD2) neiadi);
-            neiadi.setAdSize(this.f42366g, this.f42367h);
+            neiadi.setAdSize(this.g, this.h);
             neiadi.setVideoOption(this.i);
             synchronized (this.k) {
                 for (Integer num : this.k) {
@@ -164,8 +160,8 @@ public class NativeExpressAD2 extends NativeAbstractAD<NEIADI> {
     public void setAdSize(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
-            this.f42366g = i;
-            this.f42367h = i2;
+            this.g = i;
+            this.h = i2;
             T t = this.a;
             if (t != 0) {
                 ((NEIADI) t).setAdSize(i, i2);

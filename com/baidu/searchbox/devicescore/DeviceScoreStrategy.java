@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceScoreStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -96,9 +96,9 @@ public class DeviceScoreStrategy {
         }
     }
 
-    public static boolean validThreshold(float f2) {
+    public static boolean validThreshold(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f2)) == null) ? Float.compare(f2, -1.0f) > 0 && Float.compare(f2, 1.0f) <= 0 : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65541, null, f)) == null) ? Float.compare(f, -1.0f) > 0 && Float.compare(f, 1.0f) <= 0 : invokeF.booleanValue;
     }
 }

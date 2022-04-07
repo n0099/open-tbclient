@@ -1,7 +1,7 @@
 package com.kwad.sdk.core.response.model;
 
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CouponInfo extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk.core.b, Serializable {
     public static final long serialVersionUID = -9143537899646897962L;
     public String displayActionWords;

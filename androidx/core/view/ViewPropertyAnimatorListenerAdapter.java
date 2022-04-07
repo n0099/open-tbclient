@@ -26,23 +26,23 @@ public class ViewPropertyAnimatorListenerAdapter implements ViewPropertyAnimator
     }
 
     @Override // androidx.core.view.ViewPropertyAnimatorListener
-    public void onAnimationCancel(View view) {
+    public void onAnimationCancel(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
     @Override // androidx.core.view.ViewPropertyAnimatorListener
-    public void onAnimationEnd(View view) {
+    public void onAnimationEnd(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
         }
     }
 
     @Override // androidx.core.view.ViewPropertyAnimatorListener
-    public void onAnimationStart(View view) {
+    public void onAnimationStart(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
     }
 }

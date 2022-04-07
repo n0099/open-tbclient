@@ -81,11 +81,11 @@ public abstract class SimpleItemAnimator extends RecyclerView.ItemAnimator {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, viewHolder, itemHolderInfo, itemHolderInfo2)) == null) {
             int i = itemHolderInfo.left;
             int i2 = itemHolderInfo.top;
-            View view = viewHolder.itemView;
-            int left = itemHolderInfo2 == null ? view.getLeft() : itemHolderInfo2.left;
-            int top = itemHolderInfo2 == null ? view.getTop() : itemHolderInfo2.top;
+            View view2 = viewHolder.itemView;
+            int left = itemHolderInfo2 == null ? view2.getLeft() : itemHolderInfo2.left;
+            int top = itemHolderInfo2 == null ? view2.getTop() : itemHolderInfo2.top;
             if (!viewHolder.isRemoved() && (i != left || i2 != top)) {
-                view.layout(left, top, view.getWidth() + left, view.getHeight() + top);
+                view2.layout(left, top, view2.getWidth() + left, view2.getHeight() + top);
                 return animateMove(viewHolder, i, i2, left, top);
             }
             return animateRemove(viewHolder);

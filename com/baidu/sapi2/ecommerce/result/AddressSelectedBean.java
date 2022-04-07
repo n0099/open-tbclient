@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AddressSelectedBean implements Serializable, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CITY_TYPE = "city";

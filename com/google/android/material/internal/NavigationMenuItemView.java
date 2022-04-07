@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECKED_STATE_SET;
@@ -133,16 +133,16 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         return (StateListDrawable) invokeV.objValue;
     }
 
-    private void setActionView(@Nullable View view) {
+    private void setActionView(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, this, view2) == null) || view2 == null) {
             return;
         }
         if (this.actionArea == null) {
-            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090788)).inflate();
+            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090791)).inflate();
         }
         this.actionArea.removeAllViews();
-        this.actionArea.addView(view);
+        this.actionArea.addView(view2);
     }
 
     private boolean shouldExpandActionArea() {
@@ -263,7 +263,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
                 drawable.setBounds(0, 0, i, i);
             } else if (this.needsEmptyIcon) {
                 if (this.emptyDrawable == null) {
-                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e19, getContext().getTheme());
+                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e23, getContext().getTheme());
                     this.emptyDrawable = drawable2;
                     if (drawable2 != null) {
                         int i2 = this.iconSize;
@@ -317,9 +317,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void setShortcut(boolean z, char c2) {
+    public void setShortcut(boolean z, char c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c)}) == null) {
         }
     }
 
@@ -419,18 +419,18 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view, accessibilityNodeInfoCompat) == null) {
-                    super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
+                    super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                     accessibilityNodeInfoCompat.setCheckable(this.this$0.checkable);
                 }
             }
         };
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) this, true);
-        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020b));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090789);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d022a, (ViewGroup) this, true);
+        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070210));
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090792);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
         ViewCompat.setAccessibilityDelegate(this.textView, this.accessibilityDelegate);

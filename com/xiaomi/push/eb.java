@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class eb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,8 @@ public class eb implements Runnable {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f298a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f44205b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f44206c;
+    public final /* synthetic */ String b;
+    public final /* synthetic */ String c;
 
     public eb(ea eaVar, String str, Context context, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -45,8 +41,8 @@ public class eb implements Runnable {
         this.f297a = eaVar;
         this.f298a = str;
         this.a = context;
-        this.f44205b = str2;
-        this.f44206c = str3;
+        this.b = str2;
+        this.c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -76,7 +72,7 @@ public class eb implements Runnable {
                     String optString4 = jSONObject.optString("awake_app");
                     String optString5 = jSONObject.optString("awake_type");
                     int optInt = jSONObject.optInt("awake_foreground", 0);
-                    if (this.f44205b.equals(optString3) && this.f44206c.equals(optString4)) {
+                    if (this.b.equals(optString3) && this.c.equals(optString4)) {
                         if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4) && !TextUtils.isEmpty(optString2)) {
                             this.f297a.b(optString3);
                             this.f297a.a(optString4);
@@ -89,20 +85,20 @@ public class eb implements Runnable {
                                 if (TextUtils.isEmpty(optString)) {
                                     dzVar.c("com.xiaomi.mipush.sdk.PushMessageHandler");
                                     eaVar = this.f297a;
-                                    ecVar = ec.f44208c;
+                                    ecVar = ec.c;
                                     context3 = this.a;
                                 } else {
                                     eaVar = this.f297a;
-                                    ecVar = ec.f44207b;
+                                    ecVar = ec.b;
                                     context3 = this.a;
                                 }
                             } else if (ec.a.f300a.equals(optString5)) {
                                 eaVar = this.f297a;
                                 ecVar = ec.a;
                                 context3 = this.a;
-                            } else if (ec.f44209d.f300a.equals(optString5)) {
+                            } else if (ec.d.f300a.equals(optString5)) {
                                 eaVar = this.f297a;
-                                ecVar = ec.f44209d;
+                                ecVar = ec.d;
                                 context3 = this.a;
                             } else {
                                 context2 = this.a;
@@ -120,8 +116,8 @@ public class eb implements Runnable {
                     }
                     dw.a(this.a, this.f298a, 1008, "A receive a incorrect message with incorrect package info" + optString3);
                     return;
-                } catch (JSONException e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                } catch (JSONException e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                     context = this.a;
                     str = this.f298a;
                     str2 = "A meet a exception when receive the message";

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] pM;
@@ -22,8 +22,8 @@ public class a {
     public String pL;
 
     /* renamed from: com.baidu.ar.face.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1717a {
+    /* loaded from: classes.dex */
+    public class C0057a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String pN;
@@ -35,7 +35,7 @@ public class a {
         public String pT;
         public final /* synthetic */ a pU;
 
-        public C1717a(a aVar) {
+        public C0057a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,7 +54,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class a {
         public String qa;
         public String qb;
         public String qc;
-        public C1717a qd;
-        public C1717a qe;
-        public C1717a qf;
+        public C0057a qd;
+        public C0057a qe;
+        public C0057a qf;
         public int qg;
 
         public b(a aVar) {
@@ -155,8 +155,8 @@ public class a {
                     iArr[i2] = optJSONArray.getInt(i2) < pM[i2] ? pM[i2] : optJSONArray.getInt(i2);
                 }
                 bVar.ot = iArr;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -186,59 +186,59 @@ public class a {
                     a(bVar, jSONObject);
                 }
                 return bVar;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
         return (b) invokeLL.objValue;
     }
 
-    private C1717a f(JSONObject jSONObject) {
+    private C0057a f(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, jSONObject)) == null) {
-            C1717a c1717a = new C1717a(this);
+            C0057a c0057a = new C0057a(this);
             try {
                 String string = jSONObject.getString("track_param_0");
-                c1717a.pN = string;
+                c0057a.pN = string;
                 if (TextUtils.isEmpty(string)) {
-                    c1717a.pN = "";
+                    c0057a.pN = "";
                 } else {
-                    c1717a.pN = this.pL + c1717a.pN;
+                    c0057a.pN = this.pL + c0057a.pN;
                 }
                 String string2 = jSONObject.getString("track_param_1");
-                c1717a.pO = string2;
+                c0057a.pO = string2;
                 if (TextUtils.isEmpty(string2)) {
-                    c1717a.pO = "";
+                    c0057a.pO = "";
                 } else {
-                    c1717a.pO = this.pL + c1717a.pO;
+                    c0057a.pO = this.pL + c0057a.pO;
                 }
                 String string3 = jSONObject.getString("track_param_2");
-                c1717a.pP = string3;
+                c0057a.pP = string3;
                 if (TextUtils.isEmpty(string3)) {
-                    c1717a.pP = "";
+                    c0057a.pP = "";
                 } else {
-                    c1717a.pP = this.pL + c1717a.pP;
+                    c0057a.pP = this.pL + c0057a.pP;
                 }
                 String string4 = jSONObject.getString("track_param_3");
-                c1717a.pQ = string4;
+                c0057a.pQ = string4;
                 if (TextUtils.isEmpty(string4)) {
-                    c1717a.pQ = "";
+                    c0057a.pQ = "";
                 } else {
-                    c1717a.pQ = this.pL + c1717a.pQ;
+                    c0057a.pQ = this.pL + c0057a.pQ;
                 }
-                c1717a.pR = jSONObject.getString("trackingSmoothAlpha");
-                c1717a.pS = jSONObject.getString("trackingSmoothThreshold");
-                c1717a.pT = jSONObject.getString("trackingMouthThreshold");
-                return c1717a;
-            } catch (JSONException e2) {
+                c0057a.pR = jSONObject.getString("trackingSmoothAlpha");
+                c0057a.pS = jSONObject.getString("trackingSmoothThreshold");
+                c0057a.pT = jSONObject.getString("trackingMouthThreshold");
+                return c0057a;
+            } catch (JSONException e) {
                 com.baidu.ar.h.b.b("FaceModelConfig", "parse DeviceModel error");
-                e2.printStackTrace();
+                e.printStackTrace();
                 return null;
             }
         }
-        return (C1717a) invokeL.objValue;
+        return (C0057a) invokeL.objValue;
     }
 
     public b a(String str, JSONObject jSONObject) {

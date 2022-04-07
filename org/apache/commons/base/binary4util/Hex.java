@@ -79,15 +79,15 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, bArr)) == null) ? new String(encodeHex(bArr)) : (String) invokeL.objValue;
     }
 
-    public static int toDigit(char c2, int i) throws DecoderException {
+    public static int toDigit(char c, int i) throws DecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            int digit = Character.digit(c2, 16);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            int digit = Character.digit(c, 16);
             if (digit != -1) {
                 return digit;
             }
-            throw new DecoderException("Illegal hexadecimal character " + c2 + " at index " + i);
+            throw new DecoderException("Illegal hexadecimal character " + c + " at index " + i);
         }
         return invokeCommon.intValue;
     }
@@ -222,8 +222,8 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
             }
             try {
                 return decodeHex((char[]) obj);
-            } catch (ClassCastException e2) {
-                throw new DecoderException(e2.getMessage(), e2);
+            } catch (ClassCastException e) {
+                throw new DecoderException(e.getMessage(), e);
             }
         }
         return invokeL.objValue;
@@ -242,8 +242,8 @@ public class Hex implements BinaryEncoder, BinaryDecoder {
             } else {
                 try {
                     bArr = (byte[]) obj;
-                } catch (ClassCastException e2) {
-                    throw new EncoderException(e2.getMessage(), e2);
+                } catch (ClassCastException e) {
+                    throw new EncoderException(e.getMessage(), e);
                 }
             }
             return encodeHex(bArr);

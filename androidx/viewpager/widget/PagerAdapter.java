@@ -47,9 +47,9 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void finishUpdate(@NonNull View view) {
+    public void finishUpdate(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
         }
     }
 
@@ -97,7 +97,7 @@ public abstract class PagerAdapter {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) ? instantiateItem((View) viewGroup, i) : invokeLI.objValue;
     }
 
-    public abstract boolean isViewFromObject(@NonNull View view, @NonNull Object obj);
+    public abstract boolean isViewFromObject(@NonNull View view2, @NonNull Object obj);
 
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
@@ -135,9 +135,9 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void setPrimaryItem(@NonNull View view, int i, @NonNull Object obj) {
+    public void setPrimaryItem(@NonNull View view2, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048591, this, view, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048591, this, view2, i, obj) == null) {
         }
     }
 
@@ -158,9 +158,9 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void startUpdate(@NonNull View view) {
+    public void startUpdate(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, view2) == null) {
         }
     }
 
@@ -179,19 +179,19 @@ public abstract class PagerAdapter {
     }
 
     @Deprecated
-    public void destroyItem(@NonNull View view, int i, @NonNull Object obj) {
+    public void destroyItem(@NonNull View view2, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view2, i, obj) == null) {
             throw new UnsupportedOperationException("Required method destroyItem was not overridden");
         }
     }
 
     @NonNull
     @Deprecated
-    public Object instantiateItem(@NonNull View view, int i) {
+    public Object instantiateItem(@NonNull View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i)) == null) {
             throw new UnsupportedOperationException("Required method instantiateItem was not overridden");
         }
         return invokeLI.objValue;

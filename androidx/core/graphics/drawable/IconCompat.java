@@ -240,16 +240,16 @@ public class IconCompat extends CustomVersionedParcelable {
             Bitmap createBitmap = Bitmap.createBitmap(min, min, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             Paint paint = new Paint(3);
-            float f2 = min;
-            float f3 = 0.5f * f2;
-            float f4 = 0.9166667f * f3;
+            float f = min;
+            float f2 = 0.5f * f;
+            float f3 = 0.9166667f * f2;
             if (z) {
-                float f5 = 0.010416667f * f2;
+                float f4 = 0.010416667f * f;
                 paint.setColor(0);
-                paint.setShadowLayer(f5, 0.0f, f2 * 0.020833334f, CircleImageView.FILL_SHADOW_COLOR);
-                canvas.drawCircle(f3, f3, f4, paint);
-                paint.setShadowLayer(f5, 0.0f, 0.0f, CircleImageView.KEY_SHADOW_COLOR);
-                canvas.drawCircle(f3, f3, f4, paint);
+                paint.setShadowLayer(f4, 0.0f, f * 0.020833334f, CircleImageView.FILL_SHADOW_COLOR);
+                canvas.drawCircle(f2, f2, f3, paint);
+                paint.setShadowLayer(f4, 0.0f, 0.0f, CircleImageView.KEY_SHADOW_COLOR);
+                canvas.drawCircle(f2, f2, f3, paint);
                 paint.clearShadowLayer();
             }
             paint.setColor(-16777216);
@@ -259,7 +259,7 @@ public class IconCompat extends CustomVersionedParcelable {
             matrix.setTranslate((-(bitmap.getWidth() - min)) / 2, (-(bitmap.getHeight() - min)) / 2);
             bitmapShader.setLocalMatrix(matrix);
             paint.setShader(bitmapShader);
-            canvas.drawCircle(f3, f3, f4, paint);
+            canvas.drawCircle(f2, f2, f3, paint);
             canvas.setBitmap(null);
             return createBitmap;
         }
@@ -365,8 +365,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     return packageManager.getResourcesForApplication(applicationInfo);
                 }
                 return null;
-            } catch (PackageManager.NameNotFoundException e2) {
-                Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.e(TAG, String.format("Unable to find pkg=%s for icon", str), e);
                 return null;
             }
         }
@@ -382,15 +382,15 @@ public class IconCompat extends CustomVersionedParcelable {
             if (!"content".equals(scheme) && !"file".equals(scheme)) {
                 try {
                     return new FileInputStream(new File((String) this.mObj1));
-                } catch (FileNotFoundException e2) {
-                    Log.w(TAG, "Unable to load image from path: " + uri, e2);
+                } catch (FileNotFoundException e) {
+                    Log.w(TAG, "Unable to load image from path: " + uri, e);
                     return null;
                 }
             }
             try {
                 return context.getContentResolver().openInputStream(uri);
-            } catch (Exception e3) {
-                Log.w(TAG, "Unable to load image from URI: " + uri, e3);
+            } catch (Exception e2) {
+                Log.w(TAG, "Unable to load image from URI: " + uri, e2);
                 return null;
             }
         }
@@ -411,8 +411,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     }
                     try {
                         return ResourcesCompat.getDrawable(getResources(context, resPackage), this.mInt1, context.getTheme());
-                    } catch (RuntimeException e2) {
-                        Log.e(TAG, String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1), e2);
+                    } catch (RuntimeException e) {
+                        Log.e(TAG, String.format("Unable to load resource 0x%08x from pkg=%s", Integer.valueOf(this.mInt1), this.mObj1), e);
                         break;
                     }
                 case 3:
@@ -493,8 +493,8 @@ public class IconCompat extends CustomVersionedParcelable {
                     bitmap = Bitmap.createBitmap(launcherLargeIconSize, launcherLargeIconSize, Bitmap.Config.ARGB_8888);
                     drawable2.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                     drawable2.draw(new Canvas(bitmap));
-                } catch (PackageManager.NameNotFoundException e2) {
-                    throw new IllegalArgumentException("Can't find package " + this.mObj1, e2);
+                } catch (PackageManager.NameNotFoundException e) {
+                    throw new IllegalArgumentException("Can't find package " + this.mObj1, e);
                 }
             } else if (i == 5) {
                 bitmap = createLegacyIconFromAdaptiveIcon((Bitmap) this.mObj1, true);
@@ -971,14 +971,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return ((Integer) icon.getClass().getMethod("getType", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon type " + icon, e);
+                return -1;
+            } catch (NoSuchMethodException e2) {
                 Log.e(TAG, "Unable to get icon type " + icon, e2);
                 return -1;
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 Log.e(TAG, "Unable to get icon type " + icon, e3);
-                return -1;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon type " + icon, e4);
                 return -1;
             }
         }
@@ -997,14 +997,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return ((Integer) icon.getClass().getMethod("getResId", new Class[0]).invoke(icon, new Object[0])).intValue();
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon resource", e);
+                return 0;
+            } catch (NoSuchMethodException e2) {
                 Log.e(TAG, "Unable to get icon resource", e2);
                 return 0;
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 Log.e(TAG, "Unable to get icon resource", e3);
-                return 0;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon resource", e4);
                 return 0;
             }
         }
@@ -1022,14 +1022,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return (String) icon.getClass().getMethod("getResPackage", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon package", e);
+                return null;
+            } catch (NoSuchMethodException e2) {
                 Log.e(TAG, "Unable to get icon package", e2);
                 return null;
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 Log.e(TAG, "Unable to get icon package", e3);
-                return null;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon package", e4);
                 return null;
             }
         }
@@ -1047,14 +1047,14 @@ public class IconCompat extends CustomVersionedParcelable {
             }
             try {
                 return (Uri) icon.getClass().getMethod("getUri", new Class[0]).invoke(icon, new Object[0]);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.e(TAG, "Unable to get icon uri", e);
+                return null;
+            } catch (NoSuchMethodException e2) {
                 Log.e(TAG, "Unable to get icon uri", e2);
                 return null;
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 Log.e(TAG, "Unable to get icon uri", e3);
-                return null;
-            } catch (InvocationTargetException e4) {
-                Log.e(TAG, "Unable to get icon uri", e4);
                 return null;
             }
         }

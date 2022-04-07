@@ -7,21 +7,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class aa extends AnimatorListenerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ View a;
+    public final /* synthetic */ WearMapView b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ WearMapView f26329b;
-
-    public aa(WearMapView wearMapView, View view) {
+    public aa(WearMapView wearMapView, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wearMapView, view};
+            Object[] objArr = {wearMapView, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,8 +29,8 @@ public class aa extends AnimatorListenerAdapter {
                 return;
             }
         }
-        this.f26329b = wearMapView;
-        this.a = view;
+        this.b = wearMapView;
+        this.a = view2;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener

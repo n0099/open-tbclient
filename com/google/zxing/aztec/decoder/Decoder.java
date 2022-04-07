@@ -23,7 +23,7 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Decoder {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] DIGIT_TABLE;
@@ -35,7 +35,7 @@ public final class Decoder {
     public AztecDetectorResult ddata;
 
     /* renamed from: com.google.zxing.aztec.decoder.Decoder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table;
         public static /* synthetic */ Interceptable $ic;
@@ -80,7 +80,7 @@ public final class Decoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -255,8 +255,8 @@ public final class Decoder {
                         }
                     }
                     return zArr2;
-                } catch (ReedSolomonException e2) {
-                    throw FormatException.getFormatInstance(e2);
+                } catch (ReedSolomonException e) {
+                    throw FormatException.getFormatInstance(e);
                 }
             }
             throw FormatException.getFormatInstance();
@@ -410,15 +410,15 @@ public final class Decoder {
         return (String) invokeL.objValue;
     }
 
-    public static Table getTable(char c2) {
+    public static Table getTable(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 != 'B') {
-                if (c2 != 'D') {
-                    if (c2 != 'P') {
-                        if (c2 != 'L') {
-                            if (c2 != 'M') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != 'B') {
+                if (c != 'D') {
+                    if (c != 'P') {
+                        if (c != 'L') {
+                            if (c != 'M') {
                                 return Table.UPPER;
                             }
                             return Table.MIXED;

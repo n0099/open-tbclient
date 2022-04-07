@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class ResultParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern AMPERSAND;
@@ -107,10 +107,10 @@ public abstract class ResultParser {
         return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, charSequence, i, i2)) == null) ? charSequence != null && i2 > 0 && charSequence.length() >= (i3 = i2 + i) && DIGITS.matcher(charSequence.subSequence(i, i3)).matches() : invokeLII.booleanValue;
     }
 
-    public static String[] matchPrefixedField(String str, String str2, char c2, boolean z) {
+    public static String[] matchPrefixedField(String str, String str2, char c, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, Character.valueOf(c2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, str2, Character.valueOf(c), Boolean.valueOf(z)})) == null) {
             int length = str2.length();
             ArrayList arrayList = null;
             int i = 0;
@@ -124,7 +124,7 @@ public abstract class ResultParser {
                 boolean z2 = true;
                 int i2 = length2;
                 while (z2) {
-                    int indexOf2 = str2.indexOf(c2, i2);
+                    int indexOf2 = str2.indexOf(c, i2);
                     if (indexOf2 < 0) {
                         i2 = str2.length();
                     } else if (countPrecedingBackslashes(str2, indexOf2) % 2 != 0) {
@@ -155,11 +155,11 @@ public abstract class ResultParser {
         return (String[]) invokeCommon.objValue;
     }
 
-    public static String matchSinglePrefixedField(String str, String str2, char c2, boolean z) {
+    public static String matchSinglePrefixedField(String str, String str2, char c, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, Character.valueOf(c2), Boolean.valueOf(z)})) == null) {
-            String[] matchPrefixedField = matchPrefixedField(str, str2, c2, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, str2, Character.valueOf(c), Boolean.valueOf(z)})) == null) {
+            String[] matchPrefixedField = matchPrefixedField(str, str2, c, z);
             if (matchPrefixedField == null) {
                 return null;
             }
@@ -189,21 +189,21 @@ public abstract class ResultParser {
         return (String[]) invokeL.objValue;
     }
 
-    public static int parseHexDigit(char c2) {
+    public static int parseHexDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < '0' || c2 > '9') {
-                char c3 = 'a';
-                if (c2 < 'a' || c2 > 'f') {
-                    c3 = 'A';
-                    if (c2 < 'A' || c2 > 'F') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < '0' || c > '9') {
+                char c2 = 'a';
+                if (c < 'a' || c > 'f') {
+                    c2 = 'A';
+                    if (c < 'A' || c > 'F') {
                         return -1;
                     }
                 }
-                return (c2 - c3) + 10;
+                return (c - c2) + 10;
             }
-            return c2 - '0';
+            return c - '0';
         }
         return invokeCommon.intValue;
     }
@@ -273,8 +273,8 @@ public abstract class ResultParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             try {
                 return URLDecoder.decode(str, "UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                throw new IllegalStateException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new IllegalStateException(e);
             }
         }
         return (String) invokeL.objValue;

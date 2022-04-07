@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ShapeAppearancePathProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,14 +32,14 @@ public class ShapeAppearancePathProvider {
     public final ShapePath shapePath;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface PathListener {
         void onCornerPathCreated(ShapePath shapePath, Matrix matrix, int i);
 
         void onEdgePathCreated(ShapePath shapePath, Matrix matrix, int i);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ShapeAppearancePathSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +53,12 @@ public class ShapeAppearancePathProvider {
         @NonNull
         public final ShapeAppearanceModel shapeAppearanceModel;
 
-        public ShapeAppearancePathSpec(@NonNull ShapeAppearanceModel shapeAppearanceModel, float f2, RectF rectF, @Nullable PathListener pathListener, Path path) {
+        public ShapeAppearancePathSpec(@NonNull ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, @Nullable PathListener pathListener, Path path) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {shapeAppearanceModel, Float.valueOf(f2), rectF, pathListener, path};
+                Object[] objArr = {shapeAppearanceModel, Float.valueOf(f), rectF, pathListener, path};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -70,7 +70,7 @@ public class ShapeAppearancePathProvider {
             }
             this.pathListener = pathListener;
             this.shapeAppearanceModel = shapeAppearanceModel;
-            this.interpolation = f2;
+            this.interpolation = f;
             this.bounds = rectF;
             this.path = path;
         }
@@ -146,9 +146,9 @@ public class ShapeAppearancePathProvider {
             this.scratch2[1] = this.cornerPaths[i2].getStartY();
             this.cornerTransforms[i2].mapPoints(this.scratch2);
             float[] fArr = this.scratch;
-            float f2 = fArr[0];
+            float f = fArr[0];
             float[] fArr2 = this.scratch2;
-            float max = Math.max(((float) Math.hypot(f2 - fArr2[0], fArr[1] - fArr2[1])) - 0.001f, 0.0f);
+            float max = Math.max(((float) Math.hypot(f - fArr2[0], fArr[1] - fArr2[1])) - 0.001f, 0.0f);
             float edgeCenterForIndex = getEdgeCenterForIndex(shapeAppearancePathSpec.bounds, i);
             this.shapePath.reset(0.0f, 0.0f);
             EdgeTreatment edgeTreatmentForIndex = getEdgeTreatmentForIndex(i, shapeAppearancePathSpec.shapeAppearanceModel);
@@ -309,10 +309,10 @@ public class ShapeAppearancePathProvider {
         }
     }
 
-    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f2, RectF rectF, @NonNull Path path) {
+    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, @NonNull Path path) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shapeAppearanceModel, Float.valueOf(f2), rectF, path}) == null) {
-            calculatePath(shapeAppearanceModel, f2, rectF, null, path);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shapeAppearanceModel, Float.valueOf(f), rectF, path}) == null) {
+            calculatePath(shapeAppearanceModel, f, rectF, null, path);
         }
     }
 
@@ -324,14 +324,14 @@ public class ShapeAppearancePathProvider {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f2, RectF rectF, PathListener pathListener, @NonNull Path path) {
+    public void calculatePath(ShapeAppearanceModel shapeAppearanceModel, float f, RectF rectF, PathListener pathListener, @NonNull Path path) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{shapeAppearanceModel, Float.valueOf(f2), rectF, pathListener, path}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{shapeAppearanceModel, Float.valueOf(f), rectF, pathListener, path}) == null) {
             path.rewind();
             this.overlappedEdgePath.rewind();
             this.boundsPath.rewind();
             this.boundsPath.addRect(rectF, Path.Direction.CW);
-            ShapeAppearancePathSpec shapeAppearancePathSpec = new ShapeAppearancePathSpec(shapeAppearanceModel, f2, rectF, pathListener, path);
+            ShapeAppearancePathSpec shapeAppearancePathSpec = new ShapeAppearancePathSpec(shapeAppearanceModel, f, rectF, pathListener, path);
             for (int i = 0; i < 4; i++) {
                 setCornerPathAndTransform(shapeAppearancePathSpec, i);
                 setEdgePathAndTransform(i);

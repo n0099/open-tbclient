@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] EVEN_TOTAL_SUBSET;
@@ -559,22 +559,22 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                 }
             }
             float sum = MathUtils.sum(dataCharacterCounters) / 17.0f;
-            float f2 = (finderPattern.getStartEnd()[1] - finderPattern.getStartEnd()[0]) / 15.0f;
-            if (Math.abs(sum - f2) / f2 <= 0.3f) {
+            float f = (finderPattern.getStartEnd()[1] - finderPattern.getStartEnd()[0]) / 15.0f;
+            if (Math.abs(sum - f) / f <= 0.3f) {
                 int[] oddCounts = getOddCounts();
                 int[] evenCounts = getEvenCounts();
                 float[] oddRoundingErrors = getOddRoundingErrors();
                 float[] evenRoundingErrors = getEvenRoundingErrors();
                 for (int i3 = 0; i3 < dataCharacterCounters.length; i3++) {
-                    float f3 = (dataCharacterCounters[i3] * 1.0f) / sum;
-                    int i4 = (int) (0.5f + f3);
+                    float f2 = (dataCharacterCounters[i3] * 1.0f) / sum;
+                    int i4 = (int) (0.5f + f2);
                     if (i4 <= 0) {
-                        if (f3 < 0.3f) {
+                        if (f2 < 0.3f) {
                             throw NotFoundException.getNotFoundInstance();
                         }
                         i4 = 1;
                     } else if (i4 > 8) {
-                        if (f3 > 8.7f) {
+                        if (f2 > 8.7f) {
                             throw NotFoundException.getNotFoundInstance();
                         }
                         i4 = 8;
@@ -582,10 +582,10 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                     int i5 = i3 / 2;
                     if ((i3 & 1) == 0) {
                         oddCounts[i5] = i4;
-                        oddRoundingErrors[i5] = f3 - i4;
+                        oddRoundingErrors[i5] = f2 - i4;
                     } else {
                         evenCounts[i5] = i4;
-                        evenRoundingErrors[i5] = f3 - i4;
+                        evenRoundingErrors[i5] = f2 - i4;
                     }
                 }
                 adjustOddEvenCounts(17);
@@ -644,7 +644,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
         while (true) {
             try {
                 this.pairs.add(retrieveNextPair(bitArray, this.pairs, i));
-            } catch (NotFoundException e2) {
+            } catch (NotFoundException e) {
                 if (!this.pairs.isEmpty()) {
                     if (checkChecksum()) {
                         return this.pairs;
@@ -663,7 +663,7 @@ public final class RSSExpandedReader extends AbstractRSSReader {
                     }
                     throw NotFoundException.getNotFoundInstance();
                 }
-                throw e2;
+                throw e;
             }
         }
     }

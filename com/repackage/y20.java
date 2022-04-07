@@ -1,0 +1,5 @@
+package com.repackage;
+/* loaded from: classes7.dex */
+public interface y20 {
+    String a();
+}

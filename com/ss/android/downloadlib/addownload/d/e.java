@@ -15,8 +15,8 @@ public class e implements d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("pause_optimise_type", "mistake_click");
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 com.ss.android.downloadlib.d.a.a().a("pause_optimise", jSONObject, bVar);
                 return true;

@@ -7,17 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FaceExtInfo[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public FaceStatusNewEnum f28108b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f28109c;
+    public FaceStatusNewEnum b;
+    public long c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,20 +32,20 @@ public class a {
     public FaceStatusNewEnum a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28108b : (FaceStatusNewEnum) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (FaceStatusNewEnum) invokeV.objValue;
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f28109c = j;
+            this.c = j;
         }
     }
 
     public void a(FaceStatusNewEnum faceStatusNewEnum) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceStatusNewEnum) == null) {
-            this.f28108b = faceStatusNewEnum;
+            this.b = faceStatusNewEnum;
         }
     }
 

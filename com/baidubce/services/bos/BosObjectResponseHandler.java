@@ -18,7 +18,7 @@ import com.baidubce.util.LengthCheckInputStream;
 import java.io.InputStream;
 import java.net.URLDecoder;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BosObjectResponseHandler implements HttpResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public class BosObjectResponseHandler implements HttpResponseHandler {
                 if (header3 != null) {
                     try {
                         objectMetadata.setCrc32(Long.valueOf(Long.parseLong(header3)));
-                    } catch (NumberFormatException e2) {
-                        BLog.error("Fail to parse crcx-bce-content-crc32: " + header3, (Throwable) e2);
+                    } catch (NumberFormatException e) {
+                        BLog.error("Fail to parse crcx-bce-content-crc32: " + header3, (Throwable) e);
                     }
                 }
                 objectMetadata.setContentLength(objectMetadata.getContentLength());
@@ -78,8 +78,8 @@ public class BosObjectResponseHandler implements HttpResponseHandler {
                 if (header4 != null && (lastIndexOf = header4.lastIndexOf(47)) >= 0) {
                     try {
                         objectMetadata.setInstanceLength(Long.parseLong(header4.substring(lastIndexOf + 1)));
-                    } catch (NumberFormatException e3) {
-                        BLog.error("Fail to parse length from Content-Range: " + header4, (Throwable) e3);
+                    } catch (NumberFormatException e2) {
+                        BLog.error("Fail to parse length from Content-Range: " + header4, (Throwable) e2);
                     }
                 }
                 objectMetadata.setLastModified(bceHttpResponse.getHeaderAsRfc822Date(Headers.LAST_MODIFIED));

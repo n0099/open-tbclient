@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class v1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,11 +25,11 @@ public class v1 {
         }
     }
 
-    public static byte a(byte b2, byte b3) {
+    public static byte a(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            return (byte) (((char) (((char) Byte.decode("0x" + new String(new byte[]{b2})).byteValue()) << 4)) ^ ((char) Byte.decode("0x" + new String(new byte[]{b3})).byteValue()));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
+            return (byte) (((char) (((char) Byte.decode("0x" + new String(new byte[]{b})).byteValue()) << 4)) ^ ((char) Byte.decode("0x" + new String(new byte[]{b2})).byteValue()));
         }
         return invokeCommon.byteValue;
     }
@@ -51,8 +51,8 @@ public class v1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
             StringBuffer stringBuffer = new StringBuffer(bArr.length);
-            for (byte b2 : bArr) {
-                stringBuffer.append((char) b2);
+            for (byte b : bArr) {
+                stringBuffer.append((char) b);
             }
             return stringBuffer.toString();
         }
@@ -79,17 +79,17 @@ public class v1 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, str)) == null) {
-            byte[] b2 = b(str);
+            byte[] b = b(str);
             byte[] bArr2 = new byte[bArr.length];
             int i = 0;
             int i2 = 0;
             for (int i3 = 0; i3 < bArr.length; i3++) {
                 i = (i + 1) & 255;
-                i2 = ((b2[i] & 255) + i2) & 255;
-                byte b3 = b2[i];
-                b2[i] = b2[i2];
-                b2[i2] = b3;
-                bArr2[i3] = (byte) (b2[((b2[i] & 255) + (b2[i2] & 255)) & 255] ^ bArr[i3]);
+                i2 = ((b[i] & 255) + i2) & 255;
+                byte b2 = b[i];
+                b[i] = b[i2];
+                b[i2] = b2;
+                bArr2[i3] = (byte) (b[((b[i] & 255) + (b[i2] & 255)) & 255] ^ bArr[i3]);
             }
             return bArr2;
         }
@@ -118,9 +118,9 @@ public class v1 {
             int i3 = 0;
             for (int i4 = 0; i4 < 256; i4++) {
                 i3 = ((bytes[i2] & 255) + (bArr[i4] & 255) + i3) & 255;
-                byte b2 = bArr[i4];
+                byte b = bArr[i4];
                 bArr[i4] = bArr[i3];
-                bArr[i3] = b2;
+                bArr[i3] = b;
                 i2 = (i2 + 1) % bytes.length;
             }
             return bArr;

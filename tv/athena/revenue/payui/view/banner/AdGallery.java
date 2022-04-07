@@ -19,35 +19,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class AdGallery extends Gallery implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Handler a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f45922b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f45923c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f45924d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f45925e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f45926f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f45927g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final BroadcastReceiver f45928h;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public final BroadcastReceiver h;
     public boolean i;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,17 +63,17 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
                 String action = intent.getAction();
                 if ("android.intent.action.SCREEN_OFF".equals(action)) {
-                    this.this$0.f45927g = false;
+                    this.this$0.g = false;
                     this.this$0.m();
                 } else if ("android.intent.action.USER_PRESENT".equals(action)) {
-                    this.this$0.f45927g = true;
+                    this.this$0.g = true;
                     this.this$0.n(false);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,14 +101,14 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         public void handleMessage(Message message) {
             AdGallery adGallery;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (adGallery = this.a.get()) != null && message.what == 1 && adGallery.f45924d) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && (adGallery = this.a.get()) != null && message.what == 1 && adGallery.d) {
                 if (adGallery.getSelectedItemPosition() >= adGallery.getCount() - 1) {
                     adGallery.setSelection(0, true);
                     adGallery.onKeyDown(21, null);
                 } else {
                     adGallery.onKeyDown(22, null);
                 }
-                sendMessageDelayed(obtainMessage(1), adGallery.f45922b);
+                sendMessageDelayed(obtainMessage(1), adGallery.b);
             }
         }
     }
@@ -147,13 +133,13 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             }
         }
         this.a = new b(this);
-        this.f45922b = 10000;
-        this.f45923c = false;
-        this.f45924d = false;
-        this.f45925e = false;
-        this.f45926f = false;
-        this.f45927g = true;
-        this.f45928h = new a(this);
+        this.b = 10000;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = new a(this);
         this.i = false;
         g();
     }
@@ -164,7 +150,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("android.intent.action.SCREEN_OFF");
             intentFilter.addAction("android.intent.action.USER_PRESENT");
-            getContext().registerReceiver(this.f45928h, intentFilter, null, this.a);
+            getContext().registerReceiver(this.h, intentFilter, null, this.a);
             this.i = true;
             RLog.debug("AdGallery", "[onAttachedToWindow] mHasRegisterReceiver = " + this.i);
         }
@@ -177,9 +163,9 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             if (this.i) {
                 RLog.debug("AdGallery", "[onAttachedToWindow] unregisterReceiver");
                 try {
-                    getContext().unregisterReceiver(this.f45928h);
-                } catch (Exception e2) {
-                    RLog.error("AdGallery", "unregisterReceiver exception ", e2);
+                    getContext().unregisterReceiver(this.h);
+                } catch (Exception e) {
+                    RLog.error("AdGallery", "unregisterReceiver exception ", e);
                 }
                 this.i = false;
             }
@@ -202,7 +188,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         }
     }
 
-    public final boolean h(MotionEvent motionEvent, MotionEvent motionEvent2) {
+    public final boolean i(MotionEvent motionEvent, MotionEvent motionEvent2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, motionEvent, motionEvent2)) == null) ? motionEvent2.getX() > motionEvent.getX() + 50.0f : invokeLL.booleanValue;
@@ -218,7 +204,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f45925e = true;
+            this.e = true;
             m();
         }
     }
@@ -226,7 +212,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f45925e = false;
+            this.e = false;
             m();
         }
     }
@@ -241,15 +227,15 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public final void n(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            boolean z2 = this.f45926f && this.f45925e && this.f45927g;
-            if (z2 != this.f45924d) {
+            boolean z2 = this.f && this.e && this.g;
+            if (z2 != this.d) {
                 if (z2) {
                     setSelection(getSelectedItemPosition(), z);
-                    this.a.sendMessageDelayed(this.a.obtainMessage(1), this.f45922b);
+                    this.a.sendMessageDelayed(this.a.obtainMessage(1), this.b);
                 } else {
                     this.a.removeMessages(1);
                 }
-                this.f45924d = z2;
+                this.d = z2;
             }
         }
     }
@@ -260,7 +246,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
             registerReceiver();
-            if (this.f45923c) {
+            if (this.c) {
                 k();
             }
         }
@@ -271,35 +257,35 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDetachedFromWindow();
-            this.f45926f = false;
+            this.f = false;
             unregisterReceiver();
             m();
         }
     }
 
     @Override // android.widget.Gallery, android.view.GestureDetector.OnGestureListener
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            onKeyDown(h(motionEvent, motionEvent2) ? 21 : 22, null);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            onKeyDown(i(motionEvent, motionEvent2) ? 21 : 22, null);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
     @Override // android.widget.Gallery, android.view.GestureDetector.OnGestureListener
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? super.onScroll(motionEvent, motionEvent2, f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) ? super.onScroll(motionEvent, motionEvent2, f, f2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, view2, motionEvent)) == null) {
             if (1 != motionEvent.getAction() && 3 != motionEvent.getAction()) {
                 l();
                 return false;
@@ -315,7 +301,7 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onWindowVisibilityChanged(i);
-            this.f45926f = i == 0;
+            this.f = i == 0;
             n(false);
         }
     }
@@ -323,14 +309,14 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
     public void setAutoStart(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f45923c = z;
+            this.c = z;
         }
     }
 
     public void setFlipInterval(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f45922b = i;
+            this.b = i;
         }
     }
 
@@ -353,13 +339,13 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             }
         }
         this.a = new b(this);
-        this.f45922b = 10000;
-        this.f45923c = false;
-        this.f45924d = false;
-        this.f45925e = false;
-        this.f45926f = false;
-        this.f45927g = true;
-        this.f45928h = new a(this);
+        this.b = 10000;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = new a(this);
         this.i = false;
         g();
     }
@@ -384,13 +370,13 @@ public class AdGallery extends Gallery implements View.OnTouchListener {
             }
         }
         this.a = new b(this);
-        this.f45922b = 10000;
-        this.f45923c = false;
-        this.f45924d = false;
-        this.f45925e = false;
-        this.f45926f = false;
-        this.f45927g = true;
-        this.f45928h = new a(this);
+        this.b = 10000;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = new a(this);
         this.i = false;
         g();
     }

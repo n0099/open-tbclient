@@ -14,20 +14,14 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ActionBarH5 extends FrameLayout implements d {
     public TextView a;
+    public TextView b;
+    public AdTemplate c;
+    public a d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f41128b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f41129c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f41130d;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(boolean z);
     }
@@ -48,41 +42,41 @@ public class ActionBarH5 extends FrameLayout implements d {
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d047a, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091089);
-        this.f41128b = (TextView) findViewById(R.id.obfuscated_res_0x7f09108d);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0475, this);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091082);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091086);
     }
 
-    private void a(View view, final boolean z) {
-        com.kwad.sdk.core.download.a.a.a(new a.C1956a(view.getContext()).a(this.f41129c).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+    private void a(View view2, final boolean z) {
+        com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.c).a(new a.b() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
-                if (ActionBarH5.this.f41130d != null) {
-                    ActionBarH5.this.f41130d.a(z);
+                if (ActionBarH5.this.d != null) {
+                    ActionBarH5.this.d.a(z);
                 }
             }
         }));
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f41129c = adTemplate;
-        this.f41130d = aVar;
+        this.c = adTemplate;
+        this.d = aVar;
         AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
         this.a.setText(com.kwad.sdk.core.response.a.a.s(j));
-        this.f41128b.setText(com.kwad.sdk.core.response.a.a.A(j));
+        this.b.setText(com.kwad.sdk.core.response.a.a.A(j));
         setClickable(true);
         new f(this, this);
     }
 
     @Override // com.kwad.sdk.widget.d
-    public void a_(View view) {
-        a(view, true);
+    public void a_(View view2) {
+        a(view2, true);
     }
 
     @Override // com.kwad.sdk.widget.d
-    public void b(View view) {
-        if (c.g(this.f41129c)) {
-            a(view, false);
+    public void b(View view2) {
+        if (c.g(this.c)) {
+            a(view2, false);
         }
     }
 }

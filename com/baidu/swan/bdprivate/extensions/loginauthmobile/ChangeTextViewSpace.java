@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ChangeTextViewSpace extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public CharSequence f29376b;
+    public CharSequence b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChangeTextViewSpace(Context context) {
@@ -39,7 +37,7 @@ public class ChangeTextViewSpace extends TextView {
             }
         }
         this.a = 0.0f;
-        this.f29376b = "";
+        this.b = "";
     }
 
     public static boolean b(String str) {
@@ -50,17 +48,17 @@ public class ChangeTextViewSpace extends TextView {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f29376b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == null) {
             return;
         }
         StringBuilder sb = new StringBuilder();
         int i = 0;
-        while (i < this.f29376b.length()) {
-            sb.append(this.f29376b.charAt(i));
+        while (i < this.b.length()) {
+            sb.append(this.b.charAt(i));
             int i2 = i + 1;
-            if (i2 < this.f29376b.length()) {
-                if (b(this.f29376b.charAt(i) + "")) {
-                    if (b(this.f29376b.charAt(i2) + "")) {
+            if (i2 < this.b.length()) {
+                if (b(this.b.charAt(i) + "")) {
+                    if (b(this.b.charAt(i2) + "")) {
                     }
                 }
                 sb.append(" ");
@@ -86,13 +84,13 @@ public class ChangeTextViewSpace extends TextView {
     public CharSequence getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29376b : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (CharSequence) invokeV.objValue;
     }
 
-    public void setSpacing(float f2) {
+    public void setSpacing(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.a = f2;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.a = f;
             a();
         }
     }
@@ -101,7 +99,7 @@ public class ChangeTextViewSpace extends TextView {
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, charSequence, bufferType) == null) {
-            this.f29376b = charSequence;
+            this.b = charSequence;
             a();
         }
     }
@@ -126,7 +124,7 @@ public class ChangeTextViewSpace extends TextView {
             }
         }
         this.a = 0.0f;
-        this.f29376b = "";
+        this.b = "";
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,6 +147,6 @@ public class ChangeTextViewSpace extends TextView {
             }
         }
         this.a = 0.0f;
-        this.f29376b = "";
+        this.b = "";
     }
 }

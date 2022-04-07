@@ -1,5 +1,5 @@
 package com.baidu.nps.interfa;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IWebViewDataDirectoryManager {
     void setDataDirectorySuffix();
 }

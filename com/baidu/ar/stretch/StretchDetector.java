@@ -12,6 +12,7 @@ import com.baidu.ar.c.c;
 import com.baidu.ar.d.e;
 import com.baidu.ar.mdl.ARMdlInterfaceJNI;
 import com.baidu.ar.statistic.StatisticApi;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class StretchDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StretchDetector";
@@ -136,7 +137,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                     if (strArr == null || strArr.length == 0) {
                         return -1;
                     }
-                    return aVar.f24836tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
+                    return aVar.f986tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
                 }
                 return invokeL2.intValue;
             }
@@ -145,7 +146,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
             public String getTag() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "stretch" : (String) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CriusAttrConstants.STRETCH : (String) invokeV.objValue;
             }
         } : (b) invokeL.objValue;
     }
@@ -200,7 +201,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
             public String getTag() {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "stretch" : (String) invokeV2.objValue;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CriusAttrConstants.STRETCH : (String) invokeV2.objValue;
             }
         } : (com.baidu.ar.b.b.a) invokeV.objValue;
     }
@@ -250,7 +251,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
             public String getTag() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "stretch" : (String) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CriusAttrConstants.STRETCH : (String) invokeV.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

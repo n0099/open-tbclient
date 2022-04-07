@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SOURCE = "key_source";
@@ -40,12 +40,12 @@ public class SingleForumBroadcastFeedActivityConfig extends IntentConfig {
         intent.putExtra("forum_name", str2);
     }
 
-    public void setSource(byte b2) {
+    public void setSource(byte b) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeB(1048576, this, b2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeB(1048576, this, b) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_SOURCE, b2);
+        intent.putExtra(KEY_SOURCE, b);
     }
 }

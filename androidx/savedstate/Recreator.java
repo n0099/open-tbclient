@@ -101,14 +101,14 @@ public final class Recreator implements GenericLifecycleObserver {
                     declaredConstructor.setAccessible(true);
                     try {
                         ((SavedStateRegistry.AutoRecreated) declaredConstructor.newInstance(new Object[0])).onRecreated(this.mOwner);
-                    } catch (Exception e2) {
-                        throw new RuntimeException("Failed to instantiate " + str, e2);
+                    } catch (Exception e) {
+                        throw new RuntimeException("Failed to instantiate " + str, e);
                     }
-                } catch (NoSuchMethodException e3) {
-                    throw new IllegalStateException("Class" + cls.getSimpleName() + " must have default constructor in order to be automatically recreated", e3);
+                } catch (NoSuchMethodException e2) {
+                    throw new IllegalStateException("Class" + cls.getSimpleName() + " must have default constructor in order to be automatically recreated", e2);
                 }
-            } catch (ClassNotFoundException e4) {
-                throw new RuntimeException("Class " + str + " wasn't found", e4);
+            } catch (ClassNotFoundException e3) {
+                throw new RuntimeException("Class " + str + " wasn't found", e3);
             }
         }
     }

@@ -20,14 +20,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FlipLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Animation m;
     public final Animation n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -78,13 +78,13 @@ public class FlipLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        float f2 = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
-        RotateAnimation rotateAnimation = new RotateAnimation(0.0f, f2, 1, 0.5f, 1, 0.5f);
+        float f = mode == PullToRefreshBase.Mode.PULL_FROM_START ? -180 : 180;
+        RotateAnimation rotateAnimation = new RotateAnimation(0.0f, f, 1, 0.5f, 1, 0.5f);
         this.m = rotateAnimation;
         rotateAnimation.setInterpolator(LoadingLayout.l);
         this.m.setDuration(150L);
         this.m.setFillAfter(true);
-        RotateAnimation rotateAnimation2 = new RotateAnimation(f2, 0.0f, 1, 0.5f, 1, 0.5f);
+        RotateAnimation rotateAnimation2 = new RotateAnimation(f, 0.0f, 1, 0.5f, 1, 0.5f);
         this.n = rotateAnimation2;
         rotateAnimation2.setInterpolator(LoadingLayout.l);
         this.n.setDuration(150L);
@@ -95,8 +95,8 @@ public class FlipLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i = a.a[this.f30909g.ordinal()];
-            return i != 1 ? (i == 2 && this.f30910h == PullToRefreshBase.Orientation.HORIZONTAL) ? 270.0f : 0.0f : this.f30910h == PullToRefreshBase.Orientation.HORIZONTAL ? 90.0f : 180.0f;
+            int i = a.a[this.g.ordinal()];
+            return i != 1 ? (i == 2 && this.h == PullToRefreshBase.Orientation.HORIZONTAL) ? 270.0f : 0.0f : this.h == PullToRefreshBase.Orientation.HORIZONTAL ? 90.0f : 180.0f;
         }
         return invokeV.floatValue;
     }
@@ -109,30 +109,30 @@ public class FlipLoadingLayout extends LoadingLayout {
         }
         int intrinsicHeight = drawable.getIntrinsicHeight();
         int intrinsicWidth = drawable.getIntrinsicWidth();
-        ViewGroup.LayoutParams layoutParams = this.f30904b.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = this.b.getLayoutParams();
         int max = Math.max(intrinsicHeight, intrinsicWidth);
         layoutParams.height = max;
         layoutParams.width = max;
-        this.f30904b.requestLayout();
-        this.f30904b.setScaleType(ImageView.ScaleType.MATRIX);
+        this.b.requestLayout();
+        this.b.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         matrix.postTranslate((layoutParams.width - intrinsicWidth) / 2.0f, (layoutParams.height - intrinsicHeight) / 2.0f);
         matrix.postRotate(getDrawableRotationAngle(), layoutParams.width / 2.0f, layoutParams.height / 2.0f);
-        this.f30904b.setImageMatrix(matrix);
+        this.b.setImageMatrix(matrix);
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void c(float f2) {
+    public void c(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.m == this.f30904b.getAnimation()) {
-            this.f30904b.startAnimation(this.n);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.m == this.b.getAnimation()) {
+            this.b.startAnimation(this.n);
         }
     }
 
@@ -140,8 +140,8 @@ public class FlipLoadingLayout extends LoadingLayout {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30904b.setVisibility(0);
-            this.f30905c.setVisibility(8);
+            this.b.setVisibility(0);
+            this.c.setVisibility(8);
         }
     }
 
@@ -149,14 +149,14 @@ public class FlipLoadingLayout extends LoadingLayout {
     public int getDefaultDrawableResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.obfuscated_res_0x7f080482 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.obfuscated_res_0x7f080480 : invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f30904b.startAnimation(this.m);
+            this.b.startAnimation(this.m);
         }
     }
 
@@ -164,9 +164,9 @@ public class FlipLoadingLayout extends LoadingLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f30904b.clearAnimation();
-            this.f30905c.setVisibility(8);
-            this.f30904b.setVisibility(0);
+            this.b.clearAnimation();
+            this.c.setVisibility(8);
+            this.b.setVisibility(0);
         }
     }
 }

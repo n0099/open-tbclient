@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -286,8 +286,8 @@ public class BinaryHttpResponseHandler extends AsyncHttpResponseHandler {
                             if (threadSpeedStat != null) {
                                 threadSpeedStat.dTempDownSize = j;
                             }
-                        } catch (IOException e2) {
-                            throw e2;
+                        } catch (IOException e) {
+                            throw e;
                         }
                     } catch (Throwable th) {
                         if (threadSpeedStat != null) {

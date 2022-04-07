@@ -16,7 +16,7 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class b extends com.tencent.open.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,27 +36,27 @@ public class b extends com.tencent.open.a {
     }
 
     @Override // com.tencent.open.a
-    public void a(String str, String str2, List<String> list, a.C2107a c2107a) {
+    public void a(String str, String str2, List<String> list, a.C0651a c0651a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c2107a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, list, c0651a) == null) {
             SLog.v("openSDK_LOG.SecureJsBridge", "-->getResult, objectName: " + str + " | methodName: " + str2);
             int size = list.size();
             for (int i = 0; i < size; i++) {
                 try {
                     list.set(i, URLDecoder.decode(list.get(i), "UTF-8"));
-                } catch (UnsupportedEncodingException e2) {
-                    e2.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
             }
             a.b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.SecureJsBridge", "-->handler != null");
-                bVar.call(str2, list, c2107a);
+                bVar.call(str2, list, c0651a);
                 return;
             }
             SLog.e("openSDK_LOG.SecureJsBridge", "-->handler == null objName: " + str);
-            if (c2107a != null) {
-                c2107a.a();
+            if (c0651a != null) {
+                c0651a.a();
             }
         }
     }

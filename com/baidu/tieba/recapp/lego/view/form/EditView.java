@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class EditView extends FormItemBaseView {
     public String v;
     public String w;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class EditView extends FormItemBaseView {
         }
 
         @Override // android.view.View.OnFocusChangeListener
-        public void onFocusChange(View view, boolean z) {
+        public void onFocusChange(View view2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, view2, z) == null) {
                 if (!z && !this.a.a()) {
                     EditView editView = this.a;
                     editView.c(editView.t, FormItemBaseView.DrawableType.ERROR_FRAME);
@@ -69,7 +69,7 @@ public class EditView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements VerificationCodeView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,17 +102,13 @@ public class EditView extends FormItemBaseView {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f35737b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ EditView f35738c;
+        public String b;
+        public final /* synthetic */ EditView c;
 
         public c(EditView editView, int i) {
             Interceptable interceptable = $ic;
@@ -129,8 +125,8 @@ public class EditView extends FormItemBaseView {
                     return;
                 }
             }
-            this.f35738c = editView;
-            this.f35737b = "[\\u4e00-\\u9fa5]";
+            this.c = editView;
+            this.b = "[\\u4e00-\\u9fa5]";
             this.a = i;
         }
 
@@ -138,7 +134,7 @@ public class EditView extends FormItemBaseView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                Matcher matcher = Pattern.compile(this.f35737b).matcher(str);
+                Matcher matcher = Pattern.compile(this.b).matcher(str);
                 int i = 0;
                 while (matcher.find()) {
                     for (int i2 = 0; i2 <= matcher.groupCount(); i2++) {
@@ -153,7 +149,7 @@ public class EditView extends FormItemBaseView {
         public final boolean b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? Pattern.matches(this.f35737b, str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? Pattern.matches(this.b, str) : invokeL.booleanValue;
         }
 
         @Override // android.text.InputFilter
@@ -236,7 +232,7 @@ public class EditView extends FormItemBaseView {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.t.setPadding(this.f35740c, 0, 0, 0);
+            this.t.setPadding(this.c, 0, 0, 0);
             this.t.setText("");
             this.t.setGravity(19);
             this.t.setSingleLine(true);
@@ -257,32 +253,32 @@ public class EditView extends FormItemBaseView {
                 this.t.setTextSize(0, this.j);
                 int i2 = dVar.a;
                 if (i2 == 3) {
-                    i = this.f35743f;
+                    i = this.f;
                     this.t.setInputType(1);
                     this.t.setFilters(new InputFilter[]{new c(this, 20)});
                 } else if (i2 == 4) {
-                    i = this.f35744g;
+                    i = this.g;
                     this.t.setInputType(131072);
                     this.t.setFilters(new InputFilter[]{new c(this, 100)});
                     this.t.setSingleLine(false);
                     this.t.setHorizontallyScrolling(false);
                     this.t.setGravity(51);
                     EditText editText = this.t;
-                    int i3 = this.f35740c;
+                    int i3 = this.c;
                     editText.setPadding(i3, i3, i3, i3);
                 } else if (i2 != 5) {
                     return false;
                 } else {
-                    i = this.f35743f;
+                    i = this.f;
                     this.t.setInputType(2);
                     this.t.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
-                    if (dVar.f35711e != null) {
+                    if (dVar.e != null) {
                         this.u.setVisibility(0);
                         this.u.f(this.s);
-                        this.u.g(dVar.f35711e);
+                        this.u.g(dVar.e);
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.u.getLayoutParams();
-                        marginLayoutParams.topMargin = this.f35741d;
-                        marginLayoutParams.height = this.f35743f;
+                        marginLayoutParams.topMargin = this.d;
+                        marginLayoutParams.height = this.f;
                         this.u.setListener(new b(this));
                     }
                 }
@@ -294,8 +290,8 @@ public class EditView extends FormItemBaseView {
                     layoutParams2.height = i;
                     this.t.setLayoutParams(layoutParams2);
                 }
-                this.t.setHint(dVar.f35706b);
-                this.v = dVar.f35710d;
+                this.t.setHint(dVar.b);
+                this.v = dVar.d;
                 return true;
             }
             return false;
@@ -325,7 +321,7 @@ public class EditView extends FormItemBaseView {
             this.t = editText;
             editText.setId(1);
             this.t.setTextSize(0, this.j);
-            this.t.setTextColor(this.f35745h);
+            this.t.setTextColor(this.h);
             this.t.setHintTextColor(this.i);
             this.t.setEllipsize(TextUtils.TruncateAt.valueOf("END"));
             this.t.setOnFocusChangeListener(new a(this));
@@ -338,8 +334,8 @@ public class EditView extends FormItemBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.u = new VerificationCodeView(this.a);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f35743f);
-            layoutParams.topMargin = this.f35741d;
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.f);
+            layoutParams.topMargin = this.d;
             layoutParams.addRule(3, this.t.getId());
             addView(this.u, layoutParams);
         }

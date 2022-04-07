@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKFlexible {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float BASE_WIDTH = 750.0f;
@@ -51,9 +51,9 @@ public class TKFlexible {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i / (SCREEN_WIDTH / 750.0f) : invokeI.floatValue;
     }
 
-    public static int rem2px(float f2) {
+    public static int rem2px(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f2)) == null) ? (int) (f2 * (SCREEN_WIDTH / 750.0f)) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65539, null, f)) == null) ? (int) (f * (SCREEN_WIDTH / 750.0f)) : invokeF.intValue;
     }
 }

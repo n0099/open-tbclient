@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.Objects$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class Objects {
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public static final class ValueHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -170,28 +170,28 @@ public final class Objects {
             return (ToStringHelper) invokeL.objValue;
         }
 
-        public ToStringHelper add(String str, char c2) {
+        public ToStringHelper add(String str, char c) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Character.valueOf(c2)})) == null) ? addHolder(str, String.valueOf(c2)) : (ToStringHelper) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Character.valueOf(c)})) == null) ? addHolder(str, String.valueOf(c)) : (ToStringHelper) invokeCommon.objValue;
         }
 
-        public ToStringHelper addValue(char c2) {
+        public ToStringHelper addValue(char c) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Character.valueOf(c2)})) == null) ? addHolder(String.valueOf(c2)) : (ToStringHelper) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Character.valueOf(c)})) == null) ? addHolder(String.valueOf(c)) : (ToStringHelper) invokeCommon.objValue;
         }
 
-        public ToStringHelper add(String str, double d2) {
+        public ToStringHelper add(String str, double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) ? addHolder(str, String.valueOf(d2)) : (ToStringHelper) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d)})) == null) ? addHolder(str, String.valueOf(d)) : (ToStringHelper) invokeCommon.objValue;
         }
 
-        public ToStringHelper addValue(double d2) {
+        public ToStringHelper addValue(double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d2)})) == null) ? addHolder(String.valueOf(d2)) : (ToStringHelper) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)})) == null) ? addHolder(String.valueOf(d)) : (ToStringHelper) invokeCommon.objValue;
         }
 
         private ToStringHelper addHolder(String str, @Nullable Object obj) {
@@ -206,16 +206,16 @@ public final class Objects {
             return (ToStringHelper) invokeLL.objValue;
         }
 
-        public ToStringHelper add(String str, float f2) {
+        public ToStringHelper add(String str, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f2)) == null) ? addHolder(str, String.valueOf(f2)) : (ToStringHelper) invokeLF.objValue;
+            return (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, str, f)) == null) ? addHolder(str, String.valueOf(f)) : (ToStringHelper) invokeLF.objValue;
         }
 
-        public ToStringHelper addValue(float f2) {
+        public ToStringHelper addValue(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f2)) == null) ? addHolder(String.valueOf(f2)) : (ToStringHelper) invokeF.objValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) ? addHolder(String.valueOf(f)) : (ToStringHelper) invokeF.objValue;
         }
 
         public ToStringHelper add(String str, int i) {

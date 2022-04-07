@@ -171,10 +171,10 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @JvmName(name = "averageOfByte")
     public static final double averageOfByte(Sequence<Byte> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
-        for (Byte b2 : average) {
-            d2 += b2.byteValue();
+        for (Byte b : average) {
+            d += b.byteValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -183,16 +183,16 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfDouble")
     public static final double averageOfDouble(Sequence<Double> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
-        for (Double d3 : average) {
-            d2 += d3.doubleValue();
+        for (Double d2 : average) {
+            d += d2.doubleValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -201,16 +201,16 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfFloat")
     public static final double averageOfFloat(Sequence<Float> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
-        for (Float f2 : average) {
-            d2 += f2.floatValue();
+        for (Float f : average) {
+            d += f.floatValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -219,16 +219,16 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfInt")
     public static final double averageOfInt(Sequence<Integer> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
         for (Integer num : average) {
-            d2 += num.intValue();
+            d += num.intValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -237,16 +237,16 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfLong")
     public static final double averageOfLong(Sequence<Long> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
         for (Long l : average) {
-            d2 += l.longValue();
+            d += l.longValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -255,16 +255,16 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @JvmName(name = "averageOfShort")
     public static final double averageOfShort(Sequence<Short> average) {
         Intrinsics.checkNotNullParameter(average, "$this$average");
-        double d2 = 0.0d;
+        double d = 0.0d;
         int i = 0;
         for (Short sh : average) {
-            d2 += sh.shortValue();
+            d += sh.shortValue();
             i++;
             if (i < 0) {
                 CollectionsKt__CollectionsKt.throwCountOverflow();
@@ -273,7 +273,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         if (i == 0) {
             return Double.NaN;
         }
-        return d2 / i;
+        return d / i;
     }
 
     @SinceKotlin(version = "1.2")
@@ -575,7 +575,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @InlineOnly
     @JvmName(name = "flatMapIndexedIterableTo")
     @OverloadResolutionByLambdaReturnType
-    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(Sequence<? extends T> sequence, C c2, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
+    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedIterableTo(Sequence<? extends T> sequence, C c, Function2<? super Integer, ? super T, ? extends Iterable<? extends R>> function2) {
         Iterator<? extends T> it = sequence.iterator();
         int i = 0;
         while (it.hasNext()) {
@@ -587,10 +587,10 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                 }
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c2, function2.invoke(Integer.valueOf(i), obj));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
-        return c2;
+        return c;
     }
 
     @SinceKotlin(version = "1.4")
@@ -607,7 +607,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @InlineOnly
     @JvmName(name = "flatMapIndexedSequenceTo")
     @OverloadResolutionByLambdaReturnType
-    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(Sequence<? extends T> sequence, C c2, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
+    public static final <T, R, C extends Collection<? super R>> C flatMapIndexedSequenceTo(Sequence<? extends T> sequence, C c, Function2<? super Integer, ? super T, ? extends Sequence<? extends R>> function2) {
         Iterator<? extends T> it = sequence.iterator();
         int i = 0;
         while (it.hasNext()) {
@@ -619,10 +619,10 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
                 }
                 CollectionsKt__CollectionsKt.throwIndexOverflow();
             }
-            CollectionsKt__MutableCollectionsKt.addAll(c2, function2.invoke(Integer.valueOf(i), obj));
+            CollectionsKt__MutableCollectionsKt.addAll(c, function2.invoke(Integer.valueOf(i), obj));
             i = i2;
         }
-        return c2;
+        return c;
     }
 
     @SinceKotlin(version = "1.4")
@@ -1037,9 +1037,9 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final Double m1939max(Sequence<Double> max) {
+    public static final Double m1935max(Sequence<Double> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1945maxOrNull(max);
+        return m1941maxOrNull(max);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0020 */
@@ -1132,7 +1132,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1943maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
+    public static final <T> Double m1939maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((T) it.next()).doubleValue();
@@ -1192,7 +1192,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Double m1945maxOrNull(Sequence<Double> maxOrNull) {
+    public static final Double m1941maxOrNull(Sequence<Double> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Double> it = maxOrNull.iterator();
         if (it.hasNext()) {
@@ -1238,9 +1238,9 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final Double m1947min(Sequence<Double> min) {
+    public static final Double m1943min(Sequence<Double> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1953minOrNull(min);
+        return m1949minOrNull(min);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0020 */
@@ -1333,7 +1333,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Double m1951minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
+    public static final <T> Double m1947minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             double doubleValue = function1.invoke((T) it.next()).doubleValue();
@@ -1393,7 +1393,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Double m1953minOrNull(Sequence<Double> minOrNull) {
+    public static final Double m1949minOrNull(Sequence<Double> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Double> it = minOrNull.iterator();
         if (it.hasNext()) {
@@ -1711,19 +1711,19 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
         Intrinsics.checkNotNullParameter(sumByDouble, "$this$sumByDouble");
         Intrinsics.checkNotNullParameter(selector, "selector");
         Iterator<? extends T> it = sumByDouble.iterator();
-        double d2 = 0.0d;
+        double d = 0.0d;
         while (it.hasNext()) {
-            d2 += selector.invoke((T) it.next()).doubleValue();
+            d += selector.invoke((T) it.next()).doubleValue();
         }
-        return d2;
+        return d;
     }
 
     @JvmName(name = "sumOfByte")
     public static final int sumOfByte(Sequence<Byte> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
         int i = 0;
-        for (Byte b2 : sum) {
-            i += b2.byteValue();
+        for (Byte b : sum) {
+            i += b.byteValue();
         }
         return i;
     }
@@ -1734,22 +1734,22 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @JvmName(name = "sumOfDouble")
     @OverloadResolutionByLambdaReturnType
     public static final <T> double sumOfDouble(Sequence<? extends T> sequence, Function1<? super T, Double> function1) {
-        double d2 = 0;
+        double d = 0;
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            d2 += function1.invoke((T) it.next()).doubleValue();
+            d += function1.invoke((T) it.next()).doubleValue();
         }
-        return d2;
+        return d;
     }
 
     @JvmName(name = "sumOfFloat")
     public static final float sumOfFloat(Sequence<Float> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
-        float f2 = 0.0f;
-        for (Float f3 : sum) {
-            f2 += f3.floatValue();
+        float f = 0.0f;
+        for (Float f2 : sum) {
+            f += f2.floatValue();
         }
-        return f2;
+        return f;
     }
 
     /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
@@ -1797,12 +1797,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> int sumOfUInt(Sequence<? extends T> sequence, Function1<? super T, UInt> function1) {
-        int m786constructorimpl = UInt.m786constructorimpl(0);
+        int m782constructorimpl = UInt.m782constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m786constructorimpl = UInt.m786constructorimpl(m786constructorimpl + function1.invoke((T) it.next()).m837unboximpl());
+            m782constructorimpl = UInt.m782constructorimpl(m782constructorimpl + function1.invoke((T) it.next()).m833unboximpl());
         }
-        return m786constructorimpl;
+        return m782constructorimpl;
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: T, ? super T */
@@ -1812,12 +1812,12 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     public static final <T> long sumOfULong(Sequence<? extends T> sequence, Function1<? super T, ULong> function1) {
-        long m864constructorimpl = ULong.m864constructorimpl(0);
+        long m860constructorimpl = ULong.m860constructorimpl(0);
         Iterator<? extends T> it = sequence.iterator();
         while (it.hasNext()) {
-            m864constructorimpl = ULong.m864constructorimpl(m864constructorimpl + function1.invoke((T) it.next()).m915unboximpl());
+            m860constructorimpl = ULong.m860constructorimpl(m860constructorimpl + function1.invoke((T) it.next()).m911unboximpl());
         }
-        return m864constructorimpl;
+        return m860constructorimpl;
     }
 
     public static final <T> Sequence<T> take(Sequence<? extends T> take, int i) {
@@ -1949,18 +1949,18 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: max  reason: collision with other method in class */
-    public static final Float m1940max(Sequence<Float> max) {
+    public static final Float m1936max(Sequence<Float> max) {
         Intrinsics.checkNotNullParameter(max, "$this$max");
-        return m1946maxOrNull(max);
+        return m1942maxOrNull(max);
     }
 
     @Deprecated(message = "Use minOrNull instead.", replaceWith = @ReplaceWith(expression = "this.minOrNull()", imports = {}))
     @SinceKotlin(version = "1.1")
     @DeprecatedSinceKotlin(errorSince = "1.5", warningSince = "1.4")
     /* renamed from: min  reason: collision with other method in class */
-    public static final Float m1948min(Sequence<Float> min) {
+    public static final Float m1944min(Sequence<Float> min) {
         Intrinsics.checkNotNullParameter(min, "$this$min");
-        return m1954minOrNull(min);
+        return m1950minOrNull(min);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlin.sequences.Sequence<? extends T> */
@@ -2063,11 +2063,11 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @JvmName(name = "sumOfDouble")
     public static final double sumOfDouble(Sequence<Double> sum) {
         Intrinsics.checkNotNullParameter(sum, "$this$sum");
-        double d2 = 0.0d;
-        for (Double d3 : sum) {
-            d2 += d3.doubleValue();
+        double d = 0.0d;
+        for (Double d2 : sum) {
+            d += d2.doubleValue();
         }
-        return d2;
+        return d;
     }
 
     @JvmName(name = "sumOfInt")
@@ -2269,7 +2269,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T> float m1941maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> float m1937maxOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2287,7 +2287,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1944maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> Float m1940maxOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2301,7 +2301,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: maxOrNull  reason: collision with other method in class */
-    public static final Float m1946maxOrNull(Sequence<Float> maxOrNull) {
+    public static final Float m1942maxOrNull(Sequence<Float> maxOrNull) {
         Intrinsics.checkNotNullParameter(maxOrNull, "$this$maxOrNull");
         Iterator<Float> it = maxOrNull.iterator();
         if (it.hasNext()) {
@@ -2320,7 +2320,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T> float m1949minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> float m1945minOf(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2338,7 +2338,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final <T> Float m1952minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
+    public static final <T> Float m1948minOfOrNull(Sequence<? extends T> sequence, Function1<? super T, Float> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             float floatValue = function1.invoke((T) it.next()).floatValue();
@@ -2352,7 +2352,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
 
     @SinceKotlin(version = "1.4")
     /* renamed from: minOrNull  reason: collision with other method in class */
-    public static final Float m1954minOrNull(Sequence<Float> minOrNull) {
+    public static final Float m1950minOrNull(Sequence<Float> minOrNull) {
         Intrinsics.checkNotNullParameter(minOrNull, "$this$minOrNull");
         Iterator<Float> it = minOrNull.iterator();
         if (it.hasNext()) {
@@ -2391,7 +2391,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1942maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1938maxOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());
@@ -2449,7 +2449,7 @@ public class SequencesKt___SequencesKt extends SequencesKt___SequencesJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <T, R extends Comparable<? super R>> R m1950minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
+    public static final <T, R extends Comparable<? super R>> R m1946minOf(Sequence<? extends T> sequence, Function1<? super T, ? extends R> function1) {
         Iterator<? extends T> it = sequence.iterator();
         if (it.hasNext()) {
             R invoke = function1.invoke((T) it.next());

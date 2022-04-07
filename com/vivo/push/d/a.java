@@ -9,18 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static String[] a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f43887b;
+    public ArrayList<String> b;
 
     /* renamed from: com.vivo.push.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C2111a {
+    /* loaded from: classes8.dex */
+    public static class C0655a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,27 +56,27 @@ public final class a {
         a = new String[]{"com.vivo.pushservice", "com.vivo.pushdemo.test", "com.vivo.sdk.test", "com.vivo.hybrid"};
     }
 
-    public /* synthetic */ a(byte b2) {
+    public /* synthetic */ a(byte b) {
         this();
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C2111a.a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0655a.a : (a) invokeV.objValue;
     }
 
     public final ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList<>(this.f43887b) : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList<>(this.b) : (ArrayList) invokeV.objValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.f43887b;
+            ArrayList<String> arrayList = this.b;
             return (arrayList == null || arrayList.size() == 0) ? false : true;
         }
         return invokeV.booleanValue;
@@ -97,7 +95,7 @@ public final class a {
                 return;
             }
         }
-        this.f43887b = null;
-        this.f43887b = new ArrayList<>();
+        this.b = null;
+        this.b = new ArrayList<>();
     }
 }

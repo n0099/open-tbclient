@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class CommandListenerRegistry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommandListenerRegistry";
@@ -62,10 +62,10 @@ public final class CommandListenerRegistry {
                 if (iUpdatePostDataFilter == null || !iUpdatePostDataFilter.isNeedFilter((String) pair.first, (String) pair.second)) {
                     try {
                         collectPostData(context, getCommandListener((String) pair.first, (String) pair.second), commandPostData, (String) pair.first, (String) pair.second);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         if (AppConfig.isDebug()) {
-                            Log.e(TAG, "addPostData error " + e2.getMessage());
+                            Log.e(TAG, "addPostData error " + e.getMessage());
                         }
                     }
                 }
@@ -109,9 +109,9 @@ public final class CommandListenerRegistry {
                             collectPostData(context, commandListener, commandPostData, split[0], split[1]);
                         }
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (AppConfig.isDebug()) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
             }

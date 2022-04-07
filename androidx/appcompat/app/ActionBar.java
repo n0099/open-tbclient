@@ -105,7 +105,7 @@ public abstract class ActionBar {
 
         public abstract Tab setCustomView(int i);
 
-        public abstract Tab setCustomView(View view);
+        public abstract Tab setCustomView(View view2);
 
         public abstract Tab setIcon(@DrawableRes int i);
 
@@ -350,9 +350,9 @@ public abstract class ActionBar {
 
     public abstract void setCustomView(int i);
 
-    public abstract void setCustomView(View view);
+    public abstract void setCustomView(View view2);
 
-    public abstract void setCustomView(View view, LayoutParams layoutParams);
+    public abstract void setCustomView(View view2, LayoutParams layoutParams);
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setDefaultDisplayHomeAsUpEnabled(boolean z) {
@@ -375,9 +375,9 @@ public abstract class ActionBar {
 
     public abstract void setDisplayUseLogoEnabled(boolean z);
 
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048627, this, f2) == null) && f2 != 0.0f) {
+        if ((interceptable == null || interceptable.invokeF(1048627, this, f) == null) && f != 0.0f) {
             throw new UnsupportedOperationException("Setting a non-zero elevation is not supported in this action bar configuration.");
         }
     }

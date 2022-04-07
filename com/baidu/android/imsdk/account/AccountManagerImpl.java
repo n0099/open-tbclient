@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.request.IMGetMsgSettingSwitchRequest;
@@ -36,6 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -44,7 +44,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AccountManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AccountManagerImpl";
@@ -180,11 +180,11 @@ public class AccountManagerImpl {
                 this.mToken = str2;
                 Utility.writeAccessToken(mContext, str2);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
-                    LogUtils.e(TAG, "startService", e2);
+                    LogUtils.e(TAG, "startService", e);
                 }
             }
         }
@@ -211,7 +211,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f21228e) {
+                    if (p70.e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i, str, str2, str3, str4, iLoginListener);
                         return;
@@ -326,10 +326,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
             try {
-                Intent intent = new Intent(mContext, a.class);
+                Intent intent = new Intent(mContext, p70.class);
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setPackage(mContext.getPackageName());
-                a.g(context).f(mContext, intent);
+                p70.g(context).f(mContext, intent);
             } catch (Exception unused) {
                 LogUtils.e(TAG, "tryConnection failed......");
             }
@@ -373,7 +373,7 @@ public class AccountManagerImpl {
                 Utility.clearCache(mContext);
                 this.mToken = null;
             }
-            if (!a.f21228e) {
+            if (!p70.e) {
                 clearLoginParam(mContext);
                 clearUid(mContext);
                 disconnect(str);
@@ -407,13 +407,13 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             try {
-                Intent intent = new Intent(mContext, a.class);
+                Intent intent = new Intent(mContext, p70.class);
                 intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
                 intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
                 intent.setPackage(mContext.getPackageName());
-                a.g(mContext).f(mContext, intent);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "disconnect", e2);
+                p70.g(mContext).f(mContext, intent);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "disconnect", e);
                 IMListener removeListener = ListenerManager.getInstance().removeListener(str);
                 if (removeListener == null || !(removeListener instanceof ILoginListener)) {
                     return;
@@ -474,9 +474,9 @@ public class AccountManagerImpl {
             try {
                 jSONObject.put("zid", getZid());
                 jSONObject.put("version_code", getVersionCode());
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
             }
             return jSONObject.toString();
         }
@@ -603,8 +603,8 @@ public class AccountManagerImpl {
                         }
                     }
                 }, Utility.getPeakDelayTime());
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "getTokenByCuid Exception", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "getTokenByCuid Exception", e);
                 getTokenByCuid(j, str, addListener);
             }
         }
@@ -757,8 +757,8 @@ public class AccountManagerImpl {
                         }
                     }, nextInt);
                     return;
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "timer exception", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "timer exception", e);
                     startLoginServiceRunnable(i, str, str2, str3, str4, iLoginListener);
                     return;
                 }
@@ -831,10 +831,10 @@ public class AccountManagerImpl {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i);
                 try {
-                    a.g(mContext).f(mContext, creatMethodIntent);
+                    p70.g(mContext).f(mContext, creatMethodIntent);
                     return;
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "Exception ", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "Exception ", e);
                     onLogoutResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, i);
                     return;
                 }
@@ -884,7 +884,7 @@ public class AccountManagerImpl {
                 ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
                 noticeStateChanged(3);
                 BIMManager.connectStatusNotify(0);
-                if (!a.f21228e) {
+                if (!p70.e) {
                     Utility.sendConnectionStateBroadCast(mContext, 0);
                 }
             } else {
@@ -1205,10 +1205,10 @@ public class AccountManagerImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             try {
-                Intent intent = new Intent(mContext, a.class);
+                Intent intent = new Intent(mContext, p70.class);
                 intent.setPackage(mContext.getPackageName());
                 intent.setAction(Constants.ACTION_STOP);
-                a.g(mContext).f(mContext, intent);
+                p70.g(mContext).f(mContext, intent);
                 return true;
             } catch (Exception unused) {
                 LogUtils.e(TAG, "Stop Service SecurityException");

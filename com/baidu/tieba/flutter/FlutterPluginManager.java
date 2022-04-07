@@ -3,9 +3,6 @@ package com.baidu.tieba.flutter;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
-import c.a.d.f.m.e;
-import c.a.o0.h0.d;
-import c.a.o0.r.f0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -26,7 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.o45;
+import com.repackage.pg;
+import com.repackage.rt4;
+/* loaded from: classes3.dex */
 public class FlutterPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAINTAB_PERSON_CENTER_INDEX = 4;
@@ -38,7 +38,7 @@ public class FlutterPluginManager {
     public boolean mIsPluginLoadSuccess;
     public int mLastMainTabIndex;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final FlutterPluginManager INSTANCE;
@@ -146,12 +146,12 @@ public class FlutterPluginManager {
                                     }
                                     NPSManager.getInstance().loadClazz(FlutterPluginManager.PLUGIN_PKG_NAME, FlutterPluginManager.PLUGIN_IMPL_CLASS, IFlutterPlugin.class, this.val$invokeCallback);
                                     if (this.this$0.mLastMainTabIndex == 4) {
-                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921681));
+                                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921685));
                                         return;
                                     }
                                     return;
                                 }
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921681));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921685));
                             }
                         }
                     });
@@ -166,7 +166,7 @@ public class FlutterPluginManager {
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (checkActivityIsValid(currentActivity)) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007002, new d(currentActivity)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007002, new o45(currentActivity)));
             }
         }
     }
@@ -174,7 +174,7 @@ public class FlutterPluginManager {
     public void checkAndRefreshMainTab() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.5
+            pg.a().postDelayed(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FlutterPluginManager this$0;
@@ -203,11 +203,11 @@ public class FlutterPluginManager {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (this.this$0.mIsPluginLoadSuccess) {
                             this.this$0.notifyMainTab();
-                            b.e(TbadkCoreApplication.getInst(), 8);
+                            rt4.e(TbadkCoreApplication.getInst(), 8);
                             return;
                         }
                         this.this$0.init();
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921681));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921685));
                     }
                 }
             }, 20L);
@@ -245,7 +245,7 @@ public class FlutterPluginManager {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) {
                         if (i != 14) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921681));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921685));
                             return;
                         }
                         try {
@@ -255,17 +255,17 @@ public class FlutterPluginManager {
                                 this.this$0.mIsPluginLoadSuccess = true;
                                 TbSingleton.getInstance().setFlutterPluginLoadSuccess(this.this$0.mIsPluginLoadSuccess);
                             }
-                        } catch (IllegalAccessException e2) {
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InstantiationException e2) {
                             e2.printStackTrace();
-                        } catch (InstantiationException e3) {
-                            e3.printStackTrace();
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
                         if (this.this$0.mIsPluginLoadSuccess) {
                             return;
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921681));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921685));
                     }
                 }
             });
@@ -310,7 +310,7 @@ public class FlutterPluginManager {
                                 this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
                                 this.this$0.mIFlutterPlugin.init();
                             }
-                            e.a().post(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3.1
+                            pg.a().post(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass3 this$1;
@@ -341,10 +341,10 @@ public class FlutterPluginManager {
                                     }
                                 }
                             });
-                        } catch (IllegalAccessException e2) {
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InstantiationException e2) {
                             e2.printStackTrace();
-                        } catch (InstantiationException e3) {
-                            e3.printStackTrace();
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
@@ -413,7 +413,7 @@ public class FlutterPluginManager {
                                 this.this$0.mIFlutterPlugin = (IFlutterPlugin) ((Class) obj).newInstance();
                                 this.this$0.mIFlutterPlugin.init();
                             }
-                            e.a().post(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.2.1
+                            pg.a().post(new Runnable(this) { // from class: com.baidu.tieba.flutter.FlutterPluginManager.2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass2 this$1;
@@ -444,10 +444,10 @@ public class FlutterPluginManager {
                                     }
                                 }
                             });
-                        } catch (IllegalAccessException e2) {
+                        } catch (IllegalAccessException e) {
+                            e.printStackTrace();
+                        } catch (InstantiationException e2) {
                             e2.printStackTrace();
-                        } catch (InstantiationException e3) {
-                            e3.printStackTrace();
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }

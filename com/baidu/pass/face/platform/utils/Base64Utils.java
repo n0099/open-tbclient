@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Base64Utils {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -25,14 +25,12 @@ public class Base64Utils {
     public static final int URL_SAFE = 8;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public byte[] a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f28110b;
+        public int b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,25 +47,15 @@ public class Base64Utils {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b extends a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final int[] f28111c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final int[] f28112d;
+        public static final int[] c;
+        public static final int[] d;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f28113e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f28114f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final int[] f28115g;
+        public int e;
+        public int f;
+        public final int[] g;
 
         static {
             InterceptResult invokeClinit;
@@ -82,8 +70,8 @@ public class Base64Utils {
                     return;
                 }
             }
-            f28111c = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
-            f28112d = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            c = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            d = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -2, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
         }
 
         public b(int i, byte[] bArr) {
@@ -102,9 +90,9 @@ public class Base64Utils {
                 }
             }
             this.a = bArr;
-            this.f28115g = (i & 8) == 0 ? f28111c : f28112d;
-            this.f28113e = 0;
-            this.f28114f = 0;
+            this.g = (i & 8) == 0 ? c : d;
+            this.e = 0;
+            this.f = 0;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:69:0x0102, code lost:
@@ -117,14 +105,14 @@ public class Base64Utils {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                int i3 = this.f28113e;
+                int i3 = this.e;
                 if (i3 == 6) {
                     return false;
                 }
                 int i4 = i2 + i;
-                int i5 = this.f28114f;
+                int i5 = this.f;
                 byte[] bArr2 = this.a;
-                int[] iArr = this.f28115g;
+                int[] iArr = this.g;
                 int i6 = i5;
                 int i7 = 0;
                 int i8 = i3;
@@ -152,7 +140,7 @@ public class Base64Utils {
                         if (i8 == 1) {
                             if (i12 < 0) {
                                 if (i12 != -1) {
-                                    this.f28113e = 6;
+                                    this.e = 6;
                                     return false;
                                 }
                             }
@@ -164,7 +152,7 @@ public class Base64Utils {
                                     i7++;
                                     i8 = 4;
                                 } else if (i12 != -1) {
-                                    this.f28113e = 6;
+                                    this.e = 6;
                                     return false;
                                 }
                             }
@@ -172,13 +160,13 @@ public class Base64Utils {
                         } else if (i8 != 3) {
                             if (i8 != 4) {
                                 if (i8 == 5 && i12 != -1) {
-                                    this.f28113e = 6;
+                                    this.e = 6;
                                     return false;
                                 }
                             } else if (i12 == -2) {
                                 i8++;
                             } else if (i12 != -1) {
-                                this.f28113e = 6;
+                                this.e = 6;
                                 return false;
                             }
                         } else if (i12 >= 0) {
@@ -202,7 +190,7 @@ public class Base64Utils {
                     } else {
                         if (i12 < 0) {
                             if (i12 != -1) {
-                                this.f28113e = 6;
+                                this.e = 6;
                                 return false;
                             }
                         }
@@ -222,43 +210,31 @@ public class Base64Utils {
                             i7 = i14 + 1;
                             bArr2[i14] = (byte) (i6 >> 2);
                         }
-                        this.f28113e = i8;
+                        this.e = i8;
                     }
-                    this.f28113e = 6;
+                    this.e = 6;
                     return false;
                 }
-                this.f28113e = i8;
-                this.f28114f = i6;
-                this.f28110b = i7;
+                this.e = i8;
+                this.f = i6;
+                this.b = i7;
                 return true;
             }
             return invokeCommon.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class c extends a {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: g  reason: collision with root package name */
-        public static final /* synthetic */ boolean f28116g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public static final byte[] f28117h;
+        public static final /* synthetic */ boolean g;
+        public static final byte[] h;
         public static final byte[] i;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f28118c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final boolean f28119d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final boolean f28120e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final boolean f28121f;
+        public int c;
+        public final boolean d;
+        public final boolean e;
+        public final boolean f;
         public final byte[] j;
         public int k;
         public final byte[] l;
@@ -276,8 +252,8 @@ public class Base64Utils {
                     return;
                 }
             }
-            f28116g = !Base64Utils.class.desiredAssertionStatus();
-            f28117h = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
+            g = !Base64Utils.class.desiredAssertionStatus();
+            h = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
             i = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
         }
 
@@ -297,17 +273,17 @@ public class Base64Utils {
                 }
             }
             this.a = bArr;
-            this.f28119d = (i2 & 1) == 0;
-            this.f28120e = (i2 & 2) == 0;
-            this.f28121f = (i2 & 4) != 0;
-            this.l = (i2 & 8) == 0 ? f28117h : i;
+            this.d = (i2 & 1) == 0;
+            this.e = (i2 & 2) == 0;
+            this.f = (i2 & 4) != 0;
+            this.l = (i2 & 8) == 0 ? h : i;
             this.j = new byte[2];
-            this.f28118c = 0;
-            this.k = this.f28120e ? 19 : -1;
+            this.c = 0;
+            this.k = this.e ? 19 : -1;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:32:0x00da, code lost:
-            if (r17.f28121f == false) goto L28;
+            if (r17.f == false) goto L28;
          */
         /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
             r2[r6] = 13;
@@ -328,10 +304,10 @@ public class Base64Utils {
             int i5;
             int i6;
             int i7;
-            byte b2;
+            byte b;
             int i8;
+            byte b2;
             byte b3;
-            byte b4;
             int i9;
             int i10;
             Interceptable interceptable = $ic;
@@ -342,13 +318,13 @@ public class Base64Utils {
             byte[] bArr3 = this.a;
             int i11 = this.k;
             int i12 = i3 + i2;
-            int i13 = this.f28118c;
+            int i13 = this.c;
             int i14 = 0;
             if (i13 != 1) {
                 if (i13 == 2 && (i10 = i2 + 1) <= i12) {
                     byte[] bArr4 = this.j;
                     i5 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[i2] & 255);
-                    this.f28118c = 0;
+                    this.c = 0;
                     i4 = i10;
                 }
                 i4 = i2;
@@ -358,7 +334,7 @@ public class Base64Utils {
                     int i15 = i2 + 1;
                     i4 = i15 + 1;
                     i5 = (bArr[i15] & 255) | ((this.j[0] & 255) << 16) | ((bArr[i2] & 255) << 8);
-                    this.f28118c = 0;
+                    this.c = 0;
                 }
                 i4 = i2;
                 i5 = -1;
@@ -370,7 +346,7 @@ public class Base64Utils {
                 bArr3[3] = bArr2[i5 & 63];
                 i11--;
                 if (i11 == 0) {
-                    if (this.f28121f) {
+                    if (this.f) {
                         i9 = 5;
                         bArr3[4] = 13;
                     } else {
@@ -389,30 +365,30 @@ public class Base64Utils {
                 int i16 = i4 + 3;
                 if (i16 > i12) {
                     if (z) {
-                        int i17 = this.f28118c;
+                        int i17 = this.c;
                         if (i4 - i17 == i12 - 1) {
                             if (i17 > 0) {
-                                b4 = this.j[0];
+                                b3 = this.j[0];
                                 i14 = 1;
                             } else {
-                                byte b5 = bArr[i4];
+                                byte b4 = bArr[i4];
                                 i4++;
-                                b4 = b5;
+                                b3 = b4;
                             }
-                            int i18 = (b4 & 255) << 4;
-                            this.f28118c -= i14;
+                            int i18 = (b3 & 255) << 4;
+                            this.c -= i14;
                             int i19 = i6 + 1;
                             bArr3[i6] = bArr2[(i18 >> 6) & 63];
                             i6 = i19 + 1;
                             bArr3[i19] = bArr2[i18 & 63];
-                            if (this.f28119d) {
+                            if (this.d) {
                                 int i20 = i6 + 1;
                                 bArr3[i6] = BaseNCodec.PAD_DEFAULT;
                                 i6 = i20 + 1;
                                 bArr3[i20] = BaseNCodec.PAD_DEFAULT;
                             }
-                            if (this.f28120e) {
-                                if (this.f28121f) {
+                            if (this.e) {
+                                if (this.f) {
                                     bArr3[i6] = 13;
                                     i6++;
                                 }
@@ -420,45 +396,45 @@ public class Base64Utils {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f28116g && this.f28118c != 0) {
+                            if (g && this.c != 0) {
                                 throw new AssertionError();
                             }
-                            if (!f28116g && i4 != i12) {
+                            if (!g && i4 != i12) {
                                 throw new AssertionError();
                             }
                         } else {
                             if (i4 - i17 == i12 - 2) {
                                 if (i17 > 1) {
-                                    b2 = this.j[0];
+                                    b = this.j[0];
                                     i14 = 1;
                                 } else {
-                                    byte b6 = bArr[i4];
+                                    byte b5 = bArr[i4];
                                     i4++;
-                                    b2 = b6;
+                                    b = b5;
                                 }
-                                int i21 = (b2 & 255) << 10;
-                                if (this.f28118c > 0) {
+                                int i21 = (b & 255) << 10;
+                                if (this.c > 0) {
                                     i8 = i14 + 1;
-                                    b3 = this.j[i14];
+                                    b2 = this.j[i14];
                                 } else {
                                     i8 = i14;
-                                    b3 = bArr[i4];
+                                    b2 = bArr[i4];
                                     i4++;
                                 }
-                                int i22 = i21 | ((b3 & 255) << 2);
-                                this.f28118c -= i8;
+                                int i22 = i21 | ((b2 & 255) << 2);
+                                this.c -= i8;
                                 int i23 = i6 + 1;
                                 bArr3[i6] = bArr2[(i22 >> 12) & 63];
                                 int i24 = i23 + 1;
                                 bArr3[i23] = bArr2[(i22 >> 6) & 63];
                                 int i25 = i24 + 1;
                                 bArr3[i24] = bArr2[i22 & 63];
-                                if (this.f28119d) {
+                                if (this.d) {
                                     bArr3[i25] = BaseNCodec.PAD_DEFAULT;
                                     i25++;
                                 }
-                                if (this.f28120e) {
-                                    if (this.f28121f) {
+                                if (this.e) {
+                                    if (this.f) {
                                         bArr3[i25] = 13;
                                         i25++;
                                     }
@@ -466,8 +442,8 @@ public class Base64Utils {
                                     i25++;
                                 }
                                 i6 = i25;
-                            } else if (this.f28120e && i6 > 0 && i11 != 19) {
-                                if (this.f28121f) {
+                            } else if (this.e && i6 > 0 && i11 != 19) {
+                                if (this.f) {
                                     bArr3[i6] = 13;
                                     i6++;
                                 }
@@ -475,27 +451,27 @@ public class Base64Utils {
                                 bArr3[i6] = 10;
                                 i6 = i7;
                             }
-                            if (f28116g) {
+                            if (g) {
                             }
-                            if (!f28116g) {
+                            if (!g) {
                                 throw new AssertionError();
                             }
                         }
                     } else if (i4 == i12 - 1) {
                         byte[] bArr5 = this.j;
-                        int i26 = this.f28118c;
-                        this.f28118c = i26 + 1;
+                        int i26 = this.c;
+                        this.c = i26 + 1;
                         bArr5[i26] = bArr[i4];
                     } else if (i4 == i12 - 2) {
                         byte[] bArr6 = this.j;
-                        int i27 = this.f28118c;
+                        int i27 = this.c;
                         int i28 = i27 + 1;
-                        this.f28118c = i28;
+                        this.c = i28;
                         bArr6[i27] = bArr[i4];
-                        this.f28118c = i28 + 1;
+                        this.c = i28 + 1;
                         bArr6[i28] = bArr[i4 + 1];
                     }
-                    this.f28110b = i6;
+                    this.b = i6;
                     this.k = i11;
                     return true;
                 }
@@ -561,7 +537,7 @@ public class Base64Utils {
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2, i3)) == null) {
             b bVar = new b(i3, new byte[(i2 * 3) / 4]);
             if (bVar.a(bArr, i, i2, true)) {
-                int i4 = bVar.f28110b;
+                int i4 = bVar.b;
                 byte[] bArr2 = bVar.a;
                 if (i4 == bArr2.length) {
                     return bArr2;
@@ -587,7 +563,7 @@ public class Base64Utils {
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65542, null, bArr, i, i2, i3)) == null) {
             c cVar = new c(i3, null);
             int i4 = (i2 / 3) * 4;
-            if (!cVar.f28119d) {
+            if (!cVar.d) {
                 int i5 = i2 % 3;
                 if (i5 == 1) {
                     i4 += 2;
@@ -597,8 +573,8 @@ public class Base64Utils {
             } else if (i2 % 3 > 0) {
                 i4 += 4;
             }
-            if (cVar.f28120e && i2 > 0) {
-                i4 += (((i2 - 1) / 57) + 1) * (cVar.f28121f ? 2 : 1);
+            if (cVar.e && i2 > 0) {
+                i4 += (((i2 - 1) / 57) + 1) * (cVar.f ? 2 : 1);
             }
             cVar.a = new byte[i4];
             cVar.a(bArr, i, i2, true);
@@ -613,8 +589,8 @@ public class Base64Utils {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) {
             try {
                 return new String(encode(bArr, i), "US-ASCII");
-            } catch (UnsupportedEncodingException e2) {
-                throw new AssertionError(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeLI.objValue;
@@ -626,8 +602,8 @@ public class Base64Utils {
         if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65544, null, bArr, i, i2, i3)) == null) {
             try {
                 return new String(encode(bArr, i, i2, i3), "US-ASCII");
-            } catch (UnsupportedEncodingException e2) {
-                throw new AssertionError(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeLIII.objValue;

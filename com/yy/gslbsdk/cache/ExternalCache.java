@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ExternalCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCENE_ASYNC_CACHE_OVERTIME = 8;
@@ -49,7 +49,7 @@ public class ExternalCache {
     public int mScene;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -228,8 +228,8 @@ public class ExternalCache {
                         linkedList.addAll(list2);
                     }
                 }
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
             return linkedList;
         }
@@ -334,8 +334,8 @@ public class ExternalCache {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
             return hashMap;
         }
@@ -361,8 +361,8 @@ public class ExternalCache {
                                 break;
                             }
                             stringBuffer.append(readLine);
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                             bufferedReader = bufferedReader2;
                             LogTools.printWarning(TAG, e);
                             if (bufferedReader != null) {
@@ -375,19 +375,19 @@ public class ExternalCache {
                             if (bufferedReader != null) {
                                 try {
                                     bufferedReader.close();
-                                } catch (Exception e3) {
-                                    LogTools.printWarning(TAG, e3);
+                                } catch (Exception e2) {
+                                    LogTools.printWarning(TAG, e2);
                                 }
                             }
                             throw th;
                         }
                     }
                     bufferedReader2.close();
-                } catch (Exception e4) {
-                    LogTools.printWarning(TAG, e4);
+                } catch (Exception e3) {
+                    LogTools.printWarning(TAG, e3);
                 }
-            } catch (IOException e5) {
-                e = e5;
+            } catch (IOException e4) {
+                e = e4;
             }
             return stringBuffer.toString();
         } catch (Throwable th2) {
@@ -429,8 +429,8 @@ public class ExternalCache {
                 dnsResultInfo.mIps = (String[]) result.get("all").toArray(new String[0]);
                 dnsResultInfo.mIpsV4 = (String[]) result.get("4").toArray(new String[0]);
                 dnsResultInfo.mIpsV6 = (String[]) result.get("6").toArray(new String[0]);
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
         }
     }

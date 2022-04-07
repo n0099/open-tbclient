@@ -61,8 +61,8 @@ public final class DistinguishedNameParser {
                     return new String(cArr, i3, this.end - i3);
                 }
                 char[] cArr2 = this.chars;
-                char c2 = cArr2[i2];
-                if (c2 == ' ') {
+                char c = cArr2[i2];
+                if (c == ' ') {
                     int i4 = this.end;
                     this.cur = i4;
                     this.pos = i2 + 1;
@@ -90,14 +90,14 @@ public final class DistinguishedNameParser {
                     if (cArr4[i7] == ',' || cArr4[i7] == '+' || cArr4[i7] == ';') {
                         break;
                     }
-                } else if (c2 == ';') {
+                } else if (c == ';') {
                     break;
-                } else if (c2 == '\\') {
+                } else if (c == '\\') {
                     int i8 = this.end;
                     this.end = i8 + 1;
                     cArr2[i8] = getEscaped();
                     this.pos++;
-                } else if (c2 == '+' || c2 == ',') {
+                } else if (c == '+' || c == ',') {
                     break;
                 } else {
                     int i9 = this.end;
@@ -121,25 +121,25 @@ public final class DistinguishedNameParser {
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             int i4 = i + 1;
             if (i4 < this.length) {
-                char c2 = this.chars[i];
+                char c = this.chars[i];
+                if (c >= '0' && c <= '9') {
+                    i2 = c - '0';
+                } else if (c >= 'a' && c <= 'f') {
+                    i2 = c - 'W';
+                } else if (c < 'A' || c > 'F') {
+                    throw new IllegalStateException("Malformed DN: " + this.dn);
+                } else {
+                    i2 = c - '7';
+                }
+                char c2 = this.chars[i4];
                 if (c2 >= '0' && c2 <= '9') {
-                    i2 = c2 - '0';
+                    i3 = c2 - '0';
                 } else if (c2 >= 'a' && c2 <= 'f') {
-                    i2 = c2 - 'W';
+                    i3 = c2 - 'W';
                 } else if (c2 < 'A' || c2 > 'F') {
                     throw new IllegalStateException("Malformed DN: " + this.dn);
                 } else {
-                    i2 = c2 - '7';
-                }
-                char c3 = this.chars[i4];
-                if (c3 >= '0' && c3 <= '9') {
-                    i3 = c3 - '0';
-                } else if (c3 >= 'a' && c3 <= 'f') {
-                    i3 = c3 - 'W';
-                } else if (c3 < 'A' || c3 > 'F') {
-                    throw new IllegalStateException("Malformed DN: " + this.dn);
-                } else {
-                    i3 = c3 - '7';
+                    i3 = c2 - '7';
                 }
                 return (i2 << 4) + i3;
             }
@@ -155,15 +155,15 @@ public final class DistinguishedNameParser {
             int i = this.pos + 1;
             this.pos = i;
             if (i != this.length) {
-                char c2 = this.chars[i];
-                if (c2 != ' ' && c2 != '%' && c2 != '\\' && c2 != '_' && c2 != '\"' && c2 != '#') {
-                    switch (c2) {
+                char c = this.chars[i];
+                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
+                    switch (c) {
                         case '*':
                         case '+':
                         case ',':
                             break;
                         default:
-                            switch (c2) {
+                            switch (c) {
                                 case ';':
                                 case '<':
                                 case '=':
@@ -420,11 +420,11 @@ public final class DistinguishedNameParser {
                 if (i == this.length) {
                     return null;
                 }
-                char c2 = this.chars[i];
-                if (c2 == '\"') {
+                char c = this.chars[i];
+                if (c == '\"') {
                     quotedAV = quotedAV();
-                } else if (c2 != '#') {
-                    quotedAV = (c2 == '+' || c2 == ',' || c2 == ';') ? "" : escapedAV();
+                } else if (c != '#') {
+                    quotedAV = (c == '+' || c == ',' || c == ';') ? "" : escapedAV();
                 } else {
                     quotedAV = hexAV();
                 }

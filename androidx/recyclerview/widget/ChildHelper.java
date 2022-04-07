@@ -189,9 +189,9 @@ public class ChildHelper {
 
     /* loaded from: classes.dex */
     public interface Callback {
-        void addView(View view, int i);
+        void addView(View view2, int i);
 
-        void attachViewToParent(View view, int i, ViewGroup.LayoutParams layoutParams);
+        void attachViewToParent(View view2, int i, ViewGroup.LayoutParams layoutParams);
 
         void detachViewFromParent(int i);
 
@@ -199,13 +199,13 @@ public class ChildHelper {
 
         int getChildCount();
 
-        RecyclerView.ViewHolder getChildViewHolder(View view);
+        RecyclerView.ViewHolder getChildViewHolder(View view2);
 
-        int indexOfChild(View view);
+        int indexOfChild(View view2);
 
-        void onEnteredHiddenState(View view);
+        void onEnteredHiddenState(View view2);
 
-        void onLeftHiddenState(View view);
+        void onLeftHiddenState(View view2);
 
         void removeAllViews();
 
@@ -256,20 +256,20 @@ public class ChildHelper {
         return invokeI.intValue;
     }
 
-    private void hideViewInternal(View view) {
+    private void hideViewInternal(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, view) == null) {
-            this.mHiddenViews.add(view);
-            this.mCallback.onEnteredHiddenState(view);
+        if (interceptable == null || interceptable.invokeL(65538, this, view2) == null) {
+            this.mHiddenViews.add(view2);
+            this.mCallback.onEnteredHiddenState(view2);
         }
     }
 
-    private boolean unhideViewInternal(View view) {
+    private boolean unhideViewInternal(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, view)) == null) {
-            if (this.mHiddenViews.remove(view)) {
-                this.mCallback.onLeftHiddenState(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, view2)) == null) {
+            if (this.mHiddenViews.remove(view2)) {
+                this.mCallback.onLeftHiddenState(view2);
                 return true;
             }
             return false;
@@ -277,17 +277,17 @@ public class ChildHelper {
         return invokeL.booleanValue;
     }
 
-    public void addView(View view, boolean z) {
+    public void addView(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, z) == null) {
-            addView(view, -1, z);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
+            addView(view2, -1, z);
         }
     }
 
-    public void attachViewToParent(View view, int i, ViewGroup.LayoutParams layoutParams, boolean z) {
+    public void attachViewToParent(View view2, int i, ViewGroup.LayoutParams layoutParams, boolean z) {
         int offset;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Integer.valueOf(i), layoutParams, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Integer.valueOf(i), layoutParams, Boolean.valueOf(z)}) == null) {
             if (i < 0) {
                 offset = this.mCallback.getChildCount();
             } else {
@@ -295,9 +295,9 @@ public class ChildHelper {
             }
             this.mBucket.insert(offset, z);
             if (z) {
-                hideViewInternal(view);
+                hideViewInternal(view2);
             }
-            this.mCallback.attachViewToParent(view, offset, layoutParams);
+            this.mCallback.attachViewToParent(view2, offset, layoutParams);
         }
     }
 
@@ -316,10 +316,10 @@ public class ChildHelper {
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             int size = this.mHiddenViews.size();
             for (int i2 = 0; i2 < size; i2++) {
-                View view = this.mHiddenViews.get(i2);
-                RecyclerView.ViewHolder childViewHolder = this.mCallback.getChildViewHolder(view);
+                View view2 = this.mHiddenViews.get(i2);
+                RecyclerView.ViewHolder childViewHolder = this.mCallback.getChildViewHolder(view2);
                 if (childViewHolder.getLayoutPosition() == i && !childViewHolder.isInvalid() && !childViewHolder.isRemoved()) {
-                    return view;
+                    return view2;
                 }
             }
             return null;
@@ -351,24 +351,24 @@ public class ChildHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mCallback.getChildCount() : invokeV.intValue;
     }
 
-    public void hide(View view) {
+    public void hide(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
-            int indexOfChild = this.mCallback.indexOfChild(view);
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            int indexOfChild = this.mCallback.indexOfChild(view2);
             if (indexOfChild >= 0) {
                 this.mBucket.set(indexOfChild);
-                hideViewInternal(view);
+                hideViewInternal(view2);
                 return;
             }
-            throw new IllegalArgumentException("view is not a child, cannot hide " + view);
+            throw new IllegalArgumentException("view is not a child, cannot hide " + view2);
         }
     }
 
-    public int indexOfChild(View view) {
+    public int indexOfChild(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view)) == null) {
-            int indexOfChild = this.mCallback.indexOfChild(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
+            int indexOfChild = this.mCallback.indexOfChild(view2);
             if (indexOfChild == -1 || this.mBucket.get(indexOfChild)) {
                 return -1;
             }
@@ -377,10 +377,10 @@ public class ChildHelper {
         return invokeL.intValue;
     }
 
-    public boolean isHidden(View view) {
+    public boolean isHidden(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) ? this.mHiddenViews.contains(view) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) ? this.mHiddenViews.contains(view2) : invokeL.booleanValue;
     }
 
     public void removeAllViewsUnfiltered() {
@@ -395,14 +395,14 @@ public class ChildHelper {
         }
     }
 
-    public void removeView(View view) {
+    public void removeView(View view2) {
         int indexOfChild;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, view) == null) || (indexOfChild = this.mCallback.indexOfChild(view)) < 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, view2) == null) || (indexOfChild = this.mCallback.indexOfChild(view2)) < 0) {
             return;
         }
         if (this.mBucket.remove(indexOfChild)) {
-            unhideViewInternal(view);
+            unhideViewInternal(view2);
         }
         this.mCallback.removeViewAt(indexOfChild);
     }
@@ -420,17 +420,17 @@ public class ChildHelper {
         this.mCallback.removeViewAt(offset);
     }
 
-    public boolean removeViewIfHidden(View view) {
+    public boolean removeViewIfHidden(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, view)) == null) {
-            int indexOfChild = this.mCallback.indexOfChild(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, view2)) == null) {
+            int indexOfChild = this.mCallback.indexOfChild(view2);
             if (indexOfChild == -1) {
-                unhideViewInternal(view);
+                unhideViewInternal(view2);
                 return true;
             } else if (this.mBucket.get(indexOfChild)) {
                 this.mBucket.remove(indexOfChild);
-                unhideViewInternal(view);
+                unhideViewInternal(view2);
                 this.mCallback.removeViewAt(indexOfChild);
                 return true;
             } else {
@@ -449,26 +449,26 @@ public class ChildHelper {
         return (String) invokeV.objValue;
     }
 
-    public void unhide(View view) {
+    public void unhide(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, view) == null) {
-            int indexOfChild = this.mCallback.indexOfChild(view);
+        if (interceptable == null || interceptable.invokeL(1048593, this, view2) == null) {
+            int indexOfChild = this.mCallback.indexOfChild(view2);
             if (indexOfChild >= 0) {
                 if (this.mBucket.get(indexOfChild)) {
                     this.mBucket.clear(indexOfChild);
-                    unhideViewInternal(view);
+                    unhideViewInternal(view2);
                     return;
                 }
-                throw new RuntimeException("trying to unhide a view that was not hidden" + view);
+                throw new RuntimeException("trying to unhide a view that was not hidden" + view2);
             }
-            throw new IllegalArgumentException("view is not a child, cannot hide " + view);
+            throw new IllegalArgumentException("view is not a child, cannot hide " + view2);
         }
     }
 
-    public void addView(View view, int i, boolean z) {
+    public void addView(View view2, int i, boolean z) {
         int offset;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (i < 0) {
                 offset = this.mCallback.getChildCount();
             } else {
@@ -476,9 +476,9 @@ public class ChildHelper {
             }
             this.mBucket.insert(offset, z);
             if (z) {
-                hideViewInternal(view);
+                hideViewInternal(view2);
             }
-            this.mCallback.addView(view, offset);
+            this.mCallback.addView(view2, offset);
         }
     }
 }

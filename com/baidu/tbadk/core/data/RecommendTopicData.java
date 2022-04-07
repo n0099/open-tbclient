@@ -3,8 +3,6 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.h0.e0.n;
-import c.a.p0.h0.e0.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,22 +16,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.gy5;
+import com.repackage.hy5;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RecommendTopicData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public List<RecommendTopicListData> b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f29832b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<RecommendTopicListData> CREATOR;
@@ -46,7 +44,7 @@ public class RecommendTopicData {
         public String topicPic;
         public int type;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -124,17 +122,17 @@ public class RecommendTopicData {
             return invokeV.intValue;
         }
 
-        public n getConvertedCardData() {
+        public gy5 getConvertedCardData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                n nVar = new n();
-                nVar.f15338c = this.tag;
-                nVar.a = this.topicId;
-                nVar.f15337b = this.topicName;
-                return nVar;
+                gy5 gy5Var = new gy5();
+                gy5Var.c = this.tag;
+                gy5Var.a = this.topicId;
+                gy5Var.b = this.topicName;
+                return gy5Var;
             }
-            return (n) invokeV.objValue;
+            return (gy5) invokeV.objValue;
         }
 
         public long getDiscussNum() {
@@ -259,19 +257,19 @@ public class RecommendTopicData {
                 return;
             }
         }
-        this.f29832b = new ArrayList();
+        this.b = new ArrayList();
     }
 
-    public o a() {
+    public hy5 a() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o oVar = new o();
-            oVar.f15341c = b();
-            if (this.f29832b != null) {
+            hy5 hy5Var = new hy5();
+            hy5Var.c = b();
+            if (this.b != null) {
                 arrayList = new ArrayList();
-                for (RecommendTopicListData recommendTopicListData : this.f29832b) {
+                for (RecommendTopicListData recommendTopicListData : this.b) {
                     if (recommendTopicListData != null) {
                         arrayList.add(recommendTopicListData.getConvertedCardData());
                     }
@@ -279,10 +277,10 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            oVar.f15342d = arrayList;
-            return oVar;
+            hy5Var.d = arrayList;
+            return hy5Var;
         }
-        return (o) invokeV.objValue;
+        return (hy5) invokeV.objValue;
     }
 
     public String b() {
@@ -315,7 +313,7 @@ public class RecommendTopicData {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f29832b.add(recommendTopicListData);
+                        this.b.add(recommendTopicListData);
                     }
                 }
             }

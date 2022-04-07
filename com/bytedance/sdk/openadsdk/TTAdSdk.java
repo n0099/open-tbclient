@@ -8,12 +8,12 @@ import android.text.TextUtils;
 import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import com.bytedance.sdk.openadsdk.api.plugin.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TTAdSdk {
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
     public static final TTInitializer a = new g();
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface InitCallback {
         void fail(int i, String str);
 

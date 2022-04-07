@@ -420,10 +420,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         this.mVectorState = new VectorDrawableCompatState();
     }
 
-    public static int applyAlpha(int i, float f2) {
+    public static int applyAlpha(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) ? (i & 16777215) | (((int) (Color.alpha(i) * f2)) << 24) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) (Color.alpha(i) * f)) << 24) : invokeCommon.intValue;
     }
 
     @Nullable
@@ -451,11 +451,11 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                     return createFromXmlInner(resources, (XmlPullParser) xml, asAttributeSet, theme);
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException e2) {
-                Log.e(LOGTAG, "parser error", e2);
+            } catch (IOException e) {
+                Log.e(LOGTAG, "parser error", e);
                 return null;
-            } catch (XmlPullParserException e3) {
-                Log.e(LOGTAG, "parser error", e3);
+            } catch (XmlPullParserException e2) {
+                Log.e(LOGTAG, "parser error", e2);
                 return null;
             }
         }
@@ -825,17 +825,17 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             if (vectorDrawableCompatState == null || (vPathRenderer = vectorDrawableCompatState.mVPathRenderer) == null) {
                 return 1.0f;
             }
-            float f2 = vPathRenderer.mBaseWidth;
-            if (f2 != 0.0f) {
-                float f3 = vPathRenderer.mBaseHeight;
-                if (f3 != 0.0f) {
-                    float f4 = vPathRenderer.mViewportHeight;
-                    if (f4 != 0.0f) {
-                        float f5 = vPathRenderer.mViewportWidth;
-                        if (f5 == 0.0f) {
+            float f = vPathRenderer.mBaseWidth;
+            if (f != 0.0f) {
+                float f2 = vPathRenderer.mBaseHeight;
+                if (f2 != 0.0f) {
+                    float f3 = vPathRenderer.mViewportHeight;
+                    if (f3 != 0.0f) {
+                        float f4 = vPathRenderer.mViewportWidth;
+                        if (f4 == 0.0f) {
                             return 1.0f;
                         }
-                        return Math.min(f5 / f2, f4 / f3);
+                        return Math.min(f4 / f, f3 / f2);
                     }
                     return 1.0f;
                 }
@@ -1042,8 +1042,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspot(float f2, float f3) {
-        super.setHotspot(f2, f3);
+    public /* bridge */ /* synthetic */ void setHotspot(float f, float f2) {
+        super.setHotspot(f, f2);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -1607,10 +1607,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, iArr)) == null) ? this.mStrokeColor.onStateChanged(iArr) | this.mFillColor.onStateChanged(iArr) : invokeL.booleanValue;
         }
 
-        public void setFillAlpha(float f2) {
+        public void setFillAlpha(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-                this.mFillAlpha = f2;
+            if (interceptable == null || interceptable.invokeF(1048589, this, f) == null) {
+                this.mFillAlpha = f;
             }
         }
 
@@ -1621,10 +1621,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public void setStrokeAlpha(float f2) {
+        public void setStrokeAlpha(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-                this.mStrokeAlpha = f2;
+            if (interceptable == null || interceptable.invokeF(1048591, this, f) == null) {
+                this.mStrokeAlpha = f;
             }
         }
 
@@ -1635,31 +1635,31 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             }
         }
 
-        public void setStrokeWidth(float f2) {
+        public void setStrokeWidth(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-                this.mStrokeWidth = f2;
+            if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+                this.mStrokeWidth = f;
             }
         }
 
-        public void setTrimPathEnd(float f2) {
+        public void setTrimPathEnd(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-                this.mTrimPathEnd = f2;
+            if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+                this.mTrimPathEnd = f;
             }
         }
 
-        public void setTrimPathOffset(float f2) {
+        public void setTrimPathOffset(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-                this.mTrimPathOffset = f2;
+            if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+                this.mTrimPathOffset = f;
             }
         }
 
-        public void setTrimPathStart(float f2) {
+        public void setTrimPathStart(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-                this.mTrimPathStart = f2;
+            if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+                this.mTrimPathStart = f;
             }
         }
 
@@ -1771,10 +1771,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             this.mRenderPath = new Path();
         }
 
-        public static float cross(float f2, float f3, float f4, float f5) {
+        public static float cross(float f, float f2, float f3, float f4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? (f2 * f5) - (f3 * f4) : invokeCommon.floatValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? (f * f4) - (f2 * f3) : invokeCommon.floatValue;
         }
 
         private void drawGroupTree(VGroup vGroup, Matrix matrix, Canvas canvas, int i, int i2, ColorFilter colorFilter) {
@@ -1798,12 +1798,12 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
         private void drawPath(VGroup vGroup, VPath vPath, Canvas canvas, int i, int i2, ColorFilter colorFilter) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{vGroup, vPath, canvas, Integer.valueOf(i), Integer.valueOf(i2), colorFilter}) == null) {
-                float f2 = i / this.mViewportWidth;
-                float f3 = i2 / this.mViewportHeight;
-                float min = Math.min(f2, f3);
+                float f = i / this.mViewportWidth;
+                float f2 = i2 / this.mViewportHeight;
+                float min = Math.min(f, f2);
                 Matrix matrix = vGroup.mStackedMatrix;
                 this.mFinalPathMatrix.set(matrix);
-                this.mFinalPathMatrix.postScale(f2, f3);
+                this.mFinalPathMatrix.postScale(f, f2);
                 float matrixScale = getMatrixScale(matrix);
                 if (matrixScale == 0.0f) {
                     return;
@@ -1819,23 +1819,23 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 }
                 VFullPath vFullPath = (VFullPath) vPath;
                 if (vFullPath.mTrimPathStart != 0.0f || vFullPath.mTrimPathEnd != 1.0f) {
-                    float f4 = vFullPath.mTrimPathStart;
-                    float f5 = vFullPath.mTrimPathOffset;
-                    float f6 = (f4 + f5) % 1.0f;
-                    float f7 = (vFullPath.mTrimPathEnd + f5) % 1.0f;
+                    float f3 = vFullPath.mTrimPathStart;
+                    float f4 = vFullPath.mTrimPathOffset;
+                    float f5 = (f3 + f4) % 1.0f;
+                    float f6 = (vFullPath.mTrimPathEnd + f4) % 1.0f;
                     if (this.mPathMeasure == null) {
                         this.mPathMeasure = new PathMeasure();
                     }
                     this.mPathMeasure.setPath(this.mPath, false);
                     float length = this.mPathMeasure.getLength();
+                    float f7 = f5 * length;
                     float f8 = f6 * length;
-                    float f9 = f7 * length;
                     path.reset();
-                    if (f8 > f9) {
-                        this.mPathMeasure.getSegment(f8, length, path, true);
-                        this.mPathMeasure.getSegment(0.0f, f9, path, true);
+                    if (f7 > f8) {
+                        this.mPathMeasure.getSegment(f7, length, path, true);
+                        this.mPathMeasure.getSegment(0.0f, f8, path, true);
                     } else {
-                        this.mPathMeasure.getSegment(f8, f9, path, true);
+                        this.mPathMeasure.getSegment(f7, f8, path, true);
                     }
                     path.rLineTo(0.0f, 0.0f);
                 }
@@ -1949,10 +1949,10 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) ? this.mRootGroup.onStateChanged(iArr) : invokeL.booleanValue;
         }
 
-        public void setAlpha(float f2) {
+        public void setAlpha(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-                setRootAlpha((int) (f2 * 255.0f));
+            if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+                setRootAlpha((int) (f * 255.0f));
             }
         }
 
@@ -2213,66 +2213,66 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             return invokeL.booleanValue;
         }
 
-        public void setPivotX(float f2) {
+        public void setPivotX(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048588, this, f2) == null) || f2 == this.mPivotX) {
+            if (!(interceptable == null || interceptable.invokeF(1048588, this, f) == null) || f == this.mPivotX) {
                 return;
             }
-            this.mPivotX = f2;
+            this.mPivotX = f;
             updateLocalMatrix();
         }
 
-        public void setPivotY(float f2) {
+        public void setPivotY(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048589, this, f2) == null) || f2 == this.mPivotY) {
+            if (!(interceptable == null || interceptable.invokeF(1048589, this, f) == null) || f == this.mPivotY) {
                 return;
             }
-            this.mPivotY = f2;
+            this.mPivotY = f;
             updateLocalMatrix();
         }
 
-        public void setRotation(float f2) {
+        public void setRotation(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048590, this, f2) == null) || f2 == this.mRotate) {
+            if (!(interceptable == null || interceptable.invokeF(1048590, this, f) == null) || f == this.mRotate) {
                 return;
             }
-            this.mRotate = f2;
+            this.mRotate = f;
             updateLocalMatrix();
         }
 
-        public void setScaleX(float f2) {
+        public void setScaleX(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048591, this, f2) == null) || f2 == this.mScaleX) {
+            if (!(interceptable == null || interceptable.invokeF(1048591, this, f) == null) || f == this.mScaleX) {
                 return;
             }
-            this.mScaleX = f2;
+            this.mScaleX = f;
             updateLocalMatrix();
         }
 
-        public void setScaleY(float f2) {
+        public void setScaleY(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048592, this, f2) == null) || f2 == this.mScaleY) {
+            if (!(interceptable == null || interceptable.invokeF(1048592, this, f) == null) || f == this.mScaleY) {
                 return;
             }
-            this.mScaleY = f2;
+            this.mScaleY = f;
             updateLocalMatrix();
         }
 
-        public void setTranslateX(float f2) {
+        public void setTranslateX(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048593, this, f2) == null) || f2 == this.mTranslateX) {
+            if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || f == this.mTranslateX) {
                 return;
             }
-            this.mTranslateX = f2;
+            this.mTranslateX = f;
             updateLocalMatrix();
         }
 
-        public void setTranslateY(float f2) {
+        public void setTranslateY(float f) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeF(1048594, this, f2) == null) || f2 == this.mTranslateY) {
+            if (!(interceptable == null || interceptable.invokeF(1048594, this, f) == null) || f == this.mTranslateY) {
                 return;
             }
-            this.mTranslateY = f2;
+            this.mTranslateY = f;
             updateLocalMatrix();
         }
 

@@ -20,7 +20,7 @@ public final class ChannelsKt__Channels_commonKt$zip$1 extends Lambda implements
     }
 
     @Override // kotlin.jvm.functions.Function2
-    public final Pair<E, R> invoke(E e2, R r) {
-        return TuplesKt.to(e2, r);
+    public final Pair<E, R> invoke(E e, R r) {
+        return TuplesKt.to(e, r);
     }
 }

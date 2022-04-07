@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HeadPendantClickableView extends HeadPendantView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class HeadPendantClickableView extends HeadPendantView {
     public View.OnClickListener o;
     public View.OnClickListener p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,14 +65,14 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             String str;
             String str2;
             String str3;
             String str4;
             String str5;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.m == null || this.a.m.getAuthor() == null || StringUtils.isNull(this.a.m.getAuthor().getName_show()) || StringUtils.isNull(this.a.m.getAuthor().getUserId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.m == null || this.a.m.getAuthor() == null || StringUtils.isNull(this.a.m.getAuthor().getName_show()) || StringUtils.isNull(this.a.m.getAuthor().getUserId())) {
                 return;
             }
             if (this.a.m.isFromHomPage) {
@@ -127,7 +127,7 @@ public class HeadPendantClickableView extends HeadPendantView {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, personInfoActivityConfig));
             }
             if (this.a.o != null) {
-                this.a.o.onClick(view);
+                this.a.o.onClick(view2);
             }
         }
     }
@@ -189,8 +189,8 @@ public class HeadPendantClickableView extends HeadPendantView {
                 jSONObject.put("liveId", str4);
                 jSONObject.put("sid", str5);
                 jSONObject.put("roomInfo", "roomInfo");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
         }
@@ -217,18 +217,18 @@ public class HeadPendantClickableView extends HeadPendantView {
         }
         this.m = threadData;
         MetaData author = threadData.getAuthor();
-        setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f1185));
+        setContentDescription(author.getName_show() + this.n.getString(R.string.obfuscated_res_0x7f0f118d));
         getHeadView().setUserId(author.getUserId());
         getHeadView().setUserName(author.getUserName());
         getHeadView().setUrl(author.getAvater());
         if (author.isDefaultAvatar && UbsABTestHelper.showNewUI()) {
-            getHeadView().J(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f2d), 24, false);
+            getHeadView().K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080f37), 24, false);
         } else if (!StringUtils.isNull(author.getAvater()) && author.getAvater().startsWith("http")) {
-            getHeadView().J(author.getAvater(), 10, false);
+            getHeadView().K(author.getAvater(), 10, false);
         } else if (z) {
-            getHeadView().J(author.getAvater(), 25, false);
+            getHeadView().K(author.getAvater(), 25, false);
         } else {
-            getHeadView().J(author.getAvater(), 28, false);
+            getHeadView().K(author.getAvater(), 28, false);
         }
         j(author, 0);
     }

@@ -11,7 +11,7 @@ import com.airbnb.lottie.model.animatable.AnimatablePointValue;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class GradientStroke implements ContentModel {
     public final ShapeStroke.LineCapType capType;
     @Nullable
@@ -28,7 +28,7 @@ public class GradientStroke implements ContentModel {
     public final AnimatablePointValue startPoint;
     public final AnimatableFloatValue width;
 
-    public GradientStroke(String str, GradientType gradientType, AnimatableGradientColorValue animatableGradientColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatablePointValue animatablePointValue, AnimatablePointValue animatablePointValue2, AnimatableFloatValue animatableFloatValue, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f2, List<AnimatableFloatValue> list, @Nullable AnimatableFloatValue animatableFloatValue2, boolean z) {
+    public GradientStroke(String str, GradientType gradientType, AnimatableGradientColorValue animatableGradientColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatablePointValue animatablePointValue, AnimatablePointValue animatablePointValue2, AnimatableFloatValue animatableFloatValue, ShapeStroke.LineCapType lineCapType, ShapeStroke.LineJoinType lineJoinType, float f, List<AnimatableFloatValue> list, @Nullable AnimatableFloatValue animatableFloatValue2, boolean z) {
         this.name = str;
         this.gradientType = gradientType;
         this.gradientColor = animatableGradientColorValue;
@@ -38,7 +38,7 @@ public class GradientStroke implements ContentModel {
         this.width = animatableFloatValue;
         this.capType = lineCapType;
         this.joinType = lineJoinType;
-        this.miterLimit = f2;
+        this.miterLimit = f;
         this.lineDashPattern = list;
         this.dashOffset = animatableFloatValue2;
         this.hidden = z;

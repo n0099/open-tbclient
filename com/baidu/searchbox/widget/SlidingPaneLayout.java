@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FADE_COLOR = -858993460;
@@ -73,13 +73,13 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public double slideWidthFactor;
 
     /* renamed from: com.baidu.searchbox.widget.SlidingPaneLayout$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,32 +129,32 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        public boolean filter(View view) {
+        public boolean filter(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.this$0.isDimmed(view) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? this.this$0.isDimmed(view2) : invokeL.booleanValue;
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+        public void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, accessibilityEvent) == null) {
-                super.onInitializeAccessibilityEvent(view, accessibilityEvent);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, accessibilityEvent) == null) {
+                super.onInitializeAccessibilityEvent(view2, accessibilityEvent);
                 accessibilityEvent.setClassName(SlidingPaneLayout.class.getName());
             }
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void onInitializeAccessibilityNodeInfo(View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+        public void onInitializeAccessibilityNodeInfo(View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, accessibilityNodeInfoCompat) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, accessibilityNodeInfoCompat) == null) {
                 AccessibilityNodeInfoCompat obtain = AccessibilityNodeInfoCompat.obtain(accessibilityNodeInfoCompat);
-                super.onInitializeAccessibilityNodeInfo(view, obtain);
+                super.onInitializeAccessibilityNodeInfo(view2, obtain);
                 copyNodeInfoNoChildren(accessibilityNodeInfoCompat, obtain);
                 obtain.recycle();
                 accessibilityNodeInfoCompat.setClassName(SlidingPaneLayout.class.getName());
-                accessibilityNodeInfoCompat.setSource(view);
-                ViewParent parentForAccessibility = ViewCompat.getParentForAccessibility(view);
+                accessibilityNodeInfoCompat.setSource(view2);
+                ViewParent parentForAccessibility = ViewCompat.getParentForAccessibility(view2);
                 if (parentForAccessibility instanceof View) {
                     accessibilityNodeInfoCompat.setParent((View) parentForAccessibility);
                 }
@@ -170,32 +170,32 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+        public boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, view, accessibilityEvent)) == null) {
-                if (filter(view)) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, view2, accessibilityEvent)) == null) {
+                if (filter(view2)) {
                     return false;
                 }
-                return super.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent);
+                return super.onRequestSendAccessibilityEvent(viewGroup, view2, accessibilityEvent);
             }
             return invokeLLL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class DisableLayerRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final View mChildView;
         public final /* synthetic */ SlidingPaneLayout this$0;
 
-        public DisableLayerRunnable(SlidingPaneLayout slidingPaneLayout, View view) {
+        public DisableLayerRunnable(SlidingPaneLayout slidingPaneLayout, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {slidingPaneLayout, view};
+                Object[] objArr = {slidingPaneLayout, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -206,7 +206,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 }
             }
             this.this$0 = slidingPaneLayout;
-            this.mChildView = view;
+            this.mChildView = view2;
         }
 
         @Override // java.lang.Runnable
@@ -222,16 +222,16 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface PanelSlideListener {
-        void onPanelClosed(View view);
+        void onPanelClosed(View view2);
 
-        void onPanelOpened(View view);
+        void onPanelOpened(View view2);
 
-        void onPanelSlide(View view, float f2);
+        void onPanelSlide(View view2, float f);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -344,7 +344,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SimplePanelSlideListener implements PanelSlideListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,33 +364,33 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelClosed(View view) {
+        public void onPanelClosed(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelOpened(View view) {
+        public void onPanelOpened(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             }
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelSlide(View view, float f2) {
+        public void onPanelSlide(View view2, float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
+            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) {
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface SlidingPanelLayoutImpl {
-        void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view);
+        void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SlidingPanelLayoutImplBase implements SlidingPanelLayoutImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -410,15 +410,15 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
-        public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view) {
+        public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, slidingPaneLayout, view) == null) {
-                ViewCompat.postInvalidateOnAnimation(slidingPaneLayout, view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+            if (interceptable == null || interceptable.invokeLL(1048576, this, slidingPaneLayout, view2) == null) {
+                ViewCompat.postInvalidateOnAnimation(slidingPaneLayout, view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SlidingPanelLayoutImplJB extends SlidingPanelLayoutImplBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -440,39 +440,39 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
             try {
                 this.mGetDisplayList = View.class.getDeclaredMethod("getDisplayList", null);
-            } catch (NoSuchMethodException e2) {
-                Log.e("SlidingPaneLayout", "Couldn't fetch getDisplayList method; dimming won't work right.", e2);
+            } catch (NoSuchMethodException e) {
+                Log.e("SlidingPaneLayout", "Couldn't fetch getDisplayList method; dimming won't work right.", e);
             }
             try {
                 Field declaredField = View.class.getDeclaredField("mRecreateDisplayList");
                 this.mRecreateDisplayList = declaredField;
                 declaredField.setAccessible(true);
-            } catch (NoSuchFieldException e3) {
-                Log.e("SlidingPaneLayout", "Couldn't fetch mRecreateDisplayList field; dimming will be slow.", e3);
+            } catch (NoSuchFieldException e2) {
+                Log.e("SlidingPaneLayout", "Couldn't fetch mRecreateDisplayList field; dimming will be slow.", e2);
             }
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImplBase, com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
-        public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view) {
+        public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2) {
             Field field;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, slidingPaneLayout, view) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, slidingPaneLayout, view2) == null) {
                 if (this.mGetDisplayList != null && (field = this.mRecreateDisplayList) != null) {
                     try {
-                        field.setBoolean(view, true);
-                        this.mGetDisplayList.invoke(view, null);
-                    } catch (Exception e2) {
-                        Log.e("SlidingPaneLayout", "Error refreshing display list state", e2);
+                        field.setBoolean(view2, true);
+                        this.mGetDisplayList.invoke(view2, null);
+                    } catch (Exception e) {
+                        Log.e("SlidingPaneLayout", "Error refreshing display list state", e);
                     }
-                    super.invalidateChildRegion(slidingPaneLayout, view);
+                    super.invalidateChildRegion(slidingPaneLayout, view2);
                     return;
                 }
-                view.invalidate();
+                view2.invalidate();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SlidingPanelLayoutImplJBMR1 extends SlidingPanelLayoutImplBase {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -492,10 +492,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImplBase, com.baidu.searchbox.widget.SlidingPaneLayout.SlidingPanelLayoutImpl
-        public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view) {
+        public void invalidateChildRegion(SlidingPaneLayout slidingPaneLayout, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, slidingPaneLayout, view) == null) {
-                ViewCompat.setLayerPaint(view, ((LayoutParams) view.getLayoutParams()).dimPaint);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, slidingPaneLayout, view2) == null) {
+                ViewCompat.setLayerPaint(view2, ((LayoutParams) view2.getLayoutParams()).dimPaint);
             }
         }
     }
@@ -541,26 +541,26 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    private void dimChildView(View view, float f2, int i) {
+    private void dimChildView(View view2, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            if (f2 > 0.0f && i != 0) {
-                int i2 = (((int) ((((-16777216) & i) >>> 24) * f2)) << 24) | (i & 16777215);
+        if (interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view2, Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
+            if (f > 0.0f && i != 0) {
+                int i2 = (((int) ((((-16777216) & i) >>> 24) * f)) << 24) | (i & 16777215);
                 if (layoutParams.dimPaint == null) {
                     layoutParams.dimPaint = new Paint();
                 }
                 layoutParams.dimPaint.setColorFilter(new PorterDuffColorFilter(i2, PorterDuff.Mode.SRC_OVER));
-                if (ViewCompat.getLayerType(view) != 2) {
-                    ViewCompat.setLayerType(view, 2, layoutParams.dimPaint);
+                if (ViewCompat.getLayerType(view2) != 2) {
+                    ViewCompat.setLayerType(view2, 2, layoutParams.dimPaint);
                 }
-                invalidateChildRegion(view);
-            } else if (ViewCompat.getLayerType(view) != 0) {
+                invalidateChildRegion(view2);
+            } else if (ViewCompat.getLayerType(view2) != 0) {
                 Paint paint = layoutParams.dimPaint;
                 if (paint != null) {
                     paint.setColorFilter(null);
                 }
-                DisableLayerRunnable disableLayerRunnable = new DisableLayerRunnable(this, view);
+                DisableLayerRunnable disableLayerRunnable = new DisableLayerRunnable(this, view2);
                 this.mPostedRunnables.add(disableLayerRunnable);
                 ViewCompat.postOnAnimation(this, disableLayerRunnable);
             }
@@ -568,19 +568,19 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void invalidateChildRegion(View view) {
+    public void invalidateChildRegion(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, this, view) == null) {
-            IMPL.invalidateChildRegion(this, view);
+        if (interceptable == null || interceptable.invokeL(65554, this, view2) == null) {
+            IMPL.invalidateChildRegion(this, view2);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPanelDragged(int i) {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65555, this, i) == null) && this.mCanSlide && (view = this.mSlideableView) != null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeI(65555, this, i) == null) && this.mCanSlide && (view2 = this.mSlideableView) != null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             float paddingLeft = (i - (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin)) / this.mSlideRange;
             this.mSlideOffset = paddingLeft;
             if (this.mParallaxBy != 0) {
@@ -593,9 +593,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    private void parallaxOtherViews(float f2) {
+    private void parallaxOtherViews(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65557, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(65557, this, f) == null) {
             LayoutParams layoutParams = (LayoutParams) this.mSlideableView.getLayoutParams();
             boolean z = layoutParams.dimWhenOffset && ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin <= 0;
             int childCount = getChildCount();
@@ -603,8 +603,8 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 View childAt = getChildAt(i);
                 if (childAt != this.mSlideableView) {
                     int i2 = this.mParallaxBy;
-                    this.mParallaxOffset = f2;
-                    childAt.offsetLeftAndRight(((int) ((1.0f - this.mParallaxOffset) * i2)) - ((int) ((1.0f - f2) * i2)));
+                    this.mParallaxOffset = f;
+                    childAt.offsetLeftAndRight(((int) ((1.0f - this.mParallaxOffset) * i2)) - ((int) ((1.0f - f) * i2)));
                     if (z) {
                         dimChildView(childAt, 1.0f - this.mParallaxOffset, this.mCoveredFadeColor);
                     }
@@ -613,24 +613,24 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    public static boolean viewIsOpaque(View view) {
+    public static boolean viewIsOpaque(View view2) {
         InterceptResult invokeL;
         Drawable background;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, view)) == null) ? Build.VERSION.SDK_INT < 18 && (background = view.getBackground()) != null && background.getOpacity() == -1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, view2)) == null) ? Build.VERSION.SDK_INT < 18 && (background = view2.getBackground()) != null && background.getOpacity() == -1 : invokeL.booleanValue;
     }
 
     public abstract void attachActivity(Activity activity);
 
-    public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
+    public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
-                int scrollX = view.getScrollX();
-                int scrollY = view.getScrollY();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                int scrollX = view2.getScrollX();
+                int scrollY = view2.getScrollY();
                 for (int childCount = viewGroup.getChildCount() - 1; childCount >= 0; childCount--) {
                     View childAt = viewGroup.getChildAt(childCount);
                     int i5 = i2 + scrollX;
@@ -639,7 +639,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     }
                 }
             }
-            return z && ViewCompat.canScrollHorizontally(view, -i);
+            return z && ViewCompat.canScrollHorizontally(view2, -i);
         }
         return invokeCommon.booleanValue;
     }
@@ -680,35 +680,35 @@ public abstract class SlidingPaneLayout extends ViewGroup {
 
     public abstract void convertActivityToTranslucent();
 
-    public void dispatchOnPanelClosed(View view) {
+    public void dispatchOnPanelClosed(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             PanelSlideListener panelSlideListener = this.mPanelSlideListener;
             if (panelSlideListener != null) {
-                panelSlideListener.onPanelClosed(view);
+                panelSlideListener.onPanelClosed(view2);
             }
             sendAccessibilityEvent(32);
         }
     }
 
-    public void dispatchOnPanelOpened(View view) {
+    public void dispatchOnPanelOpened(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             PanelSlideListener panelSlideListener = this.mPanelSlideListener;
             if (panelSlideListener != null) {
-                panelSlideListener.onPanelOpened(view);
+                panelSlideListener.onPanelOpened(view2);
             }
             sendAccessibilityEvent(32);
         }
     }
 
-    public void dispatchOnPanelSlide(View view) {
+    public void dispatchOnPanelSlide(View view2) {
         PanelSlideListener panelSlideListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (panelSlideListener = this.mPanelSlideListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, view2) == null) || (panelSlideListener = this.mPanelSlideListener) == null) {
             return;
         }
-        panelSlideListener.onPanelSlide(view, this.mSlideOffset);
+        panelSlideListener.onPanelSlide(view2, this.mSlideOffset);
     }
 
     @Override // android.view.View
@@ -724,19 +724,19 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     this.mShadowDrawable.setBounds(left - intrinsicWidth, childAt.getTop(), left, childAt.getBottom());
                     this.mShadowDrawable.draw(canvas);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view2, long j) {
         InterceptResult invokeCommon;
         boolean drawChild;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{canvas, view2, Long.valueOf(j)})) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             int save = canvas.save();
             if (this.mCanSlide && !layoutParams.slideable && this.mSlideableView != null && this.mAutoSlide) {
                 canvas.getClipBounds(this.mTmpRect);
@@ -745,24 +745,24 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 canvas.clipRect(this.mTmpRect);
             }
             if (Build.VERSION.SDK_INT >= 11) {
-                drawChild = super.drawChild(canvas, view, j);
+                drawChild = super.drawChild(canvas, view2, j);
             } else if (layoutParams.dimWhenOffset && this.mSlideOffset > 0.0f) {
-                if (!view.isDrawingCacheEnabled()) {
-                    view.setDrawingCacheEnabled(true);
+                if (!view2.isDrawingCacheEnabled()) {
+                    view2.setDrawingCacheEnabled(true);
                 }
-                Bitmap drawingCache = view.getDrawingCache();
+                Bitmap drawingCache = view2.getDrawingCache();
                 if (drawingCache != null) {
-                    canvas.drawBitmap(drawingCache, view.getLeft(), view.getTop(), layoutParams.dimPaint);
+                    canvas.drawBitmap(drawingCache, view2.getLeft(), view2.getTop(), layoutParams.dimPaint);
                     drawChild = false;
                 } else {
-                    Log.e("SlidingPaneLayout", "drawChild: child view " + view + " returned null drawing cache");
-                    drawChild = super.drawChild(canvas, view, j);
+                    Log.e("SlidingPaneLayout", "drawChild: child view " + view2 + " returned null drawing cache");
+                    drawChild = super.drawChild(canvas, view2, j);
                 }
             } else {
-                if (view.isDrawingCacheEnabled()) {
-                    view.setDrawingCacheEnabled(false);
+                if (view2.isDrawingCacheEnabled()) {
+                    view2.setDrawingCacheEnabled(false);
                 }
-                drawChild = super.drawChild(canvas, view, j);
+                drawChild = super.drawChild(canvas, view2, j);
             }
             canvas.restoreToCount(save);
             return drawChild;
@@ -804,14 +804,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.mSliderFadeColor : invokeV.intValue;
     }
 
-    public boolean isDimmed(View view) {
+    public boolean isDimmed(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, view)) == null) {
-            if (view == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, view2)) == null) {
+            if (view2 == null) {
                 return false;
             }
-            return this.mCanSlide && ((LayoutParams) view.getLayoutParams()).dimWhenOffset && this.mSlideOffset > 0.0f;
+            return this.mCanSlide && ((LayoutParams) view2.getLayoutParams()).dimWhenOffset && this.mSlideOffset > 0.0f;
         }
         return invokeL.booleanValue;
     }
@@ -912,8 +912,8 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 }
                 try {
                     z2 = this.mDragHelper.shouldInterceptTouchEvent(motionEvent);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     z2 = false;
                 }
                 return z2 || z;
@@ -1037,10 +1037,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 Log.e("SlidingPaneLayout", "onMeasure: More than two child views are not supported.");
             }
             this.mSlideableView = null;
-            float f2 = 0.0f;
+            float f = 0.0f;
             int i9 = 0;
             boolean z2 = false;
-            float f3 = 0.0f;
+            float f2 = 0.0f;
             while (true) {
                 i4 = 8;
                 if (i9 >= childCount) {
@@ -1051,9 +1051,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 if (childAt.getVisibility() == 8) {
                     layoutParams.dimWhenOffset = z;
                 } else {
-                    float f4 = layoutParams.weight;
-                    if (f4 > f2) {
-                        f3 += f4;
+                    float f3 = layoutParams.weight;
+                    if (f3 > f) {
+                        f2 += f3;
                         if (((ViewGroup.MarginLayoutParams) layoutParams).width == 0) {
                         }
                     }
@@ -1098,9 +1098,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                 }
                 i9++;
                 z = false;
-                f2 = 0.0f;
+                f = 0.0f;
             }
-            if (z2 || f3 > 0.0f) {
+            if (z2 || f2 > 0.0f) {
                 int i13 = size - this.mOverhangSize;
                 int i14 = 0;
                 while (i14 < childCount) {
@@ -1154,7 +1154,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                                         childAt2.measure(makeMeasureSpec5, makeMeasureSpec);
                                     }
                                 } else {
-                                    childAt2.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2 + ((int) ((layoutParams2.weight * Math.max(0, paddingLeft)) / f3)), 1073741824), makeMeasureSpec);
+                                    childAt2.measure(View.MeasureSpec.makeMeasureSpec(measuredWidth2 + ((int) ((layoutParams2.weight * Math.max(0, paddingLeft)) / f2)), 1073741824), makeMeasureSpec);
                                     i14++;
                                     i4 = 8;
                                 }
@@ -1235,17 +1235,17 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             } else if (isDimmed(this.mSlideableView)) {
                 float x2 = motionEvent.getX();
                 float y2 = motionEvent.getY();
-                float f2 = x2 - this.mInitialMotionX;
-                float f3 = y2 - this.mInitialMotionY;
+                float f = x2 - this.mInitialMotionX;
+                float f2 = y2 - this.mInitialMotionY;
                 int touchSlop = this.mDragHelper.getTouchSlop();
-                if ((f2 * f2) + (f3 * f3) < touchSlop * touchSlop && this.mDragHelper.isViewUnder(this.mSlideableView, (int) x2, (int) y2)) {
+                if ((f * f) + (f2 * f2) < touchSlop * touchSlop && this.mDragHelper.isViewUnder(this.mSlideableView, (int) x2, (int) y2)) {
                     closePane(this.mSlideableView, 0);
                 }
             }
             try {
                 this.mDragHelper.processTouchEvent(motionEvent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return true;
         }
@@ -1259,14 +1259,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestChildFocus(View view, View view2) {
+    public void requestChildFocus(View view2, View view3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, view, view2) == null) {
-            super.requestChildFocus(view, view2);
+        if (interceptable == null || interceptable.invokeLL(1048610, this, view2, view3) == null) {
+            super.requestChildFocus(view2, view3);
             if (isInTouchMode() || this.mCanSlide) {
                 return;
             }
-            this.mPreservedOpenState = view == this.mSlideableView;
+            this.mPreservedOpenState = view2 == this.mSlideableView;
         }
     }
 
@@ -1297,10 +1297,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    public void setCanSlideRegionFactor(double d2) {
+    public void setCanSlideRegionFactor(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.slideWidthFactor = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.slideWidthFactor = d;
         }
     }
 
@@ -1370,15 +1370,15 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    public boolean smoothSlideTo(float f2, int i) {
+    public boolean smoothSlideTo(float f, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
             if (this.mCanSlide) {
-                int paddingLeft = (int) (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.mSlideableView.getLayoutParams())).leftMargin + (f2 * this.mSlideRange));
+                int paddingLeft = (int) (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.mSlideableView.getLayoutParams())).leftMargin + (f * this.mSlideRange));
                 ViewDragHelper viewDragHelper = this.mDragHelper;
-                View view = this.mSlideableView;
-                if (viewDragHelper.smoothSlideViewTo(view, paddingLeft, view.getTop())) {
+                View view2 = this.mSlideableView;
+                if (viewDragHelper.smoothSlideViewTo(view2, paddingLeft, view2.getTop())) {
                     setAllChildrenVisible();
                     ViewCompat.postInvalidateOnAnimation(this);
                     return true;
@@ -1390,41 +1390,41 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         return invokeCommon.booleanValue;
     }
 
-    public void updateObscuredViewsVisibility(View view) {
+    public void updateObscuredViewsVisibility(View view2) {
         int i;
         int i2;
         int i3;
         int i4;
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, view) == null) {
-            View view2 = view;
+        if (interceptable == null || interceptable.invokeL(1048625, this, view2) == null) {
+            View view3 = view2;
             int paddingLeft = getPaddingLeft();
             int width = getWidth() - getPaddingRight();
             int paddingTop = getPaddingTop();
             int height = getHeight() - getPaddingBottom();
-            if (view2 == null || !viewIsOpaque(view)) {
+            if (view3 == null || !viewIsOpaque(view2)) {
                 i = 0;
                 i2 = 0;
                 i3 = 0;
                 i4 = 0;
             } else {
-                i = view.getLeft();
-                i2 = view.getRight();
-                i3 = view.getTop();
-                i4 = view.getBottom();
+                i = view2.getLeft();
+                i2 = view2.getRight();
+                i3 = view2.getTop();
+                i4 = view2.getBottom();
             }
             int childCount = getChildCount();
             int i5 = 0;
-            while (i5 < childCount && (childAt = getChildAt(i5)) != view2) {
+            while (i5 < childCount && (childAt = getChildAt(i5)) != view3) {
                 childAt.setVisibility((Math.max(paddingLeft, childAt.getLeft()) < i || Math.max(paddingTop, childAt.getTop()) < i3 || Math.min(width, childAt.getRight()) > i2 || Math.min(height, childAt.getBottom()) > i4) ? 0 : 4);
                 i5++;
-                view2 = view;
+                view3 = view2;
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class DragHelperCallback extends ViewDragHelper.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1452,10 +1452,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
-        public int clampViewPositionHorizontal(View view, int i, int i2) {
+        public int clampViewPositionHorizontal(View view2, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view, i, i2)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, view2, i, i2)) == null) {
                 int paddingLeft = this.this$0.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.this$0.mSlideableView.getLayoutParams())).leftMargin;
                 return Math.min(Math.max(i, paddingLeft), this.this$0.mSlideRange + paddingLeft);
             }
@@ -1463,10 +1463,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
-        public int getViewHorizontalDragRange(View view) {
+        public int getViewHorizontalDragRange(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? this.this$0.mSlideRange : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) ? this.this$0.mSlideRange : invokeL.intValue;
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
@@ -1488,9 +1488,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
-        public void onViewCaptured(View view, int i) {
+        public void onViewCaptured(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, view, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
                 this.this$0.setAllChildrenVisible();
             }
         }
@@ -1514,9 +1514,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
-        public void onViewPositionChanged(View view, int i, int i2, int i3, int i4) {
+        public void onViewPositionChanged(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
                 this.currX = i;
                 this.this$0.onPanelDragged(i);
                 this.this$0.invalidate();
@@ -1524,18 +1524,18 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
-        public void onViewReleased(View view, float f2, float f3) {
+        public void onViewReleased(View view2, float f, float f2) {
             int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-                int paddingLeft = this.this$0.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) view.getLayoutParams())).leftMargin;
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                int paddingLeft = this.this$0.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) view2.getLayoutParams())).leftMargin;
                 if (this.this$0.mEnableReleaseWhenNoTranslucent || this.this$0.mIsActivityTranslucent) {
-                    int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                    int i2 = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
                     if (i2 != 0 || this.this$0.mSlideOffset <= 0.25f) {
                         if (i2 > 0) {
                             paddingLeft += this.this$0.mSlideRange;
                         }
-                        this.this$0.mDragHelper.settleCapturedViewAt(paddingLeft, view.getTop());
+                        this.this$0.mDragHelper.settleCapturedViewAt(paddingLeft, view2.getTop());
                         this.this$0.invalidate();
                         return;
                     }
@@ -1544,24 +1544,24 @@ public abstract class SlidingPaneLayout extends ViewGroup {
                     } else {
                         i = this.currX + 10;
                     }
-                    this.this$0.mDragHelper.settleCapturedViewAt(paddingLeft + i, view.getTop());
+                    this.this$0.mDragHelper.settleCapturedViewAt(paddingLeft + i, view2.getTop());
                     this.this$0.invalidate();
                 }
             }
         }
 
         @Override // com.baidu.searchbox.widget.ViewDragHelper.Callback
-        public boolean tryCaptureView(View view, int i) {
+        public boolean tryCaptureView(View view2, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i)) == null) {
                 if (this.this$0.mIsUnableToDrag) {
                     return false;
                 }
                 if (!this.this$0.mIsActivityTranslucent) {
                     this.this$0.convertActivityToTranslucent();
                 }
-                return ((LayoutParams) view.getLayoutParams()).slideable;
+                return ((LayoutParams) view2.getLayoutParams()).slideable;
             }
             return invokeLI.booleanValue;
         }
@@ -1571,7 +1571,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public static final int[] ATTRS;
@@ -1750,10 +1750,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         }
     }
 
-    private boolean closePane(View view, int i) {
+    private boolean closePane(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, this, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65552, this, view2, i)) == null) {
             if (this.mFirstLayout || smoothSlideTo(0.0f, i)) {
                 this.mPreservedOpenState = false;
                 return true;
@@ -1763,10 +1763,10 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         return invokeLI.booleanValue;
     }
 
-    private boolean openPane(View view, int i) {
+    private boolean openPane(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, this, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, this, view2, i)) == null) {
             if (this.mFirstLayout || smoothSlideTo(1.0f, i)) {
                 this.mPreservedOpenState = true;
                 return true;
@@ -1811,7 +1811,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         this.mTmpRect = new Rect();
         this.mPostedRunnables = new ArrayList<>();
         this.mAutoSlide = true;
-        float f2 = context.getResources().getDisplayMetrics().density;
+        float f = context.getResources().getDisplayMetrics().density;
         this.mOverhangSize = 5;
         this.mScreenWidth = context.getResources().getDisplayMetrics().widthPixels;
         setWillNotDraw(false);
@@ -1820,6 +1820,6 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         ViewDragHelper create = ViewDragHelper.create(this, 0.5f, new DragHelperCallback(this, null));
         this.mDragHelper = create;
         create.setEdgeTrackingEnabled(1);
-        this.mDragHelper.setMinVelocity(f2 * 400.0f);
+        this.mDragHelper.setMinVelocity(f * 400.0f);
     }
 }

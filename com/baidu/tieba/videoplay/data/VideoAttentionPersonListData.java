@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoAttentionPersonListData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

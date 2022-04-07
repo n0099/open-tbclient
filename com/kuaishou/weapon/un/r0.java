@@ -9,19 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class r0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38966b = "L3Jlc3QvaW5mcmEvZ2RmcC9xL3M=";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f38967c = "L3Jlc3QvaW5mcmEvZ2RmcC9hL3E=";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f38968d = "L2YvYS9w";
+    public static String b = "L3Jlc3QvaW5mcmEvZ2RmcC9xL3M=";
+    public static String c = "L3Jlc3QvaW5mcmEvZ2RmcC9hL3E=";
+    public static String d = "L2YvYS9w";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,9 +32,9 @@ public class r0 {
             }
         }
         a = a();
-        f38966b = k1.b(f38966b, 2);
-        f38967c = k1.b(f38967c, 2);
-        f38968d = k1.b(f38968d, 2);
+        b = k1.b(b, 2);
+        c = k1.b(c, 2);
+        d = k1.b(d, 2);
     }
 
     public r0() {

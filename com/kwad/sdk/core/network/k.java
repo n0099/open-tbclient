@@ -7,12 +7,10 @@ import android.webkit.WebSettings;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.as;
 import java.net.URLEncoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class k {
     public static String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f39585b = "";
+    public static String b = "";
 
     public static String a() {
         if (TextUtils.isEmpty(a)) {
@@ -47,26 +45,26 @@ public final class k {
     }
 
     public static String d() {
-        String f2;
-        if (TextUtils.isEmpty(f39585b)) {
+        String f;
+        if (TextUtils.isEmpty(b)) {
             Context context = KsAdSDKImpl.get().getContext();
             if (context == null) {
                 return "";
             }
             try {
-                f2 = as.f(context);
-                f39585b = f2;
+                f = as.f(context);
+                b = f;
             } catch (Exception unused) {
             }
-            if (TextUtils.isEmpty(f2)) {
-                f39585b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
-                String encode = URLEncoder.encode(f39585b, "UTF-8");
-                f39585b = encode;
+            if (TextUtils.isEmpty(f)) {
+                b = Build.VERSION.SDK_INT >= 17 ? WebSettings.getDefaultUserAgent(context) : System.getProperty("http.agent");
+                String encode = URLEncoder.encode(b, "UTF-8");
+                b = encode;
                 as.j(context, encode);
-                return f39585b;
+                return b;
             }
-            return f39585b;
+            return b;
         }
-        return f39585b;
+        return b;
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXLocationObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXLocationObject";
@@ -35,12 +35,12 @@ public class WXLocationObject implements WXMediaMessage.IMediaObject {
         }
     }
 
-    public WXLocationObject(double d2, double d3) {
+    public WXLocationObject(double d, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3)};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,8 +50,8 @@ public class WXLocationObject implements WXMediaMessage.IMediaObject {
                 return;
             }
         }
-        this.lat = d2;
-        this.lng = d3;
+        this.lat = d;
+        this.lng = d2;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

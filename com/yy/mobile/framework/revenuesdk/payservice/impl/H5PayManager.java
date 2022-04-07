@@ -25,7 +25,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.IH5PayActivityVisit;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class H5PayManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUERY_RESULT_FAIL = 2;
@@ -96,8 +96,8 @@ public class H5PayManager {
                             removeOrderVerifyTask(str);
                             RLog.error(TAG, "dopay error mAct.get() null", new Object[0]);
                         }
-                    } catch (Exception e2) {
-                        RLog.error(TAG, "doPay exception:" + e2.getLocalizedMessage(), new Object[0]);
+                    } catch (Exception e) {
+                        RLog.error(TAG, "doPay exception:" + e.getLocalizedMessage(), new Object[0]);
                         removeOrderVerifyTask(str);
                     }
                     return;

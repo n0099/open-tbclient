@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static String xU = "pro";
@@ -79,12 +79,12 @@ public class c {
                             b.aQ("appId = " + sb.toString());
                         }
                     }
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                 }
                 return sb.toString();
-            } catch (NullPointerException e3) {
-                e3.printStackTrace();
+            } catch (NullPointerException e2) {
+                e2.printStackTrace();
                 return null;
             }
         }

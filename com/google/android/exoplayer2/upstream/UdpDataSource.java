@@ -14,7 +14,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class UdpDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEAFULT_SOCKET_TIMEOUT_MILLIS = 8000;
@@ -32,7 +32,7 @@ public final class UdpDataSource implements DataSource {
     public final int socketTimeoutMillis;
     public Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class UdpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,11 +146,11 @@ public final class UdpDataSource implements DataSource {
                         return -1L;
                     }
                     return -1L;
-                } catch (SocketException e2) {
-                    throw new UdpDataSourceException(e2);
+                } catch (SocketException e) {
+                    throw new UdpDataSourceException(e);
                 }
-            } catch (IOException e3) {
-                throw new UdpDataSourceException(e3);
+            } catch (IOException e2) {
+                throw new UdpDataSourceException(e2);
             }
         }
         return invokeL.longValue;
@@ -173,8 +173,8 @@ public final class UdpDataSource implements DataSource {
                     if (transferListener != null) {
                         transferListener.onBytesTransferred(this, length);
                     }
-                } catch (IOException e2) {
-                    throw new UdpDataSourceException(e2);
+                } catch (IOException e) {
+                    throw new UdpDataSourceException(e);
                 }
             }
             int length2 = this.packet.getLength();

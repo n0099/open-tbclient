@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ReportUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int POINT_CODE_BEGIN_FACE_SURFACE_LIVENESS = 0;

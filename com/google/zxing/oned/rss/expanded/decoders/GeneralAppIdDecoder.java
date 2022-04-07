@@ -17,7 +17,7 @@ import com.google.zxing.common.BitArray;
 import com.kuaishou.weapon.un.w0;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public final class GeneralAppIdDecoder {
 
     private DecodedChar decodeAlphanumeric(int i) {
         InterceptResult invokeI;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 5);
@@ -63,31 +63,31 @@ public final class GeneralAppIdDecoder {
             }
             switch (extractNumericValueFromBitArray2) {
                 case 58:
-                    c2 = '*';
+                    c = '*';
                     break;
                 case 59:
-                    c2 = ',';
+                    c = ',';
                     break;
                 case 60:
-                    c2 = SignatureImpl.SEP;
+                    c = SignatureImpl.SEP;
                     break;
                 case 61:
-                    c2 = IStringUtil.EXTENSION_SEPARATOR;
+                    c = IStringUtil.EXTENSION_SEPARATOR;
                     break;
                 case 62:
-                    c2 = WebvttCueParser.CHAR_SLASH;
+                    c = WebvttCueParser.CHAR_SLASH;
                     break;
                 default:
                     throw new IllegalStateException("Decoding invalid alphanumeric value: " + extractNumericValueFromBitArray2);
             }
-            return new DecodedChar(i + 6, c2);
+            return new DecodedChar(i + 6, c);
         }
         return (DecodedChar) invokeI.objValue;
     }
 
     private DecodedChar decodeIsoIec646(int i) throws FormatException {
         InterceptResult invokeI;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 5);
@@ -104,72 +104,72 @@ public final class GeneralAppIdDecoder {
                 }
                 switch (extractNumericValueFromBitArray(i, 8)) {
                     case w0.c1 /* 232 */:
-                        c2 = '!';
+                        c = '!';
                         break;
                     case WriteActivity.CONTENT_MAX_COUNT /* 233 */:
-                        c2 = Typography.quote;
+                        c = Typography.quote;
                         break;
                     case 234:
-                        c2 = '%';
+                        c = '%';
                         break;
                     case w0.k0 /* 235 */:
-                        c2 = '&';
+                        c = '&';
                         break;
                     case 236:
-                        c2 = '\'';
+                        c = '\'';
                         break;
                     case 237:
-                        c2 = '(';
+                        c = '(';
                         break;
                     case 238:
-                        c2 = ')';
+                        c = ')';
                         break;
                     case 239:
-                        c2 = '*';
+                        c = '*';
                         break;
                     case 240:
-                        c2 = '+';
+                        c = '+';
                         break;
                     case 241:
-                        c2 = ',';
+                        c = ',';
                         break;
                     case w0.i0 /* 242 */:
-                        c2 = SignatureImpl.SEP;
+                        c = SignatureImpl.SEP;
                         break;
                     case 243:
-                        c2 = IStringUtil.EXTENSION_SEPARATOR;
+                        c = IStringUtil.EXTENSION_SEPARATOR;
                         break;
                     case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
-                        c2 = WebvttCueParser.CHAR_SLASH;
+                        c = WebvttCueParser.CHAR_SLASH;
                         break;
                     case 245:
-                        c2 = ':';
+                        c = ':';
                         break;
                     case 246:
-                        c2 = WebvttCueParser.CHAR_SEMI_COLON;
+                        c = WebvttCueParser.CHAR_SEMI_COLON;
                         break;
                     case GDiffPatcher.DATA_USHORT /* 247 */:
-                        c2 = '<';
+                        c = '<';
                         break;
                     case 248:
-                        c2 = '=';
+                        c = '=';
                         break;
                     case 249:
-                        c2 = '>';
+                        c = '>';
                         break;
                     case 250:
-                        c2 = '?';
+                        c = '?';
                         break;
                     case 251:
-                        c2 = '_';
+                        c = '_';
                         break;
                     case 252:
-                        c2 = WebvttCueParser.CHAR_SPACE;
+                        c = WebvttCueParser.CHAR_SPACE;
                         break;
                     default:
                         throw FormatException.getFormatInstance();
                 }
-                return new DecodedChar(i + 8, c2);
+                return new DecodedChar(i + 8, c);
             }
             return new DecodedChar(i + 7, (char) (extractNumericValueFromBitArray2 + 1));
         }

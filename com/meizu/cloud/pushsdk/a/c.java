@@ -10,25 +10,18 @@ import android.view.Display;
 import android.view.WindowManager;
 import com.meizu.cloud.pushsdk.c.f.e;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
+import com.repackage.rm9;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static final String a = "c";
+    public HashMap<String, String> b;
+    public HashMap<String, String> c;
+    public HashMap<String, Object> d;
+    public HashMap<String, Object> e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f41872b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, String> f41873c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, Object> f41874d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Object> f41875e;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public Context a = null;
 
@@ -43,15 +36,15 @@ public class c {
     }
 
     public c(a aVar) {
-        this.f41872b = new HashMap<>();
-        this.f41873c = new HashMap<>();
-        this.f41874d = new HashMap<>();
-        this.f41875e = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        this.d = new HashMap<>();
+        this.e = new HashMap<>();
         e();
         if (aVar.a != null) {
             a(aVar.a);
         }
-        c.h.a.a.a.d(a, "Subject created successfully.");
+        rm9.d(a, "Subject created successfully.");
     }
 
     private void a(Context context, long j) {
@@ -62,28 +55,28 @@ public class c {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f41874d.put(str, obj);
+        this.d.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f41872b.put(str, str2);
+        this.b.put(str, str2);
     }
 
     private void b(String str, Object obj) {
         if ((TextUtils.isEmpty(str) || obj == null) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f41875e.put(str, obj);
+        this.e.put(str, obj);
     }
 
     private void b(String str, String str2) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f41873c.put(str, str2);
+        this.c.put(str, str2);
     }
 
     private long c(Context context) {
@@ -102,29 +95,29 @@ public class c {
     }
 
     private void e() {
-        b(b.f41870g, Build.BRAND);
-        b(b.f41871h, Build.MODEL);
+        b(b.g, Build.BRAND);
+        b(b.h, Build.MODEL);
         b(b.j, Build.VERSION.RELEASE);
         b(b.k, Build.DISPLAY);
         b(b.m, MzSystemUtils.getCurrentLanguage());
     }
 
     private void e(Context context) {
-        Location c2 = e.c(context);
-        if (c2 == null) {
-            c.h.a.a.a.b(a, "Location information not available.");
+        Location c = e.c(context);
+        if (c == null) {
+            rm9.b(a, "Location information not available.");
             return;
         }
-        b(b.B, Double.valueOf(c2.getLongitude()));
-        b(b.C, Double.valueOf(c2.getAltitude()));
-        b(b.D, Double.valueOf(c2.getLatitude()));
+        b(b.B, Double.valueOf(c.getLongitude()));
+        b(b.C, Double.valueOf(c.getAltitude()));
+        b(b.D, Double.valueOf(c.getLatitude()));
     }
 
     private void f(Context context) {
-        a(b.f41865b, MzSystemUtils.getDeviceId(context));
-        a(b.f41866c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
-        a(b.f41867d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
-        a(b.f41868e, MzSystemUtils.getLineNumber(context));
+        a(b.b, MzSystemUtils.getDeviceId(context));
+        a(b.c, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 0)));
+        a(b.d, MzSystemUtils.getSubscriberId(context, MzSystemUtils.getSubId(context, 1)));
+        a(b.e, MzSystemUtils.getLineNumber(context));
         b(b.n, MzSystemUtils.getOperator(context));
     }
 
@@ -136,11 +129,11 @@ public class c {
     }
 
     public Map<String, String> a() {
-        return this.f41872b;
+        return this.b;
     }
 
     public void a(int i, int i2) {
-        this.f41873c.put(b.l, Integer.toString(i) + "." + Integer.toString(i2));
+        this.c.put(b.l, Integer.toString(i) + "." + Integer.toString(i2));
     }
 
     public void a(Context context) {
@@ -152,7 +145,7 @@ public class c {
     }
 
     public Map<String, String> b() {
-        return this.f41873c;
+        return this.c;
     }
 
     @TargetApi(19)
@@ -165,20 +158,20 @@ public class c {
             display.getSize(point);
             a(point.x, point.y);
         } catch (Exception unused) {
-            c.h.a.a.a.b(a, "Display.getSize isn't available on older devices.");
+            rm9.b(a, "Display.getSize isn't available on older devices.");
             if (display != null) {
                 a(display.getWidth(), display.getHeight());
             } else {
-                c.h.a.a.a.b(a, "error get display");
+                rm9.b(a, "error get display");
             }
         }
     }
 
     public Map<String, Object> c() {
-        return this.f41874d;
+        return this.d;
     }
 
     public Map<String, Object> d() {
-        return this.f41875e;
+        return this.e;
     }
 }

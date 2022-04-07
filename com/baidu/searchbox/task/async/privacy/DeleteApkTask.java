@@ -2,12 +2,12 @@ package com.baidu.searchbox.task.async.privacy;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,9 +16,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.sg;
 import java.io.File;
 import java.io.FileFilter;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeleteApkTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DOWNLOAD_DIR;
@@ -97,6 +98,7 @@ public class DeleteApkTask extends LaunchTask {
             })) == null || listFiles.length <= 0) {
                 return;
             }
+            TiebaStatic.log("CheckDeleteApkFileUseful");
             for (File file2 : listFiles) {
                 file2.delete();
             }
@@ -118,7 +120,7 @@ public class DeleteApkTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h.a().b(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
+            sg.a().b(new Runnable(this) { // from class: com.baidu.searchbox.task.async.privacy.DeleteApkTask.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DeleteApkTask this$0;

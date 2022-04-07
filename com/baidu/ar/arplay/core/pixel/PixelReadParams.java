@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PixelReadParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_CACHE_SIZE = 3;
@@ -32,7 +32,7 @@ public class PixelReadParams {
     public ScaleType mScaleType;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class FrameType {
         public static final /* synthetic */ FrameType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class PixelReadParams {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class ScaleType {
         public static final /* synthetic */ ScaleType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

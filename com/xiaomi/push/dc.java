@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.db;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dc extends db.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,7 @@ public class dc extends db.b {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ boolean f209a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f44150b;
+    public final /* synthetic */ String b;
 
     /* renamed from: b  reason: collision with other field name */
     public final /* synthetic */ Date f210b;
@@ -58,7 +56,7 @@ public class dc extends db.b {
         this.f208a = date;
         this.f210b = date2;
         this.f207a = str;
-        this.f44150b = str2;
+        this.b = str2;
         this.f209a = z;
     }
 
@@ -81,12 +79,12 @@ public class dc extends db.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo284c() {
+    public void mo280c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             File file = this.f206a;
             if (file != null && file.exists()) {
-                this.f205a.f199a.add(new db.c(this.f205a, this.f207a, this.f44150b, this.f206a, this.f209a));
+                this.f205a.f199a.add(new db.c(this.f205a, this.f207a, this.b, this.f206a, this.f209a));
             }
             this.f205a.a(0L);
         }

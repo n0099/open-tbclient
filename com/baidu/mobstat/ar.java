@@ -7,7 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,12 +43,12 @@ public class ar {
         at.a().a(activity);
     }
 
-    public static void a(View view, Activity activity) {
+    public static void a(View view2, Activity activity) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, view, activity) == null) || as.a().b() || at.a().b()) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, view2, activity) == null) || as.a().b() || at.a().b()) {
             return;
         }
-        at.a().a(view, activity);
+        at.a().a(view2, activity);
     }
 
     public static void a(KeyEvent keyEvent) {

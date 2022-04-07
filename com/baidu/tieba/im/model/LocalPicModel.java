@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.model;
 
 import android.graphics.Bitmap;
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,8 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LocalPicModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -339604626740227228L;
@@ -25,13 +25,13 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
     public String mSPath;
 
     /* renamed from: com.baidu.tieba.im.model.LocalPicModel$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class GetImageTask extends BdAsyncTask<Object, Integer, ResponseData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ResponseData implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9099542245580007084L;
@@ -165,7 +165,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

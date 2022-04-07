@@ -1,7 +1,7 @@
 package com.baidu.ar.marker;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IMarkerStateListener {
     void onCoordinateResult(int i, double[] dArr);
 

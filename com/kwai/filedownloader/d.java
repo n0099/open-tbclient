@@ -15,32 +15,18 @@ import java.io.File;
 import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d implements a.d, x, x.a, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public t a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Object f41621b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final a f41622c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile byte f41623d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile long f41624e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Throwable f41625f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final s.b f41626g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final s.a f41627h;
+    public final Object b;
+    public final a c;
+    public volatile byte d;
+    public volatile long e;
+    public Throwable f;
+    public final s.b g;
+    public final s.a h;
     public long i;
     public long j;
     public int k;
@@ -49,13 +35,13 @@ public class d implements a.d, x, x.a, x.b {
     public String n;
     public boolean o;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         com.kwai.filedownloader.c.b Q();
 
         a.b R();
 
-        ArrayList<a.InterfaceC2010a> S();
+        ArrayList<a.InterfaceC0350a> S();
 
         void c(String str);
     }
@@ -75,14 +61,14 @@ public class d implements a.d, x, x.a, x.b {
                 return;
             }
         }
-        this.f41623d = (byte) 0;
-        this.f41625f = null;
+        this.d = (byte) 0;
+        this.f = null;
         this.o = false;
-        this.f41621b = obj;
-        this.f41622c = aVar;
+        this.b = obj;
+        this.c = aVar;
         b bVar = new b();
-        this.f41626g = bVar;
-        this.f41627h = bVar;
+        this.g = bVar;
+        this.h = bVar;
         this.a = new k(aVar.R(), this);
     }
 
@@ -90,79 +76,79 @@ public class d implements a.d, x, x.a, x.b {
         t tVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, messageSnapshot) == null) {
-            com.kwai.filedownloader.a F = this.f41622c.R().F();
-            byte b2 = messageSnapshot.b();
-            a(b2);
+            com.kwai.filedownloader.a F = this.c.R().F();
+            byte b = messageSnapshot.b();
+            a(b);
             this.l = messageSnapshot.n();
-            if (b2 == -4) {
-                this.f41626g.a();
+            if (b == -4) {
+                this.g.a();
                 int a2 = h.a().a(F.h());
                 if (a2 + ((a2 > 1 || !F.m()) ? 0 : h.a().a(com.kwai.filedownloader.e.f.b(F.i(), F.o()))) <= 1) {
-                    byte b3 = n.a().b(F.h());
-                    com.kwai.filedownloader.e.d.d(this, "warn, but no mListener to receive, switch to pending %d %d", Integer.valueOf(F.h()), Integer.valueOf(b3));
-                    if (com.kwai.filedownloader.c.d.b(b3)) {
+                    byte b2 = n.a().b(F.h());
+                    com.kwai.filedownloader.e.d.d(this, "warn, but no mListener to receive, switch to pending %d %d", Integer.valueOf(F.h()), Integer.valueOf(b2));
+                    if (com.kwai.filedownloader.c.d.b(b2)) {
                         a((byte) 1);
                         this.j = messageSnapshot.d();
                         long i = messageSnapshot.i();
                         this.i = i;
-                        this.f41626g.a(i);
+                        this.g.a(i);
                         tVar = this.a;
                         messageSnapshot = ((MessageSnapshot.a) messageSnapshot).l();
                         tVar.a(messageSnapshot);
                         return;
                     }
                 }
-                h.a().a(this.f41622c.R(), messageSnapshot);
+                h.a().a(this.c.R(), messageSnapshot);
             }
-            if (b2 == -3) {
+            if (b == -3) {
                 this.o = messageSnapshot.e();
                 this.i = messageSnapshot.d();
                 this.j = messageSnapshot.d();
-            } else if (b2 != -1) {
-                if (b2 == 1) {
+            } else if (b != -1) {
+                if (b == 1) {
                     this.i = messageSnapshot.i();
                     this.j = messageSnapshot.d();
                     tVar = this.a;
                     tVar.a(messageSnapshot);
                     return;
-                } else if (b2 == 2) {
+                } else if (b == 2) {
                     this.j = messageSnapshot.d();
                     this.m = messageSnapshot.g();
                     this.n = messageSnapshot.h();
-                    String f2 = messageSnapshot.f();
-                    if (f2 != null) {
+                    String f = messageSnapshot.f();
+                    if (f != null) {
                         if (F.n() != null) {
-                            com.kwai.filedownloader.e.d.d(this, "already has mFilename[%s], but assign mFilename[%s] again", F.n(), f2);
+                            com.kwai.filedownloader.e.d.d(this, "already has mFilename[%s], but assign mFilename[%s] again", F.n(), f);
                         }
-                        this.f41622c.c(f2);
+                        this.c.c(f);
                     }
-                    this.f41626g.a(this.i);
+                    this.g.a(this.i);
                     this.a.c(messageSnapshot);
                     return;
-                } else if (b2 == 3) {
+                } else if (b == 3) {
                     this.i = messageSnapshot.i();
-                    this.f41626g.c(messageSnapshot.i());
+                    this.g.c(messageSnapshot.i());
                     this.a.d(messageSnapshot);
                     return;
-                } else if (b2 != 5) {
-                    if (b2 != 6) {
+                } else if (b != 5) {
+                    if (b != 6) {
                         return;
                     }
                     this.a.b(messageSnapshot);
                     return;
                 } else {
                     this.i = messageSnapshot.i();
-                    this.f41625f = messageSnapshot.j();
+                    this.f = messageSnapshot.j();
                     this.k = messageSnapshot.k();
-                    this.f41626g.a();
+                    this.g.a();
                     this.a.f(messageSnapshot);
                     return;
                 }
             } else {
-                this.f41625f = messageSnapshot.j();
+                this.f = messageSnapshot.j();
                 this.i = messageSnapshot.i();
             }
-            h.a().a(this.f41622c.R(), messageSnapshot);
+            h.a().a(this.c.R(), messageSnapshot);
         }
     }
 
@@ -170,7 +156,7 @@ public class d implements a.d, x, x.a, x.b {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.kwai.filedownloader.a F = this.f41622c.R().F();
+            com.kwai.filedownloader.a F = this.c.R().F();
             if (F.l() == null) {
                 F.a(com.kwai.filedownloader.e.f.b(F.i()));
                 if (com.kwai.filedownloader.e.d.a) {
@@ -180,11 +166,11 @@ public class d implements a.d, x, x.a, x.b {
             if (F.m()) {
                 file = new File(F.l());
             } else {
-                String h2 = com.kwai.filedownloader.e.f.h(F.l());
-                if (h2 == null) {
+                String h = com.kwai.filedownloader.e.f.h(F.l());
+                if (h == null) {
                     throw new InvalidParameterException(com.kwai.filedownloader.e.f.a("the provided mPath[%s] is invalid, can't find its directory", F.l()));
                 }
-                file = new File(h2);
+                file = new File(h);
             }
             if (!file.exists() && !file.mkdirs() && !file.exists()) {
                 throw new IOException(com.kwai.filedownloader.e.f.a("Create parent directory failed, please make sure you have permission to create file or directory on the path: %s", file.getAbsolutePath()));
@@ -195,7 +181,7 @@ public class d implements a.d, x, x.a, x.b {
     private int r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.f41622c.R().F().h() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.c.R().F().h() : invokeV.intValue;
     }
 
     @Override // com.kwai.filedownloader.x.a
@@ -204,7 +190,7 @@ public class d implements a.d, x, x.a, x.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, th)) == null) {
             a((byte) -1);
-            this.f41625f = th;
+            this.f = th;
             return com.kwai.filedownloader.message.f.a(r(), j(), th);
         }
         return (MessageSnapshot) invokeL.objValue;
@@ -215,7 +201,7 @@ public class d implements a.d, x, x.a, x.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (l.b()) {
-                l.a().b(this.f41622c.R().F());
+                l.a().b(this.c.R().F());
             }
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.e(this, "filedownloader:lifecycle:start %s by %d ", toString(), Byte.valueOf(g()));
@@ -223,11 +209,11 @@ public class d implements a.d, x, x.a, x.b {
         }
     }
 
-    public void a(byte b2) {
+    public void a(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
-            this.f41623d = b2;
-            this.f41624e = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+            this.d = b;
+            this.e = System.currentTimeMillis();
         }
     }
 
@@ -241,7 +227,7 @@ public class d implements a.d, x, x.a, x.b {
                 return true;
             }
             if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "can't update mStatus change by keep ahead, %d, but the current mStatus is %d, %d", Byte.valueOf(this.f41623d), Byte.valueOf(g()), Integer.valueOf(r()));
+                com.kwai.filedownloader.e.d.c(this, "can't update mStatus change by keep ahead, %d, but the current mStatus is %d, %d", Byte.valueOf(this.d), Byte.valueOf(g()), Integer.valueOf(r()));
             }
             return false;
         }
@@ -252,7 +238,7 @@ public class d implements a.d, x, x.a, x.b {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41627h.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h.b() : invokeV.intValue;
     }
 
     @Override // com.kwai.filedownloader.x.a
@@ -260,19 +246,19 @@ public class d implements a.d, x, x.a, x.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, messageSnapshot)) == null) {
-            byte g2 = g();
-            byte b2 = messageSnapshot.b();
-            if (-2 == g2 && com.kwai.filedownloader.c.d.b(b2)) {
+            byte g = g();
+            byte b = messageSnapshot.b();
+            if (-2 == g && com.kwai.filedownloader.c.d.b(b)) {
                 if (com.kwai.filedownloader.e.d.a) {
                     com.kwai.filedownloader.e.d.c(this, "High concurrent cause, callback pending, but has already be paused %d", Integer.valueOf(r()));
                 }
                 return true;
-            } else if (com.kwai.filedownloader.c.d.b(g2, b2)) {
+            } else if (com.kwai.filedownloader.c.d.b(g, b)) {
                 e(messageSnapshot);
                 return true;
             } else {
                 if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(this, "can't update mStatus change by keep flow, %d, but the current mStatus is %d, %d", Byte.valueOf(this.f41623d), Byte.valueOf(g()), Integer.valueOf(r()));
+                    com.kwai.filedownloader.e.d.c(this, "can't update mStatus change by keep flow, %d, but the current mStatus is %d, %d", Byte.valueOf(this.d), Byte.valueOf(g()), Integer.valueOf(r()));
                 }
                 return false;
             }
@@ -284,22 +270,22 @@ public class d implements a.d, x, x.a, x.b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            com.kwai.filedownloader.a F = this.f41622c.R().F();
+            com.kwai.filedownloader.a F = this.c.R().F();
             if (l.b()) {
                 l.a().d(F);
             }
             if (com.kwai.filedownloader.e.d.a) {
                 com.kwai.filedownloader.e.d.e(this, "filedownloader:lifecycle:over %s by %d ", toString(), Byte.valueOf(g()));
             }
-            this.f41626g.b(this.i);
-            if (this.f41622c.S() != null) {
-                ArrayList arrayList = (ArrayList) this.f41622c.S().clone();
+            this.g.b(this.i);
+            if (this.c.S() != null) {
+                ArrayList arrayList = (ArrayList) this.c.S().clone();
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
-                    ((a.InterfaceC2010a) arrayList.get(i)).a(F);
+                    ((a.InterfaceC0350a) arrayList.get(i)).a(F);
                 }
             }
-            r.a().e().b(this.f41622c.R());
+            r.a().e().b(this.c.R());
         }
     }
 
@@ -308,7 +294,7 @@ public class d implements a.d, x, x.a, x.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, messageSnapshot)) == null) {
-            if (com.kwai.filedownloader.c.d.a(this.f41622c.R().F())) {
+            if (com.kwai.filedownloader.c.d.a(this.c.R().F())) {
                 e(messageSnapshot);
                 return true;
             }
@@ -329,7 +315,7 @@ public class d implements a.d, x, x.a, x.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, messageSnapshot)) == null) {
-            if (this.f41622c.R().F().m() && messageSnapshot.b() == -4 && g() == 2) {
+            if (this.c.R().F().m() && messageSnapshot.b() == -4 && g() == 2) {
                 e(messageSnapshot);
                 return true;
             }
@@ -343,13 +329,13 @@ public class d implements a.d, x, x.a, x.b {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this.f41621b) {
-                if (this.f41623d != 0) {
-                    com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will not input to launch pool, because of the status isn't idle : %d", Integer.valueOf(r()), Byte.valueOf(this.f41623d));
+            synchronized (this.b) {
+                if (this.d != 0) {
+                    com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will not input to launch pool, because of the status isn't idle : %d", Integer.valueOf(r()), Byte.valueOf(this.d));
                     return;
                 }
                 a((byte) 10);
-                a.b R = this.f41622c.R();
+                a.b R = this.c.R();
                 com.kwai.filedownloader.a F = R.F();
                 if (l.b()) {
                     l.a().a(F);
@@ -379,7 +365,7 @@ public class d implements a.d, x, x.a, x.b {
     public void e_() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && l.b() && g() == 6) {
-            l.a().c(this.f41622c.R().F());
+            l.a().c(this.c.R().F());
         }
     }
 
@@ -390,12 +376,12 @@ public class d implements a.d, x, x.a, x.b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (com.kwai.filedownloader.c.d.a(g())) {
                 if (com.kwai.filedownloader.e.d.a) {
-                    com.kwai.filedownloader.e.d.c(this, "High concurrent cause, Already is over, can't pause again, %d %d", Byte.valueOf(g()), Integer.valueOf(this.f41622c.R().F().h()));
+                    com.kwai.filedownloader.e.d.c(this, "High concurrent cause, Already is over, can't pause again, %d %d", Byte.valueOf(g()), Integer.valueOf(this.c.R().F().h()));
                 }
                 return false;
             }
             a((byte) -2);
-            a.b R = this.f41622c.R();
+            a.b R = this.c.R();
             com.kwai.filedownloader.a F = R.F();
             q.a().b(this);
             if (com.kwai.filedownloader.e.d.a) {
@@ -418,21 +404,21 @@ public class d implements a.d, x, x.a, x.b {
     public byte g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f41623d : invokeV.byteValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.d : invokeV.byteValue;
     }
 
     @Override // com.kwai.filedownloader.x
     public long h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f41624e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.e : invokeV.longValue;
     }
 
     @Override // com.kwai.filedownloader.x
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            this.f41625f = null;
+            this.f = null;
             this.n = null;
             this.m = false;
             this.k = 0;
@@ -440,12 +426,12 @@ public class d implements a.d, x, x.a, x.b {
             this.l = false;
             this.i = 0L;
             this.j = 0L;
-            this.f41626g.a();
-            if (com.kwai.filedownloader.c.d.a(this.f41623d)) {
+            this.g.a();
+            if (com.kwai.filedownloader.c.d.a(this.d)) {
                 this.a.e();
-                this.a = new k(this.f41622c.R(), this);
+                this.a = new k(this.c.R(), this);
             } else {
-                this.a.a(this.f41622c.R(), this);
+                this.a.a(this.c.R(), this);
             }
             a((byte) 0);
         }
@@ -469,7 +455,7 @@ public class d implements a.d, x, x.a, x.b {
     public Throwable l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f41625f : (Throwable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f : (Throwable) invokeV.objValue;
     }
 
     @Override // com.kwai.filedownloader.x
@@ -491,7 +477,7 @@ public class d implements a.d, x, x.a, x.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             if (com.kwai.filedownloader.e.d.a) {
-                com.kwai.filedownloader.e.d.c(this, "free the task %d, when the status is %d", Integer.valueOf(r()), Byte.valueOf(this.f41623d));
+                com.kwai.filedownloader.e.d.c(this, "free the task %d, when the status is %d", Integer.valueOf(r()), Byte.valueOf(this.d));
             }
             a((byte) 0);
         }
@@ -501,20 +487,20 @@ public class d implements a.d, x, x.a, x.b {
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            if (this.f41623d != 10) {
-                com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will not start, because the of status isn't toLaunchPool: %d", Integer.valueOf(r()), Byte.valueOf(this.f41623d));
+            if (this.d != 10) {
+                com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will not start, because the of status isn't toLaunchPool: %d", Integer.valueOf(r()), Byte.valueOf(this.d));
                 return;
             }
-            a.b R = this.f41622c.R();
+            a.b R = this.c.R();
             com.kwai.filedownloader.a F = R.F();
-            v e2 = r.a().e();
+            v e = r.a().e();
             try {
-                if (e2.c(R)) {
+                if (e.c(R)) {
                     return;
                 }
-                synchronized (this.f41621b) {
-                    if (this.f41623d != 10) {
-                        com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will not start, the status can't assign to toFileDownloadService, because the status isn't toLaunchPool: %d", Integer.valueOf(r()), Byte.valueOf(this.f41623d));
+                synchronized (this.b) {
+                    if (this.d != 10) {
+                        com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will not start, the status can't assign to toFileDownloadService, because the status isn't toLaunchPool: %d", Integer.valueOf(r()), Byte.valueOf(this.d));
                         return;
                     }
                     a(Constants.GZIP_CAST_TYPE);
@@ -522,19 +508,19 @@ public class d implements a.d, x, x.a, x.b {
                     if (com.kwai.filedownloader.e.c.a(F.h(), F.o(), F.x(), true)) {
                         return;
                     }
-                    boolean a2 = n.a().a(F.i(), F.l(), F.m(), F.j(), F.k(), F.A(), F.x(), this.f41622c.Q(), F.E());
-                    if (this.f41623d == -2) {
+                    boolean a2 = n.a().a(F.i(), F.l(), F.m(), F.j(), F.k(), F.A(), F.x(), this.c.Q(), F.E());
+                    if (this.d == -2) {
                         com.kwai.filedownloader.e.d.d(this, "High concurrent cause, this task %d will be paused,because of the status is paused, so the pause action must be applied", Integer.valueOf(r()));
                         if (a2) {
                             n.a().a(r());
                         }
                     } else if (a2) {
-                        e2.b(R);
-                    } else if (e2.c(R)) {
+                        e.b(R);
+                    } else if (e.c(R)) {
                     } else {
                         MessageSnapshot a3 = a(new RuntimeException("Occur Unknown Error, when request to start maybe some problem in binder, maybe the process was killed in unexpected."));
                         if (h.a().a(R)) {
-                            e2.b(R);
+                            e.b(R);
                             h.a().b(R);
                         }
                         h.a().a(R, a3);

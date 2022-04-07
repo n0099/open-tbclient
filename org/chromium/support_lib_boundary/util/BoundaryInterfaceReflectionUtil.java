@@ -63,10 +63,10 @@ public class BoundaryInterfaceReflectionUtil {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, method, objArr)) == null) {
                 try {
                     return BoundaryInterfaceReflectionUtil.dupeMethod(method, this.mDelegate.getClass().getClassLoader()).invoke(this.mDelegate, objArr);
-                } catch (InvocationTargetException e2) {
-                    throw e2.getTargetException();
-                } catch (ReflectiveOperationException e3) {
-                    throw new RuntimeException("Reflection failed for method " + method, e3);
+                } catch (InvocationTargetException e) {
+                    throw e.getTargetException();
+                } catch (ReflectiveOperationException e2) {
+                    throw new RuntimeException("Reflection failed for method " + method, e2);
                 }
             }
             return invokeLLL.objValue;

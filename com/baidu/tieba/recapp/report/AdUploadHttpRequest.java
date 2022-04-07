@@ -1,8 +1,6 @@
 package com.baidu.tieba.recapp.report;
 
 import android.os.Build;
-import c.a.d.f.p.l;
-import c.a.p0.l3.m0.c;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,12 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.sc8;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AdUploadHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD = "ad";
@@ -28,10 +28,10 @@ public class AdUploadHttpRequest extends HttpMessage {
     public static final String KEY_OS_VERSION = "_os_version";
     public static final String KEY_PRODUCT_ID = "productId";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<c> dataArray;
+    public ArrayList<sc8> dataArray;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdUploadHttpRequest(ArrayList<c> arrayList) {
+    public AdUploadHttpRequest(ArrayList<sc8> arrayList) {
         super(CmdConfigHttp.CMD_AD_UPLOAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -48,18 +48,18 @@ public class AdUploadHttpRequest extends HttpMessage {
                 return;
             }
         }
-        ArrayList<c> arrayList2 = new ArrayList<>();
+        ArrayList<sc8> arrayList2 = new ArrayList<>();
         this.dataArray = arrayList2;
         arrayList2.addAll(arrayList);
         addParam("ad", toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
         addParam(KEY_PRODUCT_ID, 2);
-        addParam("net_type", l.I());
+        addParam("net_type", mi.I());
         addParam(KEY_OS_TYPE, 2);
     }
 
-    private String toJSONString(ArrayList<c> arrayList) {
+    private String toJSONString(ArrayList<sc8> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, arrayList)) == null) {
@@ -67,9 +67,9 @@ public class AdUploadHttpRequest extends HttpMessage {
                 return null;
             }
             JSONArray jSONArray = new JSONArray();
-            Iterator<c> it = arrayList.iterator();
+            Iterator<sc8> it = arrayList.iterator();
             while (it.hasNext()) {
-                c next = it.next();
+                sc8 next = it.next();
                 if (next != null) {
                     jSONArray.put(next.b());
                 }
@@ -79,7 +79,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         return (String) invokeL.objValue;
     }
 
-    public ArrayList<c> getDataArray() {
+    public ArrayList<sc8> getDataArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.dataArray : (ArrayList) invokeV.objValue;
@@ -102,13 +102,13 @@ public class AdUploadHttpRequest extends HttpMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdUploadHttpRequest(c cVar) {
+    public AdUploadHttpRequest(sc8 sc8Var) {
         super(CmdConfigHttp.CMD_AD_UPLOAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
+            Object[] objArr = {sc8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -119,9 +119,9 @@ public class AdUploadHttpRequest extends HttpMessage {
                 return;
             }
         }
-        ArrayList<c> arrayList = new ArrayList<>();
+        ArrayList<sc8> arrayList = new ArrayList<>();
         this.dataArray = arrayList;
-        arrayList.add(cVar);
+        arrayList.add(sc8Var);
         addParam("ad", toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);

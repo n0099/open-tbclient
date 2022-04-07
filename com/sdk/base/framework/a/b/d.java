@@ -30,7 +30,7 @@ public final class d {
                 return;
             }
         }
-        a = Boolean.valueOf(f.f42567b);
+        a = Boolean.valueOf(f.b);
     }
 
     public d() {
@@ -83,14 +83,14 @@ public final class d {
                         if (cVar != null) {
                             cVar.a(contentLength, j2, true);
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         com.sdk.base.framework.a.a.c.b("StringDownloadHandler", e.getMessage(), a);
                         if (sb != null) {
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     sb = null;
                 }
             } else {

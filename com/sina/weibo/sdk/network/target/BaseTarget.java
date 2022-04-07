@@ -39,9 +39,9 @@ public abstract class BaseTarget<E> implements Target<E> {
     }
 
     @Override // com.sina.weibo.sdk.network.target.Target
-    public void onRequestSuccessBg(E e2) {
+    public void onRequestSuccessBg(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e) == null) {
         }
     }
 

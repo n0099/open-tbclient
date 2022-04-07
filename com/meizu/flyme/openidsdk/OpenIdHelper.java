@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class OpenIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OpenIdHelper";
@@ -34,7 +34,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f42233c);
+            return a.a(context.getApplicationContext(), a.c);
         }
         return (String) invokeL.objValue;
     }
@@ -44,7 +44,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f42232b);
+            return a.a(context.getApplicationContext(), a.b);
         }
         return (String) invokeL.objValue;
     }
@@ -64,7 +64,7 @@ public class OpenIdHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             b a = b.a();
-            return a.a(context.getApplicationContext(), a.f42234d);
+            return a.a(context.getApplicationContext(), a.d);
         }
         return (String) invokeL.objValue;
     }
@@ -78,8 +78,8 @@ public class OpenIdHelper {
                 Method method = Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]);
                 method.setAccessible(true);
                 context = (Context) method.invoke(null, new Object[0]);
-            } catch (Exception e2) {
-                Log.e(TAG, "ActivityThread:currentApplication --> " + e2.toString());
+            } catch (Exception e) {
+                Log.e(TAG, "ActivityThread:currentApplication --> " + e.toString());
             }
             if (context == null) {
                 return false;

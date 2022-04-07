@@ -53,42 +53,42 @@ public class ViewUtilsBase {
             Method declaredMethod = View.class.getDeclaredMethod("setFrame", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             sSetFrameMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve setFrame method", e2);
+        } catch (NoSuchMethodException e) {
+            Log.i(TAG, "Failed to retrieve setFrame method", e);
         }
         sSetFrameFetched = true;
     }
 
-    public void clearNonTransitionAlpha(@NonNull View view) {
+    public void clearNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getVisibility() == 0) {
-            view.setTag(R$id.save_non_transition_alpha, null);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getVisibility() == 0) {
+            view2.setTag(R$id.save_non_transition_alpha, null);
         }
     }
 
-    public float getTransitionAlpha(@NonNull View view) {
+    public float getTransitionAlpha(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) {
-            Float f2 = (Float) view.getTag(R$id.save_non_transition_alpha);
-            if (f2 != null) {
-                return view.getAlpha() / f2.floatValue();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            Float f = (Float) view2.getTag(R$id.save_non_transition_alpha);
+            if (f != null) {
+                return view2.getAlpha() / f.floatValue();
             }
-            return view.getAlpha();
+            return view2.getAlpha();
         }
         return invokeL.floatValue;
     }
 
-    public void saveNonTransitionAlpha(@NonNull View view) {
+    public void saveNonTransitionAlpha(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view.getTag(R$id.save_non_transition_alpha) == null) {
-            view.setTag(R$id.save_non_transition_alpha, Float.valueOf(view.getAlpha()));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getTag(R$id.save_non_transition_alpha) == null) {
+            view2.setTag(R$id.save_non_transition_alpha, Float.valueOf(view2.getAlpha()));
         }
     }
 
-    public void setAnimationMatrix(@NonNull View view, @Nullable Matrix matrix) {
+    public void setAnimationMatrix(@NonNull View view2, @Nullable Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, view, matrix) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, view2, matrix) == null) {
             if (matrix != null && !matrix.isIdentity()) {
                 float[] fArr = this.mMatrixValues;
                 if (fArr == null) {
@@ -96,63 +96,63 @@ public class ViewUtilsBase {
                     this.mMatrixValues = fArr;
                 }
                 matrix.getValues(fArr);
-                float f2 = fArr[3];
-                float sqrt = ((float) Math.sqrt(1.0f - (f2 * f2))) * (fArr[0] < 0.0f ? -1 : 1);
-                float degrees = (float) Math.toDegrees(Math.atan2(f2, sqrt));
-                float f3 = fArr[0] / sqrt;
-                float f4 = fArr[4] / sqrt;
-                float f5 = fArr[2];
-                float f6 = fArr[5];
-                view.setPivotX(0.0f);
-                view.setPivotY(0.0f);
-                view.setTranslationX(f5);
-                view.setTranslationY(f6);
-                view.setRotation(degrees);
-                view.setScaleX(f3);
-                view.setScaleY(f4);
+                float f = fArr[3];
+                float sqrt = ((float) Math.sqrt(1.0f - (f * f))) * (fArr[0] < 0.0f ? -1 : 1);
+                float degrees = (float) Math.toDegrees(Math.atan2(f, sqrt));
+                float f2 = fArr[0] / sqrt;
+                float f3 = fArr[4] / sqrt;
+                float f4 = fArr[2];
+                float f5 = fArr[5];
+                view2.setPivotX(0.0f);
+                view2.setPivotY(0.0f);
+                view2.setTranslationX(f4);
+                view2.setTranslationY(f5);
+                view2.setRotation(degrees);
+                view2.setScaleX(f2);
+                view2.setScaleY(f3);
                 return;
             }
-            view.setPivotX(view.getWidth() / 2);
-            view.setPivotY(view.getHeight() / 2);
-            view.setTranslationX(0.0f);
-            view.setTranslationY(0.0f);
-            view.setScaleX(1.0f);
-            view.setScaleY(1.0f);
-            view.setRotation(0.0f);
+            view2.setPivotX(view2.getWidth() / 2);
+            view2.setPivotY(view2.getHeight() / 2);
+            view2.setTranslationX(0.0f);
+            view2.setTranslationY(0.0f);
+            view2.setScaleX(1.0f);
+            view2.setScaleY(1.0f);
+            view2.setRotation(0.0f);
         }
     }
 
-    public void setLeftTopRightBottom(@NonNull View view, int i, int i2, int i3, int i4) {
+    public void setLeftTopRightBottom(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             fetchSetFrame();
             Method method = sSetFrameMethod;
             if (method != null) {
                 try {
-                    method.invoke(view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
+                    method.invoke(view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4));
                 } catch (IllegalAccessException unused) {
-                } catch (InvocationTargetException e2) {
-                    throw new RuntimeException(e2.getCause());
+                } catch (InvocationTargetException e) {
+                    throw new RuntimeException(e.getCause());
                 }
             }
         }
     }
 
-    public void setTransitionAlpha(@NonNull View view, float f2) {
+    public void setTransitionAlpha(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048581, this, view, f2) == null) {
-            Float f3 = (Float) view.getTag(R$id.save_non_transition_alpha);
-            if (f3 != null) {
-                view.setAlpha(f3.floatValue() * f2);
+        if (interceptable == null || interceptable.invokeLF(1048581, this, view2, f) == null) {
+            Float f2 = (Float) view2.getTag(R$id.save_non_transition_alpha);
+            if (f2 != null) {
+                view2.setAlpha(f2.floatValue() * f);
             } else {
-                view.setAlpha(f2);
+                view2.setAlpha(f);
             }
         }
     }
 
-    public void setTransitionVisibility(@NonNull View view, int i) {
+    public void setTransitionVisibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, view2, i) == null) {
             if (!sViewFlagsFieldFetched) {
                 try {
                     Field declaredField = View.class.getDeclaredField("mViewFlags");
@@ -166,24 +166,24 @@ public class ViewUtilsBase {
             Field field = sViewFlagsField;
             if (field != null) {
                 try {
-                    sViewFlagsField.setInt(view, i | (field.getInt(view) & (-13)));
+                    sViewFlagsField.setInt(view2, i | (field.getInt(view2) & (-13)));
                 } catch (IllegalAccessException unused2) {
                 }
             }
         }
     }
 
-    public void transformMatrixToGlobal(@NonNull View view, @NonNull Matrix matrix) {
+    public void transformMatrixToGlobal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, view, matrix) == null) {
-            ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLL(1048583, this, view2, matrix) == null) {
+            ViewParent parent = view2.getParent();
             if (parent instanceof View) {
-                View view2 = (View) parent;
-                transformMatrixToGlobal(view2, matrix);
-                matrix.preTranslate(-view2.getScrollX(), -view2.getScrollY());
+                View view3 = (View) parent;
+                transformMatrixToGlobal(view3, matrix);
+                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
             }
-            matrix.preTranslate(view.getLeft(), view.getTop());
-            Matrix matrix2 = view.getMatrix();
+            matrix.preTranslate(view2.getLeft(), view2.getTop());
+            Matrix matrix2 = view2.getMatrix();
             if (matrix2.isIdentity()) {
                 return;
             }
@@ -191,17 +191,17 @@ public class ViewUtilsBase {
         }
     }
 
-    public void transformMatrixToLocal(@NonNull View view, @NonNull Matrix matrix) {
+    public void transformMatrixToLocal(@NonNull View view2, @NonNull Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, matrix) == null) {
-            ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, matrix) == null) {
+            ViewParent parent = view2.getParent();
             if (parent instanceof View) {
-                View view2 = (View) parent;
-                transformMatrixToLocal(view2, matrix);
-                matrix.postTranslate(view2.getScrollX(), view2.getScrollY());
+                View view3 = (View) parent;
+                transformMatrixToLocal(view3, matrix);
+                matrix.postTranslate(view3.getScrollX(), view3.getScrollY());
             }
-            matrix.postTranslate(-view.getLeft(), -view.getTop());
-            Matrix matrix2 = view.getMatrix();
+            matrix.postTranslate(-view2.getLeft(), -view2.getTop());
+            Matrix matrix2 = view2.getMatrix();
             if (matrix2.isIdentity()) {
                 return;
             }

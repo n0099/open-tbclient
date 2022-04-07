@@ -32,12 +32,12 @@ public class RangesKt__RangesKt {
     }
 
     @SinceKotlin(version = "1.1")
-    public static final ClosedFloatingPointRange<Double> rangeTo(double d2, double d3) {
-        return new ClosedDoubleRange(d2, d3);
+    public static final ClosedFloatingPointRange<Double> rangeTo(double d, double d2) {
+        return new ClosedDoubleRange(d, d2);
     }
 
     @SinceKotlin(version = "1.1")
-    public static final ClosedFloatingPointRange<Float> rangeTo(float f2, float f3) {
-        return new ClosedFloatRange(f2, f3);
+    public static final ClosedFloatingPointRange<Float> rangeTo(float f, float f2) {
+        return new ClosedFloatRange(f, f2);
     }
 }

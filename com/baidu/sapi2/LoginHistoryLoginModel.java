@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoginHistoryLoginModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long SECONDS_OF_ONE_DAY = 86400;
@@ -99,8 +99,8 @@ public class LoginHistoryLoginModel {
             }
             try {
                 jSONArray = new JSONArray(loginHistoryUserInfoJson);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return AccountLoginAction.convertJson2ActionList(jSONArray);
         }

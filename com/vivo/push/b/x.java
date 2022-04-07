@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class x extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, String> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f43852b;
+    public long b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x() {
@@ -49,7 +47,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             aVar.a("ReporterCommand.EXTRA_PARAMS", this.a);
-            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.f43852b);
+            aVar.a("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
         }
     }
 
@@ -58,7 +56,7 @@ public final class x extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             this.a = (HashMap) aVar.d("ReporterCommand.EXTRA_PARAMS");
-            this.f43852b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.f43852b);
+            this.b = aVar.b("ReporterCommand.EXTRA_REPORTER_TYPE", this.b);
         }
     }
 
@@ -67,7 +65,7 @@ public final class x extends com.vivo.push.o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ReporterCommand（" + this.f43852b + SmallTailInfo.EMOTION_SUFFIX;
+            return "ReporterCommand（" + this.b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +88,7 @@ public final class x extends com.vivo.push.o {
                 return;
             }
         }
-        this.f43852b = j;
+        this.b = j;
     }
 
     public final void d() {
@@ -101,7 +99,7 @@ public final class x extends com.vivo.push.o {
                 return;
             }
             StringBuilder sb = new StringBuilder("report message reportType:");
-            sb.append(this.f43852b);
+            sb.append(this.b);
             sb.append(",msgId:");
             String str = this.a.get("messageID");
             if (TextUtils.isEmpty(str)) {

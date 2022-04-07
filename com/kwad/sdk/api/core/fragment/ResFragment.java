@@ -21,7 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.kwad.sdk.api.core.ComponentDestroyer;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ResFragment extends DelegateFragment {
     public ResFragment() {
         super(new KsFragment(null));
@@ -43,7 +43,7 @@ public class ResFragment extends DelegateFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment, c.b.b.l.a.a
+    @Override // androidx.fragment.app.Fragment, com.repackage.d2
     @Nullable
     public Context getContext() {
         if (super.getContext() == null) {
@@ -111,8 +111,8 @@ public class ResFragment extends DelegateFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment, android.view.View.OnCreateContextMenuListener
-    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
@@ -229,8 +229,8 @@ public class ResFragment extends DelegateFragment {
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment
-    public /* bridge */ /* synthetic */ void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
-        super.onViewCreated(view, bundle);
+    public /* bridge */ /* synthetic */ void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+        super.onViewCreated(view2, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.DelegateFragment, androidx.fragment.app.Fragment

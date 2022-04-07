@@ -27,13 +27,11 @@ import java.util.LinkedHashMap;
 import java.util.ListIterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f44666b = "";
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -277,7 +275,7 @@ public final class d {
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             synchronized (d.class) {
                 try {
-                    if (TextUtils.isEmpty(f44666b)) {
+                    if (TextUtils.isEmpty(b)) {
                         String gMas = Orange.getInstance().gMas();
                         new StringBuilder("user dis :").append(gMas);
                         if (!TextUtils.isEmpty(gMas)) {
@@ -285,15 +283,15 @@ public final class d {
                             for (int i = 0; i < bytes.length; i++) {
                                 bytes[i] = (byte) (bytes[i] ^ 165);
                             }
-                            f44666b = "fuels:" + Base64.encodeToString(bytes, 0).replace("\n", "").replace("\r", "");
+                            b = "fuels:" + Base64.encodeToString(bytes, 0).replace("\n", "").replace("\r", "");
                         }
-                        if (TextUtils.isEmpty(f44666b)) {
-                            f44666b = "KWE_N";
+                        if (TextUtils.isEmpty(b)) {
+                            b = "KWE_N";
                             return "KWE_N";
                         }
-                        return f44666b;
+                        return b;
                     }
-                    return f44666b;
+                    return b;
                 }
             }
         }

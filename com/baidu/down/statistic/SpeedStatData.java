@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SpeedStatData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SpeedStatData";
@@ -60,12 +60,12 @@ public class SpeedStatData {
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     jSONObject.put("ver", packageInfo.versionCode + "");
-                } catch (PackageManager.NameNotFoundException e2) {
-                    e2.printStackTrace();
+                } catch (PackageManager.NameNotFoundException e) {
+                    e.printStackTrace();
                 }
                 jSONObject.put("type", "1");
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             return jSONObject.toString();
         }
@@ -93,8 +93,8 @@ public class SpeedStatData {
                 if (configSpeedStat != null) {
                     try {
                         jSONObject.put("cfg_ver", configSpeedStat.cfgVersion);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
                 jSONObject.put("from", "as");
@@ -106,8 +106,8 @@ public class SpeedStatData {
                 try {
                     PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
                     jSONObject.put("ver", packageInfo.versionCode + "");
-                } catch (PackageManager.NameNotFoundException e3) {
-                    e3.printStackTrace();
+                } catch (PackageManager.NameNotFoundException e2) {
+                    e2.printStackTrace();
                 }
                 jSONObject.put("type", "0");
                 jSONObject.put("docid", taskSpeedStat.docid);
@@ -174,8 +174,8 @@ public class SpeedStatData {
                     configSpeedStat.cfgMinInterval = ConfigSpeedStat.CFG_MIN_INTERVAL_DEFAULT;
                 }
                 return configSpeedStat;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }

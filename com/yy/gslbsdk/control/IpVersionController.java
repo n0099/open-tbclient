@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class IpVersionController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IPV4_AND_V6 = "ipv4+v6";
@@ -149,8 +149,8 @@ public class IpVersionController {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
             return arrayList;
         }

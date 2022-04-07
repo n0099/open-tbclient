@@ -11,7 +11,7 @@ import com.heytap.mcssdk.mode.CommandMessage;
 import java.io.File;
 import java.util.concurrent.atomic.AtomicBoolean;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DynamicInstallReceiver extends BroadcastReceiver {
     public static final AtomicBoolean HAS_REGISTER = new AtomicBoolean(false);
     public static final String TAG = "DynamicInstallReceiver";
@@ -47,9 +47,9 @@ public class DynamicInstallReceiver extends BroadcastReceiver {
                             f.a(context, f.a, stringExtra2);
                             g.a(file);
                         }
-                    } catch (Exception e2) {
-                        Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk error:" + e2);
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        Log.i(DynamicInstallReceiver.TAG, "onReceive ApkInstaller installApk error:" + e);
+                        e.printStackTrace();
                     }
                 }
             });

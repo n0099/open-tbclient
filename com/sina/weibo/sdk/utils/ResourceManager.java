@@ -235,8 +235,8 @@ public class ResourceManager {
                                     decodeStream.setDensity(displayMetrics.densityDpi);
                                     ninePatchDrawable = new BitmapDrawable(context.getResources(), decodeStream);
                                 }
-                            } catch (IOException e2) {
-                                e = e2;
+                            } catch (IOException e) {
+                                e = e;
                                 e.printStackTrace();
                                 if (inputStream != null) {
                                     inputStream.close();
@@ -249,18 +249,18 @@ public class ResourceManager {
                             if (inputStream2 != null) {
                                 try {
                                     inputStream2.close();
-                                } catch (IOException e3) {
-                                    e3.printStackTrace();
+                                } catch (IOException e2) {
+                                    e2.printStackTrace();
                                 }
                             }
                             throw th;
                         }
                     }
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
                 }
-            } catch (IOException e5) {
-                e = e5;
+            } catch (IOException e4) {
+                e = e4;
                 inputStream = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -319,8 +319,8 @@ public class ResourceManager {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                     return true;
@@ -330,8 +330,8 @@ public class ResourceManager {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
                     }
                     return false;
@@ -340,8 +340,8 @@ public class ResourceManager {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
                     }
                 }
                 throw th;
@@ -367,16 +367,16 @@ public class ResourceManager {
                 try {
                     open.close();
                     return str3;
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     str2 = str3;
                     e.printStackTrace();
                     return str2;
                 }
             }
             return "";
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
         }
     }
 

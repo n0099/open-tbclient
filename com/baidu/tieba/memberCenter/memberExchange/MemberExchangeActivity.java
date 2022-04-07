@@ -2,7 +2,6 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -20,19 +19,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+import com.repackage.oj7;
+/* loaded from: classes3.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public c.a.p0.j2.d.a mView;
+    public oj7 mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,19 +69,19 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
                         if (getTCodeResMessage.getTCodeInfo().a.equals("0")) {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f05ab);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f05b2);
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f05a5);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f05ac);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c18);
                 }
                 this.a.showToast(errorString);
             }
@@ -129,15 +130,15 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view.getId() == R.id.obfuscated_res_0x7f090cc1) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090cce) {
             requestTCodeInfo();
         } else {
-            n.w(getPageContext().getPageActivity(), this.mView.b());
+            oi.w(getPageContext().getPageActivity(), this.mView.b());
         }
     }
 
@@ -161,9 +162,9 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            c.a.p0.j2.d.a aVar = new c.a.p0.j2.d.a(this);
-            this.mView = aVar;
-            aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
+            oj7 oj7Var = new oj7(this);
+            this.mView = oj7Var;
+            oj7Var.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }
     }
 }

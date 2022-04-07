@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class DefaultArgsBuilder implements FrescoSystrace.ArgsBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,15 +144,15 @@ public class DefaultFrescoSystrace implements FrescoSystrace.Systrace {
         }
 
         @Override // com.facebook.imagepipeline.systrace.FrescoSystrace.ArgsBuilder
-        public FrescoSystrace.ArgsBuilder arg(String str, double d2) {
+        public FrescoSystrace.ArgsBuilder arg(String str, double d) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Double.valueOf(d)})) == null) {
                 StringBuilder sb = this.mStringBuilder;
                 sb.append(WebvttCueParser.CHAR_SEMI_COLON);
                 sb.append(str);
                 sb.append('=');
-                sb.append(Double.toString(d2));
+                sb.append(Double.toString(d));
                 return this;
             }
             return (FrescoSystrace.ArgsBuilder) invokeCommon.objValue;

@@ -79,8 +79,8 @@ public class f {
                     jSONObject.putOpt("click_download_time", Long.valueOf(a.T()));
                     jSONObject.putOpt("click_download_size", Long.valueOf(a.U()));
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return;
             }
         }
@@ -109,11 +109,11 @@ public class f {
         if (jSONObject == null) {
             return;
         }
-        JSONArray e2 = com.ss.android.socialbase.downloader.g.a.a(i).e("ah_report_config");
-        if (e2 != null) {
-            for (int i2 = 0; i2 < e2.length(); i2++) {
+        JSONArray e = com.ss.android.socialbase.downloader.g.a.a(i).e("ah_report_config");
+        if (e != null) {
+            for (int i2 = 0; i2 < e.length(); i2++) {
                 try {
-                    String string = e2.getString(i2);
+                    String string = e.getString(i2);
                     g.a a = com.ss.android.socialbase.appdownloader.f.a.a(string);
                     if (a != null) {
                         String replaceAll = string.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_");

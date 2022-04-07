@@ -11,20 +11,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "c";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int[] f23644b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int[] f23645c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int[] f23646d;
+    public final int[] b;
+    public int[] c;
+    public int[] d;
 
     static {
         InterceptResult invokeClinit;
@@ -54,9 +48,9 @@ public class c {
                 return;
             }
         }
-        this.f23644b = new int[]{1732584193, -271733879, -1732584194, 271733878, -1009589776};
-        this.f23645c = new int[5];
-        this.f23646d = new int[80];
+        this.b = new int[]{1732584193, -271733879, -1732584194, 271733878, -1009589776};
+        this.c = new int[5];
+        this.d = new int[80];
     }
 
     private int a(int i, int i2) {
@@ -83,48 +77,48 @@ public class c {
             return;
         }
         for (int i = 16; i <= 79; i++) {
-            int[] iArr = this.f23646d;
+            int[] iArr = this.d;
             iArr[i] = a(((iArr[i - 3] ^ iArr[i - 8]) ^ iArr[i - 14]) ^ iArr[i - 16], 1);
         }
         int[] iArr2 = new int[5];
         for (int i2 = 0; i2 < 5; i2++) {
-            iArr2[i2] = this.f23645c[i2];
+            iArr2[i2] = this.c[i2];
         }
         for (int i3 = 0; i3 <= 19; i3++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f23646d[i3] + 1518500249;
+            iArr2[0] = a(iArr2[0], 5) + a(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.d[i3] + 1518500249;
         }
         for (int i4 = 20; i4 <= 39; i4++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.f23646d[i4] + 1859775393;
+            iArr2[0] = a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3]) + iArr2[4] + this.d[i4] + 1859775393;
         }
         for (int i5 = 40; i5 <= 59; i5++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f23646d[i5]) - 1894007588;
+            iArr2[0] = (((a(iArr2[0], 5) + c(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.d[i5]) - 1894007588;
         }
         for (int i6 = 60; i6 <= 79; i6++) {
             iArr2[4] = iArr2[3];
             iArr2[3] = iArr2[2];
             iArr2[2] = a(iArr2[1], 30);
             iArr2[1] = iArr2[0];
-            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.f23646d[i6]) - 899497514;
+            iArr2[0] = (((a(iArr2[0], 5) + b(iArr2[1], iArr2[2], iArr2[3])) + iArr2[4]) + this.d[i6]) - 899497514;
         }
         for (int i7 = 0; i7 < 5; i7++) {
-            int[] iArr3 = this.f23645c;
+            int[] iArr3 = this.c;
             iArr3[i7] = iArr3[i7] + iArr2[i7];
         }
         int i8 = 0;
         while (true) {
-            int[] iArr4 = this.f23646d;
+            int[] iArr4 = this.d;
             if (i8 >= iArr4.length) {
                 return;
             }
@@ -164,9 +158,9 @@ public class c {
                         bArr3[i] = a2[i];
                     }
                 } else {
-                    byte[] b2 = e.b(str2);
-                    for (int i2 = 0; i2 < b2.length; i2++) {
-                        bArr3[i2] = b2[i2];
+                    byte[] b = e.b(str2);
+                    for (int i2 = 0; i2 < b.length; i2++) {
+                        bArr3[i2] = b[i2];
                     }
                 }
                 while (length < 64) {
@@ -216,8 +210,8 @@ public class c {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            for (byte b2 : bArr) {
-                String upperCase = Integer.toHexString(b2 & 255).toUpperCase(Locale.CHINA);
+            for (byte b : bArr) {
+                String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.CHINA);
                 if (upperCase.length() < 2) {
                     sb.append(0);
                 }
@@ -238,13 +232,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, bArr)) == null) {
-            int[] iArr = this.f23644b;
-            System.arraycopy(iArr, 0, this.f23645c, 0, iArr.length);
-            byte[] d2 = d(bArr);
-            int length = d2.length / 64;
+            int[] iArr = this.b;
+            System.arraycopy(iArr, 0, this.c, 0, iArr.length);
+            byte[] d = d(bArr);
+            int length = d.length / 64;
             for (int i = 0; i < length; i++) {
                 for (int i2 = 0; i2 < 16; i2++) {
-                    this.f23646d[i2] = a(d2, (i * 64) + (i2 * 4));
+                    this.d[i2] = a(d, (i * 64) + (i2 * 4));
                 }
                 a();
             }
@@ -282,25 +276,25 @@ public class c {
                 i4++;
             }
             long j = length * 8;
-            byte b2 = (byte) ((j >> 8) & 255);
-            byte b3 = (byte) ((j >> 16) & 255);
-            byte b4 = (byte) ((j >> 24) & 255);
-            byte b5 = (byte) ((j >> 32) & 255);
-            byte b6 = (byte) ((j >> 40) & 255);
-            byte b7 = (byte) (j >> 56);
+            byte b = (byte) ((j >> 8) & 255);
+            byte b2 = (byte) ((j >> 16) & 255);
+            byte b3 = (byte) ((j >> 24) & 255);
+            byte b4 = (byte) ((j >> 32) & 255);
+            byte b5 = (byte) ((j >> 40) & 255);
+            byte b6 = (byte) (j >> 56);
             int i6 = i4 + 1;
-            bArr2[i4] = b7;
+            bArr2[i4] = b6;
             int i7 = i6 + 1;
             bArr2[i6] = (byte) (255 & (j >> 48));
             int i8 = i7 + 1;
-            bArr2[i7] = b6;
+            bArr2[i7] = b5;
             int i9 = i8 + 1;
-            bArr2[i8] = b5;
+            bArr2[i8] = b4;
             int i10 = i9 + 1;
-            bArr2[i9] = b4;
+            bArr2[i9] = b3;
             int i11 = i10 + 1;
-            bArr2[i10] = b3;
-            bArr2[i11] = b2;
+            bArr2[i10] = b2;
+            bArr2[i11] = b;
             bArr2[i11 + 1] = (byte) (j & 255);
             return bArr2;
         }
@@ -317,7 +311,7 @@ public class c {
         byte[] bArr2 = new byte[20];
         int i = 0;
         while (true) {
-            int[] iArr = this.f23645c;
+            int[] iArr = this.c;
             if (i >= iArr.length) {
                 return bArr2;
             }

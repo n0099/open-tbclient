@@ -44,8 +44,8 @@ public class BaseActivity extends Activity {
                 ((ActivityInfo) declaredField.get(this)).screenOrientation = -1;
                 declaredField.setAccessible(false);
                 return true;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -54,7 +54,7 @@ public class BaseActivity extends Activity {
 
     private boolean isTranslucentOrFloating() {
         InterceptResult invokeV;
-        Exception e2;
+        Exception e;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
@@ -65,13 +65,13 @@ public class BaseActivity extends Activity {
                 z = ((Boolean) method.invoke(null, obtainStyledAttributes)).booleanValue();
                 try {
                     method.setAccessible(false);
-                } catch (Exception e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
                     return z;
                 }
-            } catch (Exception e4) {
-                e2 = e4;
+            } catch (Exception e3) {
+                e = e3;
                 z = false;
             }
             return z;

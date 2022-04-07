@@ -112,8 +112,8 @@ public class Camera2Enumerator implements CameraEnumerator {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             try {
                 return this.cameraManager.getCameraCharacteristics(str);
-            } catch (AndroidException e2) {
-                Logging.e(TAG, "Camera access exception: " + e2);
+            } catch (AndroidException e) {
+                Logging.e(TAG, "Camera access exception: " + e);
                 return null;
             }
         }
@@ -162,8 +162,8 @@ public class Camera2Enumerator implements CameraEnumerator {
                     }
                 }
                 return true;
-            } catch (AndroidException e2) {
-                Logging.e(TAG, "Camera access exception: " + e2);
+            } catch (AndroidException e) {
+                Logging.e(TAG, "Camera access exception: " + e);
                 return false;
             }
         }
@@ -185,8 +185,8 @@ public class Camera2Enumerator implements CameraEnumerator {
             try {
                 String[] cameraIdList = this.cameraManager.getCameraIdList();
                 return (cameraIdList.length <= 2 || !disableExtraCamera) ? cameraIdList : new String[]{cameraIdList[0], cameraIdList[1]};
-            } catch (AndroidException e2) {
-                Logging.e(TAG, "Camera access exception: " + e2);
+            } catch (AndroidException e) {
+                Logging.e(TAG, "Camera access exception: " + e);
                 return new String[0];
             }
         }
@@ -264,8 +264,8 @@ public class Camera2Enumerator implements CameraEnumerator {
                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
                     Logging.d(TAG, "Get supported formats for camera index " + str + " done. Time spent: " + (elapsedRealtime2 - elapsedRealtime) + " ms.");
                     return arrayList;
-                } catch (Exception e2) {
-                    Logging.e(TAG, "getCameraCharacteristics(): " + e2);
+                } catch (Exception e) {
+                    Logging.e(TAG, "getCameraCharacteristics(): " + e);
                     return new ArrayList();
                 }
             }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class FaceEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OS = "android";
@@ -126,8 +126,8 @@ public final class FaceEnvironment {
         }
         try {
             iArr[faceStatusNewEnum.ordinal()] = i;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -139,8 +139,8 @@ public final class FaceEnvironment {
         }
         try {
             iArr[faceStatusNewEnum.ordinal()] = i;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

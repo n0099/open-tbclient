@@ -14,14 +14,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RoundFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Path a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RectF f36950b;
+    public RectF b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RoundFrameLayout(Context context) {
@@ -49,7 +47,7 @@ public class RoundFrameLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setWillNotDraw(false);
             this.a = new Path();
-            this.f36950b = new RectF();
+            this.b = new RectF();
         }
     }
 
@@ -76,8 +74,8 @@ public class RoundFrameLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
-            this.f36950b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
-            this.a.addOval(this.f36950b, Path.Direction.CW);
+            this.b.set(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight());
+            this.a.addOval(this.b, Path.Direction.CW);
         }
     }
 

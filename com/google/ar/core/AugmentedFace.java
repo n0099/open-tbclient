@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AugmentedFace extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static final class RegionType {
         public static final /* synthetic */ RegionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,10 +115,10 @@ public class AugmentedFace extends TrackableBase {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Session.a(nativeGetMeshVerticesByteBuffer(this.f38709b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshNormalsByteBuffer(this.f38709b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.f38709b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
-            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.f38709b.a, this.a)).asCharBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshVerticesByteBuffer(this.b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshNormalsByteBuffer(this.b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTextureCoordinatesByteBuffer(this.b.a, this.a)).asFloatBuffer().asReadOnlyBuffer();
+            Session.a(nativeGetMeshTriangleIndicesByteBuffer(this.b.a, this.a)).asCharBuffer().asReadOnlyBuffer();
         }
     }
 

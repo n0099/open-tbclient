@@ -7,8 +7,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,17 +15,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+import com.repackage.wr4;
+/* loaded from: classes3.dex */
 public class DownloadManagerNoDataLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f31763b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f31764c;
+    public TextView b;
+    public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNoDataLayout(@NonNull Context context) {
@@ -54,20 +50,20 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            setLayoutParams(new LinearLayout.LayoutParams(-1, n.f(context, R.dimen.tbds496)));
+            setLayoutParams(new LinearLayout.LayoutParams(-1, oi.f(context, R.dimen.tbds496)));
             ImageView imageView = new ImageView(context);
             this.a = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(n.f(context, R.dimen.tbds177), n.f(context, R.dimen.tbds177));
-            layoutParams.setMargins(0, n.f(context, R.dimen.tbds133), 0, 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(oi.f(context, R.dimen.tbds177), oi.f(context, R.dimen.tbds177));
+            layoutParams.setMargins(0, oi.f(context, R.dimen.tbds133), 0, 0);
             layoutParams.gravity = 1;
             addView(this.a, layoutParams);
-            this.f31763b = new TextView(context);
+            this.b = new TextView(context);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, n.f(context, R.dimen.tbds34), 0, 0);
-            this.f31763b.setGravity(17);
-            addView(this.f31763b, layoutParams2);
-            this.f31764c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f042e);
+            layoutParams2.setMargins(0, oi.f(context, R.dimen.tbds34), 0, 0);
+            this.b.setGravity(17);
+            addView(this.b, layoutParams2);
+            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0435);
             b();
         }
     }
@@ -77,16 +73,16 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
             SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
-            c d2 = c.d(this.f31763b);
-            d2.v(R.color.CAM_X0110);
-            d2.z(R.dimen.T_X08);
+            wr4 d = wr4.d(this.b);
+            d.v(R.color.CAM_X0110);
+            d.z(R.dimen.T_X08);
         }
     }
 
     public void setNoDataText(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f31763b.setText(String.format(this.f31764c, TbadkCoreApplication.getInst().getString(i)));
+            this.b.setText(String.format(this.c, TbadkCoreApplication.getInst().getString(i)));
         }
     }
 

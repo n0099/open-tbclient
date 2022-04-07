@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class DensityUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DOT_FIVE = 0.5f;
@@ -29,10 +29,10 @@ public final class DensityUtils {
         }
     }
 
-    public static int dip2px(Context context, float f2) {
+    public static int dip2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f2)) == null) ? (int) ((f2 * getDensity(context)) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) ((f * getDensity(context)) + 0.5f) : invokeLF.intValue;
     }
 
     public static float getDensity(Context context) {
@@ -59,15 +59,15 @@ public final class DensityUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? context.getResources().getDisplayMetrics().widthPixels : invokeL.intValue;
     }
 
-    public static int px2dip(Context context, float f2) {
+    public static int px2dip(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, context, f2)) == null) ? (int) ((f2 / getDensity(context)) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, context, f)) == null) ? (int) ((f / getDensity(context)) + 0.5f) : invokeLF.intValue;
     }
 
-    public static int sp2px(Context context, float f2) {
+    public static int sp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, context, f)) == null) ? (int) ((f * context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
     }
 }

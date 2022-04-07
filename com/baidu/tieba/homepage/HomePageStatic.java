@@ -1,6 +1,5 @@
 package com.baidu.tieba.homepage;
 
-import c.a.o0.z0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
@@ -13,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.l95;
+/* loaded from: classes3.dex */
 public class HomePageStatic {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -56,12 +56,12 @@ public class HomePageStatic {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_POST, TbConfig.SERVER_ADDRESS + TbConfig.GET_MY_POST + "?cmd=303111");
             tbHttpMessageTask.setResponsedClass(GetMyPostHttpResponseMessage.class);
             messageManager.registerTask(tbHttpMessageTask);
-            b bVar = new b(303111);
-            bVar.setResponsedClass(GetMyPostSocketResponseMessage.class);
-            bVar.g(true);
-            bVar.h(false);
-            bVar.f(SocketMessageTask.DupLicateMode.NONE);
-            messageManager.registerTask(bVar);
+            l95 l95Var = new l95(303111);
+            l95Var.setResponsedClass(GetMyPostSocketResponseMessage.class);
+            l95Var.g(true);
+            l95Var.h(false);
+            l95Var.f(SocketMessageTask.DupLicateMode.NONE);
+            messageManager.registerTask(l95Var);
         }
     }
 }

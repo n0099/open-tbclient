@@ -2,7 +2,7 @@ package com.qq.e.comm.net.rr;
 
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface Response {
     public static final int HTTP_NO_CONTENT = 204;
     public static final int HTTP_OK = 200;

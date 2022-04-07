@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class StatefulRunnable<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_CANCELLED = 2;
@@ -78,9 +78,9 @@ public abstract class StatefulRunnable<T> implements Runnable {
                 } finally {
                     disposeResult(result);
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 this.mState.set(4);
-                onFailure(e2);
+                onFailure(e);
             }
         }
     }

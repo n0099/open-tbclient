@@ -54,9 +54,9 @@ public final class ObservableBlockingSubscribe {
                 if (poll == null) {
                     try {
                         poll = linkedBlockingQueue.take();
-                    } catch (InterruptedException e2) {
+                    } catch (InterruptedException e) {
                         blockingObserver.dispose();
-                        observer.onError(e2);
+                        observer.onError(e);
                         return;
                     }
                 }

@@ -32,7 +32,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.StandaloneMediaClock;
 import com.google.android.exoplayer2.util.TraceUtil;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ExoPlayerImplInternal implements Handler.Callback, MediaPeriod.Callback, TrackSelector.InvalidationListener, MediaSource.Listener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IDLE_INTERVAL_MS = 1000;
@@ -100,7 +100,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     public final TrackSelector trackSelector;
     public final Timeline.Window window;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MediaPeriodHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,8 +247,8 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     } else {
                         this.mediaSource.releasePeriod(this.mediaPeriod);
                     }
-                } catch (RuntimeException e2) {
-                    Log.e(ExoPlayerImplInternal.TAG, "Period release failed.", e2);
+                } catch (RuntimeException e) {
+                    Log.e(ExoPlayerImplInternal.TAG, "Period release failed.", e);
                 }
             }
         }
@@ -344,7 +344,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MediaSourceRefreshInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -373,7 +373,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SeekPosition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1012,8 +1012,8 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             for (Renderer renderer : this.enabledRenderers) {
                 try {
                     disableRenderer(renderer);
-                } catch (ExoPlaybackException | RuntimeException e2) {
-                    Log.e(TAG, "Stop failed.", e2);
+                } catch (ExoPlaybackException | RuntimeException e) {
+                    Log.e(TAG, "Stop failed.", e);
                 }
             }
             this.enabledRenderers = new Renderer[0];
@@ -1677,19 +1677,19 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     default:
                         return false;
                 }
-            } catch (ExoPlaybackException e2) {
-                Log.e(TAG, "Renderer error.", e2);
-                this.eventHandler.obtainMessage(7, e2).sendToTarget();
+            } catch (ExoPlaybackException e) {
+                Log.e(TAG, "Renderer error.", e);
+                this.eventHandler.obtainMessage(7, e).sendToTarget();
                 stopInternal();
                 return true;
-            } catch (IOException e3) {
-                Log.e(TAG, "Source error.", e3);
-                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForSource(e3)).sendToTarget();
+            } catch (IOException e2) {
+                Log.e(TAG, "Source error.", e2);
+                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForSource(e2)).sendToTarget();
                 stopInternal();
                 return true;
-            } catch (RuntimeException e4) {
-                Log.e(TAG, "Internal runtime error.", e4);
-                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForUnexpected(e4)).sendToTarget();
+            } catch (RuntimeException e3) {
+                Log.e(TAG, "Internal runtime error.", e3);
+                this.eventHandler.obtainMessage(7, ExoPlaybackException.createForUnexpected(e3)).sendToTarget();
                 stopInternal();
                 return true;
             }

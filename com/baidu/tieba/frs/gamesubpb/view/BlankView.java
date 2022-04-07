@@ -10,16 +10,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BlankView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Scroller a;
+    public a b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f32607b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
     }
@@ -79,7 +77,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f32607b;
+            a aVar = this.b;
             if (aVar != null) {
                 aVar.a();
             }
@@ -89,7 +87,7 @@ public class BlankView extends View {
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f32607b = aVar;
+            this.b = aVar;
         }
     }
 

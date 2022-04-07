@@ -14,18 +14,18 @@ import com.kwad.sdk.api.model.AdSourceLogoType;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface AdInteractionListener {
         boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener);
 
         @KsAdSdkApi
         @Keep
-        void onAdClicked(View view, KsNativeAd ksNativeAd);
+        void onAdClicked(View view2, KsNativeAd ksNativeAd);
 
         @KsAdSdkApi
         @Keep
@@ -42,7 +42,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface VideoPlayListener {
         @KsAdSdkApi
         @Keep

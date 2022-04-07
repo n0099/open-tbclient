@@ -18,7 +18,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -89,9 +89,9 @@ public final class b {
             int i3 = 0;
             for (int i4 = 0; i4 < 256; i4++) {
                 i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
-                byte b2 = bArr2[i4];
+                byte b = bArr2[i4];
                 bArr2[i4] = bArr2[i3];
-                bArr2[i3] = b2;
+                bArr2[i3] = b;
                 i2 = (i2 + 1) % bArr.length;
             }
             return bArr2;
@@ -222,9 +222,9 @@ public final class b {
             for (int i3 = 0; i3 < bArr.length; i3++) {
                 i = (i + 1) & 255;
                 i2 = ((a[i] & 255) + i2) & 255;
-                byte b2 = a[i];
+                byte b = a[i];
                 a[i] = a[i2];
-                a[i2] = b2;
+                a[i2] = b;
                 bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
                 bArr3[i3] = (byte) (bArr3[i3] ^ 42);
             }

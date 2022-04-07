@@ -223,10 +223,10 @@ public final class HmacUtils {
                     Mac mac = Mac.getInstance(str);
                     mac.init(secretKeySpec);
                     return mac;
-                } catch (InvalidKeyException e2) {
+                } catch (InvalidKeyException e) {
+                    throw new IllegalArgumentException(e);
+                } catch (NoSuchAlgorithmException e2) {
                     throw new IllegalArgumentException(e2);
-                } catch (NoSuchAlgorithmException e3) {
-                    throw new IllegalArgumentException(e3);
                 }
             }
             throw new IllegalArgumentException("Null key");

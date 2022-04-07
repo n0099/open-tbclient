@@ -5,7 +5,7 @@ import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.TrimPathContent;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ShapeTrimPath implements ContentModel {
     public final AnimatableFloatValue end;
     public final boolean hidden;
@@ -14,7 +14,7 @@ public class ShapeTrimPath implements ContentModel {
     public final AnimatableFloatValue start;
     public final Type type;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum Type {
         SIMULTANEOUSLY,
         INDIVIDUALLY;

@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaBuildSessionListener implements IMListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaBuildSessionListener";
@@ -43,7 +43,7 @@ public class IMMediaBuildSessionListener implements IMListener {
     public List<ChatSession> mResultList;
     public int mTopHasMore;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class GetGroupInfoListener implements BIMValueCallBack<ArrayList<GroupInfo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +110,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class GetPaInfosListener implements IGetPaInfosListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,8 +161,8 @@ public class IMMediaBuildSessionListener implements IMListener {
                     paInfo.setMarkTopTime(chatSession.getLastMsgTime());
                     PaInfoDBManager.getInstance(this.this$0.mContext).subscribePa(paInfo);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
@@ -186,7 +186,7 @@ public class IMMediaBuildSessionListener implements IMListener {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class GetUserIdentityListener implements IGetUserIdentityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,8 +236,8 @@ public class IMMediaBuildSessionListener implements IMListener {
                     chatUser.setMarkTopTime(chatSession.getLastMsgTime());
                     ChatUserDBManager.getInstance(this.this$0.mContext).updateUser(chatUser);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 

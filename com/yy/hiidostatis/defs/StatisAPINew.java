@@ -56,7 +56,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatisAPINew implements IStatisApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -339,10 +339,10 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
-            reportCountEvent(j, str, d2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
+            reportCountEvent(j, str, d, null);
         }
     }
 
@@ -585,9 +585,9 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportLocation(long j, double d2, double d3, double d4, IStatisAPI.ReportResult reportResult) {
+    public void reportLocation(long j, double d, double d2, double d3, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), reportResult}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), reportResult}) == null) {
             if (this.mContext == null) {
                 L.warn("StatisAPINew", "Input context is null", new Object[0]);
                 if (reportResult != null) {
@@ -596,9 +596,9 @@ public class StatisAPINew implements IStatisApi {
             }
             StatisContent statisContent = new StatisContent();
             statisContent.put("uid", j);
-            statisContent.put("lon", d2);
-            statisContent.put(SuggestAddrField.KEY_LAT, d3);
-            statisContent.put("alt", d4);
+            statisContent.put("lon", d);
+            statisContent.put(SuggestAddrField.KEY_LAT, d2);
+            statisContent.put("alt", d3);
             CellLocation cellId = ArdUtil.getCellId(this.mContext);
             if (cellId != null) {
                 if (cellId instanceof GsmCellLocation) {
@@ -923,10 +923,10 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
-            reportCountEvent(j, str, d2, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            reportCountEvent(j, str, d, str2, null);
         }
     }
 
@@ -966,9 +966,9 @@ public class StatisAPINew implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
             Property copy = property == null ? null : property.copy();
             if (Util.empty(str)) {
                 L.debug(this, "eid is not allow null.", new Object[0]);
@@ -981,7 +981,7 @@ public class StatisAPINew implements IStatisApi {
                 L.debug(this, "label[%s] bytes[%d] must under %d bytes.", str2, Integer.valueOf(str2.getBytes().length), 256);
             }
             EventInfo eventInfo = new EventInfo();
-            EventElementInfo eventElementInfo = new EventElementInfo(str, String.valueOf(d2));
+            EventElementInfo eventElementInfo = new EventElementInfo(str, String.valueOf(d));
             eventElementInfo.addParam(str2);
             eventElementInfo.setProperty(copy);
             eventInfo.addElem(eventElementInfo);

@@ -6,9 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.m;
-import c.a.d.f.p.n;
-import c.a.o0.r.m.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -33,7 +30,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.in4;
+import com.repackage.ni;
+import com.repackage.oi;
+import com.repackage.rt4;
+/* loaded from: classes3.dex */
 public abstract class BasePersonInfoActivity extends BaseFragmentActivity implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CURRTABINDEX = "CurrTabIndex";
@@ -63,7 +64,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     public int requestCode;
     public int wantPrivcay;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,20 +89,20 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
                 if (basePersonInfoActivity.mIsChooseBarMode && basePersonInfoActivity.requestCode != 23011) {
                     MessageManager.getInstance().dispatchResponsedMessage(new ShareSDKResultMessage(Boolean.FALSE));
-                    c.a.o0.r.f0.b.g(this.a.getPageContext().getPageActivity(), 200, false);
+                    rt4.g(this.a.getPageContext().getPageActivity(), 200, false);
                 }
                 this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,11 +127,11 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 BasePersonInfoActivity basePersonInfoActivity = this.a;
-                basePersonInfoActivity.wantPrivcay = f.a(basePersonInfoActivity.getPrivacyType()) % 3;
+                basePersonInfoActivity.wantPrivcay = in4.a(basePersonInfoActivity.getPrivacyType()) % 3;
                 int privacyType = this.a.getPrivacyType();
                 String str = privacyType != 2 ? privacyType != 3 ? privacyType != 4 ? privacyType != 5 ? "" : "friend" : "post" : "group" : "like";
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.SET_PRIVATE_CMD);
@@ -141,7 +142,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,7 +176,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage.isSuccess()) {
                     if (httpResponsedMessage.getError() == 0) {
-                        f.c(this.a.getPrivacyType(), BasePersonInfoActivity.PRIVATESTATE[this.a.wantPrivcay]);
+                        in4.c(this.a.getPrivacyType(), BasePersonInfoActivity.PRIVATESTATE[this.a.wantPrivcay]);
                         SkinManager.setNavbarIconSrc(this.a.mPrivacyButton, BasePersonInfoActivity.PRIVACY_IMAGE_LIST_BLACK[this.a.wantPrivcay], BasePersonInfoActivity.PRIVACY_IMAGE_LIST[this.a.wantPrivcay]);
                         BasePersonInfoActivity basePersonInfoActivity = this.a;
                         basePersonInfoActivity.showToastWithIcon(basePersonInfoActivity.getPageContext().getString(BasePersonInfoActivity.PRIVACY_INFO_TEXT_LIST[this.a.wantPrivcay]), R.drawable.obfuscated_res_0x7f080a68);
@@ -185,7 +186,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
                     return;
                 }
                 BasePersonInfoActivity basePersonInfoActivity2 = this.a;
-                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                basePersonInfoActivity2.showToast(basePersonInfoActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c18));
             }
         }
     }
@@ -204,7 +205,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
         }
         PRIVACY_IMAGE_LIST = new int[]{R.drawable.icon_pop_key_all_bg, R.drawable.icon_pop_key_f_bg, R.drawable.icon_pop_key_d_bg};
-        PRIVACY_IMAGE_LIST_BLACK = new int[]{R.drawable.obfuscated_res_0x7f0808b6, R.drawable.obfuscated_res_0x7f0808ba, R.drawable.obfuscated_res_0x7f0808b8};
+        PRIVACY_IMAGE_LIST_BLACK = new int[]{R.drawable.obfuscated_res_0x7f0808bb, R.drawable.obfuscated_res_0x7f0808bf, R.drawable.obfuscated_res_0x7f0808bd};
         PRIVACY_INFO_TEXT_LIST = new int[]{R.string.obfuscated_res_0x7f0f08d7, R.string.obfuscated_res_0x7f0f08d8, R.string.obfuscated_res_0x7f0f08d9};
         PRIVATESTATE = new int[]{1, 2, 3};
     }
@@ -238,13 +239,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f29925c = fragment;
+        bVar.c = fragment;
         bVar.a = i;
         fragmentTabIndicator.setText(str);
-        fragmentTabIndicator.f30573h = R.color.s_actionbar_text_color;
+        fragmentTabIndicator.h = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b7));
-        fragmentTabIndicator.setMinimumHeight(n.f(getActivity(), R.dimen.obfuscated_res_0x7f0702ff));
-        bVar.f29924b = fragmentTabIndicator;
+        fragmentTabIndicator.setMinimumHeight(oi.f(getActivity(), R.dimen.obfuscated_res_0x7f070309));
+        bVar.b = fragmentTabIndicator;
         this.mTabHost.c(bVar);
     }
 
@@ -271,26 +272,26 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     private void initUI(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, bundle) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090328);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090332);
             this.mNavigationBar = navigationBar;
             if (!this.mIsChooseBarMode) {
                 navigationBar.setCenterTextTitle(String.format(getNavigationBarTitle(), this.mUtype));
             } else if (this.requestCode == 23011) {
                 navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f09ee));
             } else {
-                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f110d));
+                navigationBar.setCenterTextTitle(getPageContext().getString(R.string.obfuscated_res_0x7f0f1115));
             }
             this.mNavigationBar.showBottomLine();
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (this.mIsHost && this.requestCode != 23003 && !this.mIsChooseBarMode) {
-                ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08d1, (View.OnClickListener) null);
+                ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d08c7, (View.OnClickListener) null);
                 this.mPrivacyButton = imageView;
-                SkinManager.setNavbarIconSrc(imageView, PRIVACY_IMAGE_LIST_BLACK[f.a(getPrivacyType()) - 1], PRIVACY_IMAGE_LIST[f.a(getPrivacyType()) - 1]);
+                SkinManager.setNavbarIconSrc(imageView, PRIVACY_IMAGE_LIST_BLACK[in4.a(getPrivacyType()) - 1], PRIVACY_IMAGE_LIST[in4.a(getPrivacyType()) - 1]);
                 this.mPrivacyButton.setOnClickListener(new b(this));
             }
             this.mTypes = new int[]{0, 1};
             this.mAdapter = createPersonInfoAdapter(this, this.mIsHost);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090329);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f090333);
             this.mTabHost = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.mTabHost.setTabWidgetBackgroundColor(getResources().getColor(R.color.common_color_10002));
@@ -422,20 +423,20 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
             }
             this.mUid = str;
             if (str.equals(TbadkCoreApplication.getCurrentAccount())) {
-                this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f0a97);
+                this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f0a99);
                 this.mIsHost = true;
             } else {
                 this.mIsHost = false;
                 int i = this.mSex;
                 if (i == 1) {
-                    this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f0818);
+                    this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f0819);
                 } else if (i != 2) {
-                    this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f1316);
+                    this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f131e);
                 } else {
-                    this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f1150);
+                    this.mUtype = getPageContext().getString(R.string.obfuscated_res_0x7f0f1158);
                 }
             }
-            if (m.isEmpty(this.mUid)) {
+            if (ni.isEmpty(this.mUid)) {
                 finish();
                 return;
             }
@@ -451,7 +452,7 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048595, this, i, keyEvent)) == null) {
             if (i == 4 && keyEvent.getRepeatCount() == 0) {
                 if (this.mIsChooseBarMode && this.requestCode != 23011) {
-                    c.a.o0.r.f0.b.g(getPageContext().getPageActivity(), 200, false);
+                    rt4.g(getPageContext().getPageActivity(), 200, false);
                 }
                 finish();
                 return true;
@@ -469,9 +470,9 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
     }
 
     @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-    public void onPageScrolled(int i, float f2, int i2) {
+    public void onPageScrolled(int i, float f, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
         }
     }
 
@@ -514,13 +515,13 @@ public abstract class BasePersonInfoActivity extends BaseFragmentActivity implem
         if (!(interceptable == null || interceptable.invokeII(1048601, this, i, i2) == null) || this.mIsHost || this.mAdapter == null) {
             return;
         }
-        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.j(0).f29924b;
+        FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) this.mTabHost.j(0).b;
         if (i <= 0) {
             fragmentTabIndicator.setText(getNoPersonalTabTitle());
         } else {
             fragmentTabIndicator.setText(String.format(getPersonalTabTitle(), Integer.valueOf(i)));
         }
-        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.j(1).f29924b;
+        FragmentTabIndicator fragmentTabIndicator2 = (FragmentTabIndicator) this.mTabHost.j(1).b;
         if (i2 <= 0) {
             fragmentTabIndicator2.setText(getNoCommonTabTitle());
         } else {

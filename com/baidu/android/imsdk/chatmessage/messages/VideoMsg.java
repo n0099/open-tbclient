@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<VideoMsg> CREATOR;
@@ -91,8 +91,8 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                 jSONObject.put("duration", i2);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getVideoContent", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getVideoContent", e);
                 return "";
             }
         }
@@ -137,8 +137,8 @@ public class VideoMsg extends RichMediaMsg implements Parcelable, NoProGuard {
                     this.mFormat = jSONObject.optInt("format");
                     this.mDuration = jSONObject.optInt("duration");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 }
             }
             return false;

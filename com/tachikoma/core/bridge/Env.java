@@ -17,14 +17,14 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 import com.tachikoma.core.utility.TKConverter;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Env {
     public static /* synthetic */ Interceptable $ic;
     public static TKEnvListener mEnvListener;
     public static HashMap<String, Object> sContextInfo;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface TKEnvListener {
         void onUpdate(HashMap<String, Object> hashMap);
     }
@@ -69,8 +69,8 @@ public class Env {
             int i = applicationInfo.labelRes;
             try {
                 return i == 0 ? applicationInfo.nonLocalizedLabel.toString() : context.getString(i);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return applicationInfo.name;
             }
         }
@@ -96,7 +96,7 @@ public class Env {
             String str2 = Build.VERSION.RELEASE;
             int i = Resources.getSystem().getDisplayMetrics().widthPixels;
             int i2 = Resources.getSystem().getDisplayMetrics().heightPixels;
-            float f2 = context.getResources().getDisplayMetrics().density;
+            float f = context.getResources().getDisplayMetrics().density;
             int px2dp = (int) TKConverter.px2dp(context, i);
             int px2dp2 = (int) TKConverter.px2dp(context, i2);
             sContextInfo.put(Constants.PARAM_PLATFORM, "Android");
@@ -108,7 +108,7 @@ public class Env {
             sContextInfo.put("availableWidth", Integer.valueOf(px2dp));
             sContextInfo.put("availableHeight", Integer.valueOf(px2dp2));
             sContextInfo.put(CfgFileUtils.KEY_ENGINE_VERSION, "0.0.14-SNAPSHOT-adapt-commercial_alliance-0dea39ff");
-            sContextInfo.put(AnimationProperty.SCALE, Float.valueOf(f2));
+            sContextInfo.put(AnimationProperty.SCALE, Float.valueOf(f));
         }
     }
 

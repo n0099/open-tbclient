@@ -68,11 +68,11 @@ public class WbSdkProgressBar extends View {
         if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
             long j2 = this.stopGrowTime;
             if (j2 >= this.stopGrowTimeMax) {
-                double d2 = this.growTime + j;
-                this.growTime = d2;
-                double d3 = this.growTimeMax;
-                if (d2 >= d3) {
-                    this.growTime = d2 - d3;
+                double d = this.growTime + j;
+                this.growTime = d;
+                double d2 = this.growTimeMax;
+                if (d >= d2) {
+                    this.growTime = d - d2;
                     this.stopGrowTime = 0L;
                     this.addStart = !this.addStart;
                 }
@@ -81,9 +81,9 @@ public class WbSdkProgressBar extends View {
                     this.length = cos * ((float) InstallActivity.BOX_SIZE_DP);
                     return;
                 }
-                float f2 = ((float) InstallActivity.BOX_SIZE_DP) * (1.0f - cos);
-                this.progress += this.length - f2;
-                this.length = f2;
+                float f = ((float) InstallActivity.BOX_SIZE_DP) * (1.0f - cos);
+                this.progress += this.length - f;
+                this.length = f;
                 return;
             }
             this.stopGrowTime = j2 + j;
@@ -104,10 +104,10 @@ public class WbSdkProgressBar extends View {
                 long abs = Math.abs(SystemClock.uptimeMillis() - this.lastTime) % 360;
                 calculateProgress(abs);
                 this.lastTime = SystemClock.uptimeMillis();
-                float f2 = this.progress + ((this.speed * ((float) abs)) / 1000.0f);
-                this.progress = f2;
-                if (f2 >= 360.0f) {
-                    this.progress = f2 - 360.0f;
+                float f = this.progress + ((this.speed * ((float) abs)) / 1000.0f);
+                this.progress = f;
+                if (f >= 360.0f) {
+                    this.progress = f - 360.0f;
                 }
                 canvas.drawArc(this.rect, this.progress - 90.0f, this.length + 20.0f, false, this.paint);
                 if (this.showView) {
@@ -132,10 +132,10 @@ public class WbSdkProgressBar extends View {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i) {
+    public void onVisibilityChanged(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
-            super.onVisibilityChanged(view, i);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
+            super.onVisibilityChanged(view2, i);
             if (i == 8) {
                 this.handler.sendEmptyMessageDelayed(0, 1000L);
             } else if (i == 0 && getVisibility() == 0) {

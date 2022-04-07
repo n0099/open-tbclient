@@ -1,18 +1,18 @@
 package com.baidu.swan.apps.core.prefetch.image.config.image;
 
 import androidx.annotation.NonNull;
-import c.a.n0.a.x.o.g.c.b.a;
-import c.a.n0.a.x.o.g.f.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.e52;
+import com.repackage.p42;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class CustomStrategyImpl implements a {
+/* loaded from: classes2.dex */
+public class CustomStrategyImpl implements p42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<String> a;
@@ -57,14 +57,14 @@ public class CustomStrategyImpl implements a {
         };
     }
 
-    @Override // c.a.n0.a.x.o.g.c.b.a
-    public boolean a(@NonNull h.a aVar) {
+    @Override // com.repackage.p42
+    public boolean a(@NonNull e52.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d2 = aVar.d();
+            String d = aVar.d();
             for (String str : this.a) {
-                if (d2.startsWith(str)) {
+                if (d.startsWith(str)) {
                     return true;
                 }
             }

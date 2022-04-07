@@ -10,7 +10,7 @@ import com.airbnb.lottie.model.KeyPath;
 import com.airbnb.lottie.model.content.ShapeGroup;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ShapeLayer extends BaseLayer {
     public final ContentGroup contentGroup;
 

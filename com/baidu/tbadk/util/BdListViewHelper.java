@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.AbsListView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,14 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class BdListViewHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static final class HeadType {
         public static final /* synthetic */ HeadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -88,7 +88,7 @@ public class BdListViewHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -141,7 +141,7 @@ public class BdListViewHelper {
                 return;
             }
         }
-        a = n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f070297);
+        a = oi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0702a1);
     }
 
     public static int a(HeadType headType) {
@@ -154,15 +154,15 @@ public class BdListViewHelper {
                 if (i != 2) {
                     if (i != 3) {
                         if (i != 4) {
-                            return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.obfuscated_res_0x7f0702ff);
+                            return UtilHelper.getLightStatusBarHeight() + oi.f(context, R.dimen.obfuscated_res_0x7f070309);
                         }
-                        return n.f(context, R.dimen.obfuscated_res_0x7f0702d6);
+                        return oi.f(context, R.dimen.obfuscated_res_0x7f0702e0);
                     }
-                    return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.obfuscated_res_0x7f07024f);
+                    return UtilHelper.getLightStatusBarHeight() + oi.f(context, R.dimen.obfuscated_res_0x7f07025b);
                 }
-                return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.obfuscated_res_0x7f070255);
+                return UtilHelper.getLightStatusBarHeight() + oi.f(context, R.dimen.obfuscated_res_0x7f070260);
             }
-            return UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.obfuscated_res_0x7f0702ff);
+            return UtilHelper.getLightStatusBarHeight() + oi.f(context, R.dimen.obfuscated_res_0x7f070309);
         }
         return invokeL.intValue;
     }
@@ -170,7 +170,7 @@ public class BdListViewHelper {
     public static int b(HeadType headType, boolean z) {
         InterceptResult invokeLZ;
         int lightStatusBarHeight;
-        int f2;
+        int f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, headType, z)) == null) {
             Context context = TbadkCoreApplication.getInst().getContext();
@@ -179,31 +179,31 @@ public class BdListViewHelper {
             }
             if (HeadType.DEFAULT == headType) {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f2 = n.f(context, R.dimen.obfuscated_res_0x7f070251);
+                f = oi.f(context, R.dimen.obfuscated_res_0x7f07025d);
             } else {
                 lightStatusBarHeight = UtilHelper.getLightStatusBarHeight();
-                f2 = n.f(context, R.dimen.obfuscated_res_0x7f07027a);
+                f = oi.f(context, R.dimen.obfuscated_res_0x7f070286);
             }
-            return lightStatusBarHeight + f2;
+            return lightStatusBarHeight + f;
         }
         return invokeLZ.intValue;
     }
 
-    public static void c(View view, HeadType headType, boolean z) {
+    public static void c(View view2, HeadType headType, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, view, headType, z) == null) || view == null || headType == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, view2, headType, z) == null) || view2 == null || headType == null) {
             return;
         }
         Context context = TbadkCoreApplication.getInst().getContext();
-        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view.getLayoutParams();
+        AbsListView.LayoutParams layoutParams = (AbsListView.LayoutParams) view2.getLayoutParams();
         if (z) {
             layoutParams.height = a(headType);
         } else if (HeadType.DEFAULT == headType) {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.obfuscated_res_0x7f070251);
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + oi.f(context, R.dimen.obfuscated_res_0x7f07025d);
         } else {
-            layoutParams.height = UtilHelper.getLightStatusBarHeight() + n.f(context, R.dimen.obfuscated_res_0x7f07027a);
+            layoutParams.height = UtilHelper.getLightStatusBarHeight() + oi.f(context, R.dimen.obfuscated_res_0x7f070286);
         }
-        view.setLayoutParams(layoutParams);
+        view2.setLayoutParams(layoutParams);
     }
 
     public static View d(Context context, BdListView bdListView, HeadType headType) {

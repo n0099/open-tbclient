@@ -72,8 +72,8 @@ public class DocumentsContractApi19 {
         }
         try {
             autoCloseable.close();
-        } catch (RuntimeException e2) {
-            throw e2;
+        } catch (RuntimeException e) {
+            throw e;
         } catch (Exception unused) {
         }
     }
@@ -86,8 +86,8 @@ public class DocumentsContractApi19 {
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{"document_id"}, null, null, null);
                 return cursor.getCount() > 0;
-            } catch (Exception e2) {
-                Log.w("DocumentFile", "Failed query: " + e2);
+            } catch (Exception e) {
+                Log.w("DocumentFile", "Failed query: " + e);
                 return false;
             } finally {
                 closeQuietly(cursor);
@@ -178,8 +178,8 @@ public class DocumentsContractApi19 {
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
                 return (!cursor.moveToFirst() || cursor.isNull(0)) ? j : cursor.getLong(0);
-            } catch (Exception e2) {
-                Log.w("DocumentFile", "Failed query: " + e2);
+            } catch (Exception e) {
+                Log.w("DocumentFile", "Failed query: " + e);
                 return j;
             } finally {
                 closeQuietly(cursor);
@@ -197,8 +197,8 @@ public class DocumentsContractApi19 {
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
                 return (!cursor.moveToFirst() || cursor.isNull(0)) ? str2 : cursor.getString(0);
-            } catch (Exception e2) {
-                Log.w("DocumentFile", "Failed query: " + e2);
+            } catch (Exception e) {
+                Log.w("DocumentFile", "Failed query: " + e);
                 return str2;
             } finally {
                 closeQuietly(cursor);

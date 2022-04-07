@@ -10,23 +10,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f34834b;
+    public ImageView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbNoDataItemViewHolder(View view, Context context) {
-        super(view);
+    public PbNoDataItemViewHolder(View view2, Context context) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, context};
+            Object[] objArr = {view2, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,7 +35,7 @@ public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091585);
-        this.f34834b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f091583);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091580);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09157e);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05d2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05d4 : invokeV.intValue;
     }
 
     @Override // com.baidu.nadcore.player.tail.AdBaseTailFrameView
@@ -47,12 +47,12 @@ public class AdEmbeddedTailFrameView extends AdBaseTailFrameView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.g();
-            this.f27582c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060290));
-            this.f27583d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06027d));
-            this.f27584e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06027d));
-            this.f27583d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd9));
-            this.f27584e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dd9));
-            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060834));
+            this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060290));
+            this.d.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06027d));
+            this.e.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06027d));
+            this.d.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de2));
+            this.e.setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080de2));
+            this.k.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060843));
         }
     }
 

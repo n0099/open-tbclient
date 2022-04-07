@@ -13,8 +13,6 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.l.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,8 +25,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class EllipsizeTagTitleView extends View implements q {
+import com.repackage.gz;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
+public class EllipsizeTagTitleView extends View implements gz {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: A */
@@ -45,27 +45,13 @@ public class EllipsizeTagTitleView extends View implements q {
     public static final int CAM_X0105 = 2131099660;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30667b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30668c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f30669d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30670e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30671f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30672g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30673h;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
     public int i;
     public int j;
     public int k;
@@ -97,13 +83,13 @@ public class EllipsizeTagTitleView extends View implements q {
                 return;
             }
         }
-        B = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
-        C = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
-        D = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-        E = n.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-        F = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
-        G = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
-        H = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        B = oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X06);
+        C = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds16);
+        D = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
+        E = oi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
+        F = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds12);
+        G = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6);
+        H = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -133,13 +119,13 @@ public class EllipsizeTagTitleView extends View implements q {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this.o - this.v.getFontMetrics().descent : invokeV.floatValue;
     }
 
-    public final int a(int i, float f2) {
+    public final int a(int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             TextPaint textPaint = this.v;
             String str = this.t;
-            return textPaint.breakText(str, i, str.length(), true, f2, this.m);
+            return textPaint.breakText(str, i, str.length(), true, f, this.m);
         }
         return invokeCommon.intValue;
     }
@@ -152,9 +138,9 @@ public class EllipsizeTagTitleView extends View implements q {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                int a = a(i2, i3 == this.f30670e + (-1) ? i - this.r : i);
+                int a = a(i2, i3 == this.e + (-1) ? i - this.r : i);
                 i3++;
-                int i4 = this.f30670e;
+                int i4 = this.e;
                 if (i3 >= i4) {
                     return i4;
                 }
@@ -176,7 +162,7 @@ public class EllipsizeTagTitleView extends View implements q {
             if (TextUtils.isEmpty(this.u)) {
                 return 0;
             }
-            return (int) (0 + this.p + (this.f30672g * 2) + this.i);
+            return (int) (0 + this.p + (this.g * 2) + this.i);
         }
         return invokeV.intValue;
     }
@@ -188,42 +174,42 @@ public class EllipsizeTagTitleView extends View implements q {
             if (TextUtils.isEmpty(this.u)) {
                 return 0;
             }
-            return this.i + ((int) this.w.measureText(this.u)) + 0 + (this.f30673h * 2) + this.f30671f;
+            return this.i + ((int) this.w.measureText(this.u)) + 0 + (this.h * 2) + this.f;
         }
         return invokeV.intValue;
     }
 
-    public final void e(Canvas canvas, float f2, float f3) {
+    public final void e(Canvas canvas, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) || canvas == null) {
             return;
         }
         String str = this.l;
-        canvas.drawText(str, 0, str.length(), f2, f3, (Paint) this.v);
+        canvas.drawText(str, 0, str.length(), f, f2, (Paint) this.v);
     }
 
-    public final void f(Canvas canvas, float f2) {
+    public final void f(Canvas canvas, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(1048581, this, canvas, f2) == null) || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeLF(1048581, this, canvas, f) == null) || canvas == null) {
             return;
         }
         this.w.setStyle(Paint.Style.FILL);
-        canvas.drawText(this.u, this.y.left + this.f30673h, (f2 + (this.p / 2.0f)) - this.q, this.w);
+        canvas.drawText(this.u, this.y.left + this.h, (f + (this.p / 2.0f)) - this.q, this.w);
     }
 
-    public final void g(Canvas canvas, float f2, float f3) {
+    public final void g(Canvas canvas, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) || canvas == null) {
             return;
         }
         RectF rectF = this.y;
         int i = this.i;
-        float f4 = f3 + ((i * 1.0f) / 2.0f);
-        rectF.left = f4;
+        float f3 = f2 + ((i * 1.0f) / 2.0f);
+        rectF.left = f3;
         int i2 = this.s;
-        rectF.top = f2 - ((i2 * 1.0f) / 2.0f);
-        rectF.right = ((f4 + this.r) - this.f30671f) + ((i * 1.0f) / 2.0f);
-        rectF.bottom = f2 + ((i2 * 1.0f) / 2.0f);
+        rectF.top = f - ((i2 * 1.0f) / 2.0f);
+        rectF.right = ((f3 + this.r) - this.f) + ((i * 1.0f) / 2.0f);
+        rectF.bottom = f + ((i2 * 1.0f) / 2.0f);
         this.w.setStyle(Paint.Style.STROKE);
         this.w.setStrokeWidth(this.i);
         RectF rectF2 = this.y;
@@ -231,12 +217,12 @@ public class EllipsizeTagTitleView extends View implements q {
         canvas.drawRoundRect(rectF2, i3, i3, this.w);
     }
 
-    public final void h(Canvas canvas, int i, int i2, float f2, float f3) {
+    public final void h(Canvas canvas, int i, int i2, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) || canvas == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)}) == null) || canvas == null) {
             return;
         }
-        canvas.drawText(this.t, i, i2, f2, f3, (Paint) this.v);
+        canvas.drawText(this.t, i, i2, f, f2, (Paint) this.v);
     }
 
     public final void i(Canvas canvas) {
@@ -248,20 +234,20 @@ public class EllipsizeTagTitleView extends View implements q {
             int i2 = 0;
             while (i < length) {
                 Paint.FontMetrics fontMetrics = this.x;
-                float f2 = ((fontMetrics.ascent + singleOffset) + (fontMetrics.descent + singleOffset)) / 2.0f;
-                if (i2 == this.f30670e - 1) {
+                float f = ((fontMetrics.ascent + singleOffset) + (fontMetrics.descent + singleOffset)) / 2.0f;
+                if (i2 == this.e - 1) {
                     float width = getWidth() - this.r;
                     int a = i + a(i, width);
                     if (a == length && this.m[0] < width) {
                         h(canvas, i, a, 0.0f, singleOffset);
-                        g(canvas, f2, this.m[0] + this.f30671f);
-                        f(canvas, f2);
+                        g(canvas, f, this.m[0] + this.f);
+                        f(canvas, f);
                         return;
                     }
                     h(canvas, i, i + a(i, (int) (width - this.n)), 0.0f, singleOffset);
                     e(canvas, this.m[0], singleOffset);
-                    g(canvas, f2, this.m[0] + this.n + this.f30671f);
-                    f(canvas, f2);
+                    g(canvas, f, this.m[0] + this.n + this.f);
+                    f(canvas, f);
                     return;
                 }
                 float width2 = getWidth();
@@ -270,18 +256,18 @@ public class EllipsizeTagTitleView extends View implements q {
                 if (a2 == length) {
                     float[] fArr = this.m;
                     if (fArr[0] + this.r < width2) {
-                        g(canvas, f2, fArr[0] + this.f30671f);
-                        f(canvas, f2);
+                        g(canvas, f, fArr[0] + this.f);
+                        f(canvas, f);
                         return;
                     }
-                    float singleOffset2 = singleOffset + getSingleOffset() + this.f30669d;
+                    float singleOffset2 = singleOffset + getSingleOffset() + this.d;
                     Paint.FontMetrics fontMetrics2 = this.x;
-                    float f3 = ((fontMetrics2.ascent + singleOffset2) + (singleOffset2 + fontMetrics2.descent)) / 2.0f;
-                    g(canvas, f3, 0.0f);
-                    f(canvas, f3);
+                    float f2 = ((fontMetrics2.ascent + singleOffset2) + (singleOffset2 + fontMetrics2.descent)) / 2.0f;
+                    g(canvas, f2, 0.0f);
+                    f(canvas, f2);
                     return;
                 }
-                singleOffset += getSingleOffset() + this.f30669d;
+                singleOffset += getSingleOffset() + this.d;
                 i2++;
                 i = a2;
             }
@@ -297,10 +283,10 @@ public class EllipsizeTagTitleView extends View implements q {
             int i2 = 0;
             while (i2 < length) {
                 int width = getWidth();
-                if (i == this.f30670e - 1) {
-                    float f2 = width;
-                    int breakText = i2 + this.v.breakText(this.t, i2, length, true, f2, this.m);
-                    if (breakText == length && this.m[0] < f2) {
+                if (i == this.e - 1) {
+                    float f = width;
+                    int breakText = i2 + this.v.breakText(this.t, i2, length, true, f, this.m);
+                    if (breakText == length && this.m[0] < f) {
                         h(canvas, i2, breakText, 0.0f, singleOffset);
                         return;
                     }
@@ -310,7 +296,7 @@ public class EllipsizeTagTitleView extends View implements q {
                 }
                 int a = i2 + a(i2, width);
                 h(canvas, i2, a, 0.0f, singleOffset);
-                singleOffset += getSingleOffset() + this.f30669d;
+                singleOffset += getSingleOffset() + this.d;
                 i++;
                 i2 = a;
             }
@@ -320,16 +306,16 @@ public class EllipsizeTagTitleView extends View implements q {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405c7, R.attr.obfuscated_res_0x7f0405c8, R.attr.obfuscated_res_0x7f0405c9, R.attr.obfuscated_res_0x7f0405ca, R.attr.obfuscated_res_0x7f0405cb, R.attr.obfuscated_res_0x7f0405cc, R.attr.obfuscated_res_0x7f0405cd, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf, R.attr.obfuscated_res_0x7f0405d0, R.attr.obfuscated_res_0x7f0405d1, R.attr.obfuscated_res_0x7f0405d2});
-            this.f30668c = obtainStyledAttributes.getInt(9, CAM_X0105);
-            this.f30667b = obtainStyledAttributes.getInt(11, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040605, R.attr.obfuscated_res_0x7f040606, R.attr.obfuscated_res_0x7f040607, R.attr.obfuscated_res_0x7f040608, R.attr.obfuscated_res_0x7f040609, R.attr.obfuscated_res_0x7f04060a, R.attr.obfuscated_res_0x7f04060b, R.attr.obfuscated_res_0x7f04060c, R.attr.obfuscated_res_0x7f04060d, R.attr.obfuscated_res_0x7f04060e, R.attr.obfuscated_res_0x7f04060f, R.attr.obfuscated_res_0x7f040610});
+            this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
+            this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);
-            this.f30669d = obtainStyledAttributes.getDimensionPixelSize(1, C);
-            this.f30670e = obtainStyledAttributes.getInt(2, 2);
+            this.d = obtainStyledAttributes.getDimensionPixelSize(1, C);
+            this.e = obtainStyledAttributes.getInt(2, 2);
             this.l = obtainStyledAttributes.getString(0);
-            this.f30671f = obtainStyledAttributes.getInt(5, D);
-            this.f30672g = obtainStyledAttributes.getInt(7, G);
-            this.f30673h = obtainStyledAttributes.getInt(6, H);
+            this.f = obtainStyledAttributes.getInt(5, D);
+            this.g = obtainStyledAttributes.getInt(7, G);
+            this.h = obtainStyledAttributes.getInt(6, H);
             this.i = obtainStyledAttributes.getInt(8, E);
             this.j = obtainStyledAttributes.getInt(4, F);
             this.k = obtainStyledAttributes.getInt(9, CAM_X0301);
@@ -337,12 +323,12 @@ public class EllipsizeTagTitleView extends View implements q {
             TextPaint textPaint = new TextPaint(1);
             this.v = textPaint;
             textPaint.setTextSize(this.a);
-            if (this.f30667b == 1) {
+            if (this.b == 1) {
                 this.v.setTypeface(Typeface.DEFAULT_BOLD);
             } else {
                 this.v.setTypeface(Typeface.DEFAULT);
             }
-            this.v.setColor(SkinManager.getColor(this.f30668c));
+            this.v.setColor(SkinManager.getColor(this.c));
             this.v.getFontMetrics(this.x);
             if (TextUtils.isEmpty(this.l)) {
                 this.l = "...#";
@@ -351,7 +337,7 @@ public class EllipsizeTagTitleView extends View implements q {
             TextPaint textPaint2 = new TextPaint(1);
             this.w = textPaint2;
             textPaint2.setColor(SkinManager.getColor(this.k));
-            this.w.setTextSize(n.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
+            this.w.setTextSize(oi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10));
             if (this.w.getFontMetrics() != null) {
                 this.p = this.w.getFontMetrics().descent - this.w.getFontMetrics().ascent;
                 this.q = this.w.getFontMetrics().descent;
@@ -359,11 +345,11 @@ public class EllipsizeTagTitleView extends View implements q {
         }
     }
 
-    @Override // c.a.l.q
+    @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, tbPageContext, i) == null) {
-            this.v.setColor(SkinManager.getColor(this.f30668c));
+            this.v.setColor(SkinManager.getColor(this.c));
             this.w.setColor(SkinManager.getColor(this.k));
             invalidate();
         }
@@ -399,15 +385,15 @@ public class EllipsizeTagTitleView extends View implements q {
             }
             if (mode2 != 1073741824) {
                 if (this.v.getFontMetrics() != null) {
-                    float f2 = this.v.getFontMetrics().descent - this.v.getFontMetrics().ascent;
-                    this.o = f2;
+                    float f = this.v.getFontMetrics().descent - this.v.getFontMetrics().ascent;
+                    this.o = f;
                     int i3 = this.s;
-                    if (f2 < i3) {
+                    if (f < i3) {
                         this.o = i3;
                     }
                 }
-                int b2 = b(size);
-                size2 = (int) (0 + (this.o * b2) + (this.f30669d * (b2 - 1)));
+                int b = b(size);
+                size2 = (int) (0 + (this.o * b) + (this.d * (b - 1)));
             }
             setMeasuredDimension(size, size2);
         }
@@ -464,13 +450,13 @@ public class EllipsizeTagTitleView extends View implements q {
             }
         }
         this.a = B;
-        this.f30667b = 1;
-        this.f30668c = CAM_X0105;
-        this.f30669d = C;
-        this.f30670e = 2;
-        this.f30671f = D;
-        this.f30672g = G;
-        this.f30673h = H;
+        this.b = 1;
+        this.c = CAM_X0105;
+        this.d = C;
+        this.e = 2;
+        this.f = D;
+        this.g = G;
+        this.h = H;
         this.i = E;
         this.j = F;
         this.k = CAM_X0301;

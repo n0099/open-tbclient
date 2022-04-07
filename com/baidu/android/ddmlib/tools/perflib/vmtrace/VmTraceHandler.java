@@ -1,5 +1,5 @@
 package com.baidu.android.ddmlib.tools.perflib.vmtrace;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface VmTraceHandler {
     void addMethod(long j, MethodInfo methodInfo);
 

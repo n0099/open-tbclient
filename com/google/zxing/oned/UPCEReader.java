@@ -12,7 +12,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class UPCEReader extends UPCEANReader {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECK_DIGIT_ENCODINGS;
@@ -63,13 +63,13 @@ public final class UPCEReader extends UPCEANReader {
             str.getChars(1, 7, cArr, 0);
             StringBuilder sb = new StringBuilder(12);
             sb.append(str.charAt(0));
-            char c2 = cArr[5];
-            switch (c2) {
+            char c = cArr[5];
+            switch (c) {
                 case '0':
                 case '1':
                 case '2':
                     sb.append(cArr, 0, 2);
-                    sb.append(c2);
+                    sb.append(c);
                     sb.append("0000");
                     sb.append(cArr, 2, 3);
                     break;
@@ -86,7 +86,7 @@ public final class UPCEReader extends UPCEANReader {
                 default:
                     sb.append(cArr, 0, 5);
                     sb.append("0000");
-                    sb.append(c2);
+                    sb.append(c);
                     break;
             }
             sb.append(str.charAt(7));

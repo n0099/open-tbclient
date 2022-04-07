@@ -12,7 +12,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DnsParseResult {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_STACK_TYPE_BOTH = 3;
@@ -104,8 +104,8 @@ public class DnsParseResult {
                 jSONObject.put("subType", this.k);
                 jSONObject.put("ipList", new JSONArray((Collection) this.l));
                 jSONObject.put("stackType", this.stackType);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

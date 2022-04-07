@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.reactivex.Scheduler;
 import io.reactivex.android.plugins.RxAndroidPlugins;
 import java.util.concurrent.Callable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class AndroidSchedulers {
     public static /* synthetic */ Interceptable $ic;
     public static final Scheduler MAIN_THREAD;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class MainHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final Scheduler DEFAULT;

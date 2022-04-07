@@ -26,7 +26,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
@@ -269,20 +269,20 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i) {
+    public void onVisibilityChanged(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, view, i) == null) {
-            super.onVisibilityChanged(view, i);
+        if (interceptable == null || interceptable.invokeLI(1048592, this, view2, i) == null) {
+            super.onVisibilityChanged(view2, i);
             maybeOverrideVisibilityHandling();
         }
     }
 
-    public void setAspectRatio(float f2) {
+    public void setAspectRatio(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048593, this, f2) == null) || f2 == this.mAspectRatio) {
+        if (!(interceptable == null || interceptable.invokeF(1048593, this, f) == null) || f == this.mAspectRatio) {
             return;
         }
-        this.mAspectRatio = f2;
+        this.mAspectRatio = f;
         requestLayout();
     }
 

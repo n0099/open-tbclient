@@ -52,14 +52,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKABLE_STATE_SET;
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100346 = 2131755846;
+    public static final int obfuscated_res_0x7f100347 = 2131755847;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;
@@ -89,21 +89,21 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -792,12 +792,12 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     @Override // android.view.View
     @RequiresApi(21)
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048616, this, f2) == null) {
-            super.setElevation(f2);
+        if (interceptable == null || interceptable.invokeF(1048616, this, f) == null) {
+            super.setElevation(f);
             if (isUsingOriginalBackground()) {
-                this.materialButtonHelper.getMaterialShapeDrawable().setElevation(f2);
+                this.materialButtonHelper.getMaterialShapeDrawable().setElevation(f);
             }
         }
     }
@@ -999,7 +999,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040408);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040448);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1020,7 +1020,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100346), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100347), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -1041,14 +1041,14 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         this.checked = false;
         this.broadcasting = false;
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f04018b, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0402ab, R.attr.obfuscated_res_0x7f0402ad, R.attr.obfuscated_res_0x7f0402ae, R.attr.obfuscated_res_0x7f0402af, R.attr.obfuscated_res_0x7f0402b1, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040591}, i, obfuscated_res_0x7f100346, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f04018e, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402ef, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f0402f1, R.attr.obfuscated_res_0x7f0402f3, R.attr.obfuscated_res_0x7f0402f4, R.attr.obfuscated_res_0x7f040542, R.attr.obfuscated_res_0x7f040589, R.attr.obfuscated_res_0x7f04058c, R.attr.obfuscated_res_0x7f0405ce, R.attr.obfuscated_res_0x7f0405cf}, i, obfuscated_res_0x7f100347, new int[0]);
         this.iconPadding = obtainStyledAttributes.getDimensionPixelSize(12, 0);
         this.iconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(15, -1), PorterDuff.Mode.SRC_IN);
         this.iconTint = MaterialResources.getColorStateList(getContext(), obtainStyledAttributes, 14);
         this.icon = MaterialResources.getDrawable(getContext(), obtainStyledAttributes, 10);
         this.iconGravity = obtainStyledAttributes.getInteger(11, 1);
         this.iconSize = obtainStyledAttributes.getDimensionPixelSize(13, 0);
-        MaterialButtonHelper materialButtonHelper = new MaterialButtonHelper(this, ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100346).build());
+        MaterialButtonHelper materialButtonHelper = new MaterialButtonHelper(this, ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100347).build());
         this.materialButtonHelper = materialButtonHelper;
         materialButtonHelper.loadFromAttributes(obtainStyledAttributes);
         obtainStyledAttributes.recycle();

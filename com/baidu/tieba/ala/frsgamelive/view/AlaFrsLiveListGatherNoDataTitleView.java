@@ -2,8 +2,6 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.c0.g.b.a;
-import c.a.p0.h0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,8 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
+import com.repackage.gs5;
+import com.repackage.rw5;
+/* loaded from: classes3.dex */
+public class AlaFrsLiveListGatherNoDataTitleView extends rw5<gs5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -24,7 +24,7 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     public TbPageContext k;
     public int l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class AlaFrsLiveListNoDataViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,19 +71,19 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
         this.l = 3;
         this.k = tbPageContext;
         View k = k();
-        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b01);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b02);
+        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b0d);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b0e);
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.p0.h0.b
-    public int g() {
+    @Override // com.repackage.rw5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f7 : invokeV.intValue;
     }
 
-    @Override // c.a.p0.h0.b
+    @Override // com.repackage.rw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.l == i) {
@@ -95,18 +95,18 @@ public class AlaFrsLiveListGatherNoDataTitleView extends b<a> {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.h0.b
-    /* renamed from: q */
-    public void l(a aVar) {
+    @Override // com.repackage.rw5
+    /* renamed from: s */
+    public void l(gs5 gs5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, gs5Var) == null) {
             m(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }

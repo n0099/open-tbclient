@@ -59,7 +59,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.UUID;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatisAPIOld implements IStatisApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_METRICS_NAME = "DEFAULT_METRICS";
@@ -557,10 +557,10 @@ public class StatisAPIOld implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
-            reportCountEvent(j, str, d2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
+            reportCountEvent(j, str, d, null);
         }
     }
 
@@ -1325,10 +1325,10 @@ public class StatisAPIOld implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportLocation(long j, double d2, double d3, double d4, IStatisAPI.ReportResult reportResult) {
+    public void reportLocation(long j, double d, double d2, double d3, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), reportResult}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, reportResult, j, d2, d3, d4) { // from class: com.yy.hiidostatis.defs.StatisAPIOld.35
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), reportResult}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, reportResult, j, d, d2, d3) { // from class: com.yy.hiidostatis.defs.StatisAPIOld.35
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ StatisAPIOld this$0;
@@ -1343,7 +1343,7 @@ public class StatisAPIOld implements IStatisApi {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, reportResult, Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
+                        Object[] objArr = {this, reportResult, Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -1356,9 +1356,9 @@ public class StatisAPIOld implements IStatisApi {
                     this.this$0 = this;
                     this.val$resultReceiver = reportResult;
                     this.val$uid = j;
-                    this.val$longitude = d2;
-                    this.val$latitude = d3;
-                    this.val$altitude = d4;
+                    this.val$longitude = d;
+                    this.val$latitude = d2;
+                    this.val$altitude = d3;
                 }
 
                 @Override // java.lang.Runnable
@@ -2451,10 +2451,10 @@ public class StatisAPIOld implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
-            reportCountEvent(j, str, d2, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            reportCountEvent(j, str, d, str2, null);
         }
     }
 
@@ -2790,10 +2790,10 @@ public class StatisAPIOld implements IStatisApi {
     }
 
     @Override // com.yy.hiidostatis.defs.IStatisApi
-    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, str, str2, d2, property == null ? null : property.copy(), j) { // from class: com.yy.hiidostatis.defs.StatisAPIOld.32
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, str, str2, d, property == null ? null : property.copy(), j) { // from class: com.yy.hiidostatis.defs.StatisAPIOld.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ StatisAPIOld this$0;
@@ -2808,7 +2808,7 @@ public class StatisAPIOld implements IStatisApi {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, str2, Double.valueOf(d2), r11, Long.valueOf(j)};
+                        Object[] objArr = {this, str, str2, Double.valueOf(d), r11, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -2821,7 +2821,7 @@ public class StatisAPIOld implements IStatisApi {
                     this.this$0 = this;
                     this.val$eid = str;
                     this.val$label = str2;
-                    this.val$evalue = d2;
+                    this.val$evalue = d;
                     this.val$pro = r11;
                     this.val$uid = j;
                 }

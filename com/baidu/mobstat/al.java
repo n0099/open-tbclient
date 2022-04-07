@@ -20,16 +20,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class al implements Window.Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Window.Callback a;
+    public a b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public a f27179b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a(KeyEvent keyEvent);
 
@@ -52,7 +50,7 @@ public class al implements Window.Callback {
             }
         }
         this.a = callback;
-        this.f27179b = aVar;
+        this.b = aVar;
     }
 
     public Window.Callback a() {
@@ -73,7 +71,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, keyEvent)) == null) {
-            a aVar = this.f27179b;
+            a aVar = this.b;
             if (aVar != null) {
                 aVar.a(keyEvent);
             }
@@ -101,7 +99,7 @@ public class al implements Window.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            a aVar = this.f27179b;
+            a aVar = this.b;
             if (aVar != null) {
                 aVar.a(motionEvent);
             }
@@ -203,10 +201,10 @@ public class al implements Window.Callback {
     }
 
     @Override // android.view.Window.Callback
-    public boolean onPreparePanel(int i, View view, Menu menu) {
+    public boolean onPreparePanel(int i, View view2, Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i, view, menu)) == null) ? this.a.onPreparePanel(i, view, menu) : invokeILL.booleanValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048594, this, i, view2, menu)) == null) ? this.a.onPreparePanel(i, view2, menu) : invokeILL.booleanValue;
     }
 
     @Override // android.view.Window.Callback

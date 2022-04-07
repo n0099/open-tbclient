@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class NalUnitUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] ASPECT_RATIO_IDC_VALUES;
@@ -25,7 +25,7 @@ public final class NalUnitUtil {
     public static final Object scratchEscapePositionsLock;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class PpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public final class NalUnitUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SpsData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,12 +69,12 @@ public final class NalUnitUtil {
         public final int seqParameterSetId;
         public final int width;
 
-        public SpsData(int i, int i2, int i3, float f2, boolean z, boolean z2, int i4, int i5, int i6, boolean z3) {
+        public SpsData(int i, int i2, int i3, float f, boolean z, boolean z2, int i4, int i5, int i6, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i7 = newInitContext.flag;
                 if ((i7 & 1) != 0) {
@@ -87,7 +87,7 @@ public final class NalUnitUtil {
             this.seqParameterSetId = i;
             this.width = i2;
             this.height = i3;
-            this.pixelWidthAspectRatio = f2;
+            this.pixelWidthAspectRatio = f;
             this.separateColorPlaneFlag = z;
             this.frameMbsOnlyFlag = z2;
             this.frameNumLength = i4;
@@ -254,14 +254,14 @@ public final class NalUnitUtil {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) ? bArr[i + 3] & 31 : invokeLI.intValue;
     }
 
-    public static boolean isNalUnitSei(String str, byte b2) {
+    public static boolean isNalUnitSei(String str, byte b) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, Byte.valueOf(b2)})) == null) {
-            if ("video/avc".equals(str) && (b2 & 31) == 6) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{str, Byte.valueOf(b)})) == null) {
+            if ("video/avc".equals(str) && (b & 31) == 6) {
                 return true;
             }
-            return MimeTypes.VIDEO_H265.equals(str) && ((b2 & 126) >> 1) == 39;
+            return MimeTypes.VIDEO_H265.equals(str) && ((b & 126) >> 1) == 39;
         }
         return invokeCommon.booleanValue;
     }
@@ -295,7 +295,7 @@ public final class NalUnitUtil {
         int i4;
         boolean z2;
         boolean readBit;
-        float f2;
+        float f;
         int readBits;
         int i5;
         Interceptable interceptable = $ic;
@@ -370,28 +370,28 @@ public final class NalUnitUtil {
                 }
                 int i12 = i10;
                 int i13 = i9;
-                float f3 = 1.0f;
+                float f2 = 1.0f;
                 if (parsableNalUnitBitArray.readBit() && parsableNalUnitBitArray.readBit()) {
                     readBits = parsableNalUnitBitArray.readBits(8);
                     if (readBits != 255) {
                         int readBits3 = parsableNalUnitBitArray.readBits(16);
                         int readBits4 = parsableNalUnitBitArray.readBits(16);
                         if (readBits3 != 0 && readBits4 != 0) {
-                            f3 = readBits3 / readBits4;
+                            f2 = readBits3 / readBits4;
                         }
-                        f2 = f3;
+                        f = f2;
                     } else {
                         float[] fArr = ASPECT_RATIO_IDC_VALUES;
                         if (readBits < fArr.length) {
-                            f2 = fArr[readBits];
+                            f = fArr[readBits];
                         } else {
                             Log.w(TAG, "Unexpected aspect_ratio_idc value: " + readBits);
                         }
                     }
-                    return new SpsData(i3, i13, i12, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+                    return new SpsData(i3, i13, i12, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
                 }
-                f2 = 1.0f;
-                return new SpsData(i3, i13, i12, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+                f = 1.0f;
+                return new SpsData(i3, i13, i12, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
             } else {
                 i3 = readUnsignedExpGolombCodedInt2;
                 i4 = 0;
@@ -411,15 +411,15 @@ public final class NalUnitUtil {
             }
             int i122 = i102;
             int i132 = i92;
-            float f32 = 1.0f;
+            float f22 = 1.0f;
             if (parsableNalUnitBitArray.readBit()) {
                 readBits = parsableNalUnitBitArray.readBits(8);
                 if (readBits != 255) {
                 }
-                return new SpsData(i3, i132, i122, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+                return new SpsData(i3, i132, i122, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
             }
-            f2 = 1.0f;
-            return new SpsData(i3, i132, i122, f2, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
+            f = 1.0f;
+            return new SpsData(i3, i132, i122, f, z, readBit, readUnsignedExpGolombCodedInt3, readUnsignedExpGolombCodedInt4, i4, z2);
         }
         return (SpsData) invokeLII.objValue;
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class MaterialArcMotion extends PathMotion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,28 +28,28 @@ public final class MaterialArcMotion extends PathMotion {
         }
     }
 
-    public static PointF getControlPoint(float f2, float f3, float f4, float f5) {
+    public static PointF getControlPoint(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            if (f3 > f5) {
-                return new PointF(f4, f3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (f2 > f4) {
+                return new PointF(f3, f2);
             }
-            return new PointF(f2, f5);
+            return new PointF(f, f4);
         }
         return (PointF) invokeCommon.objValue;
     }
 
     @Override // androidx.transition.PathMotion
     @NonNull
-    public Path getPath(float f2, float f3, float f4, float f5) {
+    public Path getPath(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             Path path = new Path();
-            path.moveTo(f2, f3);
-            PointF controlPoint = getControlPoint(f2, f3, f4, f5);
-            path.quadTo(controlPoint.x, controlPoint.y, f4, f5);
+            path.moveTo(f, f2);
+            PointF controlPoint = getControlPoint(f, f2, f3, f4);
+            path.quadTo(controlPoint.x, controlPoint.y, f3, f4);
             return path;
         }
         return (Path) invokeCommon.objValue;

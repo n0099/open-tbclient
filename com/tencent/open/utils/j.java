@@ -20,23 +20,17 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final Executor a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Object f43800b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Handler f43801c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static HandlerThread f43802d;
+    public static Object b;
+    public static Handler c;
+    public static HandlerThread d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.j$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +49,7 @@ public final class j {
                 return;
             }
         }
-        f43800b = new Object();
+        b = new Object();
         a = c();
     }
 
@@ -77,15 +71,15 @@ public final class j {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f43801c == null) {
+            if (c == null) {
                 synchronized (j.class) {
                     HandlerThread handlerThread = new HandlerThread("SDK_SUB");
-                    f43802d = handlerThread;
+                    d = handlerThread;
                     handlerThread.start();
-                    f43801c = new Handler(f43802d.getLooper());
+                    c = new Handler(d.getLooper());
                 }
             }
-            return f43801c;
+            return c;
         }
         return (Handler) invokeV.objValue;
     }
@@ -120,14 +114,12 @@ public final class j {
         return (Executor) invokeV.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Executor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Queue<Runnable> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Runnable f43803b;
+        public Runnable b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -150,7 +142,7 @@ public final class j {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (this) {
                     Runnable poll = this.a.poll();
-                    this.f43803b = poll;
+                    this.b = poll;
                     if (poll != null) {
                         j.a.execute(poll);
                     }
@@ -167,9 +159,7 @@ public final class j {
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Runnable a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ a f43804b;
+                        public final /* synthetic */ a b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -186,7 +176,7 @@ public final class j {
                                     return;
                                 }
                             }
-                            this.f43804b = this;
+                            this.b = this;
                             this.a = runnable;
                         }
 
@@ -197,12 +187,12 @@ public final class j {
                                 try {
                                     this.a.run();
                                 } finally {
-                                    this.f43804b.a();
+                                    this.b.a();
                                 }
                             }
                         }
                     });
-                    if (this.f43803b == null) {
+                    if (this.b == null) {
                         a();
                     }
                 }

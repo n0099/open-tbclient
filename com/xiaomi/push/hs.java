@@ -17,34 +17,20 @@ import java.io.Serializable;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class hs implements iq<hs, Object>, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final iy a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final jg f520a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final iy f44379b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final iy f44380c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final iy f44381d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final iy f44382e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final iy f44383f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final iy f44384g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final iy f44385h;
+    public static final iy b;
+    public static final iy c;
+    public static final iy d;
+    public static final iy e;
+    public static final iy f;
+    public static final iy g;
+    public static final iy h;
     public static final iy i;
     public static final iy j;
     public static final iy k;
@@ -109,13 +95,13 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
         }
         f520a = new jg("PushMetaInfo");
         a = new iy("", Constants.GZIP_CAST_TYPE, (short) 1);
-        f44379b = new iy("", (byte) 10, (short) 2);
-        f44380c = new iy("", Constants.GZIP_CAST_TYPE, (short) 3);
-        f44381d = new iy("", Constants.GZIP_CAST_TYPE, (short) 4);
-        f44382e = new iy("", Constants.GZIP_CAST_TYPE, (short) 5);
-        f44383f = new iy("", (byte) 8, (short) 6);
-        f44384g = new iy("", Constants.GZIP_CAST_TYPE, (short) 7);
-        f44385h = new iy("", (byte) 8, (short) 8);
+        b = new iy("", (byte) 10, (short) 2);
+        c = new iy("", Constants.GZIP_CAST_TYPE, (short) 3);
+        d = new iy("", Constants.GZIP_CAST_TYPE, (short) 4);
+        e = new iy("", Constants.GZIP_CAST_TYPE, (short) 5);
+        f = new iy("", (byte) 8, (short) 6);
+        g = new iy("", Constants.GZIP_CAST_TYPE, (short) 7);
+        h = new iy("", (byte) 8, (short) 8);
         i = new iy("", (byte) 8, (short) 9);
         j = new iy("", (byte) 13, (short) 10);
         k = new iy("", (byte) 13, (short) 11);
@@ -159,14 +145,14 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
         this.f524a = bitSet;
         bitSet.clear();
         this.f524a.or(hsVar.f524a);
-        if (hsVar.m452a()) {
+        if (hsVar.m448a()) {
             this.f523a = hsVar.f523a;
         }
         this.f522a = hsVar.f522a;
-        if (hsVar.m458c()) {
+        if (hsVar.m454c()) {
             this.f528b = hsVar.f528b;
         }
-        if (hsVar.m459d()) {
+        if (hsVar.m455d()) {
             this.f531c = hsVar.f531c;
         }
         if (hsVar.e()) {
@@ -229,26 +215,26 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hsVar)) == null) {
             if (hs.class.equals(hsVar.getClass())) {
-                int compareTo = Boolean.valueOf(m452a()).compareTo(Boolean.valueOf(hsVar.m452a()));
+                int compareTo = Boolean.valueOf(m448a()).compareTo(Boolean.valueOf(hsVar.m448a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m452a() || (a14 = ir.a(this.f523a, hsVar.f523a)) == 0) {
-                    int compareTo2 = Boolean.valueOf(m456b()).compareTo(Boolean.valueOf(hsVar.m456b()));
+                if (!m448a() || (a14 = ir.a(this.f523a, hsVar.f523a)) == 0) {
+                    int compareTo2 = Boolean.valueOf(m452b()).compareTo(Boolean.valueOf(hsVar.m452b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
                     }
-                    if (!m456b() || (a13 = ir.a(this.f522a, hsVar.f522a)) == 0) {
-                        int compareTo3 = Boolean.valueOf(m458c()).compareTo(Boolean.valueOf(hsVar.m458c()));
+                    if (!m452b() || (a13 = ir.a(this.f522a, hsVar.f522a)) == 0) {
+                        int compareTo3 = Boolean.valueOf(m454c()).compareTo(Boolean.valueOf(hsVar.m454c()));
                         if (compareTo3 != 0) {
                             return compareTo3;
                         }
-                        if (!m458c() || (a12 = ir.a(this.f528b, hsVar.f528b)) == 0) {
-                            int compareTo4 = Boolean.valueOf(m459d()).compareTo(Boolean.valueOf(hsVar.m459d()));
+                        if (!m454c() || (a12 = ir.a(this.f528b, hsVar.f528b)) == 0) {
+                            int compareTo4 = Boolean.valueOf(m455d()).compareTo(Boolean.valueOf(hsVar.m455d()));
                             if (compareTo4 != 0) {
                                 return compareTo4;
                             }
-                            if (!m459d() || (a11 = ir.a(this.f531c, hsVar.f531c)) == 0) {
+                            if (!m455d() || (a11 = ir.a(this.f531c, hsVar.f531c)) == 0) {
                                 int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(hsVar.e()));
                                 if (compareTo5 != 0) {
                                     return compareTo5;
@@ -328,14 +314,14 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public long m447a() {
+    public long m443a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f522a : invokeV.longValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public hs m448a() {
+    public hs m444a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new hs(this) : (hs) invokeV.objValue;
@@ -373,21 +359,21 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m449a() {
+    public String m445a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f523a : (String) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m450a() {
+    public Map<String, String> m446a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f525a : (Map) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m451a() {
+    public void m447a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.f523a == null) {
             throw new jc("Required field 'id' was not present! Struct: " + toString());
@@ -401,30 +387,30 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048586, this, jbVar) != null) {
             return;
         }
-        jbVar.m566a();
+        jbVar.m562a();
         while (true) {
-            iy m562a = jbVar.m562a();
-            byte b2 = m562a.a;
+            iy m558a = jbVar.m558a();
+            byte b2 = m558a.a;
             if (b2 == 0) {
                 jbVar.f();
-                if (m456b()) {
-                    m451a();
+                if (m452b()) {
+                    m447a();
                     return;
                 }
                 throw new jc("Required field 'messageTs' was not found in serialized data! Struct: " + toString());
             }
             int i2 = 0;
-            switch (m562a.f791a) {
+            switch (m558a.f791a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f523a = jbVar.m567a();
+                        this.f523a = jbVar.m563a();
                         break;
                     }
                     je.a(jbVar, b2);
                     break;
                 case 2:
                     if (b2 == 10) {
-                        this.f522a = jbVar.m561a();
+                        this.f522a = jbVar.m557a();
                         a(true);
                         break;
                     }
@@ -432,28 +418,28 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f528b = jbVar.m567a();
+                        this.f528b = jbVar.m563a();
                         break;
                     }
                     je.a(jbVar, b2);
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f531c = jbVar.m567a();
+                        this.f531c = jbVar.m563a();
                         break;
                     }
                     je.a(jbVar, b2);
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f533d = jbVar.m567a();
+                        this.f533d = jbVar.m563a();
                         break;
                     }
                     je.a(jbVar, b2);
                     break;
                 case 6:
                     if (b2 == 8) {
-                        this.f521a = jbVar.m560a();
+                        this.f521a = jbVar.m556a();
                         b(true);
                         break;
                     }
@@ -461,14 +447,14 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f534e = jbVar.m567a();
+                        this.f534e = jbVar.m563a();
                         break;
                     }
                     je.a(jbVar, b2);
                     break;
                 case 8:
                     if (b2 == 8) {
-                        this.f527b = jbVar.m560a();
+                        this.f527b = jbVar.m556a();
                         c(true);
                         break;
                     }
@@ -476,7 +462,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 9:
                     if (b2 == 8) {
-                        this.f530c = jbVar.m560a();
+                        this.f530c = jbVar.m556a();
                         d(true);
                         break;
                     }
@@ -484,10 +470,10 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 10:
                     if (b2 == 13) {
-                        ja m564a = jbVar.m564a();
-                        this.f525a = new HashMap(m564a.f795a * 2);
-                        while (i2 < m564a.f795a) {
-                            this.f525a.put(jbVar.m567a(), jbVar.m567a());
+                        ja m560a = jbVar.m560a();
+                        this.f525a = new HashMap(m560a.f795a * 2);
+                        while (i2 < m560a.f795a) {
+                            this.f525a.put(jbVar.m563a(), jbVar.m563a());
                             i2++;
                         }
                         jbVar.h();
@@ -497,10 +483,10 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 11:
                     if (b2 == 13) {
-                        ja m564a2 = jbVar.m564a();
-                        this.f529b = new HashMap(m564a2.f795a * 2);
-                        while (i2 < m564a2.f795a) {
-                            this.f529b.put(jbVar.m567a(), jbVar.m567a());
+                        ja m560a2 = jbVar.m560a();
+                        this.f529b = new HashMap(m560a2.f795a * 2);
+                        while (i2 < m560a2.f795a) {
+                            this.f529b.put(jbVar.m563a(), jbVar.m563a());
                             i2++;
                         }
                         jbVar.h();
@@ -510,7 +496,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 12:
                     if (b2 == 2) {
-                        this.f526a = jbVar.m571a();
+                        this.f526a = jbVar.m567a();
                         e(true);
                         break;
                     }
@@ -518,10 +504,10 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     break;
                 case 13:
                     if (b2 == 13) {
-                        ja m564a3 = jbVar.m564a();
-                        this.f532c = new HashMap(m564a3.f795a * 2);
-                        while (i2 < m564a3.f795a) {
-                            this.f532c.put(jbVar.m567a(), jbVar.m567a());
+                        ja m560a3 = jbVar.m560a();
+                        this.f532c = new HashMap(m560a3.f795a * 2);
+                        while (i2 < m560a3.f795a) {
+                            this.f532c.put(jbVar.m563a(), jbVar.m563a());
                             i2++;
                         }
                         jbVar.h();
@@ -555,33 +541,33 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m452a() {
+    public boolean m448a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f523a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m453a(hs hsVar) {
+    public boolean m449a(hs hsVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, hsVar)) == null) {
             if (hsVar == null) {
                 return false;
             }
-            boolean m452a = m452a();
-            boolean m452a2 = hsVar.m452a();
-            if (((m452a || m452a2) && !(m452a && m452a2 && this.f523a.equals(hsVar.f523a))) || this.f522a != hsVar.f522a) {
+            boolean m448a = m448a();
+            boolean m448a2 = hsVar.m448a();
+            if (((m448a || m448a2) && !(m448a && m448a2 && this.f523a.equals(hsVar.f523a))) || this.f522a != hsVar.f522a) {
                 return false;
             }
-            boolean m458c = m458c();
-            boolean m458c2 = hsVar.m458c();
-            if ((m458c || m458c2) && !(m458c && m458c2 && this.f528b.equals(hsVar.f528b))) {
+            boolean m454c = m454c();
+            boolean m454c2 = hsVar.m454c();
+            if ((m454c || m454c2) && !(m454c && m454c2 && this.f528b.equals(hsVar.f528b))) {
                 return false;
             }
-            boolean m459d = m459d();
-            boolean m459d2 = hsVar.m459d();
-            if ((m459d || m459d2) && !(m459d && m459d2 && this.f531c.equals(hsVar.f531c))) {
+            boolean m455d = m455d();
+            boolean m455d2 = hsVar.m455d();
+            if ((m455d || m455d2) && !(m455d && m455d2 && this.f531c.equals(hsVar.f531c))) {
                 return false;
             }
             boolean e2 = e();
@@ -662,14 +648,14 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public String m454b() {
+    public String m450b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f528b : (String) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public Map<String, String> m455b() {
+    public Map<String, String> m451b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f529b : (Map) invokeV.objValue;
@@ -679,43 +665,43 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     public void b(jb jbVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, jbVar) == null) {
-            m451a();
+            m447a();
             jbVar.a(f520a);
             if (this.f523a != null) {
                 jbVar.a(a);
                 jbVar.a(this.f523a);
                 jbVar.b();
             }
-            jbVar.a(f44379b);
+            jbVar.a(b);
             jbVar.a(this.f522a);
             jbVar.b();
-            if (this.f528b != null && m458c()) {
-                jbVar.a(f44380c);
+            if (this.f528b != null && m454c()) {
+                jbVar.a(c);
                 jbVar.a(this.f528b);
                 jbVar.b();
             }
-            if (this.f531c != null && m459d()) {
-                jbVar.a(f44381d);
+            if (this.f531c != null && m455d()) {
+                jbVar.a(d);
                 jbVar.a(this.f531c);
                 jbVar.b();
             }
             if (this.f533d != null && e()) {
-                jbVar.a(f44382e);
+                jbVar.a(e);
                 jbVar.a(this.f533d);
                 jbVar.b();
             }
             if (f()) {
-                jbVar.a(f44383f);
+                jbVar.a(f);
                 jbVar.a(this.f521a);
                 jbVar.b();
             }
             if (this.f534e != null && g()) {
-                jbVar.a(f44384g);
+                jbVar.a(g);
                 jbVar.a(this.f534e);
                 jbVar.b();
             }
             if (h()) {
-                jbVar.a(f44385h);
+                jbVar.a(h);
                 jbVar.a(this.f527b);
                 jbVar.b();
             }
@@ -760,7 +746,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m570a();
+            jbVar.m566a();
         }
     }
 
@@ -782,7 +768,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m456b() {
+    public boolean m452b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f524a.get(0) : invokeV.booleanValue;
@@ -816,7 +802,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public String m457c() {
+    public String m453c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f531c : (String) invokeV.objValue;
@@ -830,7 +816,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m458c() {
+    public boolean m454c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f528b != null : invokeV.booleanValue;
@@ -860,7 +846,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m459d() {
+    public boolean m455d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f531c != null : invokeV.booleanValue;
@@ -884,7 +870,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, obj)) == null) {
             if (obj != null && (obj instanceof hs)) {
-                return m453a((hs) obj);
+                return m449a((hs) obj);
             }
             return false;
         }
@@ -969,7 +955,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("messageTs:");
             sb.append(this.f522a);
-            if (m458c()) {
+            if (m454c()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append(UrlSchemaHelper.SCHEMA_TYPE_TOPIC);
                 String str2 = this.f528b;
@@ -979,7 +965,7 @@ public class hs implements iq<hs, Object>, Serializable, Cloneable {
                     sb.append(str2);
                 }
             }
-            if (m459d()) {
+            if (m455d()) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 sb.append("title:");
                 String str3 = this.f531c;

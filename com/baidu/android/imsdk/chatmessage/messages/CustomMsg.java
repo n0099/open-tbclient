@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CustomMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CustomMsg> CREATOR;
@@ -82,9 +82,9 @@ public class CustomMsg extends NormalMsg {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("data", str);
-                jSONObject.put(HttpClientWrap.f27906c, str2);
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getTextJson", e2);
+                jSONObject.put(HttpClientWrap.c, str2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getTextJson", e);
             }
             return jSONObject.toString();
         }
@@ -120,10 +120,10 @@ public class CustomMsg extends NormalMsg {
                 try {
                     JSONObject jSONObject = new JSONObject(jsonContent);
                     this.data = jSONObject.optString("data");
-                    this.encode = jSONObject.optString(HttpClientWrap.f27906c);
+                    this.encode = jSONObject.optString(HttpClientWrap.c);
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e("CustomMsg", "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e("CustomMsg", "parse json err!", e);
                 }
             }
             return false;

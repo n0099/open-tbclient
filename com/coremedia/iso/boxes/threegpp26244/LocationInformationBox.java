@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocationInformationBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "loci";
@@ -235,11 +235,11 @@ public class LocationInformationBox extends AbstractFullBox {
         }
     }
 
-    public void setAltitude(double d2) {
+    public void setAltitude(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Double.valueOf(d2)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.doubleObject(d2)));
-            this.altitude = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Double.valueOf(d)}) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.doubleObject(d)));
+            this.altitude = d;
         }
     }
 
@@ -259,19 +259,19 @@ public class LocationInformationBox extends AbstractFullBox {
         }
     }
 
-    public void setLatitude(double d2) {
+    public void setLatitude(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d2)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.doubleObject(d2)));
-            this.latitude = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d)}) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_9, this, this, Conversions.doubleObject(d)));
+            this.latitude = d;
         }
     }
 
-    public void setLongitude(double d2) {
+    public void setLongitude(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d2)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.doubleObject(d2)));
-            this.longitude = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Double.valueOf(d)}) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_7, this, this, Conversions.doubleObject(d)));
+            this.longitude = d;
         }
     }
 

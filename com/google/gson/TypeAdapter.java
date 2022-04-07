@@ -16,7 +16,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class TypeAdapter<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public abstract class TypeAdapter<T> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsonElement)) == null) {
             try {
                 return read(new JsonTreeReader(jsonElement));
-            } catch (IOException e2) {
-                throw new JsonIOException(e2);
+            } catch (IOException e) {
+                throw new JsonIOException(e);
             }
         }
         return (T) invokeL.objValue;
@@ -125,8 +125,8 @@ public abstract class TypeAdapter<T> {
                 JsonTreeWriter jsonTreeWriter = new JsonTreeWriter();
                 write(jsonTreeWriter, t);
                 return jsonTreeWriter.get();
-            } catch (IOException e2) {
-                throw new JsonIOException(e2);
+            } catch (IOException e) {
+                throw new JsonIOException(e);
             }
         }
         return (JsonElement) invokeL.objValue;
@@ -148,8 +148,8 @@ public abstract class TypeAdapter<T> {
             try {
                 toJson(stringWriter, t);
                 return stringWriter.toString();
-            } catch (IOException e2) {
-                throw new AssertionError(e2);
+            } catch (IOException e) {
+                throw new AssertionError(e);
             }
         }
         return (String) invokeL.objValue;

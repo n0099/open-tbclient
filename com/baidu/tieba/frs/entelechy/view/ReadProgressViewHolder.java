@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.f1.u;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,23 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.sd6;
+/* loaded from: classes3.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f32481d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f32482e;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32483b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f32484c;
+    public TextView b;
+    public Context c;
 
     static {
         InterceptResult invokeClinit;
@@ -50,18 +42,18 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-        f32481d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        f32482e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReadProgressViewHolder(View view, Context context) {
-        super(view);
+    public ReadProgressViewHolder(View view2, Context context) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, context};
+            Object[] objArr = {view2, context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,30 +64,30 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = view;
-        TextView textView = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0923c3);
-        this.f32483b = textView;
-        int i3 = f32482e;
-        textView.setPadding(0, i3, 0, i3 - f32481d);
-        this.f32484c = context;
+        this.a = view2;
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923a0);
+        this.b = textView;
+        int i3 = e;
+        textView.setPadding(0, i3, 0, i3 - d);
+        this.c = context;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.f32483b, (int) R.color.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808eb, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0304);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808f0, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            this.f32483b.setCompoundDrawables(pureDrawable, null, null, null);
+            this.b.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
-    public void d(u uVar) {
+    public void d(sd6 sd6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uVar) == null) || uVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sd6Var) == null) || sd6Var == null) {
             return;
         }
-        this.f32483b.setText(R.string.obfuscated_res_0x7f0f0f2a);
+        this.b.setText(R.string.obfuscated_res_0x7f0f0f2e);
         c();
     }
 }

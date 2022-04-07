@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class HotspotListData extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = 5720793773714140339L;
     @NonNull

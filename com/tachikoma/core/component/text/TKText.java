@@ -15,6 +15,7 @@ import androidx.annotation.Px;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +30,7 @@ import com.tachikoma.core.utility.TKConverter;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKText extends TKBase<AppCompatTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,24 +124,24 @@ public class TKText extends TKBase<AppCompatTextView> {
     }
 
     public void setFontWeight(String str) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode != -1039745817) {
                 if (hashCode == 3029637 && str.equals("bold")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("normal")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 getView().setTypeface(getView().getTypeface(), 1);
-            } else if (c2 != 1) {
+            } else if (c != 1) {
             } else {
                 getView().setTypeface(getView().getTypeface(), 0);
             }
@@ -163,15 +164,15 @@ public class TKText extends TKBase<AppCompatTextView> {
     }
 
     @SuppressLint({"RestrictedApi"})
-    public void setMinimumScaleFactor(float f2) {
+    public void setMinimumScaleFactor(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.mMinimumScaleFactor = f2;
-            if (f2 < 0.0f || f2 > 1.0f || this.mFontSize == 0) {
+        if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
+            this.mMinimumScaleFactor = f;
+            if (f < 0.0f || f > 1.0f || this.mFontSize == 0) {
                 return;
             }
             int i = this.mFontSize;
-            getView().setAutoSizeTextTypeUniformWithConfiguration((int) (i * f2), i, 1, 1);
+            getView().setAutoSizeTextTypeUniformWithConfiguration((int) (i * f), i, 1, 1);
         }
     }
 
@@ -212,46 +213,46 @@ public class TKText extends TKBase<AppCompatTextView> {
     }
 
     public void setTextAlign(String str) {
-        char c2;
-        AppCompatTextView view;
+        char c;
+        AppCompatTextView view2;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode == -1364013995) {
                 if (str.equals("center")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 3317767) {
                 if (hashCode == 108511772 && str.equals("right")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("left")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
-                view = getView();
+            if (c == 0) {
+                view2 = getView();
                 i = 17;
-            } else if (c2 == 1) {
-                view = getView();
+            } else if (c == 1) {
+                view2 = getView();
                 i = 3;
-            } else if (c2 != 2) {
+            } else if (c != 2) {
                 return;
             } else {
-                view = getView();
+                view2 = getView();
                 i = 5;
             }
-            view.setGravity(i);
+            view2.setGravity(i);
         }
     }
 
     public void setTextDecoration(String str) {
-        char c2;
+        char c;
         TextPaint paint;
         int i;
         Interceptable interceptable = $ic;
@@ -259,19 +260,19 @@ public class TKText extends TKBase<AppCompatTextView> {
             int hashCode = str.hashCode();
             if (hashCode != -1171789332) {
                 if (hashCode == -1026963764 && str.equals("underline")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
-                if (str.equals("line-through")) {
-                    c2 = 1;
+                if (str.equals(NativeConstants.LINETHROUGH)) {
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 paint = getView().getPaint();
                 i = 8;
-            } else if (c2 != 1) {
+            } else if (c != 1) {
                 return;
             } else {
                 paint = getView().getPaint();
@@ -305,20 +306,20 @@ public class TKText extends TKBase<AppCompatTextView> {
     }
 
     public void setTextOverflow(String str) {
-        AppCompatTextView view;
+        AppCompatTextView view2;
         TextUtils.TruncateAt valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
             if ("clip".equalsIgnoreCase(str)) {
-                view = getView();
+                view2 = getView();
                 valueOf = null;
             } else if (!"ellipsis".equalsIgnoreCase(str)) {
                 return;
             } else {
-                view = getView();
+                view2 = getView();
                 valueOf = TextUtils.TruncateAt.valueOf("END");
             }
-            view.setEllipsize(valueOf);
+            view2.setEllipsize(valueOf);
         }
     }
 }

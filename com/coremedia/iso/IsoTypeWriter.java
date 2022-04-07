@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import okhttp3.internal.ws.WebSocketProtocol;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class IsoTypeWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -45,10 +45,10 @@ public final class IsoTypeWriter {
         }
     }
 
-    public static void writeFixedPoint0230(ByteBuffer byteBuffer, double d2) {
+    public static void writeFixedPoint0230(ByteBuffer byteBuffer, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
-            int i = (int) (d2 * 1.073741824E9d);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{byteBuffer, Double.valueOf(d)}) == null) {
+            int i = (int) (d * 1.073741824E9d);
             byteBuffer.put((byte) (((-16777216) & i) >> 24));
             byteBuffer.put((byte) ((16711680 & i) >> 16));
             byteBuffer.put((byte) ((65280 & i) >> 8));
@@ -56,10 +56,10 @@ public final class IsoTypeWriter {
         }
     }
 
-    public static void writeFixedPoint1616(ByteBuffer byteBuffer, double d2) {
+    public static void writeFixedPoint1616(ByteBuffer byteBuffer, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
-            int i = (int) (d2 * 65536.0d);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{byteBuffer, Double.valueOf(d)}) == null) {
+            int i = (int) (d * 65536.0d);
             byteBuffer.put((byte) (((-16777216) & i) >> 24));
             byteBuffer.put((byte) ((16711680 & i) >> 16));
             byteBuffer.put((byte) ((65280 & i) >> 8));
@@ -67,10 +67,10 @@ public final class IsoTypeWriter {
         }
     }
 
-    public static void writeFixedPoint88(ByteBuffer byteBuffer, double d2) {
+    public static void writeFixedPoint88(ByteBuffer byteBuffer, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Double.valueOf(d2)}) == null) {
-            short s = (short) (d2 * 256.0d);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Double.valueOf(d)}) == null) {
+            short s = (short) (d * 256.0d);
             byteBuffer.put((byte) ((65280 & s) >> 8));
             byteBuffer.put((byte) (s & 255));
         }

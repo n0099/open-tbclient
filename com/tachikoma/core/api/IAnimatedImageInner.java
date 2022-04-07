@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.ImageView;
 import com.tachikoma.core.component.imageview.TKCDNUrlInner;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IAnimatedImageInner {
     ImageView getImageViewHost(Context context);
 
@@ -14,7 +14,7 @@ public interface IAnimatedImageInner {
 
     void setBorderRadius(ImageView imageView, int i);
 
-    void setBorderWidth(ImageView imageView, double d2);
+    void setBorderWidth(ImageView imageView, double d);
 
     void setCDNUrls(ImageView imageView, List<TKCDNUrlInner> list, int i, int i2, String str);
 

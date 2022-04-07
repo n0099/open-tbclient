@@ -10,17 +10,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class EditorInfoView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f36108b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36109c;
+    public int b;
+    public int c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EditorInfoView(Context context) {
@@ -57,7 +53,7 @@ public class EditorInfoView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702c4));
+            setMeasuredDimension(getMeasuredWidth(), (int) getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f0702ce));
         }
     }
 
@@ -102,10 +98,10 @@ public class EditorInfoView extends TextView {
             }
         }
         this.a = 3;
-        this.f36108b = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070257);
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702df);
-        this.f36109c = dimension;
-        int i4 = this.f36108b;
+        this.b = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070263);
+        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702e9);
+        this.c = dimension;
+        int i4 = this.b;
         setPadding(i4, dimension, i4, dimension);
         setGravity(16);
         setSingleLine(true);

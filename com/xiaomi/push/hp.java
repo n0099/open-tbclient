@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class hp {
     public static /* synthetic */ Interceptable $ic;
     public static final hp A;
@@ -40,27 +41,13 @@ public final class hp {
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hp[] f489a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final hp f44359b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final hp f44360c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final hp f44361d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final hp f44362e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final hp f44363f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final hp f44364g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final hp f44365h;
+    public static final hp b;
+    public static final hp c;
+    public static final hp d;
+    public static final hp e;
+    public static final hp f;
+    public static final hp g;
+    public static final hp h;
     public static final hp i;
     public static final hp j;
     public static final hp k;
@@ -98,13 +85,13 @@ public final class hp {
             }
         }
         a = new hp("Invalid", 0, "INVALID");
-        f44359b = new hp("BarClick", 1, "bar:click");
-        f44360c = new hp("BarCancel", 2, "bar:cancel");
-        f44361d = new hp("AppOpen", 3, "app:open");
-        f44362e = new hp("PackageUninstall", 4, "package uninstalled");
-        f44363f = new hp("AppUninstall", 5, "app_uninstalled");
-        f44364g = new hp("ClientInfoUpdate", 6, "client_info_update");
-        f44365h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
+        b = new hp("BarClick", 1, "bar:click");
+        c = new hp("BarCancel", 2, "bar:cancel");
+        d = new hp("AppOpen", 3, "app:open");
+        e = new hp("PackageUninstall", 4, "package uninstalled");
+        f = new hp("AppUninstall", 5, "app_uninstalled");
+        g = new hp("ClientInfoUpdate", 6, "client_info_update");
+        h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
         i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
         j = new hp("PullOfflineMessage", 9, "pull");
         k = new hp("IosSleep", 10, "ios_sleep");
@@ -118,7 +105,7 @@ public final class hp {
         s = new hp("ConnectionDisabled", 18, "!!!MILINK CONNECTION DISABLED!!!");
         t = new hp("PackageUnregistered", 19, "package_unregistered");
         u = new hp("DecryptMessageFail", 20, "decrypt_msg_fail");
-        v = new hp("SyncInfo", 21, "sync_info");
+        v = new hp("SyncInfo", 21, NativeConstants.SYNC_INFO);
         w = new hp("SyncInfoResult", 22, "sync_info_result");
         x = new hp("ForceSync", 23, "force_sync");
         y = new hp("UploadClientLog", 24, "upload_client_log");
@@ -148,7 +135,7 @@ public final class hp {
         W = new hp("ScenePushRuleDelete", 48, "scene_push_rule_delete");
         hp hpVar = new hp("ScenePushRuleTrigger", 49, "scene_push_rule_trigger");
         X = hpVar;
-        f489a = new hp[]{a, f44359b, f44360c, f44361d, f44362e, f44363f, f44364g, f44365h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
+        f489a = new hp[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
     }
 
     public hp(String str, int i2, String str2) {

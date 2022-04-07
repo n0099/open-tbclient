@@ -3,7 +3,7 @@ package com.kwad.sdk.c.b;
 import com.baidu.sapi2.SapiWebView;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static List<String> a;
 

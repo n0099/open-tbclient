@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class BuildConfig {
     public static final String BRANCH = "v4000";
     public static final String BUILD_TYPE = "release";

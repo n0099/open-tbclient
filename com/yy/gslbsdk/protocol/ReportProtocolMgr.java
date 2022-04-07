@@ -13,7 +13,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ReportProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ReportProtocolMgr";
@@ -126,8 +126,8 @@ public class ReportProtocolMgr {
                     jSONObject.put("hijack", jSONArray7);
                 }
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogTools.printError(TAG, "reportProtocol: " + e2.getMessage());
+            } catch (Exception e) {
+                LogTools.printError(TAG, "reportProtocol: " + e.getMessage());
                 return null;
             }
         }

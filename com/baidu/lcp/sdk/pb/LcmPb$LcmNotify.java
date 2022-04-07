@@ -20,10 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.k80;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LcmPb$LcmNotify extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_FIELD_NUMBER = 2;
@@ -38,7 +39,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<LcmPb$LcmNotify> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,17 +68,13 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmNotify, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public long f25622b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f25623c;
+        public long b;
+        public int c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -149,14 +146,14 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (c.a.t.a.e.a) null);
+                LcmPb$LcmNotify lcmPb$LcmNotify = new LcmPb$LcmNotify(this, (k80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                lcmPb$LcmNotify.logId_ = this.f25622b;
+                lcmPb$LcmNotify.logId_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                lcmPb$LcmNotify.action_ = this.f25623c;
+                lcmPb$LcmNotify.action_ = this.c;
                 lcmPb$LcmNotify.bitField0_ = i2;
                 return lcmPb$LcmNotify;
             }
@@ -168,10 +165,10 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 super.clear();
-                this.f25622b = 0L;
+                this.b = 0L;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f25623c = 0;
+                this.c = 0;
                 this.a = i & (-3);
                 return this;
             }
@@ -241,10 +238,10 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
                             t(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        LcmPb$LcmNotify lcmPb$LcmNotify2 = (LcmPb$LcmNotify) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        LcmPb$LcmNotify lcmPb$LcmNotify2 = (LcmPb$LcmNotify) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             lcmPb$LcmNotify = lcmPb$LcmNotify2;
@@ -269,7 +266,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
                 this.a |= 2;
-                this.f25623c = i;
+                this.c = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -280,7 +277,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeJ = interceptable.invokeJ(1048600, this, j)) == null) {
                 this.a |= 1;
-                this.f25622b = j;
+                this.b = j;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -326,7 +323,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         lcmPb$LcmNotify.initFields();
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$LcmNotify(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, k80 k80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -452,7 +449,7 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
         }
     }
 
-    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
+    public /* synthetic */ LcmPb$LcmNotify(GeneratedMessageLite.Builder builder, k80 k80Var) {
         this(builder);
     }
 
@@ -617,11 +614,11 @@ public final class LcmPb$LcmNotify extends GeneratedMessageLite implements Messa
                             }
                         }
                         z = true;
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e) {
+                        throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    throw e3.setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e2) {
+                    throw e2.setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

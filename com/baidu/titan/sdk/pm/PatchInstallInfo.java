@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PatchInstallInfo {
     public File mPatchDir;
     public FileLock mShareFileLock;
@@ -70,23 +70,23 @@ public class PatchInstallInfo {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (FileNotFoundException e2) {
+        } catch (FileNotFoundException e) {
+            e = e;
+        } catch (IOException e2) {
             e = e2;
-        } catch (IOException e3) {
-            e = e3;
         }
         try {
             int readInt = dataInputStream.readInt();
             Closes.closeQuiet((InputStream) dataInputStream);
             return readInt;
-        } catch (FileNotFoundException e4) {
-            e = e4;
+        } catch (FileNotFoundException e3) {
+            e = e3;
             dataInputStream2 = dataInputStream;
             e.printStackTrace();
             Closes.closeQuiet((InputStream) dataInputStream2);
             return -1;
-        } catch (IOException e5) {
-            e = e5;
+        } catch (IOException e4) {
+            e = e4;
             dataInputStream2 = dataInputStream;
             e.printStackTrace();
             Closes.closeQuiet((InputStream) dataInputStream2);
@@ -131,8 +131,8 @@ public class PatchInstallInfo {
         if (!file.exists()) {
             try {
                 file.createNewFile();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
         return file;
@@ -197,8 +197,8 @@ public class PatchInstallInfo {
                         if (split.length == 2) {
                             hashMap.put(split[0], split[1]);
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         bufferedReader = bufferedReader2;
                         e.printStackTrace();
                         Closes.closeQuiet((Reader) bufferedReader);
@@ -211,8 +211,8 @@ public class PatchInstallInfo {
                     }
                 }
                 Closes.closeQuiet((Reader) bufferedReader2);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
             return hashMap;
         } catch (Throwable th2) {
@@ -226,8 +226,8 @@ public class PatchInstallInfo {
             try {
                 fileLock.release();
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -241,8 +241,8 @@ public class PatchInstallInfo {
                 fileLock.release();
                 Closes.closeQuiet(fileLock.channel());
                 return true;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -258,23 +258,23 @@ public class PatchInstallInfo {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (FileNotFoundException e2) {
+        } catch (FileNotFoundException e) {
+            e = e;
+        } catch (IOException e2) {
             e = e2;
-        } catch (IOException e3) {
-            e = e3;
         }
         try {
             dataOutputStream.writeInt(i);
             Closes.closeQuiet((OutputStream) dataOutputStream);
             return true;
-        } catch (FileNotFoundException e4) {
-            e = e4;
+        } catch (FileNotFoundException e3) {
+            e = e3;
             dataOutputStream2 = dataOutputStream;
             e.printStackTrace();
             Closes.closeQuiet((OutputStream) dataOutputStream2);
             return false;
-        } catch (IOException e5) {
-            e = e5;
+        } catch (IOException e4) {
+            e = e4;
             dataOutputStream2 = dataOutputStream;
             e.printStackTrace();
             Closes.closeQuiet((OutputStream) dataOutputStream2);
@@ -297,8 +297,8 @@ public class PatchInstallInfo {
             } catch (Throwable th) {
                 th = th;
             }
-        } catch (IOException e2) {
-            e = e2;
+        } catch (IOException e) {
+            e = e;
         }
         try {
             for (File file2 : file.listFiles()) {
@@ -313,8 +313,8 @@ public class PatchInstallInfo {
             fileWriter.flush();
             Closes.closeQuiet(fileWriter);
             return true;
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             fileWriter2 = fileWriter;
             e.printStackTrace();
             Closes.closeQuiet(fileWriter2);

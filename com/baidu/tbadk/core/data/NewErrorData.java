@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class NewErrorData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4089110102533296066L;
@@ -56,8 +56,8 @@ public class NewErrorData implements Serializable {
         }
         try {
             parserJson(new JSONObject(str).optJSONObject("error"));
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -69,8 +69,8 @@ public class NewErrorData implements Serializable {
         try {
             this.errno = jSONObject.optInt("errno");
             this.errmsg = jSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

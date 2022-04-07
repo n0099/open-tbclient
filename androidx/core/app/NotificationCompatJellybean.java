@@ -123,11 +123,11 @@ public class NotificationCompatJellybean {
                     sActionsField = declaredField;
                     declaredField.setAccessible(true);
                 }
-            } catch (ClassNotFoundException e2) {
-                Log.e(TAG, "Unable to access notification actions", e2);
+            } catch (ClassNotFoundException e) {
+                Log.e(TAG, "Unable to access notification actions", e);
                 sActionsAccessFailed = true;
-            } catch (NoSuchFieldException e3) {
-                Log.e(TAG, "Unable to access notification actions", e3);
+            } catch (NoSuchFieldException e2) {
+                Log.e(TAG, "Unable to access notification actions", e2);
                 sActionsAccessFailed = true;
             }
             return !sActionsAccessFailed;
@@ -182,8 +182,8 @@ public class NotificationCompatJellybean {
                             Bundle extras = getExtras(notification);
                             return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), (extras == null || (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) == null) ? null : (Bundle) sparseParcelableArray.get(i));
                         }
-                    } catch (IllegalAccessException e2) {
-                        Log.e(TAG, "Unable to access notification actions", e2);
+                    } catch (IllegalAccessException e) {
+                        Log.e(TAG, "Unable to access notification actions", e);
                         sActionsAccessFailed = true;
                     }
                     return null;
@@ -227,8 +227,8 @@ public class NotificationCompatJellybean {
                 if (ensureActionReflectionReadyLocked()) {
                     try {
                         return (Object[]) sActionsField.get(notification);
-                    } catch (IllegalAccessException e2) {
-                        Log.e(TAG, "Unable to access notification actions", e2);
+                    } catch (IllegalAccessException e) {
+                        Log.e(TAG, "Unable to access notification actions", e);
                         sActionsAccessFailed = true;
                         return null;
                     }
@@ -304,12 +304,12 @@ public class NotificationCompatJellybean {
                         sExtrasField.set(notification, bundle);
                     }
                     return bundle;
-                } catch (IllegalAccessException e2) {
-                    Log.e(TAG, "Unable to access notification extras", e2);
+                } catch (IllegalAccessException e) {
+                    Log.e(TAG, "Unable to access notification extras", e);
                     sExtrasFieldAccessFailed = true;
                     return null;
-                } catch (NoSuchFieldException e3) {
-                    Log.e(TAG, "Unable to access notification extras", e3);
+                } catch (NoSuchFieldException e2) {
+                    Log.e(TAG, "Unable to access notification extras", e2);
                     sExtrasFieldAccessFailed = true;
                     return null;
                 }

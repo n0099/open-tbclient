@@ -131,16 +131,16 @@ public class TransitionManager {
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewAttachedToWindow(View view) {
+        public void onViewAttachedToWindow(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             }
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewDetachedFromWindow(View view) {
+        public void onViewDetachedFromWindow(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
                 removeListeners();
                 TransitionManager.sPendingTransitions.remove(this.mSceneRoot);
                 ArrayList<Transition> arrayList = TransitionManager.getRunningTransitions().get(this.mSceneRoot);

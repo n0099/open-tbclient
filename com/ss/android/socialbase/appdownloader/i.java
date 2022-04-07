@@ -9,8 +9,8 @@ public class i {
     public static int a(String str) {
         try {
             return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, TtmlNode.TAG_LAYOUT, com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -22,8 +22,8 @@ public class i {
     public static int c(String str) {
         try {
             return a(str, com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -31,8 +31,8 @@ public class i {
     public static int d(String str) {
         try {
             return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "style", com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -40,8 +40,8 @@ public class i {
     public static int e(String str) {
         try {
             return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "id", com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -49,8 +49,8 @@ public class i {
     public static int f(String str) {
         try {
             return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "color", com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -58,8 +58,8 @@ public class i {
     public static int b(String str, String str2) {
         try {
             return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "attr", str2);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -67,8 +67,8 @@ public class i {
     public static int a(Context context, String str) {
         try {
             return context.getResources().getIdentifier(str, EMABTest.TYPE_STRING, context.getPackageName());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }
@@ -76,8 +76,8 @@ public class i {
     public static int a(String str, String str2) {
         try {
             return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, ResourceManager.DRAWABLE, str2);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
     }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebView;
 import com.google.zxing.Result;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class VEventResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public final class VEventResultParser extends ResultParser {
             }
             String matchSingleVCardPrefixedField6 = matchSingleVCardPrefixedField("DESCRIPTION", massagedText, true);
             String matchSingleVCardPrefixedField7 = matchSingleVCardPrefixedField(BdSailorConfig.SAILOR_BASE_GEO, massagedText, true);
-            double d2 = Double.NaN;
+            double d = Double.NaN;
             if (matchSingleVCardPrefixedField7 == null) {
                 parseDouble = Double.NaN;
             } else {
@@ -102,13 +102,13 @@ public final class VEventResultParser extends ResultParser {
                     return null;
                 }
                 try {
-                    d2 = Double.parseDouble(matchSingleVCardPrefixedField7.substring(0, indexOf));
+                    d = Double.parseDouble(matchSingleVCardPrefixedField7.substring(0, indexOf));
                     parseDouble = Double.parseDouble(matchSingleVCardPrefixedField7.substring(indexOf + 1));
                 } catch (NumberFormatException | IllegalArgumentException unused) {
                     return null;
                 }
             }
-            return new CalendarParsedResult(matchSingleVCardPrefixedField, matchSingleVCardPrefixedField2, matchSingleVCardPrefixedField3, matchSingleVCardPrefixedField4, matchSingleVCardPrefixedField5, stripMailto, matchVCardPrefixedField, matchSingleVCardPrefixedField6, d2, parseDouble);
+            return new CalendarParsedResult(matchSingleVCardPrefixedField, matchSingleVCardPrefixedField2, matchSingleVCardPrefixedField3, matchSingleVCardPrefixedField4, matchSingleVCardPrefixedField5, stripMailto, matchVCardPrefixedField, matchSingleVCardPrefixedField6, d, parseDouble);
         }
         return (CalendarParsedResult) invokeL.objValue;
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FunAdRecordHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLICK_AD_RECORD = "c14116";
@@ -60,8 +60,8 @@ public class FunAdRecordHttpMessage extends HttpMessage {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(REQUEST_RECORD, jSONObject);
             addParam("ad_str", Uri.encode(jSONObject2.toString()));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -135,8 +135,8 @@ public class FunAdRecordHttpMessage extends HttpMessage {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(str, jSONObject);
             addParam("ad_str", Uri.encode(jSONObject2.toString()));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -165,8 +165,8 @@ public class FunAdRecordHttpMessage extends HttpMessage {
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(SKIP_SPLASH_RECORD, jSONObject);
             addParam("ad_str", Uri.encode(jSONObject2.toString()));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

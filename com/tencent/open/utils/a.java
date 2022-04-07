@@ -27,14 +27,12 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import javax.security.auth.x500.X500Principal;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public KeyStore a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences f43782b;
+    public SharedPreferences b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -52,7 +50,7 @@ public class a {
             }
         }
         try {
-            this.f43782b = context.getSharedPreferences("KEYSTORE_SETTING", 0);
+            this.b = context.getSharedPreferences("KEYSTORE_SETTING", 0);
             KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
             this.a = keyStore;
             keyStore.load(null);
@@ -62,8 +60,8 @@ public class a {
             c("");
             a(context);
             a();
-        } catch (Exception e2) {
-            SLog.d("KEYSTORE", "Exception", e2);
+        } catch (Exception e) {
+            SLog.d("KEYSTORE", "Exception", e);
         }
     }
 
@@ -90,14 +88,14 @@ public class a {
     private void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
-            this.f43782b.edit().putString("PREF_KEY_IV", str).apply();
+            this.b.edit().putString("PREF_KEY_IV", str).apply();
         }
     }
 
     private void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            this.f43782b.edit().putString("PREF_KEY_AES", str).apply();
+            this.b.edit().putString("PREF_KEY_AES", str).apply();
         }
     }
 
@@ -110,8 +108,8 @@ public class a {
                 Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
                 cipher.init(2, c(), new IvParameterSpec(b()));
                 return new String(cipher.doFinal(decode));
-            } catch (Exception e2) {
-                SLog.e("KEYSTORE", "Exception", e2);
+            } catch (Exception e) {
+                SLog.e("KEYSTORE", "Exception", e);
                 return "";
             }
         }
@@ -122,7 +120,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            String string = this.f43782b.getString("PREF_KEY_AES", "");
+            String string = this.b.getString("PREF_KEY_AES", "");
             if (Build.VERSION.SDK_INT >= 18) {
                 Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
                 cipher.init(2, (PrivateKey) this.a.getKey("KEYSTORE_AES", null));
@@ -136,7 +134,7 @@ public class a {
     private byte[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.f43782b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Base64.decode(this.b.getString("PREF_KEY_IV", ""), 0) : (byte[]) invokeV.objValue;
     }
 
     public String a(String str) {
@@ -147,8 +145,8 @@ public class a {
                 Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
                 cipher.init(1, c(), new IvParameterSpec(b()));
                 return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
-            } catch (Exception e2) {
-                SLog.e("KEYSTORE", "Exception", e2);
+            } catch (Exception e) {
+                SLog.e("KEYSTORE", "Exception", e);
                 return "";
             }
         }

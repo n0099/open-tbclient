@@ -44,7 +44,7 @@ import javax.net.ssl.SSLHandshakeException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class IMessageHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_BODY_LENGTH = 1048576;
@@ -87,8 +87,8 @@ public abstract class IMessageHandler {
                 for (int i = 0; i < jSONArray2.length(); i++) {
                     jSONArray.put(jSONArray2.getJSONObject(i));
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
                 arrayList = null;
             }
             if (jSONArray.length() == 0) {
@@ -119,8 +119,8 @@ public abstract class IMessageHandler {
         if (i == 0 && jSONObject.has("msgid")) {
             try {
                 j = jSONObject.getLong("msgid");
-            } catch (JSONException e2) {
-                LogUtils.i(TAG, "JSONException:" + e2.getMessage());
+            } catch (JSONException e) {
+                LogUtils.i(TAG, "JSONException:" + e.getMessage());
             }
             if (i != 0 || i == 2) {
                 generate = Generator.generate(this.mContext, 5);
@@ -173,8 +173,8 @@ public abstract class IMessageHandler {
                     str = jSONObject.getString("msg");
                 }
                 message.handleMessageResult(this.mContext, jSONObject, i, str);
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "handleFatalMessage:", e2);
+            } catch (Exception e) {
+                LogUtils.e(LogUtils.TAG, "handleFatalMessage:", e);
             }
         }
     }
@@ -225,8 +225,8 @@ public abstract class IMessageHandler {
                     gZIPInputStream.close();
                     byteArrayInputStream.close();
                     byteArrayOutputStream.close();
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "Exception ", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "Exception ", e);
                 }
             } catch (IOException unused2) {
                 gZIPInputStream2 = gZIPInputStream;
@@ -234,8 +234,8 @@ public abstract class IMessageHandler {
                 if (gZIPInputStream2 != null) {
                     try {
                         gZIPInputStream2.close();
-                    } catch (Exception e3) {
-                        LogUtils.e(TAG, "Exception ", e3);
+                    } catch (Exception e2) {
+                        LogUtils.e(TAG, "Exception ", e2);
                         str = "";
                         LogUtils.d(TAG, "after ungzip:" + str);
                         return str;
@@ -251,8 +251,8 @@ public abstract class IMessageHandler {
                 if (gZIPInputStream != null) {
                     try {
                         gZIPInputStream.close();
-                    } catch (Exception e4) {
-                        LogUtils.e(TAG, "Exception ", e4);
+                    } catch (Exception e3) {
+                        LogUtils.e(TAG, "Exception ", e3);
                         throw th;
                     }
                 }
@@ -312,8 +312,8 @@ public abstract class IMessageHandler {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "handleMessage exception.", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "handleMessage exception.", e);
             }
         }
     }

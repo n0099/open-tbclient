@@ -11,32 +11,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class aq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f27209b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public JSONArray f27210c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f27211d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f27212e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f27213f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f27214g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f27215h;
+    public String b;
+    public JSONArray c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public long h;
     public long i;
     public long j;
     public int k;
@@ -59,14 +45,14 @@ public class aq {
             }
         }
         this.a = str;
-        this.f27209b = str2;
-        this.f27210c = jSONArray;
-        this.f27211d = str3;
-        this.f27212e = str4;
-        this.f27213f = str5;
-        this.f27214g = z;
+        this.b = str2;
+        this.c = jSONArray;
+        this.d = str3;
+        this.e = str4;
+        this.f = str5;
+        this.g = z;
         this.k = i;
-        this.f27215h = j;
+        this.h = j;
         this.i = j2;
         this.j = j3;
         this.l = str6;
@@ -82,37 +68,37 @@ public class aq {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27209b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public JSONArray c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27210c : (JSONArray) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (JSONArray) invokeV.objValue;
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27211d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27212e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f27213f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27214g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
     public int h() {
@@ -124,7 +110,7 @@ public class aq {
     public long i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f27215h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : invokeV.longValue;
     }
 
     public long j() {
@@ -184,7 +170,7 @@ public class aq {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
-            String a = a(this.a, this.f27209b, this.f27210c, this.f27211d, this.f27212e, this.f27213f, this.f27214g);
+            String a = a(this.a, this.b, this.c, this.d, this.e, this.f, this.g);
             if (TextUtils.isEmpty(a)) {
                 return null;
             }
@@ -194,12 +180,12 @@ public class aq {
                 jSONObject.put("d", this.l);
                 jSONObject.put("p", str);
                 jSONObject.put("path", str3);
-                jSONObject.put("title", this.f27211d);
-                jSONObject.put("index", this.f27212e);
+                jSONObject.put("title", this.d);
+                jSONObject.put("index", this.e);
                 jSONObject.put("n", str2);
-                jSONObject.put("user", this.f27214g ? 1 : 0);
+                jSONObject.put("user", this.g ? 1 : 0);
                 jSONObject.put("c", this.k);
-                jSONObject.put("t", this.f27215h);
+                jSONObject.put("t", this.h);
                 jSONObject.put("ps", this.m);
                 jSONObject.put("sign", a);
                 return jSONObject;

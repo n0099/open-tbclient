@@ -3,7 +3,7 @@ package com.facebook.drawee.interfaces;
 import android.graphics.drawable.Drawable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface SettableDraweeHierarchy extends DraweeHierarchy {
     void reset();
 
@@ -11,9 +11,9 @@ public interface SettableDraweeHierarchy extends DraweeHierarchy {
 
     void setFailure(Throwable th);
 
-    void setImage(Drawable drawable, float f2, boolean z);
+    void setImage(Drawable drawable, float f, boolean z);
 
-    void setProgress(float f2, boolean z);
+    void setProgress(float f, boolean z);
 
     void setRetry(Throwable th);
 }

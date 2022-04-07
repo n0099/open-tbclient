@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.fresco.animation.backend.AnimationInformation;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DropFramesFrameScheduler implements FrameScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNSET = -1;

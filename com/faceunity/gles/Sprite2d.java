@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Sprite2d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";
@@ -57,9 +57,9 @@ public class Sprite2d {
             float[] fArr = this.mModelViewMatrix;
             Matrix.setIdentityM(fArr, 0);
             Matrix.translateM(fArr, 0, this.mPosX, this.mPosY, 0.0f);
-            float f2 = this.mAngle;
-            if (f2 != 0.0f) {
-                Matrix.rotateM(fArr, 0, f2, 0.0f, 0.0f, 1.0f);
+            float f = this.mAngle;
+            if (f != 0.0f) {
+                Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
             }
             Matrix.scaleM(fArr, 0, this.mScaleX, this.mScaleY, 1.0f);
             this.mMatrixReady = true;
@@ -122,44 +122,44 @@ public class Sprite2d {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mScaleY : invokeV.floatValue;
     }
 
-    public void setColor(float f2, float f3, float f4) {
+    public void setColor(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             float[] fArr = this.mColor;
-            fArr[0] = f2;
-            fArr[1] = f3;
-            fArr[2] = f4;
+            fArr[0] = f;
+            fArr[1] = f2;
+            fArr[2] = f3;
         }
     }
 
-    public void setPosition(float f2, float f3) {
+    public void setPosition(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mPosX = f2;
-            this.mPosY = f3;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mPosX = f;
+            this.mPosY = f2;
             this.mMatrixReady = false;
         }
     }
 
-    public void setRotation(float f2) {
+    public void setRotation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            while (f2 >= 360.0f) {
-                f2 -= 360.0f;
+        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
+            while (f >= 360.0f) {
+                f -= 360.0f;
             }
-            while (f2 <= -360.0f) {
-                f2 += 360.0f;
+            while (f <= -360.0f) {
+                f += 360.0f;
             }
-            this.mAngle = f2;
+            this.mAngle = f;
             this.mMatrixReady = false;
         }
     }
 
-    public void setScale(float f2, float f3) {
+    public void setScale(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mScaleX = f2;
-            this.mScaleY = f3;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mScaleX = f;
+            this.mScaleY = f2;
             this.mMatrixReady = false;
         }
     }

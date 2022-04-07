@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TtmlSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

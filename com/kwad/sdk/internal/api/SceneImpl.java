@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
     public int action;
@@ -107,14 +107,14 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m109clone() {
+    public SceneImpl m105clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();
             sceneImpl.parseJson(new JSONObject(jSONObject));
             return sceneImpl;
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.b(e);
             return null;
         }
     }
@@ -272,13 +272,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         a aVar2 = new a();
         this.mKsAdLabel = aVar2;
         aVar2.a = aVar.a();
-        this.mKsAdLabel.f40580b = aVar.b();
-        this.mKsAdLabel.f40581c = aVar.c();
-        this.mKsAdLabel.f40582d = aVar.d();
-        this.mKsAdLabel.f40583e = aVar.e();
-        this.mKsAdLabel.f40584f = aVar.f();
-        this.mKsAdLabel.f40585g = aVar.g();
-        this.mKsAdLabel.f40586h = aVar.h();
+        this.mKsAdLabel.b = aVar.b();
+        this.mKsAdLabel.c = aVar.c();
+        this.mKsAdLabel.d = aVar.d();
+        this.mKsAdLabel.e = aVar.e();
+        this.mKsAdLabel.f = aVar.f();
+        this.mKsAdLabel.g = aVar.g();
+        this.mKsAdLabel.h = aVar.h();
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -332,7 +332,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         t.a(jSONObject, "height", this.height);
         a aVar = this.mKsAdLabel;
         if (aVar != null) {
-            long j = aVar.f40586h;
+            long j = aVar.h;
             if (j != 0) {
                 t.a(jSONObject, "cpmBidFloor", j);
             }

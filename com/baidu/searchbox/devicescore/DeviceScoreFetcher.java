@@ -1,14 +1,14 @@
 package com.baidu.searchbox.devicescore;
 
-import c.a.g0.b.b.a;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class DeviceScoreFetcher extends a<IDeviceScore> {
+import com.repackage.fc1;
+/* loaded from: classes2.dex */
+public class DeviceScoreFetcher extends fc1<IDeviceScore> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class DeviceScoreFetcher extends a<IDeviceScore> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.g0.b.b.a
+    @Override // com.repackage.fc1
     public IDeviceScore createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

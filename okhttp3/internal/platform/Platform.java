@@ -228,8 +228,8 @@ public class Platform {
             }
             try {
                 return SSLContext.getInstance("TLS");
-            } catch (NoSuchAlgorithmException e2) {
-                throw new IllegalStateException("No TLS provider", e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalStateException("No TLS provider", e);
             }
         }
         return (SSLContext) invokeV.objValue;

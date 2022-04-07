@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Hex {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] DIGITS;
@@ -43,14 +43,14 @@ public class Hex {
         for (int i2 = 0; i2 <= 70; i2++) {
             DIGITS[i2] = -1;
         }
-        for (byte b2 = 0; b2 < 10; b2 = (byte) (b2 + 1)) {
-            DIGITS[b2 + 48] = b2;
+        for (byte b = 0; b < 10; b = (byte) (b + 1)) {
+            DIGITS[b + 48] = b;
         }
-        for (byte b3 = 0; b3 < 6; b3 = (byte) (b3 + 1)) {
+        for (byte b2 = 0; b2 < 6; b2 = (byte) (b2 + 1)) {
             byte[] bArr = DIGITS;
-            byte b4 = (byte) (b3 + 10);
-            bArr[b3 + 65] = b4;
-            bArr[b3 + 97] = b4;
+            byte b3 = (byte) (b2 + 10);
+            bArr[b2 + 65] = b3;
+            bArr[b2 + 97] = b3;
         }
     }
 
@@ -82,8 +82,8 @@ public class Hex {
 
     public static byte[] decodeHex(String str) {
         InterceptResult invokeL;
+        byte b;
         byte b2;
-        byte b3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             int length = str.length();
@@ -95,11 +95,11 @@ public class Hex {
                 while (i < length) {
                     int i3 = i + 1;
                     char charAt = str.charAt(i);
-                    if (charAt <= 'f' && (b2 = DIGITS[charAt]) != -1) {
+                    if (charAt <= 'f' && (b = DIGITS[charAt]) != -1) {
                         int i4 = i3 + 1;
                         char charAt2 = str.charAt(i3);
-                        if (charAt2 <= 'f' && (b3 = DIGITS[charAt2]) != -1) {
-                            bArr[i2] = (byte) ((b2 << 4) | b3);
+                        if (charAt2 <= 'f' && (b2 = DIGITS[charAt2]) != -1) {
+                            bArr[i2] = (byte) ((b << 4) | b2);
                             i2++;
                             i = i4;
                         }

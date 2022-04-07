@@ -51,7 +51,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class TypeAdapters {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -109,7 +109,7 @@ public final class TypeAdapters {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -173,7 +173,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,8 +211,8 @@ public final class TypeAdapters {
                     this.nameToConstant.put(name, t);
                     this.constantToName.put(t, name);
                 }
-            } catch (NoSuchFieldException e2) {
-                throw new AssertionError(e2);
+            } catch (NoSuchFieldException e) {
+                throw new AssertionError(e);
             }
         }
 
@@ -506,8 +506,8 @@ public final class TypeAdapters {
                     }
                     try {
                         return Byte.valueOf((byte) jsonReader.nextInt());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (Number) invokeL.objValue;
@@ -554,8 +554,8 @@ public final class TypeAdapters {
                     }
                     try {
                         return Short.valueOf((short) jsonReader.nextInt());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (Number) invokeL.objValue;
@@ -602,8 +602,8 @@ public final class TypeAdapters {
                     }
                     try {
                         return Integer.valueOf(jsonReader.nextInt());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (Number) invokeL.objValue;
@@ -645,8 +645,8 @@ public final class TypeAdapters {
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonReader)) == null) {
                     try {
                         return new AtomicInteger(jsonReader.nextInt());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (AtomicInteger) invokeL.objValue;
@@ -729,8 +729,8 @@ public final class TypeAdapters {
                     while (jsonReader.hasNext()) {
                         try {
                             arrayList.add(Integer.valueOf(jsonReader.nextInt()));
-                        } catch (NumberFormatException e2) {
-                            throw new JsonSyntaxException(e2);
+                        } catch (NumberFormatException e) {
+                            throw new JsonSyntaxException(e);
                         }
                     }
                     jsonReader.endArray();
@@ -791,8 +791,8 @@ public final class TypeAdapters {
                     }
                     try {
                         return Long.valueOf(jsonReader.nextLong());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (Number) invokeL.objValue;
@@ -1067,8 +1067,8 @@ public final class TypeAdapters {
                     }
                     try {
                         return new BigDecimal(jsonReader.nextString());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (BigDecimal) invokeL.objValue;
@@ -1113,8 +1113,8 @@ public final class TypeAdapters {
                     }
                     try {
                         return new BigInteger(jsonReader.nextString());
-                    } catch (NumberFormatException e2) {
-                        throw new JsonSyntaxException(e2);
+                    } catch (NumberFormatException e) {
+                        throw new JsonSyntaxException(e);
                     }
                 }
                 return (BigInteger) invokeL.objValue;
@@ -1300,8 +1300,8 @@ public final class TypeAdapters {
                             return null;
                         }
                         return new URI(nextString);
-                    } catch (URISyntaxException e2) {
-                        throw new JsonIOException(e2);
+                    } catch (URISyntaxException e) {
+                        throw new JsonIOException(e);
                     }
                 }
                 return (URI) invokeL.objValue;

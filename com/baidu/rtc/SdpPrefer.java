@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SdpPrefer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_CODEC_PARAM_BITRATE = "maxaveragebitrate";
@@ -21,7 +21,7 @@ public class SdpPrefer {
     public static final String TAG = "SdpPrefer";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class AudioSdpAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

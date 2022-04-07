@@ -1432,13 +1432,13 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspot(float f2, float f3) {
+    public void setHotspot(float f, float f2) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (drawable = this.mCurrDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (drawable = this.mCurrDrawable) == null) {
             return;
         }
-        DrawableCompat.setHotspot(drawable, f2, f3);
+        DrawableCompat.setHotspot(drawable, f, f2);
     }
 
     @Override // android.graphics.drawable.Drawable

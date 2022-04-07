@@ -27,9 +27,7 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         public transient /* synthetic */ FieldHolder $fh;
         public final SingleObserver<? super Long> actual;
         public long count;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45330d;
+        public Disposable d;
 
         public CountObserver(SingleObserver<? super Long> singleObserver) {
             Interceptable interceptable = $ic;
@@ -53,8 +51,8 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45330d.dispose();
-                this.f45330d = DisposableHelper.DISPOSED;
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -62,14 +60,14 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45330d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f45330d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(Long.valueOf(this.count));
             }
         }
@@ -78,7 +76,7 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f45330d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -94,8 +92,8 @@ public final class ObservableCountSingle<T> extends Single<Long> implements Fuse
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45330d, disposable)) {
-                this.f45330d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

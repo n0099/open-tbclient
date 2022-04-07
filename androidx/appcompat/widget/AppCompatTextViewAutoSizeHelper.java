@@ -220,8 +220,8 @@ public class AppCompatTextViewAutoSizeHelper {
             try {
                 Field textViewField = getTextViewField(str);
                 return textViewField == null ? t : (T) textViewField.get(obj);
-            } catch (IllegalAccessException e2) {
-                Log.w(TAG, "Failed to access TextView#" + str + " member", e2);
+            } catch (IllegalAccessException e) {
+                Log.w(TAG, "Failed to access TextView#" + str + " member", e);
                 return t;
             }
         }
@@ -341,8 +341,8 @@ public class AppCompatTextViewAutoSizeHelper {
                     sTextViewFieldByNameCache.put(str, field);
                 }
                 return field;
-            } catch (NoSuchFieldException e2) {
-                Log.w(TAG, "Failed to access TextView#" + str + " member", e2);
+            } catch (NoSuchFieldException e) {
+                Log.w(TAG, "Failed to access TextView#" + str + " member", e);
                 return null;
             }
         }
@@ -361,8 +361,8 @@ public class AppCompatTextViewAutoSizeHelper {
                     sTextViewMethodByNameCache.put(str, method);
                 }
                 return method;
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve TextView#" + str + "() method", e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to retrieve TextView#" + str + "() method", e);
                 return null;
             }
         }
@@ -375,20 +375,20 @@ public class AppCompatTextViewAutoSizeHelper {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, obj, str, t)) == null) {
             try {
                 return (T) getTextViewMethod(str).invoke(obj, new Object[0]);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to invoke TextView#" + str + "() method", e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to invoke TextView#" + str + "() method", e);
                 return t;
             }
         }
         return (T) invokeLLL.objValue;
     }
 
-    private void setRawTextSize(float f2) {
+    private void setRawTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65548, this, f2) == null) || f2 == this.mTextView.getPaint().getTextSize()) {
+        if (!(interceptable == null || interceptable.invokeF(65548, this, f) == null) || f == this.mTextView.getPaint().getTextSize()) {
             return;
         }
-        this.mTextView.getPaint().setTextSize(f2);
+        this.mTextView.getPaint().setTextSize(f);
         boolean isInLayout = Build.VERSION.SDK_INT >= 18 ? this.mTextView.isInLayout() : false;
         if (this.mTextView.getLayout() != null) {
             this.mNeedsAutoSizeText = false;
@@ -397,8 +397,8 @@ public class AppCompatTextViewAutoSizeHelper {
                 if (textViewMethod != null) {
                     textViewMethod.invoke(this.mTextView, new Object[0]);
                 }
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to invoke TextView#nullLayouts() method", e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to invoke TextView#nullLayouts() method", e);
             }
             if (!isInLayout) {
                 this.mTextView.requestLayout();
@@ -489,21 +489,21 @@ public class AppCompatTextViewAutoSizeHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? !(this.mTextView instanceof AppCompatEditText) : invokeV.booleanValue;
     }
 
-    private void validateAndSetAutoSizeTextTypeUniformConfiguration(float f2, float f3, float f4) throws IllegalArgumentException {
+    private void validateAndSetAutoSizeTextTypeUniformConfiguration(float f, float f2, float f3) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            if (f2 <= 0.0f) {
-                throw new IllegalArgumentException("Minimum auto-size text size (" + f2 + "px) is less or equal to (0px)");
-            } else if (f3 <= f2) {
-                throw new IllegalArgumentException("Maximum auto-size text size (" + f3 + "px) is less or equal to minimum auto-size text size (" + f2 + "px)");
-            } else if (f4 > 0.0f) {
+        if (interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            if (f <= 0.0f) {
+                throw new IllegalArgumentException("Minimum auto-size text size (" + f + "px) is less or equal to (0px)");
+            } else if (f2 <= f) {
+                throw new IllegalArgumentException("Maximum auto-size text size (" + f2 + "px) is less or equal to minimum auto-size text size (" + f + "px)");
+            } else if (f3 > 0.0f) {
                 this.mAutoSizeTextType = 1;
-                this.mAutoSizeMinTextSizeInPx = f2;
-                this.mAutoSizeMaxTextSizeInPx = f3;
-                this.mAutoSizeStepGranularityInPx = f4;
+                this.mAutoSizeMinTextSizeInPx = f;
+                this.mAutoSizeMaxTextSizeInPx = f2;
+                this.mAutoSizeStepGranularityInPx = f3;
                 this.mHasPresetAutoSizeValues = false;
             } else {
-                throw new IllegalArgumentException("The auto-size step granularity (" + f4 + "px) is less or equal to (0px)");
+                throw new IllegalArgumentException("The auto-size step granularity (" + f3 + "px) is less or equal to (0px)");
             }
         }
     }
@@ -711,17 +711,17 @@ public class AppCompatTextViewAutoSizeHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setTextSizeInternal(int i, float f2) {
+    public void setTextSizeInternal(int i, float f) {
         Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             Context context = this.mContext;
             if (context == null) {
                 resources = Resources.getSystem();
             } else {
                 resources = context.getResources();
             }
-            setRawTextSize(TypedValue.applyDimension(i, f2, resources.getDisplayMetrics()));
+            setRawTextSize(TypedValue.applyDimension(i, f, resources.getDisplayMetrics()));
         }
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ForumRuleBaseData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +23,7 @@ public class ForumRuleBaseData implements Serializable {
     public String preface;
     public String title;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ForumRuleItemData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,8 +71,8 @@ public class ForumRuleBaseData implements Serializable {
                 try {
                     jSONObject.put("title", this.title);
                     jSONObject.put("content", this.content);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 return jSONObject;
             }
@@ -100,7 +101,7 @@ public class ForumRuleBaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ForumRuleItemPbContentData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +125,7 @@ public class ForumRuleBaseData implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class ForumRuleItemPbData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +210,7 @@ public class ForumRuleBaseData implements Serializable {
                             if (optJSONObject2 != null) {
                                 ForumRuleItemPbContentData forumRuleItemPbContentData = new ForumRuleItemPbContentData();
                                 forumRuleItemPbContentData.tag = optJSONObject2.optString("tag");
-                                forumRuleItemPbContentData.href = optJSONObject2.optString("href");
+                                forumRuleItemPbContentData.href = optJSONObject2.optString(NativeConstants.HREF);
                                 forumRuleItemPbContentData.target = optJSONObject2.optString("target");
                                 if ("a".equals(forumRuleItemPbContentData.tag)) {
                                     JSONArray optJSONArray3 = optJSONObject2.optJSONArray("value");

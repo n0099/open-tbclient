@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SoftInputUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -33,12 +33,12 @@ public class SoftInputUtil {
     public static int sMinSoftInputHeight;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSoftInputShowingListener {
         void onSoftInputShowing(boolean z);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SoftInputStatusListener implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class SoftInputUtil {
 
         private void calculateSoftInputHeight(int i) {
             int abs;
-            View view;
+            View view2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
                 if (SoftInputUtil.DEBUG) {
@@ -94,7 +94,7 @@ public class SoftInputUtil {
                 if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
                     abs = ((View) this.mContentView.getParent()).getHeight() - i;
                     if (SoftInputUtil.DEBUG) {
-                        Log.d(SoftInputUtil.TAG, "handle by placeholder, action bar overlay layout height " + view.getHeight() + ", display height: " + i + ", softInputHeight: " + abs);
+                        Log.d(SoftInputUtil.TAG, "handle by placeholder, action bar overlay layout height " + view2.getHeight() + ", display height: " + i + ", softInputHeight: " + abs);
                     }
                 } else {
                     abs = Math.abs(i - this.mPreviousDisplayHeight);
@@ -131,8 +131,8 @@ public class SoftInputUtil {
                 if (SoftInputUtil.DEBUG) {
                     Log.d(SoftInputUtil.TAG, "###### calculateSoftInputShowing ######");
                 }
-                View view = (View) this.mContentView.getParent();
-                int height = view.getHeight() - view.getPaddingTop();
+                View view2 = (View) this.mContentView.getParent();
+                int height = view2.getHeight() - view2.getPaddingTop();
                 if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
                     z = height > i;
                 } else {
@@ -278,7 +278,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
             if (sMaxPanelHeight == 0) {
-                sMaxPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d2);
+                sMaxPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703dc);
             }
             return sMaxPanelHeight;
         }
@@ -290,7 +290,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (sMaxSoftInputHeight == 0) {
-                sMaxSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d3);
+                sMaxSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703dd);
             }
             return sMaxSoftInputHeight;
         }
@@ -302,7 +302,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, resources)) == null) {
             if (sMinPanelHeight == 0) {
-                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d4);
+                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703de);
             }
             return sMinPanelHeight;
         }
@@ -314,7 +314,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (sMinSoftInputHeight == 0) {
-                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d5);
+                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703df);
             }
             return sMinSoftInputHeight;
         }
@@ -339,10 +339,10 @@ public class SoftInputUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) ? Math.min(getMaxPanelHeight(context.getResources()), Math.max(getMinPanelHeight(context.getResources()), getSoftInputHeight(context))) : invokeL.intValue;
     }
 
-    public static void hideSoftInput(View view) {
+    public static void hideSoftInput(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65549, null, view) == null) {
-            ((InputMethodManager) view.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view.getWindowToken(), 0);
+        if (interceptable == null || interceptable.invokeL(65549, null, view2) == null) {
+            ((InputMethodManager) view2.getContext().getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
         }
     }
 
@@ -369,18 +369,18 @@ public class SoftInputUtil {
         }
     }
 
-    public static void showSoftInput(View view) {
+    public static void showSoftInput(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, view) == null) {
-            view.requestFocus();
-            ((InputMethodManager) view.getContext().getSystemService("input_method")).showSoftInput(view, 0);
+        if (interceptable == null || interceptable.invokeL(65552, null, view2) == null) {
+            view2.requestFocus();
+            ((InputMethodManager) view2.getContext().getSystemService("input_method")).showSoftInput(view2, 0);
         }
     }
 
-    public static void showSoftInputDelay(View view, long j) {
+    public static void showSoftInputDelay(View view2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65553, null, view, j) == null) {
-            view.postDelayed(new Runnable(view) { // from class: com.baidu.spswitch.utils.SoftInputUtil.1
+        if (interceptable == null || interceptable.invokeLJ(65553, null, view2, j) == null) {
+            view2.postDelayed(new Runnable(view2) { // from class: com.baidu.spswitch.utils.SoftInputUtil.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ View val$focusView;
@@ -390,7 +390,7 @@ public class SoftInputUtil {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {view};
+                        Object[] objArr = {view2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -400,7 +400,7 @@ public class SoftInputUtil {
                             return;
                         }
                     }
-                    this.val$focusView = view;
+                    this.val$focusView = view2;
                 }
 
                 @Override // java.lang.Runnable

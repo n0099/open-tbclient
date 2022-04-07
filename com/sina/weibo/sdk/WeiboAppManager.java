@@ -133,21 +133,21 @@ public class WeiboAppManager {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e2) {
-                                e2.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
                         }
                         return wbAppInfo;
                     }
                     return null;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     LogUtil.e(TAG, e.getMessage());
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return null;
@@ -158,14 +158,14 @@ public class WeiboAppManager {
                 if (inputStream2 != null) {
                     try {
                         inputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;

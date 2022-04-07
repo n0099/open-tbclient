@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FaceExtInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static int[] comp1 = null;
@@ -191,21 +191,21 @@ public class FaceExtInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f2 = this.mCenterX;
-            float f3 = this.mWidth;
-            return new Rect((int) (f2 - (f3 / 2.0f)), (int) (this.mCenterY - (f3 / 2.0f)), (int) f3, (int) f3);
+            float f = this.mCenterX;
+            float f2 = this.mWidth;
+            return new Rect((int) (f - (f2 / 2.0f)), (int) (this.mCenterY - (f2 / 2.0f)), (int) f2, (int) f2);
         }
         return (Rect) invokeV.objValue;
     }
 
-    public Rect getFaceRect(float f2, float f3, float f4) {
+    public Rect getFaceRect(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            float f5 = this.mCenterX * f2;
-            float f6 = this.mCenterY * f3;
-            float f7 = this.mWidth;
-            return new Rect((int) (f5 - (((f7 / 2.0f) * f2) * f4)), (int) (f6 - (((f7 / 2.0f) * f3) * f4)), (int) (f5 + ((f7 / 2.0f) * f2 * f4)), (int) (f6 + ((f7 / 2.0f) * f3 * f4)));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float f4 = this.mCenterX * f;
+            float f5 = this.mCenterY * f2;
+            float f6 = this.mWidth;
+            return new Rect((int) (f4 - (((f6 / 2.0f) * f) * f3)), (int) (f5 - (((f6 / 2.0f) * f2) * f3)), (int) (f4 + ((f6 / 2.0f) * f * f3)), (int) (f5 + ((f6 / 2.0f) * f2 * f3)));
         }
         return (Rect) invokeCommon.objValue;
     }
@@ -282,25 +282,25 @@ public class FaceExtInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, iArr) == null) {
             int[] iArr2 = iArr;
+            double d = (this.mAngle * 3.14159d) / 180.0d;
+            double cos = Math.cos(d);
+            double sin = Math.sin(d);
+            float f = this.mWidth;
+            int i = (int) ((this.mCenterX + ((f * cos) / 2.0d)) - ((f * sin) / 2.0d));
+            int i2 = (int) (this.mCenterY + ((sin * f) / 2.0d) + ((cos * f) / 2.0d));
             double d2 = (this.mAngle * 3.14159d) / 180.0d;
-            double cos = Math.cos(d2);
-            double sin = Math.sin(d2);
-            float f2 = this.mWidth;
-            int i = (int) ((this.mCenterX + ((f2 * cos) / 2.0d)) - ((f2 * sin) / 2.0d));
-            int i2 = (int) (this.mCenterY + ((sin * f2) / 2.0d) + ((cos * f2) / 2.0d));
-            double d3 = (this.mAngle * 3.14159d) / 180.0d;
-            double cos2 = Math.cos(d3) * 0.5d;
-            double sin2 = Math.sin(d3) * 0.5d;
+            double cos2 = Math.cos(d2) * 0.5d;
+            double sin2 = Math.sin(d2) * 0.5d;
             if (iArr2 == null || iArr2.length == 0) {
                 iArr2 = new int[8];
             }
-            double d4 = i;
-            float f3 = this.mWidth;
-            iArr2[0] = (int) ((d4 - (f3 * sin2)) - (f3 * cos2));
-            double d5 = i2;
-            iArr2[1] = (int) (((f3 * cos2) + d5) - (f3 * sin2));
-            iArr2[2] = (int) ((d4 + (f3 * sin2)) - (f3 * cos2));
-            iArr2[3] = (int) ((d5 - (cos2 * f3)) - (sin2 * f3));
+            double d3 = i;
+            float f2 = this.mWidth;
+            iArr2[0] = (int) ((d3 - (f2 * sin2)) - (f2 * cos2));
+            double d4 = i2;
+            iArr2[1] = (int) (((f2 * cos2) + d4) - (f2 * sin2));
+            iArr2[2] = (int) ((d3 + (f2 * sin2)) - (f2 * cos2));
+            iArr2[3] = (int) ((d4 - (cos2 * f2)) - (sin2 * f2));
             int i3 = i * 2;
             iArr2[4] = i3 - iArr2[0];
             int i4 = i2 * 2;
@@ -340,38 +340,38 @@ public class FaceExtInfo {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, rect)) == null) ? rect.contains(getFaceRect()) : invokeL.booleanValue;
     }
 
-    public void setCenterX(float f2) {
+    public void setCenterX(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
-            this.mCenterX = f2;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.mCenterX = f;
         }
     }
 
-    public void setCenterY(float f2) {
+    public void setCenterY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
-            this.mCenterY = f2;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.mCenterY = f;
         }
     }
 
-    public void setHeight(float f2) {
+    public void setHeight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            this.mHeight = f2;
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            this.mHeight = f;
         }
     }
 
-    public void setLeftEyeClose(float f2) {
+    public void setLeftEyeClose(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048600, this, f2) == null) {
-            this.mLeftEyeClose = f2;
+        if (interceptable == null || interceptable.invokeF(1048600, this, f) == null) {
+            this.mLeftEyeClose = f;
         }
     }
 
-    public void setRightEyeClose(float f2) {
+    public void setRightEyeClose(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.mRightEyeClose = f2;
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.mRightEyeClose = f;
         }
     }
 }

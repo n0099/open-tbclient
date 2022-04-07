@@ -174,12 +174,12 @@ public class ActionBarContextView extends AbsActionBarView {
     public void initForMode(ActionMode actionMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, actionMode) == null) {
-            View view = this.mClose;
-            if (view == null) {
+            View view2 = this.mClose;
+            if (view2 == null) {
                 View inflate = LayoutInflater.from(getContext()).inflate(this.mCloseItemLayout, (ViewGroup) this, false);
                 this.mClose = inflate;
                 addView(inflate);
-            } else if (view.getParent() == null) {
+            } else if (view2.getParent() == null) {
                 addView(this.mClose);
             }
             this.mClose.findViewById(R$id.action_mode_close_button).setOnClickListener(new View.OnClickListener(this, actionMode) { // from class: androidx.appcompat.widget.ActionBarContextView.1
@@ -208,9 +208,9 @@ public class ActionBarContextView extends AbsActionBarView {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
+                public void onClick(View view3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         this.val$mode.finish();
                     }
                 }
@@ -312,8 +312,8 @@ public class ActionBarContextView extends AbsActionBarView {
             int paddingRight = isLayoutRtl ? (i3 - i) - getPaddingRight() : getPaddingLeft();
             int paddingTop = getPaddingTop();
             int paddingTop2 = ((i4 - i2) - getPaddingTop()) - getPaddingBottom();
-            View view = this.mClose;
-            if (view != null && view.getVisibility() != 8) {
+            View view2 = this.mClose;
+            if (view2 != null && view2.getVisibility() != 8) {
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mClose.getLayoutParams();
                 int i5 = isLayoutRtl ? marginLayoutParams.rightMargin : marginLayoutParams.leftMargin;
                 int i6 = isLayoutRtl ? marginLayoutParams.leftMargin : marginLayoutParams.rightMargin;
@@ -326,9 +326,9 @@ public class ActionBarContextView extends AbsActionBarView {
                 i7 += positionChild(this.mTitleLayout, i7, paddingTop, paddingTop2, isLayoutRtl);
             }
             int i8 = i7;
-            View view2 = this.mCustomView;
-            if (view2 != null) {
-                positionChild(view2, i8, paddingTop, paddingTop2, isLayoutRtl);
+            View view3 = this.mCustomView;
+            if (view3 != null) {
+                positionChild(view3, i8, paddingTop, paddingTop2, isLayoutRtl);
             }
             int paddingLeft = isLayoutRtl ? getPaddingLeft() : (i3 - i) - getPaddingRight();
             ActionMenuView actionMenuView = this.mMenuView;
@@ -353,9 +353,9 @@ public class ActionBarContextView extends AbsActionBarView {
                     int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
                     int i4 = i3 - paddingTop;
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
-                    View view = this.mClose;
-                    if (view != null) {
-                        int measureChildView = measureChildView(view, paddingLeft, makeMeasureSpec, 0);
+                    View view2 = this.mClose;
+                    if (view2 != null) {
+                        int measureChildView = measureChildView(view2, paddingLeft, makeMeasureSpec, 0);
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.mClose.getLayoutParams();
                         paddingLeft = measureChildView - (marginLayoutParams.leftMargin + marginLayoutParams.rightMargin);
                     }
@@ -377,9 +377,9 @@ public class ActionBarContextView extends AbsActionBarView {
                             paddingLeft = measureChildView(linearLayout, paddingLeft, makeMeasureSpec, 0);
                         }
                     }
-                    View view2 = this.mCustomView;
-                    if (view2 != null) {
-                        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+                    View view3 = this.mCustomView;
+                    if (view3 != null) {
+                        ViewGroup.LayoutParams layoutParams = view3.getLayoutParams();
                         int i5 = layoutParams.width != -2 ? 1073741824 : Integer.MIN_VALUE;
                         int i6 = layoutParams.width;
                         if (i6 >= 0) {
@@ -431,21 +431,21 @@ public class ActionBarContextView extends AbsActionBarView {
         }
     }
 
-    public void setCustomView(View view) {
+    public void setCustomView(View view2) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, view) == null) {
-            View view2 = this.mCustomView;
-            if (view2 != null) {
-                removeView(view2);
+        if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
+            View view3 = this.mCustomView;
+            if (view3 != null) {
+                removeView(view3);
             }
-            this.mCustomView = view;
-            if (view != null && (linearLayout = this.mTitleLayout) != null) {
+            this.mCustomView = view2;
+            if (view2 != null && (linearLayout = this.mTitleLayout) != null) {
                 removeView(linearLayout);
                 this.mTitleLayout = null;
             }
-            if (view != null) {
-                addView(view);
+            if (view2 != null) {
+                addView(view2);
             }
             requestLayout();
         }

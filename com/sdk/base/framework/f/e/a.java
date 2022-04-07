@@ -16,9 +16,7 @@ import java.util.Properties;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42585b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +32,7 @@ public class a {
                 return;
             }
         }
-        f42585b = f.f42567b;
+        b = f.b;
     }
 
     public a() {
@@ -63,7 +61,7 @@ public class a {
                 properties.load(SDKManager.getContext().getAssets().open(str));
             } catch (IOException unused) {
                 String str3 = a;
-                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f42585b));
+                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(b));
             }
             return properties.getProperty(str2);
         }

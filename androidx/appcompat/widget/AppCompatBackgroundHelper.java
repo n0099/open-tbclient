@@ -29,12 +29,12 @@ public class AppCompatBackgroundHelper {
     @NonNull
     public final View mView;
 
-    public AppCompatBackgroundHelper(@NonNull View view) {
+    public AppCompatBackgroundHelper(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,7 +45,7 @@ public class AppCompatBackgroundHelper {
             }
         }
         this.mBackgroundResId = -1;
-        this.mView = view;
+        this.mView = view2;
         this.mDrawableManager = AppCompatDrawableManager.get();
     }
 
@@ -137,8 +137,8 @@ public class AppCompatBackgroundHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, attributeSet, i) == null) {
             TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.ViewBackgroundHelper, i, 0);
-            View view = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(view, view.getContext(), R$styleable.ViewBackgroundHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
+            View view2 = this.mView;
+            ViewCompat.saveAttributeDataForStyleable(view2, view2.getContext(), R$styleable.ViewBackgroundHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             try {
                 if (obtainStyledAttributes.hasValue(R$styleable.ViewBackgroundHelper_android_background)) {
                     this.mBackgroundResId = obtainStyledAttributes.getResourceId(R$styleable.ViewBackgroundHelper_android_background, -1);

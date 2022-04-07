@@ -1,8 +1,6 @@
 package com.baidu.tieba.share;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.f;
-import c.a.d.f.m.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -21,7 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+import com.repackage.mg;
+import com.repackage.pg;
+/* loaded from: classes4.dex */
 public class AddExperiencedModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY_TIME = 2000;
@@ -30,17 +31,11 @@ public class AddExperiencedModel extends BdBaseModel {
     public static String USELESS_FORUM_ID = "24981790";
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
+    public ContriInfo b;
+    public Runnable c;
+    public HttpMessageListener d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ContriInfo f35932b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Runnable f35933c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f35934d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,11 +65,11 @@ public class AddExperiencedModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
                 return;
             }
-            this.a.a.a(this.a.f35932b);
+            this.a.a.a(this.a.b);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,13 +102,13 @@ public class AddExperiencedModel extends BdBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage instanceof AddExperiencedResponseMessage)) {
-                this.a.f35932b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
-                e.a().postDelayed(this.a.f35933c, 2000L);
+                this.a.b = ((AddExperiencedResponseMessage) httpResponsedMessage).getContriInfo();
+                pg.a().postDelayed(this.a.c, 2000L);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void a(ContriInfo contriInfo);
     }
@@ -145,22 +140,22 @@ public class AddExperiencedModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35933c = new a(this);
-        this.f35934d = new b(this, CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
+        this.c = new a(this);
+        this.d = new b(this, CmdConfigHttp.CMD_ADD_EXPERIENCED, true);
         registerTask();
-        registerListener(this.f35934d);
+        registerListener(this.d);
     }
 
     public static boolean D(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? c.a.d.f.m.b.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? mg.g(str, 0L) > 0 && !USELESS_FORUM_ID.equals(str) : invokeL.booleanValue;
     }
 
     public void C(String str, String str2) {
@@ -196,7 +191,7 @@ public class AddExperiencedModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e.a().removeCallbacks(this.f35933c);
+            pg.a().removeCallbacks(this.c);
         }
     }
 

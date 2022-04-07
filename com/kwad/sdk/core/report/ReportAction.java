@@ -17,7 +17,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ReportAction extends c {
     public long A;
     public long C;
@@ -81,9 +81,7 @@ public class ReportAction extends c {
     public int ax;
     public int ay;
     public JSONArray az;
-
-    /* renamed from: b  reason: collision with root package name */
-    public transient SceneImpl f39690b;
+    public transient SceneImpl b;
     public String bA;
     public int bB;
     public int bC;
@@ -122,21 +120,11 @@ public class ReportAction extends c {
     public String by;
     public String bz;
     @Nullable
-
-    /* renamed from: c  reason: collision with root package name */
-    public transient AdTemplate f39691c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f39692d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f39693e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f39694f;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f39696h;
+    public transient AdTemplate c;
+    public long d;
+    public String e;
+    public long f;
+    public long h;
     public long i;
     public long j;
     public JSONObject k;
@@ -153,9 +141,7 @@ public class ReportAction extends c {
     public long x;
     public long y;
     public long z;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f39695g = -1;
+    public int g = -1;
     public int n = 0;
     public int o = 0;
     public long B = -1;
@@ -177,33 +163,29 @@ public class ReportAction extends c {
     public int ba = 0;
     public int bK = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class LiveLogInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final long serialVersionUID = 4898843925487388950L;
         public String liveStreamId;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f39697b;
+        public int b;
 
         public static a a() {
             a aVar = new a();
             aVar.a = b.a;
-            aVar.f39697b = b.f39698b;
+            aVar.b = b.b;
             return aVar;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b {
         public static int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static int f39698b;
+        public static int b;
     }
 
     public ReportAction(long j) {
@@ -212,14 +194,14 @@ public class ReportAction extends c {
 
     public ReportAction(long j, @NonNull AdTemplate adTemplate) {
         this.i = j;
-        this.f39691c = adTemplate;
+        this.c = adTemplate;
     }
 
     public ReportAction(String str) {
         try {
             parseJson(new JSONObject(str));
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 
@@ -231,8 +213,8 @@ public class ReportAction extends c {
         try {
             JSONObject jSONObject = new JSONObject(str);
             return jSONObject.optBoolean("ecIdentityFlag", false) ? new m(jSONObject) : new ReportAction(jSONObject);
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.a(e);
             return new ReportAction("");
         }
     }
@@ -254,37 +236,37 @@ public class ReportAction extends c {
             this.aY = bVar.d();
         }
         this.a = UUID.randomUUID().toString();
-        this.f39692d = System.currentTimeMillis();
-        this.f39693e = n.b();
+        this.d = System.currentTimeMillis();
+        this.e = n.b();
         try {
-            this.f39694f = n.c();
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+            this.f = n.c();
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
-        this.f39696h = n.e();
-        SceneImpl sceneImpl2 = this.f39690b;
+        this.h = n.e();
+        SceneImpl sceneImpl2 = this.b;
         if (sceneImpl2 == null) {
             if (adTemplate != null && (sceneImpl2 = adTemplate.mAdScene) != null) {
-                this.f39690b = sceneImpl2;
+                this.b = sceneImpl2;
             }
             if (adTemplate != null) {
                 this.q = adTemplate.getShowPosition() + 1;
                 this.r = adTemplate.getServerPosition() + 1;
                 this.j = com.kwad.sdk.core.response.a.d.g(adTemplate);
-                String h2 = com.kwad.sdk.core.response.a.d.h(adTemplate);
-                if (!TextUtils.isEmpty(h2)) {
+                String h = com.kwad.sdk.core.response.a.d.h(adTemplate);
+                if (!TextUtils.isEmpty(h)) {
                     try {
-                        this.k = new JSONObject(h2);
-                    } catch (Exception e3) {
-                        com.kwad.sdk.core.d.a.b(e3);
+                        this.k = new JSONObject(h);
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.b(e2);
                     }
                 }
                 String i = com.kwad.sdk.core.response.a.d.i(adTemplate);
                 if (!TextUtils.isEmpty(i)) {
                     try {
                         this.l = new JSONObject(i);
-                    } catch (Exception e4) {
-                        com.kwad.sdk.core.d.a.b(e4);
+                    } catch (Exception e3) {
+                        com.kwad.sdk.core.d.a.b(e3);
                     }
                 }
                 this.m = com.kwad.sdk.core.response.a.d.e(adTemplate);
@@ -313,11 +295,11 @@ public class ReportAction extends c {
                     LiveInfo r = com.kwad.sdk.core.response.a.d.r(adTemplate);
                     this.aG.liveStreamId = com.kwad.sdk.live.mode.a.a(r);
                     this.N = com.kwad.sdk.live.mode.a.b(r);
-                    if (com.kwad.sdk.b.f39155d.booleanValue()) {
+                    if (com.kwad.sdk.b.d.booleanValue()) {
                         this.bK = 1;
                     }
                 } else if (i2 == 5) {
-                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.f39691c));
+                    this.bJ = com.kwad.sdk.core.response.a.e.c(com.kwad.sdk.core.response.a.d.l(this.c));
                 }
                 this.aj = adTemplate.mMediaPlayerType;
                 this.ax = adTemplate.mIsLeftSlipStatus;
@@ -329,13 +311,13 @@ public class ReportAction extends c {
                 this.F = com.kwad.sdk.core.response.a.d.q(adTemplate);
             }
             this.ai = a.a();
-            if (this.f39690b == null && adTemplate != null) {
-                this.f39690b = adTemplate.mAdScene;
+            if (this.b == null && adTemplate != null) {
+                this.b = adTemplate.mAdScene;
             }
-            sceneImpl = this.f39690b;
+            sceneImpl = this.b;
             if (sceneImpl != null) {
                 this.m = sceneImpl.getPosId();
-                this.L = this.f39690b.getUrlPackage();
+                this.L = this.b.getUrlPackage();
             }
             if (this.L == null) {
                 EntryPackage b2 = com.kwad.sdk.core.scene.a.a().b(this.L.identity);
@@ -347,15 +329,15 @@ public class ReportAction extends c {
             return;
         }
         this.m = sceneImpl2.getPosId();
-        this.L = this.f39690b.getUrlPackage();
-        this.f39695g = this.f39690b.getAdStyle();
+        this.L = this.b.getUrlPackage();
+        this.g = this.b.getAdStyle();
         if (adTemplate != null) {
         }
         this.ai = a.a();
-        if (this.f39690b == null) {
-            this.f39690b = adTemplate.mAdScene;
+        if (this.b == null) {
+            this.b = adTemplate.mAdScene;
         }
-        sceneImpl = this.f39690b;
+        sceneImpl = this.b;
         if (sceneImpl != null) {
         }
         if (this.L == null) {
@@ -369,7 +351,7 @@ public class ReportAction extends c {
             return;
         }
         this.ak = 3;
-        this.f39695g = jSONObject.optInt("adStyle", -1);
+        this.g = jSONObject.optInt("adStyle", -1);
         this.as = jSONObject.optInt("adHorizontalFeedType");
         this.at = jSONObject.optInt("videoPlayMode");
         this.au = jSONObject.optInt("autoReplayTimes");
@@ -394,7 +376,7 @@ public class ReportAction extends c {
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
         t.a(jSONObject, "actionId", this.a);
-        int i = this.f39695g;
+        int i = this.g;
         if (i > 0) {
             t.a(jSONObject, "adStyle", i);
         }
@@ -449,7 +431,7 @@ public class ReportAction extends c {
     }
 
     public ReportAction b() {
-        a(this.f39691c);
+        a(this.c);
         return this;
     }
 

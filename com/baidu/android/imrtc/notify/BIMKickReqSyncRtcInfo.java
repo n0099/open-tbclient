@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMKickReqSyncRtcInfo";
@@ -86,8 +86,8 @@ public class BIMKickReqSyncRtcInfo extends BIMSyncRtcInfo {
                 jSONObject.put("kicked_user", jSONObject3);
                 LogUtils.d(TAG, "BIMKickReqSyncRtcInfo :" + jSONObject.toString());
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMKickReqSyncRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMKickReqSyncRtcInfo Exception ", e);
                 return "";
             }
         }

@@ -10,29 +10,17 @@ import com.kwad.sdk.core.download.a.a;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.reward.a.f;
 import com.kwad.sdk.reward.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends g implements View.OnClickListener {
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f40881b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f40882c;
+    public TextView b;
+    public TextView c;
     @NonNull
-
-    /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f40883d;
+    public com.kwad.sdk.reward.a.b d;
     @NonNull
-
-    /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f40884e;
+    public AdTemplate e;
     @Nullable
-
-    /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f40885f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public f f40886g = new f() { // from class: com.kwad.sdk.reward.presenter.a.a.a.1
+    public com.kwad.sdk.core.download.a.b f;
+    public f g = new f() { // from class: com.kwad.sdk.reward.presenter.a.a.a.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
             if (((g) a.this).a.x) {
@@ -45,69 +33,69 @@ public class a extends g implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         TextView textView;
-        String f2 = com.kwad.sdk.core.response.a.c.f(this.f40884e);
-        if (TextUtils.isEmpty(f2)) {
+        String f = com.kwad.sdk.core.response.a.c.f(this.e);
+        if (TextUtils.isEmpty(f)) {
             return;
         }
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        if (aVar.f40746f == 1 || (aVar.r && aVar.s)) {
-            this.f40882c.setVisibility(8);
-            this.f40881b.setText(f2);
-            this.f40881b.setVisibility(0);
-            textView = this.f40881b;
+        if (aVar.f == 1 || (aVar.r && aVar.s)) {
+            this.c.setVisibility(8);
+            this.b.setText(f);
+            this.b.setVisibility(0);
+            textView = this.b;
         } else {
-            this.f40881b.setVisibility(8);
-            this.f40882c.setText(f2);
-            this.f40882c.setVisibility(0);
-            textView = this.f40882c;
+            this.b.setVisibility(8);
+            this.c.setText(f);
+            this.c.setVisibility(0);
+            textView = this.c;
         }
         textView.setOnClickListener(this);
         i();
     }
 
     private void i() {
-        com.kwad.sdk.core.report.a.c(this.f40884e, 17, ((g) this).a.f40745e);
+        com.kwad.sdk.core.report.a.c(this.e, 17, ((g) this).a.e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void r() {
-        com.kwad.sdk.core.report.a.a(this.f40884e, 39, ((g) this).a.j.getTouchCoords(), ((g) this).a.f40745e);
+        com.kwad.sdk.core.report.a.a(this.e, 39, ((g) this).a.j.getTouchCoords(), ((g) this).a.e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void s() {
-        this.f40883d.a();
+        this.d.a();
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        this.f40883d = aVar.f40742b;
-        this.f40884e = aVar.f40747g;
-        this.f40885f = aVar.l;
-        aVar.a(this.f40886g);
+        this.d = aVar.b;
+        this.e = aVar.g;
+        this.f = aVar.l;
+        aVar.a(this.g);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((g) this).a.b(this.f40886g);
-        this.f40881b.setVisibility(8);
-        this.f40882c.setVisibility(8);
+        ((g) this).a.b(this.g);
+        this.b.setVisibility(8);
+        this.c.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f40881b = (TextView) a(R.id.obfuscated_res_0x7f09107c);
-        this.f40882c = (TextView) a(R.id.obfuscated_res_0x7f091081);
+        this.b = (TextView) a(R.id.obfuscated_res_0x7f091075);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f09107a);
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        if (view == this.f40881b || view == this.f40882c) {
-            com.kwad.sdk.core.download.a.a.a(new a.C1956a(view.getContext()).a(this.f40884e).a(this.f40885f).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.a.a.a.2
+    public void onClick(View view2) {
+        if (view2 == this.b || view2 == this.c) {
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.e).a(this.f).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.a.a.a.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     a.this.r();

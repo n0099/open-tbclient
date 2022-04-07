@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FormatTools";
@@ -109,8 +109,8 @@ public class FormatTools {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j)) == null) {
             try {
                 return simpleDateFormat.format(new Date(j));
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return null;
             }
         }
@@ -126,8 +126,8 @@ public class FormatTools {
                     return new Date().getTime();
                 }
                 return simpleDateFormat.parse(str).getTime();
-            } catch (ParseException e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (ParseException e) {
+                LogTools.printWarning(TAG, e);
                 return 0L;
             }
         }
@@ -147,8 +147,8 @@ public class FormatTools {
                 }
                 calendar.add(5, i);
                 return simpleDateFormat.format(calendar.getTime());
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return null;
             }
         }
@@ -168,8 +168,8 @@ public class FormatTools {
                 }
                 calendar.add(13, i);
                 return calendar.getTime();
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
                 return null;
             }
         }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ALaKeepAliveService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CONTENT_TEXT = "content_text";
@@ -83,7 +83,7 @@ public class ALaKeepAliveService extends BdBaseService {
                 String stringExtra3 = intent.getStringExtra(KEY_TICKER);
                 int intExtra = intent.getIntExtra(KEY_NOTIFICATION_ID, Integer.MAX_VALUE);
                 NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
-                builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.obfuscated_res_0x7f0805e5).setTicker(stringExtra3);
+                builder.setContentTitle(stringExtra).setContentText(stringExtra2).setSmallIcon(R.drawable.obfuscated_res_0x7f0805e4).setTicker(stringExtra3);
                 startForeground(intExtra, builder.build());
             }
             return super.onStartCommand(intent, i, i2);

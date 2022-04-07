@@ -1,6 +1,5 @@
 package com.baidu.ala.gift;
 
-import c.a.d.f.n.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -19,7 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.ug;
+/* loaded from: classes.dex */
 public class AlaRefreshScoreModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class AlaRefreshScoreModel extends BdBaseModel {
                     if (contentStr != null && contentStr.length() > 200) {
                         contentStr = contentStr.substring(0, 200);
                     }
-                    a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
+                    ug statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
                     statsItem.b("workflow", "synctdou");
                     statsItem.b("eventType", "syncfail");
                     statsItem.c("response_code", Integer.valueOf(httpResponsedMessage.getStatusCode()));

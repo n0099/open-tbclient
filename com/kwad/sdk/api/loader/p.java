@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class p {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -15,16 +15,16 @@ public class p {
             }
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder(digest.length * 2);
-            for (byte b2 : digest) {
-                int i = b2 & 255;
+            for (byte b : digest) {
+                int i = b & 255;
                 if (i < 16) {
                     sb.append("0");
                 }
                 sb.append(Integer.toHexString(i));
             }
             return sb.toString();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return "";
         }
     }

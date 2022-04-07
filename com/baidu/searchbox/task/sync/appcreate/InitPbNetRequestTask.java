@@ -1,7 +1,5 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.o0.r.a0.b;
-import c.a.p0.w2.l.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,11 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.gt7;
+import com.repackage.ls4;
+/* loaded from: classes2.dex */
 public class InitPbNetRequestTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c schemeStartPbMessageSender;
+    public final gt7 schemeStartPbMessageSender;
 
     public InitPbNetRequestTask() {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class InitPbNetRequestTask extends LaunchTask {
                 return;
             }
         }
-        this.schemeStartPbMessageSender = new c();
+        this.schemeStartPbMessageSender = new gt7();
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.schemeStartPbMessageSender.i(b.a().f10498c);
+            this.schemeStartPbMessageSender.i(ls4.a().c);
         }
     }
 

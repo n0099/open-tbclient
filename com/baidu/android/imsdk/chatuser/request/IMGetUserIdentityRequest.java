@@ -24,7 +24,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetUserIdentityRequest";
@@ -128,8 +128,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                     }
                 }
                 jSONObject.put("bd_uids", jSONArray);
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }
@@ -175,15 +175,15 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
         try {
             jSONObject = new JSONObject(str2);
             optInt = jSONObject.optInt("error_code");
-        } catch (JSONException e2) {
-            e = e2;
+        } catch (JSONException e) {
+            e = e;
             str = TAG;
         }
         if (optInt == 0) {
             try {
                 optJSONArray = jSONObject.optJSONArray("user_list");
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
                 str = TAG;
                 i5 = optInt;
             }
@@ -229,8 +229,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                                                 chatUser.setMarkTopTime(chatUser2.getMarkTopTime());
                                                 chatUser.setShield(chatUser2.getShield());
                                                 chatUser.setShieldTime(chatUser2.getShieldTime());
-                                            } catch (JSONException e4) {
-                                                e = e4;
+                                            } catch (JSONException e3) {
+                                                e = e3;
                                                 i5 = i3;
                                                 arrayList2 = arrayList4;
                                                 LogUtils.e(str, "Exception ", e);
@@ -248,8 +248,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                                             arrayList3 = arrayList;
                                             str3 = str;
                                             optInt = i3;
-                                        } catch (JSONException e5) {
-                                            e = e5;
+                                        } catch (JSONException e4) {
+                                            e = e4;
                                             i5 = i3;
                                             arrayList2 = arrayList;
                                             LogUtils.e(str, "Exception ", e);
@@ -258,8 +258,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                                             if (iGetUserIdentityListener != null) {
                                             }
                                         }
-                                    } catch (JSONException e6) {
-                                        e = e6;
+                                    } catch (JSONException e5) {
+                                        e = e5;
                                         arrayList = arrayList4;
                                         i5 = i3;
                                         arrayList2 = arrayList;
@@ -269,12 +269,12 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                                         if (iGetUserIdentityListener != null) {
                                         }
                                     }
-                                } catch (JSONException e7) {
-                                    e = e7;
+                                } catch (JSONException e6) {
+                                    e = e6;
                                     iMGetUserIdentityRequest = this;
                                 }
-                            } catch (JSONException e8) {
-                                e = e8;
+                            } catch (JSONException e7) {
+                                e = e7;
                                 arrayList = arrayList3;
                                 i5 = i3;
                                 arrayList2 = arrayList;
@@ -284,8 +284,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                                 if (iGetUserIdentityListener != null) {
                                 }
                             }
-                        } catch (JSONException e9) {
-                            e = e9;
+                        } catch (JSONException e8) {
+                            e = e8;
                             str = str3;
                             arrayList = arrayList3;
                             i5 = i3;
@@ -296,8 +296,8 @@ public class IMGetUserIdentityRequest extends IMUserBaseHttpRequest {
                             if (iGetUserIdentityListener != null) {
                             }
                         }
-                    } catch (JSONException e10) {
-                        e = e10;
+                    } catch (JSONException e9) {
+                        e = e9;
                         i3 = optInt;
                     }
                 }

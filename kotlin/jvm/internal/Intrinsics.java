@@ -39,8 +39,8 @@ public class Intrinsics {
         String replace = str.replace(WebvttCueParser.CHAR_SLASH, IStringUtil.EXTENSION_SEPARATOR);
         try {
             Class.forName(replace);
-        } catch (ClassNotFoundException e2) {
-            throw ((ClassNotFoundException) sanitizeStackTrace(new ClassNotFoundException("Class " + replace + " is not found. Please update the Kotlin runtime to the latest version", e2)));
+        } catch (ClassNotFoundException e) {
+            throw ((ClassNotFoundException) sanitizeStackTrace(new ClassNotFoundException("Class " + replace + " is not found. Please update the Kotlin runtime to the latest version", e)));
         }
     }
 
@@ -156,12 +156,12 @@ public class Intrinsics {
     }
 
     @SinceKotlin(version = "1.1")
-    public static boolean areEqual(Double d2, Double d3) {
-        if (d2 == null) {
-            if (d3 == null) {
+    public static boolean areEqual(Double d, Double d2) {
+        if (d == null) {
+            if (d2 == null) {
                 return true;
             }
-        } else if (d3 != null && d2.doubleValue() == d3.doubleValue()) {
+        } else if (d2 != null && d.doubleValue() == d2.doubleValue()) {
             return true;
         }
         return false;
@@ -232,43 +232,43 @@ public class Intrinsics {
     }
 
     @SinceKotlin(version = "1.1")
-    public static boolean areEqual(Double d2, double d3) {
-        return d2 != null && d2.doubleValue() == d3;
+    public static boolean areEqual(Double d, double d2) {
+        return d != null && d.doubleValue() == d2;
     }
 
     @SinceKotlin(version = "1.1")
-    public static boolean areEqual(double d2, Double d3) {
-        return d3 != null && d2 == d3.doubleValue();
+    public static boolean areEqual(double d, Double d2) {
+        return d2 != null && d == d2.doubleValue();
     }
 
     public static void checkHasClass(String str, String str2) throws ClassNotFoundException {
         String replace = str.replace(WebvttCueParser.CHAR_SLASH, IStringUtil.EXTENSION_SEPARATOR);
         try {
             Class.forName(replace);
-        } catch (ClassNotFoundException e2) {
-            throw ((ClassNotFoundException) sanitizeStackTrace(new ClassNotFoundException("Class " + replace + " is not found: this code requires the Kotlin runtime of version at least " + str2, e2)));
+        } catch (ClassNotFoundException e) {
+            throw ((ClassNotFoundException) sanitizeStackTrace(new ClassNotFoundException("Class " + replace + " is not found: this code requires the Kotlin runtime of version at least " + str2, e)));
         }
     }
 
     @SinceKotlin(version = "1.1")
-    public static boolean areEqual(Float f2, Float f3) {
-        if (f2 == null) {
-            if (f3 == null) {
+    public static boolean areEqual(Float f, Float f2) {
+        if (f == null) {
+            if (f2 == null) {
                 return true;
             }
-        } else if (f3 != null && f2.floatValue() == f3.floatValue()) {
+        } else if (f2 != null && f.floatValue() == f2.floatValue()) {
             return true;
         }
         return false;
     }
 
     @SinceKotlin(version = "1.1")
-    public static boolean areEqual(Float f2, float f3) {
-        return f2 != null && f2.floatValue() == f3;
+    public static boolean areEqual(Float f, float f2) {
+        return f != null && f.floatValue() == f2;
     }
 
     @SinceKotlin(version = "1.1")
-    public static boolean areEqual(float f2, Float f3) {
-        return f3 != null && f2 == f3.floatValue();
+    public static boolean areEqual(float f, Float f2) {
+        return f2 != null && f == f2.floatValue();
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DelayConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MODE_PART_SECTION = 2;
@@ -46,8 +46,8 @@ public class DelayConfig implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.delayTime < 0) {
-                float f2 = this.decrease;
-                if ((f2 < 0.0f || f2 > 1.0f) && ((this.pairTimeLength <= 0 || this.pairTimeArray == null) && this.newPosition < 0)) {
+                float f = this.decrease;
+                if ((f < 0.0f || f > 1.0f) && ((this.pairTimeLength <= 0 || this.pairTimeArray == null) && this.newPosition < 0)) {
                     return false;
                 }
             }
@@ -92,11 +92,11 @@ public class DelayConfig implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.pairTimeLength : invokeV.intValue;
     }
 
-    public DelayConfig setDecrease(float f2) {
+    public DelayConfig setDecrease(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f2)) == null) {
-            this.decrease = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048583, this, f)) == null) {
+            this.decrease = f;
             return this;
         }
         return (DelayConfig) invokeF.objValue;

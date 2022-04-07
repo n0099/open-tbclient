@@ -92,7 +92,7 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiUtils implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COOKIE_EXPIRES_DATE_FORMAT = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
@@ -294,8 +294,8 @@ public class SapiUtils implements NoProguard {
                         sb.append(URLEncoder.encode(str4, "UTF-8"));
                         sb.append("&");
                     }
-                } catch (UnsupportedEncodingException e2) {
-                    Log.e(e2);
+                } catch (UnsupportedEncodingException e) {
+                    Log.e(e);
                 }
             }
             sb.append("sign_key=");
@@ -353,12 +353,12 @@ public class SapiUtils implements NoProguard {
         return (String) invokeL.objValue;
     }
 
-    public static int dip2px(Context context, float f2) {
+    public static int dip2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, context, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65552, null, context, f)) == null) {
             if (context != null) {
-                return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+                return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
             }
             throw new IllegalArgumentException("Context can't be null");
         }
@@ -420,8 +420,8 @@ public class SapiUtils implements NoProguard {
             try {
                 SapiConfiguration confignation = ServiceManager.getInstance().getIsAccountManager().getConfignation();
                 return (confignation == null || !confignation.isAgreeDangerousProtocol()) ? "" : Settings.Secure.getString(context.getContentResolver(), "bluetooth_name");
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return "";
             }
         }
@@ -512,10 +512,10 @@ public class SapiUtils implements NoProguard {
                     String[] split = readLine.split(":\\s+", 2);
                     return split.length > 1 ? split[1] : "";
                 }
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                Log.e(e);
+            } catch (IOException e2) {
                 Log.e(e2);
-            } catch (IOException e3) {
-                Log.e(e3);
             }
             return "";
         }
@@ -576,8 +576,8 @@ public class SapiUtils implements NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
             try {
                 return ServiceManager.getInstance().getIsAccountManager().getConfignation().deviceName;
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
                 return "";
             }
         }
@@ -812,8 +812,8 @@ public class SapiUtils implements NoProguard {
                 }
                 strArr[0] = "data:image/png;base64," + SecurityUtil.base64Encode(byteArrayOutputStream.toByteArray());
                 byteArrayOutputStream.close();
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
             }
             return strArr;
         }
@@ -832,10 +832,10 @@ public class SapiUtils implements NoProguard {
                     String[] split = readLine.split(":\\s+", 2);
                     return split.length > 1 ? split[1].replace("kB", "").trim() : "";
                 }
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                Log.e(e);
+            } catch (IOException e2) {
                 Log.e(e2);
-            } catch (IOException e3) {
-                Log.e(e3);
             }
             return "";
         }
@@ -932,8 +932,8 @@ public class SapiUtils implements NoProguard {
                     if (!TextUtils.isEmpty(str)) {
                         str3 = DELIMITER2 + str + DELIMITER3 + i + DELIMITER3 + str2 + DELIMITER3 + '1';
                     }
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
                 return str3 + stringBuffer.toString();
             }
@@ -994,8 +994,8 @@ public class SapiUtils implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, context)) == null) {
             try {
-            } catch (Exception e2) {
-                Log.e(e2);
+            } catch (Exception e) {
+                Log.e(e);
             }
             return (context.getApplicationInfo().flags & 2) != 0;
         }
@@ -1057,8 +1057,8 @@ public class SapiUtils implements NoProguard {
                         if (charAt == 's' || charAt == 'x') {
                             try {
                                 bufferedReader2.close();
-                            } catch (Exception e2) {
-                                Log.e(e2);
+                            } catch (Exception e) {
+                                Log.e(e);
                             }
                             if (exec != null) {
                                 exec.destroy();
@@ -1068,25 +1068,25 @@ public class SapiUtils implements NoProguard {
                     }
                     try {
                         bufferedReader2.close();
-                    } catch (Exception e3) {
-                        Log.e(e3);
+                    } catch (Exception e2) {
+                        Log.e(e2);
                     }
                     if (exec != null) {
                         exec.destroy();
                         return false;
                     }
                     return false;
-                } catch (IOException e4) {
+                } catch (IOException e3) {
                     process = exec;
-                    e = e4;
+                    e = e3;
                     bufferedReader = bufferedReader2;
                     try {
                         Log.e(e);
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
-                            } catch (Exception e5) {
-                                Log.e(e5);
+                            } catch (Exception e4) {
+                                Log.e(e4);
                             }
                         }
                         if (process != null) {
@@ -1099,8 +1099,8 @@ public class SapiUtils implements NoProguard {
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
-                            } catch (Exception e6) {
-                                Log.e(e6);
+                            } catch (Exception e5) {
+                                Log.e(e5);
                             }
                         }
                         if (process != null) {
@@ -1118,15 +1118,15 @@ public class SapiUtils implements NoProguard {
                     }
                     throw th;
                 }
-            } catch (IOException e7) {
+            } catch (IOException e6) {
                 process = exec;
-                e = e7;
+                e = e6;
             } catch (Throwable th3) {
                 process = exec;
                 th = th3;
             }
-        } catch (IOException e8) {
-            e = e8;
+        } catch (IOException e7) {
+            e = e7;
             process = null;
         } catch (Throwable th4) {
             th = th4;
@@ -1317,11 +1317,11 @@ public class SapiUtils implements NoProguard {
                     try {
                         sb.append(key);
                         sb.append("=");
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         sb.append(key);
                         sb.append("=");
                         sb.append((Object) value);
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 } else {
                     sb.append(key);
@@ -1394,10 +1394,10 @@ public class SapiUtils implements NoProguard {
         return (Map) invokeL.objValue;
     }
 
-    public static int px2sp(Context context, float f2) {
+    public static int px2sp(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65605, null, context, f2)) == null) ? (int) ((f2 / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65605, null, context, f)) == null) ? (int) ((f / context.getResources().getDisplayMetrics().scaledDensity) + 0.5f) : invokeLF.intValue;
     }
 
     public static void sendSms(Context context, String str, List<String> list) {
@@ -1476,8 +1476,8 @@ public class SapiUtils implements NoProguard {
             if (str.contains("?")) {
                 try {
                     str = str.substring(str.indexOf("?") + 1, str.length());
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
             }
             for (String str2 : str.split("&")) {

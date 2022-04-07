@@ -1,6 +1,5 @@
 package com.baidu.tbadk.novel;
 
-import c.a.d.f.m.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,14 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mg;
+/* loaded from: classes3.dex */
 public class ReadRecordsData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f30608b;
+    public String b;
 
     public ReadRecordsData() {
         Interceptable interceptable = $ic;
@@ -42,7 +40,7 @@ public class ReadRecordsData extends OrmObject {
     public void B(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f30608b = str;
+            this.b = str;
         }
     }
 
@@ -53,7 +51,7 @@ public class ReadRecordsData extends OrmObject {
             if (StringUtils.isNull(this.a)) {
                 return 0L;
             }
-            return Double.valueOf(b.c(this.a, 0.0d) * 100.0d).longValue();
+            return Double.valueOf(mg.c(this.a, 0.0d) * 100.0d).longValue();
         }
         return invokeV.longValue;
     }
@@ -61,7 +59,7 @@ public class ReadRecordsData extends OrmObject {
     public String z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30608b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public ReadRecordsData(String str, String str2, String str3, String str4, String str5) {
@@ -80,6 +78,6 @@ public class ReadRecordsData extends OrmObject {
             }
         }
         this.a = str;
-        this.f30608b = str3;
+        this.b = str3;
     }
 }

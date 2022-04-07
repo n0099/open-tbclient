@@ -13,7 +13,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class GZipUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER = 2048;

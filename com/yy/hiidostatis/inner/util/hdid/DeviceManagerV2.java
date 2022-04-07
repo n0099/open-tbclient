@@ -22,7 +22,7 @@ import java.io.FilenameFilter;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DeviceManagerV2 {
     public static final /* synthetic */ DeviceManagerV2[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -140,8 +140,8 @@ public final class DeviceManagerV2 {
             }
             try {
                 return jSONObject.getLong(str);
-            } catch (JSONException e2) {
-                L.debug(this, e2.getMessage(), new Object[0]);
+            } catch (JSONException e) {
+                L.debug(this, e.getMessage(), new Object[0]);
                 return j;
             }
         }
@@ -189,8 +189,8 @@ public final class DeviceManagerV2 {
             if (jSONObject != null && jSONObject.has(str)) {
                 try {
                     return jSONObject.getString(str);
-                } catch (JSONException e2) {
-                    L.debug(this, e2.getMessage(), new Object[0]);
+                } catch (JSONException e) {
+                    L.debug(this, e.getMessage(), new Object[0]);
                 }
             }
             return null;
@@ -281,8 +281,8 @@ public final class DeviceManagerV2 {
             }
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                L.debug(this, e2.getMessage(), new Object[0]);
+            } catch (JSONException e) {
+                L.debug(this, e.getMessage(), new Object[0]);
                 jSONObject = null;
             }
             if (jSONObject == null) {

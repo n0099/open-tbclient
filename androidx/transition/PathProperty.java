@@ -60,8 +60,8 @@ public class PathProperty<T> extends Property<T, Float> {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // android.util.Property
-    public /* bridge */ /* synthetic */ void set(Object obj, Float f2) {
-        set2((PathProperty<T>) obj, f2);
+    public /* bridge */ /* synthetic */ void set(Object obj, Float f) {
+        set2((PathProperty<T>) obj, f);
     }
 
     /* JADX WARN: Can't rename method to resolve collision */
@@ -73,11 +73,11 @@ public class PathProperty<T> extends Property<T, Float> {
     }
 
     /* renamed from: set  reason: avoid collision after fix types in other method */
-    public void set2(T t, Float f2) {
+    public void set2(T t, Float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, f2) == null) {
-            this.mCurrentFraction = f2.floatValue();
-            this.mPathMeasure.getPosTan(this.mPathLength * f2.floatValue(), this.mPosition, null);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, f) == null) {
+            this.mCurrentFraction = f.floatValue();
+            this.mPathMeasure.getPosTan(this.mPathLength * f.floatValue(), this.mPosition, null);
             PointF pointF = this.mPointF;
             float[] fArr = this.mPosition;
             pointF.x = fArr[0];

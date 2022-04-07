@@ -80,8 +80,8 @@ public class TypefaceCompatApi26Impl extends TypefaceCompatApi21Impl {
             method5 = obtainAbortCreationMethod(obtainFontFamily);
             method = obtainCreateFromFamiliesWithDefaultMethod(obtainFontFamily);
             cls = obtainFontFamily;
-        } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            Log.e(TAG, "Unable to collect necessary methods for class " + e2.getClass().getName(), e2);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            Log.e(TAG, "Unable to collect necessary methods for class " + e.getClass().getName(), e);
             method = null;
             constructor = null;
             method2 = null;

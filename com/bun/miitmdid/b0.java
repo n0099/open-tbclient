@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b0 extends m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class b0 extends m {
             this.i = a(this.i);
             try {
                 cls = Class.forName("android.app.ZteDeviceIdentifyManager");
-            } catch (Exception e2) {
-                e0.b("ZteNewProvider", "init ZteDeviceIdentifyManager Exception: " + e2.getMessage());
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e0.b("ZteNewProvider", "init ZteDeviceIdentifyManager Exception: " + e.getMessage());
+                e.printStackTrace();
                 cls = null;
                 obj = null;
             }
@@ -86,9 +86,9 @@ public class b0 extends m {
             getAAID();
             if (this.a == null) {
                 e0.d("ZteNewProvider", "doStart: callback Listener is null");
-            } else if (this.f37993g && (str = this.f37990d) != null && !str.isEmpty()) {
+            } else if (this.g && (str = this.d) != null && !str.isEmpty()) {
                 e0.c("ZteNewProvider", "new interface success");
-                a(this.f37990d, this.f37991e, this.f37992f, this.f37993g, this.f37994h);
+                a(this.d, this.e, this.f, this.g, this.h);
             } else {
                 this.i = a(this.i);
                 e0.c("ZteNewProvider", "try to call old interface");

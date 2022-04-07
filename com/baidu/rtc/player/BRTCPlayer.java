@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface BRTCPlayer extends IMediaRecord, ISnapShot {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class PlayerState {
         public static final /* synthetic */ PlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,7 +112,7 @@ public interface BRTCPlayer extends IMediaRecord, ISnapShot {
 
     void setSurfaceView(RTCVideoView rTCVideoView);
 
-    void setVolume(double d2);
+    void setVolume(double d);
 
     void startPlay();
 

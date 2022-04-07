@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ISO8601Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final TimeZone TIMEZONE_UTC;
@@ -55,10 +55,10 @@ public class ISO8601Utils {
         }
     }
 
-    public static boolean checkOffset(String str, int i, char c2) {
+    public static boolean checkOffset(String str, int i, char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Character.valueOf(c2)})) == null) ? i < str.length() && str.charAt(i) == c2 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Character.valueOf(c)})) == null) ? i < str.length() && str.charAt(i) == c : invokeCommon.booleanValue;
     }
 
     public static String format(Date date) {
@@ -223,18 +223,18 @@ public class ISO8601Utils {
             i4 = 0;
             if (str.length() <= i7) {
             }
-        } catch (IndexOutOfBoundsException | NumberFormatException | IllegalArgumentException e2) {
+        } catch (IndexOutOfBoundsException | NumberFormatException | IllegalArgumentException e) {
             if (str == null) {
                 str2 = null;
             } else {
                 str2 = Typography.quote + str + Typography.quote;
             }
-            String message = e2.getMessage();
+            String message = e.getMessage();
             if (message == null || message.isEmpty()) {
-                message = "(" + e2.getClass().getName() + SmallTailInfo.EMOTION_SUFFIX;
+                message = "(" + e.getClass().getName() + SmallTailInfo.EMOTION_SUFFIX;
             }
             ParseException parseException = new ParseException("Failed to parse date [" + str2 + "]: " + message, parsePosition.getIndex());
-            parseException.initCause(e2);
+            parseException.initCause(e);
             throw parseException;
         }
     }
@@ -287,7 +287,7 @@ public class ISO8601Utils {
             gregorianCalendar.setTime(date);
             StringBuilder sb = new StringBuilder(19 + (z ? 4 : 0) + (timeZone.getRawOffset() == 0 ? 1 : 6));
             padInt(sb, gregorianCalendar.get(1), 4);
-            char c2 = SignatureImpl.SEP;
+            char c = SignatureImpl.SEP;
             sb.append(SignatureImpl.SEP);
             padInt(sb, gregorianCalendar.get(2) + 1, 2);
             sb.append(SignatureImpl.SEP);
@@ -308,9 +308,9 @@ public class ISO8601Utils {
                 int abs = Math.abs(i / 60);
                 int abs2 = Math.abs(i % 60);
                 if (offset >= 0) {
-                    c2 = '+';
+                    c = '+';
                 }
-                sb.append(c2);
+                sb.append(c);
                 padInt(sb, abs, 2);
                 sb.append(':');
                 padInt(sb, abs2, 2);

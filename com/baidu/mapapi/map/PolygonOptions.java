@@ -10,26 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PolygonOptions extends OverlayOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26255b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Bundle f26256c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Stroke f26257d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f26258e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<LatLng> f26259f;
+    public boolean b;
+    public Bundle c;
+    public Stroke d;
+    public int e;
+    public List<LatLng> f;
 
     public PolygonOptions() {
         Interceptable interceptable = $ic;
@@ -44,8 +34,8 @@ public final class PolygonOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f26258e = -16777216;
-        this.f26255b = true;
+        this.e = -16777216;
+        this.b = true;
     }
 
     @Override // com.baidu.mapapi.map.OverlayOptions
@@ -54,16 +44,16 @@ public final class PolygonOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Polygon polygon = new Polygon();
-            polygon.A = this.f26255b;
+            polygon.A = this.b;
             polygon.z = this.a;
-            polygon.B = this.f26256c;
-            List<LatLng> list = this.f26259f;
+            polygon.B = this.c;
+            List<LatLng> list = this.f;
             if (list == null || list.size() < 2) {
                 throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
             }
-            polygon.f26254c = this.f26259f;
-            polygon.f26253b = this.f26258e;
-            polygon.a = this.f26257d;
+            polygon.c = this.f;
+            polygon.b = this.e;
+            polygon.a = this.d;
             return polygon;
         }
         return (Overlay) invokeV.objValue;
@@ -73,7 +63,7 @@ public final class PolygonOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            this.f26256c = bundle;
+            this.c = bundle;
             return this;
         }
         return (PolygonOptions) invokeL.objValue;
@@ -83,7 +73,7 @@ public final class PolygonOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.f26258e = i;
+            this.e = i;
             return this;
         }
         return (PolygonOptions) invokeI.objValue;
@@ -92,25 +82,25 @@ public final class PolygonOptions extends OverlayOptions {
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26256c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (Bundle) invokeV.objValue;
     }
 
     public int getFillColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26258e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26259f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
     public Stroke getStroke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26257d : (Stroke) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Stroke) invokeV.objValue;
     }
 
     public int getZIndex() {
@@ -122,7 +112,7 @@ public final class PolygonOptions extends OverlayOptions {
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26255b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -144,7 +134,7 @@ public final class PolygonOptions extends OverlayOptions {
                         }
                         i = i2;
                     }
-                    this.f26259f = list;
+                    this.f = list;
                     return this;
                 }
                 throw new IllegalArgumentException("BDMapSDKException: points count can not less than three");
@@ -158,7 +148,7 @@ public final class PolygonOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, stroke)) == null) {
-            this.f26257d = stroke;
+            this.d = stroke;
             return this;
         }
         return (PolygonOptions) invokeL.objValue;
@@ -168,7 +158,7 @@ public final class PolygonOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
-            this.f26255b = z;
+            this.b = z;
             return this;
         }
         return (PolygonOptions) invokeZ.objValue;

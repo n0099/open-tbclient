@@ -247,9 +247,9 @@ public class CursorLoader extends AsyncTaskLoader<Cursor> {
                     try {
                         query.getCount();
                         query.registerContentObserver(this.mObserver);
-                    } catch (RuntimeException e2) {
+                    } catch (RuntimeException e) {
                         query.close();
-                        throw e2;
+                        throw e;
                     }
                 }
                 synchronized (this) {

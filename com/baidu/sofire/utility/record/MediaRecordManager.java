@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MediaRecordManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_CODE_FAIL_CODE_ERR = -3;
@@ -30,7 +30,7 @@ public class MediaRecordManager {
     public MediaRecorder mMediaRecorder;
     public File mOutputFile;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class CameraSize {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,9 +220,9 @@ public class MediaRecordManager {
                         return 1;
                     }
                     return -4;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     this.isRecording = false;
-                    CommonMethods.handleNuLException(e2);
+                    CommonMethods.handleNuLException(e);
                     return -3;
                 }
             }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.cache.disk.DynamicDefaultDiskStorage;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DynamicDefaultDiskStorageFactory implements DiskStorageFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

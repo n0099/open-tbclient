@@ -10,7 +10,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MemoryInfo implements b, Serializable {
     public static final long serialVersionUID = -4944913077323984734L;
     public int mAvailableMB;
@@ -36,8 +36,8 @@ public class MemoryInfo implements b, Serializable {
                 return;
             }
             parseJson(new JSONObject(str));
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
     }
 
@@ -99,8 +99,8 @@ public class MemoryInfo implements b, Serializable {
                     this.mAllThreads.add(threadInfo3);
                 }
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
     }
 

@@ -11,7 +11,7 @@ import java.security.spec.RSAPrivateKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static int a(KeyFactory keyFactory, Key key) {
         try {
@@ -56,8 +56,8 @@ public class h {
                         }
                         bArr2 = byteArrayOutputStream.toByteArray();
                         byteArrayOutputStream.close();
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         com.kwad.sdk.core.d.a.a(e);
                         if (byteArrayOutputStream != null) {
                             byteArrayOutputStream.close();
@@ -70,17 +70,17 @@ public class h {
                     if (byteArrayOutputStream2 != null) {
                         try {
                             byteArrayOutputStream2.close();
-                        } catch (Exception e3) {
-                            com.kwad.sdk.core.d.a.a(e3);
+                        } catch (Exception e2) {
+                            com.kwad.sdk.core.d.a.a(e2);
                         }
                     }
                     throw th;
                 }
-            } catch (Exception e4) {
-                com.kwad.sdk.core.d.a.a(e4);
+            } catch (Exception e3) {
+                com.kwad.sdk.core.d.a.a(e3);
             }
-        } catch (Exception e5) {
-            e = e5;
+        } catch (Exception e4) {
+            e = e4;
             byteArrayOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
@@ -110,7 +110,7 @@ public class h {
         PrivateKey generatePrivate = keyFactory.generatePrivate(pKCS8EncodedKeySpec);
         Cipher cipher = Cipher.getInstance(str2);
         cipher.init(2, generatePrivate);
-        int b2 = b(keyFactory, generatePrivate);
+        int b = b(keyFactory, generatePrivate);
         byte[] bArr2 = null;
         bArr2 = null;
         bArr2 = null;
@@ -118,15 +118,15 @@ public class h {
         try {
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
             try {
                 int length = bArr.length;
-                for (int i = 0; i < length; i += b2) {
+                for (int i = 0; i < length; i += b) {
                     int i2 = length - i;
-                    if (i2 >= b2) {
-                        i2 = b2;
+                    if (i2 >= b) {
+                        i2 = b;
                     }
                     byteArrayOutputStream.write(cipher.doFinal(bArr, i, i2));
                 }
@@ -143,8 +143,8 @@ public class h {
                 if (byteArrayOutputStream2 != null) {
                     try {
                         byteArrayOutputStream2.close();
-                    } catch (Exception e3) {
-                        com.kwad.sdk.core.d.a.a(e3);
+                    } catch (Exception e2) {
+                        com.kwad.sdk.core.d.a.a(e2);
                     }
                 }
                 throw th;

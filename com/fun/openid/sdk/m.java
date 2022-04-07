@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class m implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class m implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             q.a(context).getClass();
-            if (!q.f38671b) {
+            if (!q.b) {
                 if (FunOpenIDSdk.isLogEnabled()) {
                     Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
                 }
@@ -40,8 +40,8 @@ public class m implements f {
             }
             try {
                 aVar.a(true, b.a(context));
-            } catch (SecurityException e2) {
-                e2.printStackTrace();
+            } catch (SecurityException e) {
+                e.printStackTrace();
             }
         }
     }

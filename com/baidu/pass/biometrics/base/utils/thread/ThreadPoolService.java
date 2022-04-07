@@ -18,28 +18,18 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ThreadPoolService {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final int f27949c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f27950d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int f27951e = 0;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final int f27952f = 1;
+    public static final int c;
+    public static final ThreadFactory d;
+    public static final int e = 0;
+    public static final int f = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
+    public Handler b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Handler f27953b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static ThreadPoolService mSingleInstance;
@@ -89,8 +79,8 @@ public class ThreadPoolService {
                 return;
             }
         }
-        f27949c = Runtime.getRuntime().availableProcessors();
-        f27950d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+        c = Runtime.getRuntime().availableProcessors();
+        d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final AtomicInteger a;
@@ -139,7 +129,7 @@ public class ThreadPoolService {
     public void runInUiThread(TPRunnable tPRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
-            this.f27953b.sendMessage(this.f27953b.obtainMessage(0, tPRunnable));
+            this.b.sendMessage(this.b.obtainMessage(0, tPRunnable));
         }
     }
 
@@ -156,7 +146,7 @@ public class ThreadPoolService {
                 return;
             }
         }
-        this.f27953b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
+        this.b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ThreadPoolService a;
@@ -196,7 +186,7 @@ public class ThreadPoolService {
                 }
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f27949c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f27950d);
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
         this.a = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);

@@ -1,7 +1,7 @@
 package com.kwad.sdk.widget;
 
 import android.view.View;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface j {
-    void a(View view);
+    void a(View view2);
 }

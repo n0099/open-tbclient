@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -16,32 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public class ShareFromFrsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public HeadImageView f33907b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f33908c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f33909d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f33910e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f33911f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Context f33912g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ShareFromFrsMsgData f33913h;
+    public HeadImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public Context g;
+    public ShareFromFrsMsgData h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
@@ -62,7 +48,7 @@ public class ShareFromFrsView extends LinearLayout {
                 return;
             }
         }
-        this.f33912g = context;
+        this.g = context;
         b();
     }
 
@@ -70,7 +56,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return m.cutString(str, 8) + this.f33912g.getString(R.string.obfuscated_res_0x7f0f063c);
+            return ni.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f0643);
         }
         return (String) invokeL.objValue;
     }
@@ -78,32 +64,32 @@ public class ShareFromFrsView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0771, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b98);
-            this.f33907b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b39);
-            this.f33909d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b86);
-            this.f33911f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba2);
-            this.f33908c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b87);
-            this.f33910e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba3);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0768, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba4);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b45);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b92);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090bae);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b93);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090baf);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setText(a(this.f33913h.getName()));
-            this.f33907b.setPlaceHolder(1);
-            this.f33907b.setAutoChangeStyle(false);
-            this.f33907b.J(this.f33913h.getImageUrl(), 10, false);
-            this.f33909d.setText(StringHelper.numFormatOver10000(this.f33913h.getMemberNum()));
-            this.f33911f.setText(StringHelper.numFormatOver10000(this.f33913h.getPostNum()));
+            this.a.setText(a(this.h.getName()));
+            this.b.setPlaceHolder(1);
+            this.b.setAutoChangeStyle(false);
+            this.b.K(this.h.getImageUrl(), 10, false);
+            this.d.setText(StringHelper.numFormatOver10000(this.h.getMemberNum()));
+            this.f.setText(StringHelper.numFormatOver10000(this.h.getPostNum()));
         }
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, shareFromFrsMsgData) == null) {
-            this.f33913h = shareFromFrsMsgData;
+            this.h = shareFromFrsMsgData;
             c();
         }
     }
@@ -113,17 +99,17 @@ public class ShareFromFrsView extends LinearLayout {
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
                 this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f33909d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f33911f.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f33908c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f33910e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
             this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f33909d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f33911f.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f33908c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f33910e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 
@@ -145,7 +131,7 @@ public class ShareFromFrsView extends LinearLayout {
                 return;
             }
         }
-        this.f33912g = context;
+        this.g = context;
         b();
     }
 }

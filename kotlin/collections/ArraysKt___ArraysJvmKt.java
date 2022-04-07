@@ -411,19 +411,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return bArr[i];
     }
 
-    public static final void fill(byte[] fill, byte b2, int i, int i2) {
+    public static final void fill(byte[] fill, byte b, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i, i2, b2);
+        Arrays.fill(fill, i, i2, b);
     }
 
-    public static /* synthetic */ void fill$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ void fill$default(byte[] bArr, byte b, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = bArr.length;
         }
-        fill(bArr, b2, i, i2);
+        fill(bArr, b, i, i2);
     }
 
     public static final void sort(long[] sort) {
@@ -459,19 +459,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$2(asList);
     }
 
-    public static final int binarySearch(byte[] binarySearch, byte b2, int i, int i2) {
+    public static final int binarySearch(byte[] binarySearch, byte b, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i, i2, b2);
+        return Arrays.binarySearch(binarySearch, i, i2, b);
     }
 
-    public static /* synthetic */ int binarySearch$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int binarySearch$default(byte[] bArr, byte b, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = bArr.length;
         }
-        return binarySearch(bArr, b2, i, i2);
+        return binarySearch(bArr, b, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -713,8 +713,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigDecimal sumOfBigDecimal(byte[] bArr, Function1<? super Byte, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (byte b2 : bArr) {
-            valueOf = valueOf.add(function1.invoke(Byte.valueOf(b2)));
+        for (byte b : bArr) {
+            valueOf = valueOf.add(function1.invoke(Byte.valueOf(b)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -727,8 +727,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigInteger sumOfBigInteger(byte[] bArr, Function1<? super Byte, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (byte b2 : bArr) {
-            valueOf = valueOf.add(function1.invoke(Byte.valueOf(b2)));
+        for (byte b : bArr) {
+            valueOf = valueOf.add(function1.invoke(Byte.valueOf(b)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -861,11 +861,11 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         fill(jArr, j, i, i2);
     }
 
-    public static final byte[] plus(byte[] plus, byte b2) {
+    public static final byte[] plus(byte[] plus, byte b) {
         Intrinsics.checkNotNullParameter(plus, "$this$plus");
         int length = plus.length;
         byte[] result = Arrays.copyOf(plus, length + 1);
-        result[length] = b2;
+        result[length] = b;
         Intrinsics.checkNotNullExpressionValue(result, "result");
         return result;
     }
@@ -992,19 +992,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return fArr[i];
     }
 
-    public static final void fill(float[] fill, float f2, int i, int i2) {
+    public static final void fill(float[] fill, float f, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i, i2, f2);
+        Arrays.fill(fill, i, i2, f);
     }
 
-    public static /* synthetic */ void fill$default(float[] fArr, float f2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ void fill$default(float[] fArr, float f, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = fArr.length;
         }
-        fill(fArr, f2, i, i2);
+        fill(fArr, f, i, i2);
     }
 
     public static final void sort(float[] sort) {
@@ -1034,19 +1034,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$6(asList);
     }
 
-    public static final int binarySearch(float[] binarySearch, float f2, int i, int i2) {
+    public static final int binarySearch(float[] binarySearch, float f, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i, i2, f2);
+        return Arrays.binarySearch(binarySearch, i, i2, f);
     }
 
-    public static /* synthetic */ int binarySearch$default(float[] fArr, float f2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int binarySearch$default(float[] fArr, float f, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = fArr.length;
         }
-        return binarySearch(fArr, f2, i, i2);
+        return binarySearch(fArr, f, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1126,19 +1126,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return dArr[i];
     }
 
-    public static final void fill(double[] fill, double d2, int i, int i2) {
+    public static final void fill(double[] fill, double d, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i, i2, d2);
+        Arrays.fill(fill, i, i2, d);
     }
 
-    public static /* synthetic */ void fill$default(double[] dArr, double d2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ void fill$default(double[] dArr, double d, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = dArr.length;
         }
-        fill(dArr, d2, i, i2);
+        fill(dArr, d, i, i2);
     }
 
     public static final void sort(char[] sort) {
@@ -1206,19 +1206,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$7(asList);
     }
 
-    public static final int binarySearch(double[] binarySearch, double d2, int i, int i2) {
+    public static final int binarySearch(double[] binarySearch, double d, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i, i2, d2);
+        return Arrays.binarySearch(binarySearch, i, i2, d);
     }
 
-    public static /* synthetic */ int binarySearch$default(double[] dArr, double d2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int binarySearch$default(double[] dArr, double d, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = dArr.length;
         }
-        return binarySearch(dArr, d2, i, i2);
+        return binarySearch(dArr, d, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1330,19 +1330,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return new ArraysKt___ArraysJvmKt$asList$8(asList);
     }
 
-    public static final int binarySearch(char[] binarySearch, char c2, int i, int i2) {
+    public static final int binarySearch(char[] binarySearch, char c, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        return Arrays.binarySearch(binarySearch, i, i2, c2);
+        return Arrays.binarySearch(binarySearch, i, i2, c);
     }
 
-    public static /* synthetic */ int binarySearch$default(char[] cArr, char c2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ int binarySearch$default(char[] cArr, char c, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = cArr.length;
         }
-        return binarySearch(cArr, c2, i, i2);
+        return binarySearch(cArr, c, i, i2);
     }
 
     @SinceKotlin(version = "1.4")
@@ -1422,19 +1422,19 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return cArr[i];
     }
 
-    public static final void fill(char[] fill, char c2, int i, int i2) {
+    public static final void fill(char[] fill, char c, int i, int i2) {
         Intrinsics.checkNotNullParameter(fill, "$this$fill");
-        Arrays.fill(fill, i, i2, c2);
+        Arrays.fill(fill, i, i2, c);
     }
 
-    public static /* synthetic */ void fill$default(char[] cArr, char c2, int i, int i2, int i3, Object obj) {
+    public static /* synthetic */ void fill$default(char[] cArr, char c, int i, int i2, int i3, Object obj) {
         if ((i3 & 2) != 0) {
             i = 0;
         }
         if ((i3 & 4) != 0) {
             i2 = cArr.length;
         }
-        fill(cArr, c2, i, i2);
+        fill(cArr, c, i, i2);
     }
 
     public static final short[] plus(short[] plus, short s) {
@@ -1712,8 +1712,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigDecimal sumOfBigDecimal(float[] fArr, Function1<? super Float, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (float f2 : fArr) {
-            valueOf = valueOf.add(function1.invoke(Float.valueOf(f2)));
+        for (float f : fArr) {
+            valueOf = valueOf.add(function1.invoke(Float.valueOf(f)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1726,8 +1726,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigInteger sumOfBigInteger(float[] fArr, Function1<? super Float, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (float f2 : fArr) {
-            valueOf = valueOf.add(function1.invoke(Float.valueOf(f2)));
+        for (float f : fArr) {
+            valueOf = valueOf.add(function1.invoke(Float.valueOf(f)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1794,8 +1794,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigDecimal sumOfBigDecimal(double[] dArr, Function1<? super Double, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (double d2 : dArr) {
-            valueOf = valueOf.add(function1.invoke(Double.valueOf(d2)));
+        for (double d : dArr) {
+            valueOf = valueOf.add(function1.invoke(Double.valueOf(d)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1808,8 +1808,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigInteger sumOfBigInteger(double[] dArr, Function1<? super Double, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (double d2 : dArr) {
-            valueOf = valueOf.add(function1.invoke(Double.valueOf(d2)));
+        for (double d : dArr) {
+            valueOf = valueOf.add(function1.invoke(Double.valueOf(d)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1839,11 +1839,11 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + jArr.length);
     }
 
-    public static final float[] plus(float[] plus, float f2) {
+    public static final float[] plus(float[] plus, float f) {
         Intrinsics.checkNotNullParameter(plus, "$this$plus");
         int length = plus.length;
         float[] result = Arrays.copyOf(plus, length + 1);
-        result[length] = f2;
+        result[length] = f;
         Intrinsics.checkNotNullExpressionValue(result, "result");
         return result;
     }
@@ -1886,11 +1886,11 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         return chArr;
     }
 
-    public static final double[] plus(double[] plus, double d2) {
+    public static final double[] plus(double[] plus, double d) {
         Intrinsics.checkNotNullParameter(plus, "$this$plus");
         int length = plus.length;
         double[] result = Arrays.copyOf(plus, length + 1);
-        result[length] = d2;
+        result[length] = d;
         Intrinsics.checkNotNullExpressionValue(result, "result");
         return result;
     }
@@ -1902,8 +1902,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigDecimal sumOfBigDecimal(char[] cArr, Function1<? super Character, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (char c2 : cArr) {
-            valueOf = valueOf.add(function1.invoke(Character.valueOf(c2)));
+        for (char c : cArr) {
+            valueOf = valueOf.add(function1.invoke(Character.valueOf(c)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1916,8 +1916,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
     public static final BigInteger sumOfBigInteger(char[] cArr, Function1<? super Character, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (char c2 : cArr) {
-            valueOf = valueOf.add(function1.invoke(Character.valueOf(c2)));
+        for (char c : cArr) {
+            valueOf = valueOf.add(function1.invoke(Character.valueOf(c)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -1960,11 +1960,11 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         throw new IndexOutOfBoundsException("toIndex: " + i2 + ", size: " + dArr.length);
     }
 
-    public static final char[] plus(char[] plus, char c2) {
+    public static final char[] plus(char[] plus, char c) {
         Intrinsics.checkNotNullParameter(plus, "$this$plus");
         int length = plus.length;
         char[] result = Arrays.copyOf(plus, length + 1);
-        result[length] = c2;
+        result[length] = c;
         Intrinsics.checkNotNullExpressionValue(result, "result");
         return result;
     }
@@ -2015,8 +2015,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(elements, "elements");
         int length = plus.length;
         byte[] result = Arrays.copyOf(plus, elements.size() + length);
-        for (Byte b2 : elements) {
-            result[length] = b2.byteValue();
+        for (Byte b : elements) {
+            result[length] = b.byteValue();
             length++;
         }
         Intrinsics.checkNotNullExpressionValue(result, "result");
@@ -2067,8 +2067,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(elements, "elements");
         int length = plus.length;
         float[] result = Arrays.copyOf(plus, elements.size() + length);
-        for (Float f2 : elements) {
-            result[length] = f2.floatValue();
+        for (Float f : elements) {
+            result[length] = f.floatValue();
             length++;
         }
         Intrinsics.checkNotNullExpressionValue(result, "result");
@@ -2080,8 +2080,8 @@ public class ArraysKt___ArraysJvmKt extends ArraysKt__ArraysKt {
         Intrinsics.checkNotNullParameter(elements, "elements");
         int length = plus.length;
         double[] result = Arrays.copyOf(plus, elements.size() + length);
-        for (Double d2 : elements) {
-            result[length] = d2.doubleValue();
+        for (Double d : elements) {
+            result[length] = d.doubleValue();
             length++;
         }
         Intrinsics.checkNotNullExpressionValue(result, "result");

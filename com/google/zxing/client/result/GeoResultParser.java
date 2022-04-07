@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Result;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class GeoResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern GEO_URL_PATTERN;
@@ -60,15 +60,15 @@ public final class GeoResultParser extends ResultParser {
                     if (parseDouble <= 90.0d && parseDouble >= -90.0d) {
                         double parseDouble2 = Double.parseDouble(matcher.group(2));
                         if (parseDouble2 <= 180.0d && parseDouble2 >= -180.0d) {
-                            double d2 = 0.0d;
+                            double d = 0.0d;
                             if (matcher.group(3) != null) {
                                 double parseDouble3 = Double.parseDouble(matcher.group(3));
                                 if (parseDouble3 < 0.0d) {
                                     return null;
                                 }
-                                d2 = parseDouble3;
+                                d = parseDouble3;
                             }
-                            return new GeoParsedResult(parseDouble, parseDouble2, d2, group);
+                            return new GeoParsedResult(parseDouble, parseDouble2, d, group);
                         }
                     }
                 } catch (NumberFormatException unused) {

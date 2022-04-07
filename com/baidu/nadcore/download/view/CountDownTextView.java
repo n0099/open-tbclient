@@ -10,24 +10,20 @@ import android.widget.TextView;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.j.j.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class CountDownTextView extends LinearLayout implements d {
+import com.repackage.vk0;
+/* loaded from: classes2.dex */
+public class CountDownTextView extends LinearLayout implements vk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f27536b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f27537c;
+    public TextView b;
+    public String c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CountDownTextView(Context context) {
@@ -50,44 +46,44 @@ public class CountDownTextView extends LinearLayout implements d {
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f27536b.setText(String.format(this.f27537c, 0));
+            this.b.setText(String.format(this.c, 0));
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f27536b.setText(String.format(this.f27537c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
+            this.b.setText(String.format(this.c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f27536b.setText(String.format(this.f27537c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
+            this.b.setText(String.format(this.c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a8, this);
-            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090096);
-            this.f27536b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090097);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d05a3, this);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09009a);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09009b);
         }
     }
 
-    @Override // c.a.a0.j.j.d
+    @Override // com.repackage.vk0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f27536b.setText(String.format(this.f27537c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
+            this.b.setText(String.format(this.c, Integer.valueOf((int) Math.ceil(((float) (j2 - j)) / 1000.0f))));
         }
     }
 
@@ -102,16 +98,16 @@ public class CountDownTextView extends LinearLayout implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.a.setTextColor(i);
-            this.f27536b.setTextColor(i);
+            this.b.setTextColor(i);
         }
     }
 
     public void setTextSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            float f2 = i;
-            this.a.setTextSize(1, f2);
-            this.f27536b.setTextSize(1, f2);
+            float f = i;
+            this.a.setTextSize(1, f);
+            this.b.setTextSize(1, f);
         }
     }
 
@@ -121,15 +117,15 @@ public class CountDownTextView extends LinearLayout implements d {
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            this.f27537c = str;
-            this.f27537c += "%s";
+            this.c = str;
+            this.c += "%s";
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f27537c);
+            sb.append(this.c);
             if (TextUtils.isEmpty(str2)) {
                 str2 = "";
             }
             sb.append(str2);
-            this.f27537c = sb.toString();
+            this.c = sb.toString();
         }
     }
 
@@ -173,7 +169,7 @@ public class CountDownTextView extends LinearLayout implements d {
                 return;
             }
         }
-        this.f27537c = "%ss";
+        this.c = "%ss";
         d();
     }
 }

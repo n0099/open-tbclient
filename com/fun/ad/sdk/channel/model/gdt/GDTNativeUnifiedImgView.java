@@ -19,16 +19,12 @@ import com.fun.module.gdt.w;
 import com.qq.e.ads.nativ.NativeUnifiedADData;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GDTNativeUnifiedImgView extends w {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f38543d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f38544e;
+    public ImageView d;
+    public float e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public GDTNativeUnifiedImgView(Context context) {
@@ -91,7 +87,7 @@ public class GDTNativeUnifiedImgView extends w {
                 return;
             }
         }
-        this.f38544e = 1.78f;
+        this.e = 1.78f;
     }
 
     @Override // com.fun.module.gdt.w
@@ -100,10 +96,10 @@ public class GDTNativeUnifiedImgView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(this.f38653c);
-            arrayList.add(((w) this).f38652b);
+            arrayList.add(this.c);
+            arrayList.add(((w) this).b);
             arrayList.add(((w) this).a);
-            arrayList.add(this.f38543d);
+            arrayList.add(this.d);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -115,8 +111,8 @@ public class GDTNativeUnifiedImgView extends w {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nativeUnifiedADData) == null) {
             super.a(nativeUnifiedADData);
             LogPrinter.e("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-            this.f38544e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.f38543d);
+            this.e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), nativeUnifiedADData.getImgUrl(), this.d);
         }
     }
 
@@ -125,7 +121,7 @@ public class GDTNativeUnifiedImgView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f38543d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ad);
         }
     }
 
@@ -134,11 +130,11 @@ public class GDTNativeUnifiedImgView extends w {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38543d.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
             int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i5;
-            layoutParams.height = (int) (i5 / this.f38544e);
-            this.f38543d.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i5 / this.e);
+            this.d.setLayoutParams(layoutParams);
         }
     }
 }

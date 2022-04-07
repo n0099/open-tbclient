@@ -1,7 +1,6 @@
 package com.baidu.tieba.pb.pb.main.emotion.model;
 
 import android.text.TextUtils;
-import c.a.d.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -21,22 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class QueryMatchEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static LinkedHashMap<String, List<EmotionImageData>> f35023c;
+    public static LinkedHashMap<String, List<EmotionImageData>> c;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f35024b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +77,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(String str, List<EmotionImageData> list);
 
@@ -101,42 +97,42 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 return;
             }
         }
-        f35023c = new LinkedHashMap<>();
+        c = new LinkedHashMap<>();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QueryMatchEmotionModel(f<Object> fVar) {
-        super(fVar);
+    public QueryMatchEmotionModel(b9<Object> b9Var) {
+        super(b9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar};
+            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35024b = new a(this, CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
+        this.b = new a(this, CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
         registerTask();
-        this.f35024b.setSelfListener(true);
-        registerListener(this.f35024b);
+        this.b.setSelfListener(true);
+        registerListener(this.b);
     }
 
     public final List<EmotionImageData> A(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            LinkedHashMap<String, List<EmotionImageData>> linkedHashMap = f35023c;
+            LinkedHashMap<String, List<EmotionImageData>> linkedHashMap = c;
             if (linkedHashMap == null || !linkedHashMap.containsKey(str)) {
                 return null;
             }
-            return f35023c.get(str);
+            return c.get(str);
         }
         return (List) invokeL.objValue;
     }
@@ -149,7 +145,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 return;
             }
             if (!ListUtils.isEmpty(A(str))) {
-                this.a.a(str, f35023c.get(str));
+                this.a.a(str, c.get(str));
                 return;
             }
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
@@ -164,21 +160,21 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(list)) {
             return;
         }
-        if (f35023c == null) {
-            f35023c = new LinkedHashMap<>();
+        if (c == null) {
+            c = new LinkedHashMap<>();
         }
-        if (f35023c.containsKey(str)) {
+        if (c.containsKey(str)) {
             return;
         }
-        if (f35023c.size() > 10) {
-            Map.Entry<String, List<EmotionImageData>> next = f35023c.entrySet().iterator().next();
+        if (c.size() > 10) {
+            Map.Entry<String, List<EmotionImageData>> next = c.entrySet().iterator().next();
             if (next != null) {
-                f35023c.remove(next.getKey());
+                c.remove(next.getKey());
             } else {
-                f35023c.clear();
+                c.clear();
             }
         }
-        f35023c.put(str, list);
+        c.put(str, list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -186,7 +182,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f35024b);
+            MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_PB_QUERY_MATCH_EMOTION);
             return true;
         }

@@ -4,23 +4,21 @@ import android.content.Context;
 import android.util.Log;
 import com.bun.miitmdid.core.MdidSdkHelper;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static boolean a;
+    public static boolean b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f40549b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
     }
 
     public static void a(Context context, final a aVar) {
-        if (context == null || f40549b) {
+        if (context == null || b) {
             return;
         }
         if (!a()) {
-            f40549b = true;
+            b = true;
         } else if (a) {
         } else {
             a = true;
@@ -32,7 +30,7 @@ public class b {
             } catch (Throwable th) {
                 Log.d("KSAdSDK", "[OADIDSDKHelper26]:oaid sdk not find " + th.getMessage());
                 a = false;
-                f40549b = true;
+                b = true;
             }
         }
     }

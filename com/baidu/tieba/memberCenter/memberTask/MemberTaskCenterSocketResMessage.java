@@ -1,6 +1,5 @@
 package com.baidu.tieba.memberCenter.memberTask;
 
-import c.a.p0.j2.c.b.r;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nj7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +17,12 @@ import tbclient.GetMemberTaskList.GetMemberTaskListResIdl;
 import tbclient.GetMemberTaskList.ImgInfo;
 import tbclient.GetMemberTaskList.PointTaskInfo;
 import tbclient.GetMemberTaskList.UserPointInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ImgInfo> mImageList;
-    public List<r> mTaskList;
+    public List<nj7> mTaskList;
     public UserPointInfo mUserPointInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -50,7 +50,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mImageList : (List) invokeV.objValue;
     }
 
-    public List<r> getTaskList() {
+    public List<nj7> getTaskList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mTaskList : (List) invokeV.objValue;
@@ -89,7 +89,7 @@ public class MemberTaskCenterSocketResMessage extends SocketResponsedMessage {
             int size = getMemberTaskListResIdl.data.task_list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (getMemberTaskListResIdl.data.task_list.get(i2) != null) {
-                    this.mTaskList.add(new r(getMemberTaskListResIdl.data.task_list.get(i2)));
+                    this.mTaskList.add(new nj7(getMemberTaskListResIdl.data.task_list.get(i2)));
                 }
             }
         }

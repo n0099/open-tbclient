@@ -31,7 +31,7 @@ public class AudioTrack extends MediaStreamTrack {
         }
     }
 
-    public static native void nativeSetVolume(long j, double d2);
+    public static native void nativeSetVolume(long j, double d);
 
     public long getNativeAudioTrack() {
         InterceptResult invokeV;
@@ -39,10 +39,10 @@ public class AudioTrack extends MediaStreamTrack {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getNativeMediaStreamTrack() : invokeV.longValue;
     }
 
-    public void setVolume(double d2) {
+    public void setVolume(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            nativeSetVolume(getNativeAudioTrack(), d2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)}) == null) {
+            nativeSetVolume(getNativeAudioTrack(), d);
         }
     }
 }

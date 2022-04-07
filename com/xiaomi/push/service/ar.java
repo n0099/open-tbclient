@@ -13,7 +13,7 @@ import com.xiaomi.push.ic;
 import com.xiaomi.push.id;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class ar {
                     if (z && hqVar.f496a) {
                         arrayList.add(new Pair(Integer.valueOf(a), null));
                     } else {
-                        int i = as.f44545b[a2.ordinal()];
-                        arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a), hqVar.m435a()) : new Pair(Integer.valueOf(a), Long.valueOf(hqVar.m434a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hqVar.c())));
+                        int i = as.b[a2.ordinal()];
+                        arrayList.add(i != 1 ? i != 2 ? i != 3 ? i != 4 ? null : new Pair(Integer.valueOf(a), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a), hqVar.m431a()) : new Pair(Integer.valueOf(a), Long.valueOf(hqVar.m430a())) : new Pair(Integer.valueOf(a), Integer.valueOf(hqVar.c())));
                     }
                 }
             }
@@ -80,8 +80,8 @@ public class ar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, aqVar, idVar) == null) {
             for (ho hoVar : idVar.a()) {
-                if (hoVar.a() > a(aqVar, hoVar.m430a())) {
-                    a(aqVar, hoVar.m430a(), hoVar.a());
+                if (hoVar.a() > a(aqVar, hoVar.m426a())) {
+                    a(aqVar, hoVar.m426a(), hoVar.a());
                     aqVar.a(a(hoVar.f488a, false));
                 }
             }

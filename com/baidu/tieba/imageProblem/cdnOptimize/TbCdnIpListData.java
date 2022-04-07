@@ -8,29 +8,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbCdnIpListData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f34088b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f34089c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f34090d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ArrayList<ArrayList<String>> f34091e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f34092f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f34093g;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<ArrayList<String>> e;
+    public boolean f;
+    public String g;
 
     public TbCdnIpListData() {
         Interceptable interceptable = $ic;
@@ -46,11 +34,11 @@ public class TbCdnIpListData {
             }
         }
         this.a = 0;
-        this.f34088b = null;
-        this.f34089c = null;
-        this.f34090d = null;
-        this.f34092f = false;
-        this.f34093g = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.f = false;
+        this.g = null;
     }
 
     public void parseJson(JSONObject jSONObject) {
@@ -63,18 +51,18 @@ public class TbCdnIpListData {
             JSONObject optJSONObject = jSONObject.optJSONObject("error");
             if (optJSONObject != null) {
                 this.a = optJSONObject.optInt("errorno");
-                this.f34088b = optJSONObject.optString("errmsg");
+                this.b = optJSONObject.optString("errmsg");
             }
             if (1 == jSONObject.optInt("cdn_switch")) {
-                this.f34092f = true;
+                this.f = true;
             } else {
-                this.f34092f = false;
+                this.f = false;
             }
-            this.f34093g = jSONObject.optString("cdn_domain");
+            this.g = jSONObject.optString("cdn_domain");
             JSONObject optJSONObject2 = jSONObject.optJSONObject("cdn_img_info");
             if (optJSONObject2 != null) {
-                this.f34089c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
-                this.f34090d = optJSONObject2.optString("img_md5");
+                this.c = optJSONObject2.optString(BigdayActivityConfig.IMG_URL);
+                this.d = optJSONObject2.optString("img_md5");
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("ip_list");
             if (optJSONArray2 != null) {
@@ -97,11 +85,11 @@ public class TbCdnIpListData {
                     }
                 }
                 if (arrayList.size() > 0) {
-                    this.f34091e = arrayList;
+                    this.e = arrayList;
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

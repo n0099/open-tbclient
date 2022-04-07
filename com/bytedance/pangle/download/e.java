@@ -27,7 +27,7 @@ import java.io.File;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static volatile e a;
@@ -60,8 +60,8 @@ public class e {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "isPluginDownloaded failed.", e2);
+            } catch (Exception e) {
+                ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "isPluginDownloaded failed.", e);
             }
             return false;
         }
@@ -91,24 +91,12 @@ public class e {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ZeusPluginListener a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f38079b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f38080c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f38081d;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f38082e;
-
-                /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ boolean f38083f;
-
-                /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ e f38084g;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ int c;
+                public final /* synthetic */ int d;
+                public final /* synthetic */ String e;
+                public final /* synthetic */ boolean f;
+                public final /* synthetic */ e g;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -125,21 +113,21 @@ public class e {
                             return;
                         }
                     }
-                    this.f38084g = this;
+                    this.g = this;
                     this.a = zeusPluginListener;
-                    this.f38079b = str2;
-                    this.f38080c = i;
-                    this.f38081d = i2;
-                    this.f38082e = str3;
-                    this.f38083f = true;
+                    this.b = str2;
+                    this.c = i;
+                    this.d = i2;
+                    this.e = str3;
+                    this.f = true;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.AbsDownloadListener, com.ss.android.socialbase.downloader.depend.IDownloadListener
                 public final void onFailed(DownloadInfo downloadInfo, BaseException baseException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, downloadInfo, baseException) == null) {
-                        ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "download onFailed : " + this.f38079b + ZeusCrashHandler.NAME_SEPERATOR + this.f38080c, baseException);
-                        e.a(com.bytedance.pangle.b.b.f38019d, e.a(baseException), this.f38079b, this.f38080c, -1L, baseException);
+                        ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "download onFailed : " + this.b + ZeusCrashHandler.NAME_SEPERATOR + this.c, baseException);
+                        e.a(com.bytedance.pangle.b.b.d, e.a(baseException), this.b, this.c, -1L, baseException);
                         ZeusPluginListener zeusPluginListener2 = this.a;
                         if (zeusPluginListener2 != null) {
                             zeusPluginListener2.onEvent(13, "download failed," + baseException.getErrorMessage());
@@ -161,11 +149,11 @@ public class e {
                 public final void onStart(DownloadInfo downloadInfo) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
-                        ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "download start : " + this.f38079b + ZeusCrashHandler.NAME_SEPERATOR + this.f38080c);
-                        e.a(com.bytedance.pangle.b.b.f38018c, b.a.f38026d, this.f38079b, this.f38080c, -1L, null);
+                        ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "download start : " + this.b + ZeusCrashHandler.NAME_SEPERATOR + this.c);
+                        e.a(com.bytedance.pangle.b.b.c, b.a.d, this.b, this.c, -1L, null);
                         ZeusPluginListener zeusPluginListener2 = this.a;
                         if (zeusPluginListener2 != null) {
-                            zeusPluginListener2.onEvent(10, "start download " + this.f38079b);
+                            zeusPluginListener2.onEvent(10, "start download " + this.b);
                         }
                     }
                 }
@@ -176,22 +164,16 @@ public class e {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048579, this, downloadInfo) == null) || downloadInfo == null) {
                         return;
                     }
-                    ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "download onSuccessed : " + this.f38079b + ZeusCrashHandler.NAME_SEPERATOR + this.f38080c);
-                    e.a(this.f38081d, downloadInfo, this.f38082e, this.f38079b, this.f38080c, this.f38083f, this.a);
+                    ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, "download onSuccessed : " + this.b + ZeusCrashHandler.NAME_SEPERATOR + this.c);
+                    e.a(this.d, downloadInfo, this.e, this.b, this.c, this.f, this.a);
                 }
             }).interceptor(new IDownloadInterceptor(this, str2, i, zeusPluginListener) { // from class: com.bytedance.pangle.download.e.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f38085b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ZeusPluginListener f38086c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ e f38087d;
+                public final /* synthetic */ int b;
+                public final /* synthetic */ ZeusPluginListener c;
+                public final /* synthetic */ e d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -208,10 +190,10 @@ public class e {
                             return;
                         }
                     }
-                    this.f38087d = this;
+                    this.d = this;
                     this.a = str2;
-                    this.f38085b = i;
-                    this.f38086c = zeusPluginListener;
+                    this.b = i;
+                    this.c = zeusPluginListener;
                 }
 
                 @Override // com.ss.android.socialbase.downloader.depend.IDownloadInterceptor
@@ -220,12 +202,12 @@ public class e {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         int a2 = e.a(this.a);
-                        int i3 = this.f38085b;
+                        int i3 = this.b;
                         if (i3 <= a2 || e.b(this.a, i3)) {
-                            ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "download intercept : " + this.a + ZeusCrashHandler.NAME_SEPERATOR + this.f38085b);
-                            ZeusPluginListener zeusPluginListener2 = this.f38086c;
+                            ZeusLogger.i(ZeusLogger.TAG_DOWNLOAD, "download intercept : " + this.a + ZeusCrashHandler.NAME_SEPERATOR + this.b);
+                            ZeusPluginListener zeusPluginListener2 = this.c;
                             if (zeusPluginListener2 != null) {
-                                zeusPluginListener2.onEvent(13, this.f38085b <= a2 ? "EVENT_INTERCEPT_ALREADY_INSTALL" : "EVENT_INTERCEPT_DOWNLOAD_FILE_EXISTS");
+                                zeusPluginListener2.onEvent(13, this.b <= a2 ? "EVENT_INTERCEPT_ALREADY_INSTALL" : "EVENT_INTERCEPT_DOWNLOAD_FILE_EXISTS");
                                 return true;
                             }
                             return true;
@@ -251,8 +233,8 @@ public class e {
                 jSONObject2.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j)));
                 jSONObject3.putOpt("throwable", com.bytedance.pangle.log.d.a(th));
                 jSONObject3.putOpt("timestamp", com.bytedance.pangle.log.d.a(Long.valueOf(System.currentTimeMillis())));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             com.bytedance.pangle.b.b.a().a(str, jSONObject, jSONObject2, jSONObject3);
         }
@@ -266,7 +248,7 @@ public class e {
         boolean z2 = !TextUtils.isEmpty(a2) && a2.equals(str);
         boolean a3 = com.bytedance.pangle.helper.b.a(file);
         if (z2 && a3) {
-            a(com.bytedance.pangle.b.b.f38019d, b.a.f38027e, str2, i2, downloadInfo.getDownloadTime(), null);
+            a(com.bytedance.pangle.b.b.d, b.a.e, str2, i2, downloadInfo.getDownloadTime(), null);
             if (i == 0 || i == 1) {
                 if (zeusPluginListener != null) {
                     zeusPluginListener.onEvent(12, "download success, ".concat(String.valueOf(str2)));
@@ -289,7 +271,7 @@ public class e {
             str3 = "PluginAbi not match hostAbi[" + com.bytedance.pangle.helper.b.a() + "] md5[" + str + PreferencesUtil.RIGHT_MOUNT;
             i3 = b.a.j;
         }
-        a(com.bytedance.pangle.b.b.f38019d, i3, str2, i2, downloadInfo.getDownloadTime(), new RuntimeException(str3));
+        a(com.bytedance.pangle.b.b.d, i3, str2, i2, downloadInfo.getDownloadTime(), new RuntimeException(str3));
         file.delete();
         if (zeusPluginListener != null) {
             zeusPluginListener.onEvent(13, str3);
@@ -297,7 +279,7 @@ public class e {
     }
 
     public static /* synthetic */ int a(BaseException baseException) {
-        int i = b.a.f38030h;
+        int i = b.a.h;
         return baseException != null ? (i - 1000) + 100 + baseException.getErrorCode() : i;
     }
 

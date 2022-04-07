@@ -16,7 +16,7 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,7 @@ public class k extends XMPushService.i {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ List f942a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f44580b;
+    public final /* synthetic */ String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k(j jVar, int i, String str, List list, String str2) {
@@ -52,7 +50,7 @@ public class k extends XMPushService.i {
         this.a = jVar;
         this.f941a = str;
         this.f942a = list;
-        this.f44580b = str2;
+        this.b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -79,13 +77,13 @@ public class k extends XMPushService.i {
                 ie next = it.next();
                 next.a("uploadWay", "longXMPushService");
                 ib a3 = y.a(this.f941a, a, next, hf.i);
-                if (!TextUtils.isEmpty(this.f44580b) && !TextUtils.equals(this.f941a, this.f44580b)) {
-                    if (a3.m492a() == null) {
+                if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f941a, this.b)) {
+                    if (a3.m488a() == null) {
                         hs hsVar = new hs();
                         hsVar.a("-1");
                         a3.a(hsVar);
                     }
-                    a3.m492a().b("ext_traffic_source_pkg", this.f44580b);
+                    a3.m488a().b("ext_traffic_source_pkg", this.b);
                 }
                 byte[] a4 = ip.a(a3);
                 xMPushService = this.a.a;

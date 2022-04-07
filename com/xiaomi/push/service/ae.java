@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ae extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,7 @@ public final class ae extends ai.a {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ String f864a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f44542b;
+    public final /* synthetic */ String b;
 
     public ae(int i, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
@@ -46,19 +44,19 @@ public final class ae extends ai.a {
         this.a = i;
         this.f864a = str;
         this.f863a = context;
-        this.f44542b = str2;
+        this.b = str2;
         this.f862a = notification;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
-        String b2;
+        String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b2 = ac.b(this.a, this.f864a);
-            return b2;
+            b = ac.b(this.a, this.f864a);
+            return b;
         }
         return (String) invokeV.objValue;
     }
@@ -68,7 +66,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f863a, this.f44542b, this.a, this.f864a, this.f862a);
+            ac.b(this.f863a, this.b, this.a, this.f864a, this.f862a);
         }
     }
 }

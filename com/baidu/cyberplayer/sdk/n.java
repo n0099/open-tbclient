@@ -16,12 +16,12 @@ import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
 import org.apache.commons.codec.binary4util.BaseNCodec;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class n {
             for (int i3 = 0; i3 < bArr.length; i3++) {
                 i = (i + 1) & 255;
                 i2 = (bArr3[i] + i2) & 255;
-                byte b2 = bArr3[i];
+                byte b = bArr3[i];
                 bArr3[i] = bArr3[i2];
-                bArr3[i2] = b2;
+                bArr3[i2] = b;
                 bArr2[i3] = (byte) (bArr[i3] ^ bArr3[(bArr3[i] + bArr3[i2]) & 255]);
             }
             return bArr2;

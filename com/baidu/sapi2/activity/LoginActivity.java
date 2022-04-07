@@ -56,7 +56,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String E = "LoginActivity";
@@ -426,7 +426,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                    setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 }
                 init();
                 setupViews();
@@ -470,7 +470,7 @@ public class LoginActivity extends BaseActivity {
                 return;
             }
             sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.obfuscated_res_0x7f0f105a);
+            setTitleText(R.string.obfuscated_res_0x7f0f1062);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
@@ -496,7 +496,7 @@ public class LoginActivity extends BaseActivity {
             this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
             this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
             this.B = getIntent().getStringExtra("extraJson");
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091be8);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091bd7);
             this.sapiWebView = sapiWebView;
             sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.LoginActivity.4
                 public static /* synthetic */ Interceptable $ic;
@@ -780,8 +780,8 @@ public class LoginActivity extends BaseActivity {
                         String next = keys.next();
                         this.C.add(new PassNameValuePair(next, jSONObject.getString(next)));
                     }
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             if (WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z)) {
@@ -793,7 +793,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.obfuscated_res_0x7f0f105a);
+                    setTitleText(R.string.obfuscated_res_0x7f0f1062);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -809,7 +809,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.x));
                     }
-                    setTitleText(R.string.obfuscated_res_0x7f0f1049);
+                    setTitleText(R.string.obfuscated_res_0x7f0f1051);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }
@@ -857,10 +857,10 @@ public class LoginActivity extends BaseActivity {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view, MotionEvent motionEvent) {
+                public boolean onTouch(View view2, MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                         if (this.a.u) {
                             return false;
                         }

@@ -2,8 +2,6 @@ package com.baidu.swan.apps.event;
 
 import android.util.Log;
 import androidx.annotation.Keep;
-import c.a.n0.a.a;
-import c.a.n0.a.g2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -14,8 +12,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.o93;
+import com.repackage.qj2;
+import com.repackage.tg1;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,7 +38,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = a.a;
+        DEBUG = tg1.a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -53,10 +54,10 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        SwanCoreVersion g2 = b.g(0);
-        if (g2 != null) {
-            this.mVersionCode = g2.swanCoreVersionCode;
-            this.mVersionName = g2.swanCoreVersionName;
+        SwanCoreVersion g = o93.g(0);
+        if (g != null) {
+            this.mVersionCode = g.swanCoreVersionCode;
+            this.mVersionName = g.swanCoreVersionName;
             return;
         }
         this.mVersionCode = 0L;
@@ -70,7 +71,7 @@ public class SwanJSVersionUpdateEvent {
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            c.a.n0.a.s0.a.N().a(swanJSVersionUpdateEvent);
+            qj2.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
             }

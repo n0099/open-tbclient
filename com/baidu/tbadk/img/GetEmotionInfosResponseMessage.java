@@ -1,6 +1,5 @@
 package com.baidu.tbadk.img;
 
-import c.a.o0.c0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l35;
 import com.tencent.open.SocialConstants;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c> mEmotionList;
+    public List<l35> mEmotionList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetEmotionInfosResponseMessage(int i) {
@@ -48,9 +48,9 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         this.mEmotionList = new ArrayList();
         for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                this.mEmotionList.add(c.a(jSONArray.getJSONObject(i)));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                this.mEmotionList.add(l35.a(jSONArray.getJSONObject(i)));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -67,7 +67,7 @@ public class GetEmotionInfosResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<c> getEmotionList() {
+    public List<l35> getEmotionList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mEmotionList : (List) invokeV.objValue;

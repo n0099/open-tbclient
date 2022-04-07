@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class RatioFrameLayout extends FrameLayout {
     public float a;
 
@@ -37,7 +37,7 @@ public class RatioFrameLayout extends FrameLayout {
         super.onMeasure(i, i2);
     }
 
-    public void setRatio(float f2) {
-        this.a = f2;
+    public void setRatio(float f) {
+        this.a = f;
     }
 }

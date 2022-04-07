@@ -253,22 +253,22 @@ public final class RetryAndFollowUpInterceptor implements Interceptor {
                         }
                         try {
                             followUpRequest = followUpRequest(proceed, streamAllocation.route());
-                        } catch (IOException e2) {
+                        } catch (IOException e) {
                             streamAllocation.release();
-                            throw e2;
+                            throw e;
                         }
                     } catch (Throwable th) {
                         streamAllocation.streamFailed(null);
                         streamAllocation.release();
                         throw th;
                     }
-                } catch (IOException e3) {
-                    if (!recover(e3, streamAllocation, !(e3 instanceof ConnectionShutdownException), request)) {
-                        throw e3;
+                } catch (IOException e2) {
+                    if (!recover(e2, streamAllocation, !(e2 instanceof ConnectionShutdownException), request)) {
+                        throw e2;
                     }
-                } catch (RouteException e4) {
-                    if (!recover(e4.getLastConnectException(), streamAllocation, false, request)) {
-                        throw e4.getFirstConnectException();
+                } catch (RouteException e3) {
+                    if (!recover(e3.getLastConnectException(), streamAllocation, false, request)) {
+                        throw e3.getFirstConnectException();
                     }
                 }
                 if (followUpRequest == null) {

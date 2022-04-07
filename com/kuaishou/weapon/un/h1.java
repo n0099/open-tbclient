@@ -20,26 +20,20 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h1 {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static h1 f38831c;
+    public static h1 c;
     public transient /* synthetic */ FieldHolder $fh;
     public SSLContext a;
+    public SSLSocketFactory b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public SSLSocketFactory f38832b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ X509TrustManager a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ h1 f38833b;
+        public final /* synthetic */ h1 b;
 
         public a(h1 h1Var, X509TrustManager x509TrustManager) {
             Interceptable interceptable = $ic;
@@ -56,7 +50,7 @@ public class h1 {
                     return;
                 }
             }
-            this.f38833b = h1Var;
+            this.b = h1Var;
             this.a = x509TrustManager;
         }
 
@@ -74,14 +68,14 @@ public class h1 {
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr, str) == null) {
                 try {
                     this.a.checkServerTrusted(x509CertificateArr, str);
-                } catch (CertificateException e2) {
-                    x0.a(e2);
-                    for (Throwable th = e2; th != null; th = th.getCause()) {
+                } catch (CertificateException e) {
+                    x0.a(e);
+                    for (Throwable th = e; th != null; th = th.getCause()) {
                         if ((th instanceof CertificateExpiredException) || (th instanceof CertificateNotYetValidException)) {
                             return;
                         }
                     }
-                    throw e2;
+                    throw e;
                 }
             }
         }
@@ -94,7 +88,7 @@ public class h1 {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class b implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -175,10 +169,10 @@ public class h1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (h1.class) {
-                if (f38831c == null) {
-                    f38831c = new h1();
+                if (c == null) {
+                    c = new h1();
                 }
-                h1Var = f38831c;
+                h1Var = c;
             }
             return h1Var;
         }
@@ -197,7 +191,7 @@ public class h1 {
         X509TrustManager x509TrustManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SSLSocketFactory sSLSocketFactory = this.f38832b;
+            SSLSocketFactory sSLSocketFactory = this.b;
             if (sSLSocketFactory == null) {
                 sSLSocketFactory = null;
                 try {
@@ -226,7 +220,7 @@ public class h1 {
                     if (x509TrustManager != null) {
                     }
                     SSLSocketFactory socketFactory = this.a.getSocketFactory();
-                    this.f38832b = socketFactory;
+                    this.b = socketFactory;
                     return socketFactory;
                 }
                 if (keyStore != null) {
@@ -245,7 +239,7 @@ public class h1 {
                                 sSLContext2.init(null, new TrustManager[]{new b(this)}, new SecureRandom());
                             }
                             SSLSocketFactory socketFactory2 = this.a.getSocketFactory();
-                            this.f38832b = socketFactory2;
+                            this.b = socketFactory2;
                             return socketFactory2;
                         }
                     } catch (Exception unused4) {
@@ -257,7 +251,7 @@ public class h1 {
                 if (x509TrustManager != null) {
                 }
                 SSLSocketFactory socketFactory22 = this.a.getSocketFactory();
-                this.f38832b = socketFactory22;
+                this.b = socketFactory22;
                 return socketFactory22;
             }
             return sSLSocketFactory;

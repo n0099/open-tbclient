@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_COLLAPSED = 2;
@@ -59,11 +59,11 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
     }
 
     @Nullable
-    public static <T extends ExpandableBehavior> T from(@NonNull View view, @NonNull Class<T> cls) {
+    public static <T extends ExpandableBehavior> T from(@NonNull View view2, @NonNull Class<T> cls) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, cls)) == null) {
-            ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, cls)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
             if (layoutParams instanceof CoordinatorLayout.LayoutParams) {
                 CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) layoutParams).getBehavior();
                 if (behavior instanceof ExpandableBehavior) {
@@ -77,16 +77,16 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
     }
 
     @Nullable
-    public ExpandableWidget findExpandableWidget(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view) {
+    public ExpandableWidget findExpandableWidget(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, coordinatorLayout, view)) == null) {
-            List<View> dependencies = coordinatorLayout.getDependencies(view);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, coordinatorLayout, view2)) == null) {
+            List<View> dependencies = coordinatorLayout.getDependencies(view2);
             int size = dependencies.size();
             for (int i = 0; i < size; i++) {
-                View view2 = dependencies.get(i);
-                if (layoutDependsOn(coordinatorLayout, view, view2)) {
-                    return (ExpandableWidget) view2;
+                View view3 = dependencies.get(i);
+                if (layoutDependsOn(coordinatorLayout, view2, view3)) {
+                    return (ExpandableWidget) view3;
                 }
             }
             return null;
@@ -95,39 +95,39 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public abstract boolean layoutDependsOn(CoordinatorLayout coordinatorLayout, View view, View view2);
+    public abstract boolean layoutDependsOn(CoordinatorLayout coordinatorLayout, View view2, View view3);
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     @CallSuper
-    public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, View view, View view2) {
+    public boolean onDependentViewChanged(CoordinatorLayout coordinatorLayout, View view2, View view3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, view, view2)) == null) {
-            ExpandableWidget expandableWidget = (ExpandableWidget) view2;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, view2, view3)) == null) {
+            ExpandableWidget expandableWidget = (ExpandableWidget) view3;
             if (didStateChange(expandableWidget.isExpanded())) {
                 this.currentState = expandableWidget.isExpanded() ? 1 : 2;
-                return onExpandedStateChange((View) expandableWidget, view, expandableWidget.isExpanded(), true);
+                return onExpandedStateChange((View) expandableWidget, view2, expandableWidget.isExpanded(), true);
             }
             return false;
         }
         return invokeLLL.booleanValue;
     }
 
-    public abstract boolean onExpandedStateChange(View view, View view2, boolean z, boolean z2);
+    public abstract boolean onExpandedStateChange(View view2, View view3, boolean z, boolean z2);
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     @CallSuper
-    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i) {
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, int i) {
         InterceptResult invokeLLI;
         ExpandableWidget findExpandableWidget;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, coordinatorLayout, view, i)) == null) {
-            if (ViewCompat.isLaidOut(view) || (findExpandableWidget = findExpandableWidget(coordinatorLayout, view)) == null || !didStateChange(findExpandableWidget.isExpanded())) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, coordinatorLayout, view2, i)) == null) {
+            if (ViewCompat.isLaidOut(view2) || (findExpandableWidget = findExpandableWidget(coordinatorLayout, view2)) == null || !didStateChange(findExpandableWidget.isExpanded())) {
                 return false;
             }
             int i2 = findExpandableWidget.isExpanded() ? 1 : 2;
             this.currentState = i2;
-            view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(this, view, i2, findExpandableWidget) { // from class: com.google.android.material.transformation.ExpandableBehavior.1
+            view2.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(this, view2, i2, findExpandableWidget) { // from class: com.google.android.material.transformation.ExpandableBehavior.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ExpandableBehavior this$0;
@@ -140,7 +140,7 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view, Integer.valueOf(i2), findExpandableWidget};
+                        Object[] objArr = {this, view2, Integer.valueOf(i2), findExpandableWidget};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -151,7 +151,7 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
                         }
                     }
                     this.this$0 = this;
-                    this.val$child = view;
+                    this.val$child = view2;
                     this.val$expectedState = i2;
                     this.val$dep = findExpandableWidget;
                 }

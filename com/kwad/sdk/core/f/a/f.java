@@ -4,10 +4,10 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface f extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a implements f {
         public IBinder a;
 
@@ -25,8 +25,8 @@ public interface f extends IInterface {
                     this.a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                } catch (Exception e) {
+                    com.kwad.sdk.core.d.a.a(e);
                     obtain.recycle();
                     obtain2.recycle();
                     return null;

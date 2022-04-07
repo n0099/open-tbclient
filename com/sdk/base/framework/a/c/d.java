@@ -11,9 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class d extends h<Params, Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ c f42502b;
+    public /* synthetic */ c b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(c cVar) {
@@ -33,7 +31,7 @@ public final class d extends h<Params, Result> {
                 return;
             }
         }
-        this.f42502b = cVar;
+        this.b = cVar;
     }
 
     /* JADX WARN: Type inference failed for: r0v6, types: [java.lang.Object, Result] */
@@ -45,10 +43,10 @@ public final class d extends h<Params, Result> {
         ?? a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            atomicBoolean = this.f42502b.f42500g;
+            atomicBoolean = this.b.g;
             atomicBoolean.set(true);
             Process.setThreadPriority(10);
-            c cVar = this.f42502b;
+            c cVar = this.b;
             a = cVar.a((c) cVar.b(this.a));
             return a;
         }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FaceAlgoConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,12 +74,12 @@ public class FaceAlgoConfig {
         this.trackingRotation = i;
     }
 
-    public FaceAlgoConfig(int i, int i2, float f2, float f3) {
+    public FaceAlgoConfig(int i, int i2, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -112,8 +112,8 @@ public class FaceAlgoConfig {
         this.debug = false;
         this.trackingRotation = i;
         this.failureThreshold = i2;
-        this.trackingSmoothAlpha = f2;
-        this.trackingSmoothThreshold = f3;
+        this.trackingSmoothAlpha = f;
+        this.trackingSmoothThreshold = f2;
     }
 
     public FaceAlgoConfig cloneInstance() {
@@ -161,10 +161,10 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setEyeCloseProbThreshold(float f2) {
+    public void setEyeCloseProbThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f2) == null) {
-            this.eyeCloseProbThreshold = f2;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.eyeCloseProbThreshold = f;
         }
     }
 
@@ -253,17 +253,17 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setTrackingMouthSmoothAlpha(float f2) {
+    public void setTrackingMouthSmoothAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            this.trackingMouthSmoothAlpha = f2;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            this.trackingMouthSmoothAlpha = f;
         }
     }
 
-    public void setTrackingMouthThreshold(float f2) {
+    public void setTrackingMouthThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.trackingMouthThreshold = f2;
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            this.trackingMouthThreshold = f;
         }
     }
 
@@ -274,17 +274,17 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setTrackingSmoothAlpha(float f2) {
+    public void setTrackingSmoothAlpha(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            this.trackingSmoothAlpha = f2;
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            this.trackingSmoothAlpha = f;
         }
     }
 
-    public void setTrackingSmoothThreshold(float f2) {
+    public void setTrackingSmoothThreshold(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
-            this.trackingSmoothThreshold = f2;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.trackingSmoothThreshold = f;
         }
     }
 }

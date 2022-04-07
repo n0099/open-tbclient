@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class s implements SwipeDismissTouchListener.DismissCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,10 +44,10 @@ public class s implements SwipeDismissTouchListener.DismissCallbacks {
     }
 
     @Override // com.baidu.mapapi.map.SwipeDismissTouchListener.DismissCallbacks
-    public void onDismiss(View view, Object obj) {
+    public void onDismiss(View view2, Object obj) {
         WearMapView.OnDismissCallback onDismissCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, obj) == null) || (onDismissCallback = this.a.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, obj) == null) || (onDismissCallback = this.a.a) == null) {
             return;
         }
         onDismissCallback.onDismiss();

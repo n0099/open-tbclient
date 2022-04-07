@@ -7,16 +7,16 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import c.a.a0.l0.j;
-import c.a.a0.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d41;
+import com.repackage.e41;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,10 +25,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public double D;
     public SlideInterceptor E;
     public WeakReference<Activity> F;
-    public j G;
+    public d41 G;
 
-    /* loaded from: classes4.dex */
-    public class a implements j {
+    /* loaded from: classes2.dex */
+    public class a implements d41 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -51,7 +51,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.a0.l0.j
+        @Override // com.repackage.d41
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -63,8 +63,8 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements j {
+    /* loaded from: classes2.dex */
+    public class b implements d41 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -87,7 +87,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.a0.l0.j
+        @Override // com.repackage.d41
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -163,8 +163,8 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
                             return false;
                         }
                     }
-                } catch (AbstractMethodError e2) {
-                    e2.printStackTrace();
+                } catch (AbstractMethodError e) {
+                    e.printStackTrace();
                 }
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -178,12 +178,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                k.c(this.F.get(), new b(this));
+                e41.c(this.F.get(), new b(this));
                 return;
             }
-            j jVar = this.G;
-            if (jVar != null) {
-                jVar.onTranslucent(true);
+            d41 d41Var = this.G;
+            if (d41Var != null) {
+                d41Var.onTranslucent(true);
             }
         }
     }
@@ -194,12 +194,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                k.d(this.F.get(), new a(this));
+                e41.d(this.F.get(), new a(this));
                 return;
             }
-            j jVar = this.G;
-            if (jVar != null) {
-                jVar.onTranslucent(false);
+            d41 d41Var = this.G;
+            if (d41Var != null) {
+                d41Var.onTranslucent(false);
             }
         }
     }
@@ -217,10 +217,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    public void setOnTransparentListener(j jVar) {
+    public void setOnTransparentListener(d41 d41Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jVar) == null) {
-            this.G = jVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, d41Var) == null) {
+            this.G = d41Var;
         }
     }
 

@@ -2,8 +2,6 @@ package com.baidu.nps.stub.pkginfo;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
-import c.a.b0.h.c;
-import c.a.b0.h.e;
 import com.baidu.nps.stub.context.ContextHolderImpl;
 import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.u61;
+import com.repackage.w61;
+/* loaded from: classes2.dex */
 public class PackageInfoHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class PackageInfoHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             Application applicationContext = ContextHolderImpl.getApplicationContext();
-            return e.a(c.d(applicationContext, str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), i);
+            return w61.a(u61.d(applicationContext, str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), i);
         }
         return (PackageInfo) invokeLI.objValue;
     }

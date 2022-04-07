@@ -1,7 +1,7 @@
 package com.kwad.sdk.plugin;
 
 import android.content.Context;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class g implements d {
     public abstract h a(Context context, String str);
 

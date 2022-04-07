@@ -10,36 +10,36 @@ import kotlin.internal.InlineOnly;
 public class MathKt__MathJVMKt extends MathKt__MathHKt {
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double IEEErem(double d2, double d3) {
-        return Math.IEEEremainder(d2, d3);
+    public static final double IEEErem(double d, double d2) {
+        return Math.IEEEremainder(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double abs(double d2) {
-        return Math.abs(d2);
+    public static final double abs(double d) {
+        return Math.abs(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double acos(double d2) {
-        return Math.acos(d2);
+    public static final double acos(double d) {
+        return Math.acos(d);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final double acosh(double d2) {
-        double d3 = 1;
-        if (d2 < d3) {
+    public static final double acosh(double d) {
+        double d2 = 1;
+        if (d < d2) {
             return Double.NaN;
         }
-        if (d2 > Constants.upper_taylor_2_bound) {
-            return Math.log(d2) + Constants.LN2;
+        if (d > Constants.upper_taylor_2_bound) {
+            return Math.log(d) + Constants.LN2;
         }
-        double d4 = d2 - d3;
-        if (d4 >= Constants.taylor_n_bound) {
-            return Math.log(d2 + Math.sqrt((d2 * d2) - d3));
+        double d3 = d - d2;
+        if (d3 >= Constants.taylor_n_bound) {
+            return Math.log(d + Math.sqrt((d * d) - d2));
         }
-        double sqrt = Math.sqrt(d4);
+        double sqrt = Math.sqrt(d3);
         if (sqrt >= Constants.taylor_2_bound) {
             sqrt -= ((sqrt * sqrt) * sqrt) / 12;
         }
@@ -48,98 +48,98 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double asin(double d2) {
-        return Math.asin(d2);
+    public static final double asin(double d) {
+        return Math.asin(d);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final double asinh(double d2) {
-        double d3 = Constants.taylor_n_bound;
-        if (d2 < d3) {
-            if (d2 <= (-d3)) {
-                return -asinh(-d2);
+    public static final double asinh(double d) {
+        double d2 = Constants.taylor_n_bound;
+        if (d < d2) {
+            if (d <= (-d2)) {
+                return -asinh(-d);
             }
-            return Math.abs(d2) >= Constants.taylor_2_bound ? d2 - (((d2 * d2) * d2) / 6) : d2;
-        } else if (d2 > Constants.upper_taylor_n_bound) {
-            if (d2 > Constants.upper_taylor_2_bound) {
-                return Math.log(d2) + Constants.LN2;
+            return Math.abs(d) >= Constants.taylor_2_bound ? d - (((d * d) * d) / 6) : d;
+        } else if (d > Constants.upper_taylor_n_bound) {
+            if (d > Constants.upper_taylor_2_bound) {
+                return Math.log(d) + Constants.LN2;
             }
-            double d4 = d2 * 2;
-            return Math.log(d4 + (1 / d4));
+            double d3 = d * 2;
+            return Math.log(d3 + (1 / d3));
         } else {
-            return Math.log(d2 + Math.sqrt((d2 * d2) + 1));
+            return Math.log(d + Math.sqrt((d * d) + 1));
         }
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double atan(double d2) {
-        return Math.atan(d2);
+    public static final double atan(double d) {
+        return Math.atan(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double atan2(double d2, double d3) {
-        return Math.atan2(d2, d3);
+    public static final double atan2(double d, double d2) {
+        return Math.atan2(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final double atanh(double d2) {
-        if (Math.abs(d2) < Constants.taylor_n_bound) {
-            return Math.abs(d2) > Constants.taylor_2_bound ? d2 + (((d2 * d2) * d2) / 3) : d2;
+    public static final double atanh(double d) {
+        if (Math.abs(d) < Constants.taylor_n_bound) {
+            return Math.abs(d) > Constants.taylor_2_bound ? d + (((d * d) * d) / 3) : d;
         }
-        double d3 = 1;
-        return Math.log((d3 + d2) / (d3 - d2)) / 2;
+        double d2 = 1;
+        return Math.log((d2 + d) / (d2 - d)) / 2;
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double ceil(double d2) {
-        return Math.ceil(d2);
+    public static final double ceil(double d) {
+        return Math.ceil(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double cos(double d2) {
-        return Math.cos(d2);
+    public static final double cos(double d) {
+        return Math.cos(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double cosh(double d2) {
-        return Math.cosh(d2);
+    public static final double cosh(double d) {
+        return Math.cosh(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double exp(double d2) {
-        return Math.exp(d2);
+    public static final double exp(double d) {
+        return Math.exp(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double expm1(double d2) {
-        return Math.expm1(d2);
+    public static final double expm1(double d) {
+        return Math.expm1(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double floor(double d2) {
-        return Math.floor(d2);
+    public static final double floor(double d) {
+        return Math.floor(d);
     }
 
-    public static final double getAbsoluteValue(double d2) {
-        return Math.abs(d2);
-    }
-
-    @SinceKotlin(version = "1.2")
-    @InlineOnly
-    public static /* synthetic */ void getAbsoluteValue$annotations(double d2) {
+    public static final double getAbsoluteValue(double d) {
+        return Math.abs(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static /* synthetic */ void getAbsoluteValue$annotations(float f2) {
+    public static /* synthetic */ void getAbsoluteValue$annotations(double d) {
+    }
+
+    @SinceKotlin(version = "1.2")
+    @InlineOnly
+    public static /* synthetic */ void getAbsoluteValue$annotations(float f) {
     }
 
     @SinceKotlin(version = "1.2")
@@ -152,8 +152,8 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
     public static /* synthetic */ void getAbsoluteValue$annotations(long j) {
     }
 
-    public static final double getSign(double d2) {
-        return Math.signum(d2);
+    public static final double getSign(double d) {
+        return Math.signum(d);
     }
 
     public static final int getSign(int i) {
@@ -173,12 +173,12 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static /* synthetic */ void getSign$annotations(double d2) {
+    public static /* synthetic */ void getSign$annotations(double d) {
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static /* synthetic */ void getSign$annotations(float f2) {
+    public static /* synthetic */ void getSign$annotations(float f) {
     }
 
     @SinceKotlin(version = "1.2")
@@ -189,382 +189,382 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
     public static /* synthetic */ void getSign$annotations(long j) {
     }
 
-    public static final double getUlp(double d2) {
-        return Math.ulp(d2);
+    public static final double getUlp(double d) {
+        return Math.ulp(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static /* synthetic */ void getUlp$annotations(double d2) {
+    public static /* synthetic */ void getUlp$annotations(double d) {
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static /* synthetic */ void getUlp$annotations(float f2) {
+    public static /* synthetic */ void getUlp$annotations(float f) {
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double hypot(double d2, double d3) {
-        return Math.hypot(d2, d3);
+    public static final double hypot(double d, double d2) {
+        return Math.hypot(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double ln(double d2) {
-        return Math.log(d2);
+    public static final double ln(double d) {
+        return Math.log(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double ln1p(double d2) {
-        return Math.log1p(d2);
+    public static final double ln1p(double d) {
+        return Math.log1p(d);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final double log(double d2, double d3) {
-        if (d3 <= 0.0d || d3 == 1.0d) {
+    public static final double log(double d, double d2) {
+        if (d2 <= 0.0d || d2 == 1.0d) {
             return Double.NaN;
         }
-        return Math.log(d2) / Math.log(d3);
+        return Math.log(d) / Math.log(d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double log10(double d2) {
-        return Math.log10(d2);
+    public static final double log10(double d) {
+        return Math.log10(d);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final double log2(double d2) {
-        return Math.log(d2) / Constants.LN2;
-    }
-
-    @SinceKotlin(version = "1.2")
-    @InlineOnly
-    public static final double max(double d2, double d3) {
-        return Math.max(d2, d3);
+    public static final double log2(double d) {
+        return Math.log(d) / Constants.LN2;
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double min(double d2, double d3) {
-        return Math.min(d2, d3);
+    public static final double max(double d, double d2) {
+        return Math.max(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double nextDown(double d2) {
-        return Math.nextAfter(d2, Double.NEGATIVE_INFINITY);
+    public static final double min(double d, double d2) {
+        return Math.min(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double nextTowards(double d2, double d3) {
-        return Math.nextAfter(d2, d3);
+    public static final double nextDown(double d) {
+        return Math.nextAfter(d, Double.NEGATIVE_INFINITY);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double nextUp(double d2) {
-        return Math.nextUp(d2);
+    public static final double nextTowards(double d, double d2) {
+        return Math.nextAfter(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double pow(double d2, double d3) {
-        return Math.pow(d2, d3);
+    public static final double nextUp(double d) {
+        return Math.nextUp(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double round(double d2) {
-        return Math.rint(d2);
+    public static final double pow(double d, double d2) {
+        return Math.pow(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final int roundToInt(double d2) {
-        if (Double.isNaN(d2)) {
+    @InlineOnly
+    public static final double round(double d) {
+        return Math.rint(d);
+    }
+
+    @SinceKotlin(version = "1.2")
+    public static final int roundToInt(double d) {
+        if (Double.isNaN(d)) {
             throw new IllegalArgumentException("Cannot round NaN value.");
         }
-        if (d2 > Integer.MAX_VALUE) {
+        if (d > Integer.MAX_VALUE) {
             return Integer.MAX_VALUE;
         }
-        if (d2 < Integer.MIN_VALUE) {
+        if (d < Integer.MIN_VALUE) {
             return Integer.MIN_VALUE;
         }
-        return (int) Math.round(d2);
+        return (int) Math.round(d);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final long roundToLong(double d2) {
-        if (Double.isNaN(d2)) {
+    public static final long roundToLong(double d) {
+        if (Double.isNaN(d)) {
             throw new IllegalArgumentException("Cannot round NaN value.");
         }
-        return Math.round(d2);
+        return Math.round(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double sign(double d2) {
-        return Math.signum(d2);
+    public static final double sign(double d) {
+        return Math.signum(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double sin(double d2) {
-        return Math.sin(d2);
+    public static final double sin(double d) {
+        return Math.sin(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double sinh(double d2) {
-        return Math.sinh(d2);
+    public static final double sinh(double d) {
+        return Math.sinh(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double sqrt(double d2) {
-        return Math.sqrt(d2);
+    public static final double sqrt(double d) {
+        return Math.sqrt(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double tan(double d2) {
-        return Math.tan(d2);
+    public static final double tan(double d) {
+        return Math.tan(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double tanh(double d2) {
-        return Math.tanh(d2);
+    public static final double tanh(double d) {
+        return Math.tanh(d);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final double truncate(double d2) {
-        if (Double.isNaN(d2) || Double.isInfinite(d2)) {
-            return d2;
+    public static final double truncate(double d) {
+        if (Double.isNaN(d) || Double.isInfinite(d)) {
+            return d;
         }
-        if (d2 > 0) {
-            return Math.floor(d2);
+        if (d > 0) {
+            return Math.floor(d);
         }
-        return Math.ceil(d2);
+        return Math.ceil(d);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double withSign(double d2, double d3) {
-        return Math.copySign(d2, d3);
+    public static final double withSign(double d, double d2) {
+        return Math.copySign(d, d2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float IEEErem(float f2, float f3) {
-        return (float) Math.IEEEremainder(f2, f3);
+    public static final float IEEErem(float f, float f2) {
+        return (float) Math.IEEEremainder(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float abs(float f2) {
-        return Math.abs(f2);
+    public static final float abs(float f) {
+        return Math.abs(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float acos(float f2) {
-        return (float) Math.acos(f2);
+    public static final float acos(float f) {
+        return (float) Math.acos(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float asin(float f2) {
-        return (float) Math.asin(f2);
+    public static final float asin(float f) {
+        return (float) Math.asin(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float atan(float f2) {
-        return (float) Math.atan(f2);
+    public static final float atan(float f) {
+        return (float) Math.atan(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float atan2(float f2, float f3) {
-        return (float) Math.atan2(f2, f3);
+    public static final float atan2(float f, float f2) {
+        return (float) Math.atan2(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float ceil(float f2) {
-        return (float) Math.ceil(f2);
+    public static final float ceil(float f) {
+        return (float) Math.ceil(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float cos(float f2) {
-        return (float) Math.cos(f2);
+    public static final float cos(float f) {
+        return (float) Math.cos(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float cosh(float f2) {
-        return (float) Math.cosh(f2);
+    public static final float cosh(float f) {
+        return (float) Math.cosh(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float exp(float f2) {
-        return (float) Math.exp(f2);
+    public static final float exp(float f) {
+        return (float) Math.exp(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float expm1(float f2) {
-        return (float) Math.expm1(f2);
+    public static final float expm1(float f) {
+        return (float) Math.expm1(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float floor(float f2) {
-        return (float) Math.floor(f2);
+    public static final float floor(float f) {
+        return (float) Math.floor(f);
     }
 
-    public static final float getAbsoluteValue(float f2) {
-        return Math.abs(f2);
+    public static final float getAbsoluteValue(float f) {
+        return Math.abs(f);
     }
 
-    public static final float getSign(float f2) {
-        return Math.signum(f2);
+    public static final float getSign(float f) {
+        return Math.signum(f);
     }
 
-    public static final float getUlp(float f2) {
-        return Math.ulp(f2);
-    }
-
-    @SinceKotlin(version = "1.2")
-    @InlineOnly
-    public static final float hypot(float f2, float f3) {
-        return (float) Math.hypot(f2, f3);
+    public static final float getUlp(float f) {
+        return Math.ulp(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float ln(float f2) {
-        return (float) Math.log(f2);
+    public static final float hypot(float f, float f2) {
+        return (float) Math.hypot(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float ln1p(float f2) {
-        return (float) Math.log1p(f2);
+    public static final float ln(float f) {
+        return (float) Math.log(f);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final float log(float f2, float f3) {
-        if (f3 <= 0.0f || f3 == 1.0f) {
+    @InlineOnly
+    public static final float ln1p(float f) {
+        return (float) Math.log1p(f);
+    }
+
+    @SinceKotlin(version = "1.2")
+    public static final float log(float f, float f2) {
+        if (f2 <= 0.0f || f2 == 1.0f) {
             return Float.NaN;
         }
-        return (float) (Math.log(f2) / Math.log(f3));
+        return (float) (Math.log(f) / Math.log(f2));
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float log10(float f2) {
-        return (float) Math.log10(f2);
+    public static final float log10(float f) {
+        return (float) Math.log10(f);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final float log2(float f2) {
-        return (float) (Math.log(f2) / Constants.LN2);
-    }
-
-    @SinceKotlin(version = "1.2")
-    @InlineOnly
-    public static final float max(float f2, float f3) {
-        return Math.max(f2, f3);
+    public static final float log2(float f) {
+        return (float) (Math.log(f) / Constants.LN2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float min(float f2, float f3) {
-        return Math.min(f2, f3);
+    public static final float max(float f, float f2) {
+        return Math.max(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float nextDown(float f2) {
-        return Math.nextAfter(f2, Double.NEGATIVE_INFINITY);
+    public static final float min(float f, float f2) {
+        return Math.min(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float nextTowards(float f2, float f3) {
-        return Math.nextAfter(f2, f3);
+    public static final float nextDown(float f) {
+        return Math.nextAfter(f, Double.NEGATIVE_INFINITY);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float nextUp(float f2) {
-        return Math.nextUp(f2);
+    public static final float nextTowards(float f, float f2) {
+        return Math.nextAfter(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double pow(double d2, int i) {
-        return Math.pow(d2, i);
+    public static final float nextUp(float f) {
+        return Math.nextUp(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float round(float f2) {
-        return (float) Math.rint(f2);
-    }
-
-    @SinceKotlin(version = "1.2")
-    public static final long roundToLong(float f2) {
-        return roundToLong(f2);
+    public static final double pow(double d, int i) {
+        return Math.pow(d, i);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float sign(float f2) {
-        return Math.signum(f2);
+    public static final float round(float f) {
+        return (float) Math.rint(f);
+    }
+
+    @SinceKotlin(version = "1.2")
+    public static final long roundToLong(float f) {
+        return roundToLong(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float sin(float f2) {
-        return (float) Math.sin(f2);
+    public static final float sign(float f) {
+        return Math.signum(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float sinh(float f2) {
-        return (float) Math.sinh(f2);
+    public static final float sin(float f) {
+        return (float) Math.sin(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float sqrt(float f2) {
-        return (float) Math.sqrt(f2);
+    public static final float sinh(float f) {
+        return (float) Math.sinh(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float tan(float f2) {
-        return (float) Math.tan(f2);
+    public static final float sqrt(float f) {
+        return (float) Math.sqrt(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float tanh(float f2) {
-        return (float) Math.tanh(f2);
+    public static final float tan(float f) {
+        return (float) Math.tan(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final double withSign(double d2, int i) {
-        return Math.copySign(d2, i);
+    public static final float tanh(float f) {
+        return (float) Math.tanh(f);
+    }
+
+    @SinceKotlin(version = "1.2")
+    @InlineOnly
+    public static final double withSign(double d, int i) {
+        return Math.copySign(d, i);
     }
 
     @SinceKotlin(version = "1.2")
@@ -591,14 +591,14 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float pow(float f2, float f3) {
-        return (float) Math.pow(f2, f3);
+    public static final float pow(float f, float f2) {
+        return (float) Math.pow(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float withSign(float f2, float f3) {
-        return Math.copySign(f2, f3);
+    public static final float withSign(float f, float f2) {
+        return Math.copySign(f, f2);
     }
 
     @SinceKotlin(version = "1.2")
@@ -609,8 +609,8 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float atanh(float f2) {
-        return (float) atanh(f2);
+    public static final float atanh(float f) {
+        return (float) atanh(f);
     }
 
     public static final long getAbsoluteValue(long j) {
@@ -631,47 +631,47 @@ public class MathKt__MathJVMKt extends MathKt__MathHKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float pow(float f2, int i) {
-        return (float) Math.pow(f2, i);
+    public static final float pow(float f, int i) {
+        return (float) Math.pow(f, i);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final int roundToInt(float f2) {
-        if (Float.isNaN(f2)) {
+    public static final int roundToInt(float f) {
+        if (Float.isNaN(f)) {
             throw new IllegalArgumentException("Cannot round NaN value.");
         }
-        return Math.round(f2);
+        return Math.round(f);
     }
 
     @SinceKotlin(version = "1.2")
-    public static final float truncate(float f2) {
+    public static final float truncate(float f) {
         double ceil;
-        if (Float.isNaN(f2) || Float.isInfinite(f2)) {
-            return f2;
+        if (Float.isNaN(f) || Float.isInfinite(f)) {
+            return f;
         }
-        if (f2 > 0) {
-            ceil = Math.floor(f2);
+        if (f > 0) {
+            ceil = Math.floor(f);
         } else {
-            ceil = Math.ceil(f2);
+            ceil = Math.ceil(f);
         }
         return (float) ceil;
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float withSign(float f2, int i) {
-        return Math.copySign(f2, i);
+    public static final float withSign(float f, int i) {
+        return Math.copySign(f, i);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float acosh(float f2) {
-        return (float) acosh(f2);
+    public static final float acosh(float f) {
+        return (float) acosh(f);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final float asinh(float f2) {
-        return (float) asinh(f2);
+    public static final float asinh(float f) {
+        return (float) asinh(f);
     }
 }

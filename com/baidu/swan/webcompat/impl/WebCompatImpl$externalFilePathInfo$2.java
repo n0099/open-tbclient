@@ -1,6 +1,5 @@
 package com.baidu.swan.webcompat.impl;
 
-import c.a.n0.a.t1.d;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i03;
 import java.io.File;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u0004\u0018\u00010\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class WebCompatImpl$externalFilePathInfo$2 extends Lambda implements Function0<FilePathInfo> {
     public static /* synthetic */ Interceptable $ic;
     public static final WebCompatImpl$externalFilePathInfo$2 INSTANCE;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$externalFilePathInfo$2 extends Lambda implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            File it = d.J().getExternalFilesDir(null);
+            File it = i03.J().getExternalFilesDir(null);
             if (it != null) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 return new FilePathInfo(it);

@@ -206,8 +206,8 @@ public final class ExecutorScheduler extends Scheduler {
                 ExecutorWorker.BooleanRunnable booleanRunnable = new ExecutorWorker.BooleanRunnable(onSchedule);
                 this.executor.execute(booleanRunnable);
                 return booleanRunnable;
-            } catch (RejectedExecutionException e2) {
-                RxJavaPlugins.onError(e2);
+            } catch (RejectedExecutionException e) {
+                RxJavaPlugins.onError(e);
                 return EmptyDisposable.INSTANCE;
             }
         }
@@ -225,8 +225,8 @@ public final class ExecutorScheduler extends Scheduler {
                     ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(RxJavaPlugins.onSchedule(runnable));
                     scheduledDirectPeriodicTask.setFuture(((ScheduledExecutorService) this.executor).scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                     return scheduledDirectPeriodicTask;
-                } catch (RejectedExecutionException e2) {
-                    RxJavaPlugins.onError(e2);
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
             }
@@ -247,8 +247,8 @@ public final class ExecutorScheduler extends Scheduler {
                     ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(onSchedule);
                     scheduledDirectTask.setFuture(((ScheduledExecutorService) this.executor).schedule(scheduledDirectTask, j, timeUnit));
                     return scheduledDirectTask;
-                } catch (RejectedExecutionException e2) {
-                    RxJavaPlugins.onError(e2);
+                } catch (RejectedExecutionException e) {
+                    RxJavaPlugins.onError(e);
                     return EmptyDisposable.INSTANCE;
                 }
             }
@@ -459,10 +459,10 @@ public final class ExecutorScheduler extends Scheduler {
                 if (this.wip.getAndIncrement() == 0) {
                     try {
                         this.executor.execute(this);
-                    } catch (RejectedExecutionException e2) {
+                    } catch (RejectedExecutionException e) {
                         this.disposed = true;
                         this.queue.clear();
-                        RxJavaPlugins.onError(e2);
+                        RxJavaPlugins.onError(e);
                         return EmptyDisposable.INSTANCE;
                     }
                 }
@@ -491,9 +491,9 @@ public final class ExecutorScheduler extends Scheduler {
                 if (executor instanceof ScheduledExecutorService) {
                     try {
                         scheduledRunnable.setFuture(((ScheduledExecutorService) executor).schedule((Callable) scheduledRunnable, j, timeUnit));
-                    } catch (RejectedExecutionException e2) {
+                    } catch (RejectedExecutionException e) {
                         this.disposed = true;
-                        RxJavaPlugins.onError(e2);
+                        RxJavaPlugins.onError(e);
                         return EmptyDisposable.INSTANCE;
                     }
                 } else {

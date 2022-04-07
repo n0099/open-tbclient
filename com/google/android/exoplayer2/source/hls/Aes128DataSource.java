@@ -21,7 +21,7 @@ import javax.crypto.CipherInputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Aes128DataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,16 +72,16 @@ public final class Aes128DataSource implements DataSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataSpec)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(i1.f38835c);
+                Cipher cipher = Cipher.getInstance(i1.c);
                 try {
                     cipher.init(2, new SecretKeySpec(this.encryptionKey, "AES"), new IvParameterSpec(this.encryptionIv));
                     this.cipherInputStream = new CipherInputStream(new DataSourceInputStream(this.upstream, dataSpec), cipher);
                     return -1L;
-                } catch (InvalidAlgorithmParameterException | InvalidKeyException e2) {
-                    throw new RuntimeException(e2);
+                } catch (InvalidAlgorithmParameterException | InvalidKeyException e) {
+                    throw new RuntimeException(e);
                 }
-            } catch (NoSuchAlgorithmException | NoSuchPaddingException e3) {
-                throw new RuntimeException(e3);
+            } catch (NoSuchAlgorithmException | NoSuchPaddingException e2) {
+                throw new RuntimeException(e2);
             }
         }
         return invokeL.longValue;

@@ -375,12 +375,12 @@ public abstract class ModernAsyncTask<Params, Progress, Result> {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
                         this.this$0.postResultIfNotInvoked(get());
-                    } catch (InterruptedException e2) {
-                        Log.w(ModernAsyncTask.LOG_TAG, e2);
+                    } catch (InterruptedException e) {
+                        Log.w(ModernAsyncTask.LOG_TAG, e);
                     } catch (CancellationException unused) {
                         this.this$0.postResultIfNotInvoked(null);
-                    } catch (ExecutionException e3) {
-                        throw new RuntimeException("An error occurred while executing doInBackground()", e3.getCause());
+                    } catch (ExecutionException e2) {
+                        throw new RuntimeException("An error occurred while executing doInBackground()", e2.getCause());
                     } catch (Throwable th) {
                         throw new RuntimeException("An error occurred while executing doInBackground()", th);
                     }

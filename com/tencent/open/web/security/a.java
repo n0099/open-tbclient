@@ -12,16 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a extends InputConnectionWrapper {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f43814b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static boolean f43815c;
+    public static boolean b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,7 +61,7 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, charSequence, i)) == null) {
-            f43815c = true;
+            c = true;
             a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->commitText: " + charSequence.toString());
             return super.commitText(charSequence, i);
@@ -81,7 +77,7 @@ public class a extends InputConnectionWrapper {
             if (keyEvent.getAction() == 0) {
                 SLog.i("openSDK_LOG.CaptureInputConnection", "sendKeyEvent");
                 a = String.valueOf((char) keyEvent.getUnicodeChar());
-                f43815c = true;
+                c = true;
                 SLog.d("openSDK_LOG.CaptureInputConnection", "s: " + a);
             }
             SLog.d("openSDK_LOG.CaptureInputConnection", "-->sendKeyEvent: " + a);
@@ -95,7 +91,7 @@ public class a extends InputConnectionWrapper {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, charSequence, i)) == null) {
-            f43815c = true;
+            c = true;
             a = charSequence.toString();
             SLog.v("openSDK_LOG.CaptureInputConnection", "-->setComposingText: " + charSequence.toString());
             return super.setComposingText(charSequence, i);

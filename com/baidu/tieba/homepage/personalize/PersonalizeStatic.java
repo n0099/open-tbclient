@@ -35,24 +35,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.q45;
+/* loaded from: classes3.dex */
 public class PersonalizeStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.homepage.personalize.PersonalizeStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC1853a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0194a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Context a;
 
-            public RunnableC1853a(a aVar, Context context) {
+            public RunnableC0194a(a aVar, Context context) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,10 +78,10 @@ public class PersonalizeStatic {
                     Looper.prepare();
                     try {
                         StickyAppBarLayout stickyAppBarLayout = new StickyAppBarLayout(this.a);
-                        stickyAppBarLayout.setId(R.id.obfuscated_res_0x7f09027f);
-                        c.a.o0.h0.f.b().f10311b = stickyAppBarLayout;
-                    } catch (Exception e2) {
-                        BdLog.e(e2);
+                        stickyAppBarLayout.setId(R.id.obfuscated_res_0x7f090287);
+                        q45.b().b = stickyAppBarLayout;
+                    } catch (Exception e) {
+                        BdLog.e(e);
                     }
                 }
             }
@@ -108,7 +109,7 @@ public class PersonalizeStatic {
                 if (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof Context)) {
                     return null;
                 }
-                Thread thread = new Thread(new RunnableC1853a(this, customMessage.getData()));
+                Thread thread = new Thread(new RunnableC0194a(this, customMessage.getData()));
                 thread.setPriority(10);
                 thread.start();
                 return new CustomResponsedMessage<>(2921675, null);
@@ -117,12 +118,12 @@ public class PersonalizeStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -152,13 +153,12 @@ public class PersonalizeStatic {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     Looper.prepare();
                     try {
-                        PersonalizePageView personalizePageView = (PersonalizePageView) c.a.o0.h0.f.b().f10313d;
-                        if (personalizePageView == null || personalizePageView.s0()) {
-                            return;
+                        PersonalizePageView personalizePageView = (PersonalizePageView) q45.b().d;
+                        if (personalizePageView != null) {
+                            personalizePageView.k0(this.a);
                         }
-                        personalizePageView.n0(this.a);
-                    } catch (Exception e2) {
-                        BdLog.e(e2);
+                    } catch (Exception e) {
+                        BdLog.e(e);
                     }
                 }
             }
@@ -195,12 +195,12 @@ public class PersonalizeStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -230,9 +230,9 @@ public class PersonalizeStatic {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     Looper.prepare();
                     try {
-                        c.a.o0.h0.f.b().f10313d = new PersonalizePageView(this.a);
-                    } catch (Exception e2) {
-                        BdLog.e(e2);
+                        q45.b().d = new PersonalizePageView(this.a);
+                    } catch (Exception e) {
+                        BdLog.e(e);
                     }
                 }
             }
@@ -269,7 +269,7 @@ public class PersonalizeStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,7 +302,7 @@ public class PersonalizeStatic {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class e implements CustomMessageTask.CustomRunnable<Context> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -333,14 +333,14 @@ public class PersonalizeStatic {
                 if (UtilHelper.canUseStyleImmersiveSticky()) {
                     stickyAppBarLayout.setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
                 }
-                stickyAppBarLayout.setId(R.id.obfuscated_res_0x7f09027f);
+                stickyAppBarLayout.setId(R.id.obfuscated_res_0x7f090287);
                 return new CustomResponsedMessage<>(2921672, stickyAppBarLayout);
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,22 +364,22 @@ public class PersonalizeStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Looper.prepare();
-                TbadkCoreApplication.getInst().getPersonalizeViewData().a = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0285, (ViewGroup) null);
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10879b = new HomePageAlaRecommendLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10880c = new CardUserInfoLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10881d = new ForumEnterLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10882e = new CardForumHeadLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10883f = new MultiImgLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10884g = new MutiImgTextLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().f10885h = new MutiImgSingleVerticalLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().a = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0286, (ViewGroup) null);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().b = new HomePageAlaRecommendLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().c = new CardUserInfoLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().d = new ForumEnterLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().e = new CardForumHeadLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().f = new MultiImgLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().g = new MutiImgTextLayout(TbadkCoreApplication.getInst());
+                TbadkCoreApplication.getInst().getPersonalizeViewData().h = new MutiImgSingleVerticalLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().i = new MutiImgMutiPicLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().j = new NewGridImageLayout(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().k = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01c7, (ViewGroup) null, true);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().k = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01ca, (ViewGroup) null, true);
                 TbadkCoreApplication.getInst().getPersonalizeViewData().l = new ItemCardView(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().m = new SingleLinkCardView(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().n = new MultiLinkCardView(TbadkCoreApplication.getInst());
-                TbadkCoreApplication.getInst().getPersonalizeViewData().o = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01a9, (ViewGroup) null, true);
-                TbadkCoreApplication.getInst().getPersonalizeViewData().p = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01c3, (ViewGroup) null, false);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().o = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01ab, (ViewGroup) null, true);
+                TbadkCoreApplication.getInst().getPersonalizeViewData().p = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null, false);
                 TbadkCoreApplication.getInst().getPersonalizeViewData().q = new ThreadGodReplyLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().r = new ThreadCardBottomOpSegmentLayout(TbadkCoreApplication.getInst());
                 TbadkCoreApplication.getInst().getPersonalizeViewData().s = new RecommendInfoLayout(TbadkCoreApplication.getInst());
@@ -401,19 +401,21 @@ public class PersonalizeStatic {
                 return;
             }
         }
-        MessageManager.getInstance().registerTask(new CustomMessageTask(2921675, new a()));
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921677, new b());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921675, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
-        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921676, new c());
+        CustomMessageTask customMessageTask2 = new CustomMessageTask(2921677, new b());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2921671, new d());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2921676, new c());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
-        CustomMessageTask customMessageTask4 = new CustomMessageTask(2921672, new e());
+        CustomMessageTask customMessageTask4 = new CustomMessageTask(2921671, new d());
         customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask4);
+        CustomMessageTask customMessageTask5 = new CustomMessageTask(2921672, new e());
+        customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask5);
         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
             new Thread(new f()).start();
         }

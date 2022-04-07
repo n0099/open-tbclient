@@ -10,17 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Dot extends Overlay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LatLng a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f26148b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f26149c;
+    public int b;
+    public int c;
 
     public Dot() {
         Interceptable interceptable = $ic;
@@ -35,7 +31,7 @@ public final class Dot extends Overlay {
                 return;
             }
         }
-        this.type = com.baidu.mapsdkplatform.comapi.map.h.f26715g;
+        this.type = com.baidu.mapsdkplatform.comapi.map.h.g;
     }
 
     @Override // com.baidu.mapapi.map.Overlay
@@ -47,8 +43,8 @@ public final class Dot extends Overlay {
             GeoPoint ll2mc = CoordUtil.ll2mc(this.a);
             bundle.putDouble("location_x", ll2mc.getLongitudeE6());
             bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-            bundle.putInt("radius", this.f26149c);
-            Overlay.a(this.f26148b, bundle);
+            bundle.putInt("radius", this.c);
+            Overlay.a(this.b, bundle);
             return bundle;
         }
         return (Bundle) invokeL.objValue;
@@ -63,13 +59,13 @@ public final class Dot extends Overlay {
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26148b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
     }
 
     public int getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26149c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
     }
 
     public void setCenter(LatLng latLng) {
@@ -86,7 +82,7 @@ public final class Dot extends Overlay {
     public void setColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f26148b = i;
+            this.b = i;
             this.listener.b(this);
         }
     }
@@ -96,7 +92,7 @@ public final class Dot extends Overlay {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || i <= 0) {
             return;
         }
-        this.f26149c = i;
+        this.c = i;
         this.listener.b(this);
     }
 }

@@ -8,8 +8,8 @@ import kotlin.jvm.internal.Intrinsics;
 @JvmName(name = "TuplesKt")
 /* loaded from: classes8.dex */
 public final class TuplesKt {
-    public static final <A, B> Pair<A, B> to(A a, B b2) {
-        return new Pair<>(a, b2);
+    public static final <A, B> Pair<A, B> to(A a, B b) {
+        return new Pair<>(a, b);
     }
 
     public static final <T> List<T> toList(Pair<? extends T, ? extends T> toList) {

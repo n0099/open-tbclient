@@ -83,7 +83,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class IMBoxManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMBoxManager";
@@ -472,9 +472,9 @@ public final class IMBoxManager {
                                 AccountManager.disconnect(this.val$context);
                                 try {
                                     Thread.sleep(200L);
-                                } catch (InterruptedException e2) {
-                                    LogUtils.e(IMBoxManager.TAG, "Exception ", e2);
-                                    new IMTrack.CrashBuilder(this.val$context).exception(Log.getStackTraceString(e2)).build();
+                                } catch (InterruptedException e) {
+                                    LogUtils.e(IMBoxManager.TAG, "Exception ", e);
+                                    new IMTrack.CrashBuilder(this.val$context).exception(Log.getStackTraceString(e)).build();
                                 }
                             }
                             ILoginListener iLoginListener3 = this.val$listener;
@@ -527,8 +527,8 @@ public final class IMBoxManager {
             long j5 = -1;
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 j = -1;
                 j2 = -1;
             }
@@ -541,8 +541,8 @@ public final class IMBoxManager {
                         j3 = optJSONObject.optLong("msgid", -1L);
                         try {
                             j4 = optJSONObject.optLong("appid", -1L);
-                        } catch (JSONException e3) {
-                            e = e3;
+                        } catch (JSONException e2) {
+                            e = e2;
                             LogUtils.e(TAG, str, e);
                             new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                             j4 = -1;
@@ -552,12 +552,12 @@ public final class IMBoxManager {
                             LogUtils.d(TAG, "touser:" + j5 + "  uk:" + Utility.getUK(context) + "  appId:" + j4 + "  realAppid" + AccountManager.getAppid(context));
                             return false;
                         }
-                    } catch (JSONException e4) {
-                        e = e4;
+                    } catch (JSONException e3) {
+                        e = e3;
                         j3 = -1;
                     }
-                } catch (JSONException e5) {
-                    e = e5;
+                } catch (JSONException e4) {
+                    e = e4;
                     j2 = -1;
                     j3 = j2;
                     LogUtils.e(TAG, str, e);
@@ -1031,8 +1031,8 @@ public final class IMBoxManager {
                     ShieldAndTopManager.getInstance(context).requestMsgMarkTopList();
                     Utility.writeLongData(context, Constants.KEY_SYNC_MSG_TAB_TIME, System.currentTimeMillis() + Constants.SYNC_MSG_DELAY_TIME);
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "updateMsgUsersFromMsgCenter :", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "updateMsgUsersFromMsgCenter :", e);
             }
         }
     }

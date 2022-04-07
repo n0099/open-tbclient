@@ -40,10 +40,10 @@ public class FrameworkSQLiteProgram implements SupportSQLiteProgram {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindDouble(int i, double d2) {
+    public void bindDouble(int i, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
-            this.mDelegate.bindDouble(i, d2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)}) == null) {
+            this.mDelegate.bindDouble(i, d);
         }
     }
 

@@ -3,9 +3,6 @@ package com.baidu.tieba.enterForum.hotuserrank;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.d.f.m.e;
-import c.a.p0.w0.j.c.d;
-import c.a.p0.w0.j.d.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearchlib.Info;
 import com.baidu.tbadk.core.BaseFragmentActivity;
@@ -20,11 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.k56;
+import com.repackage.l56;
+import com.repackage.m56;
+import com.repackage.mg;
+import com.repackage.pg;
+import com.repackage.wt4;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import tbclient.TiebaFieldsInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HotUserRankActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ONE_DAY_MIllIS = 86400000;
@@ -36,12 +39,12 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public String mInputCategory;
     public int mJumpPosition;
     public Runnable mLoadDataRunnable;
-    public c.a.p0.w0.j.d.a mModel;
-    public a.b mOnDataResListener;
+    public m56 mModel;
+    public m56.b mOnDataResListener;
     public String mRuleUrl;
-    public List<d> mTabDataList;
+    public List<l56> mTabDataList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +77,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +110,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements a.b {
+    /* loaded from: classes3.dex */
+    public class c implements m56.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankActivity a;
@@ -131,43 +134,43 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             this.a = hotUserRankActivity;
         }
 
-        @Override // c.a.p0.w0.j.d.a.b
-        public void a(c.a.p0.w0.j.c.c cVar) {
+        @Override // com.repackage.m56.b
+        public void a(k56 k56Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, k56Var) == null) {
                 HotUserRankActivity hotUserRankActivity = this.a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                if (cVar == null || cVar.a == null) {
+                if (k56Var == null || k56Var.a == null) {
                     return;
                 }
-                this.a.mRuleUrl = cVar.f19455d;
+                this.a.mRuleUrl = k56Var.d;
                 if (this.a.mForumId > 0) {
-                    e.a().post(this.a.mLoadDataRunnable);
+                    pg.a().post(this.a.mLoadDataRunnable);
                     return;
                 }
-                TiebaFieldsInfo tiebaFieldsInfo = cVar.a.f19445f;
+                TiebaFieldsInfo tiebaFieldsInfo = k56Var.a.f;
                 if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                    List<String> list = cVar.a.f19445f.tieba_fields;
+                    List<String> list = k56Var.a.f.tieba_fields;
                     this.a.mTabDataList.clear();
                     for (int i = 0; i < list.size(); i++) {
                         String str = list.get(i);
                         if (str != null && str.equals(this.a.mInputCategory)) {
                             this.a.mJumpPosition = i;
                         }
-                        d dVar = new d();
-                        dVar.f19459b = str;
-                        dVar.a = str;
-                        this.a.mTabDataList.add(dVar);
+                        l56 l56Var = new l56();
+                        l56Var.b = str;
+                        l56Var.a = str;
+                        this.a.mTabDataList.add(l56Var);
                     }
-                    e.a().post(this.a.mLoadDataRunnable);
+                    pg.a().post(this.a.mLoadDataRunnable);
                     return;
                 }
                 HotUserRankActivity hotUserRankActivity2 = this.a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c15), true);
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c18), true);
             }
         }
 
-        @Override // c.a.p0.w0.j.d.a.b
+        @Override // com.repackage.m56.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -202,7 +205,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     private void checkShowUpdateTip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            long m = c.a.o0.r.j0.b.k().m("key_hot_user_rank_last_update_time", 0L);
+            long m = wt4.k().m("key_hot_user_rank_last_update_time", 0L);
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 6);
             calendar.set(13, 0);
@@ -216,8 +219,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             }
             if (z) {
                 this.mHotUserRankView.o(0);
-                e.a().postDelayed(this.mHideUpdateTipRunnable, 5000L);
-                c.a.o0.r.j0.b.k().x("key_hot_user_rank_last_update_time", currentTimeMillis);
+                pg.a().postDelayed(this.mHideUpdateTipRunnable, 5000L);
+                wt4.k().x("key_hot_user_rank_last_update_time", currentTimeMillis);
             }
         }
     }
@@ -234,13 +237,13 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             String queryParameter = uri.getQueryParameter(Info.kBaiduModuleKey);
             this.mInputCategory = queryParameter;
             if (TextUtils.isEmpty(queryParameter)) {
-                this.mForumId = c.a.d.f.m.b.g(uri.getQueryParameter("fid"), -1L);
+                this.mForumId = mg.g(uri.getQueryParameter("fid"), -1L);
             }
         }
         this.isGod = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -263,19 +266,19 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.mHotUserRankView = hotUserRankView;
             setContentView(hotUserRankView.i());
-            c.a.p0.w0.j.d.a aVar = new c.a.p0.w0.j.d.a(getUniqueId());
-            this.mModel = aVar;
-            aVar.n(this.mOnDataResListener);
+            m56 m56Var = new m56(getUniqueId());
+            this.mModel = m56Var;
+            m56Var.n(this.mOnDataResListener);
             parseIntent();
             if (!TextUtils.isEmpty(this.mInputCategory)) {
                 this.mModel.i(this.mInputCategory);
             } else if (this.mForumId > 0) {
-                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0661));
+                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0668));
                 this.mModel.h(this.mForumId);
             }
             this.mHotUserRankView.m(this.isGod);
             if (this.isGod) {
-                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0263));
+                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0264));
             }
             showLoadingView(this.mHotUserRankView.i());
         }
@@ -286,8 +289,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            e.a().removeCallbacks(this.mLoadDataRunnable);
-            e.a().removeCallbacks(this.mHideUpdateTipRunnable);
+            pg.a().removeCallbacks(this.mLoadDataRunnable);
+            pg.a().removeCallbacks(this.mHideUpdateTipRunnable);
             this.mModel.k();
             this.mHotUserRankView.k();
         }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoTrackTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DRAIN_STATE_CONSUMED = 2;
@@ -224,8 +224,8 @@ public class VideoTrackTranscoder {
             this.mEncoder = createEncoderByType;
             try {
                 createEncoderByType.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
-            } catch (IllegalStateException e2) {
-                e2.printStackTrace();
+            } catch (IllegalStateException e) {
+                e.printStackTrace();
                 this.mOutputFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 1);
                 this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
                 this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);

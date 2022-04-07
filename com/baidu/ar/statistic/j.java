@@ -30,7 +30,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class j implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public class j implements e {
                 a(gh, aVar);
                 a(gh, context);
                 h(gh);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -103,8 +103,8 @@ public class j implements e {
                         try {
                             jSONObject2.put("event_id", "[multi]");
                             jSONObject = jSONObject2;
-                        } catch (JSONException e2) {
-                            e = e2;
+                        } catch (JSONException e) {
+                            e = e;
                             jSONObject = jSONObject2;
                             e.printStackTrace();
                             if (jSONObject == null) {
@@ -124,8 +124,8 @@ public class j implements e {
                     a(jSONObject, context);
                     jSONObject.put("data", jSONArray);
                 }
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
             }
             if (jSONObject == null) {
                 h(jSONObject);

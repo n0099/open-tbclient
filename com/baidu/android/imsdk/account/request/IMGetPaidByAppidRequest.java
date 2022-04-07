@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -144,9 +144,9 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
                 str = string;
                 i2 = i3;
                 j = r1;
-            } catch (JSONException e2) {
-                LogUtils.e("IMGetPaidByAppidRequest", e2.getMessage(), e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e("IMGetPaidByAppidRequest", e.getMessage(), e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 j = -1;
                 i2 = 1010;

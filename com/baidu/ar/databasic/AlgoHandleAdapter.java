@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlgoHandleAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,7 +98,7 @@ public class AlgoHandleAdapter {
 
     public static native int setHandleMaskData(long j, int i, int i2, int i3, byte[] bArr);
 
-    public static native int setHandleMaskThreshold(long j, float f2);
+    public static native int setHandleMaskThreshold(long j, float f);
 
     public static native int setHandleReserveData(long j, ReserveHandleData reserveHandleData);
 

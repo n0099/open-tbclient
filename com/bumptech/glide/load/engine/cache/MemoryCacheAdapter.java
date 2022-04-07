@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MemoryCacheAdapter implements MemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,9 +93,9 @@ public class MemoryCacheAdapter implements MemoryCache {
     }
 
     @Override // com.bumptech.glide.load.engine.cache.MemoryCache
-    public void setSizeMultiplier(float f2) {
+    public void setSizeMultiplier(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
         }
     }
 

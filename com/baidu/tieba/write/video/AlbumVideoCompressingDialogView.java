@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AlbumCompressProgressView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f37354b;
+    public TextView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -45,9 +43,9 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0216, this);
-            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f0923b7);
-            this.f37354b = (TextView) findViewById(R.id.obfuscated_res_0x7f09223b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0217, this);
+            this.a = (AlbumCompressProgressView) findViewById(R.id.obfuscated_res_0x7f092394);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09221f);
         }
     }
 
@@ -63,7 +61,7 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
             return;
         }
         this.a.setProgress(i);
-        TextView textView = this.f37354b;
+        TextView textView = this.b;
         textView.setText(i + "%");
     }
 

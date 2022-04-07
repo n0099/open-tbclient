@@ -9,7 +9,7 @@ import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class p {
                 sb2.append(sb.toString());
                 c.b("UmcIPUtils", sb2.toString());
                 return sb.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }
@@ -85,8 +85,8 @@ public class p {
                 sb2.append(sb.toString());
                 c.b("UmcIPUtils", sb2.toString());
                 return sb.toString();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "";
             }
         }

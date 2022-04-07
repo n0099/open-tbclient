@@ -17,23 +17,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseMenuView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f29650b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f29651c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f29652d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final int f29653e;
+    public View b;
+    public TextView c;
+    public View d;
+    public final int e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BaseMenuView(@NonNull Context context) {
@@ -58,32 +50,32 @@ public abstract class BaseMenuView extends FrameLayout {
 
     public abstract boolean a();
 
-    public void b(View view, FrameLayout.LayoutParams layoutParams) {
+    public void b(View view2, FrameLayout.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, layoutParams) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, layoutParams) == null) || view2 == null) {
             return;
         }
-        this.f29652d = view;
-        layoutParams.bottomMargin = this.f29653e;
-        addView(view, layoutParams);
+        this.d = view2;
+        layoutParams.bottomMargin = this.e;
+        addView(view2, layoutParams);
     }
 
     public View getBgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29650b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29652d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (View) invokeV.objValue;
     }
 
     public void setClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f29651c.setOnClickListener(onClickListener);
+            this.c.setOnClickListener(onClickListener);
         }
     }
 
@@ -91,10 +83,10 @@ public abstract class BaseMenuView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             Resources resources = getResources();
-            this.f29650b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f081114));
-            this.f29651c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060367));
-            this.f29651c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060368));
-            this.f29651c.setAlpha(1.0f);
+            this.b.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f08111b));
+            this.c.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060367));
+            this.c.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060368));
+            this.c.setAlpha(1.0f);
         }
     }
 
@@ -139,9 +131,9 @@ public abstract class BaseMenuView extends FrameLayout {
             }
         }
         this.a = context;
-        View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0090, this);
-        this.f29650b = inflate.findViewById(R.id.obfuscated_res_0x7f0902f4);
-        this.f29651c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09048d);
-        this.f29653e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700de);
+        View inflate = FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0092, this);
+        this.b = inflate.findViewById(R.id.obfuscated_res_0x7f0902fe);
+        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090495);
+        this.e = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0700de);
     }
 }

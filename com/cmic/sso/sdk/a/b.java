@@ -14,25 +14,17 @@ import com.cmic.sso.sdk.auth.AuthnHelper;
 import com.cmic.sso.sdk.e.k;
 import com.cmic.sso.sdk.e.n;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static b f38377c;
+    public static b c;
     public transient /* synthetic */ FieldHolder $fh;
     public com.cmic.sso.sdk.a.a a;
+    public final com.cmic.sso.sdk.a.a b;
+    public volatile boolean d;
+    public a e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final com.cmic.sso.sdk.a.a f38378b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f38379d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f38380e;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(com.cmic.sso.sdk.a.a aVar);
     }
@@ -52,9 +44,9 @@ public class b {
                 return;
             }
         }
-        this.f38379d = false;
-        com.cmic.sso.sdk.a.a a2 = new a.C1926a().a();
-        this.f38378b = a2;
+        this.d = false;
+        com.cmic.sso.sdk.a.a a2 = new a.C0266a().a();
+        this.b = a2;
         if (!z) {
             this.a = d();
         } else {
@@ -66,18 +58,18 @@ public class b {
     public com.cmic.sso.sdk.a.a d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? new a.C1926a().a(d.b(this.f38378b.a())).c(d.a(this.f38378b.c())).b(d.b(this.f38378b.b())).d(d.c(this.f38378b.d())).d(d.a(this.f38378b.h())).e(d.b(this.f38378b.i())).a(d.e(this.f38378b.e())).b(d.d(this.f38378b.f())).c(d.c(this.f38378b.g())).f(d.f(this.f38378b.j())).a(d.a(this.f38378b.k())).b(d.b(this.f38378b.l())).a() : (com.cmic.sso.sdk.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? new a.C0266a().a(d.b(this.b.a())).c(d.a(this.b.c())).b(d.b(this.b.b())).d(d.c(this.b.d())).d(d.a(this.b.h())).e(d.b(this.b.i())).a(d.e(this.b.e())).b(d.d(this.b.f())).c(d.c(this.b.g())).f(d.f(this.b.j())).a(d.a(this.b.k())).b(d.b(this.b.l())).a() : (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, aVar) == null) {
-            if (this.f38379d) {
+            if (this.d) {
                 com.cmic.sso.sdk.e.c.a("UmcConfigHandle", "正在获取配置中...");
                 return;
             }
-            this.f38379d = true;
+            this.d = true;
             com.cmic.sso.sdk.c.c.a.a().a(false, aVar, new com.cmic.sso.sdk.c.c.d(this) { // from class: com.cmic.sso.sdk.a.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -110,14 +102,14 @@ public class b {
                                 this.a.a(jSONObject);
                                 k.a("sdk_config_version", AuthnHelper.SDK_VERSION);
                                 this.a.a = this.a.d();
-                                if (this.a.f38380e != null) {
-                                    this.a.f38380e.a(this.a.a);
+                                if (this.a.e != null) {
+                                    this.a.e.a(this.a.a);
                                 }
                             }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                        this.a.f38379d = false;
+                        this.a.d = false;
                     }
                 }
             });
@@ -127,16 +119,16 @@ public class b {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            k.a b2 = k.b("sso_config_xf");
-            b2.c();
-            b2.b();
+            k.a b = k.b("sso_config_xf");
+            b.c();
+            b.b();
         }
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f38380e = aVar;
+            this.e = aVar;
         }
     }
 
@@ -150,14 +142,14 @@ public class b {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
-            if (f38377c == null) {
+            if (c == null) {
                 synchronized (b.class) {
-                    if (f38377c == null) {
-                        f38377c = new b(z);
+                    if (c == null) {
+                        c = new b(z);
                     }
                 }
             }
-            return f38377c;
+            return c;
         }
         return (b) invokeZ.objValue;
     }
@@ -165,17 +157,17 @@ public class b {
     public com.cmic.sso.sdk.a.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38378b : (com.cmic.sso.sdk.a.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (com.cmic.sso.sdk.a.a) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, jSONObject) == null) {
-            k.a b2 = k.b("sso_config_xf");
+            k.a b = k.b("sso_config_xf");
             try {
                 if (jSONObject.has("client_valid")) {
-                    b2.a("client_valid", System.currentTimeMillis() + (Integer.parseInt(jSONObject.getString("client_valid")) * 60 * 60 * 1000));
+                    b.a("client_valid", System.currentTimeMillis() + (Integer.parseInt(jSONObject.getString("client_valid")) * 60 * 60 * 1000));
                 }
                 if (jSONObject.has("Configlist")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("Configlist");
@@ -184,53 +176,53 @@ public class b {
                         if (string.contains("M007")) {
                             String a2 = a(string, "M007");
                             if (!TextUtils.isEmpty(a2)) {
-                                b2.a("logHost", a2);
+                                b.a("logHost", a2);
                             }
                         }
                         if (string.contains("M008")) {
                             String a3 = a(string, "M008");
                             if (!TextUtils.isEmpty(a3)) {
-                                b2.a("https_get_phone_scrip_host", a3);
+                                b.a("https_get_phone_scrip_host", a3);
                             }
                         }
                         if (string.contains("M009")) {
                             String a4 = a(string, "M009");
                             if (!TextUtils.isEmpty(a4)) {
-                                b2.a("config_host", a4);
+                                b.a("config_host", a4);
                             }
                         }
                     } else {
-                        b2.a("logHost");
-                        b2.a("https_get_phone_scrip_host");
-                        b2.a("config_host");
+                        b.a("logHost");
+                        b.a("https_get_phone_scrip_host");
+                        b.a("config_host");
                     }
-                    a(jSONObject2, "CLOSE_FRIEND_WAPKS", "0", b2);
-                    a(jSONObject2, "CLOSE_LOGS_VERSION", "0", b2);
-                    a(jSONObject2, "CLOSE_IPV4_LIST", "0", b2);
-                    a(jSONObject2, "CLOSE_IPV6_LIST", "0", b2);
-                    a(jSONObject2, "CLOSE_M008_SDKVERSION_LIST", "0", b2);
-                    a(jSONObject2, "CLOSE_M008_APPID_LIST", "0", b2);
+                    a(jSONObject2, "CLOSE_FRIEND_WAPKS", "0", b);
+                    a(jSONObject2, "CLOSE_LOGS_VERSION", "0", b);
+                    a(jSONObject2, "CLOSE_IPV4_LIST", "0", b);
+                    a(jSONObject2, "CLOSE_IPV6_LIST", "0", b);
+                    a(jSONObject2, "CLOSE_M008_SDKVERSION_LIST", "0", b);
+                    a(jSONObject2, "CLOSE_M008_APPID_LIST", "0", b);
                     if (jSONObject2.has("LOGS_CONTROL")) {
                         String[] split = jSONObject2.getString("LOGS_CONTROL").replace("h", "").split("&");
                         if (split.length == 2 && !TextUtils.isEmpty(split[0]) && !TextUtils.isEmpty(split[1])) {
                             try {
                                 int parseInt = Integer.parseInt(split[0]);
                                 int parseInt2 = Integer.parseInt(split[1]);
-                                b2.a("maxFailedLogTimes", parseInt);
-                                b2.a("pauseTime", parseInt2);
+                                b.a("maxFailedLogTimes", parseInt);
+                                b.a("pauseTime", parseInt2);
                             } catch (Exception unused) {
                                 com.cmic.sso.sdk.e.c.a("UmcConfigHandle", "解析日志上报限制时间次数异常");
                             }
                         }
                     } else {
-                        b2.a("maxFailedLogTimes");
-                        b2.a("pauseTime");
+                        b.a("maxFailedLogTimes");
+                        b.a("pauseTime");
                     }
                 }
-                b2.b();
-            } catch (Exception e2) {
+                b.b();
+            } catch (Exception e) {
                 com.cmic.sso.sdk.e.c.a("UmcConfigHandle", "配置项异常，配置失效");
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }
@@ -289,9 +281,7 @@ public class b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ com.cmic.sso.sdk.a a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f38381b;
+                public final /* synthetic */ b b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -308,7 +298,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f38381b = this;
+                    this.b = this;
                     this.a = aVar;
                 }
 
@@ -317,7 +307,7 @@ public class b {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         com.cmic.sso.sdk.e.c.b("UmcConfigHandle", "开始拉取配置..");
-                        this.f38381b.b(this.a);
+                        this.b.b(this.a);
                     }
                 }
             });

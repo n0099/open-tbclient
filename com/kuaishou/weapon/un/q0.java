@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class q0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String A = "decrypt fails or md5 verify fails";
@@ -19,27 +19,13 @@ public class q0 {
     public static String G = "imple is null";
     public static String H = "executeCallStatus fails";
     public static String a = "1001001";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38949b = "1001002";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f38950c = "1001003";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f38951d = "1001004";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f38952e = "1001005";
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f38953f = "ANDROID";
-
-    /* renamed from: g  reason: collision with root package name */
-    public static String f38954g = "CBH ak or sk is null";
-
-    /* renamed from: h  reason: collision with root package name */
-    public static String f38955h = "SDK has been initialized by host";
+    public static String b = "1001002";
+    public static String c = "1001003";
+    public static String d = "1001004";
+    public static String e = "1001005";
+    public static String f = "ANDROID";
+    public static String g = "CBH ak or sk is null";
+    public static String h = "SDK has been initialized by host";
     public static String i = "Plugins will be loaded";
     public static String j = "T run has exit: ";
     public static String k = "SDK will execute Plugins Upgrade handler interval: ";

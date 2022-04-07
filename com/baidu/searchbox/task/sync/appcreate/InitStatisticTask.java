@@ -1,6 +1,5 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.o0.r0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.s85;
+/* loaded from: classes2.dex */
 public class InitStatisticTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class InitStatisticTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TiebaStatic.init(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().isMainProcess(false));
-            k.b().H(System.currentTimeMillis() - currentTimeMillis);
+            s85.b().G(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

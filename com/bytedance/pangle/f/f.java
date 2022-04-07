@@ -25,12 +25,12 @@ import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -307,8 +307,8 @@ public final class f {
                     try {
                         a(arrayMap, randomAccessFile.getFD(), mVar);
                         z = false;
-                    } catch (IOException e2) {
-                        throw new SecurityException("Cannot get FD", e2);
+                    } catch (IOException e) {
+                        throw new SecurityException("Cannot get FD", e);
                     }
                 }
                 if (map.containsKey(3)) {
@@ -353,12 +353,12 @@ public final class f {
     public static void a(Map<Integer, byte[]> map, FileDescriptor fileDescriptor, m mVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65545, null, map, fileDescriptor, mVar) == null) {
-            l lVar = new l(fileDescriptor, 0L, mVar.f38122b);
-            long j = mVar.f38123c;
-            l lVar2 = new l(fileDescriptor, j, mVar.f38124d - j);
-            ByteBuffer duplicate = mVar.f38125e.duplicate();
+            l lVar = new l(fileDescriptor, 0L, mVar.b);
+            long j = mVar.c;
+            l lVar2 = new l(fileDescriptor, j, mVar.d - j);
+            ByteBuffer duplicate = mVar.e.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            long j2 = mVar.f38122b;
+            long j2 = mVar.b;
             s.c(duplicate);
             int position = duplicate.position() + 16;
             if (j2 >= 0 && j2 <= 4294967295L) {
@@ -380,8 +380,8 @@ public final class f {
                         }
                     }
                     return;
-                } catch (DigestException e2) {
-                    throw new SecurityException("Failed to compute digest(s) of contents", e2);
+                } catch (DigestException e) {
+                    throw new SecurityException("Failed to compute digest(s) of contents", e);
                 }
             }
             throw new IllegalArgumentException("uint32 value of out range: ".concat(String.valueOf(j2)));
@@ -421,11 +421,11 @@ public final class f {
                 int length = iArr.length;
                 MessageDigest[] messageDigestArr = new MessageDigest[length];
                 for (int i5 = 0; i5 < iArr.length; i5++) {
-                    String b2 = b(iArr[i5]);
+                    String b = b(iArr[i5]);
                     try {
-                        messageDigestArr[i5] = MessageDigest.getInstance(b2);
-                    } catch (NoSuchAlgorithmException e2) {
-                        throw new RuntimeException(b2 + " digest not supported", e2);
+                        messageDigestArr[i5] = MessageDigest.getInstance(b);
+                    } catch (NoSuchAlgorithmException e) {
+                        throw new RuntimeException(b + " digest not supported", e);
                     }
                 }
                 a aVar = new a(messageDigestArr);
@@ -455,11 +455,11 @@ public final class f {
                                 int i12 = iArr[i11];
                                 byte[] bArr4 = bArr3;
                                 byte[] bArr5 = bArr[i11];
-                                int e3 = e(i12);
+                                int e2 = e(i12);
                                 int i13 = length;
                                 MessageDigest[] messageDigestArr2 = messageDigestArr;
-                                int digest = messageDigestArr[i11].digest(bArr5, (i9 * e3) + 5, e3);
-                                if (digest != e3) {
+                                int digest = messageDigestArr[i11].digest(bArr5, (i9 * e2) + 5, e2);
+                                if (digest != e2) {
                                     throw new RuntimeException("Unexpected output size of " + messageDigest.getAlgorithm() + " digest: " + digest);
                                 }
                                 i11++;
@@ -476,8 +476,8 @@ public final class f {
                             kVar = kVar2;
                             bArr3 = bArr3;
                             j4 = j7;
-                        } catch (IOException e4) {
-                            throw new DigestException("Failed to digest chunk #" + i9 + " of section #" + i7, e4);
+                        } catch (IOException e3) {
+                            throw new DigestException("Failed to digest chunk #" + i9 + " of section #" + i7, e3);
                         }
                     }
                     i7++;
@@ -492,11 +492,11 @@ public final class f {
                 for (int i14 = 0; i14 < iArr.length; i14++) {
                     int i15 = iArr[i14];
                     byte[] bArr7 = bArr[i14];
-                    String b3 = b(i15);
+                    String b2 = b(i15);
                     try {
-                        bArr6[i14] = MessageDigest.getInstance(b3).digest(bArr7);
-                    } catch (NoSuchAlgorithmException e5) {
-                        throw new RuntimeException(b3 + " digest not supported", e5);
+                        bArr6[i14] = MessageDigest.getInstance(b2).digest(bArr7);
+                    } catch (NoSuchAlgorithmException e4) {
+                        throw new RuntimeException(b2 + " digest not supported", e4);
                     }
                 }
                 return bArr6;
@@ -513,7 +513,7 @@ public final class f {
             if (bArr.length == 40) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN);
                 order.position(32);
-                if (order.getLong() == j - (mVar.f38123c - mVar.f38122b)) {
+                if (order.getLong() == j - (mVar.c - mVar.b)) {
                     return Arrays.copyOfRange(bArr, 0, 32);
                 }
                 throw new SecurityException("APK content size did not verify");
@@ -551,12 +551,12 @@ public final class f {
                         Interceptable interceptable2 = $ic;
                         return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) ? ByteBuffer.allocate(i) : (ByteBuffer) invokeI.objValue;
                     }
-                }).f38114b)) {
+                }).b)) {
                     return;
                 }
                 throw new SecurityException("APK verity digest of contents did not verify");
-            } catch (IOException | DigestException | NoSuchAlgorithmException e2) {
-                throw new SecurityException("Error during verification", e2);
+            } catch (IOException | DigestException | NoSuchAlgorithmException e) {
+                throw new SecurityException("Error during verification", e);
             }
         }
     }

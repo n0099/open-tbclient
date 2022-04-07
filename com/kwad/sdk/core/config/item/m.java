@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class m extends b<List<com.kwad.sdk.core.response.model.b>> {
     public m() {
         super("posContentInfoList", new ArrayList());
@@ -46,8 +46,8 @@ public class m extends b<List<com.kwad.sdk.core.response.model.b>> {
                     }
                 }
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
         a((m) c());
     }

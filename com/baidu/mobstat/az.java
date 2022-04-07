@@ -19,34 +19,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class az {
     public static /* synthetic */ Interceptable $ic;
     public static final az k;
     public static volatile boolean l;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Activity f27275b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f27276c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f27277d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile String f27278e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f27279f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f27280g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f27281h;
+    public Activity b;
+    public volatile boolean c;
+    public volatile boolean d;
+    public volatile String e;
+    public long f;
+    public long g;
+    public String h;
     public PointF i;
     public bf j;
 
@@ -85,16 +71,16 @@ public class az {
 
     private void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && bw.s(this.a) && !this.f27276c) {
-            if (!this.f27277d) {
-                this.f27278e = bo.a(this.a, "mtj_autoTracker.js");
-                this.f27277d = true;
+        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && bw.s(this.a) && !this.c) {
+            if (!this.d) {
+                this.e = bo.a(this.a, "mtj_autoTracker.js");
+                this.d = true;
             }
-            if (this.f27279f == 0) {
-                this.f27279f = bq.a().n(this.a);
-                this.f27280g = bq.a().o(this.a);
+            if (this.f == 0) {
+                this.f = bq.a().n(this.a);
+                this.g = bq.a().o(this.a);
             }
-            if (!(this.f27277d && TextUtils.isEmpty(this.f27278e)) && System.currentTimeMillis() - this.f27279f <= this.f27280g) {
+            if (!(this.d && TextUtils.isEmpty(this.e)) && System.currentTimeMillis() - this.f <= this.g) {
                 return;
             }
             f();
@@ -130,14 +116,14 @@ public class az {
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.f27276c) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.a.c) {
                         return;
                     }
-                    boolean a = bg.a(this.a.a, this.a.f27281h, 1, false);
-                    this.a.f27276c = true;
+                    boolean a = bg.a(this.a.a, this.a.h, 1, false);
+                    this.a.c = true;
                     if (a) {
                         az azVar = this.a;
-                        azVar.f27278e = bo.a(azVar.a, "mtj_autoTracker.js");
+                        azVar.e = bo.a(azVar.a, "mtj_autoTracker.js");
                     }
                 }
             });
@@ -164,7 +150,7 @@ public class az {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f27281h = str;
+            this.h = str;
         }
     }
 
@@ -229,8 +215,8 @@ public class az {
     public void b(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, activity) == null) && d()) {
-            d(this.f27275b);
-            this.f27275b = null;
+            d(this.b);
+            this.b = null;
             a(activity, false);
         }
     }
@@ -244,7 +230,7 @@ public class az {
     private boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) ? !TextUtils.isEmpty(this.f27281h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) ? !TextUtils.isEmpty(this.h) : invokeV.booleanValue;
     }
 
     public void a(String str) {
@@ -269,7 +255,7 @@ public class az {
         if (!(interceptable == null || interceptable.invokeLLL(65545, this, webView, str, blVar) == null) || blVar == null) {
             return;
         }
-        blVar.a(this.f27275b, webView, str, (JSONObject) null, false);
+        blVar.a(this.b, webView, str, (JSONObject) null, false);
     }
 
     public void a(Activity activity) {
@@ -277,7 +263,7 @@ public class az {
         if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && d()) {
             a(true);
             this.a = activity.getApplicationContext();
-            this.f27275b = activity;
+            this.b = activity;
             e();
             c(activity);
             a(activity, true);
@@ -311,10 +297,10 @@ public class az {
     public void a(WebView webView, String str, bl blVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, blVar) == null) {
-            if (TextUtils.isEmpty(this.f27278e)) {
-                this.f27278e = bo.a(this.a, "mtj_autoTracker.js");
+            if (TextUtils.isEmpty(this.e)) {
+                this.e = bo.a(this.a, "mtj_autoTracker.js");
             }
-            b(webView, this.f27278e, blVar);
+            b(webView, this.e, blVar);
         }
     }
 }

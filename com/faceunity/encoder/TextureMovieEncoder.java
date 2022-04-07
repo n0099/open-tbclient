@@ -12,9 +12,6 @@ import android.os.Message;
 import android.os.Process;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.l2.a;
-import c.a.p0.l2.g;
-import c.a.p0.l2.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,13 +27,16 @@ import com.faceunity.gles.FullFrameRect;
 import com.faceunity.gles.GeneratedTexture;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.WindowSurface;
+import com.repackage.am7;
+import com.repackage.ql7;
+import com.repackage.wl7;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
 @TargetApi(18)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AUDIO_SOURCES;
@@ -66,7 +66,7 @@ public class TextureMovieEncoder {
     public int mHeight;
     public WindowSurface mInputWindowSurface;
     public MediaMuxerWrapper mMuxer;
-    public g mPostMonitorManager;
+    public wl7 mPostMonitorManager;
     public boolean mReady;
     public Object mReadyFence;
     public int mRecordingStatus;
@@ -85,13 +85,13 @@ public class TextureMovieEncoder {
     public boolean videoEncoderReadyFlag;
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class AudioThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,8 +124,8 @@ public class TextureMovieEncoder {
                     while (!this.this$0.prepareEncoderReady) {
                         try {
                             this.this$0.prepareEncoderFence.wait();
-                        } catch (InterruptedException e2) {
-                            e2.printStackTrace();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -156,8 +156,8 @@ public class TextureMovieEncoder {
                     } else {
                         Log.e(TextureMovieEncoder.TAG, "failed to initialize AudioRecord");
                     }
-                } catch (Exception e3) {
-                    Log.e(TextureMovieEncoder.TAG, "AudioThread#run", e3);
+                } catch (Exception e2) {
+                    Log.e(TextureMovieEncoder.TAG, "AudioThread#run", e2);
                 }
                 synchronized (this.this$0.stopEncoderFence) {
                     this.this$0.stopEncoderSuccess = true;
@@ -171,7 +171,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,14 +219,14 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnEncoderStatusUpdateListener {
         void onStartSuccess();
 
         void onStopSuccess();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +284,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class VideoThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,10 +364,10 @@ public class TextureMovieEncoder {
         this.mRecordingStatus = 4;
         this.firstTimeStampBase = 0L;
         this.firstNanoTime = 0L;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, k.class);
-        k kVar = runTask != null ? (k) runTask.getData() : null;
-        if (kVar != null) {
-            this.mPostMonitorManager = kVar.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, am7.class);
+        am7 am7Var = runTask != null ? (am7) runTask.getData() : null;
+        if (am7Var != null) {
+            this.mPostMonitorManager = am7Var.get();
         }
         this.config = null;
         this.prepareEncoderFence = new Object();
@@ -388,8 +388,8 @@ public class TextureMovieEncoder {
         }
         try {
             this.mVideoEncoder.drainEncoder(false);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         EncoderConfig encoderConfig = this.config;
         GLES20.glViewport(0, 0, encoderConfig.mWidth, encoderConfig.mHeight);
@@ -434,8 +434,8 @@ public class TextureMovieEncoder {
             Log.d(TAG, "handleStopRecording");
             try {
                 this.mVideoEncoder.drainEncoder(true);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             this.mRequestStop = true;
             releaseEncoder();
@@ -444,8 +444,8 @@ public class TextureMovieEncoder {
                 synchronized (this.stopEncoderFence) {
                     try {
                         this.stopEncoderFence.wait();
-                    } catch (InterruptedException e3) {
-                        e3.printStackTrace();
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
                     }
                 }
             }
@@ -495,16 +495,16 @@ public class TextureMovieEncoder {
                     this.prepareEncoderReady = true;
                     this.prepareEncoderFence.notify();
                 }
-            } catch (IOException e2) {
-                g gVar = this.mPostMonitorManager;
-                if (gVar != null) {
-                    gVar.b(12, a.a(e2));
+            } catch (IOException e) {
+                wl7 wl7Var = this.mPostMonitorManager;
+                if (wl7Var != null) {
+                    wl7Var.b(12, ql7.a(e));
                 }
-            } catch (IllegalStateException e3) {
+            } catch (IllegalStateException e2) {
                 this.videoEncoderReadyFlag = false;
-                g gVar2 = this.mPostMonitorManager;
-                if (gVar2 != null) {
-                    gVar2.b(13, a.a(e3));
+                wl7 wl7Var2 = this.mPostMonitorManager;
+                if (wl7Var2 != null) {
+                    wl7Var2.b(13, ql7.a(e2));
                     return;
                 }
                 return;
@@ -535,11 +535,11 @@ public class TextureMovieEncoder {
                     this.mEglCore.release();
                     this.mEglCore = null;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                g gVar = this.mPostMonitorManager;
-                if (gVar != null) {
-                    gVar.b(14, a.a(e2));
+            } catch (Exception e) {
+                e.printStackTrace();
+                wl7 wl7Var = this.mPostMonitorManager;
+                if (wl7Var != null) {
+                    wl7Var.b(14, ql7.a(e));
                 }
             }
         }

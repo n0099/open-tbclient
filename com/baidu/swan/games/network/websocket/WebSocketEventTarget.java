@@ -1,18 +1,12 @@
 package com.baidu.swan.games.network.websocket;
 
 import android.util.Log;
-import c.a.n0.a.a;
-import c.a.n0.j.z.h.e;
-import c.a.n0.j.z.h.f;
-import c.a.n0.j.z.h.h;
-import c.a.n0.j.z.h.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,20 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.kz3;
+import com.repackage.lz3;
+import com.repackage.nz3;
+import com.repackage.oz3;
+import com.repackage.tg1;
 import java.nio.ByteBuffer;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketListener {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f29564b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
     public SocketTaskState a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class SocketTaskState {
         public static final /* synthetic */ SocketTaskState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -107,7 +104,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
                 return;
             }
         }
-        f29564b = a.a;
+        b = tg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -131,18 +128,20 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         this.a = SocketTaskState.IDLE;
     }
 
+    @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onClose(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
             this.a = SocketTaskState.CLOSE;
-            y(IntentConfig.CLOSE, new e(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
+            y("close", new kz3(jSONObject != null ? jSONObject.optInt("code", 0) : 0, jSONObject == null ? "" : jSONObject.optString("reason")));
         }
     }
 
+    @Override // com.baidu.searchbox.websocket.IWebSocketListener
     public void onError(Throwable th, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) && this.a == SocketTaskState.IDLE) {
-            y("error", new f(th.getMessage()));
+            y("error", new lz3(th.getMessage()));
         }
     }
 
@@ -150,7 +149,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
     public void onMessage(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            y("message", new h(str));
+            y("message", new nz3(str));
         }
     }
 
@@ -159,14 +158,14 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
             this.a = SocketTaskState.OPEN;
-            y("open", new i(new JSONObject(map)));
+            y("open", new oz3(new JSONObject(map)));
         }
     }
 
     public final void y(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) {
-            if (f29564b) {
+            if (b) {
                 Log.i("WebSocket", "dispatchEvent:" + str);
             }
             dispatchEvent(new JSEvent(str, obj));
@@ -180,7 +179,7 @@ public class WebSocketEventTarget extends EventTargetImpl implements IWebSocketL
             int remaining = byteBuffer.remaining();
             byte[] bArr = new byte[remaining];
             byteBuffer.get(bArr);
-            y("message", new h(new JsArrayBuffer(bArr, remaining)));
+            y("message", new nz3(new JsArrayBuffer(bArr, remaining)));
         }
     }
 }

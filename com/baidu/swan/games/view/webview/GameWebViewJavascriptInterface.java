@@ -3,7 +3,6 @@ package com.baidu.swan.games.view.webview;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.n0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,8 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.h44;
+import com.repackage.tg1;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class GameWebViewJavascriptInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -34,7 +35,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = a.a;
+        DEBUG = tg1.a;
     }
 
     public GameWebViewJavascriptInterface() {
@@ -58,7 +59,7 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "closeGameWebView");
             }
-            c.a.n0.j.p0.h.a F = c.a.n0.j.p0.h.a.F();
+            h44 F = h44.F();
             if (F != null) {
                 F.close();
             }
@@ -72,7 +73,7 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "onGameLoadingFinish");
             }
-            c.a.n0.j.p0.h.a F = c.a.n0.j.p0.h.a.F();
+            h44 F = h44.F();
             if (F != null) {
                 F.I();
             }

@@ -1,6 +1,5 @@
 package com.baidu.tieba.chosen.unlike;
 
-import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.rc5;
 import tbclient.Unlike.DataReq;
 import tbclient.Unlike.UnlikeReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UnlikeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class UnlikeRequest extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.thread_id = Long.valueOf(this.threadId);
             builder.type = Integer.valueOf(this.type);
-            b0.a(builder, true);
+            rc5.a(builder, true);
             UnlikeReqIdl.Builder builder2 = new UnlikeReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

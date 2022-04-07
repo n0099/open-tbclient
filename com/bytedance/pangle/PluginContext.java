@@ -22,7 +22,7 @@ import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
 import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginContext extends e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class PluginContext extends e {
             if (context instanceof ContextThemeWrapper) {
                 try {
                     return ((Integer) FieldUtils.readField(context, "mThemeResource")).intValue();
-                } catch (IllegalAccessException e2) {
-                    e2.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
                 }
             }
             if (context instanceof androidx.appcompat.view.ContextThemeWrapper) {

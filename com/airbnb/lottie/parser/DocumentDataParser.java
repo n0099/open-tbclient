@@ -6,7 +6,7 @@ import com.baidu.mobstat.Config;
 import com.baidu.sofire.rp.db.ReportDb;
 import com.baidu.tbadk.TbConfig;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DocumentDataParser implements ValueParser<DocumentData> {
     public static final DocumentDataParser INSTANCE = new DocumentDataParser();
     public static final JsonReader.Options NAMES = JsonReader.Options.of("t", "f", "s", ReportDb.EVENT_REPORT_TYPE, "tr", "lh", "ls", "fc", Config.STAT_SDK_CHANNEL, TbConfig.SW_APID, "of");
@@ -14,19 +14,19 @@ public class DocumentDataParser implements ValueParser<DocumentData> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.airbnb.lottie.parser.ValueParser
-    public DocumentData parse(JsonReader jsonReader, float f2) throws IOException {
+    public DocumentData parse(JsonReader jsonReader, float f) throws IOException {
         DocumentData.Justification justification = DocumentData.Justification.CENTER;
         jsonReader.beginObject();
         DocumentData.Justification justification2 = justification;
         String str = null;
         String str2 = null;
-        float f3 = 0.0f;
+        float f2 = 0.0f;
         int i = 0;
+        float f3 = 0.0f;
         float f4 = 0.0f;
-        float f5 = 0.0f;
         int i2 = 0;
         int i3 = 0;
-        float f6 = 0.0f;
+        float f5 = 0.0f;
         boolean z = true;
         while (jsonReader.hasNext()) {
             switch (jsonReader.selectName(NAMES)) {
@@ -37,7 +37,7 @@ public class DocumentDataParser implements ValueParser<DocumentData> {
                     str2 = jsonReader.nextString();
                     break;
                 case 2:
-                    f3 = (float) jsonReader.nextDouble();
+                    f2 = (float) jsonReader.nextDouble();
                     break;
                 case 3:
                     int nextInt = jsonReader.nextInt();
@@ -52,10 +52,10 @@ public class DocumentDataParser implements ValueParser<DocumentData> {
                     i = jsonReader.nextInt();
                     break;
                 case 5:
-                    f4 = (float) jsonReader.nextDouble();
+                    f3 = (float) jsonReader.nextDouble();
                     break;
                 case 6:
-                    f5 = (float) jsonReader.nextDouble();
+                    f4 = (float) jsonReader.nextDouble();
                     break;
                 case 7:
                     i2 = JsonUtils.jsonToColor(jsonReader);
@@ -64,7 +64,7 @@ public class DocumentDataParser implements ValueParser<DocumentData> {
                     i3 = JsonUtils.jsonToColor(jsonReader);
                     break;
                 case 9:
-                    f6 = (float) jsonReader.nextDouble();
+                    f5 = (float) jsonReader.nextDouble();
                     break;
                 case 10:
                     z = jsonReader.nextBoolean();
@@ -76,6 +76,6 @@ public class DocumentDataParser implements ValueParser<DocumentData> {
             }
         }
         jsonReader.endObject();
-        return new DocumentData(str, str2, f3, justification2, i, f4, f5, i2, i3, f6, z);
+        return new DocumentData(str, str2, f2, justification2, i, f3, f4, i2, i3, f5, z);
     }
 }

@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class OffsetEdgeTreatment extends EdgeTreatment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float offset;
     public final EdgeTreatment other;
 
-    public OffsetEdgeTreatment(@NonNull EdgeTreatment edgeTreatment, float f2) {
+    public OffsetEdgeTreatment(@NonNull EdgeTreatment edgeTreatment, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {edgeTreatment, Float.valueOf(f2)};
+            Object[] objArr = {edgeTreatment, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,7 +30,7 @@ public final class OffsetEdgeTreatment extends EdgeTreatment {
             }
         }
         this.other = edgeTreatment;
-        this.offset = f2;
+        this.offset = f;
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
@@ -41,10 +41,10 @@ public final class OffsetEdgeTreatment extends EdgeTreatment {
     }
 
     @Override // com.google.android.material.shape.EdgeTreatment
-    public void getEdgePath(float f2, float f3, float f4, @NonNull ShapePath shapePath) {
+    public void getEdgePath(float f, float f2, float f3, @NonNull ShapePath shapePath) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), shapePath}) == null) {
-            this.other.getEdgePath(f2, f3 - this.offset, f4, shapePath);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), shapePath}) == null) {
+            this.other.getEdgePath(f, f2 - this.offset, f3, shapePath);
         }
     }
 }

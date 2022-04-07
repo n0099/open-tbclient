@@ -9,8 +9,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.c.a.a;
-import c.a.b0.e.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -19,6 +17,7 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.pm.BundleInfoGroup;
 import com.baidu.nps.pm.IBundleInfo;
 import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.pass.biometrics.face.liveness.b.a;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.live.chainlog.NpsLoadChainLog;
@@ -44,6 +43,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidubce.services.vod.VodClient;
+import com.repackage.f61;
+import com.repackage.h61;
+import com.repackage.i61;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
@@ -51,7 +53,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_CREATE_LIVE_ROOM_H5 = "AUDIO_CREATE_LIVE_ROOM_H5";
@@ -111,12 +113,12 @@ public class LiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface PluginLoadCallback {
         void onResult(int i, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static LiveNPSPluginManager instance;
@@ -180,8 +182,8 @@ public class LiveNPSPluginManager {
             for (String str : map.keySet()) {
                 try {
                     jSONObject.put(str, map.get(str));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject.toString();
@@ -269,7 +271,7 @@ public class LiveNPSPluginManager {
     public void downloadUpdatePackage() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
+            NPSPackageManager.getInstance().downloadUpdatePackage(NPS_PLUGIN_PKG_NAME, new f61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.32
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -292,20 +294,20 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.b0.c.a.a
+                @Override // com.repackage.f61
                 public void onProgress(long j, long j2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     }
                 }
 
-                @Override // c.a.b0.c.a.a
+                @Override // com.repackage.f61
                 public void onResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
                     }
                 }
-            }, new c.a.b0.e.a(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
+            }, new h61(this) { // from class: com.baidu.searchbox.live.nps.LiveNPSPluginManager.33
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveNPSPluginManager this$0;
@@ -328,13 +330,13 @@ public class LiveNPSPluginManager {
                     this.this$0 = this;
                 }
 
-                @Override // c.a.b0.e.a
-                public void checkAuthorization(IBundleInfo iBundleInfo, int i, b bVar) {
+                @Override // com.repackage.h61
+                public void checkAuthorization(IBundleInfo iBundleInfo, int i, i61 i61Var) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, bVar) == null) || bVar == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeLIL(1048576, this, iBundleInfo, i, i61Var) == null) || i61Var == null) {
                         return;
                     }
-                    bVar.onResult(1);
+                    i61Var.onResult(1);
                 }
             }, 1);
         }
@@ -824,8 +826,8 @@ public class LiveNPSPluginManager {
                 } else {
                     jSONObject.put("page", VodClient.PATH_MEDIA);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             UBCManager uBCManager = this.ubcManager;
             if (uBCManager != null) {
@@ -848,7 +850,7 @@ public class LiveNPSPluginManager {
             if (z) {
                 jSONObject.put("value", "suc");
             } else {
-                jSONObject.put("value", com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("value", a.g0);
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("pkg", str);
@@ -856,8 +858,8 @@ public class LiveNPSPluginManager {
             jSONObject2.put("useFrom", str4);
             jSONObject2.put("reason", str2);
             jSONObject.put("ext", jSONObject2);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         this.ubcManager.onEvent(UBC_ID_PLUGIN_END, jSONObject);
     }
@@ -875,8 +877,8 @@ public class LiveNPSPluginManager {
             jSONObject2.put("pkg", str);
             jSONObject2.put("useFrom", str2);
             jSONObject.put("ext", jSONObject2);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         this.ubcManager.onEvent(UBC_ID_PLUGIN_START, jSONObject);
     }
@@ -1156,8 +1158,8 @@ public class LiveNPSPluginManager {
                 String[] split = str2.split("=");
                 try {
                     hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e2) {
-                    e2.printStackTrace();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
                 }
             }
             return hashMap;
@@ -1174,8 +1176,8 @@ public class LiveNPSPluginManager {
                     if (getPluginInstallVersion() >= 500000000) {
                         this.mLiveNPSPlugin.getYYLiveEntry().cancelLoad();
                     }
-                } catch (AbstractMethodError e2) {
-                    e2.printStackTrace();
+                } catch (AbstractMethodError e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -1189,8 +1191,8 @@ public class LiveNPSPluginManager {
         }
         try {
             iLiveNPSPlugin.getYYLiveEntry().cancelStartYYLiveActivity();
-        } catch (AbstractMethodError e2) {
-            e2.printStackTrace();
+        } catch (AbstractMethodError e) {
+            e.printStackTrace();
         }
     }
 
@@ -1237,8 +1239,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.val$callback.onArSdkStatus(this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().isArSdkLoaded());
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1297,8 +1299,8 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.clearLiveResourceSize(this.val$packageContext);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1385,8 +1387,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveBjhEntry().dispatchLiveMasterRouter(this.val$packageContext, this.val$path, this.val$params);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1507,8 +1509,8 @@ public class LiveNPSPluginManager {
                                         try {
                                             this.this$1.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) this.val$retObject).newInstance();
                                             this.this$1.this$0.mLiveNPSPlugin.getYYLiveEntry().dispatchYYLiveRouter(this.this$1.val$context, this.this$1.val$url);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }
@@ -1580,9 +1582,9 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.getLiveResourceSize(this.val$packageContext, this.val$callback);
                                     return;
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     this.val$callback.getFileSize(0L);
-                                    e2.printStackTrace();
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1642,8 +1644,8 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.getLiveRoomStatus(this.val$roomId, this.val$callback);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1702,9 +1704,9 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.getLiveSdkSize(this.val$packageContext, this.val$callback);
                                     return;
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     this.val$callback.getFileSize(0L);
-                                    e2.printStackTrace();
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1837,8 +1839,8 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.isInHistory(this.val$roomId, this.val$callback);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -1972,8 +1974,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().openAdminListPage(this.val$context);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2073,8 +2075,8 @@ public class LiveNPSPluginManager {
                                         }
                                     });
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2142,8 +2144,8 @@ public class LiveNPSPluginManager {
                 jSONObject.put("enter_outlive_commonwebview", "1");
                 jSONObject.put("enter_outlive_weburl", "https://live.baidu.com/m/media/multipage/cb_start_broad/index.html?app_type=tieba&params=" + str);
                 jSONObject.put("navigationBar", "1");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             ILiveNPSPlugin iLiveNPSPlugin = this.mLiveNPSPlugin;
             if (iLiveNPSPlugin == null) {
@@ -2192,8 +2194,8 @@ public class LiveNPSPluginManager {
                                         }
                                     }
                                     return;
-                                } catch (Exception e3) {
-                                    e3.printStackTrace();
+                                } catch (Exception e2) {
+                                    e2.printStackTrace();
                                     return;
                                 }
                             }
@@ -2259,8 +2261,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveBjhEntry().startLiveMasterActivity(this.val$packageContext, this.val$params, this.val$uri);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2327,8 +2329,8 @@ public class LiveNPSPluginManager {
                                         }
                                         this.this$0.mLiveNPSPlugin.getLiveBjhEntry().startLiveMasterActivityNew(this.val$packageContext, this.val$params, this.val$uri);
                                         return;
-                                    } catch (Exception e2) {
-                                        e2.printStackTrace();
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
                                         return;
                                     }
                                 }
@@ -2400,8 +2402,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().openFansListPage(this.val$context, this.val$uid, this.val$sex);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2461,8 +2463,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().openForbiddenListPage(this.val$context);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2528,8 +2530,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().openGuardianListPage(this.val$context, this.val$charmValue, this.val$uid);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2595,8 +2597,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().openLiveExpPage(this.val$context, this.val$currentExp, this.val$currentLevel);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2667,8 +2669,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().enterLiveShowRoom(this.val$context, this.val$params);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2729,8 +2731,8 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.startMasterActivity(this.val$context, this.val$param);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2791,8 +2793,8 @@ public class LiveNPSPluginManager {
                                     this.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) obj).newInstance();
                                     this.this$0.mLiveNPSPlugin.startMasterActivity(this.val$context, this.val$param, this.val$appVersion);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2852,8 +2854,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().enterPatronagePage(this.val$context);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2917,8 +2919,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().enterPatrons(this.val$context, this.val$uid);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -2982,8 +2984,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowEntry().enterPayPage(this.val$context, this.val$params);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -3049,8 +3051,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().openRealAuthPage(this.val$context, this.val$uid, this.val$certifyStatus);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -3114,8 +3116,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveShowMasterEntry().createLiveRoom(this.val$context, this.val$params);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -3177,8 +3179,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getYYLiveEntry().startYYActivity(this.val$context);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -3279,8 +3281,8 @@ public class LiveNPSPluginManager {
                                         try {
                                             this.this$1.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) this.val$retObject).newInstance();
                                             this.this$1.this$0.mLiveNPSPlugin.getYYLiveEntry().startYYCustomerServiceActivity(this.this$1.val$context, this.this$1.val$url);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }
@@ -3376,8 +3378,8 @@ public class LiveNPSPluginManager {
                                         try {
                                             this.this$1.this$0.mLiveNPSPlugin = (ILiveNPSPlugin) ((Class) this.val$retObject).newInstance();
                                             this.this$1.this$0.mLiveNPSPlugin.getYYLiveEntry().startYYFeedbackActivity(this.this$1.val$context, this.this$1.val$url);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }
@@ -3488,8 +3490,8 @@ public class LiveNPSPluginManager {
                                 if (this.this$0.isDebug()) {
                                     Log.w(LiveNPSPluginManager.TAG, "cancel startYYLiveActivity");
                                 }
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
                     }
@@ -3572,8 +3574,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveYuYinEntry().startYuYinLiveActivity(this.val$context, this.val$scheme, this.val$otherParams, this.val$params);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -3637,8 +3639,8 @@ public class LiveNPSPluginManager {
                                     }
                                     this.this$0.mLiveNPSPlugin.getLiveYuYinEntry().startYuYinCreateLiveRoomActivity(this.val$context, this.val$jsonParams);
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }
@@ -3737,8 +3739,8 @@ public class LiveNPSPluginManager {
                                         }
                                     }
                                     return;
-                                } catch (Exception e2) {
-                                    e2.printStackTrace();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
                                     return;
                                 }
                             }

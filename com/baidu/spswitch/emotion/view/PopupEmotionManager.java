@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PopupEmotionManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANCHOR_Y_OFFSET_DP = 2;
@@ -38,7 +38,7 @@ public class PopupEmotionManager {
     public int mXpos;
     public int mYpos;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class DelayedTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TASK_TYPE_DISMISS = 2;
@@ -69,12 +69,12 @@ public class PopupEmotionManager {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface IShowListener {
         void show(int i, String str, int i2, int i3);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ShowParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -333,8 +333,8 @@ public class PopupEmotionManager {
             this.mLastShowParam = showParam;
             if (this.mPopupEmotionView == null) {
                 this.mPopupEmotionView = new PopupEmotionView(this.mCtx);
-                this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010061);
-                this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010062);
+                this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010062);
+                this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010065);
             }
             this.mPopupEmotionView.configView(showParam.exprName, showParam.exprBitmap);
             calculatePos(showParam);

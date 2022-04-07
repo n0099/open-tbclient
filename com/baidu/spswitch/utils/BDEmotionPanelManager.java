@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDEmotionPanelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_TYPE_LAYOUT = -657931;
@@ -45,12 +45,12 @@ public class BDEmotionPanelManager {
     public boolean isNightMode;
     public String mLastStackInfo;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnEmotionClickListener {
         void onEmotionClick(EmotionType emotionType, int i, String str, String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnVerticalEmotionListener {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;
@@ -92,14 +92,14 @@ public class BDEmotionPanelManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void doLoadInnerEmotionPanel(Activity activity, ViewGroup viewGroup, View view, boolean z) {
+    public void doLoadInnerEmotionPanel(Activity activity, ViewGroup viewGroup, View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{activity, viewGroup, view, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{activity, viewGroup, view2, Boolean.valueOf(z)}) == null) {
             if (!(viewGroup instanceof SPSwitchPanelLinearLayout)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("panelLayout must be SPSwitchLinearLayout");
                 }
-            } else if (!(view instanceof EditText)) {
+            } else if (!(view2 instanceof EditText)) {
                 if (DEBUG) {
                     throw new IllegalArgumentException("focus view must be EditText");
                 }
@@ -110,7 +110,7 @@ public class BDEmotionPanelManager {
             } else {
                 this.isNightMode = z;
                 handleEmotionTypeLayoutNightMode(viewGroup);
-                GlobalOnItemClickListenerManager.getInstance().attachToEditText((EditText) view);
+                GlobalOnItemClickListenerManager.getInstance().attachToEditText((EditText) view2);
                 BDEmotionBagVerticalLayout bDEmotionBagVerticalLayout = new BDEmotionBagVerticalLayout(AppRuntime.getAppContext());
                 bDEmotionBagVerticalLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, UIUtils.dip2px(AppRuntime.getAppContext(), 260.0f)));
                 bDEmotionBagVerticalLayout.setEmotionList(EmotionUtils.getInstance().getPanelEmotionList());
@@ -196,13 +196,13 @@ public class BDEmotionPanelManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isNightMode : invokeV.booleanValue;
     }
 
-    public void loadInnerEmotionPanel(Activity activity, ViewGroup viewGroup, View view, boolean z) {
+    public void loadInnerEmotionPanel(Activity activity, ViewGroup viewGroup, View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, viewGroup, view, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, viewGroup, view2, Boolean.valueOf(z)}) == null) {
             if (DEBUG) {
                 this.mLastStackInfo = Log.getStackTraceString(new Exception());
             }
-            sMainHandler.post(new Runnable(this, activity, viewGroup, view, z) { // from class: com.baidu.spswitch.utils.BDEmotionPanelManager.1
+            sMainHandler.post(new Runnable(this, activity, viewGroup, view2, z) { // from class: com.baidu.spswitch.utils.BDEmotionPanelManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BDEmotionPanelManager this$0;
@@ -216,7 +216,7 @@ public class BDEmotionPanelManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, activity, viewGroup, view, Boolean.valueOf(z)};
+                        Object[] objArr = {this, activity, viewGroup, view2, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -229,7 +229,7 @@ public class BDEmotionPanelManager {
                     this.this$0 = this;
                     this.val$activity = activity;
                     this.val$panelLayout = viewGroup;
-                    this.val$focusView = view;
+                    this.val$focusView = view2;
                     this.val$isNightMode = z;
                 }
 

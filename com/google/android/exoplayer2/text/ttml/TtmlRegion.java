@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class TtmlRegion {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,12 +36,12 @@ public final class TtmlRegion {
         }
     }
 
-    public TtmlRegion(String str, float f2, float f3, int i, int i2, float f4) {
+    public TtmlRegion(String str, float f, float f2, int i, int i2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f4)};
+            Object[] objArr = {str, Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -52,10 +52,10 @@ public final class TtmlRegion {
             }
         }
         this.id = str;
-        this.position = f2;
-        this.line = f3;
+        this.position = f;
+        this.line = f2;
         this.lineType = i;
         this.lineAnchor = i2;
-        this.width = f4;
+        this.width = f3;
     }
 }

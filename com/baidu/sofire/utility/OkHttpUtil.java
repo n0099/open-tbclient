@@ -26,7 +26,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OkHttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] BUF_LEN;

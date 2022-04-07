@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ShadowRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_ALPHA_END = 0;
@@ -82,10 +82,10 @@ public class ShadowRenderer {
         }
     }
 
-    public void drawCornerShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i, float f2, float f3) {
+    public void drawCornerShadow(@NonNull Canvas canvas, @Nullable Matrix matrix, @NonNull RectF rectF, int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, matrix, rectF, Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            boolean z = f3 < 0.0f;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, matrix, rectF, Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            boolean z = f2 < 0.0f;
             Path path = this.scratch;
             if (z) {
                 int[] iArr = cornerColors;
@@ -96,10 +96,10 @@ public class ShadowRenderer {
             } else {
                 path.rewind();
                 path.moveTo(rectF.centerX(), rectF.centerY());
-                path.arcTo(rectF, f2, f3);
+                path.arcTo(rectF, f, f2);
                 path.close();
-                float f4 = -i;
-                rectF.inset(f4, f4);
+                float f3 = -i;
+                rectF.inset(f3, f3);
                 int[] iArr2 = cornerColors;
                 iArr2[0] = 0;
                 iArr2[1] = this.shadowStartColor;
@@ -110,10 +110,10 @@ public class ShadowRenderer {
             if (width <= 0.0f) {
                 return;
             }
-            float f5 = 1.0f - (i / width);
+            float f4 = 1.0f - (i / width);
             float[] fArr = cornerPositions;
-            fArr[1] = f5;
-            fArr[2] = ((1.0f - f5) / 2.0f) + f5;
+            fArr[1] = f4;
+            fArr[2] = ((1.0f - f4) / 2.0f) + f4;
             this.cornerShadowPaint.setShader(new RadialGradient(rectF.centerX(), rectF.centerY(), width, cornerColors, cornerPositions, Shader.TileMode.CLAMP));
             canvas.save();
             canvas.concat(matrix);
@@ -121,7 +121,7 @@ public class ShadowRenderer {
                 canvas.clipPath(path, Region.Op.DIFFERENCE);
                 canvas.drawPath(path, this.transparentPaint);
             }
-            canvas.drawArc(rectF, f2, f3, true, this.cornerShadowPaint);
+            canvas.drawArc(rectF, f, f2, true, this.cornerShadowPaint);
             canvas.restore();
         }
     }
@@ -136,8 +136,8 @@ public class ShadowRenderer {
             iArr[1] = this.shadowMiddleColor;
             iArr[2] = this.shadowStartColor;
             Paint paint = this.edgeShadowPaint;
-            float f2 = rectF.left;
-            paint.setShader(new LinearGradient(f2, rectF.top, f2, rectF.bottom, edgeColors, edgePositions, Shader.TileMode.CLAMP));
+            float f = rectF.left;
+            paint.setShader(new LinearGradient(f, rectF.top, f, rectF.bottom, edgeColors, edgePositions, Shader.TileMode.CLAMP));
             canvas.save();
             canvas.concat(matrix);
             canvas.drawRect(rectF, this.edgeShadowPaint);

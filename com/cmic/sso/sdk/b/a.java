@@ -21,29 +21,23 @@ import com.cmic.sso.sdk.e.c;
 import com.cmic.sso.sdk.e.g;
 import com.cmic.sso.sdk.e.m;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f38416b;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public C1927a f38417c;
+    public C0267a c;
 
     /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C1927a {
+    /* loaded from: classes4.dex */
+    public static class C0267a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
+        public int b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public int f38418b;
-
-        public C1927a() {
+        public C0267a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -57,13 +51,13 @@ public class a {
                 }
             }
             this.a = -1;
-            this.f38418b = -1;
+            this.b = -1;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38418b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
         }
     }
 
@@ -95,7 +89,7 @@ public class a {
                 return;
             }
         }
-        this.f38417c = null;
+        this.c = null;
     }
 
     public static a a() {
@@ -124,9 +118,9 @@ public class a {
                     Method method = telephonyManager.getClass().getMethod("getDataNetworkType", Integer.TYPE);
                     StringBuilder sb = new StringBuilder();
                     sb.append("data dataNetworkType defaultDataSubId = ");
-                    sb.append(this.f38417c.f38418b);
+                    sb.append(this.c.b);
                     c.b("UMCTelephonyManagement", sb.toString());
-                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.f38417c.f38418b))).intValue();
+                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.c.b))).intValue();
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append("data dataNetworkType ---------");
                     sb2.append(intValue);
@@ -139,9 +133,9 @@ public class a {
                     sb3.append(intValue);
                     c.b("UMCTelephonyManagement", sb3.toString());
                     return telephonyManager.getDataNetworkType();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     c.a("UMCTelephonyManagement", "data dataNetworkType ----反射出错-----");
-                    e2.printStackTrace();
+                    e.printStackTrace();
                     return -1;
                 }
             }
@@ -150,14 +144,14 @@ public class a {
         return invokeL.intValue;
     }
 
-    public C1927a b() {
+    public C0267a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            C1927a c1927a = this.f38417c;
-            return c1927a == null ? new C1927a() : c1927a;
+            C0267a c0267a = this.c;
+            return c0267a == null ? new C0267a() : c0267a;
         }
-        return (C1927a) invokeV.objValue;
+        return (C0267a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -195,15 +189,15 @@ public class a {
                     while (cursor.moveToNext()) {
                         int i = cursor.getInt(cursor.getColumnIndex("sim_id"));
                         int i2 = cursor.getInt(cursor.getColumnIndex("_id"));
-                        if (this.f38417c.a == -1 && this.f38417c.f38418b != -1 && this.f38417c.f38418b == i2) {
-                            this.f38417c.a = i;
+                        if (this.c.a == -1 && this.c.b != -1 && this.c.b == i2) {
+                            this.c.a = i;
                             StringBuilder sb = new StringBuilder();
                             sb.append("通过读取sim db获取数据流量卡的卡槽值：");
                             sb.append(i);
                             c.b("UMCTelephonyManagement", sb.toString());
                         }
-                        if (this.f38417c.a == i) {
-                            this.f38417c.f38418b = i2;
+                        if (this.c.a == i) {
+                            this.c.b = i2;
                         }
                     }
                 }
@@ -221,25 +215,25 @@ public class a {
     public void a(Context context, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - f38416b;
+            long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis >= 5000 || currentTimeMillis <= 0) {
-                this.f38417c = new C1927a();
+                this.c = new C0267a();
                 if (z2) {
                     a(context, z);
                     if (m.e() && m.d()) {
                         c.b("UMCTelephonyManagement", "华为手机兼容性处理");
-                        if (this.f38417c.f38418b == 0 || this.f38417c.f38418b == 1) {
-                            if (this.f38417c.a == -1) {
-                                C1927a c1927a = this.f38417c;
-                                c1927a.a = c1927a.f38418b;
+                        if (this.c.b == 0 || this.c.b == 1) {
+                            if (this.c.a == -1) {
+                                C0267a c0267a = this.c;
+                                c0267a.a = c0267a.b;
                             }
-                            this.f38417c.f38418b = -1;
+                            this.c.b = -1;
                         }
-                        if ((this.f38417c.a != -1 || this.f38417c.f38418b != -1) && Build.VERSION.SDK_INT >= 21) {
+                        if ((this.c.a != -1 || this.c.b != -1) && Build.VERSION.SDK_INT >= 21) {
                             b(context);
                         }
                     }
-                    f38416b = System.currentTimeMillis();
+                    b = System.currentTimeMillis();
                 }
             }
         }
@@ -249,17 +243,17 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, this, context, z) == null) {
             if (Build.VERSION.SDK_INT < 22) {
-                this.f38417c.a = -1;
+                this.c.a = -1;
                 return;
             }
             SubscriptionManager from = SubscriptionManager.from(context.getApplicationContext());
             if (from != null) {
                 try {
-                    if (this.f38417c.a == -1 && Build.VERSION.SDK_INT >= 24) {
-                        this.f38417c.f38418b = SubscriptionManager.getDefaultDataSubscriptionId();
+                    if (this.c.a == -1 && Build.VERSION.SDK_INT >= 24) {
+                        this.c.b = SubscriptionManager.getDefaultDataSubscriptionId();
                         StringBuilder sb = new StringBuilder();
                         sb.append("android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                        sb.append(this.f38417c.f38418b);
+                        sb.append(this.c.b);
                         c.b("UMCTelephonyManagement", sb.toString());
                         return;
                     }
@@ -269,10 +263,10 @@ public class a {
                 try {
                     Object invoke = from.getClass().getMethod("getDefaultDataSubId", new Class[0]).invoke(from, new Object[0]);
                     if ((invoke instanceof Integer) || (invoke instanceof Long)) {
-                        this.f38417c.f38418b = ((Integer) invoke).intValue();
+                        this.c.b = ((Integer) invoke).intValue();
                         StringBuilder sb2 = new StringBuilder();
                         sb2.append("android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = ");
-                        sb2.append(this.f38417c.f38418b);
+                        sb2.append(this.c.b);
                         c.b("UMCTelephonyManagement", sb2.toString());
                         return;
                     }
@@ -282,10 +276,10 @@ public class a {
                 try {
                     Object invoke2 = from.getClass().getMethod("getDefaultDataSubscriptionId", new Class[0]).invoke(from, new Object[0]);
                     if ((invoke2 instanceof Integer) || (invoke2 instanceof Long)) {
-                        this.f38417c.f38418b = ((Integer) invoke2).intValue();
+                        this.c.b = ((Integer) invoke2).intValue();
                         StringBuilder sb3 = new StringBuilder();
                         sb3.append("反射getDefaultDataSubscriptionId适配成功: dataSubId = ");
-                        sb3.append(this.f38417c.f38418b);
+                        sb3.append(this.c.b);
                         c.b("UMCTelephonyManagement", sb3.toString());
                     }
                 } catch (Exception unused3) {

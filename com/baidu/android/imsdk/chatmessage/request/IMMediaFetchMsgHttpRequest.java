@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaFetchMsgHttpRequest";
@@ -87,8 +87,8 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                     parserMessage.setStatus(0);
                     list.add(parserMessage);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -151,8 +151,8 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                 }
                 LogUtils.d(TAG, "BC> before genSign param=" + jSONObject);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             LogUtils.d(TAG, "BC> param=" + jSONObject.toString());
             return jSONObject.toString().getBytes();
@@ -205,8 +205,8 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                                     i3++;
                                 }
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             i3 = i4;
                             e.printStackTrace();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
@@ -220,8 +220,8 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
                 i2 = i;
                 z = i3;
                 str = str3;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaFetchChatMsgsResult(this.mListenerKey, i2, str, z, arrayList);
         }

@@ -20,26 +20,16 @@ public class b implements Parcelable {
         }
     };
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f42708b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42709c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f42710d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f42711e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f42712f;
+    public int b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
 
     public b() {
-        this.f42709c = "";
-        this.f42711e = "";
-        this.f42712f = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
     }
 
     @Override // android.os.Parcelable
@@ -53,12 +43,12 @@ public class b implements Parcelable {
         }
         if (obj != null && b.class == obj.getClass()) {
             b bVar = (b) obj;
-            if (this.a == bVar.a && this.f42708b == bVar.f42708b) {
-                String str = this.f42709c;
+            if (this.a == bVar.a && this.b == bVar.b) {
+                String str = this.c;
                 if (str != null) {
-                    return str.equals(bVar.f42709c);
+                    return str.equals(bVar.c);
                 }
-                if (bVar.f42709c == null) {
+                if (bVar.c == null) {
                     return true;
                 }
             }
@@ -67,8 +57,8 @@ public class b implements Parcelable {
     }
 
     public int hashCode() {
-        int i = ((this.a * 31) + this.f42708b) * 31;
-        String str = this.f42709c;
+        int i = ((this.a * 31) + this.b) * 31;
+        String str = this.c;
         return i + (str != null ? str.hashCode() : 0);
     }
 
@@ -79,22 +69,22 @@ public class b implements Parcelable {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.a);
-        parcel.writeInt(this.f42708b);
-        parcel.writeString(this.f42709c);
-        parcel.writeString(this.f42711e);
-        parcel.writeString(this.f42712f);
-        parcel.writeInt(this.f42710d);
+        parcel.writeInt(this.b);
+        parcel.writeString(this.c);
+        parcel.writeString(this.e);
+        parcel.writeString(this.f);
+        parcel.writeInt(this.d);
     }
 
     public b(Parcel parcel) {
-        this.f42709c = "";
-        this.f42711e = "";
-        this.f42712f = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
         this.a = parcel.readInt();
-        this.f42708b = parcel.readInt();
-        this.f42709c = parcel.readString();
-        this.f42711e = parcel.readString();
-        this.f42712f = parcel.readString();
-        this.f42710d = parcel.readInt();
+        this.b = parcel.readInt();
+        this.c = parcel.readString();
+        this.e = parcel.readString();
+        this.f = parcel.readString();
+        this.d = parcel.readInt();
     }
 }

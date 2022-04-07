@@ -1,5 +1,5 @@
 package com.kuaishou.tachikoma.api;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface TKContextInitCallback {
     void onError(String str);
 

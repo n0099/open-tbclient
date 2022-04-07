@@ -1,8 +1,6 @@
 package com.baidu.tieba.forumSquare;
 
 import android.os.Bundle;
-import c.a.p0.d1.a;
-import c.a.p0.d1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.yb6;
+import com.repackage.zb6;
+/* loaded from: classes3.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mDelegate;
+    public yb6 mDelegate;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
     }
 
-    public a getDelegate() {
+    public yb6 getDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (yb6) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -48,9 +48,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            b bVar = this.mDelegate.f13613d;
-            if (bVar != null) {
-                bVar.a(i);
+            zb6 zb6Var = this.mDelegate.d;
+            if (zb6Var != null) {
+                zb6Var.a(i);
             }
         }
     }
@@ -60,9 +60,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            a aVar = new a(this, getPageContext());
-            this.mDelegate = aVar;
-            aVar.n(getIntent());
+            yb6 yb6Var = new yb6(this, getPageContext());
+            this.mDelegate = yb6Var;
+            yb6Var.n(getIntent());
             this.mDelegate.p();
         }
     }

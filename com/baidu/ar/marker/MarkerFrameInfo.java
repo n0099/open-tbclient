@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MarkerFrameInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -152,10 +152,10 @@ public class MarkerFrameInfo {
         }
     }
 
-    public void setScaleY(float f2) {
+    public void setScaleY(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f2) == null) {
-            this.tl = f2;
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            this.tl = f;
         }
     }
 

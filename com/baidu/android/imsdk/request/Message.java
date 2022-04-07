@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public abstract class Message {
                 jSONObject.put("rpc", jSONObject2.toString());
                 this.mBody = jSONObject.toString();
             }
-        } catch (JSONException e2) {
-            LogUtils.e("Message", "getBody :", e2);
+        } catch (JSONException e) {
+            LogUtils.e("Message", "getBody :", e);
         }
     }
 
@@ -157,16 +157,16 @@ public abstract class Message {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e2) {
-                    LogUtils.e("Message", "baos.close", e2);
+                } catch (IOException e) {
+                    LogUtils.e("Message", "baos.close", e);
                 }
                 return byteArray;
             } catch (IOException unused2) {
                 if (byteArrayOutputStream != null) {
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        LogUtils.e("Message", "baos.close", e3);
+                    } catch (IOException e2) {
+                        LogUtils.e("Message", "baos.close", e2);
                     }
                 }
                 return null;
@@ -176,8 +176,8 @@ public abstract class Message {
                 if (byteArrayOutputStream2 != null) {
                     try {
                         byteArrayOutputStream2.close();
-                    } catch (IOException e4) {
-                        LogUtils.e("Message", "baos.close", e4);
+                    } catch (IOException e3) {
+                        LogUtils.e("Message", "baos.close", e3);
                     }
                 }
                 throw th;

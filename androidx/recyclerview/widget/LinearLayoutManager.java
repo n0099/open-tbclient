@@ -90,34 +90,34 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             }
         }
 
-        public void assignFromView(View view, int i) {
+        public void assignFromView(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (this.mLayoutFromEnd) {
-                    this.mCoordinate = this.mOrientationHelper.getDecoratedEnd(view) + this.mOrientationHelper.getTotalSpaceChange();
+                    this.mCoordinate = this.mOrientationHelper.getDecoratedEnd(view2) + this.mOrientationHelper.getTotalSpaceChange();
                 } else {
-                    this.mCoordinate = this.mOrientationHelper.getDecoratedStart(view);
+                    this.mCoordinate = this.mOrientationHelper.getDecoratedStart(view2);
                 }
                 this.mPosition = i;
             }
         }
 
-        public void assignFromViewAndKeepVisibleRect(View view, int i) {
+        public void assignFromViewAndKeepVisibleRect(View view2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
                 int totalSpaceChange = this.mOrientationHelper.getTotalSpaceChange();
                 if (totalSpaceChange >= 0) {
-                    assignFromView(view, i);
+                    assignFromView(view2, i);
                     return;
                 }
                 this.mPosition = i;
                 if (this.mLayoutFromEnd) {
-                    int endAfterPadding = (this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - this.mOrientationHelper.getDecoratedEnd(view);
+                    int endAfterPadding = (this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - this.mOrientationHelper.getDecoratedEnd(view2);
                     this.mCoordinate = this.mOrientationHelper.getEndAfterPadding() - endAfterPadding;
                     if (endAfterPadding > 0) {
-                        int decoratedMeasurement = this.mCoordinate - this.mOrientationHelper.getDecoratedMeasurement(view);
+                        int decoratedMeasurement = this.mCoordinate - this.mOrientationHelper.getDecoratedMeasurement(view2);
                         int startAfterPadding = this.mOrientationHelper.getStartAfterPadding();
-                        int min = decoratedMeasurement - (startAfterPadding + Math.min(this.mOrientationHelper.getDecoratedStart(view) - startAfterPadding, 0));
+                        int min = decoratedMeasurement - (startAfterPadding + Math.min(this.mOrientationHelper.getDecoratedStart(view2) - startAfterPadding, 0));
                         if (min < 0) {
                             this.mCoordinate += Math.min(endAfterPadding, -min);
                             return;
@@ -126,11 +126,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
                     }
                     return;
                 }
-                int decoratedStart = this.mOrientationHelper.getDecoratedStart(view);
+                int decoratedStart = this.mOrientationHelper.getDecoratedStart(view2);
                 int startAfterPadding2 = decoratedStart - this.mOrientationHelper.getStartAfterPadding();
                 this.mCoordinate = decoratedStart;
                 if (startAfterPadding2 > 0) {
-                    int endAfterPadding2 = (this.mOrientationHelper.getEndAfterPadding() - Math.min(0, (this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - this.mOrientationHelper.getDecoratedEnd(view))) - (decoratedStart + this.mOrientationHelper.getDecoratedMeasurement(view));
+                    int endAfterPadding2 = (this.mOrientationHelper.getEndAfterPadding() - Math.min(0, (this.mOrientationHelper.getEndAfterPadding() - totalSpaceChange) - this.mOrientationHelper.getDecoratedEnd(view2))) - (decoratedStart + this.mOrientationHelper.getDecoratedMeasurement(view2));
                     if (endAfterPadding2 < 0) {
                         this.mCoordinate -= Math.min(startAfterPadding2, -endAfterPadding2);
                     }
@@ -138,11 +138,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             }
         }
 
-        public boolean isViewValidAsAnchor(View view, RecyclerView.State state) {
+        public boolean isViewValidAsAnchor(View view2, RecyclerView.State state) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view, state)) == null) {
-                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, state)) == null) {
+                RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
                 return !layoutParams.isItemRemoved() && layoutParams.getViewLayoutPosition() >= 0 && layoutParams.getViewLayoutPosition() < state.getItemCount();
             }
             return invokeLL.booleanValue;
@@ -253,11 +253,11 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
                 int size = this.mScrapList.size();
                 for (int i = 0; i < size; i++) {
-                    View view = this.mScrapList.get(i).itemView;
-                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view.getLayoutParams();
+                    View view2 = this.mScrapList.get(i).itemView;
+                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view2.getLayoutParams();
                     if (!layoutParams.isItemRemoved() && this.mCurrentPosition == layoutParams.getViewLayoutPosition()) {
-                        assignPositionFromScrapList(view);
-                        return view;
+                        assignPositionFromScrapList(view2);
+                        return view2;
                     }
                 }
                 return null;
@@ -303,34 +303,34 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             return (View) invokeL.objValue;
         }
 
-        public View nextViewInLimitedList(View view) {
+        public View nextViewInLimitedList(View view2) {
             InterceptResult invokeL;
             int viewLayoutPosition;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
                 int size = this.mScrapList.size();
-                View view2 = null;
+                View view3 = null;
                 int i = Integer.MAX_VALUE;
                 for (int i2 = 0; i2 < size; i2++) {
-                    View view3 = this.mScrapList.get(i2).itemView;
-                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view3.getLayoutParams();
-                    if (view3 != view && !layoutParams.isItemRemoved() && (viewLayoutPosition = (layoutParams.getViewLayoutPosition() - this.mCurrentPosition) * this.mItemDirection) >= 0 && viewLayoutPosition < i) {
-                        view2 = view3;
+                    View view4 = this.mScrapList.get(i2).itemView;
+                    RecyclerView.LayoutParams layoutParams = (RecyclerView.LayoutParams) view4.getLayoutParams();
+                    if (view4 != view2 && !layoutParams.isItemRemoved() && (viewLayoutPosition = (layoutParams.getViewLayoutPosition() - this.mCurrentPosition) * this.mItemDirection) >= 0 && viewLayoutPosition < i) {
+                        view3 = view4;
                         if (viewLayoutPosition == 0) {
                             break;
                         }
                         i = viewLayoutPosition;
                     }
                 }
-                return view2;
+                return view3;
             }
             return (View) invokeL.objValue;
         }
 
-        public void assignPositionFromScrapList(View view) {
+        public void assignPositionFromScrapList(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                View nextViewInLimitedList = nextViewInLimitedList(view);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                View nextViewInLimitedList = nextViewInLimitedList(view2);
                 if (nextViewInLimitedList == null) {
                     this.mCurrentPosition = -1;
                 } else {
@@ -1330,27 +1330,27 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             int startAfterPadding = this.mOrientationHelper.getStartAfterPadding();
             int endAfterPadding = this.mOrientationHelper.getEndAfterPadding();
             int i4 = i2 > i ? 1 : -1;
-            View view = null;
             View view2 = null;
+            View view3 = null;
             while (i != i2) {
                 View childAt = getChildAt(i);
                 int position = getPosition(childAt);
                 if (position >= 0 && position < i3) {
                     if (((RecyclerView.LayoutParams) childAt.getLayoutParams()).isItemRemoved()) {
-                        if (view2 == null) {
-                            view2 = childAt;
+                        if (view3 == null) {
+                            view3 = childAt;
                         }
                     } else if (this.mOrientationHelper.getDecoratedStart(childAt) < endAfterPadding && this.mOrientationHelper.getDecoratedEnd(childAt) >= startAfterPadding) {
                         return childAt;
                     } else {
-                        if (view == null) {
-                            view = childAt;
+                        if (view2 == null) {
+                            view2 = childAt;
                         }
                     }
                 }
                 i += i4;
             }
-            return view != null ? view : view2;
+            return view2 != null ? view2 : view3;
         }
         return (View) invokeCommon.objValue;
     }
@@ -1540,13 +1540,13 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.LayoutManager
-    public View onFocusSearchFailed(View view, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
+    public View onFocusSearchFailed(View view2, int i, RecyclerView.Recycler recycler, RecyclerView.State state) {
         InterceptResult invokeLILL;
         int convertFocusDirectionToLayoutDirection;
         View findPartiallyOrCompletelyInvisibleChildClosestToEnd;
         View childClosestToEnd;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048617, this, view, i, recycler, state)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048617, this, view2, i, recycler, state)) == null) {
             resolveShouldLayoutReverse();
             if (getChildCount() == 0 || (convertFocusDirectionToLayoutDirection = convertFocusDirectionToLayoutDirection(i)) == Integer.MIN_VALUE) {
                 return null;
@@ -1791,25 +1791,25 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     }
 
     @Override // androidx.recyclerview.widget.ItemTouchHelper.ViewDropHandler
-    public void prepareForDrop(@NonNull View view, @NonNull View view2, int i, int i2) {
+    public void prepareForDrop(@NonNull View view2, @NonNull View view3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048623, this, view, view2, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048623, this, view2, view3, i, i2) == null) {
             assertNotInLayoutOrScroll("Cannot drop a view during a scroll or layout calculation");
             ensureLayoutState();
             resolveShouldLayoutReverse();
-            int position = getPosition(view);
-            int position2 = getPosition(view2);
-            char c2 = position < position2 ? (char) 1 : (char) 65535;
+            int position = getPosition(view2);
+            int position2 = getPosition(view3);
+            char c = position < position2 ? (char) 1 : (char) 65535;
             if (this.mShouldReverseLayout) {
-                if (c2 == 1) {
-                    scrollToPositionWithOffset(position2, this.mOrientationHelper.getEndAfterPadding() - (this.mOrientationHelper.getDecoratedStart(view2) + this.mOrientationHelper.getDecoratedMeasurement(view)));
+                if (c == 1) {
+                    scrollToPositionWithOffset(position2, this.mOrientationHelper.getEndAfterPadding() - (this.mOrientationHelper.getDecoratedStart(view3) + this.mOrientationHelper.getDecoratedMeasurement(view2)));
                 } else {
-                    scrollToPositionWithOffset(position2, this.mOrientationHelper.getEndAfterPadding() - this.mOrientationHelper.getDecoratedEnd(view2));
+                    scrollToPositionWithOffset(position2, this.mOrientationHelper.getEndAfterPadding() - this.mOrientationHelper.getDecoratedEnd(view3));
                 }
-            } else if (c2 == 65535) {
-                scrollToPositionWithOffset(position2, this.mOrientationHelper.getDecoratedStart(view2));
+            } else if (c == 65535) {
+                scrollToPositionWithOffset(position2, this.mOrientationHelper.getDecoratedStart(view3));
             } else {
-                scrollToPositionWithOffset(position2, this.mOrientationHelper.getDecoratedEnd(view2) - this.mOrientationHelper.getDecoratedMeasurement(view));
+                scrollToPositionWithOffset(position2, this.mOrientationHelper.getDecoratedEnd(view3) - this.mOrientationHelper.getDecoratedMeasurement(view2));
             }
         }
     }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMAnswerRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMAnswerRtcInfo> CREATOR;
@@ -148,8 +148,8 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
                 bIMAnswerRtcInfo.setAnswerType(jSONObject.optInt("answer_type"));
                 bIMAnswerRtcInfo.setAnswerMediaType(jSONObject.optInt("answer_media_type"));
                 bIMAnswerRtcInfo.setAnswerDeviceInfo(jSONObject.optString("answer_device_info"));
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMAnswerRtcInfo toRtcInfo Exception ", e);
             }
             return bIMAnswerRtcInfo;
         }
@@ -168,8 +168,8 @@ public class BIMAnswerRtcInfo extends BIMRtcInfo {
                 jSONObject.put("answer_media_type", this.mAnswerMediaType);
                 jSONObject.put("answer_device_info", this.mAnswerDeviceInfo);
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "IMAnswerRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMAnswerRtcInfo Exception ", e);
                 return "";
             }
         }

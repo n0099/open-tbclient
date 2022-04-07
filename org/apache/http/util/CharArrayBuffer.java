@@ -188,9 +188,9 @@ public final class CharArrayBuffer {
         }
     }
 
-    public void append(char c2) {
+    public void append(char c) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

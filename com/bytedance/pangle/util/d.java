@@ -12,19 +12,13 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "DES/ECB/NoPadding";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f38182b = "DESede/ECB/NoPadding";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f38183c = "AES/ECB/NoPadding";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final char[] f38184d;
+    public static String b = "DESede/ECB/NoPadding";
+    public static String c = "AES/ECB/NoPadding";
+    public static final char[] d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +34,7 @@ public final class d {
                 return;
             }
         }
-        f38184d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        d = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
     public static String a(File file) {
@@ -75,25 +69,25 @@ public final class d {
                     byte[] digest = digestInputStream.getMessageDigest().digest();
                     f.a(fileInputStream);
                     return digest;
-                } catch (IOException e2) {
+                } catch (IOException e) {
+                    e = e;
+                    e.printStackTrace();
+                    f.a(fileInputStream);
+                    return null;
+                } catch (NoSuchAlgorithmException e2) {
                     e = e2;
                     e.printStackTrace();
                     f.a(fileInputStream);
                     return null;
-                } catch (NoSuchAlgorithmException e3) {
-                    e = e3;
-                    e.printStackTrace();
-                    f.a(fileInputStream);
-                    return null;
                 }
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 fileInputStream = null;
                 e.printStackTrace();
                 f.a(fileInputStream);
                 return null;
-            } catch (NoSuchAlgorithmException e5) {
-                e = e5;
+            } catch (NoSuchAlgorithmException e4) {
+                e = e4;
                 fileInputStream = null;
                 e.printStackTrace();
                 f.a(fileInputStream);
@@ -119,7 +113,7 @@ public final class d {
                 int i = 0;
                 for (int i2 = 0; i2 < length; i2++) {
                     int i3 = i + 1;
-                    char[] cArr2 = f38184d;
+                    char[] cArr2 = d;
                     cArr[i] = cArr2[(bArr[i2] >>> 4) & 15];
                     i = i3 + 1;
                     cArr[i3] = cArr2[bArr[i2] & 15];

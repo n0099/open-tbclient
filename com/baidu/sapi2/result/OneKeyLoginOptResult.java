@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OneKeyLoginOptResult implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OneKeyLoginOptResult";
@@ -22,7 +22,7 @@ public class OneKeyLoginOptResult implements NoProguard {
     public String securityPhone;
     public int subCode;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OptResultFields {
         public static final String CODE = "0";
         public static final String EXTRA = "3";
@@ -57,8 +57,8 @@ public class OneKeyLoginOptResult implements NoProguard {
                     oneKeyLoginOptResult.subCode = jSONObject.optInt("1", -202);
                     oneKeyLoginOptResult.operateType = jSONObject.optString("2");
                     oneKeyLoginOptResult.extraStr = jSONObject.optString("3");
-                } catch (JSONException e2) {
-                    Log.e(TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.e(TAG, e.getMessage());
                 }
             }
             return oneKeyLoginOptResult;
@@ -81,8 +81,8 @@ public class OneKeyLoginOptResult implements NoProguard {
             }
             try {
                 this.securityPhone = new JSONObject(this.extraStr).optString(OptResultFields.SECURITY_PHONE);
-            } catch (JSONException e2) {
-                Log.e(TAG, e2.getMessage());
+            } catch (JSONException e) {
+                Log.e(TAG, e.getMessage());
             }
         }
     }

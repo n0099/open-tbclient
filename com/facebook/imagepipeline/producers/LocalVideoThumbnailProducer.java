@@ -30,7 +30,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -99,15 +99,15 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                     bitmap = mediaMetadataRetriever.getFrameAtTime(-1L);
                     try {
                         mediaMetadataRetriever.release();
-                    } catch (RuntimeException e2) {
-                        e2.printStackTrace();
+                    } catch (RuntimeException e) {
+                        e.printStackTrace();
                     }
-                } catch (RuntimeException e3) {
-                    e3.printStackTrace();
+                } catch (RuntimeException e2) {
+                    e2.printStackTrace();
                     try {
                         mediaMetadataRetriever.release();
-                    } catch (RuntimeException e4) {
-                        e4.printStackTrace();
+                    } catch (RuntimeException e3) {
+                        e3.printStackTrace();
                     }
                     bitmap = null;
                 }
@@ -118,8 +118,8 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
             } catch (Throwable th) {
                 try {
                     mediaMetadataRetriever.release();
-                } catch (RuntimeException e5) {
-                    e5.printStackTrace();
+                } catch (RuntimeException e4) {
+                    e4.printStackTrace();
                 }
                 throw th;
             }

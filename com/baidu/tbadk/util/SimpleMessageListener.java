@@ -15,17 +15,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class SimpleMessageListener implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public CustomMessageListener a;
+    public boolean b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f30635b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +61,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b<T> {
         void call(@Nullable T t);
     }
@@ -83,11 +81,11 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
                 return;
             }
         }
-        this.f30635b = z;
+        this.b = z;
         this.a = new a(this, i, bVar);
     }
 
-    public static <T> void b(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
+    public static <T> void j(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(65537, null, i, tbPageContext, t) == null) {
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i, t);
@@ -100,14 +98,14 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         }
     }
 
-    public static <T> void c(int i, @Nullable T t) {
+    public static <T> void k(int i, @Nullable T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, null, i, t) == null) {
-            b(i, null, t);
+            j(i, null, t);
         }
     }
 
-    public void a(@NonNull TbPageContext<?> tbPageContext) {
+    public void i(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             this.a.setSelfListener(true);
@@ -118,7 +116,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30635b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.b) {
             return;
         }
         MessageManager.getInstance().registerListener(this.a);
@@ -127,7 +125,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30635b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b) {
             return;
         }
         MessageManager.getInstance().unRegisterListener(this.a);
@@ -136,7 +134,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f30635b) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.b) {
             MessageManager.getInstance().unRegisterListener(this.a);
         }
     }
@@ -144,7 +142,7 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f30635b) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b) {
             MessageManager.getInstance().registerListener(this.a);
         }
     }

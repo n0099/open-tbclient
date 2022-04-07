@@ -15,17 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class a implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f38731b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f38732c;
+    public boolean b;
+    public final LinkedBlockingQueue<IBinder> c;
 
     static {
         InterceptResult invokeClinit;
@@ -56,19 +52,19 @@ public final class a implements ServiceConnection {
                 return;
             }
         }
-        this.f38731b = false;
-        this.f38732c = new LinkedBlockingQueue<>(1);
+        this.b = false;
+        this.c = new LinkedBlockingQueue<>(1);
     }
 
     public IBinder a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f38731b) {
+            if (this.b) {
                 throw new IllegalStateException();
             }
-            this.f38731b = true;
-            return this.f38732c.take();
+            this.b = true;
+            return this.c.take();
         }
         return (IBinder) invokeV.objValue;
     }
@@ -82,9 +78,7 @@ public final class a implements ServiceConnection {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IBinder a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f38733b;
+                public final /* synthetic */ a b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -101,7 +95,7 @@ public final class a implements ServiceConnection {
                             return;
                         }
                     }
-                    this.f38733b = this;
+                    this.b = this;
                     this.a = iBinder;
                 }
 
@@ -111,7 +105,7 @@ public final class a implements ServiceConnection {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             Log.d("PPSSerivceConnection", "onServiceConnected " + System.currentTimeMillis());
-                            this.f38733b.f38732c.offer(this.a);
+                            this.b.c.offer(this.a);
                         } catch (Throwable th) {
                             Log.w("PPSSerivceConnection", "onServiceConnected  " + th.getClass().getSimpleName());
                         }

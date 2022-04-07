@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGenTokenByCuidRequest";
@@ -158,8 +158,8 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
                 } else {
                     i2 = 0;
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, e2.getMessage(), e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, e.getMessage(), e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

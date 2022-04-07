@@ -273,8 +273,8 @@ public class AsyncTimeout extends Timeout {
                         try {
                             this.val$sink.close();
                             this.this$0.exit(true);
-                        } catch (IOException e2) {
-                            throw this.this$0.exit(e2);
+                        } catch (IOException e) {
+                            throw this.this$0.exit(e);
                         }
                     } catch (Throwable th) {
                         this.this$0.exit(false);
@@ -292,8 +292,8 @@ public class AsyncTimeout extends Timeout {
                         try {
                             this.val$sink.flush();
                             this.this$0.exit(true);
-                        } catch (IOException e2) {
-                            throw this.this$0.exit(e2);
+                        } catch (IOException e) {
+                            throw this.this$0.exit(e);
                         }
                     } catch (Throwable th) {
                         this.this$0.exit(false);
@@ -348,8 +348,8 @@ public class AsyncTimeout extends Timeout {
                             this.val$sink.write(buffer, j2);
                             j -= j2;
                             this.this$0.exit(true);
-                        } catch (IOException e2) {
-                            throw this.this$0.exit(e2);
+                        } catch (IOException e) {
+                            throw this.this$0.exit(e);
                         }
                     } catch (Throwable th) {
                         this.this$0.exit(false);
@@ -396,8 +396,8 @@ public class AsyncTimeout extends Timeout {
                         try {
                             this.val$source.close();
                             this.this$0.exit(true);
-                        } catch (IOException e2) {
-                            throw this.this$0.exit(e2);
+                        } catch (IOException e) {
+                            throw this.this$0.exit(e);
                         }
                     } catch (Throwable th) {
                         this.this$0.exit(false);
@@ -417,8 +417,8 @@ public class AsyncTimeout extends Timeout {
                             long read = this.val$source.read(buffer, j);
                             this.this$0.exit(true);
                             return read;
-                        } catch (IOException e2) {
-                            throw this.this$0.exit(e2);
+                        } catch (IOException e) {
+                            throw this.this$0.exit(e);
                         }
                     } catch (Throwable th) {
                         this.this$0.exit(false);

@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MemoryManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OBJ_ID_KEY = "_objId";
@@ -41,7 +41,7 @@ public class MemoryManager {
     public List<V8ValueReference<Throwable>> v8ValueCreateStackTrace;
     public Set<V8ValueReference> weakReferenceSet;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class V8ValueReference<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

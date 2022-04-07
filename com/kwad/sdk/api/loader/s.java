@@ -3,7 +3,7 @@ package com.kwad.sdk.api.loader;
 import android.os.Build;
 import android.os.Process;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class s {
     public static boolean a() {
         int i = Build.VERSION.SDK_INT;
@@ -13,8 +13,8 @@ public class s {
         if (i >= 21) {
             try {
                 return ((Boolean) Reflect.a("dalvik.system.VMRuntime").d("getRuntime").d("is64Bit").a()).booleanValue();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return false;

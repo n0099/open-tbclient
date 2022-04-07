@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class cq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,12 +57,12 @@ public final class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m268a(String str, int i) {
+    public static InetSocketAddress m264a(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             cq a = a(str, i);
-            return new InetSocketAddress(a.m269a(), a.a());
+            return new InetSocketAddress(a.m265a(), a.a());
         }
         return (InetSocketAddress) invokeLI.objValue;
     }
@@ -74,7 +74,7 @@ public final class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m269a() {
+    public String m265a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f177a : (String) invokeV.objValue;

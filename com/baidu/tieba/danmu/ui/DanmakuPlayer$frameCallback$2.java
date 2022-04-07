@@ -10,7 +10,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0006\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/ui/DanmakuPlayer$FrameCallback;"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class DanmakuPlayer$frameCallback$2 extends Lambda implements Function0<DanmakuPlayer.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,11 +42,11 @@ public final class DanmakuPlayer$frameCallback$2 extends Lambda implements Funct
     @Override // kotlin.jvm.functions.Function0
     public final DanmakuPlayer.b invoke() {
         InterceptResult invokeV;
-        DanmakuPlayer.a g2;
+        DanmakuPlayer.a g;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g2 = this.this$0.g();
-            return new DanmakuPlayer.b(g2);
+            g = this.this$0.g();
+            return new DanmakuPlayer.b(g);
         }
         return (DanmakuPlayer.b) invokeV.objValue;
     }

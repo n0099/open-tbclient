@@ -59,7 +59,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PropertyProvider implements IProvider<ArrayList<String>> {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, ArrayList<String>> attributeMap;
@@ -104,7 +104,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     @Override // com.tachikoma.core.manager.IProvider
     public void apply(String str, Object obj, HashMap<String, Object> hashMap) {
-        char c2;
+        char c;
         TKInput tKInput;
         TKWaterListView tKWaterListView;
         Interceptable interceptable = $ic;
@@ -112,261 +112,261 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
             switch (str.hashCode()) {
                 case -1834700363:
                     if (str.equals("com.tachikoma.core.component.toast.TKToast")) {
-                        c2 = 17;
+                        c = 17;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1815682644:
                     if (str.equals("com.tachikoma.core.component.listview.TKWaterListView")) {
-                        c2 = WebvttCueParser.CHAR_SPACE;
+                        c = WebvttCueParser.CHAR_SPACE;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1674121254:
                     if (str.equals("com.tachikoma.core.component.network.Network")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1568538173:
                     if (str.equals("com.tachikoma.core.component.recyclerview.export.TKRefreshAnimatableView")) {
-                        c2 = 26;
+                        c = 26;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1490734452:
                     if (str.equals("com.tachikoma.core.component.switchview.TKSwitch")) {
-                        c2 = '#';
+                        c = '#';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1414476437:
                     if (str.equals("com.tachikoma.core.component.text.TKMarqueeText")) {
-                        c2 = Typography.quote;
+                        c = Typography.quote;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1289269710:
                     if (str.equals("com.tachikoma.core.component.listview.TKRecyclerView")) {
-                        c2 = DecodedBitStreamParser.FS;
+                        c = DecodedBitStreamParser.FS;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1114153406:
                     if (str.equals("com.tachikoma.core.component.imageview.TKImage")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -785089643:
                     if (str.equals("com.tachikoma.core.event.guesture.TKTapEvent")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -698705626:
                     if (str.equals("com.tachikoma.core.component.progressbar.KTProgressBarView")) {
-                        c2 = 27;
+                        c = 27;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -665940655:
                     if (str.equals("com.tachikoma.core.component.button.TKButton")) {
-                        c2 = 22;
+                        c = 22;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -473380274:
                     if (str.equals("com.tachikoma.core.component.network.NetworkError")) {
-                        c2 = '\r';
+                        c = '\r';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -324017669:
                     if (str.equals("com.tachikoma.core.component.input.TKInput")) {
-                        c2 = 25;
+                        c = 25;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 58022346:
                     if (str.equals("com.tachikoma.core.component.text.SpanItem")) {
-                        c2 = 31;
+                        c = 31;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 100018365:
                     if (str.equals("com.tachikoma.core.component.recyclerview.export.TKRefreshControl")) {
-                        c2 = DecodedBitStreamParser.RS;
+                        c = DecodedBitStreamParser.RS;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 207479518:
                     if (str.equals("com.tachikoma.core.event.guesture.TKSwipeEvent")) {
-                        c2 = '\n';
+                        c = '\n';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 283516449:
                     if (str.equals("com.tachikoma.core.event.guesture.TKUpEvent")) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 374651097:
                     if (str.equals("com.tachikoma.core.event.view.TKInputEvent")) {
-                        c2 = 11;
+                        c = 11;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 591158801:
                     if (str.equals("com.tachikoma.core.component.listview.TKListView")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 753880526:
                     if (str.equals("com.tachikoma.core.component.text.TKSpan")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 753900465:
                     if (str.equals("com.tachikoma.core.component.text.TKText")) {
-                        c2 = 18;
+                        c = 18;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 776345307:
                     if (str.equals("com.tachikoma.core.event.guesture.TKPanEvent")) {
-                        c2 = 16;
+                        c = 16;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 791338032:
                     if (str.equals("com.tachikoma.core.component.listview.TKViewPager")) {
-                        c2 = 24;
+                        c = 24;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 801286025:
                     if (str.equals("com.tachikoma.core.component.input.TKTextArea")) {
-                        c2 = '\f';
+                        c = '\f';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 854630252:
                     if (str.equals("com.tachikoma.core.event.base.TKBaseEvent")) {
-                        c2 = 19;
+                        c = 19;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1222308567:
                     if (str.equals("com.tachikoma.core.component.anim.TKSpringAnimation")) {
-                        c2 = DecodedBitStreamParser.GS;
+                        c = DecodedBitStreamParser.GS;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1266328598:
                     if (str.equals("com.tachikoma.core.component.anim.TKBasicAnimation")) {
-                        c2 = 14;
+                        c = 14;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1476104452:
                     if (str.equals("com.tachikoma.core.event.view.TKScrollEvent")) {
-                        c2 = 23;
+                        c = 23;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1540024573:
                     if (str.equals("com.tachikoma.core.event.view.TKSwitchEvent")) {
-                        c2 = '\t';
+                        c = '\t';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1584334001:
                     if (str.equals("com.tachikoma.core.component.view.TKView")) {
-                        c2 = 20;
+                        c = 20;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1666774561:
                     if (str.equals("com.tachikoma.core.component.listview.TKIndicator")) {
-                        c2 = '!';
+                        c = '!';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1681697314:
                     if (str.equals("com.tachikoma.core.event.guesture.TKDispatchEvent")) {
-                        c2 = 21;
+                        c = 21;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1726485521:
                     if (str.equals("com.tachikoma.core.event.guesture.TKLongPressEvent")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1888937310:
                     if (str.equals("com.tachikoma.core.event.guesture.TKPinchEvent")) {
-                        c2 = 15;
+                        c = 15;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1962664954:
                     if (str.equals("com.tachikoma.core.event.guesture.TKDownEvent")) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 2069490582:
                     if (str.equals("com.tachikoma.core.component.anim.TKKeyframeAnimation")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     TKImage tKImage = (TKImage) obj;
                     if (hashMap.get("lottieRes") != null) {
@@ -1517,7 +1517,7 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
     @Override // com.tachikoma.core.manager.IProvider
     public HashMap<String, Object> retrieveEvent(String str, Object obj) {
         InterceptResult invokeLL;
-        char c2;
+        char c;
         HashMap<String, Float> hashMap;
         Object obj2;
         String str2;
@@ -1527,93 +1527,93 @@ public class PropertyProvider implements IProvider<ArrayList<String>> {
             switch (str.hashCode()) {
                 case -785089643:
                     if (str.equals("com.tachikoma.core.event.guesture.TKTapEvent")) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 207479518:
                     if (str.equals("com.tachikoma.core.event.guesture.TKSwipeEvent")) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 283516449:
                     if (str.equals("com.tachikoma.core.event.guesture.TKUpEvent")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 374651097:
                     if (str.equals("com.tachikoma.core.event.view.TKInputEvent")) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 776345307:
                     if (str.equals("com.tachikoma.core.event.guesture.TKPanEvent")) {
-                        c2 = '\b';
+                        c = '\b';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 854630252:
                     if (str.equals("com.tachikoma.core.event.base.TKBaseEvent")) {
-                        c2 = '\t';
+                        c = '\t';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1476104452:
                     if (str.equals("com.tachikoma.core.event.view.TKScrollEvent")) {
-                        c2 = 11;
+                        c = 11;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1540024573:
                     if (str.equals("com.tachikoma.core.event.view.TKSwitchEvent")) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1681697314:
                     if (str.equals("com.tachikoma.core.event.guesture.TKDispatchEvent")) {
-                        c2 = '\n';
+                        c = '\n';
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1726485521:
                     if (str.equals("com.tachikoma.core.event.guesture.TKLongPressEvent")) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1888937310:
                     if (str.equals("com.tachikoma.core.event.guesture.TKPinchEvent")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1962664954:
                     if (str.equals("com.tachikoma.core.event.guesture.TKDownEvent")) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     TKTapEvent tKTapEvent = (TKTapEvent) obj;
                     hashMap2.put("motionType", Integer.valueOf(tKTapEvent.state));

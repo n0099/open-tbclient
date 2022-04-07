@@ -14,7 +14,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RomUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
@@ -68,72 +68,72 @@ public class RomUtils {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static String check() {
         InterceptResult invokeV;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
             switch (lowerCase.hashCode()) {
                 case -1443430368:
                     if (lowerCase.equals(MANUFACTURER_SMARTISAN)) {
-                        c2 = 4;
+                        c = 4;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1245779295:
                     if (lowerCase.equals(MANUFACTURER_GIONEE)) {
-                        c2 = 5;
+                        c = 5;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -1206476313:
                     if (lowerCase.equals(MANUFACTURER_HUAWEI)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case -759499589:
                     if (lowerCase.equals(MANUFACTURER_XIAOMI)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3418016:
                     if (lowerCase.equals(MANUFACTURER_OPPO)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3620012:
                     if (lowerCase.equals(MANUFACTURER_VIVO)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 103777484:
                     if (lowerCase.equals("meizu")) {
-                        c2 = 7;
+                        c = 7;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 105170387:
                     if (lowerCase.equals(MANUFACTURER_NUBIA)) {
-                        c2 = 6;
+                        c = 6;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            switch (c2) {
+            switch (c) {
                 case 0:
                     String prop = getProp("ro.build.version.emui");
                     sRomVersion = prop;
@@ -282,18 +282,18 @@ public class RomUtils {
                     bufferedReader.close();
                     try {
                         bufferedReader.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
                     return readLine;
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     Log.e("Rom", "Unable to read prop " + str, e);
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return null;
@@ -304,14 +304,14 @@ public class RomUtils {
                 if (bufferedReader3 != null) {
                     try {
                         bufferedReader3.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (IOException e6) {
-            e = e6;
+        } catch (IOException e5) {
+            e = e5;
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
@@ -336,7 +336,7 @@ public class RomUtils {
     public static boolean is360() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.f38823h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.h) : invokeV.booleanValue;
     }
 
     public static boolean isEmui() {

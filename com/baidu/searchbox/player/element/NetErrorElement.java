@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetErrorElement extends AbsElement {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,10 +86,10 @@ public class NetErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mRootView == null) {
-                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0155, null);
+                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0157, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921a9);
-            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0903f7);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09218d);
+            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090400);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);
         }
@@ -97,25 +97,25 @@ public class NetErrorElement extends AbsElement {
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement
     public void onEventNotify(@NonNull VideoEvent videoEvent) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, videoEvent) == null) {
             String action = videoEvent.getAction();
             int hashCode = action.hashCode();
             if (hashCode != -552621273) {
                 if (hashCode == -552580917 && action.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (action.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 onSwitchFullStyle();
-            } else if (c2 != 1) {
+            } else if (c != 1) {
             } else {
                 onSwitchHalfStyle();
             }

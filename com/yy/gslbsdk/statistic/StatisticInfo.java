@@ -13,7 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatisticInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StatisticInfo";
@@ -103,8 +103,8 @@ public class StatisticInfo {
                 linkedHashMap.put("netType", String.valueOf(this.netType));
                 linkedHashMap.put("network", this.network);
                 linkedHashMap.putAll(this.devInfo.toMap());
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
             return linkedHashMap;
         }

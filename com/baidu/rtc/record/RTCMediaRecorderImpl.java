@@ -10,11 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.i0;
+import com.repackage.my9;
 import java.io.File;
 import java.io.IOException;
 import org.webrtc.VideoTrack;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RTCMediaRecorderImpl implements IMediaRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RTCMediaRecorderImpl";
@@ -66,9 +66,9 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                     if (!file.getParentFile().exists()) {
                         try {
                             file.getParentFile().mkdirs();
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             if (recorderCallback != null) {
-                                recorderCallback.onRecordCompleted(false, e2.getMessage());
+                                recorderCallback.onRecordCompleted(false, e.getMessage());
                                 return;
                             }
                             return;
@@ -78,13 +78,13 @@ public class RTCMediaRecorderImpl implements IMediaRecord {
                         if (mediaEncodeParams == null) {
                             try {
                                 mediaEncodeParams = new MediaEncodeParams();
-                            } catch (IOException e3) {
+                            } catch (IOException e2) {
                                 this.isRunning = false;
-                                recorderCallback.onRecordCompleted(false, e3.getMessage());
+                                recorderCallback.onRecordCompleted(false, e2.getMessage());
                                 return;
                             }
                         }
-                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, i0.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
+                        RTCVideoFileRenderer rTCVideoFileRenderer = new RTCVideoFileRenderer(file.getAbsolutePath(), mediaEncodeParams, my9.a().getEglBaseContext(), this.audioInterceptor != null, recorderCallback);
                         this.videoFileRenderer = rTCVideoFileRenderer;
                         this.videoTrack.addSink(rTCVideoFileRenderer);
                         if (this.audioInterceptor != null) {

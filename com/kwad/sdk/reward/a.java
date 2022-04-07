@@ -17,35 +17,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends com.kwad.sdk.core.e.b {
     @NonNull
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.b f40742b;
+    public com.kwad.sdk.reward.a.b b;
     @NonNull
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.a.d f40743c;
+    public com.kwad.sdk.reward.a.d c;
     @NonNull
-
-    /* renamed from: d  reason: collision with root package name */
-    public KsVideoPlayConfig f40744d;
+    public KsVideoPlayConfig d;
     @Nullable
-
-    /* renamed from: e  reason: collision with root package name */
-    public JSONObject f40745e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f40746f;
+    public JSONObject e;
+    public int f;
     @NonNull
-
-    /* renamed from: g  reason: collision with root package name */
-    public AdTemplate f40747g;
+    public AdTemplate g;
     @Deprecated
-
-    /* renamed from: h  reason: collision with root package name */
-    public Activity f40748h;
+    public Activity h;
     public Context i;
     @NonNull
     public AdBaseFrameLayout j;
@@ -79,8 +65,8 @@ public class a extends com.kwad.sdk.core.e.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        com.kwad.sdk.core.report.a.a(this.f40747g, i, this.j.getTouchCoords(), this.f40745e);
-        this.f40742b.a();
+        com.kwad.sdk.core.report.a.a(this.g, i, this.j.getTouchCoords(), this.e);
+        this.b.a();
     }
 
     private boolean c() {
@@ -122,7 +108,7 @@ public class a extends com.kwad.sdk.core.e.b {
     }
 
     public void a(Context context, final int i, int i2) {
-        com.kwad.sdk.core.download.a.a.a(new a.C1956a(context).a(this.f40747g).a(this.l).a(false).a(i2).a(new a.b() { // from class: com.kwad.sdk.reward.a.2
+        com.kwad.sdk.core.download.a.a.a(new a.C0296a(context).a(this.g).a(this.l).a(false).a(i2).a(new a.b() { // from class: com.kwad.sdk.reward.a.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 a.this.a(i);

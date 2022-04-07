@@ -14,14 +14,12 @@ import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class i implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f26076b;
+    public final /* synthetic */ e b;
 
     public i(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -38,26 +36,26 @@ public class i implements Runnable {
                 return;
             }
         }
-        this.f26076b = eVar;
+        this.b = eVar;
         this.a = str;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:112:0x01de */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0105 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0108 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:112:0x01dd */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0104 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0107 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:103:0x01c5  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x01eb  */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x01f0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:143:0x019b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:145:0x01d5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:149:0x01ca A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x0206 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:153:0x0190 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:155:0x01fb A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:103:0x01c4  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x01ea  */
+    /* JADX WARN: Removed duplicated region for block: B:141:0x01ef A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:145:0x019a A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x01c9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:149:0x0205 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x01d4 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x018f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x01fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:170:? A[RETURN, SYNTHETIC] */
     /* JADX WARN: Removed duplicated region for block: B:171:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x018b  */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x018a  */
     /* JADX WARN: Type inference failed for: r12v0 */
     /* JADX WARN: Type inference failed for: r12v1 */
     /* JADX WARN: Type inference failed for: r12v12 */
@@ -88,9 +86,9 @@ public class i implements Runnable {
         StringBuffer stringBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26076b.a();
-            this.f26076b.b();
-            this.f26076b.f26072h = this.a;
+            this.b.a();
+            this.b.b();
+            this.b.h = this.a;
             HttpsURLConnection httpsURLConnection2 = null;
             InputStream inputStream2 = null;
             try {
@@ -99,12 +97,12 @@ public class i implements Runnable {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Error e2) {
-                e = e2;
+            } catch (Error e) {
+                e = e;
                 inputStream = null;
                 httpsURLConnection = null;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 inputStream = null;
                 httpsURLConnection = null;
             } catch (Throwable th2) {
@@ -114,20 +112,20 @@ public class i implements Runnable {
             }
             try {
                 try {
-                    httpsURLConnection = (HttpsURLConnection) new URL(this.f26076b.f26072h).openConnection();
+                    httpsURLConnection = (HttpsURLConnection) new URL(this.b.h).openConnection();
                     try {
                         httpsURLConnection.setInstanceFollowRedirects(false);
                         httpsURLConnection.setDoOutput(true);
                         httpsURLConnection.setDoInput(true);
-                        httpsURLConnection.setConnectTimeout(a.f26042b);
-                        httpsURLConnection.setReadTimeout(a.f26043c);
+                        httpsURLConnection.setConnectTimeout(a.b);
+                        httpsURLConnection.setReadTimeout(a.c);
                         httpsURLConnection.setRequestMethod("POST");
                         httpsURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpsURLConnection.setRequestProperty("Accept-Encoding", "gzip");
                         if (k.ax != null) {
                             httpsURLConnection.setRequestProperty("bd-loc-android", k.ax);
                         }
-                        for (Map.Entry<String, Object> entry : this.f26076b.k.entrySet()) {
+                        for (Map.Entry<String, Object> entry : this.b.k.entrySet()) {
                             stringBuffer.append(entry.getKey());
                             stringBuffer.append("=");
                             stringBuffer.append(entry.getValue());
@@ -157,16 +155,16 @@ public class i implements Runnable {
                                             }
                                             r122.write(bArr, 0, read);
                                         }
-                                        this.f26076b.j = new String(r122.toByteArray(), IMAudioTransRequest.CHARSET);
-                                        this.f26076b.a(true);
+                                        this.b.j = new String(r122.toByteArray(), IMAudioTransRequest.CHARSET);
+                                        this.b.a(true);
                                         inputStream2 = inputStream;
                                         r122 = r122;
-                                    } catch (Error e4) {
-                                        e = e4;
+                                    } catch (Error e3) {
+                                        e = e3;
                                         e.printStackTrace();
                                         Log.i(a.a, "https NetworkCommunicationError!");
-                                        this.f26076b.j = null;
-                                        this.f26076b.a(false);
+                                        this.b.j = null;
+                                        this.b.a(false);
                                         if (httpsURLConnection != null) {
                                             httpsURLConnection.disconnect();
                                         }
@@ -188,12 +186,12 @@ public class i implements Runnable {
                                             return;
                                         }
                                         r122.close();
-                                    } catch (Exception e5) {
-                                        e = e5;
+                                    } catch (Exception e4) {
+                                        e = e4;
                                         e.printStackTrace();
                                         Log.i(a.a, "https NetworkCommunicationException!");
-                                        this.f26076b.j = null;
-                                        this.f26076b.a(false);
+                                        this.b.j = null;
+                                        this.b.a(false);
                                         if (httpsURLConnection != null) {
                                             httpsURLConnection.disconnect();
                                         }
@@ -216,11 +214,11 @@ public class i implements Runnable {
                                         }
                                         r122.close();
                                     }
-                                } catch (Error e6) {
-                                    e = e6;
+                                } catch (Error e5) {
+                                    e = e5;
                                     r122 = 0;
-                                } catch (Exception e7) {
-                                    e = e7;
+                                } catch (Exception e6) {
+                                    e = e6;
                                     r122 = 0;
                                 } catch (Throwable th3) {
                                     th = th3;
@@ -254,8 +252,8 @@ public class i implements Runnable {
                                     throw th;
                                 }
                             } else {
-                                this.f26076b.j = null;
-                                this.f26076b.a(false);
+                                this.b.j = null;
+                                this.b.a(false);
                                 r122 = 0;
                             }
                             if (httpsURLConnection != null) {
@@ -278,12 +276,12 @@ public class i implements Runnable {
                             if (r122 == 0) {
                                 return;
                             }
-                        } catch (Error e8) {
-                            e = e8;
+                        } catch (Error e7) {
+                            e = e7;
                             inputStream = null;
                             r122 = 0;
-                        } catch (Exception e9) {
-                            e = e9;
+                        } catch (Exception e8) {
+                            e = e8;
                             inputStream = null;
                             r122 = 0;
                         } catch (Throwable th4) {
@@ -291,15 +289,15 @@ public class i implements Runnable {
                             inputStream = null;
                             obj = null;
                         }
-                    } catch (Error e10) {
-                        e = e10;
+                    } catch (Error e9) {
+                        e = e9;
                         inputStream = null;
                         outputStream = null;
                         r122 = outputStream;
                         e.printStackTrace();
                         Log.i(a.a, "https NetworkCommunicationError!");
-                        this.f26076b.j = null;
-                        this.f26076b.a(false);
+                        this.b.j = null;
+                        this.b.a(false);
                         if (httpsURLConnection != null) {
                         }
                         if (outputStream != null) {
@@ -309,15 +307,15 @@ public class i implements Runnable {
                         if (r122 == 0) {
                         }
                         r122.close();
-                    } catch (Exception e11) {
-                        e = e11;
+                    } catch (Exception e10) {
+                        e = e10;
                         inputStream = null;
                         outputStream = null;
                         r122 = outputStream;
                         e.printStackTrace();
                         Log.i(a.a, "https NetworkCommunicationException!");
-                        this.f26076b.j = null;
-                        this.f26076b.a(false);
+                        this.b.j = null;
+                        this.b.a(false);
                         if (httpsURLConnection != null) {
                         }
                         if (outputStream != null) {
@@ -333,16 +331,16 @@ public class i implements Runnable {
                         outputStream = null;
                         obj = null;
                     }
-                } catch (Error e12) {
-                    e = e12;
+                } catch (Error e11) {
+                    e = e11;
                     inputStream = null;
                     httpsURLConnection = null;
                     outputStream = httpsURLConnection;
                     r122 = outputStream;
                     e.printStackTrace();
                     Log.i(a.a, "https NetworkCommunicationError!");
-                    this.f26076b.j = null;
-                    this.f26076b.a(false);
+                    this.b.j = null;
+                    this.b.a(false);
                     if (httpsURLConnection != null) {
                     }
                     if (outputStream != null) {
@@ -352,16 +350,16 @@ public class i implements Runnable {
                     if (r122 == 0) {
                     }
                     r122.close();
-                } catch (Exception e13) {
-                    e = e13;
+                } catch (Exception e12) {
+                    e = e12;
                     inputStream = null;
                     httpsURLConnection = null;
                     outputStream = httpsURLConnection;
                     r122 = outputStream;
                     e.printStackTrace();
                     Log.i(a.a, "https NetworkCommunicationException!");
-                    this.f26076b.j = null;
-                    this.f26076b.a(false);
+                    this.b.j = null;
+                    this.b.a(false);
                     if (httpsURLConnection != null) {
                     }
                     if (outputStream != null) {

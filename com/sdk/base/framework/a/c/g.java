@@ -30,7 +30,7 @@ public final class g extends Handler {
         }
     }
 
-    public /* synthetic */ g(byte b2) {
+    public /* synthetic */ g(byte b) {
         this();
     }
 
@@ -44,12 +44,12 @@ public final class g extends Handler {
                 if (i != 2) {
                     return;
                 }
-                fVar.a.a((Object[]) fVar.f42503b);
+                fVar.a.a((Object[]) fVar.b);
                 return;
             }
             c cVar = fVar.a;
-            Object obj = fVar.f42503b[0];
-            cVar.f42499f.get();
+            Object obj = fVar.b[0];
+            cVar.f.get();
         }
     }
 }

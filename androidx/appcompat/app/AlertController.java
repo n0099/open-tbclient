@@ -212,16 +212,16 @@ public class AlertController {
                             }
 
                             @Override // android.widget.ArrayAdapter, android.widget.Adapter
-                            public View getView(int i2, View view, ViewGroup viewGroup) {
+                            public View getView(int i2, View view2, ViewGroup viewGroup) {
                                 InterceptResult invokeILL;
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || (invokeILL = interceptable2.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-                                    View view2 = super.getView(i2, view, viewGroup);
+                                if (interceptable2 == null || (invokeILL = interceptable2.invokeILL(1048576, this, i2, view2, viewGroup)) == null) {
+                                    View view3 = super.getView(i2, view2, viewGroup);
                                     boolean[] zArr = this.this$0.mCheckedItems;
                                     if (zArr != null && zArr[i2]) {
                                         this.val$listView.setItemChecked(i2, true);
                                     }
-                                    return view2;
+                                    return view3;
                                 }
                                 return (View) invokeILL.objValue;
                             }
@@ -264,10 +264,10 @@ public class AlertController {
                             }
 
                             @Override // android.widget.CursorAdapter
-                            public void bindView(View view, Context context, Cursor cursor) {
+                            public void bindView(View view2, Context context, Cursor cursor) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, view, context, cursor) == null) {
-                                    ((CheckedTextView) view.findViewById(16908308)).setText(cursor.getString(this.mLabelIndex));
+                                if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, view2, context, cursor) == null) {
+                                    ((CheckedTextView) view2.findViewById(16908308)).setText(cursor.getString(this.mLabelIndex));
                                     this.val$listView.setItemChecked(cursor.getPosition(), cursor.getInt(this.mIsCheckedIndex) == 1);
                                 }
                             }
@@ -329,9 +329,9 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+                        public void onItemClick(AdapterView<?> adapterView, View view2, int i3, long j) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
                                 this.this$0.mOnClickListener.onClick(this.val$dialog.mDialog, i3);
                                 if (this.this$0.mIsSingleChoice) {
                                     return;
@@ -369,9 +369,9 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+                        public void onItemClick(AdapterView<?> adapterView, View view2, int i3, long j) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
                                 boolean[] zArr = this.this$0.mCheckedItems;
                                 if (zArr != null) {
                                     zArr[i3] = this.val$listView.isItemChecked(i3);
@@ -397,9 +397,9 @@ public class AlertController {
         public void apply(AlertController alertController) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, alertController) == null) {
-                View view = this.mCustomTitleView;
-                if (view != null) {
-                    alertController.setCustomTitle(view);
+                View view2 = this.mCustomTitleView;
+                if (view2 != null) {
+                    alertController.setCustomTitle(view2);
                 } else {
                     CharSequence charSequence = this.mTitle;
                     if (charSequence != null) {
@@ -434,13 +434,13 @@ public class AlertController {
                 if (this.mItems != null || this.mCursor != null || this.mAdapter != null) {
                     createListView(alertController);
                 }
-                View view2 = this.mView;
-                if (view2 != null) {
+                View view3 = this.mView;
+                if (view3 != null) {
                     if (this.mViewSpacingSpecified) {
-                        alertController.setView(view2, this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
+                        alertController.setView(view3, this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
                         return;
                     } else {
-                        alertController.setView(view2);
+                        alertController.setView(view3);
                         return;
                     }
                 }
@@ -642,23 +642,23 @@ public class AlertController {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Message obtain;
                 Message message;
                 Message message2;
                 Message message3;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     AlertController alertController = this.this$0;
-                    if (view == alertController.mButtonPositive && (message3 = alertController.mButtonPositiveMessage) != null) {
+                    if (view2 == alertController.mButtonPositive && (message3 = alertController.mButtonPositiveMessage) != null) {
                         obtain = Message.obtain(message3);
                     } else {
                         AlertController alertController2 = this.this$0;
-                        if (view == alertController2.mButtonNegative && (message2 = alertController2.mButtonNegativeMessage) != null) {
+                        if (view2 == alertController2.mButtonNegative && (message2 = alertController2.mButtonNegativeMessage) != null) {
                             obtain = Message.obtain(message2);
                         } else {
                             AlertController alertController3 = this.this$0;
-                            obtain = (view != alertController3.mButtonNeutral || (message = alertController3.mButtonNeutralMessage) == null) ? null : Message.obtain(message);
+                            obtain = (view2 != alertController3.mButtonNeutral || (message = alertController3.mButtonNeutralMessage) == null) ? null : Message.obtain(message);
                         }
                     }
                     if (obtain != null) {
@@ -686,15 +686,15 @@ public class AlertController {
         appCompatDialog.supportRequestWindowFeature(1);
     }
 
-    public static boolean canTextInput(View view) {
+    public static boolean canTextInput(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view)) == null) {
-            if (view.onCheckIsTextEditor()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2.onCheckIsTextEditor()) {
                 return true;
             }
-            if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
                 while (childCount > 0) {
                     childCount--;
@@ -719,39 +719,39 @@ public class AlertController {
         }
     }
 
-    public static void manageScrollIndicators(View view, View view2, View view3) {
+    public static void manageScrollIndicators(View view2, View view3, View view4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, view, view2, view3) == null) {
-            if (view2 != null) {
-                view2.setVisibility(view.canScrollVertically(-1) ? 0 : 4);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65539, null, view2, view3, view4) == null) {
             if (view3 != null) {
-                view3.setVisibility(view.canScrollVertically(1) ? 0 : 4);
+                view3.setVisibility(view2.canScrollVertically(-1) ? 0 : 4);
+            }
+            if (view4 != null) {
+                view4.setVisibility(view2.canScrollVertically(1) ? 0 : 4);
             }
         }
     }
 
     @Nullable
-    private ViewGroup resolvePanel(@Nullable View view, @Nullable View view2) {
+    private ViewGroup resolvePanel(@Nullable View view2, @Nullable View view3) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view, view2)) == null) {
-            if (view == null) {
-                if (view2 instanceof ViewStub) {
-                    view2 = ((ViewStub) view2).inflate();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, view3)) == null) {
+            if (view2 == null) {
+                if (view3 instanceof ViewStub) {
+                    view3 = ((ViewStub) view3).inflate();
                 }
-                return (ViewGroup) view2;
+                return (ViewGroup) view3;
             }
-            if (view2 != null) {
-                ViewParent parent = view2.getParent();
+            if (view3 != null) {
+                ViewParent parent = view3.getParent();
                 if (parent instanceof ViewGroup) {
-                    ((ViewGroup) parent).removeView(view2);
+                    ((ViewGroup) parent).removeView(view3);
                 }
             }
-            if (view instanceof ViewStub) {
-                view = ((ViewStub) view).inflate();
+            if (view2 instanceof ViewStub) {
+                view2 = ((ViewStub) view2).inflate();
             }
-            return (ViewGroup) view;
+            return (ViewGroup) view2;
         }
         return (ViewGroup) invokeLL.objValue;
     }
@@ -769,13 +769,13 @@ public class AlertController {
         return invokeV.intValue;
     }
 
-    private void setScrollIndicators(ViewGroup viewGroup, View view, int i, int i2) {
+    private void setScrollIndicators(ViewGroup viewGroup, View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view2, i, i2) == null) {
             View findViewById = this.mWindow.findViewById(R$id.scrollIndicatorUp);
             View findViewById2 = this.mWindow.findViewById(R$id.scrollIndicatorDown);
             if (Build.VERSION.SDK_INT >= 23) {
-                ViewCompat.setScrollIndicators(view, i, i2);
+                ViewCompat.setScrollIndicators(view2, i, i2);
                 if (findViewById != null) {
                     viewGroup.removeView(findViewById);
                 }
@@ -1061,17 +1061,17 @@ public class AlertController {
     private void setupCustomContent(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, viewGroup) == null) {
-            View view = this.mView;
-            if (view == null) {
-                view = this.mViewLayoutResId != 0 ? LayoutInflater.from(this.mContext).inflate(this.mViewLayoutResId, viewGroup, false) : null;
+            View view2 = this.mView;
+            if (view2 == null) {
+                view2 = this.mViewLayoutResId != 0 ? LayoutInflater.from(this.mContext).inflate(this.mViewLayoutResId, viewGroup, false) : null;
             }
-            boolean z = view != null;
-            if (!z || !canTextInput(view)) {
+            boolean z = view2 != null;
+            if (!z || !canTextInput(view2)) {
                 this.mWindow.setFlags(131072, 131072);
             }
             if (z) {
                 FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R$id.obfuscated);
-                frameLayout.addView(view, new ViewGroup.LayoutParams(-1, -1));
+                frameLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));
                 if (this.mViewSpacingSpecified) {
                     frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
                 }
@@ -1154,12 +1154,12 @@ public class AlertController {
                 if (nestedScrollView != null) {
                     nestedScrollView.setClipToPadding(true);
                 }
-                View view = null;
+                View view2 = null;
                 if (this.mMessage != null || this.mListView != null) {
-                    view = resolvePanel.findViewById(R$id.titleDividerNoCustom);
+                    view2 = resolvePanel.findViewById(R$id.titleDividerNoCustom);
                 }
-                if (view != null) {
-                    view.setVisibility(0);
+                if (view2 != null) {
+                    view2.setVisibility(0);
                 }
             } else if (resolvePanel2 != null && (findViewById = resolvePanel2.findViewById(R$id.textSpacerNoTitle)) != null) {
                 findViewById.setVisibility(0);
@@ -1169,12 +1169,12 @@ public class AlertController {
                 ((RecycleListView) listView).setHasDecor(z2, z3);
             }
             if (!z) {
-                View view2 = this.mListView;
-                if (view2 == null) {
-                    view2 = this.mScrollView;
+                View view3 = this.mListView;
+                if (view3 == null) {
+                    view3 = this.mScrollView;
                 }
-                if (view2 != null) {
-                    setScrollIndicators(resolvePanel2, view2, z2 | (z3 ? 2 : 0), 3);
+                if (view3 != null) {
+                    setScrollIndicators(resolvePanel2, view3, z2 | (z3 ? 2 : 0), 3);
                 }
             }
             ListView listView2 = this.mListView;
@@ -1295,10 +1295,10 @@ public class AlertController {
         }
     }
 
-    public void setCustomTitle(View view) {
+    public void setCustomTitle(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.mCustomTitleView = view;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
+            this.mCustomTitleView = view2;
         }
     }
 
@@ -1350,10 +1350,10 @@ public class AlertController {
         }
     }
 
-    public void setView(View view) {
+    public void setView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
-            this.mView = view;
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+            this.mView = view2;
             this.mViewLayoutResId = 0;
             this.mViewSpacingSpecified = false;
         }
@@ -1376,10 +1376,10 @@ public class AlertController {
         }
     }
 
-    public void setView(View view, int i, int i2, int i3, int i4) {
+    public void setView(View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mView = view;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mView = view2;
             this.mViewLayoutResId = 0;
             this.mViewSpacingSpecified = true;
             this.mViewSpacingLeft = i;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlUBCUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CONTROL = "control";
@@ -71,10 +71,10 @@ public class CloudControlUBCUtils {
             if (AppConfig.isDebug()) {
                 Log.d(TAG, "cloud control ubc is 944:" + jSONObject.toString());
             }
-        } catch (JSONException e2) {
+        } catch (JSONException e) {
             if (AppConfig.isDebug()) {
-                Log.d(TAG, "cloud control doStatistics error" + e2.toString());
-                e2.printStackTrace();
+                Log.d(TAG, "cloud control doStatistics error" + e.toString());
+                e.printStackTrace();
             }
         }
     }

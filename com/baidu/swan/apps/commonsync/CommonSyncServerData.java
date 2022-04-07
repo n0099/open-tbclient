@@ -1,27 +1,27 @@
 package com.baidu.swan.apps.commonsync;
 
 import androidx.annotation.Nullable;
-import c.a.n0.a.u.d;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jx1;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonSyncServerData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int count;
     public List<MetaItemInfo> metaItems;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MetaItemInfo implements NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -92,8 +92,8 @@ public class CommonSyncServerData implements Serializable, NoProGuard {
                         metaItemInfo.subCategory = optJSONObject.getInt("SubCategory");
                         metaItemInfo.appKey = optJSONObject.getString("AppKey");
                         metaItemInfo.payProtected = optJSONObject.getInt("PayProtected");
-                    } catch (JSONException e2) {
-                        d.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e2);
+                    } catch (JSONException e) {
+                        jx1.l("CommonSyncServerData", "parse item failed:" + optJSONObject.toString(), e);
                         metaItemInfo = null;
                     }
                     if (metaItemInfo != null) {

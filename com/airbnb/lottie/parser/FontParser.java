@@ -3,7 +3,7 @@ package com.airbnb.lottie.parser;
 import com.airbnb.lottie.model.Font;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FontParser {
     public static final JsonReader.Options NAMES = JsonReader.Options.of("fFamily", "fName", "fStyle", "ascent");
 
@@ -12,7 +12,7 @@ public class FontParser {
         String str = null;
         String str2 = null;
         String str3 = null;
-        float f2 = 0.0f;
+        float f = 0.0f;
         while (jsonReader.hasNext()) {
             int selectName = jsonReader.selectName(NAMES);
             if (selectName == 0) {
@@ -25,10 +25,10 @@ public class FontParser {
                 jsonReader.skipName();
                 jsonReader.skipValue();
             } else {
-                f2 = (float) jsonReader.nextDouble();
+                f = (float) jsonReader.nextDouble();
             }
         }
         jsonReader.endObject();
-        return new Font(str, str2, str3, f2);
+        return new Font(str, str2, str3, f);
     }
 }

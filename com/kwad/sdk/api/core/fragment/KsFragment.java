@@ -32,7 +32,7 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsFragment extends AbstractIFragmentLifecycle implements IFragment, IFragmentLifecycle {
     public static final SimpleArrayMap<String, Class<?>> sClassMap = new SimpleArrayMap<>();
     public Fragment mBase;
@@ -64,8 +64,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
                 ksFragment.setArguments(bundle);
             }
             return ksFragment;
-        } catch (Exception e2) {
-            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
+        } catch (Exception e) {
+            throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
         }
     }
 
@@ -232,7 +232,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final Resources getResources() {
-        if (a.f39077c.booleanValue()) {
+        if (a.c.booleanValue()) {
             throw new RuntimeException("please use getContext().getResources()");
         }
         return this.mBase.getContext().getResources();
@@ -459,8 +459,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        super.onCreateContextMenu(contextMenu, view, contextMenuInfo);
+    public /* bridge */ /* synthetic */ void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo) {
+        super.onCreateContextMenu(contextMenu, view2, contextMenuInfo);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -577,8 +577,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onViewCreated(@NonNull View view, @Nullable Bundle bundle) {
-        super.onViewCreated(view, bundle);
+    public /* bridge */ /* synthetic */ void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
+        super.onViewCreated(view2, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -596,8 +596,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void registerForContextMenu(View view) {
-        this.mBase.registerForContextMenu(view);
+    public final void registerForContextMenu(View view2) {
+        this.mBase.registerForContextMenu(view2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -760,7 +760,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void unregisterForContextMenu(View view) {
-        this.mBase.unregisterForContextMenu(view);
+    public final void unregisterForContextMenu(View view2) {
+        this.mBase.unregisterForContextMenu(view2);
     }
 }

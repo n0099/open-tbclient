@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HWPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -58,7 +58,7 @@ public class HWPushHelper {
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m174a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? i.m170a(context) : invokeL.booleanValue;
     }
 
     public static boolean isHmsTokenSynced(Context context) {
@@ -70,7 +70,7 @@ public class HWPushHelper {
                 return false;
             }
             String a3 = i.a(context, a2);
-            String a4 = ae.a(context).a(at.f44068c);
+            String a4 = ae.a(context).a(at.c);
             return (TextUtils.isEmpty(a3) || TextUtils.isEmpty(a4) || !"synced".equals(a4)) ? false : true;
         }
         return invokeL.booleanValue;
@@ -114,8 +114,8 @@ public class HWPushHelper {
                             i++;
                         }
                     }
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.d(e.toString());
                 }
             }
             PushMessageReceiver a2 = i.a(context);
@@ -140,8 +140,8 @@ public class HWPushHelper {
                         str2 = jSONObject.getString("content");
                     }
                 }
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.d(e2.toString());
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.d(e.toString());
             }
             PushMessageReceiver a2 = i.a(context);
             if (a2 != null) {

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,10 +26,10 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
         }
     }
 
-    public static double f(double d2, double d3, double d4, double d5, double d6) {
+    public static double f(double d, double d2, double d3, double d4, double d5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Double.valueOf(d6)})) == null) ? (((d2 - d3) / (d4 - d3)) * (d6 - d5)) + d5 : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) ? (((d - d2) / (d3 - d2)) * (d5 - d4)) + d4 : invokeCommon.doubleValue;
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
@@ -43,26 +43,26 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    public void e(View view, float f2) {
+    public void e(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, f2) == null) {
-            float f3 = ((float) f(f2, -1.0d, 1.0d, -90.0d, 90.0d)) * 0.5f;
-            view.setCameraDistance(5500 * 1.0f);
-            if (f2 > 0.0f) {
-                view.setRotationY(f3);
-                view.setPivotX(0.0f);
-                view.setPivotY(view.getHeight() * 0.5f);
-                view.setLayerType(2, null);
-            } else if (f2 < 0.0f) {
-                view.setRotationY(f3);
-                view.setPivotX(view.getWidth() * 1.0f);
-                view.setPivotY(view.getHeight() * 0.5f);
-                view.setLayerType(2, null);
+        if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, f) == null) {
+            float f2 = ((float) f(f, -1.0d, 1.0d, -90.0d, 90.0d)) * 0.5f;
+            view2.setCameraDistance(5500 * 1.0f);
+            if (f > 0.0f) {
+                view2.setRotationY(f2);
+                view2.setPivotX(0.0f);
+                view2.setPivotY(view2.getHeight() * 0.5f);
+                view2.setLayerType(2, null);
+            } else if (f < 0.0f) {
+                view2.setRotationY(f2);
+                view2.setPivotX(view2.getWidth() * 1.0f);
+                view2.setPivotY(view2.getHeight() * 0.5f);
+                view2.setLayerType(2, null);
             } else {
-                view.setRotationY(0.0f);
-                view.setPivotX(view.getWidth() * 0.5f);
-                view.setPivotY(view.getHeight() * 0.5f);
-                view.setLayerType(0, null);
+                view2.setRotationY(0.0f);
+                view2.setPivotX(view2.getWidth() * 0.5f);
+                view2.setPivotY(view2.getHeight() * 0.5f);
+                view2.setLayerType(0, null);
             }
         }
     }

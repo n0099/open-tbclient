@@ -37,7 +37,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class MediaCodecRenderer extends BaseRenderer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte[] ADAPTATION_WORKAROUND_BUFFER;
@@ -357,8 +357,8 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                             this.inputIndex = -1;
                         }
                         return false;
-                    } catch (MediaCodec.CryptoException e2) {
-                        throw ExoPlaybackException.createForRenderer(e2, getIndex());
+                    } catch (MediaCodec.CryptoException e) {
+                        throw ExoPlaybackException.createForRenderer(e, getIndex());
                     }
                 } else if (this.waitingForFirstSyncFrame && !this.buffer.isKeyFrame()) {
                     this.buffer.clear();
@@ -398,8 +398,8 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                         this.codecReconfigurationState = 0;
                         this.decoderCounters.inputBufferCount++;
                         return true;
-                    } catch (MediaCodec.CryptoException e3) {
-                        throw ExoPlaybackException.createForRenderer(e3, getIndex());
+                    } catch (MediaCodec.CryptoException e2) {
+                        throw ExoPlaybackException.createForRenderer(e2, getIndex());
                     }
                 }
             }
@@ -617,8 +617,8 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                             Log.w(TAG, "Drm session requires secure decoder for " + str + ", but no secure decoder available. Trying to proceed with " + this.codecInfo.name + ".");
                         }
                     }
-                } catch (MediaCodecUtil.DecoderQueryException e2) {
-                    throwDecoderInitError(new DecoderInitializationException(this.format, e2, z, (int) DecoderInitializationException.DECODER_QUERY_ERROR));
+                } catch (MediaCodecUtil.DecoderQueryException e) {
+                    throwDecoderInitError(new DecoderInitializationException(this.format, e, z, (int) DecoderInitializationException.DECODER_QUERY_ERROR));
                 }
                 if (this.codecInfo == null) {
                     throwDecoderInitError(new DecoderInitializationException(this.format, (Throwable) null, z, (int) DecoderInitializationException.NO_SUITABLE_DECODER_ERROR));
@@ -648,8 +648,8 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
                     onCodecInitialized(str2, elapsedRealtime2, elapsedRealtime2 - elapsedRealtime);
                     this.inputBuffers = this.codec.getInputBuffers();
                     this.outputBuffers = this.codec.getOutputBuffers();
-                } catch (Exception e3) {
-                    throwDecoderInitError(new DecoderInitializationException(this.format, e3, z, str2));
+                } catch (Exception e2) {
+                    throwDecoderInitError(new DecoderInitializationException(this.format, e2, z, str2));
                 }
                 this.codecHotswapDeadlineMs = getState() == 2 ? SystemClock.elapsedRealtime() + 1000 : C.TIME_UNSET;
                 this.inputIndex = -1;
@@ -975,8 +975,8 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, format)) == null) {
             try {
                 return supportsFormat(this.mediaCodecSelector, this.drmSessionManager, format);
-            } catch (MediaCodecUtil.DecoderQueryException e2) {
-                throw ExoPlaybackException.createForRenderer(e2, getIndex());
+            } catch (MediaCodecUtil.DecoderQueryException e) {
+                throw ExoPlaybackException.createForRenderer(e, getIndex());
             }
         }
         return invokeL.intValue;
@@ -994,7 +994,7 @@ public abstract class MediaCodecRenderer extends BaseRenderer {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DecoderInitializationException extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CUSTOM_ERROR_CODE_BASE = -50000;

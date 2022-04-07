@@ -28,9 +28,7 @@ import java.util.Enumeration;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.d.a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f42584b;
+    public static final Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +44,7 @@ public class a {
                 return;
             }
         }
-        f42584b = Boolean.valueOf(f.f42567b);
+        b = Boolean.valueOf(f.b);
     }
 
     public a() {
@@ -198,7 +196,7 @@ public class a {
                         }
                     }
                 } catch (Throwable th) {
-                    c.b(a, th.getMessage(), f42584b);
+                    c.b(a, th.getMessage(), b);
                 }
             }
             return null;

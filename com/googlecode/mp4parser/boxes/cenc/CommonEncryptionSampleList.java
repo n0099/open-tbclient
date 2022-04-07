@@ -26,7 +26,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public static /* synthetic */ Interceptable $ic;
     public static Cipher cipher;
@@ -36,13 +36,13 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
     public SecretKey secretKey;
 
     /* renamed from: com.googlecode.mp4parser.boxes.cenc.CommonEncryptionSampleList$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class EncryptedSampleImpl implements Sample {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;
@@ -99,10 +99,10 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                     byteBuffer.rewind();
                     allocate.rewind();
                     return allocate;
-                } catch (BadPaddingException e2) {
+                } catch (BadPaddingException e) {
+                    throw new RuntimeException(e);
+                } catch (IllegalBlockSizeException e2) {
                     throw new RuntimeException(e2);
-                } catch (IllegalBlockSizeException e3) {
-                    throw new RuntimeException(e3);
                 }
             }
             return (ByteBuffer) invokeV.objValue;
@@ -139,10 +139,10 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                         writableByteChannel.write(ByteBuffer.wrap(this.cipher.doFinal(bArr3)));
                     }
                     byteBuffer.rewind();
-                } catch (BadPaddingException e2) {
+                } catch (BadPaddingException e) {
+                    throw new RuntimeException(e);
+                } catch (IllegalBlockSizeException e2) {
                     throw new RuntimeException(e2);
-                } catch (IllegalBlockSizeException e3) {
-                    throw new RuntimeException(e3);
                 }
             }
         }
@@ -184,10 +184,10 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
         }
         try {
             cipher = Cipher.getInstance(UBCEncryptor.TRANSFORMATION);
-        } catch (NoSuchAlgorithmException e2) {
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchPaddingException e2) {
             throw new RuntimeException(e2);
-        } catch (NoSuchPaddingException e3) {
-            throw new RuntimeException(e3);
         }
     }
 
@@ -218,10 +218,10 @@ public class CommonEncryptionSampleList extends AbstractList<Sample> {
                 byte[] bArr2 = new byte[16];
                 System.arraycopy(bArr, 0, bArr2, 0, bArr.length);
                 cipher.init(1, this.secretKey, new IvParameterSpec(bArr2));
-            } catch (InvalidAlgorithmParameterException e2) {
+            } catch (InvalidAlgorithmParameterException e) {
+                throw new RuntimeException(e);
+            } catch (InvalidKeyException e2) {
                 throw new RuntimeException(e2);
-            } catch (InvalidKeyException e3) {
-                throw new RuntimeException(e3);
             }
         }
     }

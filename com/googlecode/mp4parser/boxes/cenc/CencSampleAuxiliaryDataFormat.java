@@ -11,14 +11,14 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CencSampleAuxiliaryDataFormat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] iv;
     public List<Pair> pairs;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class Pair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -7,7 +7,7 @@ import com.kuaishou.weapon.un.w0;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

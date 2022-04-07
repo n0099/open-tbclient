@@ -19,11 +19,13 @@ import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
+import com.repackage.mj3;
+import com.repackage.nj3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes4.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n0.c.a.i.b {
+/* loaded from: classes2.dex */
+public final class Bdtls$Extension extends GeneratedMessageLite implements nj3 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = null;
@@ -37,7 +39,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
     public int memoizedSerializedSize;
     public int type_;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<Bdtls$Extension> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,17 +68,13 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements c.a.n0.c.a.i.b {
+    /* loaded from: classes2.dex */
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements nj3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f29402b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ByteString f29403c;
+        public int b;
+        public ByteString c;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -91,7 +89,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
                     return;
                 }
             }
-            this.f29403c = ByteString.EMPTY;
+            this.c = ByteString.EMPTY;
             maybeForceBuilderInitialization();
         }
 
@@ -110,7 +108,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
         public int getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29402b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.b : invokeV.intValue;
         }
 
         public boolean hasType() {
@@ -161,14 +159,14 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (c.a.n0.c.a.i.a) null);
+                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (mj3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                bdtls$Extension.type_ = this.f29402b;
+                bdtls$Extension.type_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                bdtls$Extension.data_ = this.f29403c;
+                bdtls$Extension.data_ = this.c;
                 bdtls$Extension.bitField0_ = i2;
                 return bdtls$Extension;
             }
@@ -180,10 +178,10 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
                 super.clear();
-                this.f29402b = 0;
+                this.b = 0;
                 int i = this.a & (-2);
                 this.a = i;
-                this.f29403c = ByteString.EMPTY;
+                this.c = ByteString.EMPTY;
                 this.a = i & (-3);
                 return this;
             }
@@ -253,10 +251,10 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
                             t(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        Bdtls$Extension bdtls$Extension2 = (Bdtls$Extension) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        Bdtls$Extension bdtls$Extension2 = (Bdtls$Extension) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             bdtls$Extension = bdtls$Extension2;
@@ -282,7 +280,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
             if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, byteString)) == null) {
                 if (byteString != null) {
                     this.a |= 2;
-                    this.f29403c = byteString;
+                    this.c = byteString;
                     return this;
                 }
                 throw null;
@@ -295,7 +293,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
                 this.a |= 1;
-                this.f29402b = i;
+                this.b = i;
                 return this;
             }
             return (b) invokeI.objValue;
@@ -341,7 +339,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
         bdtls$Extension.initFields();
     }
 
-    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.n0.c.a.i.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, mj3 mj3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -470,7 +468,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, c.a.n0.c.a.i.a aVar) {
+    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, mj3 mj3Var) {
         this(builder);
     }
 
@@ -635,11 +633,11 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements c.a.n
                             }
                         }
                         z = true;
-                    } catch (IOException e2) {
-                        throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
+                    } catch (IOException e) {
+                        throw new InvalidProtocolBufferException(e.getMessage()).setUnfinishedMessage(this);
                     }
-                } catch (InvalidProtocolBufferException e3) {
-                    throw e3.setUnfinishedMessage(this);
+                } catch (InvalidProtocolBufferException e2) {
+                    throw e2.setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

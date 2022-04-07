@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileUitls {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,8 +109,8 @@ public class FileUitls {
                 }
                 Log.i("wtf", "file_state->file not exits");
                 return false;
-            } catch (Exception e2) {
-                Log.i("wtf", "file_state->" + e2.getMessage());
+            } catch (Exception e) {
+                Log.i("wtf", "file_state->" + e.getMessage());
                 return false;
             }
         }
@@ -155,19 +155,19 @@ public class FileUitls {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                     return decodeStream;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     e.printStackTrace();
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return null;
@@ -178,14 +178,14 @@ public class FileUitls {
                 if (inputStream2 != null) {
                     try {
                         inputStream2.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             inputStream = null;
         } catch (Throwable th2) {
             th = th2;
@@ -206,9 +206,9 @@ public class FileUitls {
                 open.read(bArr);
                 open.close();
                 return bArr;
-            } catch (IOException e2) {
-                Log.e("zq", "e-->" + e2.getMessage());
-                e2.printStackTrace();
+            } catch (IOException e) {
+                Log.e("zq", "e-->" + e.getMessage());
+                e.printStackTrace();
                 return bArr;
             }
         }
@@ -307,8 +307,8 @@ public class FileUitls {
                 fileInputStream2 = context.getResources().getAssets().open(str);
                 bArr = new byte[fileInputStream2.available()];
                 fileInputStream2.read(bArr);
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         } catch (Throwable th3) {
             if (fileInputStream2 != null) {
@@ -371,8 +371,8 @@ public class FileUitls {
                     }
                     fileInputStream.close();
                 } catch (FileNotFoundException unused) {
-                } catch (IOException e2) {
-                    Log.d("TestFile", e2.getMessage());
+                } catch (IOException e) {
+                    Log.d("TestFile", e.getMessage());
                 }
                 return str2;
             }
@@ -401,8 +401,8 @@ public class FileUitls {
                     }
                     fileInputStream.close();
                 } catch (FileNotFoundException unused) {
-                } catch (IOException e2) {
-                    Log.d("TestFile", e2.getMessage());
+                } catch (IOException e) {
+                    Log.d("TestFile", e.getMessage());
                 }
                 return arrayList;
             }
@@ -424,27 +424,27 @@ public class FileUitls {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                 try {
                     fileOutputStream.close();
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
                 return true;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 fileOutputStream2 = fileOutputStream;
                 e.printStackTrace();
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
                         return false;
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                         return false;
                     }
                 }
@@ -455,8 +455,8 @@ public class FileUitls {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
+                    } catch (Exception e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;

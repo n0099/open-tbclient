@@ -1,9 +1,6 @@
 package com.baidu.ugc.editvideo.record.source.multimedia;
 
 import android.text.TextUtils;
-import c.a.v0.r.h;
-import c.a.v0.r.w;
-import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -18,12 +15,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
+import com.repackage.nc9;
+import com.repackage.xf0;
+import com.repackage.yb9;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VlogPkgManager {
     public static /* synthetic */ Interceptable $ic;
     public static VlogPkgManager mManager;
@@ -70,7 +70,7 @@ public class VlogPkgManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (w.a(str) || this.mTemplateInfoMap.get(str) == null) {
+            if (nc9.a(str) || this.mTemplateInfoMap.get(str) == null) {
                 return null;
             }
             return this.mTemplateInfoMap.get(str);
@@ -82,13 +82,13 @@ public class VlogPkgManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrackConfig)) == null) {
-            if (mediaTrackConfig == null || h.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
+            if (mediaTrackConfig == null || yb9.e(mediaTrackConfig.mediaTracks) || !TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             for (MediaTrack mediaTrack : mediaTrackConfig.mediaTracks) {
-                if (c.m(mediaTrack, "input") || c.m(mediaTrack, "multi_input")) {
-                    if (h.e(mediaTrack.mediaSegments)) {
+                if (xf0.m(mediaTrack, "input") || xf0.m(mediaTrack, "multi_input")) {
+                    if (yb9.e(mediaTrack.mediaSegments)) {
                         return null;
                     }
                     for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
@@ -96,7 +96,7 @@ public class VlogPkgManager {
                             arrayList.add(mediaSegment);
                         }
                     }
-                } else if (!h.e(mediaTrack.mediaSegments)) {
+                } else if (!yb9.e(mediaTrack.mediaSegments)) {
                     for (MediaSegment mediaSegment2 : mediaTrack.mediaSegments) {
                         if (mediaSegment2 != null && ("input".equals(mediaSegment2.type) || "multi_input".equals(mediaSegment2.type))) {
                             arrayList.add(mediaSegment2);

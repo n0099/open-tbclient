@@ -2,31 +2,25 @@ package com.kwad.sdk.contentalliance.detail.kwai.kwai;
 
 import android.os.SystemClock;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public volatile boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f39263b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public C1951a f39264c = new C1951a();
+    public long b;
+    public C0291a c = new C0291a();
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.kwai.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1951a {
+    /* loaded from: classes5.dex */
+    public static class C0291a {
         public long a = 0;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f39265b = 0;
+        public int b = 0;
 
         public int a() {
-            return this.f39265b;
+            return this.b;
         }
 
         public void a(long j) {
             this.a += j;
-            this.f39265b++;
+            this.b++;
         }
 
         public long b() {
@@ -39,12 +33,12 @@ public class a {
             return;
         }
         this.a = true;
-        this.f39263b = SystemClock.elapsedRealtime();
+        this.b = SystemClock.elapsedRealtime();
     }
 
     public void b() {
         if (this.a) {
-            this.f39264c.a(SystemClock.elapsedRealtime() - this.f39263b);
+            this.c.a(SystemClock.elapsedRealtime() - this.b);
             this.a = false;
         }
     }
@@ -54,15 +48,15 @@ public class a {
     }
 
     @NonNull
-    public C1951a d() {
+    public C0291a d() {
         if (this.a) {
-            this.f39264c.a(SystemClock.elapsedRealtime() - this.f39263b);
+            this.c.a(SystemClock.elapsedRealtime() - this.b);
             this.a = false;
         }
-        return this.f39264c;
+        return this.c;
     }
 
     public long e() {
-        return this.f39263b;
+        return this.b;
     }
 }

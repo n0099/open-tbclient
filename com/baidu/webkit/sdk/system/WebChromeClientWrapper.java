@@ -29,7 +29,7 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebChromeClientWrapper extends WebChromeClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -38,13 +38,13 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     public final WebViewImpl mWebView;
 
     /* renamed from: com.baidu.webkit.sdk.system.WebChromeClientWrapper$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CustomViewCallbackImpl implements WebChromeClient.CustomViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,18 +378,18 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
+    public final void onShowCustomView(View view2, int i, WebChromeClient.CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048600, this, view, i, customViewCallback) == null) {
-            this.mClient.onShowCustomView(view, i, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback, null) : null);
+        if (interceptable == null || interceptable.invokeLIL(1048600, this, view2, i, customViewCallback) == null) {
+            this.mClient.onShowCustomView(view2, i, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback, null) : null);
         }
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onShowCustomView(View view, WebChromeClient.CustomViewCallback customViewCallback) {
+    public final void onShowCustomView(View view2, WebChromeClient.CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, view, customViewCallback) == null) {
-            this.mClient.onShowCustomView(view, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback, null) : null);
+        if (interceptable == null || interceptable.invokeLL(1048601, this, view2, customViewCallback) == null) {
+            this.mClient.onShowCustomView(view2, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback, null) : null);
         }
     }
 

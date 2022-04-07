@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ThreadWorker implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,8 +39,8 @@ public class ThreadWorker implements Runnable {
             while (this.mLooper == null) {
                 try {
                     this.mLockObj.wait();
-                } catch (InterruptedException e2) {
-                    e2.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -63,8 +63,8 @@ public class ThreadWorker implements Runnable {
             if (thread != null) {
                 thread.join();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -78,8 +78,8 @@ public class ThreadWorker implements Runnable {
             synchronized (thread) {
                 thread.wait();
             }
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -100,8 +100,8 @@ public class ThreadWorker implements Runnable {
             synchronized (thread) {
                 thread.notifyAll();
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

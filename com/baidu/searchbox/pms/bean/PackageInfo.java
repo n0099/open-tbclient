@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.zip.CRC32;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PackageInfo implements NoProGuard, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_FILTERD = 1102;
@@ -135,9 +135,9 @@ public class PackageInfo implements NoProGuard, Cloneable {
                     return false;
                 }
                 return parse2.getTime() > currentTimeMillis;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (PmsConstant.DEBUG) {
-                    Log.d(TAG, "checkTrafficLimitTime fail, exception = " + e2.toString());
+                    Log.d(TAG, "checkTrafficLimitTime fail, exception = " + e.toString());
                     return false;
                 }
                 return false;
@@ -351,9 +351,9 @@ public class PackageInfo implements NoProGuard, Cloneable {
                     }
                 }
             }
-        } catch (Exception e2) {
+        } catch (Exception e) {
             if (PmsConstant.DEBUG) {
-                Log.d(TAG, "parseTrafficLimit fail, exception = " + e2.toString());
+                Log.d(TAG, "parseTrafficLimit fail, exception = " + e.toString());
             }
         }
     }

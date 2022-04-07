@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BannerEntity> CREATOR;
@@ -31,7 +31,7 @@ public class BannerEntity implements Parcelable {
     public String mLogExt;
     public int mSelected;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements Parcelable.Creator<BannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,9 +112,9 @@ public class BannerEntity implements Parcelable {
             bannerEntity.mBannerWH = jSONObject.optDouble("banner_wh", 5.223d);
             try {
                 bannerEntity.mBroadcastInterval = Integer.parseInt(jSONObject.getString("broadcast_interval")) * 1000;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 bannerEntity.mBroadcastInterval = 1000;
-                e2.printStackTrace();
+                e.printStackTrace();
             }
             JSONArray jSONArray = jSONObject.getJSONArray("banner_list");
             for (int i = 0; i < jSONArray.length(); i++) {
@@ -139,9 +139,9 @@ public class BannerEntity implements Parcelable {
             bannerEntity.mBannerWH = jSONObject.optDouble("banner_wh", 5.223d);
             try {
                 bannerEntity.mBroadcastInterval = Integer.parseInt(jSONObject.getString("broadcast_interval")) * 1000;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 bannerEntity.mBroadcastInterval = 1000;
-                e2.printStackTrace();
+                e.printStackTrace();
             }
             JSONArray jSONArray = jSONObject.getJSONArray("banner_list");
             for (int i = 0; i < jSONArray.length(); i++) {

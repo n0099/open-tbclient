@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UrlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -186,11 +186,11 @@ public class UrlUtil {
             }
             try {
                 return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return str;
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
                 return str;
             }
         }
@@ -468,8 +468,8 @@ public class UrlUtil {
                 if (str != null) {
                     try {
                         encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e2) {
-                        throw new RuntimeException("This method requires UTF-8 encoding support", e2);
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException("This method requires UTF-8 encoding support", e);
                     }
                 } else {
                     encode = "";
@@ -496,8 +496,8 @@ public class UrlUtil {
                 String[] split = str2.split("=");
                 try {
                     hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException e2) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
                 }
             }
             return hashMap;

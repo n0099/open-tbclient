@@ -10,61 +10,47 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public final class i {
     public volatile m a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f43301b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final long f43302c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final AtomicLong f43303d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile long f43304e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f43305f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f43306g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public JSONObject f43307h;
+    public int b;
+    public final long c;
+    public final AtomicLong d;
+    public volatile long e;
+    public long f;
+    public int g;
+    public JSONObject h;
 
     public i(long j, long j2) {
         AtomicLong atomicLong = new AtomicLong();
-        this.f43303d = atomicLong;
-        this.f43301b = 0;
-        this.f43302c = j;
+        this.d = atomicLong;
+        this.b = 0;
+        this.c = j;
         atomicLong.set(j);
-        this.f43304e = j;
+        this.e = j;
         if (j2 >= j) {
-            this.f43305f = j2;
+            this.f = j2;
         } else {
-            this.f43305f = -1L;
+            this.f = -1L;
         }
     }
 
     public long a() {
-        return this.f43303d.get() - this.f43302c;
+        return this.d.get() - this.c;
     }
 
     public long b() {
-        long j = this.f43305f;
-        if (j >= this.f43302c) {
+        long j = this.f;
+        if (j >= this.c) {
             return (j - e()) + 1;
         }
         return -1L;
     }
 
     public long c() {
-        return this.f43302c;
+        return this.c;
     }
 
     public long d() {
-        long j = this.f43303d.get();
-        long j2 = this.f43305f;
+        long j = this.d.get();
+        long j2 = this.f;
         if (j2 > 0) {
             long j3 = j2 + 1;
             if (j > j3) {
@@ -77,39 +63,39 @@ public final class i {
     public long e() {
         m mVar = this.a;
         if (mVar != null) {
-            long d2 = mVar.d();
-            if (d2 > this.f43304e) {
-                return d2;
+            long d = mVar.d();
+            if (d > this.e) {
+                return d;
             }
         }
-        return this.f43304e;
+        return this.e;
     }
 
     public long f() {
-        return this.f43305f;
+        return this.f;
     }
 
     public int g() {
-        return this.f43306g;
+        return this.g;
     }
 
     public void h() {
-        this.f43301b++;
+        this.b++;
     }
 
     public void i() {
-        this.f43301b--;
+        this.b--;
     }
 
     public int j() {
-        return this.f43301b;
+        return this.b;
     }
 
     public JSONObject k() throws JSONException {
-        JSONObject jSONObject = this.f43307h;
+        JSONObject jSONObject = this.h;
         if (jSONObject == null) {
             jSONObject = new JSONObject();
-            this.f43307h = jSONObject;
+            this.h = jSONObject;
         }
         jSONObject.put("st", c());
         jSONObject.put("cu", d());
@@ -118,51 +104,51 @@ public final class i {
     }
 
     public String toString() {
-        return "Segment{startOffset=" + this.f43302c + ",\t currentOffset=" + this.f43303d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f43305f + '}';
+        return "Segment{startOffset=" + this.c + ",\t currentOffset=" + this.d + ",\t currentOffsetRead=" + e() + ",\t endOffset=" + this.f + '}';
     }
 
     public void a(long j) {
-        long j2 = this.f43302c;
+        long j2 = this.c;
         if (j < j2) {
             j = j2;
         }
-        long j3 = this.f43305f;
+        long j3 = this.f;
         if (j3 > 0) {
             long j4 = j3 + 1;
             if (j > j4) {
                 j = j4;
             }
         }
-        this.f43303d.set(j);
+        this.d.set(j);
     }
 
     public void c(long j) {
-        if (j >= this.f43302c) {
-            this.f43305f = j;
+        if (j >= this.c) {
+            this.f = j;
             return;
         }
         Log.w("Segment", "setEndOffset: endOffset = " + j + ", segment = " + this);
         if (j == -1) {
-            this.f43305f = j;
+            this.f = j;
         }
     }
 
     public void b(long j) {
-        this.f43303d.addAndGet(j);
+        this.d.addAndGet(j);
     }
 
     public void d(long j) {
-        if (j >= this.f43303d.get()) {
-            this.f43304e = j;
+        if (j >= this.d.get()) {
+            this.e = j;
         }
     }
 
     public void b(int i) {
-        this.f43301b = i;
+        this.b = i;
     }
 
     public void a(int i) {
-        this.f43306g = i;
+        this.g = i;
     }
 
     public static String a(List<i> list) {
@@ -187,19 +173,19 @@ public final class i {
 
     public i(i iVar) {
         AtomicLong atomicLong = new AtomicLong();
-        this.f43303d = atomicLong;
-        this.f43301b = 0;
-        this.f43302c = iVar.f43302c;
-        this.f43305f = iVar.f43305f;
-        atomicLong.set(iVar.f43303d.get());
-        this.f43304e = this.f43303d.get();
-        this.f43306g = iVar.f43306g;
+        this.d = atomicLong;
+        this.b = 0;
+        this.c = iVar.c;
+        this.f = iVar.f;
+        atomicLong.set(iVar.d.get());
+        this.e = this.d.get();
+        this.g = iVar.g;
     }
 
     public i(JSONObject jSONObject) {
-        this.f43303d = new AtomicLong();
-        this.f43301b = 0;
-        this.f43302c = jSONObject.optLong("st");
+        this.d = new AtomicLong();
+        this.b = 0;
+        this.c = jSONObject.optLong("st");
         c(jSONObject.optLong("en"));
         a(jSONObject.optLong("cu"));
         d(d());

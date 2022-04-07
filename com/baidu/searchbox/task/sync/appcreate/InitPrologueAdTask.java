@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class InitPrologueAdTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,8 +38,8 @@ public class InitPrologueAdTask extends LaunchTask {
             try {
                 Class.forName("com.baidu.tieba.funad.FunAdStatic");
                 Class.forName("com.baidu.tieba.advert.sdk.AdvertSDKStatic");
-            } catch (Exception e2) {
-                BdLog.i(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.i(e.getMessage());
             }
             if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
                 Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitPrologueAdTask.1

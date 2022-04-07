@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,8 +20,8 @@ public class a {
             if (file.exists()) {
                 try {
                     return i(new JSONObject(i.f(file)).optJSONObject("slam_model"));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -64,8 +64,8 @@ public class a {
                     }
                     bVar.V(z);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return bVar;
         }

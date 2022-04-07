@@ -1,5 +1,5 @@
 package com.kwad.sdk.api.model;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface a {
     int a();
 

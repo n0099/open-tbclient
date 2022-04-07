@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ar implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,14 +44,14 @@ public class ar implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             synchronized (this.a) {
                 this.a.f51a = new Messenger(iBinder);
-                this.a.f44066c = false;
+                this.a.c = false;
                 list = this.a.f54a;
                 for (Message message : list) {
                     try {
                         messenger = this.a.f51a;
                         messenger.send(message);
-                    } catch (RemoteException e2) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e2);
+                    } catch (RemoteException e) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e);
                     }
                 }
                 list2 = this.a.f54a;
@@ -65,7 +65,7 @@ public class ar implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
             this.a.f51a = null;
-            this.a.f44066c = false;
+            this.a.c = false;
         }
     }
 }

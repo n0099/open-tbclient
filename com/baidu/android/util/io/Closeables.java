@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Closeables";
@@ -36,12 +36,12 @@ public final class Closeables {
         }
         try {
             closeable.close();
-        } catch (IOException e2) {
+        } catch (IOException e) {
             if (z) {
-                Log.d(TAG, "IOException thrown while closing Closeable.", e2);
+                Log.d(TAG, "IOException thrown while closing Closeable.", e);
                 return;
             }
-            throw e2;
+            throw e;
         }
     }
 
@@ -52,8 +52,8 @@ public final class Closeables {
         }
         try {
             closeable.close();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -67,8 +67,8 @@ public final class Closeables {
                 return;
             }
             cursor.close();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

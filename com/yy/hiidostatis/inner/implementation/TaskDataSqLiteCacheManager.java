@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TaskDataSqLiteCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_DAY;
@@ -411,8 +411,8 @@ public class TaskDataSqLiteCacheManager {
             try {
                 try {
                     getDbManager().saveAll(collection);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 for (Map.Entry<String, Integer> entry : map.entrySet()) {
                     addRemain(entry.getKey(), entry.getValue().intValue());

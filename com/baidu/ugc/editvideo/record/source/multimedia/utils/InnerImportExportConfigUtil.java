@@ -5,9 +5,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
-import c.a.v0.r.h;
-import c.a.z.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectKeyData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -28,6 +25,9 @@ import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.ImportExportConfigUtil;
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
+import com.repackage.f99;
+import com.repackage.xf0;
+import com.repackage.yb9;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -43,7 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InnerImportExportConfigUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public class InnerImportExportConfigUtil {
         String str2;
         MediaAEffect mediaAEffect;
         ArrayList arrayList4;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, map, list, multiMediaDataTrack, mediaTrackConfig, str)) == null) {
             List<MediaTrack> list2 = list;
@@ -97,7 +97,7 @@ public class InnerImportExportConfigUtil {
             HashMap hashMap2 = new HashMap();
             if (map != null) {
                 for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                    if (!TextUtils.equals(entry.getKey(), c.f22276b) && !TextUtils.equals(entry.getKey(), c.f22279e) && (!TextUtils.equals(entry.getKey(), c.f22277c) || !h.e(entry.getValue().textures))) {
+                    if (!TextUtils.equals(entry.getKey(), xf0.b) && !TextUtils.equals(entry.getKey(), xf0.e) && (!TextUtils.equals(entry.getKey(), xf0.c) || !yb9.e(entry.getValue().textures))) {
                         ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                         if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                             File file = new File(shaderConfig.resourcePath);
@@ -145,13 +145,13 @@ public class InnerImportExportConfigUtil {
                 int i2 = 0;
                 while (i2 < list.size()) {
                     MediaTrack mediaTrack2 = list2.get(i2);
-                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !c.m(mediaTrack2, "input_blank")) {
+                    if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !xf0.m(mediaTrack2, "input_blank")) {
                         if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-                            if (c.m(mediaTrack2, "edit_sticker")) {
+                            if (xf0.m(mediaTrack2, "edit_sticker")) {
                                 mediaTrack2.mediaSegments = null;
                                 mediaTrack2.mediaTransitions = null;
                             }
-                            if (!h.e(mediaTrack2.mediaAEffectKeyData)) {
+                            if (!yb9.e(mediaTrack2.mediaAEffectKeyData)) {
                                 for (MediaAEffectKeyData mediaAEffectKeyData : mediaTrack2.mediaAEffectKeyData) {
                                     mediaAEffectKeyData.calculateEffectKeys = null;
                                 }
@@ -185,21 +185,21 @@ public class InnerImportExportConfigUtil {
                                     mediaTrackConfig2 = mediaTrackConfig3;
                                     if (hashCode == -2060497896) {
                                         if (str5.equals(SubtitleLog.TAG)) {
-                                            c2 = 2;
-                                            if (c2 != 0) {
+                                            c = 2;
+                                            if (c != 0) {
                                             }
                                             if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                             }
                                         }
-                                        c2 = 65535;
-                                        if (c2 != 0) {
+                                        c = 65535;
+                                        if (c != 0) {
                                         }
                                         if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                         }
                                     } else if (hashCode != 761324464) {
                                         if (hashCode == 808915106 && str5.equals(MediaSegment.SEG_TYPE_INPUT_HEADER)) {
-                                            c2 = 0;
-                                            if (c2 != 0 || c2 == 1) {
+                                            c = 0;
+                                            if (c != 0 || c == 1) {
                                                 if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                                     m35clone.start = 0L;
                                                     long j = mediaSegment.end;
@@ -290,28 +290,28 @@ public class InnerImportExportConfigUtil {
                                                     arrayList5 = arrayList8;
                                                     mediaTrack3 = mediaTrack;
                                                 }
-                                            } else if (c2 == 2) {
+                                            } else if (c == 2) {
                                                 m35clone.start = 0L;
                                                 m35clone.end = 0L;
                                                 m35clone.effectStart = 0L;
                                                 m35clone.effectEnd = 0L;
                                             }
                                         }
-                                        c2 = 65535;
-                                        if (c2 != 0) {
+                                        c = 65535;
+                                        if (c != 0) {
                                         }
                                         if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                         }
                                     } else {
                                         if (str5.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER)) {
-                                            c2 = 1;
-                                            if (c2 != 0) {
+                                            c = 1;
+                                            if (c != 0) {
                                             }
                                             if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                             }
                                         }
-                                        c2 = 65535;
-                                        if (c2 != 0) {
+                                        c = 65535;
+                                        if (c != 0) {
                                         }
                                         if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
                                         }
@@ -417,7 +417,7 @@ public class InnerImportExportConfigUtil {
                 }
                 file2.createNewFile();
                 FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                fileOutputStream.write(new b().a(mediaAEffect).getBytes());
+                fileOutputStream.write(new f99().a(mediaAEffect).getBytes());
                 fileOutputStream.flush();
                 fileOutputStream.close();
                 ShaderConfig shaderConfig2 = new ShaderConfig();
@@ -425,8 +425,8 @@ public class InnerImportExportConfigUtil {
                 String str2 = shaderConfig.fragmentShader;
                 String str3 = shaderConfig.vertexShader;
                 if (!TextUtils.isEmpty(str2) && !str2.contains("default")) {
-                    String f2 = c.f(context, parent, str2, "");
-                    if (!TextUtils.isEmpty(f2)) {
+                    String f = xf0.f(context, parent, str2, "");
+                    if (!TextUtils.isEmpty(f)) {
                         if (!str2.endsWith(".glsl")) {
                             str2 = str2 + ".glsl";
                         }
@@ -435,12 +435,12 @@ public class InnerImportExportConfigUtil {
                             file3.createNewFile();
                         }
                         FileOutputStream fileOutputStream2 = new FileOutputStream(file3);
-                        fileOutputStream2.write(f2.getBytes());
+                        fileOutputStream2.write(f.getBytes());
                         fileOutputStream2.close();
                     }
                 }
                 if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                    String j = c.j(context, parent, str3);
+                    String j = xf0.j(context, parent, str3);
                     if (!TextUtils.isEmpty(j)) {
                         if (!str3.endsWith(".glsl")) {
                             str3 = str3 + ".glsl";
@@ -464,7 +464,7 @@ public class InnerImportExportConfigUtil {
                     shaderConfig2.textures = mediaTextureDates;
                 }
                 FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file, "shader_config.json"));
-                fileOutputStream4.write(new b().a(shaderConfig2).getBytes());
+                fileOutputStream4.write(new f99().a(shaderConfig2).getBytes());
                 fileOutputStream4.close();
                 File file5 = new File(file.getParent(), mediaAEffect.name + ".zip");
                 file5.createNewFile();
@@ -476,8 +476,8 @@ public class InnerImportExportConfigUtil {
                 String path = file5.getPath();
                 FileUtils.deleteFileOrDir(file);
                 return path;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -545,7 +545,7 @@ public class InnerImportExportConfigUtil {
             }
             mediaTrackConfig.shaderConfigMapDebug = null;
             List<String> transitionResourceList = getTransitionResourceList(file3, mediaTrackConfig, onExportListener);
-            if (h.e(transitionResourceList)) {
+            if (yb9.e(transitionResourceList)) {
                 file3.delete();
             } else {
                 mediaTrackConfig.transitionResourceList = transitionResourceList;
@@ -564,13 +564,13 @@ public class InnerImportExportConfigUtil {
                 if (!file6.exists()) {
                     file6.createNewFile();
                 }
-                String a = new b().a(templateInfo2);
+                String a = new f99().a(templateInfo2);
                 FileOutputStream fileOutputStream = new FileOutputStream(file6);
                 fileOutputStream.write(a.getBytes());
                 fileOutputStream.close();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (onExportListener != null) {
-                    onExportListener.onExportFail("导出theme_config.json 失败 ，msg" + e2.getLocalizedMessage());
+                    onExportListener.onExportFail("导出theme_config.json 失败 ，msg" + e.getLocalizedMessage());
                 }
             }
             try {
@@ -586,9 +586,9 @@ public class InnerImportExportConfigUtil {
                 if (onExportListener != null) {
                     onExportListener.onExportSuccess(str8);
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 if (onExportListener != null) {
-                    onExportListener.onExportFail("压缩" + str8 + "文件失败 , msg " + e3.getLocalizedMessage());
+                    onExportListener.onExportFail("压缩" + str8 + "文件失败 , msg " + e2.getLocalizedMessage());
                 }
             }
             return str8;
@@ -612,7 +612,7 @@ public class InnerImportExportConfigUtil {
                 }
                 file2.createNewFile();
                 FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                fileOutputStream.write(new b().a(mediaTransition).getBytes());
+                fileOutputStream.write(new f99().a(mediaTransition).getBytes());
                 fileOutputStream.flush();
                 fileOutputStream.close();
                 ShaderConfig shaderConfig2 = new ShaderConfig();
@@ -620,8 +620,8 @@ public class InnerImportExportConfigUtil {
                 String str3 = shaderConfig.fragmentShader;
                 String str4 = shaderConfig.vertexShader;
                 if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                    String f2 = c.f(context, parent, str3, "");
-                    if (!TextUtils.isEmpty(f2)) {
+                    String f = xf0.f(context, parent, str3, "");
+                    if (!TextUtils.isEmpty(f)) {
                         if (!str3.endsWith(".glsl")) {
                             str3 = str3 + ".glsl";
                         }
@@ -630,12 +630,12 @@ public class InnerImportExportConfigUtil {
                             file3.createNewFile();
                         }
                         FileOutputStream fileOutputStream2 = new FileOutputStream(file3);
-                        fileOutputStream2.write(f2.getBytes());
+                        fileOutputStream2.write(f.getBytes());
                         fileOutputStream2.close();
                     }
                 }
                 if (!TextUtils.isEmpty(str4) && !str4.contains("default")) {
-                    String j = c.j(context, parent, str4);
+                    String j = xf0.j(context, parent, str4);
                     if (!TextUtils.isEmpty(j)) {
                         if (!str4.endsWith(".glsl")) {
                             str4 = str4 + ".glsl";
@@ -659,7 +659,7 @@ public class InnerImportExportConfigUtil {
                     shaderConfig2.textures = mediaTextureDates;
                 }
                 FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file, str2 + ".json"));
-                fileOutputStream4.write(new b().a(shaderConfig2).getBytes());
+                fileOutputStream4.write(new f99().a(shaderConfig2).getBytes());
                 fileOutputStream4.close();
                 File file5 = new File(file.getParent(), mediaTransition.name + ".zip");
                 file5.createNewFile();
@@ -671,8 +671,8 @@ public class InnerImportExportConfigUtil {
                 String path = file5.getPath();
                 FileUtils.deleteFileOrDir(file);
                 return path;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -698,23 +698,23 @@ public class InnerImportExportConfigUtil {
                             }
                             file2.createNewFile();
                             fileOutputStream = new FileOutputStream(file2);
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                         }
                     } catch (Throwable th) {
                         th = th;
                     }
                     try {
-                        fileOutputStream.write(new b().a(entry.getValue()).getBytes());
+                        fileOutputStream.write(new f99().a(entry.getValue()).getBytes());
                         fileOutputStream.flush();
                         hashMap.put(key, file.getName() + File.separator + file2.getName());
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
-                    } catch (IOException e4) {
-                        e = e4;
+                    } catch (IOException e3) {
+                        e = e3;
                         fileOutputStream2 = fileOutputStream;
                         e.printStackTrace();
                         if (onExportListener != null) {
@@ -729,8 +729,8 @@ public class InnerImportExportConfigUtil {
                         if (fileOutputStream2 != null) {
                             try {
                                 fileOutputStream2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
                             }
                         }
                         throw th;
@@ -795,7 +795,7 @@ public class InnerImportExportConfigUtil {
                         if (!name.contains(".")) {
                             name = mediaTextureData.path + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
                         }
-                        FileUtils.saveBitmap2PNG(file.getPath(), name, c.g(context, mediaTextureData.path), 100);
+                        FileUtils.saveBitmap2PNG(file.getPath(), name, xf0.g(context, mediaTextureData.path), 100);
                     }
                     mediaTextureData.path = name;
                     if (mediaTextureData.textureId == 0) {
@@ -847,16 +847,16 @@ public class InnerImportExportConfigUtil {
                             if (!TextUtils.isEmpty(str2)) {
                                 try {
                                     if (!str2.contains("default")) {
-                                        String f2 = c.f(context, parent, str2, next.getKey());
-                                        if (!TextUtils.isEmpty(f2)) {
+                                        String f = xf0.f(context, parent, str2, next.getKey());
+                                        if (!TextUtils.isEmpty(f)) {
                                             if (str2.endsWith(".glsl")) {
                                                 hashMap = hashMap2;
                                             } else {
                                                 hashMap = hashMap2;
                                                 try {
                                                     str2 = str2 + ".glsl";
-                                                } catch (IOException e2) {
-                                                    e = e2;
+                                                } catch (IOException e) {
+                                                    e = e;
                                                     hashMap2 = hashMap;
                                                     if (onExportListener != null) {
                                                         onExportListener.onExportFail("导出 shader_config.json 失败 ，msg " + e.getLocalizedMessage());
@@ -870,11 +870,11 @@ public class InnerImportExportConfigUtil {
                                             }
                                             String str4 = str2;
                                             FileOutputStream fileOutputStream = new FileOutputStream(file4);
-                                            fileOutputStream.write(f2.getBytes());
+                                            fileOutputStream.write(f.getBytes());
                                             fileOutputStream.close();
                                             str2 = str4;
                                             if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                                                j = c.j(context, parent, str3);
+                                                j = xf0.j(context, parent, str3);
                                                 if (!TextUtils.isEmpty(j)) {
                                                     if (!str3.endsWith(".glsl")) {
                                                         str3 = str3 + ".glsl";
@@ -898,19 +898,19 @@ public class InnerImportExportConfigUtil {
                                                 shaderConfig.textures = mediaTextureDates;
                                             }
                                             FileOutputStream fileOutputStream3 = new FileOutputStream(file3);
-                                            fileOutputStream3.write(new b().a(shaderConfig).getBytes());
+                                            fileOutputStream3.write(new f99().a(shaderConfig).getBytes());
                                             fileOutputStream3.close();
                                             hashMap2 = hashMap;
                                             hashMap2.put(key, file3.getPath().replace(str, ""));
                                         }
                                     }
-                                } catch (IOException e3) {
-                                    e = e3;
+                                } catch (IOException e2) {
+                                    e = e2;
                                 }
                             }
                             hashMap = hashMap2;
                             if (!TextUtils.isEmpty(str3)) {
-                                j = c.j(context, parent, str3);
+                                j = xf0.j(context, parent, str3);
                                 if (!TextUtils.isEmpty(j)) {
                                 }
                             }
@@ -923,12 +923,12 @@ public class InnerImportExportConfigUtil {
                             if (mediaTextureDates.size() > 0) {
                             }
                             FileOutputStream fileOutputStream32 = new FileOutputStream(file3);
-                            fileOutputStream32.write(new b().a(shaderConfig).getBytes());
+                            fileOutputStream32.write(new f99().a(shaderConfig).getBytes());
                             fileOutputStream32.close();
                             hashMap2 = hashMap;
                             hashMap2.put(key, file3.getPath().replace(str, ""));
-                        } catch (IOException e4) {
-                            e = e4;
+                        } catch (IOException e3) {
+                            e = e3;
                             it = it2;
                         }
                     }
@@ -966,23 +966,23 @@ public class InnerImportExportConfigUtil {
                             }
                             file2.createNewFile();
                             fileOutputStream = new FileOutputStream(file2);
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e) {
+                            e = e;
                         }
                     } catch (Throwable th) {
                         th = th;
                     }
                     try {
-                        fileOutputStream.write(new b().a(mediaTransition).getBytes());
+                        fileOutputStream.write(new f99().a(mediaTransition).getBytes());
                         fileOutputStream.flush();
                         arrayList.add(file.getName() + File.separator + file2.getName());
                         try {
                             fileOutputStream.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e2) {
+                            e2.printStackTrace();
                         }
-                    } catch (IOException e4) {
-                        e = e4;
+                    } catch (IOException e3) {
+                        e = e3;
                         fileOutputStream2 = fileOutputStream;
                         e.printStackTrace();
                         if (onExportListener != null) {
@@ -997,8 +997,8 @@ public class InnerImportExportConfigUtil {
                         if (fileOutputStream2 != null) {
                             try {
                                 fileOutputStream2.close();
-                            } catch (IOException e5) {
-                                e5.printStackTrace();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
                             }
                         }
                         throw th;

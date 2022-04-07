@@ -30,15 +30,15 @@ public class l {
             return false;
         } else {
             final int id = downloadInfo.getId();
-            boolean b2 = com.ss.android.downloadlib.g.e.b(bVar);
+            boolean b = com.ss.android.downloadlib.g.e.b(bVar);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("switch_status", Integer.valueOf(b2 ? 1 : 0));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                jSONObject.putOpt("switch_status", Integer.valueOf(b ? 1 : 0));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             com.ss.android.downloadlib.d.a.a().a("pause_reserve_wifi_switch_status", jSONObject, bVar);
-            if (b2 && a(i) && !com.ss.android.socialbase.downloader.i.f.b(j.getContext()) && !downloadInfo.hasPauseReservedOnWifi()) {
+            if (b && a(i) && !com.ss.android.socialbase.downloader.i.f.b(j.getContext()) && !downloadInfo.hasPauseReservedOnWifi()) {
                 a(new com.ss.android.downloadlib.addownload.a.c() { // from class: com.ss.android.downloadlib.addownload.l.1
                     @Override // com.ss.android.downloadlib.addownload.a.c
                     public void a() {

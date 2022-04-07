@@ -23,26 +23,20 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static d a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f27383b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f27384c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f27385d;
+        public String b;
+        public String c;
+        public String d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -64,9 +58,9 @@ public class d {
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
             this.a = str;
-            this.f27383b = str2;
-            this.f27384c = str3;
-            this.f27385d = str4;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
         }
 
         public JSONObject a() {
@@ -76,12 +70,12 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f27383b);
-                    jSONObject.put("c", this.f27384c);
-                    jSONObject.put("a", this.f27385d);
+                    jSONObject.put("v", this.b);
+                    jSONObject.put("c", this.c);
+                    jSONObject.put("a", this.d);
                     return jSONObject;
-                } catch (JSONException e2) {
-                    bb.c().b(e2);
+                } catch (JSONException e) {
+                    bb.c().b(e);
                     return null;
                 }
             }
@@ -161,8 +155,8 @@ public class d {
             List<PackageInfo> arrayList2 = new ArrayList<>(1);
             try {
                 arrayList2 = packageManager.getInstalledPackages(64);
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
             }
             for (PackageInfo packageInfo : arrayList2) {
                 ApplicationInfo applicationInfo = packageInfo.applicationInfo;
@@ -204,14 +198,14 @@ public class d {
                 jSONObject.put("app_apk", jSONArray);
                 jSONObject.put("meta-data", sb.toString());
                 str = bm.a.a(jSONObject.toString().getBytes());
-            } catch (Exception e2) {
-                bb.c().b(e2);
+            } catch (Exception e) {
+                bb.c().b(e);
                 str = "";
             }
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f27415e.a(System.currentTimeMillis(), str);
+            k.e.a(System.currentTimeMillis(), str);
         }
     }
 }

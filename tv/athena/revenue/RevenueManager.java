@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l7a;
+import com.repackage.u3a;
 import com.yy.mobile.framework.revenuesdk.IRevenue;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -17,11 +19,11 @@ import tv.athena.revenue.api.IMiddleRevenue;
 import tv.athena.revenue.api.MiddleRevenueConfig;
 @Keep
 /* loaded from: classes8.dex */
-public class RevenueManager implements h.a.a.b.a {
+public class RevenueManager implements u3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
-    public h.a.a.b.a revenueService;
+    public u3a revenueService;
 
     /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
@@ -62,7 +64,7 @@ public class RevenueManager implements h.a.a.b.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (RevenueManager) invokeV.objValue;
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public void addLogDelegate(IRLogDelegate iRLogDelegate) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iRLogDelegate) == null) {
@@ -71,7 +73,7 @@ public class RevenueManager implements h.a.a.b.a {
         }
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, middleRevenueConfig) == null) {
@@ -81,7 +83,7 @@ public class RevenueManager implements h.a.a.b.a {
         }
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public List<IRevenue> getAllRevenue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -92,7 +94,7 @@ public class RevenueManager implements h.a.a.b.a {
         return (List) invokeV.objValue;
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public IMiddleRevenue getMiddleRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
@@ -103,14 +105,14 @@ public class RevenueManager implements h.a.a.b.a {
         return (IMiddleRevenue) invokeII.objValue;
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public IRevenue getRevenue(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? this.revenueService.getRevenue(i, i2) : (IRevenue) invokeII.objValue;
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public void removeRevenueConfig(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
@@ -119,7 +121,7 @@ public class RevenueManager implements h.a.a.b.a {
         }
     }
 
-    @Override // h.a.a.b.a
+    @Override // com.repackage.u3a
     public void updateMiddleRevenueConfig(int i, int i2, Long l, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), l, str}) == null) {
@@ -143,6 +145,6 @@ public class RevenueManager implements h.a.a.b.a {
         }
         this.TAG = "RevenueManager";
         RLog.info("RevenueManager", "create RevenueManager");
-        this.revenueService = new h.a.a.f.b();
+        this.revenueService = new l7a();
     }
 }

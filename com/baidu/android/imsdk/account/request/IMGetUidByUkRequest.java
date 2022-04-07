@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -180,8 +180,8 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                                 treeMap3.put(Long.valueOf(j), Long.valueOf(jSONObject3.optLong("" + j, -1L)));
                             }
                             treeMap2 = treeMap3;
-                        } catch (JSONException e2) {
-                            e = e2;
+                        } catch (JSONException e) {
+                            e = e;
                             treeMap2 = treeMap3;
                             LogUtils.e("IMGetUidByUkRequest", e.getMessage(), e);
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -199,8 +199,8 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                 str = string;
                 i2 = i3;
                 treeMap = treeMap2;
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
             }
             AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
         }

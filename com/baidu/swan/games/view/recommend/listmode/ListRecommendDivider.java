@@ -14,17 +14,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ListRecommendDivider extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29596b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f29597c;
+    public int b;
+    public Paint c;
 
     public ListRecommendDivider(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -42,17 +38,17 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             }
         }
         Resources resources = context.getResources();
-        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706cb);
-        this.f29596b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706cc);
+        this.a = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706d8);
+        this.b = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706d9);
         Paint paint = new Paint();
-        this.f29597c = paint;
-        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060a9d));
+        this.c = paint;
+        paint.setColor(resources.getColor(R.color.obfuscated_res_0x7f060aac));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
+    public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
             rect.set(0, 0, 0, this.a);
         }
     }
@@ -65,7 +61,7 @@ public class ListRecommendDivider extends RecyclerView.ItemDecoration {
             for (int i = 0; i < itemCount; i++) {
                 View childAt = recyclerView.getChildAt(i);
                 if (childAt != null && recyclerView.getChildAdapterPosition(childAt) != itemCount - 1) {
-                    canvas.drawRect(this.f29596b, childAt.getBottom(), childAt.getWidth() - this.f29596b, childAt.getBottom() + this.a, this.f29597c);
+                    canvas.drawRect(this.b, childAt.getBottom(), childAt.getWidth() - this.b, childAt.getBottom() + this.a, this.c);
                 }
             }
         }

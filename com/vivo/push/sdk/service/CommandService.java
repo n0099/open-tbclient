@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.a;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommandService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,8 +83,8 @@ public class CommandService extends Service {
                 try {
                     a.a().a(getClass().getName());
                     a.a().a(intent);
-                } catch (Exception e2) {
-                    p.a("CommandService", "onStartCommand -- error", e2);
+                } catch (Exception e) {
+                    p.a("CommandService", "onStartCommand -- error", e);
                 }
                 stopSelf();
                 return 2;

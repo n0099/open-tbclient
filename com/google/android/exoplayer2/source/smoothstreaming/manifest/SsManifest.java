@@ -17,7 +17,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SsManifest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UNSET_LOOKAHEAD = -1;
@@ -31,7 +31,7 @@ public class SsManifest {
     public final ProtectionElement protectionElement;
     public final StreamElement[] streamElements;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ProtectionElement {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +108,7 @@ public class SsManifest {
         return (SsManifest) invokeL.objValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class StreamElement {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String URL_PLACEHOLDER_BITRATE_1 = "{bitrate}";

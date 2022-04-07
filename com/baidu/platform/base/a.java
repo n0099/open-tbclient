@@ -21,26 +21,16 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lock a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AsyncHttpClient f28178b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f28179c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f28180d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public DistrictResult f28181e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SearchType f28182f;
+    public AsyncHttpClient b;
+    public Handler c;
+    public boolean d;
+    public DistrictResult e;
+    public SearchType f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -55,11 +45,11 @@ public abstract class a {
                 return;
             }
         }
-        this.f28178b = new AsyncHttpClient();
-        this.f28179c = new Handler(Looper.getMainLooper());
+        this.b = new AsyncHttpClient();
+        this.c = new Handler(Looper.getMainLooper());
         this.a = new ReentrantLock();
-        this.f28180d = true;
-        this.f28181e = null;
+        this.d = true;
+        this.e = null;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -70,8 +60,8 @@ public abstract class a {
             byte[] bArr = {102, 97, 105, 108, 100};
             try {
                 bArr = AlgorithmUtil.getUrlNeedInfo(AppMD5.getUrlNeedInfo(), AppMD5.getUrlNeedInfo(), Base64.decode(str.getBytes(), 0));
-            } catch (Exception e2) {
-                Log.e("BaseSearch", "transform result failed", e2);
+            } catch (Exception e) {
+                Log.e("BaseSearch", "transform result failed", e);
             }
             return new String(bArr).trim();
         }
@@ -81,7 +71,7 @@ public abstract class a {
     private void a(AsyncHttpClient asyncHttpClient, HttpClient.ProtoResultCallback protoResultCallback, SearchResult searchResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, asyncHttpClient, protoResultCallback, searchResult) == null) {
-            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f28182f), protoResultCallback);
+            asyncHttpClient.get(new com.baidu.platform.core.a.c(((DistrictResult) searchResult).getCityName()).a(this.f), protoResultCallback);
         }
     }
 
@@ -96,7 +86,7 @@ public abstract class a {
     private void a(SearchResult searchResult, Object obj, d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65542, this, searchResult, obj, dVar) == null) {
-            this.f28179c.post(new c(this, dVar, searchResult, obj));
+            this.c.post(new c(this, dVar, searchResult, obj));
         }
     }
 
@@ -111,15 +101,15 @@ public abstract class a {
             } else if (!(dVar instanceof com.baidu.platform.core.a.b)) {
                 a(a, obj, dVar);
             } else {
-                DistrictResult districtResult = this.f28181e;
+                DistrictResult districtResult = this.e;
                 if (districtResult != null) {
                     DistrictResult districtResult2 = (DistrictResult) a;
                     districtResult2.setCityCode(districtResult.getCityCode());
-                    districtResult2.setCenterPt(this.f28181e.getCenterPt());
+                    districtResult2.setCenterPt(this.e.getCenterPt());
                 }
                 a(a, obj, dVar);
-                this.f28180d = true;
-                this.f28181e = null;
+                this.d = true;
+                this.e = null;
                 ((com.baidu.platform.core.a.b) dVar).a(false);
             }
         }
@@ -131,9 +121,9 @@ public abstract class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, dVar, searchResult)) == null) {
             if (dVar instanceof com.baidu.platform.core.a.b) {
                 DistrictResult districtResult = (DistrictResult) searchResult;
-                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.f28180d) {
-                    this.f28180d = false;
-                    this.f28181e = districtResult;
+                if (SearchResult.ERRORNO.RESULT_NOT_FOUND == districtResult.error && districtResult.getCityName() != null && this.d) {
+                    this.d = false;
+                    this.e = districtResult;
                     ((com.baidu.platform.core.a.b) dVar).a(true);
                     return true;
                 }
@@ -184,8 +174,8 @@ public abstract class a {
                         Log.e("BaseSearch", "permissionCheck result is: " + permissionCheck);
                     }
                 }
-            } catch (JSONException e2) {
-                Log.e("BaseSearch", "Parse json happened exception", e2);
+            } catch (JSONException e) {
+                Log.e("BaseSearch", "Parse json happened exception", e);
             }
         }
     }
@@ -199,10 +189,10 @@ public abstract class a {
                 return false;
             }
             SearchType a = dVar.a();
-            this.f28182f = a;
+            this.f = a;
             String a2 = eVar.a(a);
             if (a2 != null) {
-                this.f28178b.get(a2, new b(this, dVar, obj));
+                this.b.get(a2, new b(this, dVar, obj));
                 return true;
             }
             Log.e("BaseSearch", "The sendurl is: " + a2);

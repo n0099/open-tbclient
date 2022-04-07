@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile a p;
@@ -102,11 +102,11 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             try {
                 if (this.n.isEmpty()) {
-                    String f2 = f();
-                    if (TextUtils.isEmpty(f2)) {
+                    String f = f();
+                    if (TextUtils.isEmpty(f)) {
                         return null;
                     }
-                    JSONObject jSONObject = new JSONObject(f2);
+                    JSONObject jSONObject = new JSONObject(f);
                     Iterator<String> keys = jSONObject.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();

@@ -16,26 +16,26 @@ public final class Boxing {
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
-    public static final Byte boxByte(byte b2) {
-        return Byte.valueOf(b2);
+    public static final Byte boxByte(byte b) {
+        return Byte.valueOf(b);
     }
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
-    public static final Character boxChar(char c2) {
-        return new Character(c2);
+    public static final Character boxChar(char c) {
+        return new Character(c);
     }
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
-    public static final Double boxDouble(double d2) {
-        return new Double(d2);
+    public static final Double boxDouble(double d) {
+        return new Double(d);
     }
 
     @SinceKotlin(version = "1.3")
     @PublishedApi
-    public static final Float boxFloat(float f2) {
-        return new Float(f2);
+    public static final Float boxFloat(float f) {
+        return new Float(f);
     }
 
     @SinceKotlin(version = "1.3")

@@ -1,5 +1,5 @@
 package com.baidu.ar.marker;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IMarker {
     void chioceOneCoordinate(com.baidu.ar.marker.a.a aVar);
 
@@ -11,9 +11,9 @@ public interface IMarker {
 
     float[] location2ScreenPoint(float[] fArr);
 
-    void postArrow(float f2, float f3, float f4);
+    void postArrow(float f, float f2, float f3);
 
-    void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f2, float f3);
+    void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f, float f2);
 
     void postFinalArrow(String str, double[] dArr);
 

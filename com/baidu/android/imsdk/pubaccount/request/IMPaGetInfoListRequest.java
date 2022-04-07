@@ -28,7 +28,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetInfoListRequest";
@@ -134,8 +134,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                 if (AccountManager.isCuidLogin(this.mContext)) {
                     jSONObject.put("token", AccountManager.getToken(this.mContext));
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }
@@ -204,8 +204,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                                 if (!TextUtils.isEmpty(optString)) {
                                     try {
                                         paInfo.setSubsetType(new JSONObject(optString).optInt("sub_pa_type", 0));
-                                    } catch (JSONException e2) {
-                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e2);
+                                    } catch (JSONException e) {
+                                        LogUtils.e(LogUtils.TAG, "IMPaGetInfoListRequest JSONException", e);
                                     }
                                 }
                                 paInfo.setVipId(jSONObject2.optString("vip"));
@@ -223,8 +223,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                                 }
                                 arrayList2.add(paInfo);
                             }
-                        } catch (JSONException e3) {
-                            e = e3;
+                        } catch (JSONException e2) {
+                            e = e2;
                             arrayList = arrayList2;
                             LogUtils.e(LogUtils.TAG, "IMGetZhidaInfoRequest JSONException", e);
                             i2 = 1010;
@@ -236,8 +236,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
                     }
                     arrayList = arrayList2;
                 }
-            } catch (JSONException e4) {
-                e = e4;
+            } catch (JSONException e3) {
+                e = e3;
             }
             getPaInfoSliceListener = this.sliceListener;
             if (getPaInfoSliceListener == null) {

@@ -20,32 +20,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EfficientProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29103b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f29104c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f29105d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Transformation f29106e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Interpolator f29107f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AnimationSet f29108g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Drawable f29109h;
+    public int b;
+    public int c;
+    public long d;
+    public Transformation e;
+    public Interpolator f;
+    public AnimationSet g;
+    public Drawable h;
     public float i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,10 +52,10 @@ public class EfficientProgressBar extends View {
                 return;
             }
         }
-        this.f29104c = g(66);
-        this.f29105d = -1L;
-        this.f29106e = new Transformation();
-        this.f29107f = new DecelerateInterpolator(2.0f);
+        this.c = g(66);
+        this.d = -1L;
+        this.e = new Transformation();
+        this.f = new DecelerateInterpolator(2.0f);
         this.i = -1.0f;
         d();
     }
@@ -90,13 +76,13 @@ public class EfficientProgressBar extends View {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getVisibility() == 0) {
             if (z) {
-                this.f29108g = new AnimationSet(false);
-                AlphaAnimation alphaAnimation = new AlphaAnimation(this.f29103b / 10000.0f, 1.0f);
+                this.g = new AnimationSet(false);
+                AlphaAnimation alphaAnimation = new AlphaAnimation(this.b / 10000.0f, 1.0f);
                 alphaAnimation.setDuration(200L);
-                alphaAnimation.setInterpolator(this.f29107f);
-                this.f29108g.addAnimation(alphaAnimation);
-                this.f29106e.clear();
-                this.f29108g.start();
+                alphaAnimation.setInterpolator(this.f);
+                this.g.addAnimation(alphaAnimation);
+                this.e.clear();
+                this.g.start();
                 invalidate();
                 return;
             }
@@ -116,12 +102,12 @@ public class EfficientProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
-            float f2 = width > 0 ? ((10000 - this.f29103b) / 10000.0f) * width : -1.0f;
-            if (f2 > 0.0f) {
+            float f = width > 0 ? ((10000 - this.b) / 10000.0f) * width : -1.0f;
+            if (f > 0.0f) {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    setTranslationX(-f2);
+                    setTranslationX(-f);
                 }
-                this.i = f2;
+                this.i = f;
             }
         }
     }
@@ -129,10 +115,10 @@ public class EfficientProgressBar extends View {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f29103b = 0;
+            this.b = 0;
             this.a = 0;
-            this.f29105d = -1L;
-            this.f29108g = null;
+            this.d = -1L;
+            this.g = null;
             h(0, false);
             setVisibility(4);
         }
@@ -150,7 +136,7 @@ public class EfficientProgressBar extends View {
             if (i > 10000) {
                 i = 10000;
             }
-            this.f29103b = i;
+            this.b = i;
             e();
             if (z) {
                 postInvalidateDelayed(50L);
@@ -163,11 +149,11 @@ public class EfficientProgressBar extends View {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f29103b = 0;
+            this.b = 0;
             this.a = 0;
-            this.f29108g = null;
-            this.f29105d = System.currentTimeMillis();
-            h(this.f29103b, false);
+            this.g = null;
+            this.d = System.currentTimeMillis();
+            h(this.b, false);
             setVisibility(0);
         }
     }
@@ -175,24 +161,24 @@ public class EfficientProgressBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) || this.f29109h == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, canvas) == null) || this.h == null) {
             return;
         }
-        AnimationSet animationSet = this.f29108g;
+        AnimationSet animationSet = this.g;
         if (animationSet != null) {
-            if (animationSet.getTransformation(getDrawingTime(), this.f29106e)) {
-                h((int) (this.f29106e.getAlpha() * 10000.0f), false);
+            if (animationSet.getTransformation(getDrawingTime(), this.e)) {
+                h((int) (this.e.getAlpha() * 10000.0f), false);
             } else {
-                this.f29108g = null;
+                this.g = null;
                 f();
             }
-        } else if (this.f29105d != -1 && this.f29103b < this.f29104c) {
+        } else if (this.d != -1 && this.b < this.c) {
             long currentTimeMillis = System.currentTimeMillis();
-            int a = a(currentTimeMillis - this.f29105d);
-            int i = this.f29103b + a;
-            this.f29103b = i;
+            int a = a(currentTimeMillis - this.d);
+            int i = this.b + a;
+            this.b = i;
             if (a != 0) {
-                this.f29105d = currentTimeMillis;
+                this.d = currentTimeMillis;
                 h(i, true);
             }
         }
@@ -201,7 +187,7 @@ public class EfficientProgressBar extends View {
             i2 = canvas.save();
             canvas.clipRect(this.i + getPaddingLeft(), 0.0f, getWidth(), getHeight());
         }
-        this.f29109h.draw(canvas);
+        this.h.draw(canvas);
         if (i2 >= 0) {
             canvas.restoreToCount(i2);
         }
@@ -211,7 +197,7 @@ public class EfficientProgressBar extends View {
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && z && (drawable = this.f29109h) != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && z && (drawable = this.h) != null) {
             drawable.setBounds(getPaddingLeft(), getPaddingTop(), (i3 - i) - getPaddingRight(), (i4 - i2) - getPaddingBottom());
         }
     }
@@ -221,7 +207,7 @@ public class EfficientProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
             int size = View.MeasureSpec.getSize(i);
-            Drawable drawable = this.f29109h;
+            Drawable drawable = this.h;
             setMeasuredDimension(size, (drawable == null ? 0 : drawable.getIntrinsicHeight()) + getPaddingBottom() + getPaddingTop());
         }
     }
@@ -234,10 +220,10 @@ public class EfficientProgressBar extends View {
             }
             this.a = g(i);
             if (i == 100) {
-                if (this.f29108g == null) {
+                if (this.g == null) {
                     c(z);
                 }
-            } else if (this.f29105d == -1) {
+            } else if (this.d == -1) {
                 i();
             }
         }
@@ -246,7 +232,7 @@ public class EfficientProgressBar extends View {
     public void setProgressDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, drawable) == null) {
-            this.f29109h = drawable;
+            this.h = drawable;
         }
     }
 
@@ -269,10 +255,10 @@ public class EfficientProgressBar extends View {
                 return;
             }
         }
-        this.f29104c = g(66);
-        this.f29105d = -1L;
-        this.f29106e = new Transformation();
-        this.f29107f = new DecelerateInterpolator(2.0f);
+        this.c = g(66);
+        this.d = -1L;
+        this.e = new Transformation();
+        this.f = new DecelerateInterpolator(2.0f);
         this.i = -1.0f;
         d();
     }
@@ -296,10 +282,10 @@ public class EfficientProgressBar extends View {
                 return;
             }
         }
-        this.f29104c = g(66);
-        this.f29105d = -1L;
-        this.f29106e = new Transformation();
-        this.f29107f = new DecelerateInterpolator(2.0f);
+        this.c = g(66);
+        this.d = -1L;
+        this.e = new Transformation();
+        this.f = new DecelerateInterpolator(2.0f);
         this.i = -1.0f;
         d();
     }

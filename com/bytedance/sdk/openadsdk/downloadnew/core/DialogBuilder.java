@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
 
 import android.graphics.drawable.Drawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DialogBuilder {
     public IDialogStatusChangedListener dialogStatusChangedListener;
     public Drawable icon;

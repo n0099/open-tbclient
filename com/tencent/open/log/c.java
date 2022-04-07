@@ -7,31 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.common.Constants;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 60;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f43766b = 60;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f43767c = "OpenSDK.Client.File.Tracer";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f43768d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f43769e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static long f43770f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f43771g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static int f43772h;
+    public static int b = 60;
+    public static String c = "OpenSDK.Client.File.Tracer";
+    public static String d;
+    public static String e;
+    public static long f;
+    public static int g;
+    public static int h;
     public static int i;
     public static String j;
     public static String k;
@@ -54,11 +40,11 @@ public class c {
                 return;
             }
         }
-        f43768d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
-        f43769e = ".log";
-        f43770f = 8388608L;
-        f43771g = 262144;
-        f43772h = 1024;
+        d = "Tencent" + File.separator + "msflogs" + File.separator + "com" + File.separator + "tencent" + File.separator + "mobileqq" + File.separator;
+        e = ".log";
+        f = 8388608L;
+        g = 262144;
+        h = 1024;
         i = 10000;
         j = "debug.file.blockcount";
         k = "debug.file.keepperiod";

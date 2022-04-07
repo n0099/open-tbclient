@@ -1,7 +1,5 @@
 package com.baidu.tieba.themeCenter.bubble.group;
 
-import c.a.p0.f4.f.b.b;
-import c.a.p0.f4.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,6 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fr8;
+import com.repackage.tq8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +17,12 @@ import tbclient.Error;
 import tbclient.GetBubbleByCategory.DataRes;
 import tbclient.GetBubbleByCategory.GetBubbleByCategoryResIdl;
 import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b> mBubbleGroupList;
-    public e mRecommand;
+    public List<tq8> mBubbleGroupList;
+    public fr8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupSocketResponseMessage() {
@@ -42,16 +42,16 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<b> getGroupList() {
+    public List<tq8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
     }
 
-    public e getRecommand() {
+    public fr8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (fr8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -70,17 +70,17 @@ public class BubbleGroupSocketResponseMessage extends SocketResponsedMessage {
         DataRes dataRes = getBubbleByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                e eVar = new e();
-                this.mRecommand = eVar;
-                eVar.d(getBubbleByCategoryResIdl.data.recommend);
+                fr8 fr8Var = new fr8();
+                this.mRecommand = fr8Var;
+                fr8Var.d(getBubbleByCategoryResIdl.data.recommend);
             }
             if (getBubbleByCategoryResIdl.data.bubbles != null) {
                 this.mBubbleGroupList = new ArrayList();
                 for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                     if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        b bVar = new b();
-                        bVar.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(bVar);
+                        tq8 tq8Var = new tq8();
+                        tq8Var.c(themeBubbleInMain);
+                        this.mBubbleGroupList.add(tq8Var);
                     }
                 }
             }

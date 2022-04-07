@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SignleGraphicTextMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SignleGraphicTextMsg> CREATOR;
@@ -173,8 +173,8 @@ public class SignleGraphicTextMsg extends NormalMsg {
                     return true;
                 }
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e("SignleGraphicTextMsg", "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("SignleGraphicTextMsg", "parseJsonString JSONException", e);
                 return false;
             }
         }

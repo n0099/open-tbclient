@@ -7,10 +7,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.c;
-import c.a.v0.r.h;
-import c.a.v0.r.q;
-import c.a.v0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,9 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.editvideo.addfilter.VideoKeyFrameModel;
 import com.baidu.ugc.editvideo.magicmusic.VideoEffectData;
+import com.repackage.hc9;
+import com.repackage.nc9;
+import com.repackage.tb9;
+import com.repackage.yb9;
 import java.io.Closeable;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     public String mPath;
     public VideoKeyFrameModel mVideoKeyFrameModel;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnGetFrameAtExactTimeListener {
         void onFinish(Bitmap bitmap);
     }
@@ -50,7 +50,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
             }
         }
         this.mPath = null;
-        this.isUseMediacodec = q.a();
+        this.isUseMediacodec = hc9.a();
     }
 
     @NonNull
@@ -70,7 +70,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
     private boolean isUseMediacodec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.isUseMediacodec && !w.a(this.mPath) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.isUseMediacodec && !nc9.a(this.mPath) : invokeV.booleanValue;
     }
 
     @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
@@ -159,8 +159,8 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
                     frameAtTime = getVideoKeyFrameModel().getFrameAtTime(this.mPath, (int) j, false, i2, i3);
                 }
                 return frameAtTime;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -169,7 +169,7 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
 
     public void getFrameAtTimeList(List<Long> list, int i, int i2, VideoKeyFrameModel.OnDecodeFrameAvailableListener onDecodeFrameAvailableListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || h.e(list) || onDecodeFrameAvailableListener == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), onDecodeFrameAvailableListener}) == null) || yb9.e(list) || onDecodeFrameAvailableListener == null) {
             return;
         }
         if (isUseMediacodec()) {
@@ -215,8 +215,8 @@ public class BdMediaMetadataRetriever extends MediaMetadataRetriever implements 
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.mPath = str;
                 }
-            } catch (Exception e2) {
-                c.g(e2);
+            } catch (Exception e) {
+                tb9.g(e);
             }
         }
     }

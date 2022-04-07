@@ -15,14 +15,14 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SafeKeyGenerator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Pools.Pool<PoolableDigestContainer> digestPool;
     public final LruCache<Key, String> loadIdToSafeHash;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class PoolableDigestContainer implements FactoryPools.Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,8 +103,8 @@ public class SafeKeyGenerator {
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                     try {
                         return new PoolableDigestContainer(MessageDigest.getInstance("SHA-256"));
-                    } catch (NoSuchAlgorithmException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (NoSuchAlgorithmException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 return (PoolableDigestContainer) invokeV.objValue;

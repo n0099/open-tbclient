@@ -1,7 +1,6 @@
 package com.baidu.adp.framework;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.c.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,15 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.q9;
 import java.util.LinkedList;
 import org.apache.http.HttpVersion;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FrameHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,7 +98,7 @@ public class FrameHelper {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 0 && i < 1000000 : invokeI.booleanValue;
     }
 
-    public static <T extends d> int d(LinkedList<T> linkedList, int i) {
+    public static <T extends q9> int d(LinkedList<T> linkedList, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, linkedList, i)) == null) {
@@ -137,7 +137,7 @@ public class FrameHelper {
         }
     }
 
-    public static <T extends d> void insert(LinkedList<T> linkedList, T t) {
+    public static <T extends q9> void insert(LinkedList<T> linkedList, T t) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65542, null, linkedList, t) == null) || t == null || linkedList.contains(t)) {
             return;

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import c.a.d.f.l.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SignAllForumAdvertActivityConfig;
@@ -17,7 +16,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.fo;
+import com.repackage.hg;
+import com.repackage.ig;
+/* loaded from: classes4.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,8 +31,8 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public ImageView mIcon;
     public NavigationBar mNavigationBar;
 
-    /* loaded from: classes6.dex */
-    public class a extends c.a.d.f.l.c<c.a.d.o.d.a> {
+    /* loaded from: classes4.dex */
+    public class a extends hg<fo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumAdvertActivity a;
@@ -54,19 +56,19 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
+        @Override // com.repackage.hg
+        public void onLoaded(fo foVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) {
-                super.onLoaded((a) aVar, str, i);
-                if (aVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
+                super.onLoaded((a) foVar, str, i);
+                if (foVar == null) {
                     this.a.finish();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,15 +93,15 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{this.a.mAdUrl});
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,9 +126,9 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
@@ -156,16 +158,16 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d077b);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
+            setContentView(R.layout.obfuscated_res_0x7f0d0772);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923ab);
             this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f1166));
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d0e);
-            this.mAdvertPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091d09);
-            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d08);
-            this.mAdvertPic.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
-            d.h().m(this.mAdPic, 10, new a(this), null);
-            this.mAdvertPic.J(this.mAdPic, 10, false);
+            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f116e));
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cfc);
+            this.mAdvertPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cf7);
+            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf6);
+            this.mAdvertPic.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            ig.h().m(this.mAdPic, 10, new a(this), null);
+            this.mAdvertPic.K(this.mAdPic, 10, false);
             this.mAdvertPic.setOnClickListener(new b(this));
             this.mCloseBtn.setOnClickListener(new c(this));
         }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class CommonAdapter<T> extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         }
     }
 
-    public abstract ViewHolder createViewHolder(View view);
+    public abstract ViewHolder createViewHolder(View view2);
 
     @Override // android.widget.Adapter
     public int getCount() {
@@ -93,20 +93,20 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) {
-            if (view == null) {
-                view = LinearLayout.inflate(viewGroup.getContext(), getItemLayoutId(), null);
-                viewHolder = createViewHolder(view);
-                view.setTag(viewHolder);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LinearLayout.inflate(viewGroup.getContext(), getItemLayoutId(), null);
+                viewHolder = createViewHolder(view2);
+                view2.setTag(viewHolder);
             } else {
-                viewHolder = (ViewHolder) view.getTag();
+                viewHolder = (ViewHolder) view2.getTag();
             }
             viewHolder.bindView(getItem(i));
-            return view;
+            return view2;
         }
         return (View) invokeILL.objValue;
     }

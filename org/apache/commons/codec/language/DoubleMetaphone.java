@@ -41,23 +41,23 @@ public class DoubleMetaphone implements StringEncoder {
             throw new RuntimeException("Stub!");
         }
 
-        public void append(char c2) {
+        public void append(char c) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) == null) {
                 throw new RuntimeException("Stub!");
             }
         }
 
-        public void appendAlternate(char c2) {
+        public void appendAlternate(char c) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c)}) == null) {
                 throw new RuntimeException("Stub!");
             }
         }
 
-        public void appendPrimary(char c2) {
+        public void appendPrimary(char c) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Character.valueOf(c)}) == null) {
                 throw new RuntimeException("Stub!");
             }
         }
@@ -89,9 +89,9 @@ public class DoubleMetaphone implements StringEncoder {
             return invokeV.booleanValue;
         }
 
-        public void append(char c2, char c3) {
+        public void append(char c, char c2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c), Character.valueOf(c2)}) == null) {
                 throw new RuntimeException("Stub!");
             }
         }

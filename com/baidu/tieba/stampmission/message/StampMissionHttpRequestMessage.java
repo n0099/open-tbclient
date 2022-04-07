@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StampMissionHttpRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_TASK_TYPE = "task_type";
@@ -45,7 +45,7 @@ public class StampMissionHttpRequestMessage extends HttpMessage {
         if (!TextUtils.isEmpty(str)) {
             addParam("type", str);
         }
-        if (!TYPE_SYNC.equals(str) || TextUtils.isEmpty(str2)) {
+        if (!"sync".equals(str) || TextUtils.isEmpty(str2)) {
             return;
         }
         addParam(KEY_TASK_TYPE, str2);
@@ -60,6 +60,6 @@ public class StampMissionHttpRequestMessage extends HttpMessage {
     public static StampMissionHttpRequestMessage newSyncHttpMessage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new StampMissionHttpRequestMessage(TYPE_SYNC, str) : (StampMissionHttpRequestMessage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new StampMissionHttpRequestMessage("sync", str) : (StampMissionHttpRequestMessage) invokeL.objValue;
     }
 }

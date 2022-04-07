@@ -1,8 +1,5 @@
 package com.opensource.svgaplayer.proto;
 
-import c.k.a.c;
-import c.k.a.d;
-import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,13 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pn9;
+import com.repackage.qn9;
+import com.repackage.un9;
 import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Transform extends Message<Transform, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Transform> ADAPTER;
@@ -32,36 +32,24 @@ public final class Transform extends Message<Transform, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float a;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Float f42293b;
+    public final Float b;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
-
-    /* renamed from: c  reason: collision with root package name */
-    public final Float f42294c;
+    public final Float c;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Float f42295d;
+    public final Float d;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
     public final Float tx;
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
     public final Float ty;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder extends Message.a<Transform, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Float a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Float f42296b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Float f42297c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Float f42298d;
+        public Float b;
+        public Float c;
+        public Float d;
         public Float tx;
         public Float ty;
 
@@ -79,61 +67,61 @@ public final class Transform extends Message<Transform, Builder> {
             }
         }
 
-        public Builder a(Float f2) {
+        public Builder a(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) {
-                this.a = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f)) == null) {
+                this.a = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder b(Float f2) {
+        public Builder b(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-                this.f42296b = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+                this.b = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder c(Float f2) {
+        public Builder c(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f2)) == null) {
-                this.f42297c = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, f)) == null) {
+                this.c = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder d(Float f2) {
+        public Builder d(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f2)) == null) {
-                this.f42298d = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, f)) == null) {
+                this.d = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder tx(Float f2) {
+        public Builder tx(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, f2)) == null) {
-                this.tx = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, f)) == null) {
+                this.tx = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
         }
 
-        public Builder ty(Float f2) {
+        public Builder ty(Float f) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, f2)) == null) {
-                this.ty = f2;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, f)) == null) {
+                this.ty = f;
                 return this;
             }
             return (Builder) invokeL.objValue;
@@ -145,11 +133,11 @@ public final class Transform extends Message<Transform, Builder> {
         public Transform build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Transform(this.a, this.f42296b, this.f42297c, this.f42298d, this.tx, this.ty, super.buildUnknownFields()) : (Transform) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Transform(this.a, this.b, this.c, this.d, this.tx, this.ty, super.buildUnknownFields()) : (Transform) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class ProtoAdapter_Transform extends ProtoAdapter<Transform> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -176,41 +164,41 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Transform decode(c cVar) throws IOException {
+        public Transform decode(pn9 pn9Var) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pn9Var)) == null) {
                 Builder builder = new Builder();
-                long c2 = cVar.c();
+                long c = pn9Var.c();
                 while (true) {
-                    int f2 = cVar.f();
-                    if (f2 != -1) {
-                        switch (f2) {
+                    int f = pn9Var.f();
+                    if (f != -1) {
+                        switch (f) {
                             case 1:
-                                builder.a(ProtoAdapter.FLOAT.decode(cVar));
+                                builder.a(ProtoAdapter.FLOAT.decode(pn9Var));
                                 break;
                             case 2:
-                                builder.b(ProtoAdapter.FLOAT.decode(cVar));
+                                builder.b(ProtoAdapter.FLOAT.decode(pn9Var));
                                 break;
                             case 3:
-                                builder.c(ProtoAdapter.FLOAT.decode(cVar));
+                                builder.c(ProtoAdapter.FLOAT.decode(pn9Var));
                                 break;
                             case 4:
-                                builder.d(ProtoAdapter.FLOAT.decode(cVar));
+                                builder.d(ProtoAdapter.FLOAT.decode(pn9Var));
                                 break;
                             case 5:
-                                builder.tx(ProtoAdapter.FLOAT.decode(cVar));
+                                builder.tx(ProtoAdapter.FLOAT.decode(pn9Var));
                                 break;
                             case 6:
-                                builder.ty(ProtoAdapter.FLOAT.decode(cVar));
+                                builder.ty(ProtoAdapter.FLOAT.decode(pn9Var));
                                 break;
                             default:
-                                FieldEncoding g2 = cVar.g();
-                                builder.addUnknownField(f2, g2, g2.rawProtoAdapter().decode(cVar));
+                                FieldEncoding g = pn9Var.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(pn9Var));
                                 break;
                         }
                     } else {
-                        cVar.d(c2);
+                        pn9Var.d(c);
                         return builder.build();
                     }
                 }
@@ -221,34 +209,34 @@ public final class Transform extends Message<Transform, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(d dVar, Transform transform) throws IOException {
+        public void encode(qn9 qn9Var, Transform transform) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dVar, transform) == null) {
-                Float f2 = transform.a;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qn9Var, transform) == null) {
+                Float f = transform.a;
+                if (f != null) {
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 1, f);
+                }
+                Float f2 = transform.b;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 1, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 2, f2);
                 }
-                Float f3 = transform.f42293b;
+                Float f3 = transform.c;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 3, f3);
                 }
-                Float f4 = transform.f42294c;
+                Float f4 = transform.d;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 3, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 4, f4);
                 }
-                Float f5 = transform.f42295d;
+                Float f5 = transform.tx;
                 if (f5 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 4, f5);
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 5, f5);
                 }
-                Float f6 = transform.tx;
+                Float f6 = transform.ty;
                 if (f6 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 5, f6);
+                    ProtoAdapter.FLOAT.encodeWithTag(qn9Var, 6, f6);
                 }
-                Float f7 = transform.ty;
-                if (f7 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(dVar, 6, f7);
-                }
-                dVar.k(transform.unknownFields());
+                qn9Var.k(transform.unknownFields());
             }
         }
 
@@ -258,18 +246,18 @@ public final class Transform extends Message<Transform, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, transform)) == null) {
-                Float f2 = transform.a;
-                int encodedSizeWithTag = f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f2) : 0;
-                Float f3 = transform.f42293b;
-                int encodedSizeWithTag2 = encodedSizeWithTag + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f3) : 0);
-                Float f4 = transform.f42294c;
-                int encodedSizeWithTag3 = encodedSizeWithTag2 + (f4 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, f4) : 0);
-                Float f5 = transform.f42295d;
-                int encodedSizeWithTag4 = encodedSizeWithTag3 + (f5 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, f5) : 0);
-                Float f6 = transform.tx;
-                int encodedSizeWithTag5 = encodedSizeWithTag4 + (f6 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(5, f6) : 0);
-                Float f7 = transform.ty;
-                return encodedSizeWithTag5 + (f7 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(6, f7) : 0) + transform.unknownFields().size();
+                Float f = transform.a;
+                int encodedSizeWithTag = f != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, f) : 0;
+                Float f2 = transform.b;
+                int encodedSizeWithTag2 = encodedSizeWithTag + (f2 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, f2) : 0);
+                Float f3 = transform.c;
+                int encodedSizeWithTag3 = encodedSizeWithTag2 + (f3 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, f3) : 0);
+                Float f4 = transform.d;
+                int encodedSizeWithTag4 = encodedSizeWithTag3 + (f4 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, f4) : 0);
+                Float f5 = transform.tx;
+                int encodedSizeWithTag5 = encodedSizeWithTag4 + (f5 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(5, f5) : 0);
+                Float f6 = transform.ty;
+                return encodedSizeWithTag5 + (f6 != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(6, f6) : 0) + transform.unknownFields().size();
             }
             return invokeL.intValue;
         }
@@ -312,13 +300,13 @@ public final class Transform extends Message<Transform, Builder> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Transform(Float f2, Float f3, Float f4, Float f5, Float f6, Float f7) {
-        this(f2, f3, f4, f5, f6, f7, ByteString.EMPTY);
+    public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6) {
+        this(f, f2, f3, f4, f5, f6, ByteString.EMPTY);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, f3, f4, f5, f6, f7};
+            Object[] objArr = {f, f2, f3, f4, f5, f6};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -341,7 +329,7 @@ public final class Transform extends Message<Transform, Builder> {
             }
             if (obj instanceof Transform) {
                 Transform transform = (Transform) obj;
-                return unknownFields().equals(transform.unknownFields()) && a.f(this.a, transform.a) && a.f(this.f42293b, transform.f42293b) && a.f(this.f42294c, transform.f42294c) && a.f(this.f42295d, transform.f42295d) && a.f(this.tx, transform.tx) && a.f(this.ty, transform.ty);
+                return unknownFields().equals(transform.unknownFields()) && un9.f(this.a, transform.a) && un9.f(this.b, transform.b) && un9.f(this.c, transform.c) && un9.f(this.d, transform.d) && un9.f(this.tx, transform.tx) && un9.f(this.ty, transform.ty);
             }
             return false;
         }
@@ -355,18 +343,18 @@ public final class Transform extends Message<Transform, Builder> {
             int i = this.hashCode;
             if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
-                Float f2 = this.a;
-                int hashCode2 = (hashCode + (f2 != null ? f2.hashCode() : 0)) * 37;
-                Float f3 = this.f42293b;
-                int hashCode3 = (hashCode2 + (f3 != null ? f3.hashCode() : 0)) * 37;
-                Float f4 = this.f42294c;
-                int hashCode4 = (hashCode3 + (f4 != null ? f4.hashCode() : 0)) * 37;
-                Float f5 = this.f42295d;
-                int hashCode5 = (hashCode4 + (f5 != null ? f5.hashCode() : 0)) * 37;
-                Float f6 = this.tx;
-                int hashCode6 = (hashCode5 + (f6 != null ? f6.hashCode() : 0)) * 37;
-                Float f7 = this.ty;
-                int hashCode7 = hashCode6 + (f7 != null ? f7.hashCode() : 0);
+                Float f = this.a;
+                int hashCode2 = (hashCode + (f != null ? f.hashCode() : 0)) * 37;
+                Float f2 = this.b;
+                int hashCode3 = (hashCode2 + (f2 != null ? f2.hashCode() : 0)) * 37;
+                Float f3 = this.c;
+                int hashCode4 = (hashCode3 + (f3 != null ? f3.hashCode() : 0)) * 37;
+                Float f4 = this.d;
+                int hashCode5 = (hashCode4 + (f4 != null ? f4.hashCode() : 0)) * 37;
+                Float f5 = this.tx;
+                int hashCode6 = (hashCode5 + (f5 != null ? f5.hashCode() : 0)) * 37;
+                Float f6 = this.ty;
+                int hashCode7 = hashCode6 + (f6 != null ? f6.hashCode() : 0);
                 this.hashCode = hashCode7;
                 return hashCode7;
             }
@@ -385,17 +373,17 @@ public final class Transform extends Message<Transform, Builder> {
                 sb.append(", a=");
                 sb.append(this.a);
             }
-            if (this.f42293b != null) {
+            if (this.b != null) {
                 sb.append(", b=");
-                sb.append(this.f42293b);
+                sb.append(this.b);
             }
-            if (this.f42294c != null) {
+            if (this.c != null) {
                 sb.append(", c=");
-                sb.append(this.f42294c);
+                sb.append(this.c);
             }
-            if (this.f42295d != null) {
+            if (this.d != null) {
                 sb.append(", d=");
-                sb.append(this.f42295d);
+                sb.append(this.d);
             }
             if (this.tx != null) {
                 sb.append(", tx=");
@@ -413,13 +401,13 @@ public final class Transform extends Message<Transform, Builder> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Transform(Float f2, Float f3, Float f4, Float f5, Float f6, Float f7, ByteString byteString) {
+    public Transform(Float f, Float f2, Float f3, Float f4, Float f5, Float f6, ByteString byteString) {
         super(ADAPTER, byteString);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {f2, f3, f4, f5, f6, f7, byteString};
+            Object[] objArr = {f, f2, f3, f4, f5, f6, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -431,12 +419,12 @@ public final class Transform extends Message<Transform, Builder> {
                 return;
             }
         }
-        this.a = f2;
-        this.f42293b = f3;
-        this.f42294c = f4;
-        this.f42295d = f5;
-        this.tx = f6;
-        this.ty = f7;
+        this.a = f;
+        this.b = f2;
+        this.c = f3;
+        this.d = f4;
+        this.tx = f5;
+        this.ty = f6;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -449,9 +437,9 @@ public final class Transform extends Message<Transform, Builder> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Builder builder = new Builder();
             builder.a = this.a;
-            builder.f42296b = this.f42293b;
-            builder.f42297c = this.f42294c;
-            builder.f42298d = this.f42295d;
+            builder.b = this.b;
+            builder.c = this.c;
+            builder.d = this.d;
             builder.tx = this.tx;
             builder.ty = this.ty;
             builder.addUnknownFields(unknownFields());

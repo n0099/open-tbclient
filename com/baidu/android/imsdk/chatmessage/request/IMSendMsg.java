@@ -25,7 +25,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSendMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendMsg";
@@ -162,9 +162,9 @@ public class IMSendMsg extends Message {
                 jSONObject.put("msg_key", this.mMsgKey);
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -192,8 +192,8 @@ public class IMSendMsg extends Message {
                 if (jSONObject.optBoolean("display_tips")) {
                     str2 = jSONObject.optString("tips");
                 }
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "handle IMSendMsg exception :", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "handle IMSendMsg exception :", e);
             }
             long j2 = j;
             if (i != 0 || z) {

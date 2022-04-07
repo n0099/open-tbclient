@@ -30,10 +30,10 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DefaultConfigurationFactory {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class DefaultThreadFactory implements ThreadFactory {
         public static final AtomicInteger poolNumber = new AtomicInteger(1);
         public final String namePrefix;
@@ -67,8 +67,8 @@ public class DefaultConfigurationFactory {
         if (j > 0 || i > 0) {
             try {
                 return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context, str), createReserveDiskCacheDir, fileNameGenerator, j, i);
-            } catch (IOException e2) {
-                L.e(e2);
+            } catch (IOException e) {
+                L.e(e);
             }
         }
         return new UnlimitedDiskCache(new File(str), createReserveDiskCacheDir, fileNameGenerator);

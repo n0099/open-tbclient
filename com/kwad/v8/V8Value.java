@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class V8Value implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOOLEAN = 3;
@@ -134,12 +134,12 @@ public abstract class V8Value implements Releasable {
             this.objectHandle = j;
             try {
                 this.v8.addObjRef(this);
-            } catch (Error e2) {
+            } catch (Error e) {
+                release();
+                throw e;
+            } catch (RuntimeException e2) {
                 release();
                 throw e2;
-            } catch (RuntimeException e3) {
-                release();
-                throw e3;
             }
         }
     }

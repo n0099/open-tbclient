@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDFaceDriverMonitorInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,12 +14,12 @@ public class BDFaceDriverMonitorInfo {
     public float normal;
     public float smoking;
 
-    public BDFaceDriverMonitorInfo(float f2, float f3, float f4, float f5, float f6) {
+    public BDFaceDriverMonitorInfo(float f, float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,10 +34,10 @@ public class BDFaceDriverMonitorInfo {
         this.drinking = 0.0f;
         this.eating = 0.0f;
         this.smoking = 0.0f;
-        this.normal = f2;
-        this.calling = f3;
-        this.drinking = f4;
-        this.eating = f5;
-        this.smoking = f6;
+        this.normal = f;
+        this.calling = f2;
+        this.drinking = f3;
+        this.eating = f4;
+        this.smoking = f5;
     }
 }

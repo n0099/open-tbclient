@@ -26,16 +26,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class YYProtocolActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
+    public WebView b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public WebView f27979b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +58,9 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.finish();
             }
         }
@@ -92,12 +90,12 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc3);
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092445);
-            this.f27979b = webView;
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbd);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092420);
+            this.b = webView;
             webView.setWebChromeClient(new WebChromeClient());
-            this.f27979b.setWebViewClient(new WebViewClient());
-            this.f27979b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
+            this.b.setWebViewClient(new WebViewClient());
+            this.b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
         }
     }
 
@@ -153,7 +151,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
             }
             getWindow().addFlags(128);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04a9);
+            setContentView(R.layout.obfuscated_res_0x7f0d04a4);
             b();
             a();
             newLoginStatusBarTint(this);
@@ -166,10 +164,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            WebView webView = this.f27979b;
+            WebView webView = this.b;
             if (webView != null) {
                 webView.destroy();
-                this.f27979b = null;
+                this.b = null;
             }
         }
     }

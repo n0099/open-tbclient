@@ -148,7 +148,7 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     private void initView() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             int intExtra = getIntent().getIntExtra(WBConstants.TRANS_PROGRESS_COLOR, -1);
@@ -156,20 +156,20 @@ public class WbShareTransActivity extends BaseActivity {
             this.rootLayout = new FrameLayout(this);
             if (intExtra2 != -1) {
                 try {
-                    view = ((LayoutInflater) getSystemService("layout_inflater")).inflate(intExtra2, (ViewGroup) null);
+                    view2 = ((LayoutInflater) getSystemService("layout_inflater")).inflate(intExtra2, (ViewGroup) null);
                 } catch (Exception unused) {
-                    view = new WbSdkProgressBar(this);
+                    view2 = new WbSdkProgressBar(this);
                 }
             } else {
                 WbSdkProgressBar wbSdkProgressBar = new WbSdkProgressBar(this);
                 if (intExtra != -1) {
                     wbSdkProgressBar.setProgressColor(intExtra);
                 }
-                view = wbSdkProgressBar;
+                view2 = wbSdkProgressBar;
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            this.rootLayout.addView(view, layoutParams);
+            this.rootLayout.addView(view2, layoutParams);
             this.rootLayout.setBackgroundColor(855638016);
         }
     }
@@ -188,8 +188,8 @@ public class WbShareTransActivity extends BaseActivity {
                 bundle.putInt(WBConstants.Response.ERRCODE, i);
                 intent.putExtras(bundle);
                 setResult(-1, intent);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             Handler handler = this.handler;
             if (handler != null) {

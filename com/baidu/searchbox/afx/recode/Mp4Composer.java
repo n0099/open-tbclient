@@ -19,20 +19,20 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Mp4Composer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Mp4Composer";
     public transient /* synthetic */ FieldHolder $fh;
     public ExecutorService mExecutorService;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Listener {
         void onCompleted();
 
         void onFailed(Exception exc);
 
-        void onProgress(float f2);
+        void onProgress(float f);
     }
 
     public Mp4Composer() {
@@ -96,15 +96,15 @@ public class Mp4Composer {
         if (interceptable == null || interceptable.invokeLLL(1048579, this, file, str, listener) == null) {
             try {
                 start(new FileInputStream(file).getFD(), str, listener);
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                if (listener != null) {
+                    listener.onFailed(e);
+                }
+            } catch (IOException e2) {
                 e2.printStackTrace();
                 if (listener != null) {
                     listener.onFailed(e2);
-                }
-            } catch (IOException e3) {
-                e3.printStackTrace();
-                if (listener != null) {
-                    listener.onFailed(e3);
                 }
             }
         }
@@ -127,10 +127,10 @@ public class Mp4Composer {
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, listener) == null) {
             try {
                 start(context.getAssets().openFd(str), str2, listener);
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 if (listener != null) {
-                    listener.onFailed(e2);
+                    listener.onFailed(e);
                 }
             }
         }
@@ -147,8 +147,8 @@ public class Mp4Composer {
                 if (mediaMetadataRetriever != null) {
                     try {
                         mediaMetadataRetriever.release();
-                    } catch (RuntimeException e2) {
-                        Log.e(TAG, "Failed to release mediaMetadataRetriever.", e2);
+                    } catch (RuntimeException e) {
+                        Log.e(TAG, "Failed to release mediaMetadataRetriever.", e);
                     }
                 }
             }
@@ -239,13 +239,13 @@ public class Mp4Composer {
                                 }
 
                                 @Override // com.baidu.searchbox.afx.recode.Mp4ComposerEngine.ProgressCallback
-                                public void onProgress(float f2) {
+                                public void onProgress(float f) {
                                     Listener listener2;
                                     Interceptable interceptable3 = $ic;
-                                    if (!(interceptable3 == null || interceptable3.invokeF(1048576, this, f2) == null) || (listener2 = this.this$1.val$listener) == null) {
+                                    if (!(interceptable3 == null || interceptable3.invokeF(1048576, this, f) == null) || (listener2 = this.this$1.val$listener) == null) {
                                         return;
                                     }
-                                    listener2.onProgress(f2);
+                                    listener2.onProgress(f);
                                 }
                             });
                             try {
@@ -259,11 +259,11 @@ public class Mp4Composer {
                                     listener2.onCompleted();
                                 }
                                 this.this$0.mExecutorService.shutdown();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                                 Listener listener3 = this.val$listener;
                                 if (listener3 != null) {
-                                    listener3.onFailed(e2);
+                                    listener3.onFailed(e);
                                 }
                                 this.this$0.mExecutorService.shutdown();
                             }

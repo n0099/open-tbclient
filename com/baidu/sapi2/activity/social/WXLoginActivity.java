@@ -24,7 +24,7 @@ import com.tencent.mm.opensdk.modelmsg.SendAuth;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WXLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String q;
@@ -40,7 +40,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     public String o;
     public int p;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,7 +82,7 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
 
@@ -130,16 +130,16 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ((BaseSSOLoginActivity) this).f28475g = v;
-            ((BaseSSOLoginActivity) this).f28473e = w;
-            ((BaseSSOLoginActivity) this).f28474f = x;
+            ((BaseSSOLoginActivity) this).g = v;
+            ((BaseSSOLoginActivity) this).e = w;
+            ((BaseSSOLoginActivity) this).f = x;
             w = null;
             x = false;
             this.o = getIntent().getStringExtra("code");
             this.n = getIntent().getStringExtra("state");
             int intExtra = getIntent().getIntExtra("error_code", -1);
             this.p = intExtra;
-            if (((BaseSSOLoginActivity) this).f28474f) {
+            if (((BaseSSOLoginActivity) this).f) {
                 Intent intent = new Intent();
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_AUTHORIZATION_CODE, this.o);
                 intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_TYPE_CODE, String.valueOf(SocialType.QQ_SSO.getType()));
@@ -174,8 +174,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
             }
             if (!getIntent().getBooleanExtra(r, false)) {
                 v = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-                w = ((BaseSSOLoginActivity) this).f28473e;
-                x = ((BaseSSOLoginActivity) this).f28474f;
+                w = ((BaseSSOLoginActivity) this).e;
+                x = ((BaseSSOLoginActivity) this).f;
                 a(new a(this));
                 return;
             }
@@ -246,8 +246,8 @@ public class WXLoginActivity extends BaseSSOLoginActivity {
                 SendAuth.Req req = new SendAuth.Req();
                 req.scope = "snsapi_userinfo";
                 createWXAPI.sendReq(req);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 finish();
             }
         }

@@ -2,7 +2,7 @@ package com.baidu.searchbox.account;
 
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.searchbox.account.data.SearchBoxRealNameResult;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IVerifyUserFaceIDListener extends NoProGuard {
     void onFailure(String str);
 

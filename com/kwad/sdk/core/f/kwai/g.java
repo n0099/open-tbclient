@@ -7,21 +7,17 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import com.kwad.sdk.core.f.a.e;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f39523b = new LinkedBlockingQueue<>(1);
-
-    /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f39524c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1
+    public final LinkedBlockingQueue<IBinder> b = new LinkedBlockingQueue<>(1);
+    public ServiceConnection c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                g.this.f39523b.put(iBinder);
-            } catch (Exception e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+                g.this.b.put(iBinder);
+            } catch (Exception e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
         }
 
@@ -41,22 +37,22 @@ public class g {
         try {
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (this.a.bindService(intent, this.f39524c, 1)) {
+            if (this.a.bindService(intent, this.c, 1)) {
                 try {
-                    str = new e.a(this.f39523b.take()).a();
+                    str = new e.a(this.b.take()).a();
                     com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
-                    serviceConnection = this.f39524c;
-                } catch (Exception e2) {
-                    com.kwad.sdk.core.d.a.a(e2);
+                    serviceConnection = this.c;
+                } catch (Exception e) {
+                    com.kwad.sdk.core.d.a.a(e);
                     context = this.a;
-                    serviceConnection = this.f39524c;
+                    serviceConnection = this.c;
                 }
                 context.unbindService(serviceConnection);
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
             com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID service not found");
-            com.kwad.sdk.core.d.a.a(e3);
+            com.kwad.sdk.core.d.a.a(e2);
         }
         return str;
     }

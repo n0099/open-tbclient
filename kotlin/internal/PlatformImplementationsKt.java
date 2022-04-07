@@ -26,10 +26,10 @@ public final class PlatformImplementationsKt {
                 newInstance = Class.forName("kotlin.internal.jdk8.JDK8PlatformImplementations").newInstance();
                 Intrinsics.checkNotNullExpressionValue(newInstance, "Class.forName(\"kotlin.in…entations\").newInstance()");
                 try {
-                } catch (ClassCastException e2) {
+                } catch (ClassCastException e) {
                     ClassLoader classLoader = newInstance.getClass().getClassLoader();
                     ClassLoader classLoader2 = PlatformImplementations.class.getClassLoader();
-                    Throwable initCause = new ClassCastException("Instance classloader: " + classLoader + ", base type classloader: " + classLoader2).initCause(e2);
+                    Throwable initCause = new ClassCastException("Instance classloader: " + classLoader + ", base type classloader: " + classLoader2).initCause(e);
                     Intrinsics.checkNotNullExpressionValue(initCause, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                     throw initCause;
                 }
@@ -41,10 +41,10 @@ public final class PlatformImplementationsKt {
                         throw new NullPointerException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
                     }
                     platformImplementations = (PlatformImplementations) newInstance3;
-                } catch (ClassCastException e3) {
+                } catch (ClassCastException e2) {
                     ClassLoader classLoader3 = newInstance3.getClass().getClassLoader();
                     ClassLoader classLoader4 = PlatformImplementations.class.getClassLoader();
-                    Throwable initCause2 = new ClassCastException("Instance classloader: " + classLoader3 + ", base type classloader: " + classLoader4).initCause(e3);
+                    Throwable initCause2 = new ClassCastException("Instance classloader: " + classLoader3 + ", base type classloader: " + classLoader4).initCause(e2);
                     Intrinsics.checkNotNullExpressionValue(initCause2, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                     throw initCause2;
                 }
@@ -68,10 +68,10 @@ public final class PlatformImplementationsKt {
                             throw new NullPointerException("null cannot be cast to non-null type kotlin.internal.PlatformImplementations");
                         }
                         platformImplementations = (PlatformImplementations) newInstance4;
-                    } catch (ClassCastException e4) {
+                    } catch (ClassCastException e3) {
                         ClassLoader classLoader5 = newInstance4.getClass().getClassLoader();
                         ClassLoader classLoader6 = PlatformImplementations.class.getClassLoader();
-                        Throwable initCause3 = new ClassCastException("Instance classloader: " + classLoader5 + ", base type classloader: " + classLoader6).initCause(e4);
+                        Throwable initCause3 = new ClassCastException("Instance classloader: " + classLoader5 + ", base type classloader: " + classLoader6).initCause(e3);
                         Intrinsics.checkNotNullExpressionValue(initCause3, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                         throw initCause3;
                     }
@@ -84,10 +84,10 @@ public final class PlatformImplementationsKt {
                 }
                 platformImplementations = (PlatformImplementations) newInstance2;
                 IMPLEMENTATIONS = platformImplementations;
-            } catch (ClassCastException e5) {
+            } catch (ClassCastException e4) {
                 ClassLoader classLoader7 = newInstance2.getClass().getClassLoader();
                 ClassLoader classLoader8 = PlatformImplementations.class.getClassLoader();
-                Throwable initCause4 = new ClassCastException("Instance classloader: " + classLoader7 + ", base type classloader: " + classLoader8).initCause(e5);
+                Throwable initCause4 = new ClassCastException("Instance classloader: " + classLoader7 + ", base type classloader: " + classLoader8).initCause(e4);
                 Intrinsics.checkNotNullExpressionValue(initCause4, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
                 throw initCause4;
             }
@@ -109,11 +109,11 @@ public final class PlatformImplementationsKt {
         try {
             Intrinsics.reifiedOperationMarker(1, "T");
             return obj;
-        } catch (ClassCastException e2) {
+        } catch (ClassCastException e) {
             ClassLoader classLoader = obj.getClass().getClassLoader();
             Intrinsics.reifiedOperationMarker(4, "T");
             ClassLoader classLoader2 = Object.class.getClassLoader();
-            Throwable initCause = new ClassCastException("Instance classloader: " + classLoader + ", base type classloader: " + classLoader2).initCause(e2);
+            Throwable initCause = new ClassCastException("Instance classloader: " + classLoader + ", base type classloader: " + classLoader2).initCause(e);
             Intrinsics.checkNotNullExpressionValue(initCause, "ClassCastException(\"Inst…baseTypeCL\").initCause(e)");
             throw initCause;
         }

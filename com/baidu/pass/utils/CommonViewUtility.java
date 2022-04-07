@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CommonViewUtility implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,11 +24,11 @@ public class CommonViewUtility implements com.baidu.pass.a {
         }
     }
 
-    public static void setViewClickAlpha(View view, float f2) {
+    public static void setViewClickAlpha(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65537, null, view, f2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLF(65537, null, view2, f) == null) || view2 == null) {
             return;
         }
-        view.setOnTouchListener(new a(f2));
+        view2.setOnTouchListener(new a(f));
     }
 }

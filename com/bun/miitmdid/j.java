@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coolpad.deviceidsupport.IDeviceIdManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class j extends l implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static IDeviceIdManager l;
@@ -54,12 +54,12 @@ public class j extends l implements ServiceConnection {
                 } else {
                     e0.a("CoolpadProvider", "DeviceIDManager service bind failed");
                     a();
-                    a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                    a(this.c, this.d, this.e, this.f, this.g);
                 }
             } catch (SecurityException unused) {
                 e0.a("CoolpadProvider", "DeviceIDManager service bind failed");
                 a();
-                a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+                a(this.c, this.d, this.e, this.f, this.g);
             }
         }
     }
@@ -74,32 +74,32 @@ public class j extends l implements ServiceConnection {
         l = a;
         try {
             if (a != null) {
-                this.f37986f = a.isCoolOs();
-                this.f37987g = false;
+                this.f = a.isCoolOs();
+                this.g = false;
                 String oaid = l.getOAID(this.k);
                 String vaid = l.getVAID(this.k);
                 String aaid = l.getAAID(this.k);
                 if (oaid == null) {
                     oaid = "";
                 }
-                this.f37983c = oaid;
+                this.c = oaid;
                 if (vaid == null) {
                     vaid = "";
                 }
-                this.f37984d = vaid;
+                this.d = vaid;
                 if (aaid == null) {
                     aaid = "";
                 }
-                this.f37985e = aaid;
+                this.e = aaid;
             } else {
                 e0.a("CoolpadProvider", "DeviceIdManager Null");
                 a();
             }
-            a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+            a(this.c, this.d, this.e, this.f, this.g);
         } catch (RemoteException unused) {
             e0.a("CoolpadProvider", "DeviceIdManager RemoteException");
             a();
-            a(this.f37983c, this.f37984d, this.f37985e, this.f37986f, this.f37987g);
+            a(this.c, this.d, this.e, this.f, this.g);
         }
     }
 

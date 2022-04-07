@@ -16,23 +16,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ProgressButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f28252b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Animation f28253c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f28254d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f28255e;
+    public ImageView b;
+    public Animation c;
+    public boolean d;
+    public Context e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
@@ -58,11 +50,11 @@ public class ProgressButton extends FrameLayout {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f28255e = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f58);
-            this.f28252b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09192e);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040611});
+            this.e = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0170, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f44);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091921);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04064f});
             this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
             obtainStyledAttributes.recycle();
         }
@@ -71,10 +63,10 @@ public class ProgressButton extends FrameLayout {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f28252b.setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f28255e, R.anim.obfuscated_res_0x7f01008f);
-            this.f28253c = loadAnimation;
-            this.f28252b.startAnimation(loadAnimation);
+            this.b.setVisibility(0);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010090);
+            this.c = loadAnimation;
+            this.b.startAnimation(loadAnimation);
             this.a.setVisibility(4);
         }
     }
@@ -82,8 +74,8 @@ public class ProgressButton extends FrameLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28252b.clearAnimation();
-            this.f28252b.setVisibility(8);
+            this.b.clearAnimation();
+            this.b.setVisibility(8);
             this.a.setVisibility(0);
         }
     }
@@ -92,7 +84,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             super.setEnabled(z);
-            this.f28254d = z;
+            this.d = z;
         }
     }
 
@@ -101,7 +93,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.setPressed(z);
-            if (this.f28254d) {
+            if (this.d) {
                 setAlpha(z ? 0.2f : 1.0f);
             } else {
                 setAlpha(0.2f);
@@ -113,7 +105,7 @@ public class ProgressButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.a.setText(str);
-            this.f28252b.setVisibility(4);
+            this.b.setVisibility(4);
             this.a.setVisibility(0);
         }
     }

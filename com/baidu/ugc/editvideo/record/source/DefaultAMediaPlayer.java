@@ -19,14 +19,14 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultAMediaPlayer extends AMediaPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer internalPlayer;
     public final DefaultAMediaPlayerListenerHolder mInternalListenerAdapter;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class DefaultAMediaPlayerListenerHolder implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -334,10 +334,10 @@ public class DefaultAMediaPlayer extends AMediaPlayer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public boolean setPlaybackSpeed(float f2) {
+    public boolean setPlaybackSpeed(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048595, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048595, this, f)) == null) {
             return false;
         }
         return invokeF.booleanValue;
@@ -352,10 +352,10 @@ public class DefaultAMediaPlayer extends AMediaPlayer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void setVolume(float f2, float f3) {
+    public void setVolume(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.internalPlayer.setVolume(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.internalPlayer.setVolume(f, f2);
         }
     }
 

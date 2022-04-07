@@ -14,15 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     @SuppressLint({"NewApi"})
-
-    /* renamed from: b  reason: collision with root package name */
-    public final WebChromeClient f43731b;
+    public final WebChromeClient b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context, int i) {
@@ -43,7 +41,7 @@ public abstract class b extends Dialog {
                 return;
             }
         }
-        this.f43731b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
+        this.b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;

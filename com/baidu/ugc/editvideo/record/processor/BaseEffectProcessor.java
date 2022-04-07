@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseEffectProcessor implements IEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,13 +105,13 @@ public abstract class BaseEffectProcessor implements IEffectProcessor {
     public abstract void releaseInGlThread();
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public void setGlClearColor(float f2, float f3, float f4, float f5) {
+    public void setGlClearColor(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.mRed = f2;
-            this.mGreen = f3;
-            this.mBlue = f4;
-            this.mAlpha = f5;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            this.mRed = f;
+            this.mGreen = f2;
+            this.mBlue = f3;
+            this.mAlpha = f4;
         }
     }
 

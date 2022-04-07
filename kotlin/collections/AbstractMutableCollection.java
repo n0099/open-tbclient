@@ -9,7 +9,7 @@ import kotlin.jvm.internal.markers.KMutableCollection;
 /* loaded from: classes8.dex */
 public abstract class AbstractMutableCollection<E> extends java.util.AbstractCollection<E> implements Collection<E>, KMutableCollection {
     @Override // java.util.AbstractCollection, java.util.Collection
-    public abstract boolean add(E e2);
+    public abstract boolean add(E e);
 
     public abstract int getSize();
 

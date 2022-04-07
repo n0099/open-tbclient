@@ -10,7 +10,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RestartableResettableInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public class RestartableResettableInputStream extends RestartableInputStream {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             try {
                 this.input.reset();
-            } catch (IOException e2) {
-                throw new BceClientException("Fail to reset the underlying input stream.", e2);
+            } catch (IOException e) {
+                throw new BceClientException("Fail to reset the underlying input stream.", e);
             }
         }
     }

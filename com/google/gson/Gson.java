@@ -48,7 +48,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class Gson {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_COMPLEX_MAP_KEYS = false;
@@ -83,7 +83,7 @@ public final class Gson {
     public final int timeStyle;
     public final Map<TypeToken<?>, TypeAdapter<?>> typeTokenCache;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FutureTypeAdapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,10 +187,10 @@ public final class Gson {
                 return;
             }
             throw new JsonIOException("JSON document was not fully consumed.");
-        } catch (MalformedJsonException e2) {
-            throw new JsonSyntaxException(e2);
-        } catch (IOException e3) {
-            throw new JsonIOException(e3);
+        } catch (MalformedJsonException e) {
+            throw new JsonSyntaxException(e);
+        } catch (IOException e2) {
+            throw new JsonIOException(e2);
         }
     }
 
@@ -303,11 +303,11 @@ public final class Gson {
         }.nullSafe() : (TypeAdapter) invokeL.objValue;
     }
 
-    public static void checkValidFloatingPoint(double d2) {
+    public static void checkValidFloatingPoint(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d2)}) == null) {
-            if (Double.isNaN(d2) || Double.isInfinite(d2)) {
-                throw new IllegalArgumentException(d2 + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Double.valueOf(d)}) == null) {
+            if (Double.isNaN(d) || Double.isInfinite(d)) {
+                throw new IllegalArgumentException(d + " is not a valid double value as per JSON specification. To override this behavior, use GsonBuilder.serializeSpecialFloatingPointValues() method.");
             }
         }
     }
@@ -809,8 +809,8 @@ public final class Gson {
         if (interceptable == null || interceptable.invokeLLL(1048600, this, obj, type, appendable) == null) {
             try {
                 toJson(obj, type, newJsonWriter(Streams.writerForAppendable(appendable)));
-            } catch (IOException e2) {
-                throw new JsonIOException(e2);
+            } catch (IOException e) {
+                throw new JsonIOException(e);
             }
         }
     }
@@ -841,11 +841,11 @@ public final class Gson {
                 try {
                     try {
                         adapter.write(jsonWriter, obj);
-                    } catch (IOException e2) {
-                        throw new JsonIOException(e2);
+                    } catch (IOException e) {
+                        throw new JsonIOException(e);
                     }
-                } catch (AssertionError e3) {
-                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e3.getMessage(), e3);
+                } catch (AssertionError e2) {
+                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
                 }
             } finally {
                 jsonWriter.setLenient(isLenient);
@@ -872,21 +872,21 @@ public final class Gson {
                                 T read = getAdapter(TypeToken.get(type)).read(jsonReader);
                                 jsonReader.setLenient(isLenient);
                                 return read;
-                            } catch (IllegalStateException e2) {
-                                throw new JsonSyntaxException(e2);
+                            } catch (IllegalStateException e) {
+                                throw new JsonSyntaxException(e);
                             }
-                        } catch (AssertionError e3) {
-                            throw new AssertionError("AssertionError (GSON 2.8.5): " + e3.getMessage(), e3);
+                        } catch (AssertionError e2) {
+                            throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
                         }
-                    } catch (EOFException e4) {
+                    } catch (EOFException e3) {
                         if (z) {
                             jsonReader.setLenient(isLenient);
                             return null;
                         }
-                        throw new JsonSyntaxException(e4);
+                        throw new JsonSyntaxException(e3);
                     }
-                } catch (IOException e5) {
-                    throw new JsonSyntaxException(e5);
+                } catch (IOException e4) {
+                    throw new JsonSyntaxException(e4);
                 }
             } catch (Throwable th) {
                 jsonReader.setLenient(isLenient);
@@ -936,8 +936,8 @@ public final class Gson {
         if (interceptable == null || interceptable.invokeLL(1048597, this, jsonElement, appendable) == null) {
             try {
                 toJson(jsonElement, newJsonWriter(Streams.writerForAppendable(appendable)));
-            } catch (IOException e2) {
-                throw new JsonIOException(e2);
+            } catch (IOException e) {
+                throw new JsonIOException(e);
             }
         }
     }
@@ -954,10 +954,10 @@ public final class Gson {
             try {
                 try {
                     Streams.write(jsonElement, jsonWriter);
-                } catch (IOException e2) {
-                    throw new JsonIOException(e2);
-                } catch (AssertionError e3) {
-                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e3.getMessage(), e3);
+                } catch (IOException e) {
+                    throw new JsonIOException(e);
+                } catch (AssertionError e2) {
+                    throw new AssertionError("AssertionError (GSON 2.8.5): " + e2.getMessage(), e2);
                 }
             } finally {
                 jsonWriter.setLenient(isLenient);

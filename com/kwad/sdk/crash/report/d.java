@@ -8,7 +8,7 @@ import com.kwad.sdk.crash.utils.f;
 import com.kwad.sdk.crash.utils.g;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class d extends b {
     /* JADX WARN: Removed duplicated region for block: B:18:0x004f  */
     /* JADX WARN: Removed duplicated region for block: B:27:0x00ca  */
@@ -19,12 +19,12 @@ public final class d extends b {
     public ExceptionMessage a(@NonNull File file, File file2, File file3, String str) {
         String str2;
         JavaExceptionMessage javaExceptionMessage;
-        Exception e2;
+        Exception e;
         JavaExceptionMessage javaExceptionMessage2 = null;
         try {
             str2 = g.d(file);
-        } catch (Exception e3) {
-            this.f40189b += e3 + "\n";
+        } catch (Exception e2) {
+            this.b += e2 + "\n";
             str2 = null;
         }
         if (str2 != null) {
@@ -32,9 +32,9 @@ public final class d extends b {
                 javaExceptionMessage = new JavaExceptionMessage();
                 try {
                     javaExceptionMessage.parseJson(new JSONObject(str2));
-                } catch (Exception e4) {
-                    e2 = e4;
-                    this.f40189b += e2 + "\n";
+                } catch (Exception e3) {
+                    e = e3;
+                    this.b += e + "\n";
                     javaExceptionMessage2 = javaExceptionMessage;
                     if (javaExceptionMessage2 == null) {
                     }
@@ -45,13 +45,13 @@ public final class d extends b {
                     f.a(file, javaExceptionMessage2.toString());
                     f.a(file3, file);
                     file.renameTo(file3);
-                    if (!TextUtils.isEmpty(this.f40189b)) {
+                    if (!TextUtils.isEmpty(this.b)) {
                     }
                     return javaExceptionMessage2;
                 }
-            } catch (Exception e5) {
+            } catch (Exception e4) {
                 javaExceptionMessage = null;
-                e2 = e5;
+                e = e4;
             }
             javaExceptionMessage2 = javaExceptionMessage;
         }
@@ -70,11 +70,11 @@ public final class d extends b {
             f.a(file3, file);
             file.renameTo(file3);
         } catch (Throwable th) {
-            this.f40189b += th + "\n";
+            this.b += th + "\n";
             com.kwad.sdk.core.d.a.b(th);
         }
-        if (!TextUtils.isEmpty(this.f40189b)) {
-            javaExceptionMessage2.mErrorMessage += this.f40189b;
+        if (!TextUtils.isEmpty(this.b)) {
+            javaExceptionMessage2.mErrorMessage += this.b;
         }
         return javaExceptionMessage2;
     }

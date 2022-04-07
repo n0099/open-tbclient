@@ -11,7 +11,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "", "index", "", "value"}, k = 3, mv = {1, 5, 1}, xi = 48)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DirectTcpHeader$headerLength$3 extends Lambda implements Function2<Integer, Integer, Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public final class DirectTcpHeader$headerLength$3 extends Lambda implements Func
     public final void invoke(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.this$0.getBuffer()[i] = (byte) ((((i2 * 4) >>> 4) << 4) | (((UByte.m710constructorimpl(this.this$0.getBuffer()[i]) & 255) << 4) >>> 4));
+            this.this$0.getBuffer()[i] = (byte) ((((i2 * 4) >>> 4) << 4) | (((UByte.m706constructorimpl(this.this$0.getBuffer()[i]) & 255) << 4) >>> 4));
         }
     }
 }

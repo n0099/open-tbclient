@@ -36,7 +36,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class StatisticPoster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -93,8 +93,8 @@ public final class StatisticPoster {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 bArr = str.getBytes("UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 bArr = null;
             }
             if (bArr != null) {
@@ -201,8 +201,8 @@ public final class StatisticPoster {
                     String str3 = next.mCDNSequence + "@";
                     try {
                         str3 = str3 + new URI(next.mUrl).getHost() + "@";
-                    } catch (URISyntaxException e2) {
-                        e2.printStackTrace();
+                    } catch (URISyntaxException e) {
+                        e.printStackTrace();
                     }
                     int i2 = next.mStatus;
                     if (i2 != 2) {
@@ -251,8 +251,8 @@ public final class StatisticPoster {
                 } else {
                     jSONObject.put("sid", multiSrcBinaryTaskHandler.mMultiSrcStatData.sid);
                 }
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             sendStatisticData(jSONObject.toString(), i);
         }

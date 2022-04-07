@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class db {
     public static /* synthetic */ Interceptable $ic;
     public static volatile db a;
@@ -30,7 +30,7 @@ public class db {
     /* renamed from: a  reason: collision with other field name */
     public final ConcurrentLinkedQueue<b> f199a;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,14 +66,12 @@ public class db {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b extends al.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ db f44148b;
+        public final /* synthetic */ db b;
 
         public b(db dbVar) {
             Interceptable interceptable = $ic;
@@ -90,7 +88,7 @@ public class db {
                     return;
                 }
             }
-            this.f44148b = dbVar;
+            this.b = dbVar;
             this.a = System.currentTimeMillis();
         }
 
@@ -119,7 +117,7 @@ public class db {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,9 +134,7 @@ public class db {
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f203a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f44149b;
+        public String b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f204b;
@@ -163,7 +159,7 @@ public class db {
             }
             this.f200a = dbVar;
             this.f202a = str;
-            this.f44149b = str2;
+            this.b = str2;
             this.f201a = file;
             this.f204b = z;
         }
@@ -196,8 +192,8 @@ public class db {
                     jSONObject2.put("time", currentTimeMillis);
                     jSONObject2.put("times", i2 + 1);
                     sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
-                } catch (JSONException e2) {
-                    com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e2.getMessage());
+                } catch (JSONException e) {
+                    com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e.getMessage());
                 }
                 return true;
             }
@@ -218,9 +214,9 @@ public class db {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bi.m654a());
-                        hashMap.put("token", this.f44149b);
-                        hashMap.put("net", bg.m214a(this.f200a.f198a));
+                        hashMap.put("uid", com.xiaomi.push.service.bi.m650a());
+                        hashMap.put("token", this.b);
+                        hashMap.put("net", bg.m210a(this.f200a.f198a));
                         bg.a(this.f202a, hashMap, this.f201a, "file");
                     }
                     this.f203a = true;
@@ -231,7 +227,7 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo284c() {
+        public void mo280c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 if (!this.f203a) {
@@ -315,7 +311,7 @@ public class db {
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m180a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m176a()) {
             return;
         }
         try {

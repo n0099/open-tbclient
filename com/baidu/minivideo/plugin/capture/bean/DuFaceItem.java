@@ -1,7 +1,6 @@
 package com.baidu.minivideo.plugin.capture.bean;
 
 import android.text.TextUtils;
-import c.a.z.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
@@ -10,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ee0;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DuFaceItem extends FaceItem {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean ADJUST_ZIP = false;
@@ -45,8 +45,8 @@ public class DuFaceItem extends FaceItem {
             }
             try {
                 return FileUtils.delete(new File(str));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -97,18 +97,18 @@ public class DuFaceItem extends FaceItem {
             boolean z2 = false;
             try {
                 FileUtils.unzipFile(new File(str), getFilePath());
-                z = a.k1(getFilePath());
+                z = ee0.k1(getFilePath());
                 if (!z) {
                     LogUtils.d("DuFaceData", getFilePath() + " not verify");
                     FileUtils.deleteDir(new File(getFilePath()));
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
             }
             try {
                 deleteFile(str);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 z2 = z;
                 e.printStackTrace();
                 deleteFile(getFilePath());
@@ -141,8 +141,8 @@ public class DuFaceItem extends FaceItem {
             JSONObject json = super.toJson();
             try {
                 json.put("sub_type", this.arType);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return json;
         }

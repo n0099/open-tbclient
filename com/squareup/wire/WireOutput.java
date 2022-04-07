@@ -216,14 +216,14 @@ public final class WireOutput {
         }
     }
 
-    public void writeRawByte(byte b2) throws IOException {
+    public void writeRawByte(byte b) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
+        if (interceptable == null || interceptable.invokeB(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
             int i = this.position;
             if (i != this.limit) {
                 byte[] bArr = this.buffer;
                 this.position = i + 1;
-                bArr[i] = b2;
+                bArr[i] = b;
                 return;
             }
             throw new IOException("Out of space: position=" + this.position + ", limit=" + this.limit);

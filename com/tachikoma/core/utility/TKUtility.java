@@ -15,12 +15,12 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKUtility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class TKUtilityHold {
         public static /* synthetic */ Interceptable $ic;
         public static TKUtility instance;
@@ -121,14 +121,14 @@ public class TKUtility {
                     jSONObject2.put(str, obj);
                 }
                 return jSONObject2;
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 jSONObject = jSONObject2;
                 e.printStackTrace();
                 return jSONObject;
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 
@@ -138,8 +138,8 @@ public class TKUtility {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, context, str, str2, str3)) == null) {
             try {
                 return context.getResources().getIdentifier(str, str2, str3);
-            } catch (Exception e2) {
-                throw new RuntimeException("Error getResourceId", e2);
+            } catch (Exception e) {
+                throw new RuntimeException("Error getResourceId", e);
             }
         }
         return invokeLLLL.intValue;
@@ -152,8 +152,8 @@ public class TKUtility {
             if (str3 == null) {
                 try {
                     str3 = TKContextUtil.getContext().getPackageName();
-                } catch (Exception e2) {
-                    throw new RuntimeException("Error getResourceId by TKContextUtil.getContext()", e2);
+                } catch (Exception e) {
+                    throw new RuntimeException("Error getResourceId by TKContextUtil.getContext()", e);
                 }
             }
             return TKContextUtil.getContext().getResources().getIdentifier(str, str2, str3);

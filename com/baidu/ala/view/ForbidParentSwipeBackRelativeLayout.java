@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_POINTER = -1;
@@ -67,8 +67,8 @@ public class ForbidParentSwipeBackRelativeLayout extends RelativeLayout {
                     return;
                 }
                 this.isIntercept = true;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
             }
         }
     }

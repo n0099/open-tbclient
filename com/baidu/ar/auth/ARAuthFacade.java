@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ARAuthFacade implements j {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_TYPE_AIP = 1;
@@ -314,8 +314,8 @@ public class ARAuthFacade implements j {
             try {
                 e.a(bArr, fVar);
                 this.iX = fVar;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 this.iX = null;
             }
             return fVar;
@@ -332,8 +332,8 @@ public class ARAuthFacade implements j {
                 if (bArr == null || bArr.length <= 0) {
                     try {
                         fVar = e.m(context);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 } else {
                     fVar = d(bArr);
@@ -417,7 +417,7 @@ public class ARAuthFacade implements j {
                 if (iDuMixAuthCallback != null) {
                     this.jb.add(iDuMixAuthCallback);
                 }
-                f d2 = d(bArr);
+                f d = d(bArr);
                 this.iY = true;
                 Runnable runnable = new Runnable(this) { // from class: com.baidu.ar.auth.ARAuthFacade.2
                     public static /* synthetic */ Interceptable $ic;
@@ -534,7 +534,7 @@ public class ARAuthFacade implements j {
                         }
                     }
                 });
-                return this.iX != null ? d2.jN : new ArrayList();
+                return this.iX != null ? d.jN : new ArrayList();
             } else {
                 throw new IllegalStateException("license数据不能为空");
             }
@@ -634,15 +634,15 @@ public class ARAuthFacade implements j {
             }
             if (bArr != null && context != null) {
                 this.jd = true;
-                f d2 = d(bArr);
+                f d = d(bArr);
                 this.iY = true;
-                if (d2 == null) {
+                if (d == null) {
                     this.iZ = new i(null);
                     com.baidu.ar.h.b.b("ARAuth", "invalid license data");
                     this.iZ.U("invalid license data");
                     return false;
                 }
-                k a = a(d2);
+                k a = a(d);
                 if (a instanceof l) {
                     f fVar = this.iX;
                     this.iZ = new i(fVar != null ? fVar.jN : null);

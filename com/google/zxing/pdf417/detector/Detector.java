@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BARCODE_MIN_HEIGHT = 10;
@@ -82,7 +82,7 @@ public final class Detector {
             BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
             List<ResultPoint[]> detect = detect(z, blackMatrix);
             if (detect.isEmpty()) {
-                blackMatrix = blackMatrix.m108clone();
+                blackMatrix = blackMatrix.m104clone();
                 blackMatrix.rotate180();
                 detect = detect(z, blackMatrix);
             }
@@ -175,9 +175,9 @@ public final class Detector {
                         iArr3 = findGuardPattern2;
                         i11 = i12;
                     }
-                    float f2 = i8;
-                    resultPointArr[0] = new ResultPoint(iArr3[0], f2);
-                    resultPointArr[1] = new ResultPoint(iArr3[1], f2);
+                    float f = i8;
+                    resultPointArr[0] = new ResultPoint(iArr3[0], f);
+                    resultPointArr[1] = new ResultPoint(iArr3[1], f);
                     i9 = i8;
                     z = true;
                 } else {
@@ -209,9 +209,9 @@ public final class Detector {
                     i14 = i7 + 1;
                 }
                 i13 = i7 - (i6 + 1);
-                float f3 = i13;
-                resultPointArr[2] = new ResultPoint(iArr4[0], f3);
-                resultPointArr[3] = new ResultPoint(iArr4[1], f3);
+                float f2 = i13;
+                resultPointArr[2] = new ResultPoint(iArr4[0], f2);
+                resultPointArr[3] = new ResultPoint(iArr4[1], f2);
             }
             if (i13 - i9 < 10) {
                 for (i5 = 0; i5 < 4; i5++) {
@@ -241,10 +241,10 @@ public final class Detector {
         return (ResultPoint[]) invokeLII.objValue;
     }
 
-    public static float patternMatchVariance(int[] iArr, int[] iArr2, float f2) {
+    public static float patternMatchVariance(int[] iArr, int[] iArr2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{iArr, iArr2, Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{iArr, iArr2, Float.valueOf(f)})) == null) {
             int length = iArr.length;
             int i = 0;
             int i2 = 0;
@@ -255,20 +255,20 @@ public final class Detector {
             if (i < i2) {
                 return Float.POSITIVE_INFINITY;
             }
-            float f3 = i;
-            float f4 = f3 / i2;
-            float f5 = f2 * f4;
-            float f6 = 0.0f;
+            float f2 = i;
+            float f3 = f2 / i2;
+            float f4 = f * f3;
+            float f5 = 0.0f;
             for (int i4 = 0; i4 < length; i4++) {
-                float f7 = iArr2[i4] * f4;
-                float f8 = iArr[i4];
-                float f9 = f8 > f7 ? f8 - f7 : f7 - f8;
-                if (f9 > f5) {
+                float f6 = iArr2[i4] * f3;
+                float f7 = iArr[i4];
+                float f8 = f7 > f6 ? f7 - f6 : f6 - f7;
+                if (f8 > f4) {
                     return Float.POSITIVE_INFINITY;
                 }
-                f6 += f9;
+                f5 += f8;
             }
-            return f6 / f3;
+            return f5 / f2;
         }
         return invokeCommon.floatValue;
     }

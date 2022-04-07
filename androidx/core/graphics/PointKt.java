@@ -128,24 +128,24 @@ public final class PointKt {
         return (Point) invokeLI.objValue;
     }
 
-    public static final PointF minus(PointF pointF, float f2) {
+    public static final PointF minus(PointF pointF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, pointF, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65542, null, pointF, f)) == null) {
             PointF pointF2 = new PointF(pointF.x, pointF.y);
-            float f3 = -f2;
-            pointF2.offset(f3, f3);
+            float f2 = -f;
+            pointF2.offset(f2, f2);
             return pointF2;
         }
         return (PointF) invokeLF.objValue;
     }
 
-    public static final PointF plus(PointF pointF, float f2) {
+    public static final PointF plus(PointF pointF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65546, null, pointF, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65546, null, pointF, f)) == null) {
             PointF pointF2 = new PointF(pointF.x, pointF.y);
-            pointF2.offset(f2, f2);
+            pointF2.offset(f, f);
             return pointF2;
         }
         return (PointF) invokeLF.objValue;

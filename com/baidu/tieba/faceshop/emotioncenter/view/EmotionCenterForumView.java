@@ -19,23 +19,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f32108b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f32109c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f32110d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public EmotionCenterData.EmotionForumData f32111e;
+    public TextView b;
+    public TextView c;
+    public ImageView d;
+    public EmotionCenterData.EmotionForumData e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionCenterForumView(TbPageContext tbPageContext) {
@@ -62,10 +54,10 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d025b, this);
-            this.f32108b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a95);
-            this.f32109c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a6e);
-            this.f32110d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a1b);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d025c, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090a97);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090a70);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a22);
             setOnClickListener(this);
         }
     }
@@ -73,17 +65,17 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setViewTextColor(this.f32108b, R.color.CAM_X0105, i);
-            SkinManager.setViewTextColor(this.f32109c, R.color.cp_cont_r, i);
-            SkinManager.setBackgroundResource(this.f32110d, R.drawable.obfuscated_res_0x7f0804bb, i);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
+            SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0804b9, i);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this && this.f32111e != null) {
-            this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(this.f32111e.forum_name, null)));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 == this && this.e != null) {
+            this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(this.e.forum_name, null)));
         }
     }
 
@@ -91,7 +83,7 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, emotionForumData) == null) {
             b(TbadkCoreApplication.getInst().getSkinType());
-            this.f32111e = emotionForumData;
+            this.e = emotionForumData;
         }
     }
 

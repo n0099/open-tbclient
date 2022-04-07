@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,9 +113,9 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
                 i3 = i5;
                 str = optString;
                 i2 = i4;
-            } catch (JSONException e2) {
-                LogUtils.e("IMQueryZhidaSubscribedStateRequest", "JSONException", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e("IMQueryZhidaSubscribedStateRequest", "JSONException", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
                 i3 = -1;

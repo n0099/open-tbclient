@@ -8,8 +8,6 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.e;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -19,33 +17,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
+import com.repackage.pg;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RecordingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Paint f24853b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Random f24854c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f24855d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f24856e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f24857f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f24858g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f24859h;
+    public Paint b;
+    public Random c;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public int h;
     public int i;
     public RectF[] j;
     public int[] k;
@@ -53,7 +39,7 @@ public class RecordingAnimView extends View {
     public int m;
     public final Runnable n;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,13 +91,13 @@ public class RecordingAnimView extends View {
             }
         }
         this.a = 3;
-        this.f24854c = new Random();
-        this.f24855d = 0;
-        this.f24856e = 8;
-        this.f24857f = false;
-        this.f24858g = true;
+        this.c = new Random();
+        this.d = 0;
+        this.e = 8;
+        this.f = false;
+        this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();
@@ -120,14 +106,14 @@ public class RecordingAnimView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f24857f) {
+            if (this.f) {
                 invalidate();
             }
-            e.a().removeCallbacks(this.n);
-            if (this.f24858g) {
+            pg.a().removeCallbacks(this.n);
+            if (this.g) {
                 return;
             }
-            e.a().postDelayed(this.n, 250L);
+            pg.a().postDelayed(this.n, 250L);
         }
     }
 
@@ -142,11 +128,11 @@ public class RecordingAnimView extends View {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.m = c(TbadkCoreApplication.getInst().getSkinType());
             Paint paint = new Paint();
-            this.f24853b = paint;
+            this.b = paint;
             paint.setDither(true);
-            this.f24853b.setAntiAlias(true);
-            this.f24853b.setStyle(Paint.Style.FILL);
-            this.f24853b.setColor(SkinManager.getColor(this.m));
+            this.b.setAntiAlias(true);
+            this.b.setStyle(Paint.Style.FILL);
+            this.b.setColor(SkinManager.getColor(this.m));
         }
     }
 
@@ -155,16 +141,16 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             RectF[] rectFArr = this.j;
-            if (rectFArr == null || rectFArr.length != this.f24856e) {
-                this.j = new RectF[this.f24856e];
+            if (rectFArr == null || rectFArr.length != this.e) {
+                this.j = new RectF[this.e];
             }
-            for (int i = 0; i < this.f24856e; i++) {
+            for (int i = 0; i < this.e; i++) {
                 int i2 = this.l * i * 2;
-                if (this.f24858g) {
+                if (this.g) {
                     nextInt = (int) ((1.0d - (this.k[i % 22] / 10.0d)) * this.i);
                 } else {
                     int i3 = this.i;
-                    nextInt = i3 > 0 ? this.f24854c.nextInt(i3) : 0;
+                    nextInt = i3 > 0 ? this.c.nextInt(i3) : 0;
                 }
                 int i4 = this.l + i2;
                 int i5 = this.i;
@@ -180,12 +166,12 @@ public class RecordingAnimView extends View {
 
     public void f(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i == this.a || this.f24853b == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || i == this.a || this.b == null) {
             return;
         }
-        int c2 = c(i);
-        this.m = c2;
-        this.f24853b.setColor(SkinManager.getColor(i, c2));
+        int c = c(i);
+        this.m = c;
+        this.b.setColor(SkinManager.getColor(i, c));
         invalidate();
         this.a = i;
     }
@@ -193,8 +179,8 @@ public class RecordingAnimView extends View {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f24857f = true;
-            this.f24858g = true;
+            this.f = true;
+            this.g = true;
             b();
         }
     }
@@ -202,8 +188,8 @@ public class RecordingAnimView extends View {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f24857f = true;
-            this.f24858g = false;
+            this.f = true;
+            this.g = false;
             b();
         }
     }
@@ -213,7 +199,7 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDetachedFromWindow();
-            e.a().removeCallbacks(this.n);
+            pg.a().removeCallbacks(this.n);
         }
     }
 
@@ -222,12 +208,12 @@ public class RecordingAnimView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f24857f) {
-                for (int i = 0; i < this.f24856e; i++) {
+            if (this.f) {
+                for (int i = 0; i < this.e; i++) {
                     e();
                     RectF[] rectFArr = this.j;
                     if (i < rectFArr.length) {
-                        canvas.drawRoundRect(rectFArr[i], 10.0f, 10.0f, this.f24853b);
+                        canvas.drawRoundRect(rectFArr[i], 10.0f, 10.0f, this.b);
                     }
                 }
             }
@@ -239,21 +225,21 @@ public class RecordingAnimView extends View {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            if (this.f24855d > 0) {
+            if (this.d > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 int i3 = this.l;
-                int i4 = this.f24855d;
+                int i4 = this.d;
                 int i5 = i3 * ((i4 * 2) - 1);
-                this.f24859h = i5;
-                this.f24856e = i4;
+                this.h = i5;
+                this.e = i4;
                 i = View.MeasureSpec.makeMeasureSpec(i5, mode);
             }
             super.onMeasure(i, i2);
             this.i = getMeasuredHeight();
             int measuredWidth = getMeasuredWidth();
-            this.f24859h = measuredWidth;
-            if (this.f24855d <= 0) {
-                this.f24856e = (measuredWidth / this.l) / 2;
+            this.h = measuredWidth;
+            if (this.d <= 0) {
+                this.e = (measuredWidth / this.l) / 2;
             }
         }
     }
@@ -263,13 +249,13 @@ public class RecordingAnimView extends View {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || i == 0) {
             return;
         }
-        this.f24855d = i;
+        this.d = i;
     }
 
     public void setColumnColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            Paint paint = this.f24853b;
+            Paint paint = this.b;
             if (paint != null) {
                 paint.setColor(SkinManager.getColor(i));
             }
@@ -305,13 +291,13 @@ public class RecordingAnimView extends View {
             }
         }
         this.a = 3;
-        this.f24854c = new Random();
-        this.f24855d = 0;
-        this.f24856e = 8;
-        this.f24857f = false;
-        this.f24858g = true;
+        this.c = new Random();
+        this.d = 0;
+        this.e = 8;
+        this.f = false;
+        this.g = true;
         this.k = new int[]{6, 3, 5, 10, 8, 6, 5, 3, 5, 10, 8, 6, 5, 3, 6, 3, 5, 10, 8, 6, 5, 3};
-        this.l = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
+        this.l = oi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070224);
         this.n = new a(this);
         d();
         b();

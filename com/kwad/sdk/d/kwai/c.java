@@ -30,43 +30,29 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c extends com.kwad.sdk.core.e.b {
     public AdTemplate a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f40247b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Dialog f40248c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f40249d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.d.a.b f40250e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f40251f;
+    public KsInterstitialAd.AdInteractionListener b;
+    public Dialog c;
+    public com.kwad.sdk.core.download.a.b d;
+    public com.kwad.sdk.d.a.b e;
+    public boolean f;
     @NonNull
-
-    /* renamed from: g  reason: collision with root package name */
-    public KsAdVideoPlayConfig f40252g;
+    public KsAdVideoPlayConfig g;
     public com.kwad.sdk.core.video.videoview.b i;
     public a k;
     public b l;
     public Handler m = new Handler(Looper.getMainLooper());
     public volatile boolean j = false;
+    public List<a.b> h = new CopyOnWriteArrayList();
 
-    /* renamed from: h  reason: collision with root package name */
-    public List<a.b> f40253h = new CopyOnWriteArrayList();
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
     }
@@ -74,11 +60,11 @@ public class c extends com.kwad.sdk.core.e.b {
     @Override // com.kwad.sdk.core.e.b
     public void a() {
         this.m.removeCallbacksAndMessages(null);
-        this.f40253h.clear();
+        this.h.clear();
     }
 
-    public void a(final Context context, AdInfo adInfo, AdTemplate adTemplate, @Nullable final View view) {
-        if (view == null) {
+    public void a(final Context context, AdInfo adInfo, AdTemplate adTemplate, @Nullable final View view2) {
+        if (view2 == null) {
             return;
         }
         String a2 = com.kwad.sdk.core.response.a.a.aa(adInfo).a();
@@ -92,27 +78,27 @@ public class c extends com.kwad.sdk.core.e.b {
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-            public void onLoadingCancelled(String str, View view2) {
+            public void onLoadingCancelled(String str, View view3) {
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-            public void onLoadingComplete(String str, View view2, DecodedResult decodedResult) {
+            public void onLoadingComplete(String str, View view3, DecodedResult decodedResult) {
                 Bitmap bitmap = decodedResult.mBitmap;
                 com.kwad.sdk.core.d.a.a("InterstitialCallerContext", "onLoadingComplete before blur");
                 Bitmap stackBlur = BlurUtils.stackBlur(bitmap, 50, false);
                 com.kwad.sdk.core.d.a.a("InterstitialCallerContext", "onLoadingComplete after blur");
-                float dimension = context.getResources().getDimension(R.dimen.obfuscated_res_0x7f07035f);
+                float dimension = context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070369);
                 RoundedBitmapDrawable create = RoundedBitmapDrawableFactory.create(context.getResources(), stackBlur);
                 create.setCornerRadius(dimension);
-                view.setBackground(create);
+                view2.setBackground(create);
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-            public void onLoadingFailed(String str, View view2, FailReason failReason) {
+            public void onLoadingFailed(String str, View view3, FailReason failReason) {
             }
 
             @Override // com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
-            public void onLoadingStarted(String str, View view2) {
+            public void onLoadingStarted(String str, View view3) {
             }
         });
     }
@@ -125,27 +111,27 @@ public class c extends com.kwad.sdk.core.e.b {
         this.j = true;
     }
 
-    public void a(View view, boolean z, int i, final boolean z2) {
-        if ((com.kwad.sdk.core.config.b.ak() || z) && com.kwad.sdk.core.download.a.a.a(new a.C1956a(bb.a(view)).a(this.a).a(this.f40249d).a(z).a(i).a(new a.b() { // from class: com.kwad.sdk.d.kwai.c.1
+    public void a(View view2, boolean z, int i, final boolean z2) {
+        if ((com.kwad.sdk.core.config.b.ak() || z) && com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(view2)).a(this.a).a(this.d).a(z).a(i).a(new a.b() { // from class: com.kwad.sdk.d.kwai.c.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 c.this.a(z2);
             }
-        })) == 0 && this.f40248c != null && com.kwad.sdk.core.config.b.aC()) {
+        })) == 0 && this.c != null && com.kwad.sdk.core.config.b.aC()) {
             this.m.postDelayed(new Runnable() { // from class: com.kwad.sdk.d.kwai.c.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.f40248c.dismiss();
+                    c.this.c.dismiss();
                 }
             }, 500L);
         }
     }
 
     public void a(a.b bVar) {
-        if (this.f40253h.contains(bVar)) {
+        if (this.h.contains(bVar)) {
             return;
         }
-        this.f40253h.add(bVar);
+        this.h.add(bVar);
     }
 
     public void a(a aVar) {
@@ -162,7 +148,7 @@ public class c extends com.kwad.sdk.core.e.b {
         } else {
             com.kwad.sdk.core.report.a.a(this.a, 153, (z.a) null);
         }
-        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f40247b;
+        KsInterstitialAd.AdInteractionListener adInteractionListener = this.b;
         if (adInteractionListener != null) {
             adInteractionListener.onAdClicked();
         }
@@ -214,7 +200,7 @@ public class c extends com.kwad.sdk.core.e.b {
     }
 
     public void b(a.b bVar) {
-        this.f40253h.remove(bVar);
+        this.h.remove(bVar);
     }
 
     public void c() {
@@ -225,7 +211,7 @@ public class c extends com.kwad.sdk.core.e.b {
     }
 
     public boolean d() {
-        com.kwad.sdk.d.a.b bVar = this.f40250e;
+        com.kwad.sdk.d.a.b bVar = this.e;
         boolean z = bVar == null || bVar.getParent() == null;
         com.kwad.sdk.core.d.a.a("InterstitialCallerContext", "isH5Interstitial :" + z);
         return z;

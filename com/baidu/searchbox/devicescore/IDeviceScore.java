@@ -2,7 +2,7 @@ package com.baidu.searchbox.devicescore;
 
 import android.content.Context;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IDeviceScore {
     public static final int SCORE_LEVEL_HIGH = 3;
     public static final int SCORE_LEVEL_LOW = 1;

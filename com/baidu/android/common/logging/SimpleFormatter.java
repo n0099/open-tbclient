@@ -14,7 +14,7 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class SimpleFormatter extends Formatter {
     public static /* synthetic */ Interceptable $ic = null;
     public static String format = "{0,date} {0,time}";
@@ -124,8 +124,8 @@ public class SimpleFormatter extends Formatter {
                         logRecord.getThrown().printStackTrace(printWriter);
                         printWriter.close();
                         stringBuffer2.append(stringWriter.toString());
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
                 stringBuffer = stringBuffer2.toString();

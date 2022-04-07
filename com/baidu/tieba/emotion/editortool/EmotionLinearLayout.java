@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f31776b;
+    public boolean b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmotionLinearLayout(Context context) {
@@ -44,7 +42,7 @@ public class EmotionLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            if (this.f31776b) {
+            if (this.b) {
                 canvas.save();
                 canvas.translate(this.a.getLeft(), this.a.getTop());
                 this.a.draw(canvas);
@@ -63,8 +61,8 @@ public class EmotionLinearLayout extends LinearLayout {
                 return;
             }
             int measuredWidth = childAt.getMeasuredWidth() - this.a.getMeasuredWidth();
-            View view = this.a;
-            view.layout(measuredWidth, 0, view.getMeasuredWidth() + measuredWidth, this.a.getMeasuredHeight());
+            View view2 = this.a;
+            view2.layout(measuredWidth, 0, view2.getMeasuredWidth() + measuredWidth, this.a.getMeasuredHeight());
         }
     }
 
@@ -73,24 +71,24 @@ public class EmotionLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            View view = this.a;
-            if (view != null) {
-                this.a.measure(LinearLayout.getChildMeasureSpec(i, 0, view.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.a.getLayoutParams().height));
+            View view2 = this.a;
+            if (view2 != null) {
+                this.a.measure(LinearLayout.getChildMeasureSpec(i, 0, view2.getLayoutParams().width), LinearLayout.getChildMeasureSpec(i2, 0, this.a.getLayoutParams().height));
             }
         }
     }
 
-    public void setNewView(View view) {
+    public void setNewView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.a = view;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            this.a = view2;
         }
     }
 
     public void setNewViewVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f31776b = z;
+            this.b = z;
             invalidate();
         }
     }

@@ -6,13 +6,13 @@ import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.MergePathsContent;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.Logger;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MergePaths implements ContentModel {
     public final boolean hidden;
     public final MergePathsMode mode;
     public final String name;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum MergePathsMode {
         MERGE,
         ADD,

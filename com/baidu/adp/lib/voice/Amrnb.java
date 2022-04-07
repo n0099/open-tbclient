@@ -1,7 +1,5 @@
 package com.baidu.adp.lib.voice;
 
-import c.a.d.f.p.j;
-import c.a.d.f.p.k;
 import com.baidu.adp.lib.voice.AmrEncoder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,15 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.ki;
+import com.repackage.li;
+/* loaded from: classes.dex */
 public class Amrnb {
     public static /* synthetic */ Interceptable $ic;
     public static boolean bLoadLibrary;
     public static Amrnb instance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a extends k {
+    /* loaded from: classes.dex */
+    public static class a extends li {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -37,7 +37,7 @@ public class Amrnb {
             }
         }
 
-        @Override // c.a.d.f.p.k
+        @Override // com.repackage.li
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -59,7 +59,7 @@ public class Amrnb {
                 return;
             }
         }
-        bLoadLibrary = j.d().i("amr-codec", 2, new a());
+        bLoadLibrary = ki.d().i("amr-codec", 2, new a());
     }
 
     public Amrnb() {

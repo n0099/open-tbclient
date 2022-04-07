@@ -4,7 +4,7 @@ import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface UBVI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 

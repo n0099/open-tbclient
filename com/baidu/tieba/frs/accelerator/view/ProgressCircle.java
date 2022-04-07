@@ -17,32 +17,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ProgressCircle extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f32372b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f32373c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f32374d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f32375e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f32376f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f32377g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f32378h;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public float g;
+    public int h;
     public int i;
     public RectF j;
     public Paint k;
@@ -53,7 +39,7 @@ public class ProgressCircle extends View {
     public float p;
     public long q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends Paint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +61,13 @@ public class ProgressCircle extends View {
                 }
             }
             this.a = progressCircle;
-            setColor(this.a.f32373c);
-            setStrokeWidth(this.a.f32372b);
+            setColor(this.a.c);
+            setStrokeWidth(this.a.b);
             setStyle(Paint.Style.STROKE);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends Paint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,13 +89,13 @@ public class ProgressCircle extends View {
                 }
             }
             this.a = progressCircle;
-            setColor(this.a.f32374d);
-            setStrokeWidth(this.a.f32372b);
+            setColor(this.a.d);
+            setStrokeWidth(this.a.b);
             setStyle(Paint.Style.STROKE);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c extends Paint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,13 +117,13 @@ public class ProgressCircle extends View {
                 }
             }
             this.a = progressCircle;
-            setColor(this.a.f32374d);
-            setStrokeWidth(this.a.f32372b);
+            setColor(this.a.d);
+            setStrokeWidth(this.a.b);
             setStyle(Paint.Style.FILL);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d extends Paint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -159,13 +145,13 @@ public class ProgressCircle extends View {
                 }
             }
             this.a = progressCircle;
-            setColor(this.a.f32374d);
-            setStrokeWidth(this.a.f32372b);
+            setColor(this.a.d);
+            setStrokeWidth(this.a.b);
             setStyle(Paint.Style.STROKE);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e extends Paint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,8 +173,8 @@ public class ProgressCircle extends View {
                 }
             }
             this.a = progressCircle;
-            setColor(this.a.f32375e);
-            setStrokeWidth(this.a.f32372b);
+            setColor(this.a.e);
+            setStrokeWidth(this.a.b);
             setStyle(Paint.Style.STROKE);
         }
     }
@@ -228,16 +214,16 @@ public class ProgressCircle extends View {
         }
     }
 
-    public final void e(Canvas canvas, float f2, float f3, Paint paint) {
+    public final void e(Canvas canvas, float f, float f2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), paint}) == null) {
-            float f4 = f3 * 360.0f;
-            canvas.drawArc(this.j, (f2 * 360.0f) - 90.0f, f4, false, paint);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), paint}) == null) {
+            float f3 = f2 * 360.0f;
+            canvas.drawArc(this.j, (f * 360.0f) - 90.0f, f3, false, paint);
             if (this.a) {
                 return;
             }
             h(canvas, this.o);
-            g(canvas, f4, this.o);
+            g(canvas, f3, this.o);
         }
     }
 
@@ -248,21 +234,21 @@ public class ProgressCircle extends View {
         }
     }
 
-    public void g(Canvas canvas, float f2, Paint paint) {
+    public void g(Canvas canvas, float f, Paint paint) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, Float.valueOf(f2), paint}) == null) {
-            float f3 = (this.f32378h / 2) - this.f32372b;
-            double radians = Math.toRadians(f2) + 3.141592653589793d;
-            canvas.drawCircle((i / 2) - (((float) Math.sin(radians)) * f3), (this.i / 2) + (((float) Math.cos(radians)) * f3), this.f32372b / 2, paint);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, Float.valueOf(f), paint}) == null) {
+            float f2 = (this.h / 2) - this.b;
+            double radians = Math.toRadians(f) + 3.141592653589793d;
+            canvas.drawCircle((i / 2) - (((float) Math.sin(radians)) * f2), (this.i / 2) + (((float) Math.cos(radians)) * f2), this.b / 2, paint);
         }
     }
 
     public void h(Canvas canvas, Paint paint) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, canvas, paint) == null) {
-            int i = this.f32372b;
-            canvas.drawCircle(this.f32378h / 2, i, i / 2, paint);
+            int i = this.b;
+            canvas.drawCircle(this.h / 2, i, i / 2, paint);
         }
     }
 
@@ -275,11 +261,11 @@ public class ProgressCircle extends View {
             f(canvas, this.k);
             if (this.a) {
                 long j = currentTimeMillis - this.q;
-                if (j > this.f32376f) {
+                if (j > this.f) {
                     this.q = currentTimeMillis;
                     j = 0;
                 }
-                e(canvas, ((float) j) / this.f32376f, this.f32377g, this.n);
+                e(canvas, ((float) j) / this.f, this.g, this.n);
                 invalidate();
                 return;
             }
@@ -293,10 +279,10 @@ public class ProgressCircle extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.f32378h = i;
+            this.h = i;
             this.i = i2;
-            int i5 = this.f32372b;
-            this.j = new RectF(i5, i5, this.f32378h - i5, this.i - i5);
+            int i5 = this.b;
+            this.j = new RectF(i5, i5, this.h - i5, this.i - i5);
         }
     }
 
@@ -309,10 +295,10 @@ public class ProgressCircle extends View {
         invalidate();
     }
 
-    public void setProgress(float f2) {
+    public void setProgress(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.p = f2;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.p = f;
             invalidate();
         }
     }
@@ -336,15 +322,15 @@ public class ProgressCircle extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402b9, R.attr.obfuscated_res_0x7f0402ba, R.attr.obfuscated_res_0x7f0402bb, R.attr.obfuscated_res_0x7f0402bc, R.attr.obfuscated_res_0x7f0404a6, R.attr.obfuscated_res_0x7f0404a7, R.attr.obfuscated_res_0x7f0404ab}, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402fb, R.attr.obfuscated_res_0x7f0402fc, R.attr.obfuscated_res_0x7f0402fd, R.attr.obfuscated_res_0x7f0402fe, R.attr.obfuscated_res_0x7f0404e4, R.attr.obfuscated_res_0x7f0404e5, R.attr.obfuscated_res_0x7f0404e9}, 0, 0);
         try {
             this.a = obtainStyledAttributes.getBoolean(0, false);
-            this.f32372b = obtainStyledAttributes.getDimensionPixelSize(6, 5);
-            this.f32373c = obtainStyledAttributes.getColor(5, 0);
-            this.f32374d = obtainStyledAttributes.getColor(4, -1);
-            this.f32375e = obtainStyledAttributes.getColor(3, -1);
-            this.f32376f = obtainStyledAttributes.getInteger(2, 2000);
-            this.f32377g = obtainStyledAttributes.getFloat(1, 0.2f);
+            this.b = obtainStyledAttributes.getDimensionPixelSize(6, 5);
+            this.c = obtainStyledAttributes.getColor(5, 0);
+            this.d = obtainStyledAttributes.getColor(4, -1);
+            this.e = obtainStyledAttributes.getColor(3, -1);
+            this.f = obtainStyledAttributes.getInteger(2, 2000);
+            this.g = obtainStyledAttributes.getFloat(1, 0.2f);
             obtainStyledAttributes.recycle();
             this.k = new a(this);
             this.l = new b(this);

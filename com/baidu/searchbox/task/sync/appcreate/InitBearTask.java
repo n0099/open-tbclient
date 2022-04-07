@@ -1,9 +1,5 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.d.f.p.n;
-import c.a.o0.c1.f;
-import c.a.o0.r.j0.b;
-import c.a.p0.g1.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.cs6;
+import com.repackage.oi;
+import com.repackage.ub5;
+import com.repackage.wt4;
+/* loaded from: classes2.dex */
 public class InitBearTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class InitBearTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             if (UbsABTestHelper.newSplashStrategy()) {
-                return f.w();
+                return ub5.w();
             }
-            return b.k().l("splash_origin_ad_strategy_key", 1) != 0;
+            return wt4.k().l("splash_origin_ad_strategy_key", 1) != 0;
         }
         return invokeV.booleanValue;
     }
@@ -76,11 +76,11 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = f.q(b.k().l("splash_ad_strategy_key", 0));
+            boolean q = ub5.q(wt4.k().l("splash_ad_strategy_key", 0));
             SpeedStatsManager.getInstance().setIsNeedBear(q);
             SpeedStatsManager.getInstance().setIsNeedPlg(isNeedPlgSplash());
             if (q) {
-                c.a.p0.g1.b.j().n(new b.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                cs6.j().n(new cs6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -103,11 +103,11 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // c.a.p0.g1.b.l
+                    @Override // com.repackage.cs6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-                            if (n.B()) {
+                            if (oi.B()) {
                                 Thread thread = new Thread(new Runnable(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;

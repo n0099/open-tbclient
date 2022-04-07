@@ -5,7 +5,6 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a4.t0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
@@ -20,8 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
+import com.repackage.rm8;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WorkPostNotifyFlutterData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FAIL_POST = "102";
@@ -41,7 +41,7 @@ public class WorkPostNotifyFlutterData {
     public String videoId;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class NewWriteThreadData4Flutter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class WorkPostNotifyFlutterData {
         public VideoInfo videoInfo;
 
         @Keep
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class Author {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class Location {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class WorkPostNotifyFlutterData {
         }
 
         @Keep
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class VideoInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -158,7 +158,7 @@ public class WorkPostNotifyFlutterData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +208,7 @@ public class WorkPostNotifyFlutterData {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, writeData)) == null) {
             NewWriteThreadData4Flutter.VideoInfo videoInfo = new NewWriteThreadData4Flutter.VideoInfo();
             VideoInfo videoInfo2 = writeData.getVideoInfo();
-            String n = b.k().n();
+            String n = rm8.k().n();
             if (TextUtils.isEmpty(n)) {
                 n = videoInfo2.getThumbPath();
             }
@@ -221,7 +221,7 @@ public class WorkPostNotifyFlutterData {
             videoInfo.postType = writeData.getType();
             videoInfo.videoUrl = videoInfo2.getVideoUrl();
             NewWriteThreadData4Flutter.Location location = new NewWriteThreadData4Flutter.Location();
-            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d2);
+            location.name = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14da);
             NewWriteThreadData4Flutter.Author author = new NewWriteThreadData4Flutter.Author();
             AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
             if (currentAccountInfo != null) {

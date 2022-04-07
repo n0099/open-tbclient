@@ -3,7 +3,6 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
-import c.a.r.a.a;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,10 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c70;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMMediaSendMsgHttpRequest";
@@ -122,8 +122,8 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
                 jSONObject.put("msg_key", this.mMsgKey);
                 LogUtils.d(TAG, "BC> before genSign param=" + jSONObject);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             LogUtils.d(TAG, "BC> param=" + jSONObject.toString());
             return jSONObject.toString().getBytes();
@@ -136,7 +136,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
             Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
-            a.d().f(this.mUbc.generateUBCData(String.valueOf(transErrorCode.first), (String) transErrorCode.second), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            c70.d().f(this.mUbc.generateUBCData(String.valueOf(transErrorCode.first), (String) transErrorCode.second), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), this.mSendMsg);
         }
     }
@@ -164,11 +164,11 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
                     }
                 }
                 this.mSendMsg.setMediaRoleMsg(true);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 i = 1010;
             }
-            a.d().f(this.mUbc.generateUBCData(String.valueOf(i), "success"), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            c70.d().f(this.mUbc.generateUBCData(String.valueOf(i), "success"), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, i, this.mSendMsg);
         }
     }

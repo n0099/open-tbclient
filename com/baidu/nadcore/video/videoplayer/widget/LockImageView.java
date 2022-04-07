@@ -14,20 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.g21;
+/* loaded from: classes2.dex */
 public class LockImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.a0.i0.a.f.a a;
+    public g21 a;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ LockImageView f27712b;
+        public final /* synthetic */ LockImageView b;
 
         public a(LockImageView lockImageView, int i) {
             Interceptable interceptable = $ic;
@@ -44,7 +43,7 @@ public class LockImageView extends ImageView {
                     return;
                 }
             }
-            this.f27712b = lockImageView;
+            this.b = lockImageView;
             this.a = i;
         }
 
@@ -52,7 +51,7 @@ public class LockImageView extends ImageView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27712b.a.l(this.a);
+                this.b.a.l(this.a);
             }
         }
     }
@@ -94,7 +93,7 @@ public class LockImageView extends ImageView {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = new c.a.a0.i0.a.f.a(c(getResources(), R.drawable.obfuscated_res_0x7f080e06), c(getResources(), R.drawable.obfuscated_res_0x7f080e05));
+            this.a = new g21(c(getResources(), R.drawable.obfuscated_res_0x7f080e10), c(getResources(), R.drawable.obfuscated_res_0x7f080e0f));
         }
     }
 

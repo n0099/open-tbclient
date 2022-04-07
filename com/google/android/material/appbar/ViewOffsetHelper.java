@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ViewOffsetHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,14 +19,16 @@ public class ViewOffsetHelper {
     public int offsetLeft;
     public int offsetTop;
     public boolean verticalOffsetEnabled;
-    public final View view;
 
-    public ViewOffsetHelper(View view) {
+    /* renamed from: view  reason: collision with root package name */
+    public final View f1021view;
+
+    public ViewOffsetHelper(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,16 +40,16 @@ public class ViewOffsetHelper {
         }
         this.verticalOffsetEnabled = true;
         this.horizontalOffsetEnabled = true;
-        this.view = view;
+        this.f1021view = view2;
     }
 
     public void applyOffsets() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View view = this.view;
-            ViewCompat.offsetTopAndBottom(view, this.offsetTop - (view.getTop() - this.layoutTop));
-            View view2 = this.view;
-            ViewCompat.offsetLeftAndRight(view2, this.offsetLeft - (view2.getLeft() - this.layoutLeft));
+            View view2 = this.f1021view;
+            ViewCompat.offsetTopAndBottom(view2, this.offsetTop - (view2.getTop() - this.layoutTop));
+            View view3 = this.f1021view;
+            ViewCompat.offsetLeftAndRight(view3, this.offsetLeft - (view3.getLeft() - this.layoutLeft));
         }
     }
 
@@ -90,8 +92,8 @@ public class ViewOffsetHelper {
     public void onViewLayout() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.layoutTop = this.view.getTop();
-            this.layoutLeft = this.view.getLeft();
+            this.layoutTop = this.f1021view.getTop();
+            this.layoutLeft = this.f1021view.getLeft();
         }
     }
 

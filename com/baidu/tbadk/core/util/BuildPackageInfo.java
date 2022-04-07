@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.CharArrayWriter;
 import java.io.InputStreamReader;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BuildPackageInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,8 +47,8 @@ public class BuildPackageInfo {
                     return charArrayWriter2;
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return "get branch error";
         }
     }
@@ -73,8 +73,8 @@ public class BuildPackageInfo {
                     return charArrayWriter2;
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return "get commitid error";
         }
     }

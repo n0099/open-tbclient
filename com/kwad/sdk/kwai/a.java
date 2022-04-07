@@ -7,7 +7,7 @@ import com.kwad.sdk.core.config.b;
 import com.kwad.sdk.utils.ao;
 import com.kwad.sdk.utils.av;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements IWeaponInitParams {
     @Override // com.kuaishou.weapon.IWeaponInitParams
     public String getAndroidID() {

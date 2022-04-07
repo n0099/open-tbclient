@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.ix;
 import com.xiaomi.push.jh;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,8 +39,8 @@ public class ip {
             }
             try {
                 return new iw(new ix.a()).a(t);
-            } catch (iv e2) {
-                com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e2);
+            } catch (iv e) {
+                com.xiaomi.channel.commonutils.logger.b.a("convertThriftObjectToBytes catch TException.", e);
                 return null;
             }
         }

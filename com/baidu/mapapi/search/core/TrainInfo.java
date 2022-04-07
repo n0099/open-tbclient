@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TrainInfo extends TransitBaseInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TrainInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26394b;
+    public String b;
 
     static {
         InterceptResult invokeClinit;
@@ -69,20 +67,20 @@ public class TrainInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readDouble();
-        this.f26394b = parcel.readString();
+        this.b = parcel.readString();
     }
 
-    public void a(double d2) {
+    public void a(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.a = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.a = d;
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f26394b = str;
+            this.b = str;
         }
     }
 
@@ -102,7 +100,7 @@ public class TrainInfo extends TransitBaseInfo {
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeDouble(this.a);
-            parcel.writeString(this.f26394b);
+            parcel.writeString(this.b);
         }
     }
 }

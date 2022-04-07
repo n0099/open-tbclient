@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OpenClientUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,10 +52,10 @@ public class OpenClientUtil {
         if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || context == null) {
             return;
         }
-        String b2 = b.b(context);
+        String b = b.b(context);
         Intent intent = new Intent();
         intent.setAction("android.intent.action.VIEW");
-        intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b2 + PreferencesUtil.RIGHT_MOUNT));
+        intent.setData(Uri.parse("http://map.baidu.com/zt/client/index/?fr=sdk_[" + b + PreferencesUtil.RIGHT_MOUNT));
         context.startActivity(intent);
     }
 }

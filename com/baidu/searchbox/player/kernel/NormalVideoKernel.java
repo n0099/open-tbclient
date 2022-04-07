@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NormalVideoKernel extends BaseDumediaVideoKernel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -299,12 +299,12 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048603, this, f2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeF(1048603, this, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        this.mVideoView.setOutlineProvider(new RoundOutlineProvider(f2));
+        this.mVideoView.setOutlineProvider(new RoundOutlineProvider(f));
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
@@ -316,10 +316,10 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setSpeed(float f2) {
+    public void setSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048605, this, f2) == null) {
-            this.mVideoView.setSpeed(f2);
+        if (interceptable == null || interceptable.invokeF(1048605, this, f) == null) {
+            this.mVideoView.setSpeed(f);
         }
     }
 
@@ -412,10 +412,10 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f2) {
+    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048615, this, onSnapShotFrameListener, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048615, this, onSnapShotFrameListener, f)) == null) {
             if (onSnapShotFrameListener != null) {
                 return this.mVideoView.takeSnapshotAsync(new ICyberVideoView.OnSnapShotCompleteListener(this, onSnapShotFrameListener) { // from class: com.baidu.searchbox.player.kernel.NormalVideoKernel.1
                     public static /* synthetic */ Interceptable $ic;
@@ -449,7 +449,7 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
                             this.val$l.onSnapShotComplete(bitmap);
                         }
                     }
-                }, f2, 0, 0);
+                }, f, 0, 0);
             }
             return false;
         }

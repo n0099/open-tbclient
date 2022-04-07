@@ -2,10 +2,6 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
-import c.a.v0.r.h;
-import c.a.v0.r.u;
-import c.a.z.b.a.e;
-import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -20,8 +16,12 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.baidu.ugc.utils.FileUtils;
+import com.repackage.lc9;
+import com.repackage.pf0;
+import com.repackage.xf0;
+import com.repackage.yb9;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class InputProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class InputProcessor extends BaseEffectProcessor {
             return;
         }
         if (i2 == 0) {
-            u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
+            lc9.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InputProcessor this$0;
@@ -123,26 +123,26 @@ public class InputProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i, float[] fArr) {
+    public int onProcessFrame(pf0 pf0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i, fArr)) == null) {
-            if (eVar == null || eVar.l() == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, pf0Var, i, fArr)) == null) {
+            if (pf0Var == null || pf0Var.l() == null) {
                 return i;
             }
-            MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), 0);
-            boolean m = c.m(mediaTrack, "input_blank");
-            int f2 = !m ? eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
+            MediaTrack mediaTrack = (MediaTrack) yb9.c(pf0Var.l(), 0);
+            boolean m = xf0.m(mediaTrack, "input_blank");
+            int f = !m ? pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, pf0Var.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
             if (m) {
-                for (int i2 = 1; i2 < eVar.l().size(); i2++) {
-                    MediaTrack mediaTrack2 = eVar.l().get(i2);
-                    if (mediaTrack2 != null && c.m(mediaTrack2, "multi_input")) {
-                        f2 = eVar.i(mediaTrack2, f2, null);
+                for (int i2 = 1; i2 < pf0Var.l().size(); i2++) {
+                    MediaTrack mediaTrack2 = pf0Var.l().get(i2);
+                    if (mediaTrack2 != null && xf0.m(mediaTrack2, "multi_input")) {
+                        f = pf0Var.i(mediaTrack2, f, null);
                     }
                 }
-                f2 = eVar.f(mediaTrack, f2, 1, null);
+                f = pf0Var.f(mediaTrack, f, 1, null);
             }
-            return f2 == 0 ? i : f2;
+            return f == 0 ? i : f;
         }
         return invokeLIL.intValue;
     }

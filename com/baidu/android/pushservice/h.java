@@ -17,12 +17,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static h f24452b;
+    public static h b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
@@ -53,10 +51,10 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (h.class) {
-                if (f24452b == null) {
-                    f24452b = new h(context);
+                if (b == null) {
+                    b = new h(context);
                 }
-                hVar = f24452b;
+                hVar = b;
             }
             return hVar;
         }
@@ -85,14 +83,14 @@ public class h {
             int intExtra = intent.getIntExtra("bind_status", 0);
             int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
             com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_BIND ", this.a);
-            String d2 = com.baidu.android.pushservice.a.b.a(this.a).d(iVar.f24702d);
-            if (!TextUtils.isEmpty(iVar.f24705g) && com.baidu.android.pushservice.a.b.a(this.a).b(iVar.f24702d, iVar.f24705g) && !TextUtils.isEmpty(d2)) {
+            String d = com.baidu.android.pushservice.a.b.a(this.a).d(iVar.d);
+            if (!TextUtils.isEmpty(iVar.g) && com.baidu.android.pushservice.a.b.a(this.a).b(iVar.d, iVar.g) && !TextUtils.isEmpty(d)) {
                 Intent intent2 = new Intent();
                 intent2.putExtra("method", iVar.a);
                 intent2.putExtra(GameCodeGetResponseMsg.PARAM_ERROR_MSG, 0);
-                intent2.putExtra("content", d2.getBytes());
+                intent2.putExtra("content", d.getBytes());
                 intent2.putExtra("bind_status", intExtra);
-                m.b(this.a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.f24702d);
+                m.b(this.a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.d);
                 return;
             }
             if (intent.hasExtra("bind_notify_status")) {
@@ -112,12 +110,12 @@ public class h {
         if (interceptable == null || interceptable.invokeL(65541, this, intent) == null) {
             com.baidu.android.pushservice.httpapi.i iVar = new com.baidu.android.pushservice.httpapi.i(intent);
             com.baidu.android.pushservice.f.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.a);
-            if (!TextUtils.isEmpty(iVar.f24702d) && !TextUtils.isEmpty(iVar.f24705g)) {
-                com.baidu.android.pushservice.a.e a = com.baidu.android.pushservice.a.b.a(this.a).a(iVar.f24702d);
+            if (!TextUtils.isEmpty(iVar.d) && !TextUtils.isEmpty(iVar.g)) {
+                com.baidu.android.pushservice.a.e a = com.baidu.android.pushservice.a.b.a(this.a).a(iVar.d);
                 if (a != null && !TextUtils.isEmpty(a.a())) {
-                    iVar.f24703e = a.a();
+                    iVar.e = a.a();
                 }
-                com.baidu.android.pushservice.a.b.a(this.a).e(iVar.f24702d);
+                com.baidu.android.pushservice.a.b.a(this.a).e(iVar.d);
             }
             a(new n(iVar, this.a));
         }
@@ -208,9 +206,9 @@ public class h {
             try {
                 com.baidu.android.pushservice.g.e.a().a(aVar);
                 return true;
-            } catch (Exception e2) {
-                com.baidu.android.pushservice.f.a.a("RegistrationService", e2, this.a);
-                new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                com.baidu.android.pushservice.f.a.a("RegistrationService", e, this.a);
+                new b.c(this.a.getApplicationContext()).a(Log.getStackTraceString(e)).a();
                 return false;
             }
         }

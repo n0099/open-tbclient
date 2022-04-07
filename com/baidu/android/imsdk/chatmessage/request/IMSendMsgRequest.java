@@ -20,7 +20,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSendMsgRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSendMsgRequest";
@@ -161,8 +161,8 @@ public class IMSendMsgRequest extends BaseHttpRequest {
             LogUtils.d(TAG, "onSuccess :" + str);
             try {
                 i2 = new JSONObject(str).getInt("error_code");
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "JSONException", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "JSONException", e);
                 i2 = 1010;
             }
             ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i2, this.msg, System.currentTimeMillis(), this.key);

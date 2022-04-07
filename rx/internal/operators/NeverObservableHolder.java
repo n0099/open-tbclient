@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.d;
-import g.j;
+import com.repackage.az9;
+import com.repackage.uy9;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class NeverObservableHolder implements d.a<Object> {
+public final class NeverObservableHolder implements uy9.a<Object> {
     public static final /* synthetic */ NeverObservableHolder[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final NeverObservableHolder INSTANCE;
-    public static final d<Object> NEVER;
+    public static final uy9<Object> NEVER;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class NeverObservableHolder implements d.a<Object> {
         NeverObservableHolder neverObservableHolder = new NeverObservableHolder("INSTANCE", 0);
         INSTANCE = neverObservableHolder;
         $VALUES = new NeverObservableHolder[]{neverObservableHolder};
-        NEVER = d.a(neverObservableHolder);
+        NEVER = uy9.a(neverObservableHolder);
     }
 
     public NeverObservableHolder(String str, int i) {
@@ -57,10 +57,10 @@ public final class NeverObservableHolder implements d.a<Object> {
         }
     }
 
-    public static <T> d<T> instance() {
+    public static <T> uy9<T> instance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (d<T>) NEVER : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (uy9<T>) NEVER : (uy9) invokeV.objValue;
     }
 
     public static NeverObservableHolder valueOf(String str) {
@@ -76,10 +76,10 @@ public final class NeverObservableHolder implements d.a<Object> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // g.d.a, g.n.b
-    public void call(j<? super Object> jVar) {
+    @Override // com.repackage.uy9.a, com.repackage.iz9
+    public void call(az9<? super Object> az9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, az9Var) == null) {
         }
     }
 }

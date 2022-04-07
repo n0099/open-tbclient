@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +118,7 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
                 String str = "";
                 jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
                 jSONObject.put("themeTitle", this.title);
-                jSONObject.put("button", this.button);
+                jSONObject.put(NativeConstants.ID_BUTTON, this.button);
                 jSONObject.put("shareSource", this.shareSource);
                 jSONObject.put("shareSourceIcon", this.shareSourceIcon);
                 jSONObject.put("shareSourceUrl", this.shareSourceUrl);
@@ -133,8 +134,8 @@ public class ShareFromGameCenterMsgData extends ShareFromPBMsgData {
                 jSONArray.put("1");
                 jSONArray.put(jSONObject);
                 return jSONArray.toString();
-            } catch (JSONException e2) {
-                BdLog.detailException(e2);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
                 return null;
             }
         }

@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EmotionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean CACHE_DEBUG = false;
@@ -58,7 +58,7 @@ public class EmotionUtils {
     public Semaphore mSync;
 
     /* renamed from: com.baidu.spswitch.emotion.EmotionUtils$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$spswitch$emotion$EmotionType;
         public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class EmotionUtils {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EmotionClassic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -150,8 +150,8 @@ public class EmotionUtils {
         this.mRecommendEmotionPanelList = new CopyOnWriteArrayList();
         this.mEmotionBitmapMap = new HashMap();
         this.mSync = new Semaphore(0);
-        this.mOftenZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb2);
-        this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0269);
+        this.mOftenZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb5);
+        this.mAllZoneTitle = AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a);
     }
 
     private void freeEmotionSound() {
@@ -226,7 +226,7 @@ public class EmotionUtils {
     public String getAllZoneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0269) : this.mAllZoneTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.isEmpty(this.mAllZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a) : this.mAllZoneTitle : (String) invokeV.objValue;
     }
 
     public Bitmap getEmotionBitmapByName(EmotionType emotionType, String str) {
@@ -254,24 +254,24 @@ public class EmotionUtils {
                         if (decodeStream == null) {
                             try {
                                 fileInputStream.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                             return null;
                         }
                         this.mEmotionBitmapMap.put(str, decodeStream);
                         try {
                             fileInputStream.close();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
                         }
                         return decodeStream;
                     } catch (Exception unused) {
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
                             }
                         }
                         return null;
@@ -281,8 +281,8 @@ public class EmotionUtils {
                         if (fileInputStream2 != null) {
                             try {
                                 fileInputStream2.close();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
                             }
                         }
                         throw th;
@@ -324,7 +324,7 @@ public class EmotionUtils {
     public String getOftenZoneTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb2) : this.mOftenZoneTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TextUtils.isEmpty(this.mOftenZoneTitle) ? AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb5) : this.mOftenZoneTitle : (String) invokeV.objValue;
     }
 
     public List<String> getPanelEmotionList() {
@@ -382,8 +382,8 @@ public class EmotionUtils {
             CopyOnWriteArrayList copyOnWriteArrayList2 = new CopyOnWriteArrayList();
             try {
                 optJSONArray = new JSONObject(emotionConfigContent).optJSONArray("packages");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
                 return false;
@@ -430,8 +430,8 @@ public class EmotionUtils {
                 }
                 JSONObject optJSONObject2 = optJSONObject.optJSONObject("title");
                 if (optJSONObject2 != null) {
-                    this.mOftenZoneTitle = optJSONObject2.optString("often", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb2));
-                    this.mAllZoneTitle = optJSONObject2.optString("all", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0269));
+                    this.mOftenZoneTitle = optJSONObject2.optString("often", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f0cb5));
+                    this.mAllZoneTitle = optJSONObject2.optString("all", AppRuntime.getAppContext().getResources().getString(R.string.obfuscated_res_0x7f0f026a));
                 }
                 EmotionLoader.getInstance().invalidCache();
                 this.mEmotionBitmapMap.clear();
@@ -457,8 +457,8 @@ public class EmotionUtils {
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (mediaPlayer = this.mMediaPlayer) == null || mediaPlayer.isPlaying() || (streamVolume = ((AudioManager) AppRuntime.getAppContext().getSystemService("audio")).getStreamVolume(2)) <= 0) {
             return;
         }
-        float f2 = streamVolume;
-        this.mMediaPlayer.setVolume(f2, f2);
+        float f = streamVolume;
+        this.mMediaPlayer.setVolume(f, f);
         this.mMediaPlayer.start();
     }
 
@@ -475,8 +475,8 @@ public class EmotionUtils {
         }
         try {
             this.mSync.tryAcquire(j, TimeUnit.MILLISECONDS);
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         if (DEBUG) {
             Log.d(TAG, "thread:" + Thread.currentThread() + "-------waitForEmotionLoaded end-------");

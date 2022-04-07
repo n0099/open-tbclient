@@ -14,30 +14,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String f37947d = "a";
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final int[] f37948e;
+    public static final String d = "a";
+    public static final int[] e;
     @SuppressLint({"StaticFieldLeak"})
-
-    /* renamed from: f  reason: collision with root package name */
-    public static a f37949f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static boolean f37950g;
+    public static a f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Vector<BdNetTask>> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Vector<BdNetEngine> f37951b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f37952c;
+    public Vector<BdNetEngine> b;
+    public Context c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +40,7 @@ public final class a {
                 return;
             }
         }
-        f37948e = new int[]{0, 1, 2, 3};
+        e = new int[]{0, 1, 2, 3};
     }
 
     public a() {
@@ -68,12 +56,12 @@ public final class a {
                 return;
             }
         }
-        int length = f37948e.length;
+        int length = e.length;
         this.a = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             this.a.add(new Vector<>());
         }
-        this.f37951b = new Vector<>();
+        this.b = new Vector<>();
     }
 
     public static a a() {
@@ -81,11 +69,11 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f37949f == null) {
-                    f37949f = new a();
+                if (f == null) {
+                    f = new a();
                 }
             }
-            return f37949f;
+            return f;
         }
         return (a) invokeV.objValue;
     }
@@ -93,13 +81,13 @@ public final class a {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f37950g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? g : invokeV.booleanValue;
     }
 
     public static void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            f37949f = null;
+            f = null;
         }
     }
 
@@ -111,16 +99,16 @@ public final class a {
                     return;
                 }
                 if (this.a == null) {
-                    this.a = new ArrayList(f37948e.length);
+                    this.a = new ArrayList(e.length);
                 }
                 if (this.a.isEmpty()) {
-                    for (int i2 = 0; i2 < f37948e.length; i2++) {
+                    for (int i2 = 0; i2 < e.length; i2++) {
                         this.a.add(new Vector<>());
                     }
                 }
-                int length = f37948e.length;
+                int length = e.length;
                 for (int i3 = 0; i3 < length; i3++) {
-                    if (i == f37948e[i3]) {
+                    if (i == e[i3]) {
                         this.a.get(i3).add(bdNetTask);
                         return;
                     }
@@ -152,9 +140,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                int size = this.f37951b.size();
+                int size = this.b.size();
                 for (int i = 0; i < size; i++) {
-                    BdNetEngine bdNetEngine = this.f37951b.get(i);
+                    BdNetEngine bdNetEngine = this.b.get(i);
                     if (!bdNetEngine.isWorking() && bdNetEngine.isRecycle()) {
                         bdNetEngine.allocate();
                         return bdNetEngine;
@@ -163,7 +151,7 @@ public final class a {
                 if (size < 6) {
                     BdNetEngine bdNetEngine2 = new BdNetEngine();
                     bdNetEngine2.allocate();
-                    this.f37951b.add(bdNetEngine2);
+                    this.b.add(bdNetEngine2);
                     return bdNetEngine2;
                 }
                 return null;

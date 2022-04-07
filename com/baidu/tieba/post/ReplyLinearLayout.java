@@ -8,11 +8,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.a.e;
-import c.a.d.f.p.n;
-import c.a.o0.r.t.j;
-import c.a.o0.r.t.l;
-import c.a.o0.r.t.o;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -30,56 +25,48 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a9;
+import com.repackage.mr4;
+import com.repackage.oi;
+import com.repackage.or4;
+import com.repackage.rr4;
+import com.repackage.wr4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ReplyLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<RelativeLayout> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f35632b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public j f35633c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ForumManageModel f35634d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public o f35635e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public PersonPostModel.PostInfoList f35636f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f35637g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f35638h;
+    public TbPageContext<?> b;
+    public mr4 c;
+    public ForumManageModel d;
+    public rr4 e;
+    public PersonPostModel.PostInfoList f;
+    public String g;
+    public View h;
     public final int i;
     public final int j;
-    public l.e k;
-    public e l;
+    public or4.e k;
+    public a9 l;
     public final View.OnClickListener m;
 
-    /* loaded from: classes5.dex */
-    public class a implements l.e {
+    /* loaded from: classes3.dex */
+    public class a implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class View$OnClickListenerC1889a implements View.OnClickListener {
+        /* loaded from: classes3.dex */
+        public class View$OnClickListenerC0229a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC1889a(a aVar) {
+            public View$OnClickListenerC0229a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,15 +85,15 @@ public class ReplyLinearLayout extends LinearLayout {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                    this.a.a.f35635e.c().dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    this.a.a.e.c().dismiss();
                 }
             }
         }
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class b implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -131,14 +118,14 @@ public class ReplyLinearLayout extends LinearLayout {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     ReplyLinearLayout replyLinearLayout = this.a.a;
-                    replyLinearLayout.p("c14539", replyLinearLayout.f35637g);
-                    this.a.a.f35635e.c().dismiss();
+                    replyLinearLayout.p("c14539", replyLinearLayout.g);
+                    this.a.a.e.c().dismiss();
                     ReplyLinearLayout replyLinearLayout2 = this.a.a;
-                    replyLinearLayout2.n(replyLinearLayout2.f35637g, this.a.a.f35638h);
+                    replyLinearLayout2.n(replyLinearLayout2.g, this.a.a.h);
                 }
             }
         }
@@ -161,39 +148,39 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // c.a.o0.r.t.l.e
-        public void onItemClick(l lVar, int i, View view) {
+        @Override // com.repackage.or4.e
+        public void onItemClick(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, lVar, i, view) == null) || this.a.f35632b == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) || this.a.b == null) {
                 return;
             }
-            if (this.a.f35633c != null) {
-                this.a.f35633c.dismiss();
+            if (this.a.c != null) {
+                this.a.c.dismiss();
             }
-            Map map = (Map) lVar.e().getTag();
-            String[] strArr = (String[]) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a5b));
+            Map map = (Map) or4Var.e().getTag();
+            String[] strArr = (String[]) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a4b));
             if (strArr == null) {
                 return;
             }
-            this.a.f35637g = strArr[2];
-            this.a.f35638h = (View) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a60));
+            this.a.g = strArr[2];
+            this.a.h = (View) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a50));
             ReplyLinearLayout replyLinearLayout = this.a;
-            replyLinearLayout.p("c14538", replyLinearLayout.f35637g);
-            if (this.a.f35635e == null) {
+            replyLinearLayout.p("c14538", replyLinearLayout.g);
+            if (this.a.e == null) {
                 ReplyLinearLayout replyLinearLayout2 = this.a;
-                replyLinearLayout2.f35635e = new o(replyLinearLayout2.f35632b.getPageActivity());
+                replyLinearLayout2.e = new rr4(replyLinearLayout2.b.getPageActivity());
             }
-            this.a.f35635e.w(this.a.f35632b.getString(R.string.obfuscated_res_0x7f0f048a));
-            this.a.f35635e.p(this.a.f35632b.getString(R.string.obfuscated_res_0x7f0f048b));
-            this.a.f35635e.n(true);
-            this.a.f35635e.r(new TBAlertConfig.a(this.a.f35632b.getString(R.string.obfuscated_res_0x7f0f036c), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC1889a(this)), new TBAlertConfig.a(this.a.f35632b.getString(R.string.obfuscated_res_0x7f0f048e), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
-            this.a.f35635e.c().setCanceledOnTouchOutside(false);
-            this.a.f35635e.y();
+            this.a.e.w(this.a.b.getString(R.string.obfuscated_res_0x7f0f0491));
+            this.a.e.p(this.a.b.getString(R.string.obfuscated_res_0x7f0f0492));
+            this.a.e.n(true);
+            this.a.e.r(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f036e), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0229a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0495), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.c().setCanceledOnTouchOutside(false);
+            this.a.e.y();
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends e {
+    /* loaded from: classes3.dex */
+    public class b extends a9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
@@ -216,20 +203,20 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // c.a.d.a.e
+        @Override // com.repackage.a9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || this.a.f35632b == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || obj == null || this.a.b == null) {
                 return;
             }
-            BdTopToast bdTopToast = new BdTopToast(this.a.f35632b.getPageActivity(), 3000);
+            BdTopToast bdTopToast = new BdTopToast(this.a.b.getPageActivity(), 3000);
             bdTopToast.i(true);
-            bdTopToast.h(this.a.f35632b.getString(R.string.obfuscated_res_0x7f0f049c));
-            bdTopToast.j((ViewGroup) this.a.f35632b.getPageActivity().getWindow().getDecorView().getRootView());
+            bdTopToast.h(this.a.b.getString(R.string.obfuscated_res_0x7f0f04a3));
+            bdTopToast.j((ViewGroup) this.a.b.getPageActivity().getWindow().getDecorView().getRootView());
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -254,21 +241,21 @@ public class ReplyLinearLayout extends LinearLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Map map;
             String[] strArr;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (map = (Map) view.getTag()) == null || (strArr = (String[]) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a5b))) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (map = (Map) view2.getTag()) == null || (strArr = (String[]) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a4b))) == null) {
                 return;
             }
-            if (view.getId() == R.id.obfuscated_res_0x7f091a68) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091a57) {
                 this.a.p("c14537", strArr[2]);
-                if (this.a.f35633c == null) {
-                    this.a.f35633c = new j(this.a.f35632b);
-                    this.a.f35633c.j(null, new String[]{this.a.f35632b.getString(R.string.obfuscated_res_0x7f0f048e)}, this.a.k);
+                if (this.a.c == null) {
+                    this.a.c = new mr4(this.a.b);
+                    this.a.c.j(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f0495)}, this.a.k);
                 }
-                this.a.f35633c.g().e().setTag(map);
-                this.a.f35633c.m();
+                this.a.c.g().e().setTag(map);
+                this.a.c.m();
                 return;
             }
             Context context = this.a.getContext();
@@ -310,37 +297,37 @@ public class ReplyLinearLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091a5a));
-        d2.z(R.dimen.T_X05);
-        d2.v(R.color.CAM_X0105);
+        wr4 d = wr4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091a4a));
+        d.z(R.dimen.T_X05);
+        d.v(R.color.CAM_X0105);
+        d.A(R.string.F_X01);
+        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a57), R.drawable.obfuscated_res_0x7f08092d, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
+        wr4 d2 = wr4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091a5b));
+        d2.z(R.dimen.T_X09);
+        d2.v(R.color.CAM_X0109);
         d2.A(R.string.F_X01);
-        WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091a68), R.drawable.obfuscated_res_0x7f080927, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        c.a.o0.r.v.c d3 = c.a.o0.r.v.c.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091a6c));
-        d3.z(R.dimen.T_X09);
-        d3.v(R.color.CAM_X0109);
-        d3.A(R.string.F_X01);
-        c.a.o0.r.v.c.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091a62)).f(R.color.CAM_X0203);
+        wr4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091a51)).f(R.color.CAM_X0203);
     }
 
-    public final void n(String str, View view) {
+    public final void n(String str, View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view) == null) || this.f35636f == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2) == null) || this.f == null) {
             return;
         }
-        if (this.f35634d == null) {
-            if (this.f35632b == null) {
+        if (this.d == null) {
+            if (this.b == null) {
                 return;
             }
-            ForumManageModel forumManageModel = new ForumManageModel(this.f35632b);
-            this.f35634d = forumManageModel;
+            ForumManageModel forumManageModel = new ForumManageModel(this.b);
+            this.d = forumManageModel;
             forumManageModel.setLoadDataCallBack(this.l);
         }
-        ForumManageModel forumManageModel2 = this.f35634d;
-        String valueOf = String.valueOf(this.f35636f.forum_id);
-        PersonPostModel.PostInfoList postInfoList = this.f35636f;
+        ForumManageModel forumManageModel2 = this.d;
+        String valueOf = String.valueOf(this.f.forum_id);
+        PersonPostModel.PostInfoList postInfoList = this.f;
         forumManageModel2.U(valueOf, postInfoList.forum_name, String.valueOf(postInfoList.thread_id), str, 1, 0, true, null, false);
-        removeView(view);
-        this.a.remove(view);
+        removeView(view2);
+        this.a.remove(view2);
         o();
     }
 
@@ -349,9 +336,9 @@ public class ReplyLinearLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             for (int i = 0; i < getChildCount(); i++) {
                 if (i == getChildCount() - 1) {
-                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091a62).setVisibility(4);
+                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091a51).setVisibility(4);
                 } else {
-                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091a62).setVisibility(0);
+                    getChildAt(i).findViewById(R.id.obfuscated_res_0x7f091a51).setVisibility(0);
                 }
             }
         }
@@ -361,11 +348,11 @@ public class ReplyLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             StatisticItem statisticItem = new StatisticItem(str);
-            PersonPostModel.PostInfoList postInfoList = this.f35636f;
+            PersonPostModel.PostInfoList postInfoList = this.f;
             if (postInfoList != null) {
                 statisticItem.param("tid", postInfoList.thread_id);
-                statisticItem.param("fid", this.f35636f.forum_id);
-                statisticItem.param("uid", this.f35636f.user_id);
+                statisticItem.param("fid", this.f.forum_id);
+                statisticItem.param("uid", this.f.user_id);
             }
             statisticItem.param("pid", str2);
             statisticItem.eventStat();
@@ -385,30 +372,30 @@ public class ReplyLinearLayout extends LinearLayout {
                 layoutParams2.topMargin = this.j;
                 ImageView imageView = new ImageView(getContext());
                 imageView.setLayoutParams(layoutParams2);
-                imageView.setId(R.id.obfuscated_res_0x7f091a68);
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080927, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+                imageView.setId(R.id.obfuscated_res_0x7f091a57);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f08092d, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
                 relativeLayout.addView(imageView);
                 RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-                layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091a68);
+                layoutParams3.addRule(0, R.id.obfuscated_res_0x7f091a57);
                 layoutParams3.topMargin = this.j;
-                layoutParams3.rightMargin = n.f(getContext(), R.dimen.tbds78);
+                layoutParams3.rightMargin = oi.f(getContext(), R.dimen.tbds78);
                 TextView textView = new TextView(getContext());
                 textView.setLayoutParams(layoutParams3);
-                textView.setId(R.id.obfuscated_res_0x7f091a5a);
+                textView.setId(R.id.obfuscated_res_0x7f091a4a);
                 relativeLayout.addView(textView);
                 RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams4.addRule(3, R.id.obfuscated_res_0x7f091a5a);
-                layoutParams4.topMargin = n.f(getContext(), R.dimen.M_H_X003);
+                layoutParams4.addRule(3, R.id.obfuscated_res_0x7f091a4a);
+                layoutParams4.topMargin = oi.f(getContext(), R.dimen.M_H_X003);
                 TextView textView2 = new TextView(getContext());
                 textView2.setLayoutParams(layoutParams4);
-                textView2.setId(R.id.obfuscated_res_0x7f091a6c);
+                textView2.setId(R.id.obfuscated_res_0x7f091a5b);
                 relativeLayout.addView(textView2);
-                RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, n.f(getContext(), R.dimen.tbds1));
-                layoutParams5.topMargin = n.f(getContext(), R.dimen.tbds26);
-                layoutParams5.addRule(3, R.id.obfuscated_res_0x7f091a6c);
+                RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, oi.f(getContext(), R.dimen.tbds1));
+                layoutParams5.topMargin = oi.f(getContext(), R.dimen.tbds26);
+                layoutParams5.addRule(3, R.id.obfuscated_res_0x7f091a5b);
                 TextView textView3 = new TextView(getContext());
                 textView3.setLayoutParams(layoutParams5);
-                textView3.setId(R.id.obfuscated_res_0x7f091a62);
+                textView3.setId(R.id.obfuscated_res_0x7f091a51);
                 relativeLayout.addView(textView3);
                 this.a.add(relativeLayout);
                 addView(relativeLayout);
@@ -419,12 +406,12 @@ public class ReplyLinearLayout extends LinearLayout {
                 if (i3 < arrayList.size()) {
                     String[] strArr = arrayList.get(i3);
                     m(relativeLayout2);
-                    ImageView imageView2 = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091a68);
-                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091a5a)).setText(strArr[0]);
-                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091a6c)).setText(strArr[4]);
+                    ImageView imageView2 = (ImageView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091a57);
+                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091a4a)).setText(strArr[0]);
+                    ((TextView) relativeLayout2.findViewById(R.id.obfuscated_res_0x7f091a5b)).setText(strArr[4]);
                     HashMap hashMap = new HashMap();
-                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a5b), strArr);
-                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a60), relativeLayout2);
+                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a4b), strArr);
+                    hashMap.put(Integer.valueOf((int) R.id.obfuscated_res_0x7f091a50), relativeLayout2);
                     imageView2.setTag(hashMap);
                     imageView2.setOnClickListener(this.m);
                     relativeLayout2.setVisibility(0);
@@ -440,14 +427,14 @@ public class ReplyLinearLayout extends LinearLayout {
     public void setPageContext(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
-            this.f35632b = tbPageContext;
+            this.b = tbPageContext;
         }
     }
 
     public void setPost(PersonPostModel.PostInfoList postInfoList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, postInfoList) == null) {
-            this.f35636f = postInfoList;
+            this.f = postInfoList;
         }
     }
 
@@ -470,8 +457,8 @@ public class ReplyLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.i = n.f(getContext(), R.dimen.tbds50);
-        this.j = n.f(getContext(), R.dimen.M_H_X004);
+        this.i = oi.f(getContext(), R.dimen.tbds50);
+        this.j = oi.f(getContext(), R.dimen.M_H_X004);
         this.k = new a(this);
         this.l = new b(this);
         this.m = new c(this);

@@ -23,8 +23,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
-import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -663,14 +661,14 @@ public class ConstraintSet {
         this.mConstraints = new HashMap<>();
     }
 
-    private int[] convertReferenceString(View view, String str) {
+    private int[] convertReferenceString(View view2, String str) {
         InterceptResult invokeLL;
         int i;
         Object designInformation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, view, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, view2, str)) == null) {
             String[] split = str.split(",");
-            Context context = view.getContext();
+            Context context = view2.getContext();
             int[] iArr = new int[split.length];
             int i2 = 0;
             int i3 = 0;
@@ -684,7 +682,7 @@ public class ConstraintSet {
                 if (i == 0) {
                     i = context.getResources().getIdentifier(trim, "id", context.getPackageName());
                 }
-                if (i == 0 && view.isInEditMode() && (view.getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) view.getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
+                if (i == 0 && view2.isInEditMode() && (view2.getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) view2.getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
                     i = ((Integer) designInformation).intValue();
                 }
                 iArr[i3] = i;
@@ -959,9 +957,9 @@ public class ConstraintSet {
                 case 2:
                     return "right";
                 case 3:
-                    return AnimationProperty.TOP;
+                    return "top";
                 case 4:
-                    return TipsConfigItem.TipConfigData.BOTTOM;
+                    return "bottom";
                 case 5:
                     return "baseline";
                 case 6:
@@ -1125,58 +1123,58 @@ public class ConstraintSet {
         }
     }
 
-    public void center(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
+    public void center(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f)}) == null) {
             if (i4 < 0) {
                 throw new IllegalArgumentException("margin must be > 0");
             }
             if (i7 < 0) {
                 throw new IllegalArgumentException("margin must be > 0");
             }
-            if (f2 <= 0.0f || f2 > 1.0f) {
+            if (f <= 0.0f || f > 1.0f) {
                 throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
             }
             if (i3 == 1 || i3 == 2) {
                 connect(i, 1, i2, i3, i4);
                 connect(i, 2, i5, i6, i7);
-                this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+                this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f;
             } else if (i3 != 6 && i3 != 7) {
                 connect(i, 3, i2, i3, i4);
                 connect(i, 4, i5, i6, i7);
-                this.mConstraints.get(Integer.valueOf(i)).verticalBias = f2;
+                this.mConstraints.get(Integer.valueOf(i)).verticalBias = f;
             } else {
                 connect(i, 6, i2, i3, i4);
                 connect(i, 7, i5, i6, i7);
-                this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+                this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f;
             }
         }
     }
 
-    public void centerHorizontally(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
+    public void centerHorizontally(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f)}) == null) {
             connect(i, 1, i2, i3, i4);
             connect(i, 2, i5, i6, i7);
-            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f;
         }
     }
 
-    public void centerHorizontallyRtl(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
+    public void centerHorizontallyRtl(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f)}) == null) {
             connect(i, 6, i2, i3, i4);
             connect(i, 7, i5, i6, i7);
-            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f;
         }
     }
 
-    public void centerVertically(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
+    public void centerVertically(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f)}) == null) {
             connect(i, 3, i2, i3, i4);
             connect(i, 4, i5, i6, i7);
-            this.mConstraints.get(Integer.valueOf(i)).verticalBias = f2;
+            this.mConstraints.get(Integer.valueOf(i)).verticalBias = f;
         }
     }
 
@@ -1294,13 +1292,13 @@ public class ConstraintSet {
         }
     }
 
-    public void constrainCircle(int i, int i2, int i3, float f2) {
+    public void constrainCircle(int i, int i2, int i3, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
             Constraint constraint = get(i);
             constraint.circleConstraint = i2;
             constraint.circleRadius = i3;
-            constraint.circleAngle = f2;
+            constraint.circleAngle = f;
         }
     }
 
@@ -1353,17 +1351,17 @@ public class ConstraintSet {
         }
     }
 
-    public void constrainPercentHeight(int i, float f2) {
+    public void constrainPercentHeight(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).heightPercent = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).heightPercent = f;
         }
     }
 
-    public void constrainPercentWidth(int i, float f2) {
+    public void constrainPercentWidth(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).widthPercent = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).widthPercent = f;
         }
     }
 
@@ -1469,10 +1467,10 @@ public class ConstraintSet {
                         continue;
                     }
                 }
-            } catch (IOException e2) {
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (XmlPullParserException e2) {
                 e2.printStackTrace();
-            } catch (XmlPullParserException e3) {
-                e3.printStackTrace();
             }
         }
     }
@@ -1554,10 +1552,10 @@ public class ConstraintSet {
         }
     }
 
-    public void setAlpha(int i, float f2) {
+    public void setAlpha(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).alpha = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).alpha = f;
         }
     }
 
@@ -1581,10 +1579,10 @@ public class ConstraintSet {
         }
     }
 
-    public void setElevation(int i, float f2) {
+    public void setElevation(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).elevation = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).elevation = f;
             get(i).applyElevation = true;
         }
     }
@@ -1638,19 +1636,19 @@ public class ConstraintSet {
         }
     }
 
-    public void setGuidelinePercent(int i, float f2) {
+    public void setGuidelinePercent(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).guidePercent = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).guidePercent = f;
             get(i).guideEnd = -1;
             get(i).guideBegin = -1;
         }
     }
 
-    public void setHorizontalBias(int i, float f2) {
+    public void setHorizontalBias(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).horizontalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).horizontalBias = f;
         }
     }
 
@@ -1661,10 +1659,10 @@ public class ConstraintSet {
         }
     }
 
-    public void setHorizontalWeight(int i, float f2) {
+    public void setHorizontalWeight(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).horizontalWeight = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).horizontalWeight = f;
         }
     }
 
@@ -1699,98 +1697,98 @@ public class ConstraintSet {
         }
     }
 
-    public void setRotation(int i, float f2) {
+    public void setRotation(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).rotation = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).rotation = f;
         }
     }
 
-    public void setRotationX(int i, float f2) {
+    public void setRotationX(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).rotationX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).rotationX = f;
         }
     }
 
-    public void setRotationY(int i, float f2) {
+    public void setRotationY(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).rotationY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).rotationY = f;
         }
     }
 
-    public void setScaleX(int i, float f2) {
+    public void setScaleX(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).scaleX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).scaleX = f;
         }
     }
 
-    public void setScaleY(int i, float f2) {
+    public void setScaleY(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).scaleY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).scaleY = f;
         }
     }
 
-    public void setTransformPivot(int i, float f2, float f3) {
+    public void setTransformPivot(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             Constraint constraint = get(i);
-            constraint.transformPivotY = f3;
-            constraint.transformPivotX = f2;
+            constraint.transformPivotY = f2;
+            constraint.transformPivotX = f;
         }
     }
 
-    public void setTransformPivotX(int i, float f2) {
+    public void setTransformPivotX(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).transformPivotX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transformPivotX = f;
         }
     }
 
-    public void setTransformPivotY(int i, float f2) {
+    public void setTransformPivotY(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).transformPivotY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).transformPivotY = f;
         }
     }
 
-    public void setTranslation(int i, float f2, float f3) {
+    public void setTranslation(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
             Constraint constraint = get(i);
-            constraint.translationX = f2;
-            constraint.translationY = f3;
+            constraint.translationX = f;
+            constraint.translationY = f2;
         }
     }
 
-    public void setTranslationX(int i, float f2) {
+    public void setTranslationX(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).translationX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).translationX = f;
         }
     }
 
-    public void setTranslationY(int i, float f2) {
+    public void setTranslationY(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).translationY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).translationY = f;
         }
     }
 
-    public void setTranslationZ(int i, float f2) {
+    public void setTranslationZ(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).translationZ = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).translationZ = f;
         }
     }
 
-    public void setVerticalBias(int i, float f2) {
+    public void setVerticalBias(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).verticalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).verticalBias = f;
         }
     }
 
@@ -1801,10 +1799,10 @@ public class ConstraintSet {
         }
     }
 
-    public void setVerticalWeight(int i, float f2) {
+    public void setVerticalWeight(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            get(i).verticalWeight = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            get(i).verticalWeight = f;
         }
     }
 

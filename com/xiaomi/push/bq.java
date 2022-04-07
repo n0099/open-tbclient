@@ -16,7 +16,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class bq {
             String a = bt.a(context).a("sp_client_report_status", "sp_client_report_key", "");
             if (TextUtils.isEmpty(a)) {
                 String a2 = bm.a(20);
-                bt.a(context).m231a("sp_client_report_status", "sp_client_report_key", a2);
+                bt.a(context).m227a("sp_client_report_status", "sp_client_report_key", a2);
                 return a2;
             }
             return a;
@@ -67,7 +67,7 @@ public class bq {
         File externalFilesDir;
         File file;
         RandomAccessFile randomAccessFile;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65539, null, context, str, str2) == null) || (externalFilesDir = context.getExternalFilesDir(str2)) == null) {
             return;
@@ -92,17 +92,17 @@ public class bq {
             for (File file3 : listFiles) {
                 if (file3 != null) {
                     try {
-                    } catch (Exception e3) {
+                    } catch (Exception e2) {
                         file = file2;
                         randomAccessFile = randomAccessFile2;
-                        e2 = e3;
+                        e = e2;
                     } catch (Throwable th) {
                         th = th;
                     }
                     if (!TextUtils.isEmpty(file3.getAbsolutePath())) {
                         file = new File(file3.getAbsolutePath() + ".lock");
                         try {
-                            y.m685a(file);
+                            y.m681a(file);
                             randomAccessFile = new RandomAccessFile(file, "rw");
                             try {
                                 try {
@@ -110,8 +110,8 @@ public class bq {
                                     File file4 = new File(externalFilesDir.getAbsolutePath() + File.separator + file3.getName() + currentTimeMillis);
                                     try {
                                         y.b(file3, file4);
-                                    } catch (IOException e4) {
-                                        e4.printStackTrace();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
                                         file3.delete();
                                         file4.delete();
                                     }
@@ -119,8 +119,8 @@ public class bq {
                                     if (fileLock != null && fileLock.isValid()) {
                                         try {
                                             fileLock.release();
-                                        } catch (IOException e5) {
-                                            com.xiaomi.channel.commonutils.logger.b.a(e5);
+                                        } catch (IOException e4) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e4);
                                         }
                                     }
                                     y.a(randomAccessFile);
@@ -131,8 +131,8 @@ public class bq {
                                     if (fileLock != null && fileLock.isValid()) {
                                         try {
                                             fileLock.release();
-                                        } catch (IOException e6) {
-                                            com.xiaomi.channel.commonutils.logger.b.a(e6);
+                                        } catch (IOException e5) {
+                                            com.xiaomi.channel.commonutils.logger.b.a(e5);
                                         }
                                     }
                                     y.a(randomAccessFile2);
@@ -141,21 +141,21 @@ public class bq {
                                     }
                                     throw th;
                                 }
-                            } catch (Exception e7) {
-                                e2 = e7;
-                                com.xiaomi.channel.commonutils.logger.b.a(e2);
+                            } catch (Exception e6) {
+                                e = e6;
+                                com.xiaomi.channel.commonutils.logger.b.a(e);
                                 if (fileLock != null && fileLock.isValid()) {
                                     try {
                                         fileLock.release();
-                                    } catch (IOException e8) {
-                                        com.xiaomi.channel.commonutils.logger.b.a(e8);
+                                    } catch (IOException e7) {
+                                        com.xiaomi.channel.commonutils.logger.b.a(e7);
                                     }
                                 }
                                 y.a(randomAccessFile);
                             }
-                        } catch (Exception e9) {
+                        } catch (Exception e8) {
                             randomAccessFile = randomAccessFile2;
-                            e2 = e9;
+                            e = e8;
                         } catch (Throwable th3) {
                             th = th3;
                         }
@@ -167,8 +167,8 @@ public class bq {
                 if (fileLock != null && fileLock.isValid()) {
                     try {
                         fileLock.release();
-                    } catch (IOException e10) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e10);
+                    } catch (IOException e9) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e9);
                     }
                 }
                 y.a(randomAccessFile2);
@@ -181,7 +181,7 @@ public class bq {
 
     public static void a(Context context, List<String> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m227a(context)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) || list == null || list.size() <= 0 || !m223a(context)) {
             return;
         }
         for (String str : list) {
@@ -192,14 +192,14 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m227a(Context context) {
+    public static boolean m223a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 return context.getApplicationContext().getPackageManager().getPackageInfo("com.xiaomi.xmsf", 0).versionCode >= 108;
-            } catch (PackageManager.NameNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
                 return false;
             }
         }
@@ -207,23 +207,23 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m228a(Context context, String str) {
+    public static boolean m224a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             File file = new File(str);
-            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m117a().getMaxFileLength();
+            long maxFileLength = com.xiaomi.clientreport.manager.a.a(context).m113a().getMaxFileLength();
             if (file.exists()) {
                 try {
                     if (file.length() > maxFileLength) {
                         return false;
                     }
-                } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.a(e2);
+                } catch (Exception e) {
+                    com.xiaomi.channel.commonutils.logger.b.a(e);
                     return false;
                 }
             } else {
-                y.m685a(file);
+                y.m681a(file);
             }
             return true;
         }
@@ -235,7 +235,7 @@ public class bq {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(bj.m222a(str), 16);
+            byte[] copyOf = Arrays.copyOf(bj.m218a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -244,7 +244,7 @@ public class bq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static File[] m229a(Context context, String str) {
+    public static File[] m225a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {

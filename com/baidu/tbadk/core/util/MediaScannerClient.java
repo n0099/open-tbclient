@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.MimeTypes;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MediaScannerClient implements MediaScannerConnection.MediaScannerConnectionClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
     public String mPath;
     public String[] mPaths;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface onScanCompletedListener {
         void onScanCompeted();
     }

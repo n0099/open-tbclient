@@ -12,7 +12,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,8 +23,8 @@ public class bk {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
                 return String.valueOf(bj.a(MessageDigest.getInstance("SHA1").digest(str.getBytes("UTF-8"))));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a("CloudCoder.hash4SHA1 ", e2);
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a("CloudCoder.hash4SHA1 ", e);
                 throw new IllegalStateException("failed to SHA1");
             }
         }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class StaticLayoutBuilderCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TEXT_DIRS_CLASS = "android.text.TextDirectionHeuristics";
@@ -45,7 +45,7 @@ public final class StaticLayoutBuilderCompat {
     public int start;
     public final int width;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class StaticLayoutBuilderCompatException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,8 +121,8 @@ public final class StaticLayoutBuilderCompat {
             constructor = declaredConstructor;
             declaredConstructor.setAccessible(true);
             initialized = true;
-        } catch (Exception e2) {
-            throw new StaticLayoutBuilderCompatException(e2);
+        } catch (Exception e) {
+            throw new StaticLayoutBuilderCompatException(e);
         }
     }
 
@@ -164,8 +164,8 @@ public final class StaticLayoutBuilderCompat {
             createConstructorWithReflection();
             try {
                 return (StaticLayout) ((Constructor) Preconditions.checkNotNull(constructor)).newInstance(charSequence, Integer.valueOf(this.start), Integer.valueOf(this.end), this.paint, Integer.valueOf(max), this.alignment, Preconditions.checkNotNull(textDirection), Float.valueOf(1.0f), Float.valueOf(0.0f), Boolean.valueOf(this.includePad), null, Integer.valueOf(max), Integer.valueOf(this.maxLines));
-            } catch (Exception e2) {
-                throw new StaticLayoutBuilderCompatException(e2);
+            } catch (Exception e) {
+                throw new StaticLayoutBuilderCompatException(e);
             }
         }
         return (StaticLayout) invokeV.objValue;

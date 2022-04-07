@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ChatUser> CREATOR;
@@ -267,8 +267,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             if (TextUtils.isEmpty(this.mSchema) && !TextUtils.isEmpty(this.mUserExt)) {
                 try {
                     this.mSchema = new JSONObject(this.mUserExt).optString("homepage", "");
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             return this.mSchema;
@@ -536,8 +536,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             }
             try {
                 setSchema(new JSONObject(str).optString("homepage", ""));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

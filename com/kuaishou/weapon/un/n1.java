@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class n1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,14 +99,14 @@ public class n1 {
                     } catch (Throwable th) {
                         th = th;
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
                 try {
                     bufferedWriter.write(str2);
                     bufferedWriter.close();
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     bufferedWriter2 = bufferedWriter;
                     e.printStackTrace();
                     if (bufferedWriter2 != null) {
@@ -118,14 +118,14 @@ public class n1 {
                     if (bufferedWriter2 != null) {
                         try {
                             bufferedWriter2.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     throw th;
                 }
-            } catch (IOException e5) {
-                e5.printStackTrace();
+            } catch (IOException e4) {
+                e4.printStackTrace();
             }
         }
     }

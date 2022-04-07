@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class VOAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VOAR";
@@ -434,12 +434,12 @@ public class VOAR extends c {
                 }
 
                 @Override // com.baidu.ar.arplay.core.engine.ARPDataInteraction.b
-                public void a(float f2, float f3, float f4) {
+                public void a(float f, float f2, float f3) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) || this.yr.yo == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.yr.yo == null) {
                         return;
                     }
-                    this.yr.yo.c(f2, f3, f4);
+                    this.yr.yo.c(f, f2, f3);
                 }
             });
             a(this.yl, this.ym);

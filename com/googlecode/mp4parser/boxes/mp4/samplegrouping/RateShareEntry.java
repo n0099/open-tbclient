@@ -13,7 +13,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class RateShareEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "rash";
@@ -25,7 +25,7 @@ public class RateShareEntry extends GroupEntry {
     public short operationPointCut;
     public short targetRateShare;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

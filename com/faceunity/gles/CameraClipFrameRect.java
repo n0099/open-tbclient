@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CameraClipFrameRect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n";
@@ -57,12 +57,12 @@ public class CameraClipFrameRect {
         FULL_RECTANGLE_TEX_COORDS = new float[]{0.0f, 0.1f, 1.0f, 0.1f, 0.0f, 0.9f, 1.0f, 0.9f};
     }
 
-    public CameraClipFrameRect(float f2, float f3) {
+    public CameraClipFrameRect(float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,7 +72,7 @@ public class CameraClipFrameRect {
                 return;
             }
         }
-        Log.d(TAG, "X : " + f2 + " Y : " + f3);
+        Log.d(TAG, "X : " + f + " Y : " + f2);
         int loadShader = GlUtil.loadShader(35633, "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n");
         int loadShader2 = GlUtil.loadShader(35632, "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
         int glCreateProgram = GLES20.glCreateProgram();
@@ -93,12 +93,12 @@ public class CameraClipFrameRect {
         this.muTexMatrixLoc = glGetUniformLocation2;
         GlUtil.checkLocation(glGetUniformLocation2, "uTexMatrix");
         float[] fArr = FULL_RECTANGLE_COORDS;
-        float f4 = (f2 * 2.0f) - 1.0f;
-        fArr[6] = f4;
-        fArr[2] = f4;
-        float f5 = 1.0f - (f3 * 2.0f);
-        fArr[3] = f5;
-        fArr[1] = f5;
+        float f3 = (f * 2.0f) - 1.0f;
+        fArr[6] = f3;
+        fArr[2] = f3;
+        float f4 = 1.0f - (f2 * 2.0f);
+        fArr[3] = f4;
+        fArr[1] = f4;
         this.FULL_RECTANGLE_BUF = GlUtil.createFloatBuffer(fArr);
         FloatBuffer createFloatBuffer = GlUtil.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
         this.FULL_RECTANGLE_TEX_BUF = createFloatBuffer;

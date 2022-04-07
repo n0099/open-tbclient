@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,8 +23,8 @@ public class c {
             try {
                 jSONObject.put("resultCode", str);
                 jSONObject.put("desc", str2);
-            } catch (Exception e2) {
-                Log.e("AuthnResult", "Exception", e2);
+            } catch (Exception e) {
+                Log.e("AuthnResult", "Exception", e);
             }
             return jSONObject;
         }
@@ -39,8 +39,8 @@ public class c {
             try {
                 jSONObject.put("resultCode", str);
                 jSONObject.put("desc", str2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -49,17 +49,17 @@ public class c {
 
     public static JSONObject a(String str, com.cmic.sso.sdk.a aVar, JSONObject jSONObject) {
         InterceptResult invokeLLL;
-        String b2;
+        String b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, aVar, jSONObject)) == null) {
             String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
             try {
-                b2 = aVar.b("operatortype", "0");
-            } catch (Exception e2) {
-                Log.e("AuthnResult", "JSONException", e2);
+                b = aVar.b("operatortype", "0");
+            } catch (Exception e) {
+                Log.e("AuthnResult", "JSONException", e);
             }
-            if (!"0".equals(b2) && !TextUtils.isEmpty(b2)) {
-                jSONObject.put("operatorType", strArr[Integer.parseInt(b2)]);
+            if (!"0".equals(b) && !TextUtils.isEmpty(b)) {
+                jSONObject.put("operatorType", strArr[Integer.parseInt(b)]);
                 return jSONObject;
             }
             if ("103000".equals(str)) {
@@ -81,8 +81,8 @@ public class c {
                 jSONObject.put("resultCode", "103000");
                 jSONObject.put("desc", "true");
                 jSONObject.put("securityphone", str);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -100,9 +100,9 @@ public class c {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 int parseInt = Integer.parseInt(aVar.b("authType", "0"));
-                int c2 = aVar.c("networktype");
+                int c = aVar.c("networktype");
                 if (parseInt == 3) {
-                    if (c2 == 3) {
+                    if (c == 3) {
                         str4 = "WIFI下网关鉴权";
                         str5 = "1";
                     } else {
@@ -128,8 +128,8 @@ public class c {
                 } else {
                     jSONObject2.put("desc", str2);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             com.cmic.sso.sdk.e.c.b("AuthnResult", "返回参数:" + jSONObject2.toString());
             return jSONObject2;

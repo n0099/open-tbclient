@@ -8,22 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.j;
-import g.m.a;
-import g.o.d.i.e;
-import g.o.d.j.f0;
-import g.o.d.j.y;
+import com.repackage.az9;
+import com.repackage.gz9;
+import com.repackage.l1a;
+import com.repackage.l2a;
+import com.repackage.pz9;
+import com.repackage.s2a;
+import com.repackage.wy9;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class QueuedValueProducer<T> extends AtomicLong implements f {
+public final class QueuedValueProducer<T> extends AtomicLong implements wy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object NULL_SENTINEL;
     public static final long serialVersionUID = 7277121710709137047L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j<? super T> child;
+    public final az9<? super T> child;
     public final Queue<Object> queue;
     public final AtomicInteger wip;
 
@@ -44,19 +45,19 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public QueuedValueProducer(j<? super T> jVar) {
-        this(jVar, f0.b() ? new y() : new e());
+    public QueuedValueProducer(az9<? super T> az9Var) {
+        this(az9Var, s2a.b() ? new l2a() : new l1a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
+            Object[] objArr = {az9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((j) objArr2[0], (Queue) objArr2[1]);
+                this((az9) objArr2[0], (Queue) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -68,20 +69,20 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
         Object poll;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && this.wip.getAndIncrement() == 0) {
-            j<? super T> jVar = this.child;
+            az9<? super T> az9Var = this.child;
             Queue<Object> queue = this.queue;
-            while (!jVar.isUnsubscribed()) {
+            while (!az9Var.isUnsubscribed()) {
                 this.wip.lazySet(1);
                 long j = get();
                 long j2 = 0;
                 while (j != 0 && (poll = queue.poll()) != null) {
                     try {
                         if (poll == NULL_SENTINEL) {
-                            jVar.onNext(null);
+                            az9Var.onNext(null);
                         } else {
-                            jVar.onNext(poll);
+                            az9Var.onNext(poll);
                         }
-                        if (jVar.isUnsubscribed()) {
+                        if (az9Var.isUnsubscribed()) {
                             return;
                         }
                         j--;
@@ -90,7 +91,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
                         if (poll == NULL_SENTINEL) {
                             poll = null;
                         }
-                        a.g(th, jVar, poll);
+                        gz9.g(th, az9Var, poll);
                         return;
                     }
                 }
@@ -121,7 +122,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
         return invokeL.booleanValue;
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -130,18 +131,18 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
                 throw new IllegalArgumentException("n >= 0 required");
             }
             if (i > 0) {
-                g.o.a.a.b(this, j);
+                pz9.b(this, j);
                 drain();
             }
         }
     }
 
-    public QueuedValueProducer(j<? super T> jVar, Queue<Object> queue) {
+    public QueuedValueProducer(az9<? super T> az9Var, Queue<Object> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, queue};
+            Object[] objArr = {az9Var, queue};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -151,7 +152,7 @@ public final class QueuedValueProducer<T> extends AtomicLong implements f {
                 return;
             }
         }
-        this.child = jVar;
+        this.child = az9Var;
         this.queue = queue;
         this.wip = new AtomicInteger();
     }

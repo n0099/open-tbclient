@@ -2,7 +2,7 @@ package com.kwad.sdk.core.b.kwai;
 
 import com.kwad.sdk.core.webview.jshandler.p;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class cu implements com.kwad.sdk.core.d<p.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -11,9 +11,9 @@ public class cu implements com.kwad.sdk.core.d<p.a> {
             return;
         }
         aVar.a = jSONObject.optInt("status");
-        aVar.f40074b = jSONObject.optString("errorMsg");
+        aVar.b = jSONObject.optString("errorMsg");
         if (jSONObject.opt("errorMsg") == JSONObject.NULL) {
-            aVar.f40074b = "";
+            aVar.b = "";
         }
     }
 
@@ -24,7 +24,7 @@ public class cu implements com.kwad.sdk.core.d<p.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "status", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.f40074b);
+        com.kwad.sdk.utils.t.a(jSONObject, "errorMsg", aVar.b);
         return jSONObject;
     }
 }

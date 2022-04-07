@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int u;
@@ -68,16 +68,16 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void A(int i, float f2, float f3) {
+    public void A(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void B(int i, float f2) {
+    public void B(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             this.t.cancelAnimation();
             this.t.setFrame(0);
             this.t.setMinAndMaxProgress(0.0f, 1.0f);
@@ -87,34 +87,34 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void C(int i, float f2) {
+    public void C(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void D(int i, float f2, float f3) {
+    public void D(int i, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.t.setAlpha((float) ((1.0f - f3) * 0.3d));
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.t.setAlpha((float) ((1.0f - f2) * 0.3d));
         }
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void E(int i, float f2) {
+    public void E(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            this.t.setAlpha(f2);
-            this.t.setFrame((int) (f2 * 10.0f));
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.t.setAlpha(f);
+            this.t.setFrame((int) (f * 10.0f));
         }
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void F(int i, float f2) {
+    public void F(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            if (f2 < getLoadingPointRatio()) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            if (f < getLoadingPointRatio()) {
                 x();
             } else {
                 H();
@@ -147,8 +147,8 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     public void t(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, frameLayout) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d085c, (ViewGroup) frameLayout, true);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091313);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0853, (ViewGroup) frameLayout, true);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091307);
             this.t = continuousAnimationView;
             continuousAnimationView.setMinAndMaxProgress(0.0f, 1.0f);
             this.t.setSpeed(1.3f);
@@ -157,9 +157,9 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void y(int i, float f2) {
+    public void y(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             this.t.setMinAndMaxFrame(19, 42);
             this.t.loop(true);
             this.t.playAnimation();
@@ -167,9 +167,9 @@ public class LottieSlideLoadingLayout extends BaseSlideLoadingLayout {
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
-    public void z(int i, float f2) {
+    public void z(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
         }
     }
 

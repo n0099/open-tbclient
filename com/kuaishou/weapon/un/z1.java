@@ -14,37 +14,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.UUID;
 import java.util.zip.CRC32;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class z1 {
     public static /* synthetic */ Interceptable $ic;
     public static z1 k;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f39043b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public d f39044c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile String f39045d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public volatile int f39046e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile String f39047f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f39048g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f39049h;
+    public Context b;
+    public d c;
+    public volatile String d;
+    public volatile int e;
+    public volatile String f;
+    public int g;
+    public int h;
     public Handler i;
     public HandlerThread j;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,14 +58,14 @@ public class z1 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long h2 = this.a.f39044c.h();
+                long h = this.a.c.h();
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - h2 >= this.a.f39044c.b(d.e0, 10) * 1000) {
+                if (currentTimeMillis - h >= this.a.c.b(d.e0, 10) * 1000) {
                     z1.c(this.a);
                     this.a.e();
-                    this.a.f39044c.e(currentTimeMillis);
-                    this.a.f39044c.b(d.f38802d, this.a.f39045d);
-                    this.a.f39044c.c(d.f38803e, this.a.f39046e);
+                    this.a.c.e(currentTimeMillis);
+                    this.a.c.b(d.d, this.a.d);
+                    this.a.c.c(d.e, this.a.e);
                 }
             }
         }
@@ -101,12 +87,12 @@ public class z1 {
             }
         }
         this.a = false;
-        this.f39047f = "";
-        this.f39048g = -1;
-        this.f39049h = -1;
+        this.f = "";
+        this.g = -1;
+        this.h = -1;
         this.j = new HandlerThread("tokenFKHandlerThread");
-        this.f39043b = context;
-        this.f39044c = new d(context);
+        this.b = context;
+        this.c = new d(context);
     }
 
     public static synchronized z1 a(Context context) {
@@ -130,48 +116,48 @@ public class z1 {
     }
 
     public static /* synthetic */ int c(z1 z1Var) {
-        int i = z1Var.f39046e;
-        z1Var.f39046e = i + 1;
+        int i = z1Var.e;
+        z1Var.e = i + 1;
         return i;
     }
 
     private void c() {
-        String c2;
+        String c;
         Context context;
-        byte b2;
+        byte b;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             try {
-                String e2 = this.f39044c.e(d.f38804f);
-                if (TextUtils.isEmpty(e2)) {
-                    e2 = UUID.randomUUID().toString();
+                String e = this.c.e(d.f);
+                if (TextUtils.isEmpty(e)) {
+                    e = UUID.randomUUID().toString();
                 }
-                this.f39044c.b(d.f38804f, e2);
-                boolean b3 = this.f39044c.b(d.Z0);
-                boolean b4 = this.f39044c.b(d.a1);
-                if (b3 || b4) {
-                    c2 = x0.c(this.f39043b);
-                    if (!TextUtils.isEmpty(c2) && !c2.contains("RISK_")) {
-                        b2 = 1;
-                        this.f39044c.b(d.f38805g, c2);
-                        this.f39044c.c(d.f38806h, b2);
-                        byte[] d2 = s1.d((e2 + " " + l1.l() + " " + c2).getBytes());
+                this.c.b(d.f, e);
+                boolean b2 = this.c.b(d.Z0);
+                boolean b3 = this.c.b(d.a1);
+                if (b2 || b3) {
+                    c = x0.c(this.b);
+                    if (!TextUtils.isEmpty(c) && !c.contains("RISK_")) {
+                        b = 1;
+                        this.c.b(d.g, c);
+                        this.c.c(d.h, b);
+                        byte[] d = s1.d((e + " " + l1.l() + " " + c).getBytes());
                         byte[] array = ByteBuffer.allocate(2).putShort((short) 0).array();
                         byte[] array2 = ByteBuffer.allocate(4).putInt(0).array();
                         String valueOf = String.valueOf(System.currentTimeMillis());
                         byte[] array3 = ByteBuffer.allocate(4).putInt(Integer.parseInt(valueOf.substring(0, valueOf.length() - 3))).array();
                         byte[] array4 = ByteBuffer.allocate(4).putInt((int) (Math.random() * 1.0E9d)).array();
                         byte[] array5 = ByteBuffer.allocate(4).putInt(0).array();
-                        int length = d2.length + 2 + array.length + array2.length + array3.length + array4.length + array5.length + ByteBuffer.allocate(2).putShort((short) 0).array().length;
+                        int length = d.length + 2 + array.length + array2.length + array3.length + array4.length + array5.length + ByteBuffer.allocate(2).putShort((short) 0).array().length;
                         byte[] bArr = new byte[length];
-                        System.arraycopy(d2, 0, bArr, 0, d2.length);
-                        bArr[d2.length] = b2;
-                        bArr[d2.length + 1] = 1;
-                        System.arraycopy(array, 0, bArr, d2.length + 2, array.length);
-                        System.arraycopy(array2, 0, bArr, d2.length + 2 + array.length, array2.length);
-                        System.arraycopy(array3, 0, bArr, d2.length + 2 + array.length + array2.length, array3.length);
-                        System.arraycopy(array4, 0, bArr, d2.length + 2 + array.length + array2.length + array3.length, array4.length);
-                        System.arraycopy(array5, 0, bArr, d2.length + 2 + array.length + array2.length + array3.length + array4.length, array5.length);
+                        System.arraycopy(d, 0, bArr, 0, d.length);
+                        bArr[d.length] = b;
+                        bArr[d.length + 1] = 1;
+                        System.arraycopy(array, 0, bArr, d.length + 2, array.length);
+                        System.arraycopy(array2, 0, bArr, d.length + 2 + array.length, array2.length);
+                        System.arraycopy(array3, 0, bArr, d.length + 2 + array.length + array2.length, array3.length);
+                        System.arraycopy(array4, 0, bArr, d.length + 2 + array.length + array2.length + array3.length, array4.length);
+                        System.arraycopy(array5, 0, bArr, d.length + 2 + array.length + array2.length + array3.length + array4.length, array5.length);
                         CRC32 crc32 = new CRC32();
                         crc32.update(bArr);
                         byte[] array6 = ByteBuffer.allocate(8).putLong(crc32.getValue()).array();
@@ -179,39 +165,39 @@ public class z1 {
                         System.arraycopy(bArr, 0, bArr2, 0, length);
                         System.arraycopy(array6, 0, bArr2, length, array6.length);
                         String str = new String(k1.a(r1.u.getBytes(), 2));
-                        byte[] c3 = i1.c(str, str, bArr2);
-                        this.f39045d = k1.c(c3, 2);
+                        byte[] c2 = i1.c(str, str, bArr2);
+                        this.d = k1.c(c2, 2);
                         byte[] array7 = ByteBuffer.allocate(4).putInt(1).array();
-                        byte[] bArr3 = new byte[c3.length + array7.length];
-                        System.arraycopy(c3, 0, bArr3, 0, c3.length);
-                        System.arraycopy(array7, 0, bArr3, c3.length, array7.length);
-                        this.f39047f = k1.c(bArr3, 2);
+                        byte[] bArr3 = new byte[c2.length + array7.length];
+                        System.arraycopy(c2, 0, bArr3, 0, c2.length);
+                        System.arraycopy(array7, 0, bArr3, c2.length, array7.length);
+                        this.f = k1.c(bArr3, 2);
                     }
-                    context = this.f39043b;
+                    context = this.b;
                 } else {
-                    context = this.f39043b;
+                    context = this.b;
                 }
-                c2 = l1.g(context).replace("ANDROID_", "");
-                b2 = 3;
-                this.f39044c.b(d.f38805g, c2);
-                this.f39044c.c(d.f38806h, b2);
-                byte[] d22 = s1.d((e2 + " " + l1.l() + " " + c2).getBytes());
+                c = l1.g(context).replace("ANDROID_", "");
+                b = 3;
+                this.c.b(d.g, c);
+                this.c.c(d.h, b);
+                byte[] d2 = s1.d((e + " " + l1.l() + " " + c).getBytes());
                 byte[] array8 = ByteBuffer.allocate(2).putShort((short) 0).array();
                 byte[] array22 = ByteBuffer.allocate(4).putInt(0).array();
                 String valueOf2 = String.valueOf(System.currentTimeMillis());
                 byte[] array32 = ByteBuffer.allocate(4).putInt(Integer.parseInt(valueOf2.substring(0, valueOf2.length() - 3))).array();
                 byte[] array42 = ByteBuffer.allocate(4).putInt((int) (Math.random() * 1.0E9d)).array();
                 byte[] array52 = ByteBuffer.allocate(4).putInt(0).array();
-                int length2 = d22.length + 2 + array8.length + array22.length + array32.length + array42.length + array52.length + ByteBuffer.allocate(2).putShort((short) 0).array().length;
+                int length2 = d2.length + 2 + array8.length + array22.length + array32.length + array42.length + array52.length + ByteBuffer.allocate(2).putShort((short) 0).array().length;
                 byte[] bArr4 = new byte[length2];
-                System.arraycopy(d22, 0, bArr4, 0, d22.length);
-                bArr4[d22.length] = b2;
-                bArr4[d22.length + 1] = 1;
-                System.arraycopy(array8, 0, bArr4, d22.length + 2, array8.length);
-                System.arraycopy(array22, 0, bArr4, d22.length + 2 + array8.length, array22.length);
-                System.arraycopy(array32, 0, bArr4, d22.length + 2 + array8.length + array22.length, array32.length);
-                System.arraycopy(array42, 0, bArr4, d22.length + 2 + array8.length + array22.length + array32.length, array42.length);
-                System.arraycopy(array52, 0, bArr4, d22.length + 2 + array8.length + array22.length + array32.length + array42.length, array52.length);
+                System.arraycopy(d2, 0, bArr4, 0, d2.length);
+                bArr4[d2.length] = b;
+                bArr4[d2.length + 1] = 1;
+                System.arraycopy(array8, 0, bArr4, d2.length + 2, array8.length);
+                System.arraycopy(array22, 0, bArr4, d2.length + 2 + array8.length, array22.length);
+                System.arraycopy(array32, 0, bArr4, d2.length + 2 + array8.length + array22.length, array32.length);
+                System.arraycopy(array42, 0, bArr4, d2.length + 2 + array8.length + array22.length + array32.length, array42.length);
+                System.arraycopy(array52, 0, bArr4, d2.length + 2 + array8.length + array22.length + array32.length + array42.length, array52.length);
                 CRC32 crc322 = new CRC32();
                 crc322.update(bArr4);
                 byte[] array62 = ByteBuffer.allocate(8).putLong(crc322.getValue()).array();
@@ -219,24 +205,24 @@ public class z1 {
                 System.arraycopy(bArr4, 0, bArr22, 0, length2);
                 System.arraycopy(array62, 0, bArr22, length2, array62.length);
                 String str2 = new String(k1.a(r1.u.getBytes(), 2));
-                byte[] c32 = i1.c(str2, str2, bArr22);
-                this.f39045d = k1.c(c32, 2);
+                byte[] c22 = i1.c(str2, str2, bArr22);
+                this.d = k1.c(c22, 2);
                 byte[] array72 = ByteBuffer.allocate(4).putInt(1).array();
-                byte[] bArr32 = new byte[c32.length + array72.length];
-                System.arraycopy(c32, 0, bArr32, 0, c32.length);
-                System.arraycopy(array72, 0, bArr32, c32.length, array72.length);
-                this.f39047f = k1.c(bArr32, 2);
+                byte[] bArr32 = new byte[c22.length + array72.length];
+                System.arraycopy(c22, 0, bArr32, 0, c22.length);
+                System.arraycopy(array72, 0, bArr32, c22.length, array72.length);
+                this.f = k1.c(bArr32, 2);
             } catch (Throwable th) {
-                this.f39045d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                this.d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
                 try {
                     byte[] array9 = ByteBuffer.allocate(4).putInt(1).array();
-                    byte[] a2 = k1.a(this.f39045d, 2);
+                    byte[] a2 = k1.a(this.d, 2);
                     byte[] bArr5 = new byte[a2.length + array9.length];
                     System.arraycopy(a2, 0, bArr5, 0, a2.length);
                     System.arraycopy(array9, 0, bArr5, a2.length, array9.length);
-                    this.f39047f = k1.c(bArr5, 2);
+                    this.f = k1.c(bArr5, 2);
                 } catch (Exception unused) {
-                    this.f39047f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                    this.f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
                 }
                 l1.a(th);
             }
@@ -254,15 +240,15 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             try {
-                byte[] a2 = k1.a(this.f39045d, 2);
+                byte[] a2 = k1.a(this.d, 2);
                 byte[] bArr = new byte[a2.length + 4];
                 System.arraycopy(a2, 0, bArr, 0, a2.length);
-                byte[] array = ByteBuffer.allocate(4).putInt(this.f39046e).array();
+                byte[] array = ByteBuffer.allocate(4).putInt(this.e).array();
                 System.arraycopy(array, 0, bArr, a2.length, array.length);
-                this.f39047f = k1.c(bArr, 2);
+                this.f = k1.c(bArr, 2);
             } catch (Throwable unused) {
-                this.f39045d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
-                this.f39047f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                this.d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                this.f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
             }
         }
     }
@@ -271,20 +257,20 @@ public class z1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f39049h == -1) {
-                this.f39049h = this.f39044c.a(d.f0, 0);
+            if (this.h == -1) {
+                this.h = this.c.a(d.f0, 0);
             }
-            if (this.f39049h == 0) {
+            if (this.h == 0) {
                 return null;
             }
-            if (this.f39048g == -1) {
-                this.f39048g = this.f39044c.a(d.d0, 0);
+            if (this.g == -1) {
+                this.g = this.c.a(d.d0, 0);
             }
-            if (this.f39048g == 0) {
+            if (this.g == 0) {
                 return StringUtil.NULL_STRING;
             }
             try {
-                if (TextUtils.isEmpty(this.f39045d) || this.i == null) {
+                if (TextUtils.isEmpty(this.d) || this.i == null) {
                     b();
                 } else {
                     this.i.removeCallbacksAndMessages(null);
@@ -292,7 +278,7 @@ public class z1 {
                 }
             } catch (Exception unused) {
             }
-            return this.f39047f;
+            return this.f;
         }
         return (String) invokeV.objValue;
     }
@@ -300,17 +286,17 @@ public class z1 {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str) || str.equals(this.f39045d)) {
+            if (TextUtils.isEmpty(str) || str.equals(this.d)) {
                 if (!TextUtils.isEmpty(str)) {
                     return;
                 }
-                str = this.f39044c.a(d.f38802d, "");
-                if (TextUtils.isEmpty(str) || str.equals(this.f39045d)) {
+                str = this.c.a(d.d, "");
+                if (TextUtils.isEmpty(str) || str.equals(this.d)) {
                     return;
                 }
             }
-            this.f39046e = 0;
-            this.f39045d = str;
+            this.e = 0;
+            this.d = str;
         }
     }
 
@@ -320,42 +306,42 @@ public class z1 {
             synchronized (this) {
                 try {
                 } catch (Exception unused) {
-                    this.f39045d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
-                    this.f39047f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
+                    this.d = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8";
+                    this.f = "k7uScHh359Yzm5EBZWL1FnUqbNQIQgoi62qnRh115RoBSMNbVVwfqDuJ62OPICG8AAAAAA==";
                 }
                 if (this.a) {
                     return;
                 }
                 this.a = true;
-                if (this.f39048g == -1) {
-                    this.f39048g = this.f39044c.a(d.d0, 0);
+                if (this.g == -1) {
+                    this.g = this.c.a(d.d0, 0);
                 }
-                if (this.f39049h == -1) {
-                    this.f39049h = this.f39044c.a(d.f0, 0);
+                if (this.h == -1) {
+                    this.h = this.c.a(d.f0, 0);
                 }
-                if (this.f39048g == 0) {
+                if (this.g == 0) {
                     return;
                 }
-                this.f39045d = this.f39044c.a(d.f38802d, "");
-                this.f39046e = this.f39044c.b(d.f38803e, 0);
+                this.d = this.c.a(d.d, "");
+                this.e = this.c.b(d.e, 0);
                 if (this.j != null) {
                     this.j.start();
                     this.i = new Handler(this.j.getLooper());
                 }
-                if (TextUtils.isEmpty(this.f39045d)) {
-                    this.f39046e = 0;
+                if (TextUtils.isEmpty(this.d)) {
+                    this.e = 0;
                     c();
-                    this.f39044c.b(d.f38802d, this.f39045d);
-                    this.f39044c.c(d.f38803e, this.f39046e);
+                    this.c.b(d.d, this.d);
+                    this.c.c(d.e, this.e);
                 } else {
-                    this.f39046e++;
-                    this.f39044c.c(d.f38803e, this.f39046e);
-                    byte[] a2 = k1.a(this.f39045d, 2);
+                    this.e++;
+                    this.c.c(d.e, this.e);
+                    byte[] a2 = k1.a(this.d, 2);
                     byte[] bArr = new byte[a2.length + 4];
                     System.arraycopy(a2, 0, bArr, 0, a2.length);
-                    byte[] array = ByteBuffer.allocate(4).putInt(this.f39046e).array();
+                    byte[] array = ByteBuffer.allocate(4).putInt(this.e).array();
                     System.arraycopy(array, 0, bArr, a2.length, array.length);
-                    this.f39047f = k1.c(bArr, 2);
+                    this.f = k1.c(bArr, 2);
                 }
             }
         }

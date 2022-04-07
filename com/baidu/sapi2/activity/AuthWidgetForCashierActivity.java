@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AuthWidgetForCashierActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String u = "passport://passport.baidu.com/cashiersdk_auth_pass";
@@ -75,7 +75,7 @@ public class AuthWidgetForCashierActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+            setContentView(R.layout.obfuscated_res_0x7f0d04df);
             this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
             init();
             setupViews();

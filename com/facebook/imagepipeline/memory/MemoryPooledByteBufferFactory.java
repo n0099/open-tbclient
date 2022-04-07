@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,8 +113,8 @@ public class MemoryPooledByteBufferFactory implements PooledByteBufferFactory {
                 try {
                     memoryPooledByteBufferOutputStream.write(bArr, 0, bArr.length);
                     return memoryPooledByteBufferOutputStream.toByteBuffer();
-                } catch (IOException e2) {
-                    throw Throwables.propagate(e2);
+                } catch (IOException e) {
+                    throw Throwables.propagate(e);
                 }
             } finally {
                 memoryPooledByteBufferOutputStream.close();

@@ -24,7 +24,7 @@ import java.util.List;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class SegmentIndexBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sidx";
@@ -48,7 +48,7 @@ public class SegmentIndexBox extends AbstractFullBox {
     public int reserved;
     public long timeScale;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -135,10 +135,10 @@ public class SegmentIndexBox extends AbstractFullBox {
             return invokeV.intValue;
         }
 
-        public void setReferenceType(byte b2) {
+        public void setReferenceType(byte b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeB(InputDeviceCompat.SOURCE_TOUCHPAD, this, b2) == null) {
-                this.referenceType = b2;
+            if (interceptable == null || interceptable.invokeB(InputDeviceCompat.SOURCE_TOUCHPAD, this, b) == null) {
+                this.referenceType = b;
             }
         }
 
@@ -156,17 +156,17 @@ public class SegmentIndexBox extends AbstractFullBox {
             }
         }
 
-        public void setSapType(byte b2) {
+        public void setSapType(byte b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeB(1048587, this, b2) == null) {
-                this.sapType = b2;
+            if (interceptable == null || interceptable.invokeB(1048587, this, b) == null) {
+                this.sapType = b;
             }
         }
 
-        public void setStartsWithSap(byte b2) {
+        public void setStartsWithSap(byte b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeB(1048588, this, b2) == null) {
-                this.startsWithSap = b2;
+            if (interceptable == null || interceptable.invokeB(1048588, this, b) == null) {
+                this.startsWithSap = b;
             }
         }
 
@@ -186,12 +186,12 @@ public class SegmentIndexBox extends AbstractFullBox {
             return (String) invokeV.objValue;
         }
 
-        public Entry(byte b2, int i, long j, byte b3, byte b4, int i2) {
+        public Entry(byte b, int i, long j, byte b2, byte b3, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Byte.valueOf(b2), Integer.valueOf(i), Long.valueOf(j), Byte.valueOf(b3), Byte.valueOf(b4), Integer.valueOf(i2)};
+                Object[] objArr = {Byte.valueOf(b), Integer.valueOf(i), Long.valueOf(j), Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -201,11 +201,11 @@ public class SegmentIndexBox extends AbstractFullBox {
                     return;
                 }
             }
-            this.referenceType = b2;
+            this.referenceType = b;
             this.referencedSize = i;
             this.subsegmentDuration = j;
-            this.startsWithSap = b3;
-            this.sapType = b4;
+            this.startsWithSap = b2;
+            this.sapType = b3;
             this.sapDeltaTime = i2;
         }
     }

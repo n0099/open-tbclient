@@ -9,22 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SharedPreferencesUtil implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static SharedPreferencesUtil a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static SharedPreferences f28040b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f28041c = "sapi_system";
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f28042d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static Context f28043e;
+    public static SharedPreferences b = null;
+    public static final String c = "sapi_system";
+    public static String d;
+    public static Context e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public SharedPreferencesUtil(Context context, String str) {
@@ -42,22 +34,22 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
                 return;
             }
         }
-        f28040b = context.getSharedPreferences(str, 0);
-        f28043e = context.getApplicationContext();
+        b = context.getSharedPreferences(str, 0);
+        e = context.getApplicationContext();
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(f28042d)) {
+            if (TextUtils.isEmpty(d)) {
                 try {
-                    f28042d = SecurityUtil.md5((f28043e.getPackageName() + PassUtil.getPackageSign(f28043e, f28043e.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
+                    d = SecurityUtil.md5((e.getPackageName() + PassUtil.getPackageSign(e, e.getPackageName())).getBytes("UTF-8"), false).substring(0, 16);
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
             }
-            return f28042d;
+            return d;
         }
         return (String) invokeV.objValue;
     }
@@ -95,15 +87,15 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
                     if (c2 != 1) {
                         if (c2 != 2) {
                             if (c2 != 3) {
-                                return (T) f28040b.getString(str, (String) t);
+                                return (T) b.getString(str, (String) t);
                             }
-                            return (T) Integer.valueOf(f28040b.getInt(str, ((Integer) t).intValue()));
+                            return (T) Integer.valueOf(b.getInt(str, ((Integer) t).intValue()));
                         }
-                        return (T) Float.valueOf(f28040b.getFloat(str, ((Float) t).floatValue()));
+                        return (T) Float.valueOf(b.getFloat(str, ((Float) t).floatValue()));
                     }
-                    return (T) Long.valueOf(f28040b.getLong(str, ((Long) t).longValue()));
+                    return (T) Long.valueOf(b.getLong(str, ((Long) t).longValue()));
                 }
-                return (T) Boolean.valueOf(f28040b.getBoolean(str, ((Boolean) t).booleanValue()));
+                return (T) Boolean.valueOf(b.getBoolean(str, ((Boolean) t).booleanValue()));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -134,7 +126,7 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             synchronized (SharedPreferencesUtil.class) {
                 if (a == null) {
-                    a = new SharedPreferencesUtil(context, f28041c);
+                    a = new SharedPreferencesUtil(context, c);
                 }
             }
         }
@@ -145,7 +137,7 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, obj)) == null) {
-            SharedPreferences.Editor edit = f28040b.edit();
+            SharedPreferences.Editor edit = b.edit();
             String simpleName = obj.getClass().getSimpleName();
             boolean z = false;
             try {
@@ -208,7 +200,7 @@ public class SharedPreferencesUtil implements com.baidu.pass.a {
     public static void remove(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            f28040b.edit().remove(str).apply();
+            b.edit().remove(str).apply();
         }
     }
 }

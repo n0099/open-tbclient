@@ -1,6 +1,5 @@
 package com.fun.ad.sdk.channel;
 
-import c.d.a0.c.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,8 +8,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdConfig;
 import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.repackage.qi9;
 import com.win.opensdk.PBInitialize;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class JyModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class JyModule implements Module {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             PBInitialize.init(funAdConfig.appContext, str);
-            return new b();
+            return new qi9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

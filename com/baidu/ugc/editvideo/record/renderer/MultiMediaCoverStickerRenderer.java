@@ -5,10 +5,6 @@ import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.r.c;
-import c.a.v0.r.d;
-import c.a.v0.r.h;
-import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +19,13 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.sticker.OnChangeStickerListener;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.baidu.ugc.editvideo.sticker.a;
+import com.repackage.pf0;
+import com.repackage.tb9;
+import com.repackage.ub9;
+import com.repackage.yb9;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +54,9 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
             try {
                 int type = GLUtils.getType(decodeBitmap);
                 int internalFormat = GLUtils.getInternalFormat(decodeBitmap);
-                c.b("type : " + type + " internalFormat : " + internalFormat);
+                tb9.b("type : " + type + " internalFormat : " + internalFormat);
             } catch (Exception unused) {
-                decodeBitmap = d.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
+                decodeBitmap = ub9.c(decodeBitmap, Bitmap.CompressFormat.PNG, 100);
             }
             multiMediaData.textureId = MultiDataSourceUtil.initImageByBitmap(multiMediaData, decodeBitmap);
         }
@@ -97,7 +97,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
                 i2++;
             }
         }
-        h.g(this.mCoverStickerDataList, i);
+        yb9.g(this.mCoverStickerDataList, i);
         deleteStickerData(multiMediaData, "cover_sticker");
     }
 
@@ -106,7 +106,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.deleteTexture();
-            if (h.e(this.mCoverStickerDataList)) {
+            if (yb9.e(this.mCoverStickerDataList)) {
                 return;
             }
             for (MultiMediaData multiMediaData : this.mCoverStickerDataList) {
@@ -122,17 +122,17 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(e eVar, int i, float[] fArr) {
+    public void onDrawFrame(pf0 pf0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, eVar, i, fArr) == null) || eVar == null || this.mCoverStickerDataList == null || !TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, pf0Var, i, fArr) == null) || pf0Var == null || this.mCoverStickerDataList == null || !TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
             return;
         }
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
-        float f2 = this.mScaleX;
+        float f = this.mScaleX;
         int i2 = gLViewPortLocation.width;
-        float f3 = this.mScaleY;
+        float f2 = this.mScaleY;
         int i3 = gLViewPortLocation.height;
-        GLES20.glViewport((int) (gLViewPortLocation.x + (((1.0f - f2) * i2) / 2.0f) + ((i2 * this.mTx) / 2.0f)), (int) (gLViewPortLocation.y + (((1.0f - f3) * i3) / 2.0f) + ((i3 * this.mTy) / 2.0f)), (int) (i2 * f2), (int) (i3 * f3));
+        GLES20.glViewport((int) (gLViewPortLocation.x + (((1.0f - f) * i2) / 2.0f) + ((i2 * this.mTx) / 2.0f)), (int) (gLViewPortLocation.y + (((1.0f - f2) * i3) / 2.0f) + ((i3 * this.mTy) / 2.0f)), (int) (i2 * f), (int) (i3 * f2));
         GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
         GLES20.glBlendFunc(1, 771);
         for (int i4 = 0; i4 < this.mCoverStickerDataList.size(); i4++) {
@@ -173,25 +173,25 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MultiMediaEditBaseRenderer, com.baidu.ugc.editvideo.record.preview.OnMediaPreviewTouchEventListener
-    public boolean onTouchDown(float f2, float f3, float f4, float f5) {
+    public boolean onTouchDown(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            if (h.e(this.mCoverStickerDataList)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (yb9.e(this.mCoverStickerDataList)) {
                 return false;
             }
             this.mVisibleStickerItems.clear();
             if (TextUtils.equals(this.mEditTrackType, "cover_sticker")) {
                 this.mVisibleStickerItems.addAll(this.mStickerItems);
             }
-            return super.onTouchDown(f2, f3, f4, f5);
+            return super.onTouchDown(f, f2, f3, f4);
         }
         return invokeCommon.booleanValue;
     }
 
     public void reInitMultiMediaList() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || h.e(this.mCoverStickerDataList)) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || yb9.e(this.mCoverStickerDataList)) {
             return;
         }
         for (int i = 0; i < this.mCoverStickerDataList.size(); i++) {
@@ -218,7 +218,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
         if (i == -1 || i >= this.mStickerItems.size()) {
             return;
         }
-        h.g(this.mStickerItems, i);
+        yb9.g(this.mStickerItems, i);
         MultiDataSourceUtil.glDeleteTextures(multiMediaData);
         initStickerItem(i, multiMediaData);
     }
@@ -250,7 +250,7 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
     public void setCoverStickerDataList(List<MultiMediaData> list) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || h.e(list)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, list) == null) || yb9.e(list)) {
             return;
         }
         this.mCoverStickerDataList = list;
@@ -285,10 +285,10 @@ public class MultiMediaCoverStickerRenderer extends MultiMediaEditBaseRenderer {
             super.setCurrentItem(aVar);
             List<a> list = this.mStickerItems;
             int indexOf = list.indexOf(aVar);
-            h.h(list, indexOf, list.size() - 1);
-            if (!h.e(this.mCoverStickerDataList)) {
+            yb9.h(list, indexOf, list.size() - 1);
+            if (!yb9.e(this.mCoverStickerDataList)) {
                 List<MultiMediaData> list2 = this.mCoverStickerDataList;
-                h.h(list2, indexOf, list2.size() - 1);
+                yb9.h(list2, indexOf, list2.size() - 1);
             }
             if (z) {
                 notifyStickerDataChange(StickerDataChangeType.SWAP);

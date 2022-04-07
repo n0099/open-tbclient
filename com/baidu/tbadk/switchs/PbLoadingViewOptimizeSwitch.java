@@ -1,12 +1,12 @@
 package com.baidu.tbadk.switchs;
 
-import c.a.o0.r.j0.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.wt4;
+/* loaded from: classes3.dex */
 public class PbLoadingViewOptimizeSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDROID_PB_LOADING_VIEW_OPTIMIZE = "android_pb_Loading_view_optimize";
@@ -29,10 +29,10 @@ public class PbLoadingViewOptimizeSwitch extends BaseNormalSwitch {
     public static boolean isSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b.k().l("key_android_pb_loading_view_optimize", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? wt4.k().l("key_android_pb_loading_view_optimize", 0) == 1 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.d.f.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.repackage.xe
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

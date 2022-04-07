@@ -27,18 +27,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static final String a = a(Loader.get().getContext()) + "/apkfileD/dynamic";
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a();
 
         void a(File file);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b implements d {
         public final OutputStream a;
 
@@ -65,12 +65,12 @@ public class h {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface c {
         boolean a(int i, int i2, Object obj);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface d extends Closeable {
         void a(int i, Map<String, List<String>> map);
 
@@ -151,8 +151,8 @@ public class h {
                             aVar.a();
                         }
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     a aVar2 = aVar;
                     if (aVar2 != null) {
                         aVar2.a();

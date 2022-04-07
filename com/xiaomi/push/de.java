@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.LoggerInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class de implements LoggerInterface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LoggerInterface a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LoggerInterface f44151b;
+    public LoggerInterface b;
 
     public de(LoggerInterface loggerInterface, LoggerInterface loggerInterface2) {
         Interceptable interceptable = $ic;
@@ -31,9 +29,9 @@ public class de implements LoggerInterface {
             }
         }
         this.a = null;
-        this.f44151b = null;
+        this.b = null;
         this.a = loggerInterface;
-        this.f44151b = loggerInterface2;
+        this.b = loggerInterface2;
     }
 
     @Override // com.xiaomi.channel.commonutils.logger.LoggerInterface
@@ -44,7 +42,7 @@ public class de implements LoggerInterface {
             if (loggerInterface != null) {
                 loggerInterface.log(str);
             }
-            LoggerInterface loggerInterface2 = this.f44151b;
+            LoggerInterface loggerInterface2 = this.b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str);
             }
@@ -59,7 +57,7 @@ public class de implements LoggerInterface {
             if (loggerInterface != null) {
                 loggerInterface.log(str, th);
             }
-            LoggerInterface loggerInterface2 = this.f44151b;
+            LoggerInterface loggerInterface2 = this.b;
             if (loggerInterface2 != null) {
                 loggerInterface2.log(str, th);
             }

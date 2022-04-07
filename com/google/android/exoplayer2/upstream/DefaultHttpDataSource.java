@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultHttpDataSource implements HttpDataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern CONTENT_RANGE_HEADER;
@@ -107,8 +107,8 @@ public class DefaultHttpDataSource implements HttpDataSource {
         }
         try {
             httpURLConnection.disconnect();
-        } catch (Exception e2) {
-            Log.e(TAG, "Unexpected error while disconnecting", e2);
+        } catch (Exception e) {
+            Log.e(TAG, "Unexpected error while disconnecting", e);
         }
         this.connection = null;
     }
@@ -355,8 +355,8 @@ public class DefaultHttpDataSource implements HttpDataSource {
                     maybeTerminateInputStream(this.connection, bytesRemaining());
                     try {
                         this.inputStream.close();
-                    } catch (IOException e2) {
-                        throw new HttpDataSource.HttpDataSourceException(e2, this.dataSpec, 3);
+                    } catch (IOException e) {
+                        throw new HttpDataSource.HttpDataSourceException(e, this.dataSpec, 3);
                     }
                 }
             } finally {
@@ -454,9 +454,9 @@ public class DefaultHttpDataSource implements HttpDataSource {
                                 transferListener.onTransferStart(this, dataSpec);
                             }
                             return this.bytesToRead;
-                        } catch (IOException e2) {
+                        } catch (IOException e) {
                             closeConnectionQuietly();
-                            throw new HttpDataSource.HttpDataSourceException(e2, dataSpec, 1);
+                            throw new HttpDataSource.HttpDataSourceException(e, dataSpec, 1);
                         }
                     }
                     Map<String, List<String>> headerFields = this.connection.getHeaderFields();
@@ -466,12 +466,12 @@ public class DefaultHttpDataSource implements HttpDataSource {
                         invalidResponseCodeException.initCause(new DataSourceException(0));
                     }
                     throw invalidResponseCodeException;
-                } catch (IOException e3) {
+                } catch (IOException e2) {
                     closeConnectionQuietly();
-                    throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + dataSpec.uri.toString(), e3, dataSpec, 1);
+                    throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + dataSpec.uri.toString(), e2, dataSpec, 1);
                 }
-            } catch (IOException e4) {
-                throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + dataSpec.uri.toString(), e4, dataSpec, 1);
+            } catch (IOException e3) {
+                throw new HttpDataSource.HttpDataSourceException("Unable to connect to " + dataSpec.uri.toString(), e3, dataSpec, 1);
             }
         }
         return invokeL.longValue;
@@ -485,8 +485,8 @@ public class DefaultHttpDataSource implements HttpDataSource {
             try {
                 skipInternal();
                 return readInternal(bArr, i, i2);
-            } catch (IOException e2) {
-                throw new HttpDataSource.HttpDataSourceException(e2, this.dataSpec, 2);
+            } catch (IOException e) {
+                throw new HttpDataSource.HttpDataSourceException(e, this.dataSpec, 2);
             }
         }
         return invokeLII.intValue;

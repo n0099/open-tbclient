@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlayerUbcFlowStatisticsManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,8 +49,8 @@ public class PlayerUbcFlowStatisticsManager {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("value", this.currentSpeed);
             getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).uploadFlow(this.mUbcContent, null, jSONObject);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -147,14 +147,14 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
-    public void switchPlayerSpeed(float f2) {
+    public void switchPlayerSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048587, this, f) == null) {
             upSpeedDurationFlow();
-            if (f2 != 1.0f) {
+            if (f != 1.0f) {
                 getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
             }
-            this.currentSpeed = f2;
+            this.currentSpeed = f;
         }
     }
 }

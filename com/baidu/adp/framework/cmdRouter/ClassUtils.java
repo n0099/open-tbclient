@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ClassUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class ClassUtils {
                     public void run() {
                         Throwable th;
                         DexFile dexFile;
-                        IOException e2;
+                        IOException e;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             DexFile dexFile2 = null;
@@ -101,14 +101,14 @@ public class ClassUtils {
                                                 this.val$classNames.add(nextElement);
                                             }
                                         }
-                                    } catch (IOException e3) {
-                                        e2 = e3;
-                                        e2.printStackTrace();
+                                    } catch (IOException e2) {
+                                        e = e2;
+                                        e.printStackTrace();
                                         if (dexFile != null) {
                                             try {
                                                 dexFile.close();
-                                            } catch (IOException e4) {
-                                                e = e4;
+                                            } catch (IOException e3) {
+                                                e = e3;
                                                 e.printStackTrace();
                                                 this.val$countDownLatch.countDown();
                                             }
@@ -117,8 +117,8 @@ public class ClassUtils {
                                     }
                                     try {
                                         dexFile.close();
-                                    } catch (IOException e5) {
-                                        e = e5;
+                                    } catch (IOException e4) {
+                                        e = e4;
                                         e.printStackTrace();
                                         this.val$countDownLatch.countDown();
                                     }
@@ -127,16 +127,16 @@ public class ClassUtils {
                                     if (0 != 0) {
                                         try {
                                             dexFile2.close();
-                                        } catch (IOException e6) {
-                                            e6.printStackTrace();
+                                        } catch (IOException e5) {
+                                            e5.printStackTrace();
                                         }
                                     }
                                     this.val$countDownLatch.countDown();
                                     throw th;
                                 }
-                            } catch (IOException e7) {
+                            } catch (IOException e6) {
                                 dexFile = null;
-                                e2 = e7;
+                                e = e6;
                             } catch (Throwable th3) {
                                 th = th3;
                                 if (0 != 0) {

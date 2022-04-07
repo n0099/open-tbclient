@@ -25,7 +25,7 @@ import com.tachikoma.core.utility.TKColorUtil;
 import com.tachikoma.core.utility.TKConverter;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class KTProgressBarView extends TKBase<ProgressBar> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_PROGRESS = 1000;
@@ -64,8 +64,8 @@ public class KTProgressBarView extends TKBase<ProgressBar> {
                 if (list.size() > 0 && (list.get(0) instanceof String)) {
                     this.style = getStyleFromString((String) list.get(0));
                 }
-            } catch (Exception e2) {
-                throw new RuntimeException(e2);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
         getView().setMax(1000);
@@ -161,18 +161,18 @@ public class KTProgressBarView extends TKBase<ProgressBar> {
     }
 
     public void setAnimating(boolean z) {
-        ProgressBar view;
+        ProgressBar view2;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                view = getView();
+                view2 = getView();
                 i = 0;
             } else {
-                view = getView();
+                view2 = getView();
                 i = 8;
             }
-            view.setVisibility(i);
+            view2.setVisibility(i);
         }
     }
 
@@ -192,10 +192,10 @@ public class KTProgressBarView extends TKBase<ProgressBar> {
         }
     }
 
-    public void setCornerRadius(float f2) {
+    public void setCornerRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.cornerRadius = TKConverter.dp2px(Tachikoma.sApplication, f2);
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            this.cornerRadius = TKConverter.dp2px(Tachikoma.sApplication, f);
             setProgressDrawable(getView().isIndeterminate(), generateBackDrawable(this.backgroundColor));
         }
     }
@@ -208,11 +208,11 @@ public class KTProgressBarView extends TKBase<ProgressBar> {
         }
     }
 
-    public void setProgress(double d2) {
+    public void setProgress(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) {
             getView().getMax();
-            getView().setProgress((int) (d2 * 1000.0d));
+            getView().setProgress((int) (d * 1000.0d));
         }
     }
 }

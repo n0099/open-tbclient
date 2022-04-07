@@ -16,20 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ToastLoadingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f28304b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Animation f28305c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f28306d;
+    public TextView b;
+    public Animation c;
+    public boolean d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ToastLoadingView(Context context) {
@@ -55,10 +49,10 @@ public class ToastLoadingView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a7, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09208d);
-            this.f28304b = (TextView) findViewById(R.id.obfuscated_res_0x7f092090);
-            this.f28305c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01008f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089d, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092072);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092075);
+            this.c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010090);
             setClickable(true);
         }
     }
@@ -79,17 +73,17 @@ public class ToastLoadingView extends FrameLayout {
     public boolean getIsLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28306d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             b();
-            this.f28306d = z;
+            this.d = z;
             if (z) {
                 setVisibility(0);
-                this.a.startAnimation(this.f28305c);
+                this.a.startAnimation(this.c);
                 return;
             }
             this.a.clearAnimation();
@@ -100,7 +94,7 @@ public class ToastLoadingView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f28304b.setText(str);
+            this.b.setText(str);
         }
     }
 

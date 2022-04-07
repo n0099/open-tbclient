@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ApsMessage<T extends Jsonable> implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JN_K_DATA = "data";
@@ -58,8 +58,8 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
                 this.type = jSONObject.optInt("type");
                 parseData(jSONObject.optJSONObject("data"));
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return true;
             }
         }
@@ -86,27 +86,27 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
     public JSONObject toJson() {
         InterceptResult invokeV;
         JSONObject jSONObject;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("status", this.status);
+                    jSONObject.put("msg", this.msg);
+                    jSONObject.put("type", this.type);
+                    T data = getData();
+                    if (data != null) {
+                        jSONObject.put("data", data.toJson());
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    return jSONObject;
+                }
             } catch (Exception e3) {
                 jSONObject = null;
-                e2 = e3;
-            }
-            try {
-                jSONObject.put("status", this.status);
-                jSONObject.put("msg", this.msg);
-                jSONObject.put("type", this.type);
-                T data = getData();
-                if (data != null) {
-                    jSONObject.put("data", data.toJson());
-                }
-            } catch (Exception e4) {
-                e2 = e4;
-                e2.printStackTrace();
-                return jSONObject;
+                e = e3;
             }
             return jSONObject;
         }

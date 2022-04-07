@@ -7,14 +7,12 @@ import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 /* loaded from: classes7.dex */
 public class DownloadService extends Service {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f43234b = DownloadService.class.getSimpleName();
+    public static final String b = DownloadService.class.getSimpleName();
     public o a;
 
     @Override // android.app.Service
     public IBinder onBind(Intent intent) {
-        String str = f43234b;
+        String str = b;
         StringBuilder sb = new StringBuilder();
         sb.append("onBind downloadServiceHandler != null:");
         sb.append(this.a != null);
@@ -38,7 +36,7 @@ public class DownloadService extends Service {
     @Override // android.app.Service
     public void onDestroy() {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f43234b, "Service onDestroy");
+            com.ss.android.socialbase.downloader.c.a.b(b, "Service onDestroy");
         }
         o oVar = this.a;
         if (oVar != null) {
@@ -51,7 +49,7 @@ public class DownloadService extends Service {
     @Override // android.app.Service
     public int onStartCommand(final Intent intent, final int i, final int i2) {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
-            com.ss.android.socialbase.downloader.c.a.b(f43234b, "DownloadService onStartCommand");
+            com.ss.android.socialbase.downloader.c.a.b(b, "DownloadService onStartCommand");
         }
         this.a.c();
         ExecutorService l = c.l();

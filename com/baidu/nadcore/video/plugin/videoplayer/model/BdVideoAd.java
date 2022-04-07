@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdVideoAd implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_VIDEO_DAPAGE = "da_page";
@@ -28,7 +28,7 @@ public class BdVideoAd implements Serializable {
     public String type;
     public Object userInfoData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,32 +73,18 @@ public class BdVideoAd implements Serializable {
         this.userInfoData = obj2;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f27653b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f27654c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public JSONObject f27655d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f27656e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f27657f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f27658g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f27659h;
+        public String b;
+        public String c;
+        public JSONObject d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
         public String i;
         public int j;
         public Object k;
@@ -118,13 +104,13 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = false;
-            this.f27653b = "";
-            this.f27654c = "";
-            this.f27655d = null;
-            this.f27656e = "";
-            this.f27657f = "";
-            this.f27658g = "";
-            this.f27659h = "";
+            this.b = "";
+            this.c = "";
+            this.d = null;
+            this.e = "";
+            this.f = "";
+            this.g = "";
+            this.h = "";
             this.i = "detail";
             this.j = -1;
             this.k = null;
@@ -133,7 +119,7 @@ public class BdVideoAd implements Serializable {
         public BdVideoAd a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f27653b, this.f27654c, this.f27655d, this.f27656e, this.f27657f, this.f27658g, this.f27659h, this.i, this.j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
         }
 
         public b b(Object obj) {
@@ -172,13 +158,13 @@ public class BdVideoAd implements Serializable {
                 }
             }
             this.a = bdVideoAd.suffixAdEnable;
-            this.f27653b = bdVideoAd.tpl;
-            this.f27654c = bdVideoAd.pd;
-            this.f27655d = bdVideoAd.extRequest;
-            this.f27656e = bdVideoAd.page;
-            this.f27657f = bdVideoAd.type;
-            this.f27658g = bdVideoAd.channelId;
-            this.f27659h = bdVideoAd.channelTitle;
+            this.b = bdVideoAd.tpl;
+            this.c = bdVideoAd.pd;
+            this.d = bdVideoAd.extRequest;
+            this.e = bdVideoAd.page;
+            this.f = bdVideoAd.type;
+            this.g = bdVideoAd.channelId;
+            this.h = bdVideoAd.channelTitle;
             this.i = bdVideoAd.source;
             this.j = bdVideoAd.pos;
             this.k = bdVideoAd.mAdVideoTailFrameData;

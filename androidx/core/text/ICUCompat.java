@@ -42,8 +42,8 @@ public final class ICUCompat {
                 try {
                     sAddLikelySubtagsMethod = Class.forName("libcore.icu.ICU").getMethod("addLikelySubtags", Locale.class);
                     return;
-                } catch (Exception e2) {
-                    throw new IllegalStateException(e2);
+                } catch (Exception e) {
+                    throw new IllegalStateException(e);
                 }
             }
             return;
@@ -54,10 +54,10 @@ public final class ICUCompat {
                 sGetScriptMethod = cls.getMethod("getScript", String.class);
                 sAddLikelySubtagsMethod = cls.getMethod("addLikelySubtags", String.class);
             }
-        } catch (Exception e3) {
+        } catch (Exception e2) {
             sGetScriptMethod = null;
             sAddLikelySubtagsMethod = null;
-            Log.w(TAG, e3);
+            Log.w(TAG, e2);
         }
     }
 
@@ -84,10 +84,10 @@ public final class ICUCompat {
                 if (sAddLikelySubtagsMethod != null) {
                     return (String) sAddLikelySubtagsMethod.invoke(null, locale2);
                 }
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.w(TAG, e);
+            } catch (InvocationTargetException e2) {
                 Log.w(TAG, e2);
-            } catch (InvocationTargetException e3) {
-                Log.w(TAG, e3);
             }
             return locale2;
         }
@@ -102,10 +102,10 @@ public final class ICUCompat {
                 if (sGetScriptMethod != null) {
                     return (String) sGetScriptMethod.invoke(null, str);
                 }
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                Log.w(TAG, e);
+            } catch (InvocationTargetException e2) {
                 Log.w(TAG, e2);
-            } catch (InvocationTargetException e3) {
-                Log.w(TAG, e3);
             }
             return null;
         }
@@ -124,11 +124,11 @@ public final class ICUCompat {
             if (i >= 21) {
                 try {
                     return ((Locale) sAddLikelySubtagsMethod.invoke(null, locale)).getScript();
-                } catch (IllegalAccessException e2) {
-                    Log.w(TAG, e2);
+                } catch (IllegalAccessException e) {
+                    Log.w(TAG, e);
                     return locale.getScript();
-                } catch (InvocationTargetException e3) {
-                    Log.w(TAG, e3);
+                } catch (InvocationTargetException e2) {
+                    Log.w(TAG, e2);
                     return locale.getScript();
                 }
             }

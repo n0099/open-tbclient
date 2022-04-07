@@ -146,7 +146,7 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
         ReceiveChannel receiveChannel11;
         Throwable th4;
         AbortFlowException abortFlowException;
-        AbortFlowException e2;
+        AbortFlowException e;
         Throwable th5;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
         CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$16 = this.label;
@@ -453,9 +453,9 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
                                     Unit unit = Unit.INSTANCE;
                                     try {
                                         ChannelsKt.cancelConsumed(receiveChannel, th);
-                                    } catch (AbortFlowException e3) {
-                                        e2 = e3;
-                                        FlowExceptions_commonKt.checkOwnership(e2, combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$12.$this_unsafeFlow);
+                                    } catch (AbortFlowException e2) {
+                                        e = e2;
+                                        FlowExceptions_commonKt.checkOwnership(e, combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$12.$this_unsafeFlow);
                                         if (!receiveChannel2.isClosedForReceive()) {
                                             abortFlowException = new AbortFlowException(combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$12.$this_unsafeFlow);
                                             receiveChannel2.cancel((CancellationException) abortFlowException);
@@ -527,10 +527,10 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
                 try {
                     ChannelsKt.cancelConsumed(receiveChannel, th5);
                     throw th18;
-                } catch (AbortFlowException e4) {
-                    e2 = e4;
+                } catch (AbortFlowException e3) {
+                    e = e3;
                     combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$12 = combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1;
-                    FlowExceptions_commonKt.checkOwnership(e2, combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$12.$this_unsafeFlow);
+                    FlowExceptions_commonKt.checkOwnership(e, combineKt$zipImpl$$inlined$unsafeFlow$1$lambda$12.$this_unsafeFlow);
                     if (!receiveChannel2.isClosedForReceive()) {
                     }
                     return Unit.INSTANCE;

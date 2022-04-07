@@ -1,7 +1,5 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.p0.n0.h.i.a;
-import c.a.p0.n0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,6 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
+import com.repackage.d26;
+import com.repackage.y16;
 import java.util.Iterator;
 import java.util.TreeSet;
 import kotlin.Metadata;
@@ -25,10 +25,10 @@ import kotlin.ranges.IntRange;
 import kotlin.sequences.SequenceScope;
 @Metadata(d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u0001*\b\u0012\u0004\u0012\u00020\u00030\u0002H\u008a@"}, d2 = {"<anonymous>", "", "Lkotlin/sequences/SequenceScope;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$RangeHolder;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 @DebugMetadata(c = "com.baidu.tieba.danmu.layout.retainer.BottomRetainer$AkRetainer$layout$1$targetHolders$1", f = "BottomRetainer.kt", i = {0, 0, 0, 1, 1, 1}, l = {220, w0.k, 225}, m = "invokeSuspend", n = {"$this$sequence", "lastTop", "h", "$this$sequence", "lastTop", "h"}, s = {"L$0", "L$1", "L$3", "L$0", "L$1", "L$3"})
-/* loaded from: classes5.dex */
-public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super a.b>, Continuation<? super Unit>, Object> {
+/* loaded from: classes3.dex */
+public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super y16.b>, Continuation<? super Unit>, Object> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ b $displayer;
+    public final /* synthetic */ d26 $displayer;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int $margin;
     public int I$0;
@@ -40,13 +40,13 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
     public final /* synthetic */ BottomRetainer.AkRetainer this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomRetainer$AkRetainer$layout$1$targetHolders$1(b bVar, BottomRetainer.AkRetainer akRetainer, int i, Continuation<? super BottomRetainer$AkRetainer$layout$1$targetHolders$1> continuation) {
+    public BottomRetainer$AkRetainer$layout$1$targetHolders$1(d26 d26Var, BottomRetainer.AkRetainer akRetainer, int i, Continuation<? super BottomRetainer$AkRetainer$layout$1$targetHolders$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, akRetainer, Integer.valueOf(i), continuation};
+            Object[] objArr = {d26Var, akRetainer, Integer.valueOf(i), continuation};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -58,7 +58,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
                 return;
             }
         }
-        this.$displayer = bVar;
+        this.$displayer = d26Var;
         this.this$0 = akRetainer;
         this.$margin = i;
     }
@@ -77,7 +77,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final Object invoke(SequenceScope<? super a.b> sequenceScope, Continuation<? super Unit> continuation) {
+    public final Object invoke(SequenceScope<? super y16.b> sequenceScope, Continuation<? super Unit> continuation) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sequenceScope, continuation)) == null) ? ((BottomRetainer$AkRetainer$layout$1$targetHolders$1) create(sequenceScope, continuation)).invokeSuspend(Unit.INSTANCE) : invokeLL.objValue;
@@ -99,8 +99,8 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
         int i;
         BottomRetainer$AkRetainer$layout$1$targetHolders$1 bottomRetainer$AkRetainer$layout$1$targetHolders$1;
         Iterator it;
-        a.d dVar;
-        a.b bVar;
+        y16.d dVar;
+        y16.b bVar;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, obj)) != null) {
             return invokeL.objValue;
@@ -111,7 +111,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             ResultKt.throwOnFailure(obj);
             Ref.IntRef intRef2 = new Ref.IntRef();
             intRef2.element = this.$displayer.getHeight();
-            treeSet = this.this$0.f31733b;
+            treeSet = this.this$0.b;
             int i3 = this.$margin;
             sequenceScope = (SequenceScope) this.L$0;
             intRef = intRef2;
@@ -122,13 +122,13 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             }
         } else if (i2 == 1) {
             i = this.I$0;
-            dVar = (a.d) this.L$3;
+            dVar = (y16.d) this.L$3;
             it = (Iterator) this.L$2;
             intRef = (Ref.IntRef) this.L$1;
             sequenceScope = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
             bottomRetainer$AkRetainer$layout$1$targetHolders$1 = this;
-            bVar = new a.b(dVar, new IntRange(dVar.g(), dVar.a()));
+            bVar = new y16.b(dVar, new IntRange(dVar.g(), dVar.a()));
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$0 = sequenceScope;
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = intRef;
             bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = it;
@@ -148,7 +148,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             return Unit.INSTANCE;
         } else {
             i = this.I$0;
-            dVar = (a.d) this.L$3;
+            dVar = (y16.d) this.L$3;
             it = (Iterator) this.L$2;
             intRef = (Ref.IntRef) this.L$1;
             sequenceScope = (SequenceScope) this.L$0;
@@ -156,9 +156,9 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
             bottomRetainer$AkRetainer$layout$1$targetHolders$1 = this;
             intRef.element = dVar.g() - i;
             if (!it.hasNext()) {
-                dVar = (a.d) it.next();
+                dVar = (y16.d) it.next();
                 if (dVar.a() + i < intRef.element) {
-                    a.b bVar2 = new a.b(null, new IntRange(dVar.a() + i, intRef.element));
+                    y16.b bVar2 = new y16.b(null, new IntRange(dVar.a() + i, intRef.element));
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$0 = sequenceScope;
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = intRef;
                     bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = it;
@@ -169,7 +169,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
                         return coroutine_suspended;
                     }
                 }
-                bVar = new a.b(dVar, new IntRange(dVar.g(), dVar.a()));
+                bVar = new y16.b(dVar, new IntRange(dVar.g(), dVar.a()));
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$0 = sequenceScope;
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = intRef;
                 bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = it;
@@ -182,7 +182,7 @@ public final class BottomRetainer$AkRetainer$layout$1$targetHolders$1 extends Re
                 intRef.element = dVar.g() - i;
                 if (!it.hasNext()) {
                     if (intRef.element > bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.e() + (bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.getHeight() * bottomRetainer$AkRetainer$layout$1$targetHolders$1.this$0.d())) {
-                        a.b bVar3 = new a.b(null, new IntRange((int) bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.e(), intRef.element));
+                        y16.b bVar3 = new y16.b(null, new IntRange((int) bottomRetainer$AkRetainer$layout$1$targetHolders$1.$displayer.e(), intRef.element));
                         bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$0 = null;
                         bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$1 = null;
                         bottomRetainer$AkRetainer$layout$1$targetHolders$1.L$2 = null;

@@ -200,11 +200,11 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     return createFromXmlInner(context, context.getResources(), xml, asAttributeSet, context.getTheme());
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException e2) {
-                Log.e(LOGTAG, "parser error", e2);
+            } catch (IOException e) {
+                Log.e(LOGTAG, "parser error", e);
                 return null;
-            } catch (XmlPullParserException e3) {
-                Log.e(LOGTAG, "parser error", e3);
+            } catch (XmlPullParserException e2) {
+                Log.e(LOGTAG, "parser error", e2);
                 return null;
             }
         }
@@ -742,8 +742,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspot(float f2, float f3) {
-        super.setHotspot(f2, f3);
+    public /* bridge */ /* synthetic */ void setHotspot(float f, float f2) {
+        super.setHotspot(f, f2);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class VideoLog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,8 +50,8 @@ public abstract class VideoLog {
                 printWriter.flush();
                 printWriter.close();
                 return stringWriter.toString();
-            } catch (Exception e2) {
-                String message = e2.getMessage();
+            } catch (Exception e) {
+                String message = e.getMessage();
                 return TextUtils.isEmpty(message) ? "unknown throwable by VideoLog.java" : message;
             }
         }

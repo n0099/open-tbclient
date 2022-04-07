@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.input.ReturnKeyType;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NetInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetInfo";
@@ -27,7 +27,7 @@ public class NetInfo {
     public SwanExtra mSwanExtra;
     public Timing mTiming;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Base {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,13 +71,13 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Dns {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject mJSONObject;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class Config {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class NetInfo {
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -136,7 +136,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class JSONObjectUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -164,8 +164,8 @@ public class NetInfo {
                 }
                 try {
                     return jSONObject.getBoolean(str);
-                } catch (JSONException e2) {
-                    Log.w(NetInfo.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.w(NetInfo.TAG, e.getMessage());
                     return false;
                 }
             }
@@ -181,8 +181,8 @@ public class NetInfo {
                 }
                 try {
                     return jSONObject.getDouble(str);
-                } catch (JSONException e2) {
-                    Log.w(NetInfo.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.w(NetInfo.TAG, e.getMessage());
                     return 0.0d;
                 }
             }
@@ -198,8 +198,8 @@ public class NetInfo {
                 }
                 try {
                     return jSONObject.getInt(str);
-                } catch (JSONException e2) {
-                    Log.w(NetInfo.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.w(NetInfo.TAG, e.getMessage());
                     return 0;
                 }
             }
@@ -215,8 +215,8 @@ public class NetInfo {
                 }
                 try {
                     return jSONObject.getJSONObject(str);
-                } catch (JSONException e2) {
-                    Log.w(NetInfo.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.w(NetInfo.TAG, e.getMessage());
                     return null;
                 }
             }
@@ -232,8 +232,8 @@ public class NetInfo {
                 }
                 try {
                     return jSONObject.getLong(str);
-                } catch (JSONException e2) {
-                    Log.w(NetInfo.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.w(NetInfo.TAG, e.getMessage());
                     return 0L;
                 }
             }
@@ -249,8 +249,8 @@ public class NetInfo {
                 }
                 try {
                     return jSONObject.getString(str);
-                } catch (JSONException e2) {
-                    Log.w(NetInfo.TAG, e2.getMessage());
+                } catch (JSONException e) {
+                    Log.w(NetInfo.TAG, e.getMessage());
                     return "";
                 }
             }
@@ -258,7 +258,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Quic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +278,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Response {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -346,7 +346,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Socket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -354,7 +354,7 @@ public class NetInfo {
         public boolean mQuic;
         public boolean mReused;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class Attempts {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -406,7 +406,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Ssl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -452,13 +452,13 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SwanExtra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Timing mTiming;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class Timing {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -507,7 +507,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Timing {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -580,8 +580,8 @@ public class NetInfo {
         }
         try {
             this.mJSONObject = new JSONObject(str);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

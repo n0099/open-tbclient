@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PoseAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MDL_MAGIC_FILTER_CUTOFFSLOPE = "cutoffSlope";
@@ -75,17 +75,17 @@ public class PoseAR extends c {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int i2 = this.mInputWidth;
             int i3 = this.mInputHeight;
-            float f2 = i2;
-            float f3 = i3;
+            float f = i2;
+            float f2 = i3;
             int i4 = 180;
-            if (Float.compare((1.0f * f2) / f3, 1.7777778f) == 0) {
+            if (Float.compare((1.0f * f) / f2, 1.7777778f) == 0) {
                 i = 180;
                 i4 = MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP;
             } else if (i2 > i3) {
-                i4 = (int) (f2 * (180.0f / f3));
+                i4 = (int) (f * (180.0f / f2));
                 i = 180;
             } else {
-                i = (int) (f3 * (180.0f / f2));
+                i = (int) (f2 * (180.0f / f));
             }
             this.nO = i4;
             this.nP = i;

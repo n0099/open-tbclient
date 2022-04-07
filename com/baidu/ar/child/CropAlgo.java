@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CropAlgo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class CropAlgo {
 
     public native float[] nativeTrackingPoints(long j);
 
-    public native long nativeWriteCameraDataToHandel(long j, byte[] bArr, int i, int i2, float f2);
+    public native long nativeWriteCameraDataToHandel(long j, byte[] bArr, int i, int i2, float f);
 
     public native long nativeWriteFaceDataToHandel(long j, byte[] bArr);
 

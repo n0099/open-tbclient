@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DownloadStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FOUR_CONNECTION_UPPER_LIMIT = 104857600;
@@ -42,7 +42,7 @@ public class DownloadStrategy {
     public Boolean isHasAccessNetworkStatePermission;
     public ConnectivityManager manager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ResumeAvailableResponseCheck {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,7 +344,7 @@ public class DownloadStrategy {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class FilenameHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

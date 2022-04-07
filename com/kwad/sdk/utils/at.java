@@ -4,27 +4,15 @@ import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class at {
     public static final SimpleDateFormat a = new SimpleDateFormat("MM/dd", Locale.US);
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f41353b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final SimpleDateFormat f41354c = new SimpleDateFormat("MM月dd日", Locale.US);
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final SimpleDateFormat f41355d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final SimpleDateFormat f41356e = new SimpleDateFormat("HH:mm", Locale.US);
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final SimpleDateFormat f41357f = new SimpleDateFormat("MM-dd", Locale.US);
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final SimpleDateFormat f41358g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+    public static final SimpleDateFormat b = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+    public static final SimpleDateFormat c = new SimpleDateFormat("MM月dd日", Locale.US);
+    public static final SimpleDateFormat d = new SimpleDateFormat("yyyy年MM月dd日", Locale.US);
+    public static final SimpleDateFormat e = new SimpleDateFormat("HH:mm", Locale.US);
+    public static final SimpleDateFormat f = new SimpleDateFormat("MM-dd", Locale.US);
+    public static final SimpleDateFormat g = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
     @Deprecated
     public static boolean a(String str) {

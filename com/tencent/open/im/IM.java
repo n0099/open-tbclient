@@ -16,7 +16,7 @@ import com.tencent.connect.auth.c;
 import com.tencent.connect.common.BaseApi;
 import com.tencent.open.TDialog;
 import com.tencent.open.utils.l;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class IM extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHAT_TYPE_AIO = "thirdparty2c";
@@ -73,16 +73,16 @@ public class IM extends BaseApi {
                     }
                     if (l.d(activity)) {
                         Intent intent = new Intent("android.intent.action.VIEW");
-                        intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.f43645c.getOpenId()), l.l(this.f43645c.getAppId()), l.l(str3))));
+                        intent.setData(Uri.parse(String.format("mqqapi://im/chat?chat_type=%1$s&uin=%2$s&version=1&src_type=app&open_id=%3$s&app_id=%4$s&app_pkg_name=%5$s", str, str2, l.l(this.c.getOpenId()), l.l(this.c.getAppId()), l.l(str3))));
                         intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, str3);
                         activity.startActivity(intent);
                         return 0;
                     }
                     try {
-                        new TDialog(activity, "", a(""), null, this.f43645c).show();
+                        new TDialog(activity, "", a(""), null, this.c).show();
                         return -2;
-                    } catch (RuntimeException e2) {
-                        e2.printStackTrace();
+                    } catch (RuntimeException e) {
+                        e.printStackTrace();
                         return -2;
                     }
                 }

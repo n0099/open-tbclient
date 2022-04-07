@@ -14,14 +14,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.ext.PluginError;
 import com.kwai.sodler.lib.kwai.g;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e implements com.kwai.sodler.lib.kwai.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public g.a f41807b;
+    public g.a b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -61,12 +59,12 @@ public class e implements com.kwai.sodler.lib.kwai.g {
                 fVar.a(-3);
                 return;
             }
-            a.a("Sodler.update", "Download new plugin, version = " + a.f41794b + ", url = " + a.f41795c);
+            a.a("Sodler.update", "Download new plugin, version = " + a.b + ", url = " + a.c);
             fVar.a(3);
-            fVar.g(a.f41795c);
-            fVar.a(a.f41796d);
-            fVar.f(a.f41798f);
-            fVar.b(a.f41794b);
+            fVar.g(a.c);
+            fVar.a(a.d);
+            fVar.f(a.f);
+            fVar.b(a.b);
         }
     }
 
@@ -84,7 +82,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
     private void a(com.kwai.sodler.lib.kwai.f fVar, File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, fVar, file) == null) {
-            g.a aVar = this.f41807b;
+            g.a aVar = this.b;
             if (aVar == null) {
                 throw new RuntimeException("not yet supported!");
             }
@@ -137,22 +135,22 @@ public class e implements com.kwai.sodler.lib.kwai.g {
                 try {
                     fVar.b().e().a();
                     try {
-                        File d2 = fVar.b().e().d(fVar.i());
+                        File d = fVar.b().e().d(fVar.i());
                         try {
-                            a(fVar, d2);
+                            a(fVar, d);
                             a.a("Sodler.update", "Download plugin online success.");
-                            fVar.d(d2.getAbsolutePath());
+                            fVar.d(d.getAbsolutePath());
                             fVar.a(1);
                             e(fVar);
                             return fVar;
                         } catch (PluginError.CancelError unused) {
                             d(fVar);
                             return fVar;
-                        } catch (PluginError.UpdateError e2) {
-                            a.a("Sodler.update", "Download plugin fail, error = " + e2.getLocalizedMessage());
-                            a.a("Sodler.update", e2);
-                            fVar.a((Throwable) e2);
-                            a(fVar, e2);
+                        } catch (PluginError.UpdateError e) {
+                            a.a("Sodler.update", "Download plugin fail, error = " + e.getLocalizedMessage());
+                            a.a("Sodler.update", e);
+                            fVar.a((Throwable) e);
+                            a(fVar, e);
                             return fVar;
                         }
                     } catch (Throwable th) {
@@ -170,14 +168,14 @@ public class e implements com.kwai.sodler.lib.kwai.g {
                 try {
                     fVar.b().e().a();
                     try {
-                        File d3 = fVar.b().e().d(fVar.i());
+                        File d2 = fVar.b().e().d(fVar.i());
                         int i = 0;
                         fVar.b(fVar.b().b().a());
                         while (!fVar.f()) {
                             try {
-                                com.kwai.sodler.lib.b.b.a(this.a, fVar.o(), d3);
+                                com.kwai.sodler.lib.b.b.a(this.a, fVar.o(), d2);
                                 a.a("Sodler.update", "Extract plugin from assets success.");
-                                fVar.d(d3.getAbsolutePath());
+                                fVar.d(d2.getAbsolutePath());
                                 fVar.a(1);
                                 e(fVar);
                                 return fVar;
@@ -222,7 +220,7 @@ public class e implements com.kwai.sodler.lib.kwai.g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            this.f41807b = aVar;
+            this.b = aVar;
             return this;
         }
         return (com.kwai.sodler.lib.kwai.g) invokeL.objValue;
@@ -240,11 +238,11 @@ public class e implements com.kwai.sodler.lib.kwai.g {
                 if (!fVar.n() && fVar.s() == null) {
                     fVar.b().f().a(fVar);
                 }
-            } catch (Exception e2) {
-                a.e("Sodler.update", "Request remote plugin info fail, error = " + e2.toString());
-                a.a("Sodler.update", e2);
+            } catch (Exception e) {
+                a.e("Sodler.update", "Request remote plugin info fail, error = " + e.toString());
+                a.a("Sodler.update", e);
                 fVar.a(-2);
-                PluginError.UpdateError updateError = new PluginError.UpdateError(e2, 2006);
+                PluginError.UpdateError updateError = new PluginError.UpdateError(e, 2006);
                 fVar.a((Throwable) updateError);
                 fVar.a(updateError);
             }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.common.detector.MathUtils;
 import com.google.zxing.pdf417.PDF417Common;
 import java.lang.reflect.Array;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class PDF417CodewordDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final float[][] RATIOS_TABLE;
@@ -42,15 +42,15 @@ public final class PDF417CodewordDecoder {
             int i4 = i3 & 1;
             int i5 = 0;
             while (i5 < 8) {
-                float f2 = 0.0f;
+                float f = 0.0f;
                 while (true) {
                     i = i3 & 1;
                     if (i == i4) {
-                        f2 += 1.0f;
+                        f += 1.0f;
                         i3 >>= 1;
                     }
                 }
-                RATIOS_TABLE[i2][(8 - i5) - 1] = f2 / 17.0f;
+                RATIOS_TABLE[i2][(8 - i5) - 1] = f / 17.0f;
                 i5++;
                 i4 = i;
             }
@@ -103,7 +103,7 @@ public final class PDF417CodewordDecoder {
         for (int i = 0; i < 8; i++) {
             fArr[i] = iArr[i] / sum;
         }
-        float f2 = Float.MAX_VALUE;
+        float f = Float.MAX_VALUE;
         int i2 = -1;
         int i3 = 0;
         while (true) {
@@ -111,18 +111,18 @@ public final class PDF417CodewordDecoder {
             if (i3 >= fArr2.length) {
                 return i2;
             }
-            float f3 = 0.0f;
+            float f2 = 0.0f;
             float[] fArr3 = fArr2[i3];
             for (int i4 = 0; i4 < 8; i4++) {
-                float f4 = fArr3[i4] - fArr[i4];
-                f3 += f4 * f4;
-                if (f3 >= f2) {
+                float f3 = fArr3[i4] - fArr[i4];
+                f2 += f3 * f3;
+                if (f2 >= f) {
                     break;
                 }
             }
-            if (f3 < f2) {
+            if (f2 < f) {
                 i2 = PDF417Common.SYMBOL_TABLE[i3];
-                f2 = f3;
+                f = f2;
             }
             i3++;
         }

@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -132,8 +132,8 @@ public class HttpDNSProtocolMgr {
                 }
                 resInfo.setStatus(5);
                 return 5;
-            } catch (Exception e2) {
-                LogTools.printError(TAG, "responseProtocolV2: " + e2.getMessage());
+            } catch (Exception e) {
+                LogTools.printError(TAG, "responseProtocolV2: " + e.getMessage());
                 resInfo.setStatus(3);
                 return 3;
             }
@@ -180,8 +180,8 @@ public class HttpDNSProtocolMgr {
                         jSONObject.put("res_count", -1);
                     }
                     return jSONObject.toString();
-                } catch (Exception e2) {
-                    LogTools.printError(TAG, "udpRequestProtocolV2: " + e2.getMessage());
+                } catch (Exception e) {
+                    LogTools.printError(TAG, "udpRequestProtocolV2: " + e.getMessage());
                 }
             }
             return null;

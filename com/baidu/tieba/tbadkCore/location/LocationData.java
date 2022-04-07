@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetPoisByLocation.DataRes;
 import tbclient.GetPoisByLocation.PoiInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocationData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,7 +19,7 @@ public class LocationData implements Serializable {
     public List<NearByAddressData> poi_info;
     public String sn;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class NearByAddressData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

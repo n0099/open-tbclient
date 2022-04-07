@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CanvasCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,14 +43,14 @@ public class CanvasCompat {
         return invokeLLI.intValue;
     }
 
-    public static int saveLayerAlpha(@NonNull Canvas canvas, float f2, float f3, float f4, float f5, int i) {
+    public static int saveLayerAlpha(@NonNull Canvas canvas, float f, float f2, float f3, float f4, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{canvas, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)})) == null) {
             if (Build.VERSION.SDK_INT > 21) {
-                return canvas.saveLayerAlpha(f2, f3, f4, f5, i);
+                return canvas.saveLayerAlpha(f, f2, f3, f4, i);
             }
-            return canvas.saveLayerAlpha(f2, f3, f4, f5, i, 31);
+            return canvas.saveLayerAlpha(f, f2, f3, f4, i, 31);
         }
         return invokeCommon.intValue;
     }

@@ -1,7 +1,6 @@
 package com.badlogic.gdx.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import c.b.b.q.j0;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,39 +13,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.repackage.h8;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class JsonValue implements Iterable<JsonValue> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueType a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f23790b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public double f23791c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f23792d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f23793e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public JsonValue f23794f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public JsonValue f23795g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public JsonValue f23796h;
+    public String b;
+    public double c;
+    public long d;
+    public String e;
+    public JsonValue f;
+    public JsonValue g;
+    public JsonValue h;
     public JsonValue i;
     public int j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class ValueType {
         public static final /* synthetic */ ValueType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -115,7 +101,7 @@ public class JsonValue implements Iterable<JsonValue> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -159,17 +145,13 @@ public class JsonValue implements Iterable<JsonValue> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b implements Iterator<JsonValue>, Iterable<JsonValue> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JsonValue a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public JsonValue f23797b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ JsonValue f23798c;
+        public JsonValue b;
+        public final /* synthetic */ JsonValue c;
 
         public b(JsonValue jsonValue) {
             Interceptable interceptable = $ic;
@@ -186,8 +168,8 @@ public class JsonValue implements Iterable<JsonValue> {
                     return;
                 }
             }
-            this.f23798c = jsonValue;
-            this.a = this.f23798c.f23794f;
+            this.c = jsonValue;
+            this.a = this.c.f;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -198,9 +180,9 @@ public class JsonValue implements Iterable<JsonValue> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JsonValue jsonValue = this.a;
-                this.f23797b = jsonValue;
+                this.b = jsonValue;
                 if (jsonValue != null) {
-                    this.a = jsonValue.f23796h;
+                    this.a = jsonValue.h;
                     return jsonValue;
                 }
                 throw new NoSuchElementException();
@@ -226,39 +208,35 @@ public class JsonValue implements Iterable<JsonValue> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                JsonValue jsonValue = this.f23797b;
+                JsonValue jsonValue = this.b;
                 JsonValue jsonValue2 = jsonValue.i;
                 if (jsonValue2 == null) {
-                    JsonValue jsonValue3 = this.f23798c;
-                    JsonValue jsonValue4 = jsonValue.f23796h;
-                    jsonValue3.f23794f = jsonValue4;
+                    JsonValue jsonValue3 = this.c;
+                    JsonValue jsonValue4 = jsonValue.h;
+                    jsonValue3.f = jsonValue4;
                     if (jsonValue4 != null) {
                         jsonValue4.i = null;
                     }
                 } else {
-                    jsonValue2.f23796h = jsonValue.f23796h;
-                    JsonValue jsonValue5 = jsonValue.f23796h;
+                    jsonValue2.h = jsonValue.h;
+                    JsonValue jsonValue5 = jsonValue.h;
                     if (jsonValue5 != null) {
                         jsonValue5.i = jsonValue2;
                     }
                 }
-                JsonValue jsonValue6 = this.f23798c;
+                JsonValue jsonValue6 = this.c;
                 jsonValue6.j--;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JsonWriter$OutputType a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f23799b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public boolean f23800c;
+        public int b;
+        public boolean c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -297,7 +275,7 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jsonValue)) == null) {
-            for (JsonValue jsonValue2 = jsonValue.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
+            for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
                 if (!jsonValue2.B()) {
                     return false;
                 }
@@ -307,11 +285,11 @@ public class JsonValue implements Iterable<JsonValue> {
         return invokeL.booleanValue;
     }
 
-    public static void u(int i, j0 j0Var) {
+    public static void u(int i, h8 h8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, null, i, j0Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, h8Var) == null) {
             for (int i2 = 0; i2 < i; i2++) {
-                j0Var.a('\t');
+                h8Var.a('\t');
             }
         }
     }
@@ -320,7 +298,7 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jsonValue)) == null) {
-            for (JsonValue jsonValue2 = jsonValue.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
+            for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
                 if (jsonValue2.D() || jsonValue2.v()) {
                     return false;
                 }
@@ -380,16 +358,16 @@ public class JsonValue implements Iterable<JsonValue> {
     public String H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23793e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     public String I(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cVar)) == null) {
-            j0 j0Var = new j0(512);
-            K(this, j0Var, 0, cVar);
-            return j0Var.toString();
+            h8 h8Var = new h8(512);
+            K(this, h8Var, 0, cVar);
+            return h8Var.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -400,90 +378,90 @@ public class JsonValue implements Iterable<JsonValue> {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsonWriter$OutputType, i)) == null) {
             c cVar = new c();
             cVar.a = jsonWriter$OutputType;
-            cVar.f23799b = i;
+            cVar.b = i;
             return I(cVar);
         }
         return (String) invokeLI.objValue;
     }
 
-    public final void K(JsonValue jsonValue, j0 j0Var, int i, c cVar) {
+    public final void K(JsonValue jsonValue, h8 h8Var, int i, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048585, this, jsonValue, j0Var, i, cVar) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048585, this, jsonValue, h8Var, i, cVar) == null) {
             JsonWriter$OutputType jsonWriter$OutputType = cVar.a;
             if (jsonValue.D()) {
-                if (jsonValue.f23794f == null) {
-                    j0Var.n(StringUtil.EMPTY_ARRAY);
+                if (jsonValue.f == null) {
+                    h8Var.n(StringUtil.EMPTY_ARRAY);
                     return;
                 }
                 boolean z = !y(jsonValue);
-                int length = j0Var.length();
+                int length = h8Var.length();
                 loop0: while (true) {
-                    j0Var.n(z ? "{\n" : "{ ");
-                    for (JsonValue jsonValue2 = jsonValue.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
+                    h8Var.n(z ? "{\n" : "{ ");
+                    for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
                         if (z) {
-                            u(i, j0Var);
+                            u(i, h8Var);
                         }
-                        j0Var.n(jsonWriter$OutputType.quoteName(jsonValue2.f23793e));
-                        j0Var.n(": ");
-                        K(jsonValue2, j0Var, i + 1, cVar);
-                        if ((!z || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue2.f23796h != null) {
-                            j0Var.a(',');
+                        h8Var.n(jsonWriter$OutputType.quoteName(jsonValue2.e));
+                        h8Var.n(": ");
+                        K(jsonValue2, h8Var, i + 1, cVar);
+                        if ((!z || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue2.h != null) {
+                            h8Var.a(',');
                         }
-                        j0Var.a(z ? '\n' : WebvttCueParser.CHAR_SPACE);
-                        if (z || j0Var.length() - length <= cVar.f23799b) {
+                        h8Var.a(z ? '\n' : WebvttCueParser.CHAR_SPACE);
+                        if (z || h8Var.length() - length <= cVar.b) {
                         }
                     }
-                    j0Var.I(length);
+                    h8Var.I(length);
                     z = true;
                 }
                 if (z) {
-                    u(i - 1, j0Var);
+                    u(i - 1, h8Var);
                 }
-                j0Var.a('}');
+                h8Var.a('}');
             } else if (jsonValue.v()) {
-                if (jsonValue.f23794f == null) {
-                    j0Var.n("[]");
+                if (jsonValue.f == null) {
+                    h8Var.n("[]");
                     return;
                 }
                 boolean z2 = !y(jsonValue);
-                boolean z3 = cVar.f23800c || !C(jsonValue);
-                int length2 = j0Var.length();
+                boolean z3 = cVar.c || !C(jsonValue);
+                int length2 = h8Var.length();
                 loop2: while (true) {
-                    j0Var.n(z2 ? "[\n" : "[ ");
-                    for (JsonValue jsonValue3 = jsonValue.f23794f; jsonValue3 != null; jsonValue3 = jsonValue3.f23796h) {
+                    h8Var.n(z2 ? "[\n" : "[ ");
+                    for (JsonValue jsonValue3 = jsonValue.f; jsonValue3 != null; jsonValue3 = jsonValue3.h) {
                         if (z2) {
-                            u(i, j0Var);
+                            u(i, h8Var);
                         }
-                        K(jsonValue3, j0Var, i + 1, cVar);
-                        if ((!z2 || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue3.f23796h != null) {
-                            j0Var.a(',');
+                        K(jsonValue3, h8Var, i + 1, cVar);
+                        if ((!z2 || jsonWriter$OutputType != JsonWriter$OutputType.minimal) && jsonValue3.h != null) {
+                            h8Var.a(',');
                         }
-                        j0Var.a(z2 ? '\n' : WebvttCueParser.CHAR_SPACE);
-                        if (!z3 || z2 || j0Var.length() - length2 <= cVar.f23799b) {
+                        h8Var.a(z2 ? '\n' : WebvttCueParser.CHAR_SPACE);
+                        if (!z3 || z2 || h8Var.length() - length2 <= cVar.b) {
                         }
                     }
-                    j0Var.I(length2);
+                    h8Var.I(length2);
                     z2 = true;
                 }
                 if (z2) {
-                    u(i - 1, j0Var);
+                    u(i - 1, h8Var);
                 }
-                j0Var.a(']');
+                h8Var.a(']');
             } else if (jsonValue.E()) {
-                j0Var.n(jsonWriter$OutputType.quoteValue(jsonValue.k()));
+                h8Var.n(jsonWriter$OutputType.quoteValue(jsonValue.k()));
             } else if (jsonValue.x()) {
-                double d2 = jsonValue.d();
-                double h2 = jsonValue.h();
-                if (d2 == h2) {
-                    d2 = h2;
+                double d = jsonValue.d();
+                double h = jsonValue.h();
+                if (d == h) {
+                    d = h;
                 }
-                j0Var.b(d2);
+                h8Var.b(d);
             } else if (jsonValue.z()) {
-                j0Var.g(jsonValue.h());
+                h8Var.g(jsonValue.h());
             } else if (jsonValue.w()) {
-                j0Var.o(jsonValue.b());
+                h8Var.o(jsonValue.b());
             } else if (jsonValue.A()) {
-                j0Var.n(StringUtil.NULL_STRING);
+                h8Var.n(StringUtil.NULL_STRING);
             } else {
                 throw new SerializationException("Unknown object type: " + jsonValue);
             }
@@ -494,13 +472,13 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            JsonValue jsonValue = this.f23794f;
+            JsonValue jsonValue = this.f;
             while (jsonValue != null) {
-                String str2 = jsonValue.f23793e;
+                String str2 = jsonValue.e;
                 if (str2 != null && str2.equalsIgnoreCase(str)) {
                     break;
                 }
-                jsonValue = jsonValue.f23796h;
+                jsonValue = jsonValue.h;
             }
             if (jsonValue != null) {
                 return jsonValue;
@@ -510,12 +488,12 @@ public class JsonValue implements Iterable<JsonValue> {
         return (JsonValue) invokeL.objValue;
     }
 
-    public void M(double d2, String str) {
+    public void M(double d, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d2), str}) == null) {
-            this.f23791c = d2;
-            this.f23792d = (long) d2;
-            this.f23790b = str;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d), str}) == null) {
+            this.c = d;
+            this.d = (long) d;
+            this.b = str;
             this.a = ValueType.doubleValue;
         }
     }
@@ -523,9 +501,9 @@ public class JsonValue implements Iterable<JsonValue> {
     public void N(long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
-            this.f23792d = j;
-            this.f23791c = j;
-            this.f23790b = str;
+            this.d = j;
+            this.c = j;
+            this.b = str;
             this.a = ValueType.longValue;
         }
     }
@@ -533,7 +511,7 @@ public class JsonValue implements Iterable<JsonValue> {
     public void O(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f23790b = str;
+            this.b = str;
             this.a = str == null ? ValueType.nullValue : ValueType.stringValue;
         }
     }
@@ -541,7 +519,7 @@ public class JsonValue implements Iterable<JsonValue> {
     public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f23792d = z ? 1L : 0L;
+            this.d = z ? 1L : 0L;
             this.a = ValueType.booleanValue;
         }
     }
@@ -549,7 +527,7 @@ public class JsonValue implements Iterable<JsonValue> {
     public void Q(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f23793e = str;
+            this.e = str;
         }
     }
 
@@ -557,7 +535,7 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            JsonValue jsonValue = this.f23795g;
+            JsonValue jsonValue = this.g;
             String str = "[]";
             if (jsonValue == null) {
                 ValueType valueType = this.a;
@@ -565,7 +543,7 @@ public class JsonValue implements Iterable<JsonValue> {
             }
             if (jsonValue.a == ValueType.array) {
                 int i = 0;
-                JsonValue jsonValue2 = jsonValue.f23794f;
+                JsonValue jsonValue2 = jsonValue.f;
                 while (true) {
                     if (jsonValue2 == null) {
                         break;
@@ -573,16 +551,16 @@ public class JsonValue implements Iterable<JsonValue> {
                         str = PreferencesUtil.LEFT_MOUNT + i + PreferencesUtil.RIGHT_MOUNT;
                         break;
                     } else {
-                        jsonValue2 = jsonValue2.f23796h;
+                        jsonValue2 = jsonValue2.h;
                         i++;
                     }
                 }
-            } else if (this.f23793e.indexOf(46) != -1) {
-                str = ".\"" + this.f23793e.replace("\"", "\\\"") + "\"";
+            } else if (this.e.indexOf(46) != -1) {
+                str = ".\"" + this.e.replace("\"", "\\\"") + "\"";
             } else {
-                str = IStringUtil.EXTENSION_SEPARATOR + this.f23793e;
+                str = IStringUtil.EXTENSION_SEPARATOR + this.e;
             }
-            return this.f23795g.R() + str;
+            return this.g.R() + str;
         }
         return (String) invokeV.objValue;
     }
@@ -594,16 +572,16 @@ public class JsonValue implements Iterable<JsonValue> {
             int i = a.a[this.a.ordinal()];
             if (i != 1) {
                 if (i == 2) {
-                    return this.f23791c != 0.0d;
+                    return this.c != 0.0d;
                 } else if (i == 3) {
-                    return this.f23792d != 0;
+                    return this.d != 0;
                 } else if (i == 4) {
-                    return this.f23792d != 0;
+                    return this.d != 0;
                 } else {
                     throw new IllegalStateException("Value cannot be converted to boolean: " + this.a);
                 }
             }
-            return this.f23790b.equalsIgnoreCase("true");
+            return this.b.equalsIgnoreCase("true");
         }
         return invokeV.booleanValue;
     }
@@ -617,15 +595,15 @@ public class JsonValue implements Iterable<JsonValue> {
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            return this.f23792d != 0 ? (byte) 1 : (byte) 0;
+                            return this.d != 0 ? (byte) 1 : (byte) 0;
                         }
                         throw new IllegalStateException("Value cannot be converted to byte: " + this.a);
                     }
-                    return (byte) this.f23792d;
+                    return (byte) this.d;
                 }
-                return (byte) this.f23791c;
+                return (byte) this.c;
             }
-            return Byte.parseByte(this.f23790b);
+            return Byte.parseByte(this.b);
         }
         return invokeV.byteValue;
     }
@@ -639,15 +617,15 @@ public class JsonValue implements Iterable<JsonValue> {
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            return this.f23792d != 0 ? 1.0d : 0.0d;
+                            return this.d != 0 ? 1.0d : 0.0d;
                         }
                         throw new IllegalStateException("Value cannot be converted to double: " + this.a);
                     }
-                    return this.f23792d;
+                    return this.d;
                 }
-                return this.f23791c;
+                return this.c;
             }
-            return Double.parseDouble(this.f23790b);
+            return Double.parseDouble(this.b);
         }
         return invokeV.doubleValue;
     }
@@ -661,15 +639,15 @@ public class JsonValue implements Iterable<JsonValue> {
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            return this.f23792d != 0 ? 1.0f : 0.0f;
+                            return this.d != 0 ? 1.0f : 0.0f;
                         }
                         throw new IllegalStateException("Value cannot be converted to float: " + this.a);
                     }
-                    return (float) this.f23792d;
+                    return (float) this.d;
                 }
-                return (float) this.f23791c;
+                return (float) this.c;
             }
-            return Float.parseFloat(this.f23790b);
+            return Float.parseFloat(this.b);
         }
         return invokeV.floatValue;
     }
@@ -682,22 +660,22 @@ public class JsonValue implements Iterable<JsonValue> {
             if (this.a == ValueType.array) {
                 float[] fArr = new float[this.j];
                 int i = 0;
-                JsonValue jsonValue = this.f23794f;
+                JsonValue jsonValue = this.f;
                 while (jsonValue != null) {
                     int i2 = a.a[jsonValue.a.ordinal()];
                     if (i2 == 1) {
-                        parseFloat = Float.parseFloat(jsonValue.f23790b);
+                        parseFloat = Float.parseFloat(jsonValue.b);
                     } else if (i2 == 2) {
-                        parseFloat = (float) jsonValue.f23791c;
+                        parseFloat = (float) jsonValue.c;
                     } else if (i2 == 3) {
-                        parseFloat = (float) jsonValue.f23792d;
+                        parseFloat = (float) jsonValue.d;
                     } else if (i2 == 4) {
-                        parseFloat = jsonValue.f23792d != 0 ? 1.0f : 0.0f;
+                        parseFloat = jsonValue.d != 0 ? 1.0f : 0.0f;
                     } else {
                         throw new IllegalStateException("Value cannot be converted to float: " + jsonValue.a);
                     }
                     fArr[i] = parseFloat;
-                    jsonValue = jsonValue.f23796h;
+                    jsonValue = jsonValue.h;
                     i++;
                 }
                 return fArr;
@@ -716,15 +694,15 @@ public class JsonValue implements Iterable<JsonValue> {
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            return this.f23792d != 0 ? 1 : 0;
+                            return this.d != 0 ? 1 : 0;
                         }
                         throw new IllegalStateException("Value cannot be converted to int: " + this.a);
                     }
-                    return (int) this.f23792d;
+                    return (int) this.d;
                 }
-                return (int) this.f23791c;
+                return (int) this.c;
             }
-            return Integer.parseInt(this.f23790b);
+            return Integer.parseInt(this.b);
         }
         return invokeV.intValue;
     }
@@ -738,15 +716,15 @@ public class JsonValue implements Iterable<JsonValue> {
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            return this.f23792d != 0 ? 1L : 0L;
+                            return this.d != 0 ? 1L : 0L;
                         }
                         throw new IllegalStateException("Value cannot be converted to long: " + this.a);
                     }
-                    return this.f23792d;
+                    return this.d;
                 }
-                return (long) this.f23791c;
+                return (long) this.c;
             }
-            return Long.parseLong(this.f23790b);
+            return Long.parseLong(this.b);
         }
         return invokeV.longValue;
     }
@@ -760,15 +738,15 @@ public class JsonValue implements Iterable<JsonValue> {
                 if (i != 2) {
                     if (i != 3) {
                         if (i == 4) {
-                            return this.f23792d != 0 ? (short) 1 : (short) 0;
+                            return this.d != 0 ? (short) 1 : (short) 0;
                         }
                         throw new IllegalStateException("Value cannot be converted to short: " + this.a);
                     }
-                    return (short) this.f23792d;
+                    return (short) this.d;
                 }
-                return (short) this.f23791c;
+                return (short) this.c;
             }
-            return Short.parseShort(this.f23790b);
+            return Short.parseShort(this.b);
         }
         return invokeV.shortValue;
     }
@@ -781,26 +759,26 @@ public class JsonValue implements Iterable<JsonValue> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             if (this.a == ValueType.array) {
                 short[] sArr = new short[this.j];
-                JsonValue jsonValue = this.f23794f;
+                JsonValue jsonValue = this.f;
                 int i2 = 0;
                 while (jsonValue != null) {
                     int i3 = a.a[jsonValue.a.ordinal()];
                     if (i3 != 1) {
                         if (i3 == 2) {
-                            i = (int) jsonValue.f23791c;
+                            i = (int) jsonValue.c;
                         } else if (i3 == 3) {
-                            i = (int) jsonValue.f23792d;
+                            i = (int) jsonValue.d;
                         } else if (i3 == 4) {
-                            parseShort = jsonValue.f23792d != 0 ? (short) 1 : (short) 0;
+                            parseShort = jsonValue.d != 0 ? (short) 1 : (short) 0;
                         } else {
                             throw new IllegalStateException("Value cannot be converted to short: " + jsonValue.a);
                         }
                         parseShort = (short) i;
                     } else {
-                        parseShort = Short.parseShort(jsonValue.f23790b);
+                        parseShort = Short.parseShort(jsonValue.b);
                     }
                     sArr[i2] = parseShort;
-                    jsonValue = jsonValue.f23796h;
+                    jsonValue = jsonValue.h;
                     i2++;
                 }
                 return sArr;
@@ -817,20 +795,20 @@ public class JsonValue implements Iterable<JsonValue> {
             int i = a.a[this.a.ordinal()];
             if (i != 1) {
                 if (i == 2) {
-                    String str = this.f23790b;
-                    return str != null ? str : Double.toString(this.f23791c);
+                    String str = this.b;
+                    return str != null ? str : Double.toString(this.c);
                 } else if (i == 3) {
-                    String str2 = this.f23790b;
-                    return str2 != null ? str2 : Long.toString(this.f23792d);
+                    String str2 = this.b;
+                    return str2 != null ? str2 : Long.toString(this.d);
                 } else if (i == 4) {
-                    return this.f23792d != 0 ? "true" : "false";
+                    return this.d != 0 ? "true" : "false";
                 } else if (i == 5) {
                     return null;
                 } else {
                     throw new IllegalStateException("Value cannot be converted to string: " + this.a);
                 }
             }
-            return this.f23790b;
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
@@ -839,10 +817,10 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-            JsonValue jsonValue = this.f23794f;
+            JsonValue jsonValue = this.f;
             while (jsonValue != null && i > 0) {
                 i--;
-                jsonValue = jsonValue.f23796h;
+                jsonValue = jsonValue.h;
             }
             return jsonValue;
         }
@@ -853,13 +831,13 @@ public class JsonValue implements Iterable<JsonValue> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            JsonValue jsonValue = this.f23794f;
+            JsonValue jsonValue = this.f;
             while (jsonValue != null) {
-                String str2 = jsonValue.f23793e;
+                String str2 = jsonValue.e;
                 if (str2 != null && str2.equalsIgnoreCase(str)) {
                     break;
                 }
-                jsonValue = jsonValue.f23796h;
+                jsonValue = jsonValue.h;
             }
             return jsonValue;
         }
@@ -874,7 +852,7 @@ public class JsonValue implements Iterable<JsonValue> {
             if (m == null) {
                 return null;
             }
-            return m.f23794f;
+            return m.f;
         }
         return (JsonValue) invokeL.objValue;
     }
@@ -887,17 +865,17 @@ public class JsonValue implements Iterable<JsonValue> {
             if (l != null) {
                 return l.e();
             }
-            throw new IllegalArgumentException("Indexed value not found: " + this.f23793e);
+            throw new IllegalArgumentException("Indexed value not found: " + this.e);
         }
         return invokeI.floatValue;
     }
 
-    public float p(String str, float f2) {
+    public float p(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048608, this, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048608, this, str, f)) == null) {
             JsonValue m = m(str);
-            return (m == null || !m.F() || m.A()) ? f2 : m.e();
+            return (m == null || !m.F() || m.A()) ? f : m.e();
         }
         return invokeLF.floatValue;
     }
@@ -910,7 +888,7 @@ public class JsonValue implements Iterable<JsonValue> {
             if (l != null) {
                 return l.i();
             }
-            throw new IllegalArgumentException("Indexed value not found: " + this.f23793e);
+            throw new IllegalArgumentException("Indexed value not found: " + this.e);
         }
         return invokeI.shortValue;
     }
@@ -950,16 +928,16 @@ public class JsonValue implements Iterable<JsonValue> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             if (F()) {
-                if (this.f23793e == null) {
+                if (this.e == null) {
                     return k();
                 }
-                return this.f23793e + ": " + k();
+                return this.e + ": " + k();
             }
             StringBuilder sb = new StringBuilder();
-            if (this.f23793e == null) {
+            if (this.e == null) {
                 str = "";
             } else {
-                str = this.f23793e + ": ";
+                str = this.e + ": ";
             }
             sb.append(str);
             sb.append(J(JsonWriter$OutputType.minimal, 0));
@@ -1010,12 +988,12 @@ public class JsonValue implements Iterable<JsonValue> {
         O(str);
     }
 
-    public JsonValue(double d2) {
+    public JsonValue(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2)};
+            Object[] objArr = {Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -1025,7 +1003,7 @@ public class JsonValue implements Iterable<JsonValue> {
                 return;
             }
         }
-        M(d2, null);
+        M(d, null);
     }
 
     public JsonValue(long j) {
@@ -1046,12 +1024,12 @@ public class JsonValue implements Iterable<JsonValue> {
         N(j, null);
     }
 
-    public JsonValue(double d2, String str) {
+    public JsonValue(double d, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), str};
+            Object[] objArr = {Double.valueOf(d), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -1061,7 +1039,7 @@ public class JsonValue implements Iterable<JsonValue> {
                 return;
             }
         }
-        M(d2, str);
+        M(d, str);
     }
 
     public JsonValue(long j, String str) {

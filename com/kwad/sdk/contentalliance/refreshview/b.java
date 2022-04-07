@@ -1,9 +1,9 @@
 package com.kwad.sdk.contentalliance.refreshview;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface b {
     void a();
 
-    void a(float f2, float f3);
+    void a(float f, float f2);
 
     void b();
 

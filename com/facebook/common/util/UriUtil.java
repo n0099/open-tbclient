@@ -17,7 +17,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class UriUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA_SCHEME = "data";
@@ -221,8 +221,8 @@ public class UriUtil {
             }
             try {
                 return new URL(uri.toString());
-            } catch (MalformedURLException e2) {
-                throw new RuntimeException(e2);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
             }
         }
         return (URL) invokeL.objValue;

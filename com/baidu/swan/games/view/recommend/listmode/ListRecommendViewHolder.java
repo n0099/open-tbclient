@@ -10,29 +10,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SimpleDraweeView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f29598b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f29599c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Button f29600d;
+    public TextView b;
+    public TextView c;
+    public Button d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ListRecommendViewHolder(View view) {
-        super(view);
+    public ListRecommendViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,9 +37,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (SimpleDraweeView) view.findViewById(R.id.obfuscated_res_0x7f091e24);
-        this.f29598b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091e25);
-        this.f29599c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091e23);
-        this.f29600d = (Button) view.findViewById(R.id.obfuscated_res_0x7f091e26);
+        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f091e10);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e11);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e0f);
+        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f091e12);
     }
 }

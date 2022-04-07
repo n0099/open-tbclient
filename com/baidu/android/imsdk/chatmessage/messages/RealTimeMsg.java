@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,8 +48,8 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
             try {
                 jSONObject.put("sucess", z);
                 jSONObject.put("duration", i);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject.toString();
         }
@@ -76,8 +76,8 @@ public abstract class RealTimeMsg extends NormalMsg implements Parcelable, NoPro
                 this.mSucess = jSONObject.optBoolean("sucess");
                 this.mDuration = jSONObject.optInt("duration");
                 return false;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 return false;
             }
         }

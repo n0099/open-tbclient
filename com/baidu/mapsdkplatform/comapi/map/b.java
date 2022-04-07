@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,8 +22,8 @@ public class b extends d {
                 return;
             }
         }
-        this.f26697c = 6;
-        this.f26696b = "indoorlayer";
-        this.f26698d = 100;
+        this.c = 6;
+        this.b = "indoorlayer";
+        this.d = 100;
     }
 }

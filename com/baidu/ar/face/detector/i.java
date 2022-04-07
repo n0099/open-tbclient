@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class i {
                 this.oC = 0L;
                 this.oD = 0L;
                 this.oE = 0L;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -171,14 +171,14 @@ public class i {
         return (i) invokeL.objValue;
     }
 
-    public void a(float f2, float f3) {
+    public void a(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.oJ == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || this.oJ == null) {
             return;
         }
-        com.baidu.ar.h.b.c("bdar-face", "mTrackingSmoothAlpha:" + f2 + " mTrackingSmoothThreshold:" + f3);
-        this.oJ.setTrackingSmoothAlpha(f2);
-        this.oJ.setTrackingSmoothThreshold(f3);
+        com.baidu.ar.h.b.c("bdar-face", "mTrackingSmoothAlpha:" + f + " mTrackingSmoothThreshold:" + f2);
+        this.oJ.setTrackingSmoothAlpha(f);
+        this.oJ.setTrackingSmoothThreshold(f2);
     }
 
     public void a(AlgoHandleController algoHandleController) {
@@ -238,13 +238,13 @@ public class i {
         }
     }
 
-    public void d(float f2) {
+    public void d(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048588, this, f2) == null) || this.oJ == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048588, this, f) == null) || this.oJ == null) {
             return;
         }
-        com.baidu.ar.h.b.c("bdar-face", "mTrackingMouthThreshold:" + f2);
-        this.oJ.setTrackingMouthThreshold(f2);
+        com.baidu.ar.h.b.c("bdar-face", "mTrackingMouthThreshold:" + f);
+        this.oJ.setTrackingMouthThreshold(f);
     }
 
     public i dV() {

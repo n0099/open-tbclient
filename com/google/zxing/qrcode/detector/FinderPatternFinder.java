@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FinderPatternFinder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER_QUORUM = 2;
@@ -32,28 +32,28 @@ public class FinderPatternFinder {
     public final ResultPointCallback resultPointCallback;
 
     /* renamed from: com.google.zxing.qrcode.detector.FinderPatternFinder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class CenterComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float average;
 
-        public /* synthetic */ CenterComparator(float f2, AnonymousClass1 anonymousClass1) {
-            this(f2);
+        public /* synthetic */ CenterComparator(float f, AnonymousClass1 anonymousClass1) {
+            this(f);
         }
 
-        public CenterComparator(float f2) {
+        public CenterComparator(float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2)};
+                Object[] objArr = {Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,7 +63,7 @@ public class FinderPatternFinder {
                     return;
                 }
             }
-            this.average = f2;
+            this.average = f;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -86,22 +86,22 @@ public class FinderPatternFinder {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class FurthestFromAverageComparator implements Serializable, Comparator<FinderPattern> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final float average;
 
-        public /* synthetic */ FurthestFromAverageComparator(float f2, AnonymousClass1 anonymousClass1) {
-            this(f2);
+        public /* synthetic */ FurthestFromAverageComparator(float f, AnonymousClass1 anonymousClass1) {
+            this(f);
         }
 
-        public FurthestFromAverageComparator(float f2) {
+        public FurthestFromAverageComparator(float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2)};
+                Object[] objArr = {Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -111,7 +111,7 @@ public class FinderPatternFinder {
                     return;
                 }
             }
-            this.average = f2;
+            this.average = f;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -597,9 +597,9 @@ public class FinderPatternFinder {
             if (i < 7) {
                 return false;
             }
-            float f2 = i / 7.0f;
-            float f3 = f2 / 2.0f;
-            return Math.abs(f2 - ((float) iArr[0])) < f3 && Math.abs(f2 - ((float) iArr[1])) < f3 && Math.abs((f2 * 3.0f) - ((float) iArr[2])) < 3.0f * f3 && Math.abs(f2 - ((float) iArr[3])) < f3 && Math.abs(f2 - ((float) iArr[4])) < f3;
+            float f = i / 7.0f;
+            float f2 = f / 2.0f;
+            return Math.abs(f - ((float) iArr[0])) < f2 && Math.abs(f - ((float) iArr[1])) < f2 && Math.abs((f * 3.0f) - ((float) iArr[2])) < 3.0f * f2 && Math.abs(f - ((float) iArr[3])) < f2 && Math.abs(f - ((float) iArr[4])) < f2;
         }
         return invokeL.booleanValue;
     }
@@ -624,50 +624,50 @@ public class FinderPatternFinder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             int size = this.possibleCenters.size();
-            float f2 = 0.0f;
+            float f = 0.0f;
             int i = 0;
-            float f3 = 0.0f;
+            float f2 = 0.0f;
             for (FinderPattern finderPattern : this.possibleCenters) {
                 if (finderPattern.getCount() >= 2) {
                     i++;
-                    f3 += finderPattern.getEstimatedModuleSize();
+                    f2 += finderPattern.getEstimatedModuleSize();
                 }
             }
             if (i < 3) {
                 return false;
             }
-            float f4 = f3 / size;
+            float f3 = f2 / size;
             for (FinderPattern finderPattern2 : this.possibleCenters) {
-                f2 += Math.abs(finderPattern2.getEstimatedModuleSize() - f4);
+                f += Math.abs(finderPattern2.getEstimatedModuleSize() - f3);
             }
-            return f2 <= f3 * 0.05f;
+            return f <= f2 * 0.05f;
         }
         return invokeV.booleanValue;
     }
 
     private FinderPattern[] selectBestPatterns() throws NotFoundException {
         InterceptResult invokeV;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
             int size = this.possibleCenters.size();
             if (size >= 3) {
-                float f3 = 0.0f;
+                float f2 = 0.0f;
                 if (size > 3) {
+                    float f3 = 0.0f;
                     float f4 = 0.0f;
-                    float f5 = 0.0f;
                     for (FinderPattern finderPattern : this.possibleCenters) {
                         float estimatedModuleSize = finderPattern.getEstimatedModuleSize();
-                        f4 += estimatedModuleSize;
-                        f5 += estimatedModuleSize * estimatedModuleSize;
+                        f3 += estimatedModuleSize;
+                        f4 += estimatedModuleSize * estimatedModuleSize;
                     }
-                    float f6 = f4 / size;
-                    float sqrt = (float) Math.sqrt((f5 / f2) - (f6 * f6));
-                    Collections.sort(this.possibleCenters, new FurthestFromAverageComparator(f6, null));
-                    float max = Math.max(0.2f * f6, sqrt);
+                    float f5 = f3 / size;
+                    float sqrt = (float) Math.sqrt((f4 / f) - (f5 * f5));
+                    Collections.sort(this.possibleCenters, new FurthestFromAverageComparator(f5, null));
+                    float max = Math.max(0.2f * f5, sqrt);
                     int i = 0;
                     while (i < this.possibleCenters.size() && this.possibleCenters.size() > 3) {
-                        if (Math.abs(this.possibleCenters.get(i).getEstimatedModuleSize() - f6) > max) {
+                        if (Math.abs(this.possibleCenters.get(i).getEstimatedModuleSize() - f5) > max) {
                             this.possibleCenters.remove(i);
                             i--;
                         }
@@ -676,9 +676,9 @@ public class FinderPatternFinder {
                 }
                 if (this.possibleCenters.size() > 3) {
                     for (FinderPattern finderPattern2 : this.possibleCenters) {
-                        f3 += finderPattern2.getEstimatedModuleSize();
+                        f2 += finderPattern2.getEstimatedModuleSize();
                     }
-                    Collections.sort(this.possibleCenters, new CenterComparator(f3 / this.possibleCenters.size(), null));
+                    Collections.sort(this.possibleCenters, new CenterComparator(f2 / this.possibleCenters.size(), null));
                     List<FinderPattern> list = this.possibleCenters;
                     list.subList(3, list.size()).clear();
                 }
@@ -796,22 +796,22 @@ public class FinderPatternFinder {
                 int i4 = (int) crossCheckVertical;
                 float crossCheckHorizontal = crossCheckHorizontal(centerFromEnd, i4, iArr[2], i3);
                 if (!Float.isNaN(crossCheckHorizontal) && (!z || crossCheckDiagonal(i4, (int) crossCheckHorizontal, iArr[2], i3))) {
-                    float f2 = i3 / 7.0f;
+                    float f = i3 / 7.0f;
                     int i5 = 0;
                     while (true) {
                         if (i5 >= this.possibleCenters.size()) {
                             break;
                         }
                         FinderPattern finderPattern = this.possibleCenters.get(i5);
-                        if (finderPattern.aboutEquals(f2, crossCheckVertical, crossCheckHorizontal)) {
-                            this.possibleCenters.set(i5, finderPattern.combineEstimate(crossCheckVertical, crossCheckHorizontal, f2));
+                        if (finderPattern.aboutEquals(f, crossCheckVertical, crossCheckHorizontal)) {
+                            this.possibleCenters.set(i5, finderPattern.combineEstimate(crossCheckVertical, crossCheckHorizontal, f));
                             z2 = true;
                             break;
                         }
                         i5++;
                     }
                     if (!z2) {
-                        FinderPattern finderPattern2 = new FinderPattern(crossCheckHorizontal, crossCheckVertical, f2);
+                        FinderPattern finderPattern2 = new FinderPattern(crossCheckHorizontal, crossCheckVertical, f);
                         this.possibleCenters.add(finderPattern2);
                         ResultPointCallback resultPointCallback = this.resultPointCallback;
                         if (resultPointCallback != null) {

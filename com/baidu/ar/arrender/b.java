@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.ar.arrender.b$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation;
         public static /* synthetic */ Interceptable $ic;
@@ -182,16 +182,16 @@ public class b {
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
             Size size = new Size(i, i2);
             if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
-                float f2 = i;
-                float f3 = i2;
-                float f4 = f2 / f3;
-                float f5 = i3 / i4;
-                if (f4 < f5) {
-                    size.setWidth((int) (f3 * f5));
+                float f = i;
+                float f2 = i2;
+                float f3 = f / f2;
+                float f4 = i3 / i4;
+                if (f3 < f4) {
+                    size.setWidth((int) (f2 * f4));
                     size.setHeight(i2);
-                } else if (f4 > f5) {
+                } else if (f3 > f4) {
                     size.setWidth(i);
-                    size.setHeight((int) (f2 / f5));
+                    size.setHeight((int) (f / f4));
                 }
             }
             return size;
@@ -302,7 +302,7 @@ public class b {
             inputWidth = duMixInput.getInputWidth();
             inputHeight = duMixInput.getInputHeight();
         }
-        float f2 = inputWidth / inputHeight;
+        float f = inputWidth / inputHeight;
         if (z2) {
             outputWidth = duMixOutput.getOutputHeight();
             outputHeight = duMixOutput.getOutputWidth();
@@ -310,21 +310,21 @@ public class b {
             outputWidth = duMixOutput.getOutputWidth();
             outputHeight = duMixOutput.getOutputHeight();
         }
-        float f3 = outputWidth / outputHeight;
-        if (f2 == f3) {
+        float f2 = outputWidth / outputHeight;
+        if (f == f2) {
             return;
         }
-        float f4 = pointF.x;
-        float f5 = pointF.y;
-        if (f2 < f3) {
+        float f3 = pointF.x;
+        float f4 = pointF.y;
+        if (f < f2) {
             if (AnonymousClass1.gH[duMixOutput.getScaleType().ordinal()] == 1) {
-                float f6 = 1.0f / f3;
-                f5 = ((((f5 * 2.0f) - 1.0f) * (1.0f / f2)) + f6) / (f6 * 2.0f);
+                float f5 = 1.0f / f2;
+                f4 = ((((f4 * 2.0f) - 1.0f) * (1.0f / f)) + f5) / (f5 * 2.0f);
             }
         } else if (AnonymousClass1.gH[duMixOutput.getScaleType().ordinal()] == 1) {
-            f4 = ((((f4 * 2.0f) - 1.0f) * f2) + f3) / (f3 * 2.0f);
+            f3 = ((((f3 * 2.0f) - 1.0f) * f) + f2) / (f2 * 2.0f);
         }
-        pointF.set(f4, f5);
+        pointF.set(f3, f4);
     }
 
     public static Size b(int i, int i2, int i3, int i4) {
@@ -333,16 +333,16 @@ public class b {
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65544, null, i, i2, i3, i4)) == null) {
             Size size = new Size(i, i2);
             if (i > 0 && i2 > 0 && i3 > 0 && i4 > 0) {
-                float f2 = i;
-                float f3 = i2;
-                float f4 = f2 / f3;
-                float f5 = i3 / i4;
-                if (f4 > f5) {
-                    size.setWidth((int) (f3 * f5));
+                float f = i;
+                float f2 = i2;
+                float f3 = f / f2;
+                float f4 = i3 / i4;
+                if (f3 > f4) {
+                    size.setWidth((int) (f2 * f4));
                     size.setHeight(i2);
-                } else if (f4 < f5) {
+                } else if (f3 < f4) {
                     size.setWidth(i);
-                    size.setHeight((int) (f2 / f5));
+                    size.setHeight((int) (f / f4));
                 }
             }
             return size;

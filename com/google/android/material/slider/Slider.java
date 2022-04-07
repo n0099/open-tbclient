@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchListener> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnChangeListener extends BaseOnChangeListener<Slider> {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<Slider> {
     }
 
@@ -266,13 +266,13 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setStepSize(float f2) {
-        super.setStepSize(f2);
+    public /* bridge */ /* synthetic */ void setStepSize(float f) {
+        super.setStepSize(f);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbElevation(float f2) {
-        super.setThumbElevation(f2);
+    public /* bridge */ /* synthetic */ void setThumbElevation(float f) {
+        super.setThumbElevation(f);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -330,26 +330,26 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
         super.setTrackTintList(colorStateList);
     }
 
-    public void setValue(float f2) {
+    public void setValue(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048627, this, f2) == null) {
-            setValues(Float.valueOf(f2));
+        if (interceptable == null || interceptable.invokeF(1048627, this, f) == null) {
+            setValues(Float.valueOf(f));
         }
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setValueFrom(float f2) {
-        super.setValueFrom(f2);
+    public /* bridge */ /* synthetic */ void setValueFrom(float f) {
+        super.setValueFrom(f);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setValueTo(float f2) {
-        super.setValueTo(f2);
+    public /* bridge */ /* synthetic */ void setValueTo(float f) {
+        super.setValueTo(f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040567);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

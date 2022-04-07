@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ConversationManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ConversationManagerImpl";
@@ -232,9 +232,9 @@ public class ConversationManagerImpl {
                 }
                 this.mAllConversations.add(bIMConversation);
                 this.mConversationsListMaps.get(bIMConversation.getCategory()).add(bIMConversation);
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "putConversationInternal exception :", e2);
-                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(TAG, "putConversationInternal exception :", e);
+                new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -383,9 +383,9 @@ public class ConversationManagerImpl {
                     } else {
                         return null;
                     }
-                } catch (ClassCastException e2) {
-                    LogUtils.e(TAG, "Id is not long value", e2);
-                    new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                } catch (ClassCastException e) {
+                    LogUtils.e(TAG, "Id is not long value", e);
+                    new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                     return null;
                 }
             }

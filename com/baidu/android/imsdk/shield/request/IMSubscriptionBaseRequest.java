@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSubscriptionBaseRequest";
@@ -158,8 +158,8 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
                 jSONObject.put("account_type", AccountManager.isCuidLogin(this.mContext) ? 1 : 0);
                 LogUtils.d(TAG, "IMSubscriptionBaseRequest msg :" + jSONObject.toString());
                 return jSONObject.toString().getBytes();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "IMSubscriptionBaseRequest getRequestParameter exception", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "IMSubscriptionBaseRequest getRequestParameter exception", e);
                 return null;
             }
         }

@@ -1,26 +1,26 @@
 package com.baidu.tieba.ala.alasquare.subtablist.view;
 
 import android.view.View;
-import c.a.p0.c0.f.h.d.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.rr5;
+/* loaded from: classes3.dex */
 public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
+    public rr5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaSubListLiveDoubleViewHolder(d dVar) {
-        super(dVar.k());
+    public AlaSubListLiveDoubleViewHolder(rr5 rr5Var) {
+        super(rr5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
+            Object[] objArr = {rr5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class AlaSubListLiveDoubleViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = dVar;
+        this.a = rr5Var;
     }
 }

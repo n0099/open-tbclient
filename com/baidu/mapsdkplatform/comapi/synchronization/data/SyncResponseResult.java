@@ -11,33 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SyncResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SyncResponseResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public RouteLineInfo a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TrafficInfo f26817b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public DriverPosition f26818c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f26819d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f26820e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f26821f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f26822g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f26823h;
+    public TrafficInfo b;
+    public DriverPosition c;
+    public float d;
+    public long e;
+    public float f;
+    public long g;
+    public int h;
     public String i;
     public String j;
 
@@ -71,13 +57,13 @@ public final class SyncResponseResult implements Parcelable {
             }
         }
         this.a = new RouteLineInfo();
-        this.f26817b = new TrafficInfo();
-        this.f26818c = new DriverPosition();
-        this.f26819d = 0.0f;
-        this.f26820e = 0L;
-        this.f26821f = 0.0f;
-        this.f26822g = 0L;
-        this.f26823h = 0;
+        this.b = new TrafficInfo();
+        this.c = new DriverPosition();
+        this.d = 0.0f;
+        this.e = 0L;
+        this.f = 0.0f;
+        this.g = 0L;
+        this.h = 0;
         this.i = null;
         this.j = null;
     }
@@ -98,13 +84,13 @@ public final class SyncResponseResult implements Parcelable {
             }
         }
         this.a = (RouteLineInfo) parcel.readParcelable(RouteLineInfo.class.getClassLoader());
-        this.f26817b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
-        this.f26818c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
-        this.f26819d = (float) parcel.readLong();
-        this.f26820e = parcel.readLong();
-        this.f26821f = (float) parcel.readLong();
-        this.f26822g = parcel.readLong();
-        this.f26823h = parcel.readInt();
+        this.b = (TrafficInfo) parcel.readParcelable(TrafficInfo.class.getClassLoader());
+        this.c = (DriverPosition) parcel.readParcelable(DriverPosition.class.getClassLoader());
+        this.d = (float) parcel.readLong();
+        this.e = parcel.readLong();
+        this.f = (float) parcel.readLong();
+        this.g = parcel.readLong();
+        this.h = parcel.readInt();
         this.i = parcel.readString();
         this.j = parcel.readString();
     }
@@ -115,24 +101,24 @@ public final class SyncResponseResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RouteLineInfo) invokeV.objValue;
     }
 
-    public void a(float f2) {
+    public void a(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f26819d = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.d = f;
         }
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f26823h = i;
+            this.h = i;
         }
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f26820e = j;
+            this.e = j;
         }
     }
 
@@ -146,20 +132,20 @@ public final class SyncResponseResult implements Parcelable {
     public TrafficInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26817b : (TrafficInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (TrafficInfo) invokeV.objValue;
     }
 
-    public void b(float f2) {
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f26821f = f2;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
+            this.f = f;
         }
     }
 
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f26822g = j;
+            this.g = j;
         }
     }
 
@@ -173,13 +159,13 @@ public final class SyncResponseResult implements Parcelable {
     public DriverPosition c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26818c : (DriverPosition) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (DriverPosition) invokeV.objValue;
     }
 
     public float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26821f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : invokeV.floatValue;
     }
 
     @Override // android.os.Parcelable
@@ -195,7 +181,7 @@ public final class SyncResponseResult implements Parcelable {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f26822g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : invokeV.longValue;
     }
 
     @Override // android.os.Parcelable
@@ -203,13 +189,13 @@ public final class SyncResponseResult implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeParcelable(this.a, 1);
-            parcel.writeParcelable(this.f26817b, 1);
-            parcel.writeParcelable(this.f26818c, 1);
-            parcel.writeFloat(this.f26819d);
-            parcel.writeLong(this.f26820e);
-            parcel.writeFloat(this.f26821f);
-            parcel.writeLong(this.f26822g);
-            parcel.writeInt(this.f26823h);
+            parcel.writeParcelable(this.b, 1);
+            parcel.writeParcelable(this.c, 1);
+            parcel.writeFloat(this.d);
+            parcel.writeLong(this.e);
+            parcel.writeFloat(this.f);
+            parcel.writeLong(this.g);
+            parcel.writeInt(this.h);
             parcel.writeString(this.i);
             parcel.writeString(this.j);
         }

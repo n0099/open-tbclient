@@ -1,7 +1,7 @@
 package com.baidu.ar.arplay.core.engine.engine3d;
 
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IARPEngine3D {
     IARPScene getCurrentScene();
 

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.z1;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class WeaponB implements WeaponBI {
     public static /* synthetic */ Interceptable $ic;
     public static WeaponB sInstance;
@@ -47,9 +47,9 @@ public class WeaponB implements WeaponBI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             try {
-                z1 d2 = z1.d();
-                if (d2 != null) {
-                    d2.a(str);
+                z1 d = z1.d();
+                if (d != null) {
+                    d.a(str);
                 }
             } catch (Exception unused) {
             }

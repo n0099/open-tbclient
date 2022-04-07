@@ -8,10 +8,10 @@ import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
 import com.baidu.mobstat.Config;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MaskParser {
     public static Mask parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        char c2;
+        char c;
         jsonReader.beginObject();
         Mask.MaskMode maskMode = null;
         AnimatableShapeValue animatableShapeValue = null;
@@ -20,64 +20,64 @@ public class MaskParser {
         while (jsonReader.hasNext()) {
             String nextName = jsonReader.nextName();
             int hashCode = nextName.hashCode();
-            char c3 = 65535;
+            char c2 = 65535;
             if (hashCode == 111) {
                 if (nextName.equals("o")) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode == 3588) {
                 if (nextName.equals(Config.PLATFORM_TYPE)) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 104433) {
                 if (hashCode == 3357091 && nextName.equals("mode")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (nextName.equals("inv")) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 String nextString = jsonReader.nextString();
                 int hashCode2 = nextString.hashCode();
                 if (hashCode2 != 97) {
                     if (hashCode2 != 105) {
                         if (hashCode2 != 110) {
                             if (hashCode2 == 115 && nextString.equals("s")) {
-                                c3 = 1;
+                                c2 = 1;
                             }
                         } else if (nextString.equals("n")) {
-                            c3 = 2;
+                            c2 = 2;
                         }
                     } else if (nextString.equals("i")) {
-                        c3 = 3;
+                        c2 = 3;
                     }
                 } else if (nextString.equals("a")) {
-                    c3 = 0;
+                    c2 = 0;
                 }
-                if (c3 == 0) {
+                if (c2 == 0) {
                     maskMode = Mask.MaskMode.MASK_MODE_ADD;
-                } else if (c3 == 1) {
+                } else if (c2 == 1) {
                     maskMode = Mask.MaskMode.MASK_MODE_SUBTRACT;
-                } else if (c3 == 2) {
+                } else if (c2 == 2) {
                     maskMode = Mask.MaskMode.MASK_MODE_NONE;
-                } else if (c3 != 3) {
+                } else if (c2 != 3) {
                     Logger.warning("Unknown mask mode " + nextName + ". Defaulting to Add.");
                     maskMode = Mask.MaskMode.MASK_MODE_ADD;
                 } else {
                     lottieComposition.addWarning("Animation contains intersect masks. They are not supported but will be treated like add masks.");
                     maskMode = Mask.MaskMode.MASK_MODE_INTERSECT;
                 }
-            } else if (c2 == 1) {
+            } else if (c == 1) {
                 animatableShapeValue = AnimatableValueParser.parseShapeData(jsonReader, lottieComposition);
-            } else if (c2 == 2) {
+            } else if (c == 2) {
                 animatableIntegerValue = AnimatableValueParser.parseInteger(jsonReader, lottieComposition);
-            } else if (c2 != 3) {
+            } else if (c != 3) {
                 jsonReader.skipValue();
             } else {
                 z = jsonReader.nextBoolean();

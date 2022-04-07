@@ -4,7 +4,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.v.w.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tieba.R;
@@ -15,13 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hi0;
+import com.repackage.hw0;
+import com.repackage.oq0;
+import com.repackage.sq0;
+import com.repackage.tq0;
+import com.repackage.ux0;
 import com.tencent.connect.share.QzonePublish;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ClarityUrlList extends ArrayList<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +37,7 @@ public class ClarityUrlList extends ArrayList<c> {
     public int mMultiRateSwitchRank;
     public int mSelectType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Comparator<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,35 +63,35 @@ public class ClarityUrlList extends ArrayList<c> {
 
         public final int a(String str) {
             InterceptResult invokeL;
-            char c2;
+            char c;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
                 int hashCode = str.hashCode();
                 if (hashCode == 3324) {
                     if (str.equals("hd")) {
-                        c2 = 1;
+                        c = 1;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else if (hashCode == 46737913) {
                     if (str.equals("1080p")) {
-                        c2 = 3;
+                        c = 3;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else if (hashCode != 3664) {
                     if (hashCode == 3665 && str.equals("sd")) {
-                        c2 = 0;
+                        c = 0;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 } else {
                     if (str.equals(Config.STAT_SDK_CHANNEL)) {
-                        c2 = 2;
+                        c = 2;
                     }
-                    c2 = 65535;
+                    c = 65535;
                 }
-                if (c2 != 0) {
-                    if (c2 != 1) {
-                        if (c2 != 2) {
-                            return c2 != 3 ? Integer.MAX_VALUE : 4;
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            return c != 3 ? Integer.MAX_VALUE : 4;
                         }
                         return 3;
                     }
@@ -106,7 +112,7 @@ public class ClarityUrlList extends ArrayList<c> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -212,7 +218,7 @@ public class ClarityUrlList extends ArrayList<c> {
             for (int i = 0; i < size(); i++) {
                 c cVar = get(i);
                 if (cVar != null && cVar.compareTo(this.mCurrentClarityUrl) == 0) {
-                    return cVar.f27661c;
+                    return cVar.c;
                 }
             }
             return this.mDefaultClarity;
@@ -293,8 +299,8 @@ public class ClarityUrlList extends ArrayList<c> {
         ArrayList arrayList = new ArrayList(this);
         Collections.sort(arrayList, new a(this));
         setCurrentClarityUrl((c) arrayList.get(0));
-        if (d.b()) {
-            setMultiRateSwitchRank(((c) arrayList.get(0)).f27661c);
+        if (oq0.b()) {
+            setMultiRateSwitchRank(((c) arrayList.get(0)).c);
         }
     }
 
@@ -330,13 +336,13 @@ public class ClarityUrlList extends ArrayList<c> {
                 return;
             }
             Collections.sort(this);
-            c.a.a0.v.m0.c b2 = c.a.a0.v.v0.c.b(this, get(size() - 1).i());
-            this.mSelectType = b2.f1798b;
+            hw0 b2 = ux0.b(this, get(size() - 1).i());
+            this.mSelectType = b2.b;
             int i2 = b2.a;
             this.mDefaultClarity = i2;
             c cVar = get(i2);
             this.mCurrentClarityUrl = cVar;
-            this.mMultiRateSwitchRank = cVar.f27661c;
+            this.mMultiRateSwitchRank = cVar.c;
         }
     }
 
@@ -366,34 +372,21 @@ public class ClarityUrlList extends ArrayList<c> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class c implements Comparable<c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f27660b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f27661c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f27662d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f27663e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public float f27664f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public float f27665g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f27666h;
+        public int b;
+        public int c;
+        public String d;
+        public String e;
+        public float f;
+        public HashMap<String, String> g;
+        public float h;
         public int i;
-        public c.a.a0.v.y.a.c j;
+        public int j;
+        public sq0 k;
 
         static {
             InterceptResult invokeClinit;
@@ -408,11 +401,11 @@ public class ClarityUrlList extends ArrayList<c> {
                     return;
                 }
             }
-            c.a.a0.h.a.b().getString(R.string.obfuscated_res_0x7f0f0bea);
-            c.a.a0.h.a.b().getString(R.string.obfuscated_res_0x7f0f0be8);
-            c.a.a0.h.a.b().getString(R.string.obfuscated_res_0x7f0f0be9);
-            c.a.a0.h.a.b().getString(R.string.obfuscated_res_0x7f0f0be6);
-            c.a.a0.h.a.b().getString(R.string.obfuscated_res_0x7f0f0be7);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0bed);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0beb);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0bec);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0be9);
+            hi0.b().getString(R.string.obfuscated_res_0x7f0f0bea);
         }
 
         public c(JSONObject jSONObject, int i) {
@@ -430,30 +423,31 @@ public class ClarityUrlList extends ArrayList<c> {
                     return;
                 }
             }
-            this.f27660b = -1;
-            this.f27661c = -1;
-            this.f27664f = -1.0f;
+            this.b = -1;
+            this.c = -1;
+            this.f = -1.0f;
             this.a = jSONObject.optString("key");
             int optInt = jSONObject.optInt("rank", i);
-            this.f27660b = optInt;
-            this.f27661c = (i - 1) - optInt;
-            this.f27662d = jSONObject.optString("title");
-            this.f27663e = jSONObject.optString("url");
+            this.b = optInt;
+            this.c = (i - 1) - optInt;
+            this.d = jSONObject.optString("title");
+            this.e = jSONObject.optString("url");
             jSONObject.optInt("width");
             jSONObject.optInt("height");
             jSONObject.has("download_url");
             jSONObject.optString("download_url");
             jSONObject.optString("airPlay_url");
-            this.f27664f = (float) jSONObject.optDouble(QzonePublish.PUBLISH_TO_QZONE_VIDEO_SIZE, -1.0d);
-            this.f27665g = (float) jSONObject.optDouble("video_clarity_score", -1.0d);
+            this.f = (float) jSONObject.optDouble(QzonePublish.PUBLISH_TO_QZONE_VIDEO_SIZE, -1.0d);
+            this.h = (float) jSONObject.optDouble("video_clarity_score", -1.0d);
             String optString = jSONObject.optString("h265Url", "");
             if (!TextUtils.isEmpty(optString) && jSONObject.has("h265VideoSize")) {
-                this.f27663e = optString;
-                this.f27664f = (float) jSONObject.optDouble("h265VideoSize");
+                this.e = optString;
+                this.f = (float) jSONObject.optDouble("h265VideoSize");
             }
-            this.f27666h = jSONObject.optInt("videoBps");
-            this.i = jSONObject.optInt("vodMoovSize");
-            this.j = c.a.a0.v.y.b.a.b(jSONObject.optString("auth"));
+            this.g = null;
+            this.i = jSONObject.optInt("videoBps");
+            this.j = jSONObject.optInt("vodMoovSize");
+            this.k = tq0.b(jSONObject.optString("auth"));
             jSONObject.optLong("expire_date");
             jSONObject.optString("interact_url");
             jSONObject.optInt("prefetch_size");
@@ -466,8 +460,8 @@ public class ClarityUrlList extends ArrayList<c> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                int i = this.f27661c;
-                int i2 = cVar.f27661c;
+                int i = this.c;
+                int i2 = cVar.c;
                 if (i == i2) {
                     return 0;
                 }
@@ -476,10 +470,10 @@ public class ClarityUrlList extends ArrayList<c> {
             return invokeL.intValue;
         }
 
-        public c.a.a0.v.y.a.c b() {
+        public sq0 b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (c.a.a0.v.y.a.c) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (sq0) invokeV.objValue;
         }
 
         public String c() {
@@ -491,50 +485,56 @@ public class ClarityUrlList extends ArrayList<c> {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.intValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27660b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
         }
 
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27662d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
         }
 
         public String g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27663e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (String) invokeV.objValue;
         }
 
         public int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27666h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : invokeV.intValue;
         }
 
         public float i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27665g : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.h : invokeV.floatValue;
         }
 
-        public float j() {
+        public HashMap<String, String> j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27664f : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g : (HashMap) invokeV.objValue;
+        }
+
+        public float k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.floatValue;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                return "ClarityUrl{mKey='" + this.a + "', mTitle='" + this.f27662d + "'}";
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return "ClarityUrl{mKey='" + this.a + "', mTitle='" + this.d + "'}";
             }
             return (String) invokeV.objValue;
         }
@@ -552,9 +552,9 @@ public class ClarityUrlList extends ArrayList<c> {
                     return;
                 }
             }
-            this.f27660b = -1;
-            this.f27661c = -1;
-            this.f27664f = -1.0f;
+            this.b = -1;
+            this.c = -1;
+            this.f = -1.0f;
         }
     }
 }

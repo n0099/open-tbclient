@@ -18,7 +18,7 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ds extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,8 +56,8 @@ public class ds extends ai.a {
         FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, file)) == null) {
-            di m288a = dj.a().m288a();
-            String a = m288a == null ? "" : m288a.a();
+            di m284a = dj.a().m284a();
+            String a = m284a == null ? "" : m284a.a();
             FileLock fileLock = null;
             if (TextUtils.isEmpty(a)) {
                 return null;
@@ -67,7 +67,7 @@ public class ds extends ai.a {
             synchronized (dm.a) {
                 try {
                     File file2 = new File(this.a.getExternalFilesDir(null), "push_cdata.lock");
-                    y.m685a(file2);
+                    y.m681a(file2);
                     randomAccessFile = new RandomAccessFile(file2, "rw");
                     try {
                         FileLock lock = randomAccessFile.getChannel().lock();
@@ -157,7 +157,7 @@ public class ds extends ai.a {
 
     private void a(hn hnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f481a == hh.f44330b && !hnVar.f482a.startsWith("same_")) {
+        if ((interceptable == null || interceptable.invokeL(65539, this, hnVar) == null) && hnVar.f481a == hh.b && !hnVar.f482a.startsWith("same_")) {
             SharedPreferences.Editor edit = this.f223a.edit();
             edit.putLong("dc_job_result_time_4", hnVar.f480a);
             edit.putString("dc_job_result_4", bm.a(hnVar.f482a));
@@ -166,7 +166,7 @@ public class ds extends ai.a {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m292a() {
+    private boolean m288a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
@@ -207,7 +207,7 @@ public class ds extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo226a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1" : (String) invokeV.objValue;
@@ -222,7 +222,7 @@ public class ds extends ai.a {
                 if (file.length() > 1863680) {
                     file.delete();
                 }
-            } else if (!m292a() && file.exists()) {
+            } else if (!m288a() && file.exists()) {
                 List<hn> a = a(file);
                 if (!ad.a(a)) {
                     int size = a.size();
@@ -235,9 +235,9 @@ public class ds extends ai.a {
                     ie ieVar = new ie("-1", false);
                     ieVar.c(hp.q.f490a);
                     ieVar.a(a2);
-                    di m288a = dj.a().m288a();
-                    if (m288a != null) {
-                        m288a.a(ieVar, hf.i, null);
+                    di m284a = dj.a().m284a();
+                    if (m284a != null) {
+                        m284a.a(ieVar, hf.i, null);
                     }
                     a();
                 }

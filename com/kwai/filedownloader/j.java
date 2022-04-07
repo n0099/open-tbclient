@@ -15,31 +15,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 10;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f41715b = 5;
+    public static int b = 5;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Executor c;
+    public final Handler d;
+    public final LinkedBlockingQueue<t> e;
+    public final Object f;
+    public final ArrayList<t> g;
 
-    /* renamed from: c  reason: collision with root package name */
-    public final Executor f41716c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final Handler f41717d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<t> f41718e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final Object f41719f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<t> f41720g;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final j a;
@@ -62,7 +50,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,11 +126,11 @@ public class j {
                 return;
             }
         }
-        this.f41716c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
-        this.f41719f = new Object();
-        this.f41720g = new ArrayList<>();
-        this.f41717d = new Handler(Looper.getMainLooper(), new b());
-        this.f41718e = new LinkedBlockingQueue<>();
+        this.c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
+        this.f = new Object();
+        this.g = new ArrayList<>();
+        this.d = new Handler(Looper.getMainLooper(), new b());
+        this.e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
@@ -154,7 +142,7 @@ public class j {
     private void b(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tVar) == null) {
-            Handler handler = this.f41717d;
+            Handler handler = this.d;
             handler.sendMessage(handler.obtainMessage(1, tVar));
         }
     }
@@ -169,25 +157,25 @@ public class j {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f41719f) {
-                if (this.f41720g.isEmpty()) {
-                    if (this.f41718e.isEmpty()) {
+            synchronized (this.f) {
+                if (this.g.isEmpty()) {
+                    if (this.e.isEmpty()) {
                         return;
                     }
                     int i = 0;
                     if (b()) {
                         int i2 = a;
-                        int min = Math.min(this.f41718e.size(), f41715b);
+                        int min = Math.min(this.e.size(), b);
                         while (i < min) {
-                            this.f41720g.add(this.f41718e.remove());
+                            this.g.add(this.e.remove());
                             i++;
                         }
                         i = i2;
                     } else {
-                        this.f41718e.drainTo(this.f41720g);
+                        this.e.drainTo(this.g);
                     }
-                    Handler handler = this.f41717d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f41720g), i);
+                    Handler handler = this.d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.g), i);
                 }
             }
         }
@@ -196,8 +184,8 @@ public class j {
     private void c(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, tVar) == null) {
-            synchronized (this.f41719f) {
-                this.f41718e.offer(tVar);
+            synchronized (this.f) {
+                this.e.offer(tVar);
             }
             c();
         }
@@ -216,13 +204,11 @@ public class j {
             if (tVar.c()) {
                 tVar.b();
             } else if (tVar.d()) {
-                this.f41716c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
+                this.c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ t a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f41721b;
+                    public final /* synthetic */ j b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -239,7 +225,7 @@ public class j {
                                 return;
                             }
                         }
-                        this.f41721b = this;
+                        this.b = this;
                         this.a = tVar;
                     }
 
@@ -252,15 +238,15 @@ public class j {
                     }
                 });
             } else {
-                if (!b() && !this.f41718e.isEmpty()) {
-                    synchronized (this.f41719f) {
-                        if (!this.f41718e.isEmpty()) {
-                            Iterator<t> it = this.f41718e.iterator();
+                if (!b() && !this.e.isEmpty()) {
+                    synchronized (this.f) {
+                        if (!this.e.isEmpty()) {
+                            Iterator<t> it = this.e.iterator();
                             while (it.hasNext()) {
                                 b(it.next());
                             }
                         }
-                        this.f41718e.clear();
+                        this.e.clear();
                     }
                 }
                 if (!b() || z) {

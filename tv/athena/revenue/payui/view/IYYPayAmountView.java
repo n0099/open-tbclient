@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r5a;
+import com.repackage.r6a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import h.a.a.e.f.c;
-import h.a.a.e.i.a;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
-/* loaded from: classes8.dex */
-public interface IYYPayAmountView extends a {
+/* loaded from: classes9.dex */
+public interface IYYPayAmountView extends r6a {
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         void onRefreshViewFail(int i, String str);
 
         void showInputNumberDialog(Activity activity, List<PayWayInfo> list);
 
-        void toPayWayDialog(c cVar, List<PayWayInfo> list);
+        void toPayWayDialog(r5a r5aVar, List<PayWayInfo> list);
     }
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ViewParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,10 +66,10 @@ public interface IYYPayAmountView extends a {
         }
     }
 
-    @Override // h.a.a.e.i.a
+    @Override // com.repackage.r6a
     /* synthetic */ View getContentView();
 
-    @Override // h.a.a.e.i.a
+    @Override // com.repackage.r6a
     /* synthetic */ void refreshView();
 
     void setCallback(Callback callback);

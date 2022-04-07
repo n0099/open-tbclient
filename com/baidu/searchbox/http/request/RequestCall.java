@@ -34,7 +34,7 @@ import okhttp3.Dns;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RequestCall implements Cancelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestCall";
@@ -325,8 +325,8 @@ public class RequestCall implements Cancelable {
                         statResponseCallback.onFail(new IOException("parse response return null"));
                     }
                 }
-            } catch (Exception e2) {
-                sendFailResult(handler, statResponseCallback, e2);
+            } catch (Exception e) {
+                sendFailResult(handler, statResponseCallback, e);
             }
         }
     }
@@ -420,8 +420,8 @@ public class RequestCall implements Cancelable {
                     }
                 });
                 return this;
-            } catch (IOException e2) {
-                sendFailResult(handler, responseCallback, e2);
+            } catch (IOException e) {
+                sendFailResult(handler, responseCallback, e);
                 return this;
             }
         }
@@ -491,8 +491,8 @@ public class RequestCall implements Cancelable {
                     }
                 });
                 return this;
-            } catch (IOException e2) {
-                sendFailResult(handler, statResponseCallback, e2);
+            } catch (IOException e) {
+                sendFailResult(handler, statResponseCallback, e);
                 return this;
             }
         }
@@ -513,24 +513,24 @@ public class RequestCall implements Cancelable {
                             recordStatusCode(this.httpRequest.okRequest, execute.code(), execute.message());
                         }
                         return execute;
-                    } catch (IOException e2) {
-                        IOException wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? e2 : ResponseException.wrapNoNetworkExceptionWithDetail(e2);
+                    } catch (IOException e) {
+                        IOException wrapNoNetworkExceptionWithDetail = this.httpRequest.httpManager.isNetWorkConnected() ? e : ResponseException.wrapNoNetworkExceptionWithDetail(e);
                         if (this.httpRequest.networkStat != null) {
-                            this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e2);
+                            this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e);
                         }
                         if (this.httpRequest.requestNetStat != null) {
                             this.httpRequest.requestNetStat.exception = wrapNoNetworkExceptionWithDetail;
                         }
                         throw wrapNoNetworkExceptionWithDetail;
                     }
-                } catch (NullPointerException e3) {
+                } catch (NullPointerException e2) {
                     if (this.httpRequest.networkStat != null) {
-                        this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e3);
+                        this.httpRequest.networkStat.onException(this.httpRequest.okRequest, e2);
                     }
                     if (this.httpRequest.requestNetStat != null) {
-                        this.httpRequest.requestNetStat.exception = e3;
+                        this.httpRequest.requestNetStat.exception = e2;
                     }
-                    throw e3;
+                    throw e2;
                 }
             } finally {
                 long currentTimeMillis = System.currentTimeMillis();
@@ -691,8 +691,8 @@ public class RequestCall implements Cancelable {
                         responseCallback.onFail(new IOException("parse response return null"));
                     }
                 }
-            } catch (Exception e2) {
-                sendFailResult(handler, responseCallback, e2);
+            } catch (Exception e) {
+                sendFailResult(handler, responseCallback, e);
             }
         }
     }

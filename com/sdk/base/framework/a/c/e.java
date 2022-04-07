@@ -39,9 +39,9 @@ public final class e extends FutureTask<Result> {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 c.b(this.a, super.get());
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 c.b(this.a, null);
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e2.getMessage(), this.a.a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e.getMessage(), this.a.a);
             }
         }
     }

@@ -16,16 +16,12 @@ import com.qq.e.comm.pi.NEADVI;
 import com.qq.e.comm.pi.POFactory;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f42357g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public volatile boolean f42358h;
+    public volatile boolean g;
+    public volatile boolean h;
     public NativeExpressMediaListener i;
     public volatile boolean j;
     public final NEADI k;
@@ -52,8 +48,8 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
                 return;
             }
         }
-        this.f42357g = false;
-        this.f42358h = false;
+        this.g = false;
+        this.h = false;
         this.j = false;
         this.q = nativeExpressADView;
         this.k = neadi;
@@ -112,10 +108,10 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
                     ((NEADVI) t).setAdListener(new NativeExpressAD.ADListenerAdapter(nativeExpressMediaListener));
                 }
             }
-            if (this.f42357g) {
+            if (this.g) {
                 preloadVideo();
             }
-            if (this.f42358h) {
+            if (this.h) {
                 render();
             }
             if (this.j) {
@@ -157,7 +153,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!b()) {
-                this.f42357g = true;
+                this.g = true;
                 return;
             }
             T t = this.a;
@@ -173,7 +169,7 @@ public class NativeExpressADCore extends LiteAbstractAD<NEADVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (!b()) {
-                this.f42358h = true;
+                this.h = true;
                 return;
             }
             T t = this.a;

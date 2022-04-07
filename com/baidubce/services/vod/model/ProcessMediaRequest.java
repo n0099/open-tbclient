@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.model.AbstractBceRequest;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ProcessMediaRequest extends VodBceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,8 +111,8 @@ public class ProcessMediaRequest extends VodBceRequest {
                 jSONObject.put("description", this.description);
                 jSONObject.put("sourceExtension", this.sourceExtension);
                 jSONObject.put("transcodingPresetGroupName", this.transcodingPresetGroupName);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return jSONObject.toString();
         }

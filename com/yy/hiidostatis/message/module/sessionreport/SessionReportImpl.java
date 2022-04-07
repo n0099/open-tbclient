@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SessionReportImpl implements SessionReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class SessionReportImpl implements SessionReport {
     public Packer packer;
     public Map<String, Session> sessions;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class Session {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,8 +103,8 @@ public class SessionReportImpl implements SessionReport {
                 for (Map.Entry<String, SessionReport.StatisContentAble> entry : this.values.entrySet()) {
                     send(entry.getKey(), entry.getValue());
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
@@ -115,8 +115,8 @@ public class SessionReportImpl implements SessionReport {
                 synchronized (this) {
                     try {
                         this.values.put(str, this.processor.process(this.values.get(str), str, obj));
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return false;
                     }
                 }

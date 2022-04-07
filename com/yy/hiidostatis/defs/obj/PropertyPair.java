@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.Util;
 import java.io.Serializable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PropertyPair implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_FIELD = "=";
@@ -58,12 +58,12 @@ public class PropertyPair implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public PropertyPair(String str, double d2) {
+    public PropertyPair(String str, double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Double.valueOf(d2)};
+            Object[] objArr = {str, Double.valueOf(d)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -74,7 +74,7 @@ public class PropertyPair implements Serializable {
             }
         }
         this.key = str;
-        this.value = String.valueOf(d2);
+        this.value = String.valueOf(d);
         this.type = 0;
     }
 }

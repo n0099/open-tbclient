@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LoginHistoryItem implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +64,8 @@ public class LoginHistoryItem implements Serializable {
                 jSONObject.put("bduss", this.bduss);
                 jSONObject.put("times", new JSONArray((Collection) this.actionTimes));
                 return jSONObject;
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
                 return null;
             }
         }

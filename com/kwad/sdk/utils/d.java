@@ -7,7 +7,7 @@ import android.view.Window;
 import androidx.annotation.NonNull;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static void a(@NonNull Activity activity, int i, boolean z) {
         a(activity, i, z, true);
@@ -39,8 +39,8 @@ public class d {
             objArr[1] = Integer.valueOf(i);
             method.invoke(window, objArr);
             return true;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }

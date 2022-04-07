@@ -25,32 +25,18 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static OnHistoryTraceListener f26767b;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static boolean f26768h;
+    public static OnHistoryTraceListener b;
+    public static boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HistoryTraceData f26769c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<HistoryTraceData.HistoryTracePoint> f26770d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public b.a f26771e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public HistoryTraceQueryOptions f26772f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f26773g;
+    public HistoryTraceData c;
+    public List<HistoryTraceData.HistoryTracePoint> d;
+    public b.a e;
+    public HistoryTraceQueryOptions f;
+    public boolean g;
     public int i;
     public String j;
     public SparseArray<List<HistoryTraceData.HistoryTracePoint>> k;
@@ -69,7 +55,7 @@ public class a extends Handler {
             }
         }
         a = a.class.getSimpleName();
-        f26768h = false;
+        h = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,11 +76,11 @@ public class a extends Handler {
                 return;
             }
         }
-        this.f26773g = false;
+        this.g = false;
         this.i = 0;
         this.j = HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_SUCCESS;
-        this.f26770d = new ArrayList();
-        this.f26769c = new HistoryTraceData();
+        this.d = new ArrayList();
+        this.c = new HistoryTraceData();
         this.k = new SparseArray<>();
     }
 
@@ -114,12 +100,12 @@ public class a extends Handler {
             try {
                 try {
                     return new LatLng(Double.parseDouble(split[1]), Double.parseDouble(split[0]));
-                } catch (NumberFormatException e2) {
-                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Parser coord latitude failed", e2);
+                } catch (NumberFormatException e) {
+                    com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Parser coord latitude failed", e);
                     return null;
                 }
-            } catch (NumberFormatException e3) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Parser coord longitude failed", e3);
+            } catch (NumberFormatException e2) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "Parser coord longitude failed", e2);
                 return null;
             }
         }
@@ -153,20 +139,20 @@ public class a extends Handler {
     private void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
-            if (this.f26771e == null) {
-                this.f26771e = new b.a();
+            if (this.e == null) {
+                this.e = new b.a();
             }
-            Message obtainMessage = this.f26771e.obtainMessage();
+            Message obtainMessage = this.e.obtainMessage();
             obtainMessage.what = i;
-            obtainMessage.obj = this.f26772f;
-            this.f26771e.sendMessage(obtainMessage);
+            obtainMessage.obj = this.f;
+            this.e.sendMessage(obtainMessage);
         }
     }
 
     private void a(int i, String str, int i2, HistoryTraceData historyTraceData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), historyTraceData}) == null) {
-            OnHistoryTraceListener onHistoryTraceListener = f26767b;
+            OnHistoryTraceListener onHistoryTraceListener = b;
             if (onHistoryTraceListener == null) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "OnHistoryTraceListener is null");
             } else if (1 == i2) {
@@ -192,13 +178,13 @@ public class a extends Handler {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Request result contain error");
                     return false;
                 }
-                this.f26773g = false;
+                this.g = false;
                 int optInt = jSONObject.optInt("total");
                 historyTraceData.setTotalPoints(optInt);
                 int optInt2 = jSONObject.optInt("size");
                 int optInt3 = jSONObject.optInt("req_page_index");
                 if (optInt2 * optInt3 < optInt) {
-                    f26768h = true;
+                    h = true;
                     optInt3++;
                     f.a(optInt3);
                 }
@@ -208,17 +194,17 @@ public class a extends Handler {
                 historyTraceData.setCurrentOrderState(jSONObject.optInt("o_status"));
                 historyTraceData.setOrderStartPosition(a(jSONObject.optString("o_start_point")));
                 historyTraceData.setOrderEndPosition(a(jSONObject.optString("o_end_point")));
-                List<HistoryTraceData.HistoryTracePoint> list = this.f26770d;
+                List<HistoryTraceData.HistoryTracePoint> list = this.d;
                 if (list != null && !list.isEmpty()) {
-                    this.f26770d.clear();
+                    this.d.clear();
                 }
                 List<HistoryTraceData.HistoryTracePoint> a2 = a(jSONObject.optJSONArray("points"));
                 if (a2 != null && !a2.isEmpty()) {
-                    this.f26770d.addAll(a2);
+                    this.d.addAll(a2);
                 }
                 return true;
-            } catch (JSONException e2) {
-                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "JSONException happened when parser request result", e2);
+            } catch (JSONException e) {
+                com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(a, "JSONException happened when parser request result", e);
                 return false;
             }
         }
@@ -238,13 +224,13 @@ public class a extends Handler {
             this.j = jSONObject.optString("message");
             int i2 = this.i;
             if (i2 == 0) {
-                this.f26773g = false;
+                this.g = false;
                 return true;
-            } else if (1 != i2 || this.f26773g) {
+            } else if (1 != i2 || this.g) {
                 return true;
             } else {
                 a(i);
-                this.f26773g = true;
+                this.g = true;
                 return false;
             }
         }
@@ -254,36 +240,36 @@ public class a extends Handler {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f26767b != null) {
-                f26767b = null;
+            if (b != null) {
+                b = null;
             }
-            List<HistoryTraceData.HistoryTracePoint> list = this.f26770d;
+            List<HistoryTraceData.HistoryTracePoint> list = this.d;
             if (list != null) {
                 list.clear();
-                this.f26770d = null;
+                this.d = null;
             }
-            this.f26769c = null;
+            this.c = null;
         }
     }
 
     public void a(HistoryTraceQueryOptions historyTraceQueryOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, historyTraceQueryOptions) == null) {
-            this.f26772f = historyTraceQueryOptions;
+            this.f = historyTraceQueryOptions;
         }
     }
 
     public void a(OnHistoryTraceListener onHistoryTraceListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onHistoryTraceListener) == null) {
-            f26767b = onHistoryTraceListener;
+            b = onHistoryTraceListener;
         }
     }
 
     public void a(b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f26771e = aVar;
+            this.e = aVar;
         }
     }
 
@@ -303,10 +289,10 @@ public class a extends Handler {
                 a(10008, HistoryTraceConstant.LBS_HISTORY_TRACE_MESSAGE_QUERY_RESULT_NULL, i, null);
                 return;
             }
-            boolean a2 = a(str2, this.f26769c, i);
+            boolean a2 = a(str2, this.c, i);
             if (a2) {
-                this.k.put(this.f26769c.getCurrentPageIndex() - 1, this.f26770d);
-                if (f26768h) {
+                this.k.put(this.c.getCurrentPageIndex() - 1, this.d);
+                if (h) {
                     a(i);
                     return;
                 }
@@ -318,18 +304,18 @@ public class a extends Handler {
                     arrayList.addAll(list);
                 }
             }
-            this.f26769c.setPointsList(arrayList);
-            HistoryTraceData historyTraceData = this.f26769c;
-            if (a2 && !f26768h) {
+            this.c.setPointsList(arrayList);
+            HistoryTraceData historyTraceData = this.c;
+            if (a2 && !h) {
                 a(this.i, this.j, i, historyTraceData);
-                this.f26769c = null;
-                this.f26769c = new HistoryTraceData();
-                this.f26770d.clear();
-                this.f26770d = null;
-                this.f26770d = new ArrayList();
+                this.c = null;
+                this.c = new HistoryTraceData();
+                this.d.clear();
+                this.d = null;
+                this.d = new ArrayList();
                 this.k.clear();
             }
-            f26768h = false;
+            h = false;
         }
     }
 }

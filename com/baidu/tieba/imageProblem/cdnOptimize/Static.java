@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public static CustomMessageTask a;
@@ -66,33 +66,33 @@ public class Static {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
                             TbCDNTachometerService.CustomMsgData data = customMessage.getData();
-                            if (data != null && data.a != null && data.a.f34091e != null) {
+                            if (data != null && data.a != null && data.a.e != null) {
                                 String str = "";
                                 boolean z = false;
-                                if (data.f34087h == null) {
-                                    if (data.f34081b < data.a.f34091e.size()) {
-                                        ArrayList<String> arrayList = data.a.f34091e.get(data.f34081b);
+                                if (data.h == null) {
+                                    if (data.b < data.a.e.size()) {
+                                        ArrayList<String> arrayList = data.a.e.get(data.b);
                                         if (arrayList.size() > 0) {
                                             str = arrayList.get(0);
                                         }
                                     }
-                                } else if (data.f34087h.length() > 0) {
-                                    str = data.f34087h;
+                                } else if (data.h.length() > 0) {
+                                    str = data.h;
                                     z = true;
                                 }
                                 if (PermissionUtil.isAgreePrivacyPolicy() && str.length() > 0) {
-                                    data.f34082c = data.f34085f.getTestImageData(data.a.f34089c, str, data.a.f34093g, data.a.f34090d, data.f34086g);
-                                    data.f34083d = System.currentTimeMillis() - currentTimeMillis;
-                                    data.f34084e = str;
+                                    data.c = data.f.getTestImageData(data.a.c, str, data.a.g, data.a.d, data.g);
+                                    data.d = System.currentTimeMillis() - currentTimeMillis;
+                                    data.e = str;
                                     if (z) {
-                                        data.f34087h = str;
+                                        data.h = str;
                                     }
                                     return new CustomResponsedMessage<>(2017000, data);
                                 }
                             }
                             return null;
-                        } catch (Exception e2) {
-                            BdLog.e(e2);
+                        } catch (Exception e) {
+                            BdLog.e(e);
                         }
                     }
                     return null;

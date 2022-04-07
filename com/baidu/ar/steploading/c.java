@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c extends com.baidu.ar.e.a<String, Void> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,14 +116,14 @@ public class c extends com.baidu.ar.e.a<String, Void> {
                                 iError.onError(2, "download fail", null);
                                 return;
                             }
-                        } catch (Exception e2) {
-                            iError.onError(2, e2.getMessage(), e2);
+                        } catch (Exception e) {
+                            iError.onError(2, e.getMessage(), e);
                             return;
                         }
                     }
                     iCallbackWith.run(null);
-                } catch (HttpException e3) {
-                    iError.onError(2, e3.getMessage(), e3);
+                } catch (HttpException e2) {
+                    iError.onError(2, e2.getMessage(), e2);
                 }
             }
         }

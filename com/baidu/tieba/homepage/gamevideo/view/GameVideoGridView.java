@@ -13,17 +13,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GameVideoGridView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Animation f33298b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public GridLayoutAnimationController f33299c;
+    public Animation b;
+    public GridLayoutAnimationController c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameVideoGridView(Context context, AttributeSet attributeSet, int i) {
@@ -51,16 +47,16 @@ public class GameVideoGridView extends BdGridView {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f33298b == null) {
-                this.f33298b = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010072);
+            if (this.b == null) {
+                this.b = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010073);
             }
-            if (this.f33299c == null) {
-                GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.f33298b);
-                this.f33299c = gridLayoutAnimationController;
+            if (this.c == null) {
+                GridLayoutAnimationController gridLayoutAnimationController = new GridLayoutAnimationController(this.b);
+                this.c = gridLayoutAnimationController;
                 gridLayoutAnimationController.setColumnDelay(0.4f);
-                this.f33299c.setRowDelay(0.2f);
-                this.f33299c.setDirection(0);
-                this.f33299c.setDirectionPriority(0);
+                this.c.setRowDelay(0.2f);
+                this.c.setDirection(0);
+                this.c.setDirectionPriority(0);
             }
         }
     }
@@ -68,7 +64,7 @@ public class GameVideoGridView extends BdGridView {
     public void d() {
         Animation animation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animation = this.f33298b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (animation = this.b) == null) {
             return;
         }
         animation.cancel();
@@ -77,11 +73,11 @@ public class GameVideoGridView extends BdGridView {
     public void e() {
         GridLayoutAnimationController gridLayoutAnimationController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gridLayoutAnimationController = this.f33299c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gridLayoutAnimationController = this.c) == null) {
             return;
         }
         setLayoutAnimation(gridLayoutAnimationController);
-        this.f33299c.start();
+        this.c.start();
         startLayoutAnimation();
     }
 

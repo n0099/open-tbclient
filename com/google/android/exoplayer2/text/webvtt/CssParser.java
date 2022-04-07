@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class CssParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BLOCK_END = "}";
@@ -153,12 +153,12 @@ public final class CssParser {
             int position = parsableByteArray.getPosition();
             int limit = parsableByteArray.limit();
             while (position < limit && !z) {
-                char c2 = (char) parsableByteArray.data[position];
-                if ((c2 < 'A' || c2 > 'Z') && ((c2 < 'a' || c2 > 'z') && !((c2 >= '0' && c2 <= '9') || c2 == '#' || c2 == '-' || c2 == '.' || c2 == '_'))) {
+                char c = (char) parsableByteArray.data[position];
+                if ((c < 'A' || c > 'Z') && ((c < 'a' || c > 'z') && !((c >= '0' && c <= '9') || c == '#' || c == '-' || c == '.' || c == '_'))) {
                     z = true;
                 } else {
                     position++;
-                    sb.append(c2);
+                    sb.append(c);
                 }
             }
             parsableByteArray.skipBytes(position - parsableByteArray.getPosition());
@@ -256,19 +256,19 @@ public final class CssParser {
                 }
                 if ("color".equals(parseIdentifier)) {
                     webvttCssStyle.setFontColor(ColorParser.parseCssColor(parsePropertyValue));
-                } else if (PROPERTY_BGCOLOR.equals(parseIdentifier)) {
+                } else if ("background-color".equals(parseIdentifier)) {
                     webvttCssStyle.setBackgroundColor(ColorParser.parseCssColor(parsePropertyValue));
-                } else if (PROPERTY_TEXT_DECORATION.equals(parseIdentifier)) {
+                } else if ("text-decoration".equals(parseIdentifier)) {
                     if ("underline".equals(parsePropertyValue)) {
                         webvttCssStyle.setUnderline(true);
                     }
                 } else if (PROPERTY_FONT_FAMILY.equals(parseIdentifier)) {
                     webvttCssStyle.setFontFamily(parsePropertyValue);
-                } else if (PROPERTY_FONT_WEIGHT.equals(parseIdentifier)) {
+                } else if ("font-weight".equals(parseIdentifier)) {
                     if ("bold".equals(parsePropertyValue)) {
                         webvttCssStyle.setBold(true);
                     }
-                } else if (PROPERTY_FONT_STYLE.equals(parseIdentifier) && "italic".equals(parsePropertyValue)) {
+                } else if ("font-style".equals(parseIdentifier) && "italic".equals(parsePropertyValue)) {
                     webvttCssStyle.setItalic(true);
                 }
             }

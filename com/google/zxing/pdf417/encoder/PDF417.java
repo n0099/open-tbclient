@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.WriterException;
 import java.nio.charset.Charset;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class PDF417 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[][] CODEWORD_TABLE;
@@ -80,14 +80,14 @@ public final class PDF417 {
         int calculateNumberOfRows;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2)) == null) {
-            float f2 = 0.0f;
+            float f = 0.0f;
             int[] iArr = null;
             for (int i3 = this.minCols; i3 <= this.maxCols && (calculateNumberOfRows = calculateNumberOfRows(i, i2, i3)) >= this.minRows; i3++) {
                 if (calculateNumberOfRows <= this.maxRows) {
-                    float f3 = (((i3 * 17) + 69) * 0.357f) / (calculateNumberOfRows * 2.0f);
-                    if (iArr == null || Math.abs(f3 - 3.0f) <= Math.abs(f2 - 3.0f)) {
+                    float f2 = (((i3 * 17) + 69) * 0.357f) / (calculateNumberOfRows * 2.0f);
+                    if (iArr == null || Math.abs(f2 - 3.0f) <= Math.abs(f - 3.0f)) {
                         iArr = new int[]{i3, calculateNumberOfRows};
-                        f2 = f3;
+                        f = f2;
                     }
                 }
             }

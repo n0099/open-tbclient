@@ -19,7 +19,7 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class DateTimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
@@ -112,8 +112,8 @@ public final class DateTimeUtils {
             } catch (Exception unused) {
                 try {
                     return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -145,8 +145,8 @@ public final class DateTimeUtils {
             } catch (Exception unused) {
                 try {
                     return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return "";
                 }
             }
@@ -291,8 +291,8 @@ public final class DateTimeUtils {
                 if (j3 >= 0) {
                     j2 = j;
                 }
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 j2 = j;
             }
             try {
@@ -313,17 +313,17 @@ public final class DateTimeUtils {
                 calendar3.set(13, 0);
                 calendar3.set(14, 0);
                 if (calendar.after(calendar2)) {
-                    return j4 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13c1), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13c2), Long.valueOf(j5)) : context.getString(R.string.obfuscated_res_0x7f0f13c3);
+                    return j4 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13c9), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13ca), Long.valueOf(j5)) : context.getString(R.string.obfuscated_res_0x7f0f13cb);
                 } else if (calendar.after(calendar3)) {
-                    return String.format(context.getString(R.string.obfuscated_res_0x7f0f13c0), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
+                    return String.format(context.getString(R.string.obfuscated_res_0x7f0f13c8), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
                 } else {
                     if (z2) {
                         return new SimpleDateFormat("MM-dd", Locale.getDefault()).format(calendar.getTime());
                     }
                     return new SimpleDateFormat(z ? "yyyy-MM-dd HH:mm" : "yyyy-MM-dd", Locale.getDefault()).format(calendar.getTime());
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 e.printStackTrace();
                 return String.valueOf(j2);
             }
@@ -359,8 +359,8 @@ public final class DateTimeUtils {
             } catch (Exception unused) {
                 try {
                     return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -380,8 +380,8 @@ public final class DateTimeUtils {
             } catch (Exception unused) {
                 try {
                     return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).parse(str);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
             }
@@ -429,8 +429,8 @@ public final class DateTimeUtils {
                 for (String str2 : strArr) {
                     try {
                         date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     if (date != null) {
                         break;

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,16 +73,16 @@ public class HttpUtils {
             MessageDigest messageDigest = null;
             try {
                 str = Crypto.sha1(context.getPackageName());
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 str = null;
             }
             restNameValuePair.setValue(str);
             arrayList.add(restNameValuePair);
             try {
                 messageDigest = MessageDigest.getInstance("MD5");
-            } catch (NoSuchAlgorithmException e3) {
-                e3.printStackTrace();
+            } catch (NoSuchAlgorithmException e2) {
+                e2.printStackTrace();
             }
             if (messageDigest == null) {
                 return "";
@@ -109,8 +109,8 @@ public class HttpUtils {
             }
             byte[] digest = messageDigest.digest();
             StringBuilder sb2 = new StringBuilder();
-            for (byte b2 : digest) {
-                sb2.append(Integer.toHexString((b2 & 255) | (-256)).substring(6));
+            for (byte b : digest) {
+                sb2.append(Integer.toHexString((b & 255) | (-256)).substring(6));
             }
             return sb2.toString();
         }

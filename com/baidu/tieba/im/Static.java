@@ -20,13 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.e77;
+import com.repackage.w87;
+import com.repackage.ya;
+/* loaded from: classes3.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public static class a extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -58,14 +61,14 @@ public class Static {
                 String valueOf = String.valueOf(((ResponseDismissGroupMessage) socketResponsedMessage).getGroupId());
                 MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
                 aVar.a = 1;
-                aVar.f33857b = valueOf;
+                aVar.b = valueOf;
                 MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public static class b extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,21 +101,21 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(c.a.p0.u1.m.a.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(e77.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;
                 }
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(c.a.p0.u1.w.b.a(1L));
+                imMessageCenterPojo.setPulled_msgId(w87.a(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class c extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public static class c extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -152,7 +155,7 @@ public class Static {
                     if (id.equals(str)) {
                         MemoryItemRemoveMessage.a aVar = new MemoryItemRemoveMessage.a();
                         aVar.a = 1;
-                        aVar.f33857b = responseRemoveMembersMessage.getGroupId();
+                        aVar.b = responseRemoveMembersMessage.getGroupId();
                         MessageManager.getInstance().dispatchResponsedMessage(new MemoryItemRemoveMessage(aVar));
                         return;
                     }

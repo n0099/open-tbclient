@@ -61,10 +61,10 @@ public class Aspects {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
             try {
                 return (T) getSingletonOrThreadAspectOf(cls).invoke(null, EMPTY_OBJECT_ARRAY);
-            } catch (InvocationTargetException e2) {
+            } catch (InvocationTargetException e) {
+                throw new NoAspectBoundException(cls.getName(), e);
+            } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
-            } catch (Exception e3) {
-                throw new NoAspectBoundException(cls.getName(), e3);
             }
         }
         return (T) invokeL.objValue;
@@ -177,10 +177,10 @@ public class Aspects {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj)) == null) {
             try {
                 return (T) getPerObjectAspectOf(cls).invoke(null, obj);
-            } catch (InvocationTargetException e2) {
+            } catch (InvocationTargetException e) {
+                throw new NoAspectBoundException(cls.getName(), e);
+            } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
-            } catch (Exception e3) {
-                throw new NoAspectBoundException(cls.getName(), e3);
             }
         }
         return (T) invokeLL.objValue;
@@ -192,10 +192,10 @@ public class Aspects {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, cls2)) == null) {
             try {
                 return (T) getPerTypeWithinAspectOf(cls).invoke(null, cls2);
-            } catch (InvocationTargetException e2) {
+            } catch (InvocationTargetException e) {
+                throw new NoAspectBoundException(cls.getName(), e);
+            } catch (Exception e2) {
                 throw new NoAspectBoundException(cls.getName(), e2);
-            } catch (Exception e3) {
-                throw new NoAspectBoundException(cls.getName(), e3);
             }
         }
         return (T) invokeLL.objValue;

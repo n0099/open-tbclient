@@ -19,7 +19,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKViewPager extends TKBase<RecyclerViewPager> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,12 +123,12 @@ public class TKViewPager extends TKBase<RecyclerViewPager> {
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeListener
-                public void onPageScrolled(int i, float f2, int i2) {
+                public void onPageScrolled(int i, float f, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || this.this$0.mPageChangeCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || this.this$0.mPageChangeCallback == null) {
                         return;
                     }
-                    this.this$0.mPageChangeCallback.onPageScrolled(i, f2, i2);
+                    this.this$0.mPageChangeCallback.onPageScrolled(i, f, i2);
                 }
 
                 @Override // com.tachikoma.core.component.listview.viewpager.RecyclerViewPager.OnPageChangeListener

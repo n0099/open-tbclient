@@ -1,7 +1,5 @@
 package com.baidu.browser.core.async;
 
-import c.a.k.a.i.d;
-import c.a.k.a.i.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-/* loaded from: classes3.dex */
-public abstract class BdRunnable implements Runnable, e {
+import com.repackage.ay;
+import com.repackage.zx;
+/* loaded from: classes.dex */
+public abstract class BdRunnable implements Runnable, ay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public STATUS f24977b;
+    public ay a;
+    public STATUS b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class STATUS {
         public static final /* synthetic */ STATUS[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -99,19 +97,19 @@ public abstract class BdRunnable implements Runnable, e {
                 return;
             }
         }
-        this.f24977b = STATUS.INITED;
+        this.b = STATUS.INITED;
     }
 
-    @Override // c.a.k.a.i.e
+    @Override // com.repackage.ay
     public void a(Error error) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-            this.f24977b = STATUS.FAIL;
-            e eVar = this.a;
-            if (eVar != null) {
-                eVar.a(error);
+            this.b = STATUS.FAIL;
+            ay ayVar = this.a;
+            if (ayVar != null) {
+                ayVar.a(error);
             }
-            d.f().d();
+            zx.f().d();
         }
     }
 
@@ -121,46 +119,46 @@ public abstract class BdRunnable implements Runnable, e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            STATUS status = this.f24977b;
+            STATUS status = this.b;
             return status == STATUS.COMPLETE || status == STATUS.FAIL;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.k.a.i.e
+    @Override // com.repackage.ay
     public void onComplete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f24977b = STATUS.COMPLETE;
-            e eVar = this.a;
-            if (eVar != null) {
-                eVar.onComplete();
+            this.b = STATUS.COMPLETE;
+            ay ayVar = this.a;
+            if (ayVar != null) {
+                ayVar.onComplete();
             }
-            d.f().d();
+            zx.f().d();
         }
     }
 
-    @Override // c.a.k.a.i.e
+    @Override // com.repackage.ay
     public void onException(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            this.f24977b = STATUS.FAIL;
-            e eVar = this.a;
-            if (eVar != null) {
-                eVar.onException(exc);
+            this.b = STATUS.FAIL;
+            ay ayVar = this.a;
+            if (ayVar != null) {
+                ayVar.onException(exc);
             }
-            d.f().d();
+            zx.f().d();
         }
     }
 
-    @Override // c.a.k.a.i.e
+    @Override // com.repackage.ay
     public void onStart() {
-        e eVar;
+        ay ayVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ayVar = this.a) == null) {
             return;
         }
-        eVar.onStart();
+        ayVar.onStart();
     }
 
     @Override // java.lang.Runnable
@@ -169,13 +167,13 @@ public abstract class BdRunnable implements Runnable, e {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             try {
                 onStart();
-                this.f24977b = STATUS.RUNNING;
+                this.b = STATUS.RUNNING;
                 b();
                 onComplete();
-            } catch (Error e2) {
-                a(e2);
-            } catch (Exception e3) {
-                onException(e3);
+            } catch (Error e) {
+                a(e);
+            } catch (Exception e2) {
+                onException(e2);
             }
         }
     }

@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HeifExifUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HeifExifUtil";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class HeifExifUtilAndroidN {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public class HeifExifUtil {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
                 try {
                     return new ExifInterface(inputStream).getAttributeInt("Orientation", 1);
-                } catch (IOException e2) {
-                    FLog.d(HeifExifUtil.TAG, "Failed reading Heif Exif orientation -> ignoring", (Throwable) e2);
+                } catch (IOException e) {
+                    FLog.d(HeifExifUtil.TAG, "Failed reading Heif Exif orientation -> ignoring", (Throwable) e);
                     return 0;
                 }
             }

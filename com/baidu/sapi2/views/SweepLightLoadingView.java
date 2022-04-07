@@ -20,20 +20,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f28575b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f28576c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f28577d;
+    public ImageView b;
+    public ImageView c;
+    public LinearLayout d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SweepLightLoadingView(Context context) {
@@ -59,16 +53,16 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04e2, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04dd, (ViewGroup) this, true);
             this.a = inflate;
-            this.f28575b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba8);
-            this.f28576c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091bcd);
-            this.f28577d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bce);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b97);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091bbc);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f091bbd);
             if (SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-                this.f28577d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a6));
-                this.f28575b.setImageResource(R.drawable.obfuscated_res_0x7f081063);
-                this.f28576c.setImageResource(R.drawable.obfuscated_res_0x7f081061);
-                this.a.findViewById(R.id.obfuscated_res_0x7f091bcc).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609f3));
+                this.d.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b5));
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f08106a);
+                this.c.setImageResource(R.drawable.obfuscated_res_0x7f081068);
+                this.a.findViewById(R.id.obfuscated_res_0x7f091bbb).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060a02));
             }
         }
     }
@@ -76,7 +70,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f28576c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01010c));
+            this.c.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010112));
         }
     }
 
@@ -84,7 +78,7 @@ public class SweepLightLoadingView extends FrameLayout implements NoProguard {
     private void c() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (imageView = this.f28576c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65541, this) == null) || (imageView = this.c) == null) {
             return;
         }
         imageView.clearAnimation();

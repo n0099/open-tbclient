@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MediaCodecInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecInfo";
@@ -77,12 +77,12 @@ public final class MediaCodecInfo {
     }
 
     @TargetApi(21)
-    public static boolean areSizeAndRateSupportedV21(MediaCodecInfo.VideoCapabilities videoCapabilities, int i, int i2, double d2) {
+    public static boolean areSizeAndRateSupportedV21(MediaCodecInfo.VideoCapabilities videoCapabilities, int i, int i2, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{videoCapabilities, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
-            if (d2 != -1.0d && d2 > 0.0d) {
-                return videoCapabilities.areSizeAndRateSupported(i, i2, d2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{videoCapabilities, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
+            if (d != -1.0d && d > 0.0d) {
+                return videoCapabilities.areSizeAndRateSupported(i, i2, d);
             }
             return videoCapabilities.isSizeSupported(i, i2);
         }
@@ -264,10 +264,10 @@ public final class MediaCodecInfo {
     }
 
     @TargetApi(21)
-    public boolean isVideoSizeAndRateSupportedV21(int i, int i2, double d2) {
+    public boolean isVideoSizeAndRateSupportedV21(int i, int i2, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d)})) == null) {
             MediaCodecInfo.CodecCapabilities codecCapabilities = this.capabilities;
             if (codecCapabilities == null) {
                 logNoSupport("sizeAndRate.caps");
@@ -277,14 +277,14 @@ public final class MediaCodecInfo {
             if (videoCapabilities == null) {
                 logNoSupport("sizeAndRate.vCaps");
                 return false;
-            } else if (areSizeAndRateSupportedV21(videoCapabilities, i, i2, d2)) {
+            } else if (areSizeAndRateSupportedV21(videoCapabilities, i, i2, d)) {
                 return true;
             } else {
-                if (i < i2 && areSizeAndRateSupportedV21(videoCapabilities, i2, i, d2)) {
-                    logAssumedSupport("sizeAndRate.rotated, " + i + "x" + i2 + "x" + d2);
+                if (i < i2 && areSizeAndRateSupportedV21(videoCapabilities, i2, i, d)) {
+                    logAssumedSupport("sizeAndRate.rotated, " + i + "x" + i2 + "x" + d);
                     return true;
                 }
-                logNoSupport("sizeAndRate.support, " + i + "x" + i2 + "x" + d2);
+                logNoSupport("sizeAndRate.support, " + i + "x" + i2 + "x" + d);
                 return false;
             }
         }

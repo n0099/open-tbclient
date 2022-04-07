@@ -3,8 +3,6 @@ package com.baidu.tieba.ala.alasquare.live_tab.fragment;
 import android.content.Context;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
-import c.a.o0.f0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,35 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.h45;
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f31270b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public h f31271c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f31272d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f31273e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f31274f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f31275g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f31276h;
+    public LinearLayout b;
+    public h45 c;
+    public boolean d;
+    public boolean e;
+    public int f;
+    public String g;
+    public String h;
     public CustomMessageListener i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +63,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             Boolean bool;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                this.a.f31273e = false;
+                this.a.e = false;
             }
         }
     }
@@ -95,73 +81,73 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
                 return;
             }
         }
-        this.f31272d = false;
-        this.f31273e = false;
+        this.d = false;
+        this.e = false;
         this.i = new a(this, 2921442);
+    }
+
+    public void B0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.setVisibility(8);
+        }
     }
 
     public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f31270b.setVisibility(8);
-        }
-    }
-
-    public void D0() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
-            this.f31273e = true;
+            this.e = true;
         }
     }
 
-    public boolean E0() {
+    public boolean D0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (m.isEmpty(this.f31275g) || m.isEmpty(this.f31276h)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ni.isEmpty(this.g) || ni.isEmpty(this.h)) ? false : true : invokeV.booleanValue;
     }
 
-    public abstract void F0();
+    public abstract void E0();
 
-    public void G0(String str, String str2) {
+    public void F0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            this.f31275g = str;
-            this.f31276h = str2;
+            this.g = str;
+            this.h = str2;
         }
     }
 
-    public void H0() {
+    public void G0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f31270b.setVisibility(0);
-            if (this.f31271c == null) {
-                this.f31271c = new h(this.a, null);
+            this.b.setVisibility(0);
+            if (this.c == null) {
+                this.c = new h45(this.a, null);
             }
-            this.f31271c.e();
-            this.f31271c.i(R.drawable.new_pic_emotion_03);
-            this.f31271c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2c));
-            this.f31271c.onChangeSkinType();
+            this.c.e();
+            this.c.i(R.drawable.new_pic_emotion_03);
+            this.c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2f));
+            this.c.onChangeSkinType();
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f31271c.b() == null || this.f31271c.b().getParent() != null) {
+            if (this.c.b() == null || this.c.b().getParent() != null) {
                 return;
             }
-            this.f31270b.addView(this.f31271c.b(), layoutParams);
+            this.b.addView(this.c.b(), layoutParams);
         }
     }
 
     public abstract void loadData();
 
-    public abstract void n();
+    public abstract void m();
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             super.onChangeSkinType(i);
-            h hVar = this.f31271c;
-            if (hVar != null) {
-                hVar.onChangeSkinType();
+            h45 h45Var = this.c;
+            if (h45Var != null) {
+                h45Var.onChangeSkinType();
             }
         }
     }

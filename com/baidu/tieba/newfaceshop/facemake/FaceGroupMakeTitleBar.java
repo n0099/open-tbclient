@@ -17,19 +17,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FaceGroupMakeTitleBar extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
+    public TextView b;
+    public ImageView c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f34676b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f34677c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +50,9 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 ((Activity) this.a.getContext()).finish();
             }
         }
@@ -86,21 +82,21 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d028a, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.f34676b = (TextView) findViewById(R.id.obfuscated_res_0x7f092205);
-            this.f34677c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc5);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d028b, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092201);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e9);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbf);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f34676b, (int) R.color.common_color_10140);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f34677c, R.drawable.obfuscated_res_0x7f080624, R.color.CAM_X0105, null);
-            this.f34677c.setOnClickListener(new a(this));
+            SkinManager.setViewTextColor(this.b, (int) R.color.common_color_10140);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0105, null);
+            this.c.setOnClickListener(new a(this));
         }
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.f34677c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (imageView = this.c) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -109,14 +105,14 @@ public class FaceGroupMakeTitleBar extends RelativeLayout {
     public void setRightListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f34676b.setOnClickListener(onClickListener);
+            this.b.setOnClickListener(onClickListener);
         }
     }
 
     public void setRightText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f34676b.setText(str);
+            this.b.setText(str);
         }
     }
 

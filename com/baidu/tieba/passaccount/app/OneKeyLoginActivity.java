@@ -4,13 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import c.a.p0.u2.b.a;
-import c.a.p0.u2.b.b;
-import c.a.p0.u2.b.c;
-import c.a.p0.u2.b.d;
-import c.a.p0.u2.b.e;
-import c.a.p0.u2.b.f;
-import c.a.p0.u2.b.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
@@ -20,14 +13,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fq7;
+import com.repackage.gq7;
+import com.repackage.hq7;
+import com.repackage.iq7;
+import com.repackage.jq7;
+import com.repackage.kq7;
+import com.repackage.lq7;
+/* loaded from: classes3.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a controller;
-    public c oneKeyLoginData;
+    public fq7 controller;
+    public hq7 oneKeyLoginData;
     public String shareModelJSONStr;
-    public b view;
+
+    /* renamed from: view  reason: collision with root package name */
+    public gq7 f1011view;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -47,12 +49,12 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            c cVar = new c();
-            this.oneKeyLoginData = cVar;
-            cVar.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
-            this.oneKeyLoginData.f18966b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
-            this.oneKeyLoginData.f18967c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
-            this.oneKeyLoginData.f18968d = this.shareModelJSONStr;
+            hq7 hq7Var = new hq7();
+            this.oneKeyLoginData = hq7Var;
+            hq7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            this.oneKeyLoginData.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
+            this.oneKeyLoginData.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
+            this.oneKeyLoginData.d = this.shareModelJSONStr;
         }
     }
 
@@ -72,7 +74,7 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            this.view.a(i);
+            this.f1011view.a(i);
         }
     }
 
@@ -81,17 +83,17 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0046);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091aee);
+            setContentView(R.layout.obfuscated_res_0x7f0d0048);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091add);
             initData();
             if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.view = new e(getPageContext(), findViewById);
-                this.controller = new d(getPageContext(), this.view);
+                this.f1011view = new jq7(getPageContext(), findViewById);
+                this.controller = new iq7(getPageContext(), this.f1011view);
             } else {
-                this.view = new g(getPageContext(), findViewById);
-                this.controller = new f(getPageContext(), this.view);
+                this.f1011view = new lq7(getPageContext(), findViewById);
+                this.controller = new kq7(getPageContext(), this.f1011view);
             }
-            this.view.c(this.oneKeyLoginData);
+            this.f1011view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);
             this.controller.i(false);
             this.controller.k(UbsABTestHelper.isFirstLoginTestB());

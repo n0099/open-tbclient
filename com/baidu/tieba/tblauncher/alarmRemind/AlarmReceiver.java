@@ -3,9 +3,6 @@ package com.baidu.tieba.tblauncher.alarmRemind;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import c.a.d.f.p.l;
-import c.a.o0.r.j0.b;
-import c.a.p0.c4.p.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,7 +11,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.mi;
+import com.repackage.wt4;
+import com.repackage.xn8;
+/* loaded from: classes4.dex */
 public class AlarmReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,8 +36,8 @@ public class AlarmReceiver extends BroadcastReceiver {
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && l.z() && a.e() && !a.f(b.k().m("tieba_last_active_time", 0L))) {
-            RemindRecommendMessage a = a.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && mi.z() && xn8.e() && !xn8.f(wt4.k().m("tieba_last_active_time", 0L))) {
+            RemindRecommendMessage a = xn8.a(TbadkSettings.getInst().loadString(TbadkCoreApplication.getCurrentAccount() + "remind_recommend_info", ""));
             if (a != null) {
                 MessageManager.getInstance().dispatchResponsedMessage(a);
             }

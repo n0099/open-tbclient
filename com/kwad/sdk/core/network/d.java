@@ -5,7 +5,7 @@ import com.baidu.searchbox.live.interfaces.DI;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class d extends b {
     public d() {
         this(0);
@@ -18,7 +18,7 @@ public abstract class d extends b {
     @Override // com.kwad.sdk.core.network.b
     public void g() {
         String a = a();
-        if (!com.kwad.sdk.b.f39154c.booleanValue() || a == null || a.contains(com.kwad.sdk.d.d())) {
+        if (!com.kwad.sdk.b.c.booleanValue() || a == null || a.contains(com.kwad.sdk.d.d())) {
             return;
         }
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -30,8 +30,8 @@ public abstract class d extends b {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("laneId", a2.getValue().toString());
             a("trace-context", jSONObject.toString());
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
     }
 

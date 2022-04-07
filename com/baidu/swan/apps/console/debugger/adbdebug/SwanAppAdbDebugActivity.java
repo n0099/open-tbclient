@@ -6,9 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.n0.a.p2.v;
-import c.a.n0.a.s1.b.b.h;
-import c.a.n0.a.s1.b.f.e;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.tieba.R;
@@ -19,14 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.b03;
+import com.repackage.id3;
+import com.repackage.nz2;
+import com.repackage.rf3;
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public class SwanAppAdbDebugActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "SwanAppAdbDebugActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,14 +61,12 @@ public class SwanAppAdbDebugActivity extends Activity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Intent a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ SwanAppAdbDebugActivity f28809b;
+        public final /* synthetic */ SwanAppAdbDebugActivity b;
 
         public b(SwanAppAdbDebugActivity swanAppAdbDebugActivity, Intent intent) {
             Interceptable interceptable = $ic;
@@ -83,7 +83,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                     return;
                 }
             }
-            this.f28809b = swanAppAdbDebugActivity;
+            this.b = swanAppAdbDebugActivity;
             this.a = intent;
         }
 
@@ -91,9 +91,9 @@ public class SwanAppAdbDebugActivity extends Activity {
         public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.a.setClass(this.f28809b, SwanAppLauncherActivity.class);
-                this.f28809b.startActivity(this.a);
-                this.f28809b.finish();
+                this.a.setClass(this.b, SwanAppLauncherActivity.class);
+                this.b.startActivity(this.a);
+                this.b.finish();
             }
         }
     }
@@ -111,7 +111,7 @@ public class SwanAppAdbDebugActivity extends Activity {
                 return;
             }
         }
-        DEBUG = c.a.n0.a.a.a;
+        DEBUG = tg1.a;
     }
 
     public SwanAppAdbDebugActivity() {
@@ -136,25 +136,25 @@ public class SwanAppAdbDebugActivity extends Activity {
             if (DEBUG) {
                 Log.d(TAG, "ADB Debug onCreate");
             }
-            if (v.a(this)) {
+            if (id3.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
             Intent intent = getIntent();
             if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-                e.f(this, R.string.obfuscated_res_0x7f0f00f7).G();
+                b03.f(this, R.string.obfuscated_res_0x7f0f00f8).G();
                 if (DEBUG) {
                     Log.d(TAG, "ADB Debug lack of app path");
                 }
                 finish();
             }
-            h.a aVar = new h.a(this);
-            aVar.V(getString(R.string.obfuscated_res_0x7f0f00f5));
-            aVar.x(getString(R.string.obfuscated_res_0x7f0f00f6));
-            aVar.n(new c.a.n0.a.q2.h.a());
+            nz2.a aVar = new nz2.a(this);
+            aVar.V(getString(R.string.obfuscated_res_0x7f0f00f6));
+            aVar.x(getString(R.string.obfuscated_res_0x7f0f00f7));
+            aVar.n(new rf3());
             aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f010f, new b(this, intent));
-            aVar.B(R.string.obfuscated_res_0x7f0f1272, new a(this));
+            aVar.O(R.string.obfuscated_res_0x7f0f0110, new b(this, intent));
+            aVar.B(R.string.obfuscated_res_0x7f0f127a, new a(this));
             aVar.X();
             LogUtil.logActivity(this, "onCreate");
         }

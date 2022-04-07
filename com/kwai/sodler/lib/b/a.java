@@ -11,16 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f41801b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, String> f41802c;
+    public static String b;
+    public static final Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,12 +33,12 @@ public class a {
             }
         }
         HashMap hashMap = new HashMap();
-        f41802c = hashMap;
+        c = hashMap;
         hashMap.put("mips", "mips");
-        f41802c.put("mips64", "mips64");
-        f41802c.put("x86", "x86");
-        f41802c.put("x86_64", "x86_64");
-        f41802c.put("arm64", "arm64-v8a");
+        c.put("mips64", "mips64");
+        c.put("x86", "x86");
+        c.put("x86_64", "x86_64");
+        c.put("arm64", "arm64-v8a");
     }
 
     public static boolean a() {
@@ -63,8 +59,8 @@ public class a {
                     Method declaredMethod2 = cls.getDeclaredMethod("is64Bit", new Class[0]);
                     declaredMethod2.setAccessible(true);
                     bool = (Boolean) declaredMethod2.invoke(invoke, new Object[0]);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 if (bool != null) {
                     return bool.booleanValue();

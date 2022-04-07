@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewOpUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ViewOpUtils";
@@ -31,21 +31,21 @@ public class ViewOpUtils {
     }
 
     @PublicMethod
-    public static boolean removeView(View view) {
+    public static boolean removeView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view)) == null) {
-            if (view == null || view.getParent() == null || !(view.getParent() instanceof ViewGroup)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 == null || view2.getParent() == null || !(view2.getParent() instanceof ViewGroup)) {
                 return false;
             }
-            ViewGroup viewGroup = (ViewGroup) view.getParent();
-            if (viewGroup.indexOfChild(view) != -1) {
+            ViewGroup viewGroup = (ViewGroup) view2.getParent();
+            if (viewGroup.indexOfChild(view2) != -1) {
                 try {
-                    BdVideoLog.d(TAG, "removeView " + view.hashCode());
-                    viewGroup.removeView(view);
+                    BdVideoLog.d(TAG, "removeView " + view2.hashCode());
+                    viewGroup.removeView(view2);
                     return true;
-                } catch (Exception e2) {
-                    BdVideoLog.e("removeView(" + System.identityHashCode(view) + SmallTailInfo.EMOTION_SUFFIX, e2);
+                } catch (Exception e) {
+                    BdVideoLog.e("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
                     return true;
                 }
             }

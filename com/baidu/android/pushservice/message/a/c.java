@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +57,8 @@ public abstract class c {
         }
         try {
             jSONObject = new JSONObject(new String(bArr));
-        } catch (Exception e2) {
-            new b.c(this.a).a(Log.getStackTraceString(e2)).a();
+        } catch (Exception e) {
+            new b.c(this.a).a(Log.getStackTraceString(e)).a();
         }
         if (!jSONObject.isNull("bccs_fb")) {
             i = Integer.parseInt(jSONObject.getString("bccs_fb"));

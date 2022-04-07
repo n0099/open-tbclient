@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SocialLoginBase extends BaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static WXInvokeCallback t;
@@ -50,10 +50,10 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
             } catch (Throwable unused) {
             }
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aee);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091add);
         }
     }
 }

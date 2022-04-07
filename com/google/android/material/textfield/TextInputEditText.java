@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TextInputEditText extends AppCompatEditText {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public class TextInputEditText extends AppCompatEditText {
             boolean requestRectangleOnScreen = super.requestRectangleOnScreen(rect);
             TextInputLayout textInputLayout = getTextInputLayout();
             if (textInputLayout != null && this.textInputLayoutFocusedRectEnabled) {
-                this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07042e), textInputLayout.getWidth(), textInputLayout.getHeight());
+                this.parentRect.set(0, textInputLayout.getHeight() - getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070438), textInputLayout.getWidth(), textInputLayout.getHeight());
                 textInputLayout.requestRectangleOnScreen(this.parentRect, true);
             }
             return requestRectangleOnScreen;
@@ -243,7 +243,7 @@ public class TextInputEditText extends AppCompatEditText {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TextInputEditText(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0401d5);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040211);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -282,7 +282,7 @@ public class TextInputEditText extends AppCompatEditText {
             }
         }
         this.parentRect = new Rect();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040619}, i, R.style.obfuscated_res_0x7f100330, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f040657}, i, R.style.obfuscated_res_0x7f100331, new int[0]);
         setTextInputLayoutFocusedRectEnabled(obtainStyledAttributes.getBoolean(0, false));
         obtainStyledAttributes.recycle();
     }

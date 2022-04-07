@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class Projection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,14 +49,14 @@ public final class Projection {
         return (LatLng) invokeL.objValue;
     }
 
-    public float metersToEquatorPixels(float f2) {
+    public float metersToEquatorPixels(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
-            if (f2 <= 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
+            if (f <= 0.0f) {
                 return 0.0f;
             }
-            return (float) (f2 / this.a.K());
+            return (float) (f / this.a.K());
         }
         return invokeF.floatValue;
     }
@@ -70,7 +70,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab abVar = mapStatus.a;
-            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f26666d), (float) (ll2mc.getLatitudeE6() - abVar.f26667e));
+            return new PointF((float) (ll2mc.getLongitudeE6() - abVar.d), (float) (ll2mc.getLatitudeE6() - abVar.e));
         }
         return (PointF) invokeLL.objValue;
     }
@@ -84,7 +84,7 @@ public final class Projection {
             }
             GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
             ab.a aVar = mapStatus.a.k;
-            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.f26671b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f26673d) * 2.0d) / Math.abs(aVar.f26672c - aVar.f26673d)) - 1.0d));
+            return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.a) * 2.0d) / Math.abs(aVar.b - aVar.a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.d) * 2.0d) / Math.abs(aVar.c - aVar.d)) - 1.0d));
         }
         return (PointF) invokeLL.objValue;
     }

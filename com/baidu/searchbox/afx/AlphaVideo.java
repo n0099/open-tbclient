@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AlphaVideo extends GLTextureView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GL_CONTEXT_VERSION = 2;
@@ -256,13 +256,13 @@ public class AlphaVideo extends GLTextureView {
         }
     }
 
-    public void setDarkFilter(float f2) {
+    public void setDarkFilter(float f) {
         AlphaVideoRenderer alphaVideoRenderer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048588, this, f2) == null) || (alphaVideoRenderer = this.mAlphaVideoRenderer) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048588, this, f) == null) || (alphaVideoRenderer = this.mAlphaVideoRenderer) == null) {
             return;
         }
-        alphaVideoRenderer.setDarkFilter(f2);
+        alphaVideoRenderer.setDarkFilter(f);
     }
 
     public void setKeepLastFrame(boolean z) {

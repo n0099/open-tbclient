@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -112,10 +112,10 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
         }
     }
 
-    private void postStaticScoreStore(float f2) {
+    private void postStaticScoreStore(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65541, this, f2) == null) {
-            ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f2) { // from class: com.baidu.searchbox.aideviceperformance.amendeddevicescore.AmendedDeviceScoreManager.1
+        if (interceptable == null || interceptable.invokeF(65541, this, f) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f) { // from class: com.baidu.searchbox.aideviceperformance.amendeddevicescore.AmendedDeviceScoreManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AmendedDeviceScoreManager this$0;
@@ -126,7 +126,7 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Float.valueOf(f2)};
+                        Object[] objArr = {this, Float.valueOf(f)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -137,7 +137,7 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                         }
                     }
                     this.this$0 = this;
-                    this.val$amendedDeviceScore = f2;
+                    this.val$amendedDeviceScore = f;
                 }
 
                 @Override // java.lang.Runnable
@@ -181,30 +181,42 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                 if (DEBUG) {
                     Log.d(TAG, "MML Load Time: " + (System.currentTimeMillis() - currentTimeMillis));
                 }
-                double d2 = calculateAverageLaunchTime;
-                Tensor createInstance = Tensor.createInstance(new long[]{4}, FloatBuffer.wrap(new float[]{calculateAverageLaunchTime, (float) Math.pow(d2, 2.0d), (float) Math.pow(d2, 3.0d), (float) Math.pow(d2, 4.0d)}));
+                double d = calculateAverageLaunchTime;
+                Tensor createInstance = Tensor.createInstance(new long[]{4}, FloatBuffer.wrap(new float[]{calculateAverageLaunchTime, (float) Math.pow(d, 2.0d), (float) Math.pow(d, 3.0d), (float) Math.pow(d, 4.0d)}));
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Float f2 = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
+                Float f = (Float) inferenceWrapper.predictForRegressorTarget(createInstance, 0.5f, Float.class);
                 if (DEBUG) {
                     Log.d(TAG, "predict Time: " + (System.currentTimeMillis() - currentTimeMillis2));
-                    Log.d(TAG, "predictByLRModel Result: " + f2);
+                    Log.d(TAG, "predictByLRModel Result: " + f);
                 }
-                if (f2.floatValue() < 0.0f) {
-                    f2 = Float.valueOf(0.0f);
+                if (f.floatValue() < 0.0f) {
+                    f = Float.valueOf(0.0f);
                 }
-                if (f2.floatValue() > 1.0f) {
-                    f2 = Float.valueOf(1.0f);
+                if (f.floatValue() > 1.0f) {
+                    f = Float.valueOf(1.0f);
                 }
-                float floatValue = f2.floatValue();
+                float floatValue = f.floatValue();
                 try {
                     inferenceWrapper.close();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
                 return floatValue;
             } catch (InferenceException unused4) {
+                inferenceWrapper2 = inferenceWrapper;
+                if (inferenceWrapper2 != null) {
+                    try {
+                        inferenceWrapper2.close();
+                    } catch (Exception e2) {
+                        if (DEBUG) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return -3.0f;
+            } catch (ModelLoadException unused5) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -215,8 +227,8 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                         }
                     }
                 }
-                return -3.0f;
-            } catch (ModelLoadException unused5) {
+                return -2.0f;
+            } catch (IllegalStateException unused6) {
                 inferenceWrapper2 = inferenceWrapper;
                 if (inferenceWrapper2 != null) {
                     try {
@@ -227,18 +239,6 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                         }
                     }
                 }
-                return -2.0f;
-            } catch (IllegalStateException unused6) {
-                inferenceWrapper2 = inferenceWrapper;
-                if (inferenceWrapper2 != null) {
-                    try {
-                        inferenceWrapper2.close();
-                    } catch (Exception e5) {
-                        if (DEBUG) {
-                            e5.printStackTrace();
-                        }
-                    }
-                }
                 return -4.0f;
             } catch (Throwable th2) {
                 th = th2;
@@ -246,9 +246,9 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                 if (inferenceWrapper2 != null) {
                     try {
                         inferenceWrapper2.close();
-                    } catch (Exception e6) {
+                    } catch (Exception e5) {
                         if (DEBUG) {
-                            e6.printStackTrace();
+                            e5.printStackTrace();
                         }
                     }
                 }
@@ -299,16 +299,16 @@ public class AmendedDeviceScoreManager implements IAmendedDeviceScoreManager {
                 }
                 return amendedDeviceScoreCache;
             }
-            float f2 = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_AMENDED_DEVICE_SCORE, -1.0f);
-            if (f2 >= 0.0f) {
+            float f = DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_AMENDED_DEVICE_SCORE, -1.0f);
+            if (f >= 0.0f) {
                 if (DEBUG) {
-                    Log.d(TAG, "get amended device score from file cache : " + f2);
+                    Log.d(TAG, "get amended device score from file cache : " + f);
                 }
-                amendedDeviceScoreCache = f2;
+                amendedDeviceScoreCache = f;
                 postCheckAmendedStaticScoreStore(context);
                 return amendedDeviceScoreCache;
             }
-            if (f2 == -1.0f) {
+            if (f == -1.0f) {
                 this.mModelManager.checkAndUpdatePresetModel();
             }
             float predictByLRModel = predictByLRModel(context);

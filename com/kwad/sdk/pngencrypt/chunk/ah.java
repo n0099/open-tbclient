@@ -2,16 +2,14 @@ package com.kwad.sdk.pngencrypt.chunk;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ah {
     public final e a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final boolean f40635b;
+    public final boolean b;
 
     public ah(e eVar) {
         this.a = eVar;
-        this.f40635b = !(eVar instanceof f);
+        this.b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {

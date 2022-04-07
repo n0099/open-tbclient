@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.du;
 import com.xiaomi.push.service.bi;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gy extends bi.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,8 +33,8 @@ public class gy extends bi.a {
     @Override // com.xiaomi.push.service.bi.a
     public void a(du.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m306e()) {
-            gx.m405a().m409a(bVar.e());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) && bVar.m302e()) {
+            gx.m401a().m405a(bVar.e());
         }
     }
 }

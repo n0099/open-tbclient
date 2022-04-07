@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcTrackDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DB_NAME = "bimrtc_track.db";
@@ -34,7 +34,7 @@ public class BIMRtcTrackDatabase {
     public transient /* synthetic */ FieldHolder $fh;
     public Context context;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String SQL_TABLE_CREATE_REQUEST;
@@ -83,9 +83,9 @@ public class BIMRtcTrackDatabase {
             if (interceptable == null || interceptable.invokeL(65539, this, sQLiteDatabase) == null) {
                 try {
                     sQLiteDatabase.execSQL("DROP TABLE IF EXISTS request");
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = BIMRtcTrackDatabase.TAG;
-                    LogUtils.d(str, "dropTables Exception: " + e2);
+                    LogUtils.d(str, "dropTables Exception: " + e);
                 }
             }
         }
@@ -96,9 +96,9 @@ public class BIMRtcTrackDatabase {
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
                     sQLiteDatabase.execSQL(SQL_TABLE_CREATE_REQUEST);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = BIMRtcTrackDatabase.TAG;
-                    LogUtils.d(str, "DbOpenHelper onCreate E: " + e2);
+                    LogUtils.d(str, "DbOpenHelper onCreate E: " + e);
                 }
             }
         }
@@ -136,7 +136,7 @@ public class BIMRtcTrackDatabase {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class RequestEnum {
         public static final /* synthetic */ RequestEnum[] $VALUES;
         public static /* synthetic */ Interceptable $ic = null;
@@ -307,9 +307,9 @@ public class BIMRtcTrackDatabase {
                 }
                 try {
                     db.delete("request", null, null);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "BIMRtcTrack clearRequestTable Exception: " + e2);
+                    LogUtils.e(str, "BIMRtcTrack clearRequestTable Exception: " + e);
                 }
                 db.close();
             }
@@ -326,8 +326,8 @@ public class BIMRtcTrackDatabase {
                 }
                 try {
                     db.delete("request", RequestEnum.responseTime + " = ?", new String[]{String.valueOf(request.responseTime)});
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "deleteRequest :", e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "deleteRequest :", e);
                 }
             } finally {
                 db.close();
@@ -365,8 +365,8 @@ public class BIMRtcTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
-                    LogUtils.e(TAG, "BIMRtcTrack insert Db exception : " + e2);
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "BIMRtcTrack insert Db exception : " + e);
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -395,9 +395,9 @@ public class BIMRtcTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "BIMRtcTrack getRequests error " + e2.getMessage());
+                    LogUtils.e(str, "BIMRtcTrack getRequests error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -426,9 +426,9 @@ public class BIMRtcTrackDatabase {
                     if (cursor != null) {
                         cursor.close();
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str = TAG;
-                    LogUtils.e(str, "BIMRtcTrack getRequests error " + e2.getMessage());
+                    LogUtils.e(str, "BIMRtcTrack getRequests error " + e.getMessage());
                     if (cursor != null) {
                         cursor.close();
                     }
@@ -460,9 +460,9 @@ public class BIMRtcTrackDatabase {
                     db.insert("request", null, contentValues);
                     String str = TAG;
                     LogUtils.d(str, "method :" + request.method + ", requestId :" + request.requestId + ", errorCode :" + request.errorCode + ", ext :" + request.ext);
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     String str2 = TAG;
-                    LogUtils.e(str2, "BIMRtcTrack insert Request exception : " + e2);
+                    LogUtils.e(str2, "BIMRtcTrack insert Request exception : " + e);
                 }
                 db.close();
             }

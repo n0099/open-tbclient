@@ -5,11 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.m.a.b3;
-import c.m.a.h2;
-import c.m.a.r0;
-import c.m.a.t2;
-import c.m.a.x2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -19,10 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
+import com.repackage.fr9;
+import com.repackage.pp9;
+import com.repackage.rr9;
+import com.repackage.vr9;
+import com.repackage.zr9;
 import com.win.opensdk.core.Info;
 import java.io.File;
 import org.json.JSONException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WinDReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,16 +45,16 @@ public class WinDReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, info) == null) {
             try {
-                File file = new File(r0.f(context, info.getOpen()));
+                File file = new File(pp9.f(context, info.getOpen()));
                 if (file.exists()) {
                     file.delete();
-                    t2 a = x2.a(context);
-                    a.j(new b3(info), info.getDl_pkg(), info.getDl_vsc(), 2);
+                    rr9 a = vr9.a(context);
+                    a.j(new zr9(info), info.getDl_pkg(), info.getDl_vsc(), 2);
                     a.m();
                     ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).cancel(w0.c1);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -68,37 +68,37 @@ public class WinDReceiver extends BroadcastReceiver {
             String dataString = intent.getDataString();
             String str = (TextUtils.isEmpty(dataString) || !dataString.contains(":") || (split = dataString.split(":")) == null || split.length <= 0) ? "" : split[1];
             try {
-                Info info = (Info) h2.i(context, str);
+                Info info = (Info) fr9.i(context, str);
                 if (info == null || TextUtils.isEmpty(str)) {
                     return;
                 }
                 try {
                     z = info.getDl_pkg().equals(str);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     z = false;
                 }
                 if (z) {
-                    t2 a = x2.a(context);
+                    rr9 a = vr9.a(context);
                     try {
-                        a.f23575b = x2.d("wie", new b3(info));
+                        a.b = vr9.d("wie", new zr9(info));
                         a.k("co", 200);
                     } catch (JSONException unused) {
                     }
                     a.m();
                     try {
-                        r0.o(info, 302, "");
+                        pp9.o(info, 302, "");
                         if (!TextUtils.isEmpty(info.getVv_ins_urls())) {
-                            r0.K(info.getVv_ins_urls());
+                            pp9.K(info.getVv_ins_urls());
                         }
-                    } catch (Exception e3) {
-                        e3.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
                     }
                     a(context, info);
                     a(context, info, str);
                 }
-            } catch (Exception e4) {
-                e4.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
         }
     }
@@ -109,21 +109,21 @@ public class WinDReceiver extends BroadcastReceiver {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
                 if (launchIntentForPackage != null) {
-                    t2 a = x2.a(context);
-                    b3 b3Var = new b3(info);
+                    rr9 a = vr9.a(context);
+                    zr9 zr9Var = new zr9(info);
                     String open = info.getOpen();
                     try {
-                        a.f23575b = x2.d("wiop", b3Var);
-                        a.l("msg", x2.b(open));
+                        a.b = vr9.d("wiop", zr9Var);
+                        a.l("msg", vr9.b(open));
                     } catch (JSONException unused) {
                     }
                     a.m();
                     launchIntentForPackage.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                     context.startActivity(launchIntentForPackage);
-                    h2.e(context, str);
+                    fr9.e(context, str);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

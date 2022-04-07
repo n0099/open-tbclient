@@ -132,9 +132,9 @@ public final class CombinedContext implements CoroutineContext, Serializable {
         Intrinsics.checkNotNullParameter(key, "key");
         CombinedContext combinedContext = this;
         while (true) {
-            E e2 = (E) combinedContext.element.get(key);
-            if (e2 != null) {
-                return e2;
+            E e = (E) combinedContext.element.get(key);
+            if (e != null) {
+                return e;
             }
             CoroutineContext coroutineContext = combinedContext.left;
             if (coroutineContext instanceof CombinedContext) {

@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.j;
-import g.r.c;
+import com.repackage.az9;
+import com.repackage.c3a;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
@@ -16,18 +16,18 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
     public boolean done;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$ErrorEmitter(j<? super T> jVar) {
-        super(jVar);
+    public OnSubscribeFromEmitter$ErrorEmitter(az9<? super T> az9Var) {
+        super(az9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
+            Object[] objArr = {az9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((j) newInitContext.callArgs[0]);
+                super((az9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,7 +50,7 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             if (this.done) {
-                c.j(th);
+                c3a.j(th);
                 return;
             }
             this.done = true;

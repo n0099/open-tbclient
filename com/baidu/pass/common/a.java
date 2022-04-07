@@ -13,36 +13,26 @@ import javax.crypto.Cipher;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "Security";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.pass.common.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class C1777a {
+    /* loaded from: classes2.dex */
+    public static class C0118a {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "UTF-8";
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final String f28044b = "AES/CBC/NoPadding";
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final String f28045c = "AES";
+        public static final String b = "AES/CBC/NoPadding";
+        public static final String c = "AES";
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f28046d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f28047e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f28048f;
+        public String d;
+        public String e;
+        public String f;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public C1777a() {
+        public C0118a() {
             this("AES", "AES/CBC/NoPadding", "UTF-8");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -66,16 +56,16 @@ public class a {
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
                 if (str != null && str.length() != 0) {
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f28046d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f28048f);
-                        Cipher cipher = Cipher.getInstance(this.f28047e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.f);
+                        Cipher cipher = Cipher.getInstance(this.e);
                         cipher.init(1, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(a(str).getBytes());
-                    } catch (NoSuchAlgorithmException e2) {
-                        Log.e(e2);
+                    } catch (NoSuchAlgorithmException e) {
+                        Log.e(e);
                         return null;
-                    } catch (NoSuchPaddingException e3) {
-                        Log.e(e3);
+                    } catch (NoSuchPaddingException e2) {
+                        Log.e(e2);
                         return null;
                     }
                 }
@@ -84,7 +74,7 @@ public class a {
             return (byte[]) invokeLLL.objValue;
         }
 
-        public C1777a(String str, String str2, String str3) {
+        public C0118a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,12 +89,12 @@ public class a {
                     return;
                 }
             }
-            this.f28046d = "UTF-8";
-            this.f28047e = "AES/CBC/NoPadding";
-            this.f28048f = "AES";
-            this.f28048f = str;
-            this.f28047e = str2;
-            this.f28046d = str3;
+            this.d = "UTF-8";
+            this.e = "AES/CBC/NoPadding";
+            this.f = "AES";
+            this.f = str;
+            this.e = str2;
+            this.d = str3;
         }
 
         public byte[] a(byte[] bArr, String str, String str2) throws Exception {
@@ -114,9 +104,9 @@ public class a {
                 if (bArr != null && bArr.length != 0) {
                     byte[] bArr2 = new byte[0];
                     try {
-                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f28046d));
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f28048f);
-                        Cipher cipher = Cipher.getInstance(this.f28047e);
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.d));
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.f);
+                        Cipher cipher = Cipher.getInstance(this.e);
                         cipher.init(2, secretKeySpec, ivParameterSpec);
                         return cipher.doFinal(bArr);
                     } catch (Throwable th) {
@@ -166,8 +156,8 @@ public class a {
                 messageDigest.reset();
                 messageDigest.update(bArr);
                 return a(messageDigest.digest(), "", z);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeLZ.objValue;
@@ -179,8 +169,8 @@ public class a {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, this, bArr, str, z)) == null) {
             StringBuilder sb = new StringBuilder();
             try {
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
                     if (z) {
                         hexString = hexString.toUpperCase();
                     }
@@ -212,24 +202,24 @@ public class a {
             int i3 = 6;
             int i4 = 0;
             int i5 = 0;
-            byte b2 = 0;
+            byte b = 0;
             do {
                 if (i2 > 0 && i3 > 0) {
                     int i6 = (bArr[i4] & 255) << i3;
                     int i7 = 8 - i3;
-                    b2 = (byte) (((byte) (i6 | ((bArr[i4 + 1] & 255) >> i7))) & 63);
+                    b = (byte) (((byte) (i6 | ((bArr[i4 + 1] & 255) >> i7))) & 63);
                     i3 = 6 - i7;
                     i2 = i7;
                 } else if (i2 == 0) {
-                    b2 = (byte) ((bArr[i4] & 255) >> (8 - i3));
+                    b = (byte) ((bArr[i4] & 255) >> (8 - i3));
                     i2 = 2;
                     i3 = 4;
                 } else if (i3 == 0) {
-                    b2 = (byte) (bArr[i4] & 63);
+                    b = (byte) (bArr[i4] & 63);
                     i2 = 0;
                     i3 = 6;
                 }
-                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b2));
+                sb.append("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(b));
                 i5 += 6;
                 i4 = i5 / 8;
                 i = length - i5;

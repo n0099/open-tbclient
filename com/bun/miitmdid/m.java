@@ -7,28 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class m extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public g f37989c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f37990d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f37991e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f37992f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f37993g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f37994h;
+    public g c;
+    public String d;
+    public String e;
+    public String f;
+    public boolean g;
+    public boolean h;
 
     public m() {
         Interceptable interceptable = $ic;
@@ -43,12 +31,12 @@ public abstract class m extends n {
                 return;
             }
         }
-        this.f37990d = "";
-        this.f37991e = "";
-        this.f37992f = "";
-        this.f37993g = false;
-        this.f37994h = false;
-        this.f37989c = a();
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = false;
+        this.h = false;
+        this.c = a();
     }
 
     public abstract g a();
@@ -62,7 +50,7 @@ public abstract class m extends n {
             getOAID();
             getVAID();
             getAAID();
-            a(this.f37990d, this.f37991e, this.f37992f, this.f37993g, this.f37994h);
+            a(this.d, this.e, this.f, this.g, this.h);
         }
     }
 
@@ -72,12 +60,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                this.f37992f = (String) this.f37989c.a().a();
-            } catch (Exception e2) {
-                e0.b("SyncProvider", "getAAID: Exception: " + e2.getMessage());
-                this.f37992f = "";
+                this.f = (String) this.c.a().a();
+            } catch (Exception e) {
+                e0.b("SyncProvider", "getAAID: Exception: " + e.getMessage());
+                this.f = "";
             }
-            return this.f37992f;
+            return this.f;
         }
         return (String) invokeV.objValue;
     }
@@ -88,12 +76,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                this.f37990d = (String) this.f37989c.b().a();
-            } catch (Exception e2) {
-                e0.b("SyncProvider", "getOAID: Exception: " + e2.getMessage());
-                this.f37990d = "";
+                this.d = (String) this.c.b().a();
+            } catch (Exception e) {
+                e0.b("SyncProvider", "getOAID: Exception: " + e.getMessage());
+                this.d = "";
             }
-            return this.f37990d;
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
@@ -104,12 +92,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                this.f37991e = (String) this.f37989c.c().a();
-            } catch (Exception e2) {
-                e0.b("SyncProvider", "getVAID: Exception: " + e2.getMessage());
-                this.f37991e = "";
+                this.e = (String) this.c.c().a();
+            } catch (Exception e) {
+                e0.b("SyncProvider", "getVAID: Exception: " + e.getMessage());
+                this.e = "";
             }
-            return this.f37991e;
+            return this.e;
         }
         return (String) invokeV.objValue;
     }
@@ -117,36 +105,36 @@ public abstract class m extends n {
     @Override // com.bun.miitmdid.interfaces.IdSupplier
     public boolean isLimited() {
         InterceptResult invokeV;
-        h d2;
+        h d;
         Object cast;
         boolean booleanValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                d2 = this.f37989c.d();
-                Class<?> b2 = d2.b();
-                if (b2 == null) {
-                    b2 = Boolean.class;
+                d = this.c.d();
+                Class<?> b = d.b();
+                if (b == null) {
+                    b = Boolean.class;
                 }
-                cast = b2.cast(d2.a());
+                cast = b.cast(d.a());
             } catch (Exception unused) {
-                this.f37994h = false;
+                this.h = false;
             }
             if (cast != null) {
                 if (cast instanceof String) {
                     booleanValue = ((String) cast).equals("0");
                 } else if (cast instanceof Boolean) {
-                    if (d2.c()) {
-                        this.f37994h = !((Boolean) cast).booleanValue();
-                        return this.f37994h;
+                    if (d.c()) {
+                        this.h = !((Boolean) cast).booleanValue();
+                        return this.h;
                     }
                     booleanValue = ((Boolean) cast).booleanValue();
                 }
-                this.f37994h = booleanValue;
-                return this.f37994h;
+                this.h = booleanValue;
+                return this.h;
             }
-            this.f37994h = false;
-            return this.f37994h;
+            this.h = false;
+            return this.h;
         }
         return invokeV.booleanValue;
     }
@@ -157,12 +145,12 @@ public abstract class m extends n {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                this.f37993g = ((Boolean) this.f37989c.e().a()).booleanValue();
-            } catch (Exception e2) {
-                e0.b("SyncProvider", "isSupported: Exception: " + e2.getMessage());
-                this.f37993g = false;
+                this.g = ((Boolean) this.c.e().a()).booleanValue();
+            } catch (Exception e) {
+                e0.b("SyncProvider", "isSupported: Exception: " + e.getMessage());
+                this.g = false;
             }
-            return this.f37993g;
+            return this.g;
         }
         return invokeV.booleanValue;
     }

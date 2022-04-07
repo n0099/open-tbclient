@@ -19,16 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static UIListenerManager a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, ApiTask> b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, ApiTask> f43649b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class ApiTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +84,9 @@ public class UIListenerManager {
             }
         }
         Map<String, ApiTask> synchronizedMap = Collections.synchronizedMap(new HashMap());
-        this.f43649b = synchronizedMap;
+        this.b = synchronizedMap;
         if (synchronizedMap == null) {
-            this.f43649b = Collections.synchronizedMap(new HashMap());
+            this.b = Collections.synchronizedMap(new HashMap());
         }
     }
 
@@ -129,9 +127,9 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "getListnerWithAction action is null!");
                 return null;
             }
-            synchronized (this.f43649b) {
-                apiTask = this.f43649b.get(str);
-                this.f43649b.remove(str);
+            synchronized (this.b) {
+                apiTask = this.b.get(str);
+                this.b.remove(str);
             }
             if (apiTask == null) {
                 return null;
@@ -172,9 +170,9 @@ public class UIListenerManager {
                         try {
                             iUiListener.onComplete(l.d(stringExtra2));
                             return;
-                        } catch (JSONException e2) {
+                        } catch (JSONException e) {
                             iUiListener.onError(new UiError(-4, Constants.MSG_JSON_ERROR, stringExtra2));
-                            SLog.e("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, json error", e2);
+                            SLog.e("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, json error", e);
                             return;
                         }
                     }
@@ -194,8 +192,8 @@ public class UIListenerManager {
                 } else if (TaskProcessData.keyComplete.equals(stringExtra3)) {
                     try {
                         iUiListener.onComplete(new JSONObject(stringExtra4 == null ? "{\"ret\": 0}" : stringExtra4));
-                    } catch (JSONException e3) {
-                        e3.printStackTrace();
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                         iUiListener.onError(new UiError(-4, "json error", stringExtra4 + ""));
                     }
                 }
@@ -231,9 +229,9 @@ public class UIListenerManager {
                         if (stringExtra2 != null) {
                             try {
                                 listnerWithRequestCode.onComplete(l.d(stringExtra2));
-                            } catch (JSONException e2) {
+                            } catch (JSONException e) {
                                 listnerWithRequestCode.onError(new UiError(-4, Constants.MSG_JSON_ERROR, stringExtra2));
-                                SLog.e("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, json error", e2);
+                                SLog.e("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, json error", e);
                             }
                         } else {
                             SLog.d("openSDK_LOG.UIListenerManager", "OpenUi, onActivityResult, onComplete");
@@ -269,8 +267,8 @@ public class UIListenerManager {
                     } else if (TaskProcessData.keyComplete.equals(stringExtra4)) {
                         try {
                             listnerWithRequestCode.onComplete(new JSONObject(stringExtra5 == null ? "{\"ret\": 0}" : stringExtra5));
-                        } catch (JSONException e3) {
-                            e3.printStackTrace();
+                        } catch (JSONException e2) {
+                            e2.printStackTrace();
                             listnerWithRequestCode.onError(new UiError(-4, "json error", stringExtra5 + ""));
                         }
                     }
@@ -291,8 +289,8 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "setListener action is null! rquestCode=" + i);
                 return null;
             }
-            synchronized (this.f43649b) {
-                put = this.f43649b.put(a2, new ApiTask(this, i, iUiListener));
+            synchronized (this.b) {
+                put = this.b.put(a2, new ApiTask(this, i, iUiListener));
             }
             if (put == null) {
                 return null;
@@ -312,8 +310,8 @@ public class UIListenerManager {
                 SLog.e("openSDK_LOG.UIListenerManager", "setListnerWithAction fail, action = " + str);
                 return null;
             }
-            synchronized (this.f43649b) {
-                put = this.f43649b.put(str, new ApiTask(this, a2, iUiListener));
+            synchronized (this.b) {
+                put = this.b.put(str, new ApiTask(this, a2, iUiListener));
             }
             if (put == null) {
                 return null;

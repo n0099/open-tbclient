@@ -31,9 +31,9 @@ public final class ArrayIterator<T> implements Iterator<T>, KMappedMarker {
             int i = this.index;
             this.index = i + 1;
             return tArr[i];
-        } catch (ArrayIndexOutOfBoundsException e2) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             this.index--;
-            throw new NoSuchElementException(e2.getMessage());
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 

@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetMsgSettingSwitchRequest";
@@ -136,15 +136,15 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
                 i2 = jSONObject.optInt("push_privacy", 0);
                 try {
                     i3 = jSONObject.optInt("block_stranger", 0);
-                } catch (JSONException e2) {
-                    e = e2;
+                } catch (JSONException e) {
+                    e = e;
                     LogUtils.e(TAG, "onFailure JSONException", e);
                     iGetMsgSettingSwitchListener = this.mListener;
                     if (iGetMsgSettingSwitchListener == null) {
                     }
                 }
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
                 i2 = 0;
             }
             iGetMsgSettingSwitchListener = this.mListener;
@@ -176,14 +176,14 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
                 i3 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 i2 = jSONObject.optInt("push_privacy", 0);
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 i2 = 0;
             }
             try {
                 i4 = jSONObject.optInt("block_stranger", 0);
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
                 LogUtils.e(TAG, "JSONException", e);
                 i3 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;

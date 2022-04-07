@@ -24,20 +24,14 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f39169c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Map<String, com.kwad.sdk.c.kwai.b> f39170d = new HashMap();
+    public Context c;
+    public Map<String, com.kwad.sdk.c.kwai.b> d = new HashMap();
     public final Map<f, e> a = new ConcurrentHashMap(16);
+    public final Lock b = new ReentrantLock();
 
-    /* renamed from: b  reason: collision with root package name */
-    public final Lock f39168b = new ReentrantLock();
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a implements com.kwad.sdk.c.a.c {
         @Override // com.kwad.sdk.c.a.c
         public boolean a(com.kwad.sdk.c.kwai.d dVar) {
@@ -55,8 +49,8 @@ public class d {
                 try {
                     inputStream = q.b(dVar.e());
                     i = inputStream != null ? inputStream.available() : 0;
-                } catch (IOException e2) {
-                    com.kwad.sdk.core.d.a.e("resource file is error ", e2.getMessage());
+                } catch (IOException e) {
+                    com.kwad.sdk.core.d.a.e("resource file is error ", e.getMessage());
                     q.b(inputStream);
                     i = 0;
                 }
@@ -68,32 +62,32 @@ public class d {
     }
 
     public d(Context context) {
-        this.f39169c = context;
+        this.c = context;
     }
 
     private WebResourceResponse a(InputStream inputStream, e eVar, com.kwad.sdk.c.kwai.b bVar) {
         if (Build.VERSION.SDK_INT >= 21) {
             HashMap hashMap = new HashMap();
-            hashMap.put("Access-Control-Allow-Origin", bVar.f39177e.a);
+            hashMap.put("Access-Control-Allow-Origin", bVar.e.a);
             hashMap.put("Access-Control-Allow-Credentials", "true");
-            hashMap.put("Timing-Allow-Origin", bVar.f39177e.f39171b);
-            hashMap.put(Headers.CONTENT_TYPE, bVar.f39177e.f39172c);
-            hashMap.put("Date", bVar.f39177e.f39173d);
-            return new WebResourceResponse(bVar.f39176d, "", bVar.a, "OK", hashMap, inputStream);
+            hashMap.put("Timing-Allow-Origin", bVar.e.b);
+            hashMap.put(Headers.CONTENT_TYPE, bVar.e.c);
+            hashMap.put("Date", bVar.e.d);
+            return new WebResourceResponse(bVar.d, "", bVar.a, "OK", hashMap, inputStream);
         }
         return new WebResourceResponse(eVar.c(), "UTF-8", inputStream);
     }
 
     private com.kwad.sdk.c.kwai.b a(com.kwad.sdk.c.kwai.d dVar, String str) {
-        String d2 = com.kwad.sdk.c.b.a.d(this.f39169c, dVar.f());
-        com.kwad.sdk.c.kwai.b bVar = this.f39170d.get(str);
+        String d = com.kwad.sdk.c.b.a.d(this.c, dVar.f());
+        com.kwad.sdk.c.kwai.b bVar = this.d.get(str);
         if (bVar != null) {
             return bVar;
         }
         try {
-            return a(str, d2);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            return a(str, d);
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -112,16 +106,16 @@ public class d {
         if (file.exists()) {
             try {
                 fileInputStream = new FileInputStream(file);
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
                 fileInputStream = null;
             }
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             try {
                 try {
                     str3 = h.b(inputStreamReader);
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                     q.b(fileInputStream);
                     q.b(inputStreamReader);
                     str3 = null;
@@ -129,8 +123,8 @@ public class d {
                 if (str3 != null) {
                     try {
                         jSONObject = new JSONObject(str3);
-                    } catch (JSONException e4) {
-                        e4.printStackTrace();
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
                     }
                     keys = jSONObject != null ? jSONObject.keys() : null;
                     if (keys != null) {
@@ -139,17 +133,17 @@ public class d {
                             JSONObject jSONObject2 = jSONObject.getJSONObject(next);
                             com.kwad.sdk.c.kwai.b bVar = new com.kwad.sdk.c.kwai.b();
                             bVar.parseJson(jSONObject2);
-                            this.f39170d.put(next, bVar);
+                            this.d.put(next, bVar);
                         }
                     }
-                    return this.f39170d.get(str);
+                    return this.d.get(str);
                 }
                 jSONObject = null;
                 if (jSONObject != null) {
                 }
                 if (keys != null) {
                 }
-                return this.f39170d.get(str);
+                return this.d.get(str);
             } finally {
                 q.b(fileInputStream);
                 q.b(inputStreamReader);
@@ -159,35 +153,35 @@ public class d {
     }
 
     private void a(f fVar) {
-        if (this.f39168b.tryLock()) {
+        if (this.b.tryLock()) {
             this.a.remove(fVar);
-            this.f39168b.unlock();
+            this.b.unlock();
         }
     }
 
     public WebResourceResponse a(String str, com.kwad.sdk.c.kwai.d dVar, String str2) {
-        e d2;
+        e d;
         f fVar = new f(str);
         if (this.a.get(fVar) != null) {
-            d2 = this.a.get(fVar);
+            d = this.a.get(fVar);
         } else {
-            StringBuilder sb = new StringBuilder(com.kwad.sdk.c.b.a.c(this.f39169c, dVar.f()));
+            StringBuilder sb = new StringBuilder(com.kwad.sdk.c.b.a.c(this.c, dVar.f()));
             sb.append("/");
             sb.append(fVar.a());
-            d2 = new e().a(dVar.a).b(str).e(dVar.a()).c(sb.toString()).d(URLConnection.getFileNameMap().getContentTypeFor(sb.toString()));
-            this.a.put(new f(d2.a()), d2);
+            d = new e().a(dVar.a).b(str).e(dVar.a()).c(sb.toString()).d(URLConnection.getFileNameMap().getContentTypeFor(sb.toString()));
+            this.a.put(new f(d.a()), d);
         }
-        if (!com.kwad.sdk.c.b.c.a(d2.c())) {
+        if (!com.kwad.sdk.c.b.c.a(d.c())) {
             a(fVar);
             return null;
         }
-        InputStream b2 = q.b(d2.b());
-        if (b2 != null) {
+        InputStream b = q.b(d.b());
+        if (b != null) {
             com.kwad.sdk.c.kwai.b a2 = a(dVar, fVar.a());
             if (a2 == null) {
                 return null;
             }
-            return a(b2, d2, a2);
+            return a(b, d, a2);
         }
         com.kwad.sdk.core.d.a.a("HybridResourceManagerImpl", "getResource [" + str + "] inputStream is null");
         a(fVar);

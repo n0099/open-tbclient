@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class URLDecodeUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERCENT_PATTEN = "%(?![0-9a-fA-F]{2})";
@@ -40,11 +40,11 @@ public class URLDecodeUtil {
             }
             try {
                 return URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-            } catch (UnsupportedEncodingException e2) {
-                e2.printStackTrace();
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
                 return str;
-            } catch (IllegalArgumentException e3) {
-                e3.printStackTrace();
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
                 return str;
             }
         }

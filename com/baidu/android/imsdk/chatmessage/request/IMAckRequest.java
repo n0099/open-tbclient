@@ -27,7 +27,7 @@ import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMAckRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMAckRequest";
@@ -169,8 +169,8 @@ public class IMAckRequest extends BaseHttpRequest {
                 getShortAckMsgs(this.mMsgList);
                 jSONObject.put("msgs", this.mAckList == null ? "" : this.mAckList.toString());
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (JSONException e2) {
-                LogUtils.d(TAG, "getRequestParameter error：" + e2.toString());
+            } catch (JSONException e) {
+                LogUtils.d(TAG, "getRequestParameter error：" + e.toString());
             }
             LogUtils.d(TAG, "IMAckRequest getRequestParameter:" + jSONObject);
             return jSONObject.toString().getBytes();

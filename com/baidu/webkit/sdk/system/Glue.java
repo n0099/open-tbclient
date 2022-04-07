@@ -20,14 +20,14 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebView;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Glue {
     public static /* synthetic */ Interceptable $ic;
     public static Field ImmutableField;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.webkit.sdk.system.Glue$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$LayoutAlgorithm;
         public static final /* synthetic */ int[] $SwitchMap$android$webkit$WebSettings$PluginState;
@@ -161,7 +161,7 @@ public final class Glue {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class ResultReceiverWrapper implements JsResult.ResultReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

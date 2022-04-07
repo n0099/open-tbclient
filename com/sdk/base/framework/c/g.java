@@ -13,9 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f42571b;
+    public static final g b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -63,7 +61,7 @@ public abstract class g {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? com.sdk.base.framework.f.e.a.a("cucc/host_cucc.properties", "PRODUCE_STATISTICAL") : (String) invokeV.objValue;
             }
         };
-        f42571b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
+        b = new g("PRODUCE_DZH", 1) { // from class: com.sdk.base.framework.c.i
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

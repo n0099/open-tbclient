@@ -16,16 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GetHotWordsModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public final HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final HttpMessageListener f34686b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +65,7 @@ public class GetHotWordsModel extends FaceBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void onFail(int i, String str);
 
@@ -87,12 +85,12 @@ public class GetHotWordsModel extends FaceBaseModel {
                 return;
             }
         }
-        this.f34686b = new a(this, CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
+        this.b = new a(this, CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f34686b.setTag(getUniqueId());
-        this.f34686b.setSelfListener(true);
-        registerListener(this.f34686b);
+        this.b.setTag(getUniqueId());
+        this.b.setSelfListener(true);
+        registerListener(this.b);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -100,7 +98,7 @@ public class GetHotWordsModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f34686b);
+            MessageManager.getInstance().unRegisterListener(this.b);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_FACE_MAKE_HOT_WORDS);
             return true;
         }

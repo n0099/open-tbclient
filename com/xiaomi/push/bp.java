@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bp implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class bp implements Runnable {
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }
-                a.m230a("sp_client_report_status", str, currentTimeMillis);
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+                a.m226a("sp_client_report_status", str, currentTimeMillis);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
     }

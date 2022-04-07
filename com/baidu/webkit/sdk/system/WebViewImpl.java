@@ -40,7 +40,7 @@ import java.io.BufferedWriter;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class WebViewImpl extends WebView implements WebViewProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     public WebViewClient mWebViewClient;
     public final WebView.PrivateAccess mWebViewPrivateAccess;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class FindAdapter implements WebView.FindListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class PictureAdapter implements WebView.PictureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,7 +121,7 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class WebViewTransportImpl extends WebView.WebViewTransport {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1212,10 +1212,10 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final boolean setPreviewZoomScale(float f2) {
+    public final boolean setPreviewZoomScale(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048687, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048687, this, f)) == null) {
             return false;
         }
         return invokeF.booleanValue;
@@ -1242,9 +1242,9 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
     }
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
-    public final void setStatusBar(View view, int i) {
+    public final void setStatusBar(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048690, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048690, this, view2, i) == null) {
         }
     }
 
@@ -1422,12 +1422,12 @@ public final class WebViewImpl extends WebView implements WebViewProvider {
 
     @Override // com.baidu.webkit.sdk.WebViewProvider
     @TargetApi(21)
-    public final boolean zoomByZeus(float f2) {
+    public final boolean zoomByZeus(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048713, this, f2)) == null) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048713, this, f)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                super.zoomBy(f2);
+                super.zoomBy(f);
                 return true;
             }
             return false;

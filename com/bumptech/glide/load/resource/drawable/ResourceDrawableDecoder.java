@@ -18,7 +18,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.facebook.common.util.UriUtil;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_PATH_SEGMENTS = 1;
@@ -54,8 +54,8 @@ public class ResourceDrawableDecoder implements ResourceDecoder<Uri, Drawable> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, uri, str)) == null) {
             try {
                 return this.context.createPackageContext(str, 0);
-            } catch (PackageManager.NameNotFoundException e2) {
-                throw new IllegalArgumentException("Failed to obtain context or unrecognized Uri format for: " + uri, e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new IllegalArgumentException("Failed to obtain context or unrecognized Uri format for: " + uri, e);
             }
         }
         return (Context) invokeLL.objValue;

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.loader.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class r {
     public static void a(Context context, IKsAdSDK iKsAdSDK) {
         if (Math.abs(System.currentTimeMillis() - q.b(context, "lastUpdateTime")) < q.b(context, "interval") * 1000) {

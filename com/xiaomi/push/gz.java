@@ -10,13 +10,13 @@ import com.xiaomi.push.gv;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
 import java.util.Hashtable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gz {
     public static /* synthetic */ Interceptable $ic;
     public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static Hashtable<Integer, Long> a;
@@ -52,7 +52,7 @@ public class gz {
                 return;
             }
         }
-        a = ew.f44223c.a();
+        a = ew.c.a();
     }
 
     public static void a() {
@@ -65,10 +65,10 @@ public class gz {
     public static void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            ex m407a = gx.m405a().m407a();
-            m407a.a(ew.k.a());
-            m407a.c(i);
-            gx.m405a().a(m407a);
+            ex m403a = gx.m401a().m403a();
+            m403a.a(ew.k.a());
+            m403a.c(i);
+            gx.m401a().a(m403a);
         }
     }
 
@@ -88,13 +88,13 @@ public class gz {
     public static void a(int i, int i2, int i3, String str, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4)}) == null) {
-            ex m407a = gx.m405a().m407a();
-            m407a.a((byte) i);
-            m407a.a(i2);
-            m407a.b(i3);
-            m407a.b(str);
-            m407a.c(i4);
-            gx.m405a().a(m407a);
+            ex m403a = gx.m401a().m403a();
+            m403a.a((byte) i);
+            m403a.a(i2);
+            m403a.b(i3);
+            m403a.b(str);
+            m403a.c(i4);
+            gx.m401a().a(m403a);
         }
     }
 
@@ -105,14 +105,14 @@ public class gz {
                 long currentTimeMillis = System.currentTimeMillis();
                 int i4 = (i << 24) | i2;
                 if (a.a.containsKey(Integer.valueOf(i4))) {
-                    ex m407a = gx.m405a().m407a();
-                    m407a.a(i2);
-                    m407a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
-                    m407a.b(str);
+                    ex m403a = gx.m401a().m403a();
+                    m403a.a(i2);
+                    m403a.b((int) (currentTimeMillis - a.a.get(Integer.valueOf(i4)).longValue()));
+                    m403a.b(str);
                     if (i3 > -1) {
-                        m407a.c(i3);
+                        m403a.c(i3);
                     }
-                    gx.m405a().a(m407a);
+                    gx.m401a().a(m403a);
                     a.a.remove(Integer.valueOf(i2));
                 } else {
                     com.xiaomi.channel.commonutils.logger.b.d("stats key not found");
@@ -131,20 +131,20 @@ public class gz {
     public static void a(String str, int i, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65543, null, str, i, exc) == null) {
-            ex m407a = gx.m405a().m407a();
+            ex m403a = gx.m401a().m403a();
             if (i > 0) {
-                m407a.a(ew.l.a());
-                m407a.b(str);
-                m407a.b(i);
-                gx.m405a().a(m407a);
+                m403a.a(ew.l.a());
+                m403a.b(str);
+                m403a.b(i);
+                gx.m401a().a(m403a);
                 return;
             }
             try {
                 gv.a a2 = gv.a(exc);
-                m407a.a(a2.a.a());
-                m407a.c(a2.f436a);
-                m407a.b(str);
-                gx.m405a().a(m407a);
+                m403a.a(a2.a.a());
+                m403a.c(a2.f436a);
+                m403a.b(str);
+                gx.m401a().a(m403a);
             } catch (NullPointerException unused) {
             }
         }
@@ -154,25 +154,25 @@ public class gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, str, exc) == null) {
             try {
-                gv.a b2 = gv.b(exc);
-                ex m407a = gx.m405a().m407a();
-                m407a.a(b2.a.a());
-                m407a.c(b2.f436a);
-                m407a.b(str);
-                gx.m405a().a(m407a);
+                gv.a b = gv.b(exc);
+                ex m403a = gx.m401a().m403a();
+                m403a.a(b.a.a());
+                m403a.c(b.f436a);
+                m403a.b(str);
+                gx.m401a().a(m403a);
             } catch (NullPointerException unused) {
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m411a() {
+    public static byte[] m407a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            ey m408a = gx.m405a().m408a();
-            if (m408a != null) {
-                return ip.a(m408a);
+            ey m404a = gx.m401a().m404a();
+            if (m404a != null) {
+                return ip.a(m404a);
             }
             return null;
         }
@@ -190,12 +190,12 @@ public class gz {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, str, exc) == null) {
             try {
-                gv.a d2 = gv.d(exc);
-                ex m407a = gx.m405a().m407a();
-                m407a.a(d2.a.a());
-                m407a.c(d2.f436a);
-                m407a.b(str);
-                gx.m405a().a(m407a);
+                gv.a d = gv.d(exc);
+                ex m403a = gx.m401a().m403a();
+                m403a.a(d.a.a());
+                m403a.c(d.f436a);
+                m403a.b(str);
+                gx.m401a().a(m403a);
             } catch (NullPointerException unused) {
             }
         }

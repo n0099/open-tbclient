@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,34 +16,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ae3;
+import com.repackage.tg1;
+/* loaded from: classes2.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f29165e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f29166f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f29167g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f29168h;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
     public View i;
     public NeutralRefreshAnimView j;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Runnable a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NeutralHeaderLoadingLayout f29169b;
+        public final /* synthetic */ NeutralHeaderLoadingLayout b;
 
         public a(NeutralHeaderLoadingLayout neutralHeaderLoadingLayout, Runnable runnable) {
             Interceptable interceptable = $ic;
@@ -61,7 +52,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                     return;
                 }
             }
-            this.f29169b = neutralHeaderLoadingLayout;
+            this.b = neutralHeaderLoadingLayout;
             this.a = runnable;
         }
 
@@ -87,7 +78,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        k = c.a.n0.a.a.a;
+        k = tg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -108,7 +99,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.f29165e = 0;
+        this.e = 0;
         o();
     }
 
@@ -117,7 +108,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c2, viewGroup, false);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c4, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
@@ -134,7 +125,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
             if (getState() == ILoadingLayout$State.PULL_TO_REFRESH) {
                 this.j.setAnimPercent(n(i));
             }
-            int i2 = this.f29167g;
+            int i2 = this.g;
             if (i > i2) {
                 setTranslationY((i2 - i) / 2);
             }
@@ -173,7 +164,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public int getCanRefreshPullLength() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29166f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -181,11 +172,11 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            View view = this.i;
-            if (view != null) {
-                return view.getHeight();
+            View view2 = this.i;
+            if (view2 != null) {
+                return view2.getHeight();
             }
-            return n0.f(getContext(), 50.0f);
+            return ae3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }
@@ -194,7 +185,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public int getRefreshingHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f29168h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : invokeV.intValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -245,21 +236,21 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     public float n(int i) {
         InterceptResult invokeI;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            int i2 = this.f29166f;
+            int i2 = this.f;
             if (i < i2) {
-                int i3 = this.f29165e;
-                f2 = i < i3 ? 0.0f : (i - i3) / (i2 - i3);
+                int i3 = this.e;
+                f = i < i3 ? 0.0f : (i - i3) / (i2 - i3);
             } else {
-                f2 = 1.0f;
+                f = 1.0f;
             }
-            float f3 = f2 >= 0.0f ? f2 : 0.0f;
-            if (f3 > 1.0f) {
+            float f2 = f >= 0.0f ? f : 0.0f;
+            if (f2 > 1.0f) {
                 return 1.0f;
             }
-            return f3;
+            return f2;
         }
         return invokeI.floatValue;
     }
@@ -267,18 +258,18 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091543);
-            int f2 = n0.f(getContext(), 29.0f);
-            this.f29165e = f2;
-            this.f29166f = (int) (f2 * 2.4f);
-            int i = (int) (f2 * 1.5f);
-            this.f29168h = i;
-            this.f29167g = i;
+            this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09153e);
+            int f = ae3.f(getContext(), 29.0f);
+            this.e = f;
+            this.f = (int) (f * 2.4f);
+            int i = (int) (f * 1.5f);
+            this.h = i;
+            this.g = i;
             if (k) {
-                Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.f29165e);
-                Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.f29166f);
-                Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.f29168h);
-                Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.f29167g);
+                Log.e("NeutralLoadingLayout", "mRefreshingViewSizeInPixel" + this.e);
+                Log.e("NeutralLoadingLayout", "mTriggerRefreshLength" + this.f);
+                Log.e("NeutralLoadingLayout", "mRefreshingHeight" + this.h);
+                Log.e("NeutralLoadingLayout", "mScrollStartLength" + this.g);
             }
         }
     }

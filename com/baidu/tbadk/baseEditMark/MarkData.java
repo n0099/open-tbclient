@@ -2,7 +2,6 @@ package com.baidu.tbadk.baseEditMark;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.db.DBTableDefine;
@@ -19,11 +18,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
+import com.repackage.ni;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.BaijiahaoInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MarkData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2647743141824773827L;
@@ -110,7 +110,7 @@ public class MarkData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!m.isEmpty(this.mAuthorName)) {
+            if (!ni.isEmpty(this.mAuthorName)) {
                 return this.mAuthorName;
             }
             return this.mUserName;
@@ -366,7 +366,7 @@ public class MarkData implements Serializable {
                     builder.auth_desc = optJSONObject2.optString("auth_desc");
                     this.metaData.setBaijiahaoInfo(builder.build(false));
                 }
-                if (m.isEmpty(this.portrait)) {
+                if (ni.isEmpty(this.portrait)) {
                     this.metaData.setPortrait(StringUtil.NULL_STRING);
                 } else {
                     this.metaData.setPortrait(this.portrait);
@@ -396,8 +396,8 @@ public class MarkData implements Serializable {
                 } else {
                     this.mHostMode = false;
                 }
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
@@ -605,8 +605,8 @@ public class MarkData implements Serializable {
                 }
                 jSONObject.put("status", i);
                 return jSONObject;
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+            } catch (Exception e) {
+                BdLog.detailException(e);
                 return null;
             }
         }

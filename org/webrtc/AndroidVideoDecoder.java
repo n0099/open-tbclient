@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.k0;
+import com.repackage.oy9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.concurrent.BlockingDeque;
@@ -334,8 +334,8 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     createOutputThread.start();
                     Logging.d(TAG, "initDecodeInternal done");
                     return VideoCodecStatus.OK;
-                } catch (IllegalStateException e2) {
-                    Logging.e(TAG, "initDecode failed", e2);
+                } catch (IllegalStateException e) {
+                    Logging.e(TAG, "initDecode failed", e);
                     release();
                     return VideoCodecStatus.FALLBACK_SOFTWARE;
                 }
@@ -424,14 +424,14 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
             Logging.d(TAG, "Releasing MediaCodec on output thread");
             try {
                 this.codec.stop();
-            } catch (Exception e2) {
-                Logging.e(TAG, "Media decoder stop failed", e2);
+            } catch (Exception e) {
+                Logging.e(TAG, "Media decoder stop failed", e);
             }
             try {
                 this.codec.release();
-            } catch (Exception e3) {
-                Logging.e(TAG, "Media decoder release failed", e3);
-                this.shutdownException = e3;
+            } catch (Exception e2) {
+                Logging.e(TAG, "Media decoder release failed", e2);
+                this.shutdownException = e2;
             }
             Logging.d(TAG, "Release on output thread done");
         }
@@ -493,7 +493,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     @Override // org.webrtc.VideoDecoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoDecoder() {
-        return k0.$default$createNativeVideoDecoder(this);
+        return oy9.$default$createNativeVideoDecoder(this);
     }
 
     public SurfaceTextureHelper createSurfaceTextureHelper() {
@@ -558,17 +558,17 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                                     this.keyFrameRequired = false;
                                 }
                                 return VideoCodecStatus.OK;
-                            } catch (IllegalStateException e2) {
-                                Logging.e(TAG, "queueInputBuffer failed", e2);
+                            } catch (IllegalStateException e) {
+                                Logging.e(TAG, "queueInputBuffer failed", e);
                                 this.frameInfos.pollLast();
                                 return VideoCodecStatus.ERROR;
                             }
-                        } catch (IllegalStateException e3) {
-                            Logging.e(TAG, "getInputBuffers failed", e3);
+                        } catch (IllegalStateException e2) {
+                            Logging.e(TAG, "getInputBuffers failed", e2);
                             return VideoCodecStatus.ERROR;
                         }
-                    } catch (IllegalStateException e4) {
-                        Logging.e(TAG, "dequeueInputBuffer failed", e4);
+                    } catch (IllegalStateException e3) {
+                        Logging.e(TAG, "dequeueInputBuffer failed", e3);
                         return VideoCodecStatus.ERROR;
                     }
                 }
@@ -611,8 +611,8 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                         deliverByteFrame(dequeueOutputBuffer, bufferInfo, i, num);
                     }
                 }
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "deliverDecodedFrame failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "deliverDecodedFrame failed", e);
             }
         }
     }

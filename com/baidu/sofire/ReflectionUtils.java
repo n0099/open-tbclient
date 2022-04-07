@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ReflectionUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -97,8 +97,8 @@ public class ReflectionUtils {
                     Field declaredField = cls.getDeclaredField(str);
                     declaredField.setAccessible(true);
                     return declaredField;
-                } catch (NoSuchFieldException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (NoSuchFieldException e) {
+                    CommonMethods.handleNuLException(e);
                     cls = cls.getSuperclass();
                 }
             }
@@ -113,8 +113,8 @@ public class ReflectionUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
             try {
                 return findField(cls, str);
-            } catch (NoSuchFieldException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (NoSuchFieldException e) {
+                CommonMethods.handleNuLException(e);
                 return null;
             }
         }
@@ -138,8 +138,8 @@ public class ReflectionUtils {
                     Method declaredMethod = cls.getDeclaredMethod(str, clsArr);
                     declaredMethod.setAccessible(true);
                     return declaredMethod;
-                } catch (NoSuchMethodException e2) {
-                    CommonMethods.handleNuLException(e2);
+                } catch (NoSuchMethodException e) {
+                    CommonMethods.handleNuLException(e);
                     cls = cls.getSuperclass();
                 }
             }
@@ -177,8 +177,8 @@ public class ReflectionUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, classLoader, str)) == null) {
             try {
                 return classLoader.loadClass(str);
-            } catch (ClassNotFoundException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (ClassNotFoundException e) {
+                CommonMethods.handleNuLException(e);
                 return null;
             }
         }

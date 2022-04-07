@@ -1,5 +1,5 @@
 package com.kwad.sdk.export.proxy;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface AdLocationProxy {
     double getLatitude();
 

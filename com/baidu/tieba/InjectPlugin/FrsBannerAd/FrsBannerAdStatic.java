@@ -1,13 +1,6 @@
 package com.baidu.tieba.InjectPlugin.FrsBannerAd;
 
 import android.view.View;
-import c.a.d.o.e.p;
-import c.a.p0.h.a.a;
-import c.a.p0.h.d;
-import c.a.p0.h.e.b;
-import c.a.p0.h.e.c;
-import c.a.p0.h.e.e;
-import c.a.p0.h.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -20,23 +13,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.eh5;
+import com.repackage.fh5;
+import com.repackage.gh5;
+import com.repackage.hh5;
+import com.repackage.ih5;
+import com.repackage.jh5;
+import com.repackage.mh5;
+import com.repackage.nh5;
+import com.repackage.wo;
+import com.repackage.yg5;
+/* loaded from: classes3.dex */
 public class FrsBannerAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C1836a implements a.InterfaceC1148a {
+        /* loaded from: classes3.dex */
+        public class C0177a implements yg5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1836a(a aVar) {
+            public C0177a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,30 +55,30 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // c.a.p0.h.a.a.InterfaceC1148a
-            public void a(c cVar, View view) {
-                b a;
+            @Override // com.repackage.yg5.a
+            public void a(hh5 hh5Var, View view2) {
+                gh5 a;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLL(1048576, this, cVar, view) == null) || (a = h.a(cVar)) == null) {
+                if (!(interceptable == null || interceptable.invokeLL(1048576, this, hh5Var, view2) == null) || (a = mh5.a(hh5Var)) == null) {
                     return;
                 }
-                d dVar = new d();
-                dVar.a = 2;
-                dVar.b(view);
-                a.dispatchInjectPluginMessage(dVar);
+                eh5 eh5Var = new eh5();
+                eh5Var.a = 2;
+                eh5Var.b(view2);
+                a.dispatchInjectPluginMessage(eh5Var);
             }
 
-            @Override // c.a.p0.h.a.a.InterfaceC1148a
-            public void b(c cVar, View view) {
-                b a;
+            @Override // com.repackage.yg5.a
+            public void b(hh5 hh5Var, View view2) {
+                gh5 a;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, view) == null) || (a = h.a(cVar)) == null) {
+                if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hh5Var, view2) == null) || (a = mh5.a(hh5Var)) == null) {
                     return;
                 }
-                d dVar = new d();
-                dVar.a = 3;
-                dVar.b(view);
-                a.dispatchInjectPluginMessage(dVar);
+                eh5 eh5Var = new eh5();
+                eh5Var.a = 3;
+                eh5Var.b(view2);
+                a.dispatchInjectPluginMessage(eh5Var);
             }
         }
 
@@ -100,41 +103,41 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.p0.h.f.a aVar;
-            TbPageContext b2;
+            nh5 nh5Var;
+            TbPageContext b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.p0.h.f.a) && (b2 = (aVar = (c.a.p0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
-                b bVar = (b) b2.getPageActivity();
-                c.a.p0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof nh5) && (b = (nh5Var = (nh5) customResponsedMessage.getData()).b()) != null && (b.getPageActivity() instanceof gh5)) {
+                gh5 gh5Var = (gh5) b.getPageActivity();
+                fh5 injectPlugin = gh5Var.getInjectPlugin(2);
                 if (injectPlugin == null) {
-                    c.a.p0.h.e.d a = e.b().a(2);
+                    ih5 a = jh5.b().a(2);
                     if (a == null) {
                         return;
                     }
                     injectPlugin = a.a();
-                    bVar.setInjectPlugin(2, injectPlugin);
-                    injectPlugin.n(new c(b2));
-                    if (!(injectPlugin instanceof c.a.p0.h.a.a)) {
+                    gh5Var.setInjectPlugin(2, injectPlugin);
+                    injectPlugin.n(new hh5(b));
+                    if (!(injectPlugin instanceof yg5)) {
                         return;
                     }
-                    ((c.a.p0.h.a.a) injectPlugin).f(new C1836a(this));
+                    ((yg5) injectPlugin).f(new C0177a(this));
                 }
-                if (injectPlugin instanceof c.a.p0.h.a.a) {
-                    c.a.p0.h.a.a aVar2 = (c.a.p0.h.a.a) injectPlugin;
-                    if (aVar.a() == 1) {
-                        aVar2.setParams(aVar.g());
-                        aVar2.b(aVar.d());
-                        aVar2.h();
-                    } else if (aVar.a() == 2) {
-                        aVar2.j(aVar.f());
-                    } else if (aVar.a() == 3) {
-                        p e2 = aVar.e();
-                        if (e2 == null || aVar2.getView() == null) {
+                if (injectPlugin instanceof yg5) {
+                    yg5 yg5Var = (yg5) injectPlugin;
+                    if (nh5Var.a() == 1) {
+                        yg5Var.setParams(nh5Var.g());
+                        yg5Var.b(nh5Var.d());
+                        yg5Var.h();
+                    } else if (nh5Var.a() == 2) {
+                        yg5Var.j(nh5Var.f());
+                    } else if (nh5Var.a() == 3) {
+                        wo e = nh5Var.e();
+                        if (e == null || yg5Var.getView() == null) {
                             return;
                         }
-                        e2.removeHeaderView(aVar2.getView());
-                    } else if (aVar.a() == 4) {
-                        aVar2.a(aVar.h());
+                        e.removeHeaderView(yg5Var.getView());
+                    } else if (nh5Var.a() == 4) {
+                        yg5Var.a(nh5Var.h());
                     }
                 }
             }

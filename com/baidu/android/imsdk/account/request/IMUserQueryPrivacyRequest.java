@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,10 +87,10 @@ public class IMUserQueryPrivacyRequest extends IMUserBaseHttpRequest {
                     i2 = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
-            } catch (JSONException e2) {
-                LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("IMUserQueryPrivacyRequest", "JSONException", e);
                 i2 = 1010;
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             AccountManagerImpl.getInstance(this.mContext).onQueryPrivacyResult(i2, str, i3);

@@ -35,8 +35,8 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeout-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m2079withTimeoutlwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeout(DelayKt.m2072toDelayMillisLRDsOJo(d2), function2, continuation);
+    public static final <T> Object m2075withTimeoutlwyi7ZQ(double d, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeout(DelayKt.m2068toDelayMillisLRDsOJo(d), function2, continuation);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
@@ -78,8 +78,8 @@ public final class TimeoutKt {
                             DebugProbesKt.probeCoroutineSuspended(timeoutKt$withTimeoutOrNull$1);
                         }
                         return obj2 == coroutine_suspended ? coroutine_suspended : obj2;
-                    } catch (TimeoutCancellationException e2) {
-                        e = e2;
+                    } catch (TimeoutCancellationException e) {
+                        e = e;
                         objectRef = objectRef2;
                     }
                 } else if (i != 1) {
@@ -91,8 +91,8 @@ public final class TimeoutKt {
                     try {
                         ResultKt.throwOnFailure(obj);
                         return obj;
-                    } catch (TimeoutCancellationException e3) {
-                        e = e3;
+                    } catch (TimeoutCancellationException e2) {
+                        e = e2;
                     }
                 }
                 if (e.coroutine != ((TimeoutCoroutine) objectRef.element)) {
@@ -113,7 +113,7 @@ public final class TimeoutKt {
 
     @ExperimentalTime
     /* renamed from: withTimeoutOrNull-lwyi7ZQ  reason: not valid java name */
-    public static final <T> Object m2080withTimeoutOrNulllwyi7ZQ(double d2, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
-        return withTimeoutOrNull(DelayKt.m2072toDelayMillisLRDsOJo(d2), function2, continuation);
+    public static final <T> Object m2076withTimeoutOrNulllwyi7ZQ(double d, Function2<? super CoroutineScope, ? super Continuation<? super T>, ? extends Object> function2, Continuation<? super T> continuation) {
+        return withTimeoutOrNull(DelayKt.m2068toDelayMillisLRDsOJo(d), function2, continuation);
     }
 }

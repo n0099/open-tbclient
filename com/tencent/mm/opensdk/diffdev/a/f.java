@@ -11,7 +11,7 @@ import com.tencent.mm.opensdk.diffdev.OAuthErrCode;
 import com.tencent.mm.opensdk.diffdev.OAuthListener;
 import com.tencent.mm.opensdk.utils.Log;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class f extends AsyncTask<Void, Void, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class f extends AsyncTask<Void, Void, a> {
     public int t;
     public String url;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,15 +89,15 @@ public final class f extends AsyncTask<Void, Void, a> {
                             }
                             aVar.m = oAuthErrCode2;
                             return aVar;
-                        } catch (Exception e2) {
-                            format = String.format("parse json fail, ex = %s", e2.getMessage());
+                        } catch (Exception e) {
+                            format = String.format("parse json fail, ex = %s", e.getMessage());
                             Log.e("MicroMsg.SDK.NoopingResult", format);
                             oAuthErrCode = OAuthErrCode.WechatAuth_Err_NormalErr;
                             aVar.m = oAuthErrCode;
                             return aVar;
                         }
-                    } catch (Exception e3) {
-                        format = String.format("parse fail, build String fail, ex = %s", e3.getMessage());
+                    } catch (Exception e2) {
+                        format = String.format("parse fail, build String fail, ex = %s", e2.getMessage());
                     }
                 }
                 aVar.m = oAuthErrCode;
@@ -155,24 +155,24 @@ public final class f extends AsyncTask<Void, Void, a> {
                 long currentTimeMillis = System.currentTimeMillis();
                 byte[] a2 = e.a(sb2);
                 long currentTimeMillis2 = System.currentTimeMillis();
-                a b2 = a.b(a2);
-                Log.d("MicroMsg.SDK.NoopingTask", String.format("nooping, url = %s, errCode = %s, uuidStatusCode = %d, time consumed = %d(ms)", sb2, b2.m.toString(), Integer.valueOf(b2.v), Long.valueOf(currentTimeMillis2 - currentTimeMillis)));
-                OAuthErrCode oAuthErrCode2 = b2.m;
+                a b = a.b(a2);
+                Log.d("MicroMsg.SDK.NoopingTask", String.format("nooping, url = %s, errCode = %s, uuidStatusCode = %d, time consumed = %d(ms)", sb2, b.m.toString(), Integer.valueOf(b.v), Long.valueOf(currentTimeMillis2 - currentTimeMillis)));
+                OAuthErrCode oAuthErrCode2 = b.m;
                 if (oAuthErrCode2 != OAuthErrCode.WechatAuth_Err_OK) {
-                    Log.e("MicroMsg.SDK.NoopingTask", String.format("nooping fail, errCode = %s, uuidStatusCode = %d", oAuthErrCode2.toString(), Integer.valueOf(b2.v)));
-                    return b2;
+                    Log.e("MicroMsg.SDK.NoopingTask", String.format("nooping fail, errCode = %s, uuidStatusCode = %d", oAuthErrCode2.toString(), Integer.valueOf(b.v)));
+                    return b;
                 }
-                int i = b2.v;
+                int i = b.v;
                 this.t = i;
                 if (i == g.y.getCode()) {
                     this.k.onQrcodeScanned();
-                } else if (b2.v != g.A.getCode() && b2.v == g.z.getCode()) {
-                    String str3 = b2.u;
+                } else if (b.v != g.A.getCode() && b.v == g.z.getCode()) {
+                    String str3 = b.u;
                     if (str3 == null || str3.length() == 0) {
                         Log.e("MicroMsg.SDK.NoopingTask", "nooping fail, confirm with an empty code!!!");
-                        b2.m = OAuthErrCode.WechatAuth_Err_NormalErr;
+                        b.m = OAuthErrCode.WechatAuth_Err_NormalErr;
                     }
-                    return b2;
+                    return b;
                 }
             }
             Log.i("MicroMsg.SDK.NoopingTask", "IDiffDevOAuth.stopAuth / detach invoked");

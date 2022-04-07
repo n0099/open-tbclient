@@ -14,7 +14,7 @@ import com.baidu.webkit.sdk.TracingConfig;
 import com.baidu.webkit.sdk.TracingController;
 import java.io.OutputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TracingControllerImpl extends TracingController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

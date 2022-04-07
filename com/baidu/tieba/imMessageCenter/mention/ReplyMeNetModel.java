@@ -1,8 +1,5 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import c.a.o0.k0.b.g;
-import c.a.p0.v1.b.l;
-import c.a.p0.v1.b.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,25 +11,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
+import com.repackage.ga7;
+import com.repackage.ha7;
+import com.repackage.o65;
+/* loaded from: classes3.dex */
+public class ReplyMeNetModel extends NetAutoModel<ga7, ha7, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, l lVar) {
-        super(tbPageContext, lVar);
+    public ReplyMeNetModel(TbPageContext tbPageContext, ga7 ga7Var) {
+        super(tbPageContext, ga7Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, lVar};
+            Object[] objArr = {tbPageContext, ga7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (g) objArr2[1]);
+                super((TbPageContext) objArr2[0], (o65) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,9 +79,9 @@ public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<m> getResponseDataClass() {
+    public Class<ha7> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? m.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ha7.class : (Class) invokeV.objValue;
     }
 }

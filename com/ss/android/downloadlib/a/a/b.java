@@ -19,8 +19,8 @@ public class b {
         String str;
         try {
             str = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             str = null;
         }
         return TextUtils.isEmpty(str) ? "normal" : str;

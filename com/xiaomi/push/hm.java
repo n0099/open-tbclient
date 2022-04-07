@@ -9,22 +9,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class hm {
     public static /* synthetic */ Interceptable $ic;
     public static final hm a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hm[] f477a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final hm f44352b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final hm f44353c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final hm f44354d;
+    public static final hm b;
+    public static final hm c;
+    public static final hm d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -44,11 +38,11 @@ public final class hm {
             }
         }
         a = new hm("INT", 0, 1);
-        f44352b = new hm("LONG", 1, 2);
-        f44353c = new hm("STRING", 2, 3);
+        b = new hm("LONG", 1, 2);
+        c = new hm("STRING", 2, 3);
         hm hmVar = new hm("BOOLEAN", 3, 4);
-        f44354d = hmVar;
-        f477a = new hm[]{a, f44352b, f44353c, hmVar};
+        d = hmVar;
+        f477a = new hm[]{a, b, c, hmVar};
     }
 
     public hm(String str, int i, int i2) {
@@ -82,11 +76,11 @@ public final class hm {
                         if (i != 4) {
                             return null;
                         }
-                        return f44354d;
+                        return d;
                     }
-                    return f44353c;
+                    return c;
                 }
-                return f44352b;
+                return b;
             }
             return a;
         }

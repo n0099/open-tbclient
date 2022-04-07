@@ -17,19 +17,13 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "e";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f23661b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Map<String, b> f23662c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static List<String> f23663d;
+    public static int b;
+    public static Map<String, b> c;
+    public static List<String> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,8 +39,8 @@ public class e {
                 return;
             }
         }
-        f23662c = new HashMap();
-        f23663d = new ArrayList();
+        c = new HashMap();
+        d = new ArrayList();
     }
 
     public e() {
@@ -70,10 +64,10 @@ public class e {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             synchronized (e.class) {
                 try {
-                    bVar = f23662c.containsKey(str) ? f23662c.get(str) : null;
+                    bVar = c.containsKey(str) ? c.get(str) : null;
                     if (bVar == null) {
                         bVar = new b(str);
-                        f23662c.put(str, bVar);
+                        c.put(str, bVar);
                     }
                 } catch (Throwable th) {
                     th.printStackTrace();
@@ -90,12 +84,12 @@ public class e {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
             try {
                 synchronized (e.class) {
-                    if (f23662c.containsKey(str)) {
-                        f23663d.add(f23662c.get(str).toString());
-                        f23662c.remove(str);
+                    if (c.containsKey(str)) {
+                        d.add(c.get(str).toString());
+                        c.remove(str);
                     }
-                    if (f23661b != 1 && !f23663d.isEmpty()) {
-                        f23661b = 1;
+                    if (b != 1 && !d.isEmpty()) {
+                        b = 1;
                         new Timer().schedule(new TimerTask(context) { // from class: cn.com.chinatelecom.gateway.lib.b.e.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -146,8 +140,8 @@ public class e {
                     i = jSONObject.getInt("result");
                     str4 = jSONObject.optString("msg");
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             b a2 = a(str).a(i);
             if (i == 0) {
@@ -166,9 +160,9 @@ public class e {
         try {
             ArrayList arrayList = new ArrayList();
             synchronized (e.class) {
-                arrayList.addAll(f23663d);
-                f23661b = 0;
-                f23663d.clear();
+                arrayList.addAll(d);
+                b = 0;
+                d.clear();
             }
             if (arrayList.isEmpty()) {
                 return;

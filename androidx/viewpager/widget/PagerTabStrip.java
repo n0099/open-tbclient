@@ -101,11 +101,11 @@ public class PagerTabStrip extends PagerTitleStrip {
             int left = this.mCurrText.getLeft() - this.mTabPadding;
             int right = this.mCurrText.getRight() + this.mTabPadding;
             this.mTabPaint.setColor((this.mTabAlpha << 24) | (this.mIndicatorColor & 16777215));
-            float f2 = height;
-            canvas.drawRect(left, height - this.mIndicatorHeight, right, f2, this.mTabPaint);
+            float f = height;
+            canvas.drawRect(left, height - this.mIndicatorHeight, right, f, this.mTabPaint);
             if (this.mDrawFullUnderline) {
                 this.mTabPaint.setColor((-16777216) | (this.mIndicatorColor & 16777215));
-                canvas.drawRect(getPaddingLeft(), height - this.mFullUnderlineHeight, getWidth() - getPaddingRight(), f2, this.mTabPaint);
+                canvas.drawRect(getPaddingLeft(), height - this.mFullUnderlineHeight, getWidth() - getPaddingRight(), f, this.mTabPaint);
             }
         }
     }
@@ -227,17 +227,17 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void updateTextPositions(int i, float f2, boolean z) {
+    public void updateTextPositions(int i, float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Boolean.valueOf(z)}) == null) {
             Rect rect = this.mTempRect;
             int height = getHeight();
             int left = this.mCurrText.getLeft() - this.mTabPadding;
             int right = this.mCurrText.getRight() + this.mTabPadding;
             int i2 = height - this.mIndicatorHeight;
             rect.set(left, i2, right, height);
-            super.updateTextPositions(i, f2, z);
-            this.mTabAlpha = (int) (Math.abs(f2 - 0.5f) * 2.0f * 255.0f);
+            super.updateTextPositions(i, f, z);
+            this.mTabAlpha = (int) (Math.abs(f - 0.5f) * 2.0f * 255.0f);
             rect.union(this.mCurrText.getLeft() - this.mTabPadding, i2, this.mCurrText.getRight() + this.mTabPadding, height);
             invalidate(rect);
         }
@@ -270,13 +270,13 @@ public class PagerTabStrip extends PagerTitleStrip {
         int i3 = this.mTextColor;
         this.mIndicatorColor = i3;
         this.mTabPaint.setColor(i3);
-        float f2 = context.getResources().getDisplayMetrics().density;
-        this.mIndicatorHeight = (int) ((3.0f * f2) + 0.5f);
-        this.mMinPaddingBottom = (int) ((6.0f * f2) + 0.5f);
-        this.mMinTextSpacing = (int) (64.0f * f2);
-        this.mTabPadding = (int) ((16.0f * f2) + 0.5f);
-        this.mFullUnderlineHeight = (int) ((1.0f * f2) + 0.5f);
-        this.mMinStripHeight = (int) ((f2 * 32.0f) + 0.5f);
+        float f = context.getResources().getDisplayMetrics().density;
+        this.mIndicatorHeight = (int) ((3.0f * f) + 0.5f);
+        this.mMinPaddingBottom = (int) ((6.0f * f) + 0.5f);
+        this.mMinTextSpacing = (int) (64.0f * f);
+        this.mTabPadding = (int) ((16.0f * f) + 0.5f);
+        this.mFullUnderlineHeight = (int) ((1.0f * f) + 0.5f);
+        this.mMinStripHeight = (int) ((f * 32.0f) + 0.5f);
         this.mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom());
         setTextSpacing(getTextSpacing());
@@ -306,9 +306,9 @@ public class PagerTabStrip extends PagerTitleStrip {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     ViewPager viewPager = this.this$0.mPager;
                     viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
                 }
@@ -339,9 +339,9 @@ public class PagerTabStrip extends PagerTitleStrip {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     ViewPager viewPager = this.this$0.mPager;
                     viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
                 }

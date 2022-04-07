@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewHolder<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View convertView;
 
-    public ViewHolder(View view) {
+    public ViewHolder(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,12 +28,12 @@ public class ViewHolder<D> {
                 return;
             }
         }
-        this.convertView = view;
+        this.convertView = view2;
     }
 
-    public void bindView(D d2) {
+    public void bindView(D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, d) == null) {
         }
     }
 

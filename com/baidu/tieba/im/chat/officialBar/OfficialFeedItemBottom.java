@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.p0.u1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,17 +14,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.c77;
+/* loaded from: classes3.dex */
 public class OfficialFeedItemBottom extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f33746b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f33747c;
+    public TextView b;
+    public TextView c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public OfficialFeedItemBottom(Context context) {
@@ -51,9 +47,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f33747c.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
             layoutParams.topMargin = i;
-            this.f33747c.setLayoutParams(layoutParams);
+            this.c.setLayoutParams(layoutParams);
         }
     }
 
@@ -61,9 +57,9 @@ public class OfficialFeedItemBottom extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0640, (ViewGroup) this, true);
-            this.f33746b = (TextView) findViewById(R.id.obfuscated_res_0x7f091406);
-            this.f33747c = (TextView) findViewById(R.id.obfuscated_res_0x7f091402);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d063c, (ViewGroup) this, true);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0913ff);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0913fb);
             c();
         }
     }
@@ -71,22 +67,22 @@ public class OfficialFeedItemBottom extends LinearLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f33747c, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f33746b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
         }
     }
 
-    public void setData(a.C1417a c1417a, boolean z) {
+    public void setData(c77.a aVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, c1417a, z) == null) {
-            int i = TextUtils.isEmpty(c1417a.f18834b) ? 8 : 0;
-            this.f33746b.setText(c1417a.a);
-            this.f33747c.setText(c1417a.f18834b);
-            this.f33747c.setVisibility(i);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, aVar, z) == null) {
+            int i = TextUtils.isEmpty(aVar.b) ? 8 : 0;
+            this.b.setText(aVar.a);
+            this.c.setText(aVar.b);
+            this.c.setVisibility(i);
             if (z) {
-                this.f33746b.setVisibility(8);
+                this.b.setVisibility(8);
             } else {
-                this.f33746b.setVisibility(0);
+                this.b.setVisibility(0);
             }
         }
     }

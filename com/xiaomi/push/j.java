@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public final class j {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public final class j {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class c implements IInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,16 +187,16 @@ public final class j {
                                 if (a2 != null) {
                                     return new a(new c(a2).a(), false);
                                 }
-                            } catch (Exception e2) {
-                                throw e2;
+                            } catch (Exception e) {
+                                throw e;
                             }
                         } finally {
                             context.unbindService(bVar);
                         }
                     }
                     throw new IOException("Google Play connection failed");
-                } catch (Exception e3) {
-                    throw e3;
+                } catch (Exception e2) {
+                    throw e2;
                 }
             }
             throw new IllegalStateException("Cannot be called from the main thread");

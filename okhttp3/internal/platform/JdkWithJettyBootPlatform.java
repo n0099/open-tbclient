@@ -142,8 +142,8 @@ public class JdkWithJettyBootPlatform extends Platform {
         if (interceptable == null || interceptable.invokeL(1048576, this, sSLSocket) == null) {
             try {
                 this.removeMethod.invoke(null, sSLSocket);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw Util.assertionError("unable to remove alpn", e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw Util.assertionError("unable to remove alpn", e);
             }
         }
     }
@@ -154,8 +154,8 @@ public class JdkWithJettyBootPlatform extends Platform {
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sSLSocket, str, list) == null) {
             try {
                 this.putMethod.invoke(null, sSLSocket, Proxy.newProxyInstance(Platform.class.getClassLoader(), new Class[]{this.clientProviderClass, this.serverProviderClass}, new JettyNegoProvider(Platform.alpnProtocolNames(list))));
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw Util.assertionError("unable to set alpn", e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw Util.assertionError("unable to set alpn", e);
             }
         }
     }
@@ -176,8 +176,8 @@ public class JdkWithJettyBootPlatform extends Platform {
                 } else {
                     return jettyNegoProvider.selected;
                 }
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw Util.assertionError("unable to get selected protocol", e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw Util.assertionError("unable to get selected protocol", e);
             }
         }
         return (String) invokeL.objValue;

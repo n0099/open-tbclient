@@ -1,7 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,13 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
 import com.squareup.wire.ByteString;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UpdateClientInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,11 +50,11 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         this.device = new HashMap();
         try {
             if (TbadkCoreApplication.getInst().getLocationShared()) {
-                this.lat = b.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
-                this.lng = b.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
+                this.lat = mg.c(TbadkCoreApplication.getInst().getLocationLat(), 0.0d);
+                this.lng = mg.c(TbadkCoreApplication.getInst().getLocationLng(), 0.0d);
             }
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 
@@ -117,17 +117,17 @@ public class UpdateClientInfoMessage extends TbSocketMessage {
         }
     }
 
-    public void setLat(double d2) {
+    public void setLat(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.lat = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.lat = d;
         }
     }
 
-    public void setLng(double d2) {
+    public void setLng(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.lng = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.lng = d;
         }
     }
 

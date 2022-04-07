@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Affine2 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1524569123485049187L;
@@ -46,10 +46,10 @@ public final class Affine2 implements Serializable {
     public void applyTo(Vector2 vector2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, vector2) == null) {
-            float f2 = vector2.x;
-            float f3 = vector2.y;
-            vector2.x = (this.m00 * f2) + (this.m01 * f3) + this.m02;
-            vector2.y = (this.m10 * f2) + (this.m11 * f3) + this.m12;
+            float f = vector2.x;
+            float f2 = vector2.y;
+            vector2.x = (this.m00 * f) + (this.m01 * f2) + this.m02;
+            vector2.y = (this.m10 * f) + (this.m11 * f2) + this.m12;
         }
     }
 
@@ -91,19 +91,19 @@ public final class Affine2 implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             float det = det();
             if (det != 0.0f) {
-                float f2 = 1.0f / det;
-                float f3 = this.m11;
-                float f4 = this.m01;
-                float f5 = this.m12;
-                float f6 = this.m02;
-                float f7 = this.m10;
-                float f8 = this.m00;
-                this.m00 = f3 * f2;
-                this.m01 = (-f4) * f2;
-                this.m02 = ((f4 * f5) - (f3 * f6)) * f2;
-                this.m10 = (-f7) * f2;
-                this.m11 = f8 * f2;
-                this.m12 = f2 * ((f7 * f6) - (f5 * f8));
+                float f = 1.0f / det;
+                float f2 = this.m11;
+                float f3 = this.m01;
+                float f4 = this.m12;
+                float f5 = this.m02;
+                float f6 = this.m10;
+                float f7 = this.m00;
+                this.m00 = f2 * f;
+                this.m01 = (-f3) * f;
+                this.m02 = ((f3 * f4) - (f2 * f5)) * f;
+                this.m10 = (-f6) * f;
+                this.m11 = f7 * f;
+                this.m12 = f * ((f6 * f5) - (f4 * f7));
                 return this;
             }
             throw new GdxRuntimeException("Can't invert a singular affine matrix");
@@ -127,25 +127,25 @@ public final class Affine2 implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, affine2)) == null) {
-            float f2 = this.m00;
-            float f3 = affine2.m00;
-            float f4 = this.m01;
-            float f5 = affine2.m10;
-            float f6 = (f2 * f3) + (f4 * f5);
-            float f7 = affine2.m01;
-            float f8 = affine2.m11;
-            float f9 = (f2 * f7) + (f4 * f8);
-            float f10 = affine2.m02;
-            float f11 = affine2.m12;
-            float f12 = (f2 * f10) + (f4 * f11) + this.m02;
-            float f13 = this.m10;
-            float f14 = this.m11;
-            this.m00 = f6;
-            this.m01 = f9;
-            this.m02 = f12;
-            this.m10 = (f3 * f13) + (f5 * f14);
-            this.m11 = (f7 * f13) + (f8 * f14);
-            this.m12 = (f13 * f10) + (f14 * f11) + this.m12;
+            float f = this.m00;
+            float f2 = affine2.m00;
+            float f3 = this.m01;
+            float f4 = affine2.m10;
+            float f5 = (f * f2) + (f3 * f4);
+            float f6 = affine2.m01;
+            float f7 = affine2.m11;
+            float f8 = (f * f6) + (f3 * f7);
+            float f9 = affine2.m02;
+            float f10 = affine2.m12;
+            float f11 = (f * f9) + (f3 * f10) + this.m02;
+            float f12 = this.m10;
+            float f13 = this.m11;
+            this.m00 = f5;
+            this.m01 = f8;
+            this.m02 = f11;
+            this.m10 = (f2 * f12) + (f4 * f13);
+            this.m11 = (f6 * f12) + (f7 * f13);
+            this.m12 = (f12 * f9) + (f13 * f10) + this.m12;
             return this;
         }
         return (Affine2) invokeL.objValue;
@@ -155,187 +155,187 @@ public final class Affine2 implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, affine2)) == null) {
-            float f2 = affine2.m00;
-            float f3 = this.m00;
-            float f4 = affine2.m01;
-            float f5 = this.m10;
-            float f6 = (f2 * f3) + (f4 * f5);
-            float f7 = this.m01;
-            float f8 = this.m11;
-            float f9 = (f2 * f7) + (f4 * f8);
-            float f10 = this.m02;
-            float f11 = this.m12;
-            float f12 = (f2 * f10) + (f4 * f11) + affine2.m02;
-            float f13 = affine2.m10;
-            float f14 = affine2.m11;
-            this.m00 = f6;
-            this.m01 = f9;
-            this.m02 = f12;
-            this.m10 = (f3 * f13) + (f5 * f14);
-            this.m11 = (f7 * f13) + (f8 * f14);
-            this.m12 = (f13 * f10) + (f14 * f11) + affine2.m12;
+            float f = affine2.m00;
+            float f2 = this.m00;
+            float f3 = affine2.m01;
+            float f4 = this.m10;
+            float f5 = (f * f2) + (f3 * f4);
+            float f6 = this.m01;
+            float f7 = this.m11;
+            float f8 = (f * f6) + (f3 * f7);
+            float f9 = this.m02;
+            float f10 = this.m12;
+            float f11 = (f * f9) + (f3 * f10) + affine2.m02;
+            float f12 = affine2.m10;
+            float f13 = affine2.m11;
+            this.m00 = f5;
+            this.m01 = f8;
+            this.m02 = f11;
+            this.m10 = (f2 * f12) + (f4 * f13);
+            this.m11 = (f6 * f12) + (f7 * f13);
+            this.m12 = (f12 * f9) + (f13 * f10) + affine2.m12;
             return this;
         }
         return (Affine2) invokeL.objValue;
     }
 
-    public Affine2 preRotate(float f2) {
+    public Affine2 preRotate(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f2)) == null) {
-            if (f2 == 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048585, this, f)) == null) {
+            if (f == 0.0f) {
                 return this;
             }
-            float d2 = d.d(f2);
-            float p = d.p(f2);
-            float f3 = this.m00;
-            float f4 = this.m10;
-            float f5 = this.m01;
-            float f6 = this.m11;
-            float f7 = this.m02;
-            float f8 = this.m12;
-            this.m00 = (d2 * f3) - (p * f4);
-            this.m01 = (d2 * f5) - (p * f6);
-            this.m02 = (d2 * f7) - (p * f8);
-            this.m10 = (f3 * p) + (f4 * d2);
-            this.m11 = (f5 * p) + (f6 * d2);
-            this.m12 = (p * f7) + (d2 * f8);
-            return this;
-        }
-        return (Affine2) invokeF.objValue;
-    }
-
-    public Affine2 preRotateRad(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f2)) == null) {
-            if (f2 == 0.0f) {
-                return this;
-            }
-            float c2 = d.c(f2);
-            float o = d.o(f2);
-            float f3 = this.m00;
-            float f4 = this.m10;
-            float f5 = this.m01;
-            float f6 = this.m11;
-            float f7 = this.m02;
-            float f8 = this.m12;
-            this.m00 = (c2 * f3) - (o * f4);
-            this.m01 = (c2 * f5) - (o * f6);
-            this.m02 = (c2 * f7) - (o * f8);
-            this.m10 = (f3 * o) + (f4 * c2);
-            this.m11 = (f5 * o) + (f6 * c2);
-            this.m12 = (o * f7) + (c2 * f8);
-            return this;
-        }
-        return (Affine2) invokeF.objValue;
-    }
-
-    public Affine2 preScale(float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.m00 *= f2;
-            this.m01 *= f2;
-            this.m02 *= f2;
-            this.m10 *= f3;
-            this.m11 *= f3;
-            this.m12 *= f3;
-            return this;
-        }
-        return (Affine2) invokeCommon.objValue;
-    }
-
-    public Affine2 preShear(float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float f4 = this.m00;
-            float f5 = this.m10;
-            float f6 = this.m01;
-            float f7 = this.m11;
-            float f8 = this.m02;
-            float f9 = this.m12;
-            this.m00 = (f2 * f5) + f4;
-            this.m01 = (f2 * f7) + f6;
-            this.m02 = (f2 * f9) + f8;
-            this.m10 = f5 + (f4 * f3);
-            this.m11 = f7 + (f6 * f3);
-            this.m12 = f9 + (f3 * f8);
-            return this;
-        }
-        return (Affine2) invokeCommon.objValue;
-    }
-
-    public Affine2 preTranslate(float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.m02 += f2;
-            this.m12 += f3;
-            return this;
-        }
-        return (Affine2) invokeCommon.objValue;
-    }
-
-    public Affine2 rotate(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048593, this, f2)) == null) {
-            if (f2 == 0.0f) {
-                return this;
-            }
-            float d2 = d.d(f2);
-            float p = d.p(f2);
-            float f3 = this.m00;
+            float d = d.d(f);
+            float p = d.p(f);
+            float f2 = this.m00;
+            float f3 = this.m10;
             float f4 = this.m01;
-            float f5 = (f3 * d2) + (f4 * p);
-            float f6 = -p;
-            float f7 = (f3 * f6) + (f4 * d2);
-            float f8 = this.m10;
-            float f9 = this.m11;
-            this.m00 = f5;
-            this.m01 = f7;
-            this.m10 = (f8 * d2) + (p * f9);
-            this.m11 = (f8 * f6) + (f9 * d2);
+            float f5 = this.m11;
+            float f6 = this.m02;
+            float f7 = this.m12;
+            this.m00 = (d * f2) - (p * f3);
+            this.m01 = (d * f4) - (p * f5);
+            this.m02 = (d * f6) - (p * f7);
+            this.m10 = (f2 * p) + (f3 * d);
+            this.m11 = (f4 * p) + (f5 * d);
+            this.m12 = (p * f6) + (d * f7);
             return this;
         }
         return (Affine2) invokeF.objValue;
     }
 
-    public Affine2 rotateRad(float f2) {
+    public Affine2 preRotateRad(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f2)) == null) {
-            if (f2 == 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048586, this, f)) == null) {
+            if (f == 0.0f) {
                 return this;
             }
-            float c2 = d.c(f2);
-            float o = d.o(f2);
-            float f3 = this.m00;
+            float c = d.c(f);
+            float o = d.o(f);
+            float f2 = this.m00;
+            float f3 = this.m10;
             float f4 = this.m01;
-            float f5 = (f3 * c2) + (f4 * o);
-            float f6 = -o;
-            float f7 = (f3 * f6) + (f4 * c2);
-            float f8 = this.m10;
-            float f9 = this.m11;
-            this.m00 = f5;
-            this.m01 = f7;
-            this.m10 = (f8 * c2) + (o * f9);
-            this.m11 = (f8 * f6) + (f9 * c2);
+            float f5 = this.m11;
+            float f6 = this.m02;
+            float f7 = this.m12;
+            this.m00 = (c * f2) - (o * f3);
+            this.m01 = (c * f4) - (o * f5);
+            this.m02 = (c * f6) - (o * f7);
+            this.m10 = (f2 * o) + (f3 * c);
+            this.m11 = (f4 * o) + (f5 * c);
+            this.m12 = (o * f6) + (c * f7);
             return this;
         }
         return (Affine2) invokeF.objValue;
     }
 
-    public Affine2 scale(float f2, float f3) {
+    public Affine2 preScale(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.m00 *= f2;
-            this.m01 *= f3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.m00 *= f;
+            this.m01 *= f;
+            this.m02 *= f;
             this.m10 *= f2;
-            this.m11 *= f3;
+            this.m11 *= f2;
+            this.m12 *= f2;
+            return this;
+        }
+        return (Affine2) invokeCommon.objValue;
+    }
+
+    public Affine2 preShear(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float f3 = this.m00;
+            float f4 = this.m10;
+            float f5 = this.m01;
+            float f6 = this.m11;
+            float f7 = this.m02;
+            float f8 = this.m12;
+            this.m00 = (f * f4) + f3;
+            this.m01 = (f * f6) + f5;
+            this.m02 = (f * f8) + f7;
+            this.m10 = f4 + (f3 * f2);
+            this.m11 = f6 + (f5 * f2);
+            this.m12 = f8 + (f2 * f7);
+            return this;
+        }
+        return (Affine2) invokeCommon.objValue;
+    }
+
+    public Affine2 preTranslate(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.m02 += f;
+            this.m12 += f2;
+            return this;
+        }
+        return (Affine2) invokeCommon.objValue;
+    }
+
+    public Affine2 rotate(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048593, this, f)) == null) {
+            if (f == 0.0f) {
+                return this;
+            }
+            float d = d.d(f);
+            float p = d.p(f);
+            float f2 = this.m00;
+            float f3 = this.m01;
+            float f4 = (f2 * d) + (f3 * p);
+            float f5 = -p;
+            float f6 = (f2 * f5) + (f3 * d);
+            float f7 = this.m10;
+            float f8 = this.m11;
+            this.m00 = f4;
+            this.m01 = f6;
+            this.m10 = (f7 * d) + (p * f8);
+            this.m11 = (f7 * f5) + (f8 * d);
+            return this;
+        }
+        return (Affine2) invokeF.objValue;
+    }
+
+    public Affine2 rotateRad(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f)) == null) {
+            if (f == 0.0f) {
+                return this;
+            }
+            float c = d.c(f);
+            float o = d.o(f);
+            float f2 = this.m00;
+            float f3 = this.m01;
+            float f4 = (f2 * c) + (f3 * o);
+            float f5 = -o;
+            float f6 = (f2 * f5) + (f3 * c);
+            float f7 = this.m10;
+            float f8 = this.m11;
+            this.m00 = f4;
+            this.m01 = f6;
+            this.m10 = (f7 * c) + (o * f8);
+            this.m11 = (f7 * f5) + (f8 * c);
+            return this;
+        }
+        return (Affine2) invokeF.objValue;
+    }
+
+    public Affine2 scale(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.m00 *= f;
+            this.m01 *= f2;
+            this.m10 *= f;
+            this.m11 *= f2;
             return this;
         }
         return (Affine2) invokeCommon.objValue;
@@ -360,85 +360,85 @@ public final class Affine2 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, affine2, affine22)) == null) {
-            float f2 = affine2.m00 * affine22.m00;
-            float f3 = affine2.m01;
-            float f4 = affine22.m10;
-            this.m00 = f2 + (f3 * f4);
-            float f5 = affine2.m00;
-            float f6 = affine22.m11;
-            this.m01 = (affine22.m01 * f5) + (f3 * f6);
-            float f7 = f5 * affine22.m02;
-            float f8 = affine2.m01;
-            float f9 = affine22.m12;
-            this.m02 = f7 + (f8 * f9) + affine2.m02;
-            float f10 = affine2.m10 * affine22.m00;
-            float f11 = affine2.m11;
-            this.m10 = f10 + (f4 * f11);
-            float f12 = affine2.m10;
-            this.m11 = (affine22.m01 * f12) + (f11 * f6);
-            this.m12 = (f12 * affine22.m02) + (affine2.m11 * f9) + affine2.m12;
+            float f = affine2.m00 * affine22.m00;
+            float f2 = affine2.m01;
+            float f3 = affine22.m10;
+            this.m00 = f + (f2 * f3);
+            float f4 = affine2.m00;
+            float f5 = affine22.m11;
+            this.m01 = (affine22.m01 * f4) + (f2 * f5);
+            float f6 = f4 * affine22.m02;
+            float f7 = affine2.m01;
+            float f8 = affine22.m12;
+            this.m02 = f6 + (f7 * f8) + affine2.m02;
+            float f9 = affine2.m10 * affine22.m00;
+            float f10 = affine2.m11;
+            this.m10 = f9 + (f3 * f10);
+            float f11 = affine2.m10;
+            this.m11 = (affine22.m01 * f11) + (f10 * f5);
+            this.m12 = (f11 * affine22.m02) + (affine2.m11 * f8) + affine2.m12;
             return this;
         }
         return (Affine2) invokeLL.objValue;
     }
 
-    public Affine2 setToRotation(float f2) {
+    public Affine2 setToRotation(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f2)) == null) {
-            float d2 = d.d(f2);
-            float p = d.p(f2);
-            this.m00 = d2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048601, this, f)) == null) {
+            float d = d.d(f);
+            float p = d.p(f);
+            this.m00 = d;
             this.m01 = -p;
             this.m02 = 0.0f;
             this.m10 = p;
-            this.m11 = d2;
+            this.m11 = d;
             this.m12 = 0.0f;
             return this;
         }
         return (Affine2) invokeF.objValue;
     }
 
-    public Affine2 setToRotationRad(float f2) {
+    public Affine2 setToRotationRad(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f2)) == null) {
-            float c2 = d.c(f2);
-            float o = d.o(f2);
-            this.m00 = c2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048603, this, f)) == null) {
+            float c = d.c(f);
+            float o = d.o(f);
+            this.m00 = c;
             this.m01 = -o;
             this.m02 = 0.0f;
             this.m10 = o;
-            this.m11 = c2;
+            this.m11 = c;
             this.m12 = 0.0f;
             return this;
         }
         return (Affine2) invokeF.objValue;
     }
 
-    public Affine2 setToScaling(float f2, float f3) {
+    public Affine2 setToScaling(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.m00 = f2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.m00 = f;
             this.m01 = 0.0f;
             this.m02 = 0.0f;
             this.m10 = 0.0f;
-            this.m11 = f3;
+            this.m11 = f2;
             this.m12 = 0.0f;
             return this;
         }
         return (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 setToShearing(float f2, float f3) {
+    public Affine2 setToShearing(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             this.m00 = 1.0f;
-            this.m01 = f2;
+            this.m01 = f;
             this.m02 = 0.0f;
-            this.m10 = f3;
+            this.m10 = f2;
             this.m11 = 1.0f;
             this.m12 = 0.0f;
             return this;
@@ -446,96 +446,96 @@ public final class Affine2 implements Serializable {
         return (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 setToTranslation(float f2, float f3) {
+    public Affine2 setToTranslation(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             this.m00 = 1.0f;
             this.m01 = 0.0f;
-            this.m02 = f2;
+            this.m02 = f;
             this.m10 = 0.0f;
             this.m11 = 1.0f;
-            this.m12 = f3;
+            this.m12 = f2;
             return this;
         }
         return (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 setToTrnRotRadScl(float f2, float f3, float f4, float f5, float f6) {
+    public Affine2 setToTrnRotRadScl(float f, float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            this.m02 = f2;
-            this.m12 = f3;
-            if (f4 == 0.0f) {
-                this.m00 = f5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+            this.m02 = f;
+            this.m12 = f2;
+            if (f3 == 0.0f) {
+                this.m00 = f4;
                 this.m01 = 0.0f;
                 this.m10 = 0.0f;
-                this.m11 = f6;
+                this.m11 = f5;
             } else {
-                float o = d.o(f4);
-                float c2 = d.c(f4);
-                this.m00 = c2 * f5;
-                this.m01 = (-o) * f6;
-                this.m10 = o * f5;
-                this.m11 = c2 * f6;
+                float o = d.o(f3);
+                float c = d.c(f3);
+                this.m00 = c * f4;
+                this.m01 = (-o) * f5;
+                this.m10 = o * f4;
+                this.m11 = c * f5;
             }
             return this;
         }
         return (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 setToTrnRotScl(float f2, float f3, float f4, float f5, float f6) {
+    public Affine2 setToTrnRotScl(float f, float f2, float f3, float f4, float f5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
-            this.m02 = f2;
-            this.m12 = f3;
-            if (f4 == 0.0f) {
-                this.m00 = f5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048612, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+            this.m02 = f;
+            this.m12 = f2;
+            if (f3 == 0.0f) {
+                this.m00 = f4;
                 this.m01 = 0.0f;
                 this.m10 = 0.0f;
-                this.m11 = f6;
+                this.m11 = f5;
             } else {
-                float p = d.p(f4);
-                float d2 = d.d(f4);
-                this.m00 = d2 * f5;
-                this.m01 = (-p) * f6;
-                this.m10 = p * f5;
-                this.m11 = d2 * f6;
+                float p = d.p(f3);
+                float d = d.d(f3);
+                this.m00 = d * f4;
+                this.m01 = (-p) * f5;
+                this.m10 = p * f4;
+                this.m11 = d * f5;
             }
             return this;
         }
         return (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 setToTrnScl(float f2, float f3, float f4, float f5) {
+    public Affine2 setToTrnScl(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            this.m00 = f4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048614, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            this.m00 = f3;
             this.m01 = 0.0f;
-            this.m02 = f2;
+            this.m02 = f;
             this.m10 = 0.0f;
-            this.m11 = f5;
-            this.m12 = f3;
+            this.m11 = f4;
+            this.m12 = f2;
             return this;
         }
         return (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 shear(float f2, float f3) {
+    public Affine2 shear(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float f4 = this.m00;
-            float f5 = this.m01;
-            this.m00 = (f3 * f5) + f4;
-            this.m01 = f5 + (f4 * f2);
-            float f6 = this.m10;
-            float f7 = this.m11;
-            this.m10 = (f3 * f7) + f6;
-            this.m11 = f7 + (f2 * f6);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            float f3 = this.m00;
+            float f4 = this.m01;
+            this.m00 = (f2 * f4) + f3;
+            this.m01 = f4 + (f3 * f);
+            float f5 = this.m10;
+            float f6 = this.m11;
+            this.m10 = (f2 * f6) + f5;
+            this.m11 = f6 + (f * f5);
             return this;
         }
         return (Affine2) invokeCommon.objValue;
@@ -550,12 +550,12 @@ public final class Affine2 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public Affine2 translate(float f2, float f3) {
+    public Affine2 translate(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.m02 += (this.m00 * f2) + (this.m01 * f3);
-            this.m12 += (this.m10 * f2) + (this.m11 * f3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.m02 += (this.m00 * f) + (this.m01 * f2);
+            this.m12 += (this.m10 * f) + (this.m11 * f2);
             return this;
         }
         return (Affine2) invokeCommon.objValue;
@@ -655,15 +655,15 @@ public final class Affine2 implements Serializable {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, vector2)) == null) ? shear(vector2.x, vector2.y) : (Affine2) invokeL.objValue;
     }
 
-    public Affine2 setToRotation(float f2, float f3) {
+    public Affine2 setToRotation(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            this.m00 = f2;
-            this.m01 = -f3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            this.m00 = f;
+            this.m01 = -f2;
             this.m02 = 0.0f;
-            this.m10 = f3;
-            this.m11 = f2;
+            this.m10 = f2;
+            this.m11 = f;
             this.m12 = 0.0f;
             return this;
         }
@@ -676,16 +676,16 @@ public final class Affine2 implements Serializable {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, vector2)) == null) ? preShear(vector2.x, vector2.y) : (Affine2) invokeL.objValue;
     }
 
-    public Affine2 setToTrnRotRadScl(Vector2 vector2, float f2, Vector2 vector22) {
+    public Affine2 setToTrnRotRadScl(Vector2 vector2, float f, Vector2 vector22) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{vector2, Float.valueOf(f2), vector22})) == null) ? setToTrnRotRadScl(vector2.x, vector2.y, f2, vector22.x, vector22.y) : (Affine2) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{vector2, Float.valueOf(f), vector22})) == null) ? setToTrnRotRadScl(vector2.x, vector2.y, f, vector22.x, vector22.y) : (Affine2) invokeCommon.objValue;
     }
 
-    public Affine2 setToTrnRotScl(Vector2 vector2, float f2, Vector2 vector22) {
+    public Affine2 setToTrnRotScl(Vector2 vector2, float f, Vector2 vector22) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{vector2, Float.valueOf(f2), vector22})) == null) ? setToTrnRotScl(vector2.x, vector2.y, f2, vector22.x, vector22.y) : (Affine2) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{vector2, Float.valueOf(f), vector22})) == null) ? setToTrnRotScl(vector2.x, vector2.y, f, vector22.x, vector22.y) : (Affine2) invokeCommon.objValue;
     }
 
     public Affine2 set(Matrix4 matrix4) {

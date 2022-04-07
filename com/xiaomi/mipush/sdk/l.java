@@ -10,20 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hk;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<e, a> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f44082b;
+        public String b;
 
         public a(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -41,7 +39,7 @@ public class l {
                 }
             }
             this.a = str;
-            this.f44082b = str2;
+            this.b = str2;
         }
     }
 
@@ -60,9 +58,9 @@ public class l {
         }
         a = new HashMap<>();
         a(e.a, new a("com.xiaomi.assemble.control.HmsPushManager", "newInstance"));
-        a(e.f44079b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
-        a(e.f44080c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
-        a(e.f44081d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
+        a(e.b, new a("com.xiaomi.assemble.control.FCMPushManager", "newInstance"));
+        a(e.c, new a("com.xiaomi.assemble.control.COSPushManager", "newInstance"));
+        a(e.d, new a("com.xiaomi.assemble.control.FTOSPushManager", "newInstance"));
     }
 
     public static at a(e eVar) {
@@ -76,26 +74,26 @@ public class l {
                         if (i != 4) {
                             return null;
                         }
-                        return at.f44071f;
+                        return at.f;
                     }
-                    return at.f44070e;
+                    return at.e;
                 }
-                return at.f44069d;
+                return at.d;
             }
-            return at.f44068c;
+            return at.c;
         }
         return (at) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m176a(e eVar) {
+    public static a m172a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) ? a.get(eVar) : (a) invokeL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hk m177a(e eVar) {
+    public static hk m173a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, eVar)) == null) ? hk.ao : (hk) invokeL.objValue;

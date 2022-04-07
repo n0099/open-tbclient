@@ -26,7 +26,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiAccount implements Parcelable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SapiAccount> CREATOR;
@@ -61,7 +61,7 @@ public class SapiAccount implements Parcelable, Cloneable {
     public String uid;
     public String username;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class DispersionCertification implements NoProguard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ExtraProperty implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTRA_ACCOUNT_TYPE = "account_type";
@@ -188,8 +188,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                     jSONObject.put(EXTRA_IS_GUEST_ACCOUNT, this.extraIsGuestAccount);
                     jSONObject.put("tpl", this.extraTpl);
                     jSONObject.put("pkg", this.extraPkg);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 return jSONObject;
             }
@@ -281,8 +281,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                         if (fromJSONObject != null) {
                             arrayList.add(fromJSONObject);
                         }
-                    } catch (JSONException e2) {
-                        Log.e(e2);
+                    } catch (JSONException e) {
+                        Log.e(e);
                     }
                 }
                 return arrayList;
@@ -417,8 +417,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                 ExtraProperty fromJSONObject = ExtraProperty.fromJSONObject(new JSONObject(this.extra));
                 fromJSONObject.dispersionCertification.tplStokenMap.clear();
                 this.extra = fromJSONObject.toJSONObject().toString();
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
             }
         }
     }
@@ -470,8 +470,8 @@ public class SapiAccount implements Parcelable, Cloneable {
             if (!TextUtils.isEmpty(this.extra)) {
                 try {
                     return new JSONObject(this.extra).optBoolean(str, z);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             return z;
@@ -495,8 +495,8 @@ public class SapiAccount implements Parcelable, Cloneable {
             if (!TextUtils.isEmpty(this.extra)) {
                 try {
                     return new JSONObject(this.extra).optInt(str, i);
-                } catch (JSONException e2) {
-                    Log.e(e2);
+                } catch (JSONException e) {
+                    Log.e(e);
                 }
             }
             return i;
@@ -547,8 +547,8 @@ public class SapiAccount implements Parcelable, Cloneable {
             if (!TextUtils.isEmpty(this.extra)) {
                 try {
                     return new JSONObject(this.extra).optString(str, str2);
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                 }
             }
             return str2;
@@ -592,8 +592,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                 jSONObject.put(str, obj);
                 this.extra = jSONObject.toString();
                 return;
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
                 return;
             }
         }
@@ -601,8 +601,8 @@ public class SapiAccount implements Parcelable, Cloneable {
             JSONObject jSONObject2 = new JSONObject(this.extra);
             jSONObject2.put(str, obj);
             this.extra = jSONObject2.toString();
-        } catch (JSONException e3) {
-            Log.e(e3);
+        } catch (JSONException e2) {
+            Log.e(e2);
         }
     }
 
@@ -639,8 +639,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                 jSONObject.put("portrait", this.portrait);
                 jSONObject.put(SAPI_ACCOUNT_FROMTYPE, this.fromType);
                 return jSONObject;
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
                 return null;
             }
         }
@@ -694,8 +694,8 @@ public class SapiAccount implements Parcelable, Cloneable {
                 extraProperty.extraAccountType = fromJSONObject.extraAccountType;
                 extraProperty.extraIsGuestAccount = fromJSONObject.extraIsGuestAccount;
                 this.extra = extraProperty.toJSONObject().toString();
-            } catch (JSONException e2) {
-                Log.e(e2);
+            } catch (JSONException e) {
+                Log.e(e);
             }
         }
     }

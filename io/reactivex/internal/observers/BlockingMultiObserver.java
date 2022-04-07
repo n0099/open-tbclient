@@ -16,14 +16,12 @@ import io.reactivex.internal.util.ExceptionHelper;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class BlockingMultiObserver<T> extends CountDownLatch implements SingleObserver<T>, CompletableObserver, MaybeObserver<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean cancelled;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Disposable f45288d;
+    public Disposable d;
     public Throwable error;
     public T value;
 
@@ -56,9 +54,9 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
                         dispose();
                         return false;
                     }
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     dispose();
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             Throwable th = this.error;
@@ -78,9 +76,9 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
                 try {
                     BlockingHelper.verifyNonBlocking();
                     await();
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     dispose();
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             Throwable th = this.error;
@@ -100,9 +98,9 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
                 try {
                     BlockingHelper.verifyNonBlocking();
                     await();
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     dispose();
-                    return e2;
+                    return e;
                 }
             }
             return this.error;
@@ -114,7 +112,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.cancelled = true;
-            Disposable disposable = this.f45288d;
+            Disposable disposable = this.d;
             if (disposable != null) {
                 disposable.dispose();
             }
@@ -142,7 +140,7 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
     public void onSubscribe(Disposable disposable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
-            this.f45288d = disposable;
+            this.d = disposable;
             if (this.cancelled) {
                 disposable.dispose();
             }
@@ -169,9 +167,9 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
                         dispose();
                         throw ExceptionHelper.wrapOrThrow(new TimeoutException());
                     }
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     dispose();
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             return this.error;
@@ -187,9 +185,9 @@ public final class BlockingMultiObserver<T> extends CountDownLatch implements Si
                 try {
                     BlockingHelper.verifyNonBlocking();
                     await();
-                } catch (InterruptedException e2) {
+                } catch (InterruptedException e) {
                     dispose();
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             Throwable th = this.error;

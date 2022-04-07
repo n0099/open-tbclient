@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
@@ -74,6 +74,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_LIVE_SDK = "bdtiebalive://";
     public static final String SCHEMA_NAITVE_H5 = "com.baidu.tieba://unidispatch/tbwebview";
     public static final String SCHEMA_PATH_FROM_FORUM_SQUARE = "/forumsquare";
+    public static final String SCHEMA_REPLY_ME = "com.baidu.tieba://unidispatch/replyme";
     public static final String SCHEMA_TB_FLUTTER = "flt://";
     public static final String SCHEMA_TYPE_BAIJIAHAO_PB = "isbaijiahao=1";
     public static final String SCHEMA_TYPE_BAR_VOTE = "tieba://election?";

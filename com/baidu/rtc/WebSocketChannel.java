@@ -14,6 +14,7 @@ import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.rtc.logreport.ErrorInfoReport;
 import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -56,7 +57,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.IceCandidate;
 import org.webrtc.SessionDescription;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WebSocketChannel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NO_SET_VALID_ROOM_ID = -1160725808;
@@ -367,8 +368,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("uri", this.mRtcServerUrl);
                 jSONObject.putOpt("sessionevent", Boolean.TRUE);
                 jSONObject.putOpt("userevent", Boolean.TRUE);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject);
         }
@@ -387,8 +388,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -482,8 +483,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("janus", "keepalive");
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("transaction", randomString);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             this.keepAliveTimer.removeCallbacks(this.serverKeepAliveTimeout);
             this.keepAliveTimer.postDelayed(this.serverKeepAliveTimeout, this.serverAckTimeout);
@@ -566,10 +567,10 @@ public class WebSocketChannel {
                         if (optJSONObject2.has("joined")) {
                             BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo2 = new BaiduRtcRoom.RtcRoomUserInfo();
                             rtcRoomUserInfo2.userId = optJSONObject2.optLong("joined");
-                            rtcRoomUserInfo2.userName = optJSONObject2.optString("display");
+                            rtcRoomUserInfo2.userName = optJSONObject2.optString(CriusAttrConstants.DISPLAY);
                             rtcRoomUserInfo2.attribute = optJSONObject2.optString(Config.EVENT_ATTR);
                             this.mUserInfoList.put(BigInteger.valueOf(rtcRoomUserInfo2.userId), rtcRoomUserInfo2);
-                            this.delegate.onUserJoinedRoom(new BigInteger(optJSONObject2.optString("joined")), optJSONObject2.optString("display"), "");
+                            this.delegate.onUserJoinedRoom(new BigInteger(optJSONObject2.optString("joined")), optJSONObject2.optString(CriusAttrConstants.DISPLAY), "");
                         } else if (optJSONObject2.has("leaving")) {
                             this.mUserInfoList.remove(BigInteger.valueOf(optJSONObject2.optLong("leaving")));
                             this.delegate.onUserLeavingRoom(new BigInteger(optJSONObject2.optString("leaving")));
@@ -578,10 +579,10 @@ public class WebSocketChannel {
                             for (int i = 0; i <= length - 1; i++) {
                                 JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                                 BigInteger bigInteger = new BigInteger(optJSONObject3.optString("id"));
-                                String optString6 = optJSONObject3.optString("display");
+                                String optString6 = optJSONObject3.optString(CriusAttrConstants.DISPLAY);
                                 BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo3 = new BaiduRtcRoom.RtcRoomUserInfo();
                                 rtcRoomUserInfo3.userId = optJSONObject3.optLong("id");
-                                rtcRoomUserInfo3.userName = optJSONObject3.optString("display");
+                                rtcRoomUserInfo3.userName = optJSONObject3.optString(CriusAttrConstants.DISPLAY);
                                 rtcRoomUserInfo3.attribute = optJSONObject3.optString(Config.EVENT_ATTR);
                                 this.mUserInfoList.put(bigInteger, rtcRoomUserInfo3);
                                 this.delegate.onUserJoinedRoom(bigInteger, optString6, "");
@@ -686,7 +687,7 @@ public class WebSocketChannel {
                             for (int i2 = 0; i2 <= length2 - 1; i2++) {
                                 JSONObject optJSONObject8 = optJSONArray2.optJSONObject(i2);
                                 BigInteger bigInteger2 = new BigInteger(optJSONObject8.optString("id"));
-                                String optString9 = optJSONObject8.optString("display");
+                                String optString9 = optJSONObject8.optString(CriusAttrConstants.DISPLAY);
                                 this.delegate.onComing(bigInteger2, optString9);
                                 if (this.mAsListener && this.mAutoSubScribe) {
                                     subscriberCreateHandle(bigInteger2, optString9);
@@ -731,8 +732,8 @@ public class WebSocketChannel {
                         this.delegate.onHangUp(janusHandle.handleId);
                     }
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -889,8 +890,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("plugin", "janus.plugin.videoroom");
                 jSONObject.putOpt("transaction", randomString);
                 jSONObject.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject);
         }
@@ -908,7 +909,7 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("request", "join");
                 jSONObject2.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject2.putOpt("ptype", "publisher");
-                jSONObject2.putOpt("display", this.mDisplayName);
+                jSONObject2.putOpt(CriusAttrConstants.DISPLAY, this.mDisplayName);
                 jSONObject2.putOpt("id", Long.valueOf(this.mUserId));
                 jSONObject2.putOpt("app_id", this.mAppId);
                 jSONObject2.putOpt(DpStatConstants.KEY_ROOM_NAME, this.mRoomName);
@@ -941,8 +942,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("transaction", randomString(12));
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject);
         }
@@ -999,8 +1000,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("transaction", randomString(12));
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject);
         }
@@ -1079,8 +1080,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -1203,8 +1204,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", ((JanusHandle) this.handles.values().toArray()[0]).handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
             synchronized (this) {
@@ -1325,8 +1326,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -1442,8 +1443,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -1457,8 +1458,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "disbandroom");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 Send(jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -1590,8 +1591,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -1805,8 +1806,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("target", Long.valueOf(j));
                 Send(jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -1877,8 +1878,8 @@ public class WebSocketChannel {
                 jSONObject3.putOpt("transaction", randomString(12));
                 jSONObject3.putOpt("session_id", this.mSessionId);
                 jSONObject3.putOpt("handle_id", bigInteger);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject3);
         }
@@ -2133,8 +2134,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -2249,8 +2250,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -2286,8 +2287,8 @@ public class WebSocketChannel {
                 }
                 jSONObject.putOpt("data", Boolean.valueOf(z2));
                 Send(jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -2312,8 +2313,8 @@ public class WebSocketChannel {
                     jSONObject.putOpt("recording", jSONObject2);
                 }
                 Send(jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -2328,8 +2329,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
                 Send(jSONObject);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -2351,8 +2352,8 @@ public class WebSocketChannel {
                 jSONObject3.putOpt("transaction", randomString(12));
                 jSONObject3.putOpt("session_id", this.mSessionId);
                 jSONObject3.putOpt("handle_id", bigInteger);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject3);
         }
@@ -2504,8 +2505,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("plugin", "janus.plugin.videoroom");
                 jSONObject.putOpt("transaction", randomString);
                 jSONObject.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject);
         }
@@ -2592,8 +2593,8 @@ public class WebSocketChannel {
                 jSONObject.putOpt("transaction", randomString);
                 jSONObject.putOpt("session_id", this.mSessionId);
                 jSONObject.putOpt("handle_id", janusHandle.handleId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject);
         }
@@ -2613,8 +2614,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -2632,8 +2633,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -2650,8 +2651,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt("transaction", randomString(12));
                 jSONObject2.putOpt("session_id", this.mSessionId);
                 jSONObject2.putOpt("handle_id", bigInteger);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }
@@ -2737,8 +2738,8 @@ public class WebSocketChannel {
                 jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
                 jSONObject2.putOpt("session_id", this.mSessionId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             sendMessage(jSONObject2);
         }

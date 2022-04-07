@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class af extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public final class af extends z {
                 HashMap<String, String> hashMap = new HashMap<>();
                 hashMap.put("messageID", String.valueOf(uVar.f()));
                 Context context = this.a;
-                String b2 = com.vivo.push.util.aa.b(context, context.getPackageName());
-                if (!TextUtils.isEmpty(b2)) {
-                    hashMap.put("remoteAppId", b2);
+                String b = com.vivo.push.util.aa.b(context, context.getPackageName());
+                if (!TextUtils.isEmpty(b)) {
+                    hashMap.put("remoteAppId", b);
                 }
                 xVar.a(hashMap);
                 com.vivo.push.e.a().a(xVar);

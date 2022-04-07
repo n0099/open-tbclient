@@ -22,7 +22,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DeviceInfoUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FileFilter CPU_FILTER;
@@ -102,8 +102,8 @@ public class DeviceInfoUtil {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
                 str = getFieldFromCpuinfo("Processor");
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 str = null;
             }
             if (str != null) {
@@ -134,8 +134,8 @@ public class DeviceInfoUtil {
         ?? r1;
         ?? r2;
         BufferedReader bufferedReader;
-        IOException e2;
-        FileNotFoundException e3;
+        IOException e;
+        FileNotFoundException e2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             r1 = interceptable;
@@ -149,17 +149,17 @@ public class DeviceInfoUtil {
             try {
                 try {
                     r1 = new FileReader(CurPath);
-                } catch (IOException e4) {
-                    e4.printStackTrace();
+                } catch (IOException e3) {
+                    e3.printStackTrace();
                     return 0;
                 }
-            } catch (FileNotFoundException e5) {
+            } catch (FileNotFoundException e4) {
                 bufferedReader = null;
-                e3 = e5;
+                e2 = e4;
                 r1 = 0;
-            } catch (IOException e6) {
+            } catch (IOException e5) {
                 bufferedReader = null;
-                e2 = e6;
+                e = e5;
                 r1 = 0;
             } catch (Throwable th) {
                 r2 = 0;
@@ -175,38 +175,38 @@ public class DeviceInfoUtil {
                 int parseInt = Integer.parseInt(bufferedReader.readLine().trim());
                 try {
                     r1.close();
-                } catch (IOException e7) {
-                    e7.printStackTrace();
+                } catch (IOException e6) {
+                    e6.printStackTrace();
                 }
                 try {
                     bufferedReader.close();
                     return parseInt;
-                } catch (IOException e8) {
-                    e8.printStackTrace();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
                     return parseInt;
                 }
-            } catch (FileNotFoundException e9) {
-                e3 = e9;
-                e3.printStackTrace();
+            } catch (FileNotFoundException e8) {
+                e2 = e8;
+                e2.printStackTrace();
                 if (r1 != 0) {
                     try {
                         r1.close();
-                    } catch (IOException e10) {
-                        e10.printStackTrace();
+                    } catch (IOException e9) {
+                        e9.printStackTrace();
                     }
                 }
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
                 return 0;
-            } catch (IOException e11) {
-                e2 = e11;
-                e2.printStackTrace();
+            } catch (IOException e10) {
+                e = e10;
+                e.printStackTrace();
                 if (r1 != 0) {
                     try {
                         r1.close();
-                    } catch (IOException e12) {
-                        e12.printStackTrace();
+                    } catch (IOException e11) {
+                        e11.printStackTrace();
                     }
                 }
                 if (bufferedReader != null) {
@@ -214,27 +214,27 @@ public class DeviceInfoUtil {
                 }
                 return 0;
             }
-        } catch (FileNotFoundException e13) {
+        } catch (FileNotFoundException e12) {
             bufferedReader = null;
-            e3 = e13;
-        } catch (IOException e14) {
+            e2 = e12;
+        } catch (IOException e13) {
             bufferedReader = null;
-            e2 = e14;
+            e = e13;
         } catch (Throwable th3) {
             r2 = 0;
             th = th3;
             if (r1 != 0) {
                 try {
                     r1.close();
-                } catch (IOException e15) {
-                    e15.printStackTrace();
+                } catch (IOException e14) {
+                    e14.printStackTrace();
                 }
             }
             if (r2 != 0) {
                 try {
                     r2.close();
-                } catch (IOException e16) {
-                    e16.printStackTrace();
+                } catch (IOException e15) {
+                    e15.printStackTrace();
                 }
             }
             throw th;
@@ -280,11 +280,11 @@ public class DeviceInfoUtil {
                 for (int i = 0; i < split.length; i++) {
                 }
                 return split[1];
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
                 return null;
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
                 return null;
             }
         }
@@ -394,8 +394,8 @@ public class DeviceInfoUtil {
                 return null;
             }
             return strArr[i];
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

@@ -2,9 +2,6 @@ package com.baidu.tieba.im.message.chat;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.c.e.c.a;
-import c.a.d.f.m.b;
-import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,12 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
+import com.repackage.t9;
+import com.repackage.uo;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public abstract class ChatMessage extends TbSocketMessage implements a, n {
+/* loaded from: classes3.dex */
+public abstract class ChatMessage extends TbSocketMessage implements t9, uo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId TYPE_MSG_GROUP_ACTIVITY;
     public static final BdUniqueId TYPE_MSG_LEFT;
@@ -326,7 +326,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsTaskId = b.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
+                        this.statisticsTaskId = mg.g(jSONArray.optJSONObject(0).optString("task_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -352,7 +352,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
                 try {
                     JSONArray jSONArray = new JSONArray(this.content);
                     if (jSONArray.length() > 0) {
-                        this.statisticsServiceId = b.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
+                        this.statisticsServiceId = mg.g(jSONArray.optJSONObject(0).optString("service_id"), 0L);
                     }
                 } catch (Exception unused) {
                 }
@@ -396,7 +396,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.toUserInfo : (UserData) invokeV.objValue;
     }
 
-    @Override // c.a.d.o.e.n
+    @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -467,7 +467,7 @@ public abstract class ChatMessage extends TbSocketMessage implements a, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mIsPushForOperateAccount : invokeV.booleanValue;
     }
 
-    @Override // c.a.d.c.e.c.a
+    @Override // com.repackage.t9
     public boolean onFindMessage(SocketMessage socketMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

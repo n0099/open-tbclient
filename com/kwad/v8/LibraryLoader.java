@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class LibraryLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DELIMITER;
@@ -181,12 +181,12 @@ public class LibraryLoader {
                 }
                 System.loadLibrary(str);
                 return true;
-            } catch (UnsatisfiedLinkError e2) {
+            } catch (UnsatisfiedLinkError e) {
                 if (stringBuffer.length() == 0) {
                     stringBuffer.append(DELIMITER);
                 }
                 stringBuffer.append('\t');
-                stringBuffer.append(e2.getMessage());
+                stringBuffer.append(e.getMessage());
                 stringBuffer.append(DELIMITER);
                 return false;
             }

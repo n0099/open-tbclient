@@ -3,7 +3,6 @@ package com.baidu.searchbox.performance.speed.task;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.concurrent.AsyncTaskAssistant;
 import com.baidu.searchbox.performance.speed.SpeedRuntime;
@@ -12,12 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.nb;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 @MainThread
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LaunchTaskSchedule {
     public static /* synthetic */ Interceptable $ic;
     public static LaunchTaskSchedule sInstance;
@@ -104,7 +104,7 @@ public class LaunchTaskSchedule {
         }
         for (LaunchTask launchTask : taskList) {
             if ((launchTask.getProcess() & this.mProcessType) != 0) {
-                a.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
+                nb.b().a(launchTask.getName(), new Runnable(this, launchTask) { // from class: com.baidu.searchbox.performance.speed.task.LaunchTaskSchedule.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ LaunchTaskSchedule this$0;

@@ -65,42 +65,42 @@ public class ViewUtils {
         }
     }
 
-    public static void computeFitSystemWindows(View view, Rect rect, Rect rect2) {
+    public static void computeFitSystemWindows(View view2, Rect rect, Rect rect2) {
         Method method;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view, rect, rect2) == null) || (method = sComputeFitSystemWindowsMethod) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, view2, rect, rect2) == null) || (method = sComputeFitSystemWindowsMethod) == null) {
             return;
         }
         try {
-            method.invoke(view, rect, rect2);
-        } catch (Exception e2) {
-            Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e2);
+            method.invoke(view2, rect, rect2);
+        } catch (Exception e) {
+            Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e);
         }
     }
 
-    public static boolean isLayoutRtl(View view) {
+    public static boolean isLayoutRtl(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view)) == null) ? ViewCompat.getLayoutDirection(view) == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 
-    public static void makeOptionalFitsSystemWindows(View view) {
+    public static void makeOptionalFitsSystemWindows(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
         try {
-            Method method = view.getClass().getMethod("makeOptionalFitsSystemWindows", new Class[0]);
+            Method method = view2.getClass().getMethod("makeOptionalFitsSystemWindows", new Class[0]);
             if (!method.isAccessible()) {
                 method.setAccessible(true);
             }
-            method.invoke(view, new Object[0]);
-        } catch (IllegalAccessException e2) {
-            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e2);
+            method.invoke(view2, new Object[0]);
+        } catch (IllegalAccessException e) {
+            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e);
         } catch (NoSuchMethodException unused) {
             Log.d("ViewUtils", "Could not find method makeOptionalFitsSystemWindows. Oh well...");
-        } catch (InvocationTargetException e3) {
-            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e3);
+        } catch (InvocationTargetException e2) {
+            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e2);
         }
     }
 }

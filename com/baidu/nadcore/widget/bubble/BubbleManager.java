@@ -1,7 +1,6 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import c.a.a0.l0.p.c.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class BubbleManager extends c.a.a0.l0.p.d.b implements View.OnClickListener {
+import com.repackage.m41;
+import com.repackage.n41;
+import com.repackage.p41;
+import com.repackage.zi0;
+/* loaded from: classes2.dex */
+public class BubbleManager extends p41 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class BubbleStyle {
         public static final /* synthetic */ BubbleStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -74,12 +77,12 @@ public class BubbleManager extends c.a.a0.l0.p.d.b implements View.OnClickListen
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void a();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a();
 
@@ -88,15 +91,15 @@ public class BubbleManager extends c.a.a0.l0.p.d.b implements View.OnClickListen
         void c();
     }
 
-    public static <T> T t(Class<T> cls) {
+    public static <T> T u(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls == c.class || cls == c.a.a0.l0.p.c.b.class) {
+            if (cls == n41.class || cls == m41.class) {
                 try {
                     return cls.newInstance();
-                } catch (Exception e2) {
-                    c.a.a0.i.a.b("BubbleManager", "", e2);
+                } catch (Exception e) {
+                    zi0.b("BubbleManager", "", e);
                     return null;
                 }
             }

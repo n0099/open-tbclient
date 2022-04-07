@@ -8,24 +8,24 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Parcelable;
-import c.a.n0.a.h2.l.b.a;
-import c.a.n0.a.h2.l.b.b;
-import c.a.n0.a.h2.l.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.mcast.McastConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ab3;
+import com.repackage.bb3;
+import com.repackage.cb3;
+/* loaded from: classes2.dex */
 public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mConnectListener;
-    public b mConnectSuccessListener;
+    public ab3 mConnectListener;
+    public bb3 mConnectSuccessListener;
     public boolean mIsRegistered;
     public boolean mIsWifiDisconnected;
-    public c mScanListener;
+    public cb3 mScanListener;
     public WifiManager mWifiManager;
 
     public SwanWifiBroadcastReceiver(WifiManager wifiManager) {
@@ -50,8 +50,8 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        char c2;
-        a aVar;
+        char c;
+        ab3 ab3Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent.getAction() == null) {
             return;
@@ -60,31 +60,31 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
         int hashCode = action.hashCode();
         if (hashCode == -343630553) {
             if (action.equals(McastConfig.ACTION_NETWORK_STATE_CHANGED)) {
-                c2 = 2;
+                c = 2;
             }
-            c2 = 65535;
+            c = 65535;
         } else if (hashCode != 233521600) {
             if (hashCode == 1878357501 && action.equals("android.net.wifi.SCAN_RESULTS")) {
-                c2 = 0;
+                c = 0;
             }
-            c2 = 65535;
+            c = 65535;
         } else {
             if (action.equals("android.net.wifi.supplicant.STATE_CHANGE")) {
-                c2 = 1;
+                c = 1;
             }
-            c2 = 65535;
+            c = 65535;
         }
-        if (c2 == 0) {
-            c cVar = this.mScanListener;
-            if (cVar != null) {
-                cVar.a(this.mWifiManager.getScanResults());
+        if (c == 0) {
+            cb3 cb3Var = this.mScanListener;
+            if (cb3Var != null) {
+                cb3Var.a(this.mWifiManager.getScanResults());
             }
-        } else if (c2 == 1) {
-            if (intent.getIntExtra("supplicantError", -1) != 1 || (aVar = this.mConnectListener) == null) {
+        } else if (c == 1) {
+            if (intent.getIntExtra("supplicantError", -1) != 1 || (ab3Var = this.mConnectListener) == null) {
                 return;
             }
-            aVar.onError(1);
-        } else if (c2 != 2) {
+            ab3Var.onError(1);
+        } else if (c != 2) {
         } else {
             Parcelable parcelableExtra = intent.getParcelableExtra("networkInfo");
             WifiInfo wifiInfo = (WifiInfo) intent.getParcelableExtra("wifiInfo");
@@ -92,13 +92,13 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
                 if (!this.mIsWifiDisconnected) {
                     return;
                 }
-                a aVar2 = this.mConnectListener;
-                if (aVar2 != null) {
-                    aVar2.a(wifiInfo);
+                ab3 ab3Var2 = this.mConnectListener;
+                if (ab3Var2 != null) {
+                    ab3Var2.a(wifiInfo);
                 }
-                b bVar = this.mConnectSuccessListener;
-                if (bVar != null && this.mIsWifiDisconnected) {
-                    bVar.a(wifiInfo);
+                bb3 bb3Var = this.mConnectSuccessListener;
+                if (bb3Var != null && this.mIsWifiDisconnected) {
+                    bb3Var.a(wifiInfo);
                 }
                 this.mIsWifiDisconnected = false;
             }
@@ -127,24 +127,24 @@ public class SwanWifiBroadcastReceiver extends BroadcastReceiver {
         }
     }
 
-    public void setConnectListener(a aVar) {
+    public void setConnectListener(ab3 ab3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.mConnectListener = aVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ab3Var) == null) {
+            this.mConnectListener = ab3Var;
         }
     }
 
-    public void setConnectSuccessListener(b bVar) {
+    public void setConnectSuccessListener(bb3 bb3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.mConnectSuccessListener = bVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bb3Var) == null) {
+            this.mConnectSuccessListener = bb3Var;
         }
     }
 
-    public void setScanListener(c cVar) {
+    public void setScanListener(cb3 cb3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.mScanListener = cVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cb3Var) == null) {
+            this.mScanListener = cb3Var;
         }
     }
 

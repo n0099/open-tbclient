@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ListDataSource<T> extends AbstractDataSource<List<CloseableReference<T>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public int mFinishedDataSources;
 
     /* renamed from: com.facebook.imagepipeline.datasource.ListDataSource$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,11 +112,11 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public void onDataSourceProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            float f2 = 0.0f;
+            float f = 0.0f;
             for (DataSource<CloseableReference<T>> dataSource : this.mDataSources) {
-                f2 += dataSource.getProgress();
+                f += dataSource.getProgress();
             }
-            setProgress(f2 / this.mDataSources.length);
+            setProgress(f / this.mDataSources.length);
         }
     }
 
@@ -152,7 +152,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class InternalDataSubscriber implements DataSubscriber<CloseableReference<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

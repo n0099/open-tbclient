@@ -546,11 +546,11 @@ public final class HttpUrl {
             String builder = newBuilder().reencodeForUri().toString();
             try {
                 return new URI(builder);
-            } catch (URISyntaxException e2) {
+            } catch (URISyntaxException e) {
                 try {
                     return URI.create(builder.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\p{javaWhitespace}]", ""));
                 } catch (Exception unused) {
-                    throw new RuntimeException(e2);
+                    throw new RuntimeException(e);
                 }
             }
         }
@@ -563,8 +563,8 @@ public final class HttpUrl {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             try {
                 return new URL(this.url);
-            } catch (MalformedURLException e2) {
-                throw new RuntimeException(e2);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
             }
         }
         return (URL) invokeV.objValue;
@@ -1074,8 +1074,8 @@ public final class HttpUrl {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but no colon was found");
                 }
                 int slashCount = slashCount(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace);
-                char c2 = '?';
-                char c3 = '#';
+                char c = '?';
+                char c2 = '#';
                 if (slashCount < 2 && httpUrl != null && httpUrl.scheme.equals(this.scheme)) {
                     this.encodedUsername = httpUrl.encodedUsername();
                     this.encodedPassword = httpUrl.encodedPassword();
@@ -1093,7 +1093,7 @@ public final class HttpUrl {
                     while (true) {
                         delimiterOffset = Util.delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "@/\\?#");
                         char charAt = delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535;
-                        if (charAt == 65535 || charAt == c3 || charAt == '/' || charAt == '\\' || charAt == c2) {
+                        if (charAt == 65535 || charAt == c2 || charAt == '/' || charAt == '\\' || charAt == c) {
                             break;
                         }
                         if (charAt == '@') {
@@ -1116,8 +1116,8 @@ public final class HttpUrl {
                             }
                             i2 = i + 1;
                         }
-                        c2 = '?';
-                        c3 = '#';
+                        c = '?';
+                        c2 = '#';
                     }
                     int portColonOffset = portColonOffset(str, i2, delimiterOffset);
                     int i3 = portColonOffset + 1;

@@ -35,42 +35,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a extends Service implements LLSInterface {
     public static /* synthetic */ Interceptable $ic;
-    public static HandlerC1761a a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static long f26034c;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static long f26035g;
+    public static HandlerC0101a a;
+    public static long c;
+    public static long g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Messenger f26036b;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Looper f26037d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f26038e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f26039f;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f26040h;
+    public Messenger b;
+    public Looper d;
+    public HandlerThread e;
+    public boolean f;
+    public int h;
 
     /* renamed from: com.baidu.location.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
-    public static class HandlerC1761a extends Handler {
+    /* loaded from: classes2.dex */
+    public static class HandlerC0101a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<a> a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC1761a(Looper looper, a aVar) {
+        public HandlerC0101a(Looper looper, a aVar) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -158,11 +144,11 @@ public class a extends Service implements LLSInterface {
                 return;
             }
         }
-        this.f26036b = null;
-        this.f26037d = null;
-        this.f26038e = null;
-        this.f26039f = false;
-        this.f26040h = 0;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.f = false;
+        this.h = 0;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -180,7 +166,7 @@ public class a extends Service implements LLSInterface {
             com.baidu.location.c.b.a().b();
             l.c().d();
             i.a().c();
-            this.f26040h = 2;
+            this.h = 2;
         }
     }
 
@@ -210,9 +196,9 @@ public class a extends Service implements LLSInterface {
             w.d();
             com.baidu.location.b.a.a().b();
             v.a().d();
-            this.f26040h = 4;
+            this.h = 4;
             Log.d("baidu_location_service", "baidu location service has stoped ...");
-            if (this.f26039f) {
+            if (this.f) {
                 return;
             }
             Process.killProcess(Process.myPid());
@@ -252,12 +238,12 @@ public class a extends Service implements LLSInterface {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent)) == null) {
             Bundle extras = intent.getExtras();
             if (extras != null) {
-                com.baidu.location.e.b.f26052h = extras.getString("key");
-                com.baidu.location.e.b.f26051g = extras.getString("sign");
-                this.f26039f = extras.getBoolean("kill_process");
+                com.baidu.location.e.b.h = extras.getString("key");
+                com.baidu.location.e.b.g = extras.getString("sign");
+                this.f = extras.getBoolean("kill_process");
                 extras.getBoolean("cache_exception");
             }
-            return this.f26036b.getBinder();
+            return this.b.getBinder();
         }
         return (IBinder) invokeL.objValue;
     }
@@ -270,17 +256,17 @@ public class a extends Service implements LLSInterface {
                 k.ax = context.getPackageName();
             } catch (Exception unused) {
             }
-            f26035g = System.currentTimeMillis();
+            g = System.currentTimeMillis();
             HandlerThread a2 = u.a();
-            this.f26038e = a2;
+            this.e = a2;
             if (a2 != null) {
-                this.f26037d = a2.getLooper();
+                this.d = a2.getLooper();
             }
-            a = this.f26037d == null ? new HandlerC1761a(Looper.getMainLooper(), this) : new HandlerC1761a(this.f26037d, this);
-            f26034c = System.currentTimeMillis();
-            this.f26036b = new Messenger(a);
+            a = this.d == null ? new HandlerC0101a(Looper.getMainLooper(), this) : new HandlerC0101a(this.d, this);
+            c = System.currentTimeMillis();
+            this.b = new Messenger(a);
             a.sendEmptyMessage(0);
-            this.f26040h = 1;
+            this.h = 1;
             Log.d("baidu_location_service", "baidu location service start1 ...20190725..." + Process.myPid());
         }
     }
@@ -296,7 +282,7 @@ public class a extends Service implements LLSInterface {
                 b();
                 Process.killProcess(Process.myPid());
             }
-            this.f26040h = 3;
+            this.h = 3;
             new Handler(Looper.getMainLooper()).postDelayed(new b(this, new WeakReference(this)), 1000L);
             Log.d("baidu_location_service", "baidu location service stop ...");
         }

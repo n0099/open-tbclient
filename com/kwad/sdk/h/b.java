@@ -8,7 +8,7 @@ import com.kwad.sdk.api.loader.Wrapper;
 import com.kwad.sdk.api.proxy.IFragmentActivityProxy;
 import com.kwad.sdk.utils.aj;
 import com.kwad.sdk.utils.n;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class b extends IFragmentActivityProxy {
     public final com.kwad.sdk.h.a.a mPageMonitor = new com.kwad.sdk.h.a.a();
     public final com.kwad.sdk.h.kwai.a mBackPressDelete = new com.kwad.sdk.h.kwai.a();

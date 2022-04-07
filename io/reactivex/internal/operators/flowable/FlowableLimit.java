@@ -15,13 +15,13 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FlowableLimit<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long n;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class LimitSubscriber<T> extends AtomicLong implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2288246011222124525L;

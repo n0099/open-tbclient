@@ -26,18 +26,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXCEPTION_LOG = 1;
     public static final int JAVA_EXCEPTION_LOG = 16;
     public static boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f27153b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface WearListener {
         boolean onSendLogData(String str);
     }
@@ -115,12 +113,12 @@ public class StatService {
         }
     }
 
-    public static void enableListTrack(View view) {
+    public static void enableListTrack(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, null, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65553, null, view2) == null) || view2 == null) {
             return;
         }
-        view.setTag(-97002, Boolean.TRUE);
+        view2.setTag(-97002, Boolean.TRUE);
     }
 
     public static String getAppKey(Context context) {
@@ -262,17 +260,17 @@ public class StatService {
         CooperService.instance().setAppVersionName(context, str);
     }
 
-    public static void setAttributes(View view, Map<String, String> map) {
+    public static void setAttributes(View view2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65576, null, view, map) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65576, null, view2, map) == null) || view2 == null) {
             return;
         }
-        view.setTag(-96000, map);
+        view2.setTag(-96000, map);
     }
 
-    public static void setContentId(View view, String str) {
+    public static void setContentId(View view2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65577, null, view, str) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65577, null, view2, str) == null) || view2 == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -281,12 +279,12 @@ public class StatService {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        view.setTag(-97004, str);
+        view2.setTag(-97004, str);
     }
 
-    public static void setContentTitle(View view, String str) {
+    public static void setContentTitle(View view2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65578, null, view, str) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65578, null, view2, str) == null) || view2 == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -295,7 +293,7 @@ public class StatService {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        view.setTag(-97003, str);
+        view2.setTag(-97003, str);
     }
 
     public static void setCrashExtraInfo(String str) {
@@ -316,7 +314,7 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65581, null, feedTrackStrategy) == null) {
             av.a(feedTrackStrategy);
-            f27153b = true;
+            b = true;
         }
     }
 
@@ -341,9 +339,9 @@ public class StatService {
         }
     }
 
-    public static void setListName(View view, String str) {
+    public static void setListName(View view2, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65584, null, view, str) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65584, null, view2, str) == null) || view2 == null) {
             return;
         }
         if (TextUtils.isEmpty(str)) {
@@ -352,7 +350,7 @@ public class StatService {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        view.setTag(-97001, str);
+        view2.setTag(-97001, str);
     }
 
     public static void setLogSenderDelayed(int i) {
@@ -463,7 +461,7 @@ public class StatService {
             }
             af.a(appKey);
             af.a(z2);
-            if (!f27153b) {
+            if (!b) {
                 setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_ALL);
             }
             BDStatCore.instance().init(context);
@@ -605,8 +603,8 @@ public class StatService {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
             if (context == null) {
-                bc c2 = bc.c();
-                c2.b("[WARNING] " + str + ", context is null, invalid");
+                bc c = bc.c();
+                c.b("[WARNING] " + str + ", context is null, invalid");
                 return false;
             }
             return true;

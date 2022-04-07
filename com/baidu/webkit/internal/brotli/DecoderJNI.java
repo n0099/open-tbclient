@@ -12,12 +12,12 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DecoderJNI implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Wrapper implements INoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             this.context = r0;
-            this.lastStatus = a.f37855c;
+            this.lastStatus = a.c;
             this.fresh = true;
             long[] jArr = {0, i};
             this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
@@ -55,7 +55,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
                 long j = this.context[1];
-                this.lastStatus = j == 1 ? a.f37854b : j == 2 ? a.f37855c : j == 3 ? a.f37856d : j == 4 ? a.f37857e : a.a;
+                this.lastStatus = j == 1 ? a.b : j == 2 ? a.c : j == 3 ? a.d : j == 4 ? a.e : a.a;
             }
         }
 
@@ -104,7 +104,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.context[0] != 0) {
-                    if (this.lastStatus == a.f37856d || hasOutput()) {
+                    if (this.lastStatus == a.d || hasOutput()) {
                         this.fresh = false;
                         ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
                         parseStatus();
@@ -127,9 +127,9 @@ public class DecoderJNI implements INoProGuard {
                     throw new IOException("brotli decoder is already destroyed");
                 }
                 a aVar = this.lastStatus;
-                if (aVar != a.f37855c && aVar != a.f37857e) {
+                if (aVar != a.c && aVar != a.e) {
                     throw new IOException("pushing input to decoder in " + this.lastStatus + " state");
-                } else if (this.lastStatus == a.f37857e && i != 0) {
+                } else if (this.lastStatus == a.e && i != 0) {
                     throw new IOException("pushing input to decoder in OK state");
                 } else {
                     this.fresh = false;
@@ -141,25 +141,15 @@ public class DecoderJNI implements INoProGuard {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f37854b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final a f37855c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final a f37856d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final a f37857e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f37858f;
+        public static final a b;
+        public static final a c;
+        public static final a d;
+        public static final a e;
+        public static final /* synthetic */ a[] f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -176,12 +166,12 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             a = new a("ERROR", 0);
-            f37854b = new a("DONE", 1);
-            f37855c = new a("NEEDS_MORE_INPUT", 2);
-            f37856d = new a("NEEDS_MORE_OUTPUT", 3);
+            b = new a("DONE", 1);
+            c = new a("NEEDS_MORE_INPUT", 2);
+            d = new a("NEEDS_MORE_OUTPUT", 3);
             a aVar = new a("OK", 4);
-            f37857e = aVar;
-            f37858f = new a[]{a, f37854b, f37855c, f37856d, aVar};
+            e = aVar;
+            f = new a[]{a, b, c, d, aVar};
         }
 
         public a(String str, int i) {
@@ -212,7 +202,7 @@ public class DecoderJNI implements INoProGuard {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f37858f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f.clone() : (a[]) invokeV.objValue;
         }
     }
 

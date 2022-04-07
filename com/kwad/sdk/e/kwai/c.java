@@ -2,7 +2,7 @@ package com.kwad.sdk.e.kwai;
 
 import com.kuaishou.tachikoma.api.model.TKCDNUrl;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c implements com.kwad.sdk.e.e<TKCDNUrl> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.e.e

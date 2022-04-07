@@ -224,10 +224,10 @@ public final class MessageAdapter<M extends Message> {
         return (Class) invokeI.objValue;
     }
 
-    private <E extends ProtoEnum> int getEnumSize(E e2) {
+    private <E extends ProtoEnum> int getEnumSize(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, e2)) == null) ? WireOutput.varint32Size(this.wire.enumAdapter(e2.getClass()).toInt(e2)) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, this, e)) == null) ? WireOutput.varint32Size(this.wire.enumAdapter(e.getClass()).toInt(e)) : invokeL.intValue;
     }
 
     private Class<Enum> getEnumType(Field field) {
@@ -552,10 +552,10 @@ public final class MessageAdapter<M extends Message> {
         return invokeL.intValue;
     }
 
-    private <E extends ProtoEnum> void writeEnum(E e2, WireOutput wireOutput) throws IOException {
+    private <E extends ProtoEnum> void writeEnum(E e, WireOutput wireOutput) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65558, this, e2, wireOutput) == null) {
-            wireOutput.writeVarint32(this.wire.enumAdapter(e2.getClass()).toInt(e2));
+        if (interceptable == null || interceptable.invokeLL(65558, this, e, wireOutput) == null) {
+            wireOutput.writeVarint32(this.wire.enumAdapter(e.getClass()).toInt(e));
         }
     }
 
@@ -704,8 +704,8 @@ public final class MessageAdapter<M extends Message> {
             if (fieldInfo.messageField != null) {
                 try {
                     return fieldInfo.messageField.get(m);
-                } catch (IllegalAccessException e2) {
-                    throw new AssertionError(e2);
+                } catch (IllegalAccessException e) {
+                    throw new AssertionError(e);
                 }
             }
             throw new AssertionError("Field is not of type \"Message\"");
@@ -758,10 +758,10 @@ public final class MessageAdapter<M extends Message> {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
                 return this.builderType.newInstance();
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new AssertionError(e);
+            } catch (InstantiationException e2) {
                 throw new AssertionError(e2);
-            } catch (InstantiationException e3) {
-                throw new AssertionError(e3);
             }
         }
         return (Message.Builder) invokeV.objValue;
@@ -845,10 +845,10 @@ public final class MessageAdapter<M extends Message> {
                     }
                 }
             }
-        } catch (IllegalAccessException e2) {
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e2) {
             throw new RuntimeException(e2);
-        } catch (InstantiationException e3) {
-            throw new RuntimeException(e3);
         }
     }
 
@@ -857,8 +857,8 @@ public final class MessageAdapter<M extends Message> {
         if (interceptable == null || interceptable.invokeLIL(1048583, this, builder, i, obj) == null) {
             try {
                 this.fieldInfoMap.get(Integer.valueOf(i)).builderMethod.set(builder, obj);
-            } catch (Exception e2) {
-                throw new AssertionError(e2);
+            } catch (Exception e) {
+                throw new AssertionError(e);
             }
         }
     }
@@ -871,8 +871,8 @@ public final class MessageAdapter<M extends Message> {
             try {
                 write(m, WireOutput.newInstance(bArr));
                 return bArr;
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
         return (byte[]) invokeL.objValue;

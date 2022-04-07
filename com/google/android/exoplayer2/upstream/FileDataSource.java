@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class FileDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class FileDataSource implements DataSource {
     public boolean opened;
     public Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class FileDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,8 +74,8 @@ public final class FileDataSource implements DataSource {
                     if (this.file != null) {
                         this.file.close();
                     }
-                } catch (IOException e2) {
-                    throw new FileDataSourceException(e2);
+                } catch (IOException e) {
+                    throw new FileDataSourceException(e);
                 }
             } finally {
                 this.file = null;
@@ -118,8 +118,8 @@ public final class FileDataSource implements DataSource {
                     return this.bytesRemaining;
                 }
                 throw new EOFException();
-            } catch (IOException e2) {
-                throw new FileDataSourceException(e2);
+            } catch (IOException e) {
+                throw new FileDataSourceException(e);
             }
         }
         return invokeL.longValue;
@@ -147,8 +147,8 @@ public final class FileDataSource implements DataSource {
                     }
                 }
                 return read;
-            } catch (IOException e2) {
-                throw new FileDataSourceException(e2);
+            } catch (IOException e) {
+                throw new FileDataSourceException(e);
             }
         }
         return invokeLII.intValue;

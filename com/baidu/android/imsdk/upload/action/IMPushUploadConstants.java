@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPushUploadConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIM_LOG_ID = "log-id";
@@ -21,7 +21,7 @@ public class IMPushUploadConstants {
     public static final int VERSION = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Service {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BAIDU_APP = "baidu_app";
@@ -63,8 +63,8 @@ public class IMPushUploadConstants {
             try {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    int i = b2 & 255;
+                for (byte b : digest) {
+                    int i = b & 255;
                     if (i < 16) {
                         sb.append(0);
                     }
@@ -72,8 +72,8 @@ public class IMPushUploadConstants {
                 }
                 Log.d(TAG, "sign origin :" + str + ", md5: " + sb.toString());
                 return sb.toString();
-            } catch (NoSuchAlgorithmException e2) {
-                Log.e(TAG, "md5 exception ", e2);
+            } catch (NoSuchAlgorithmException e) {
+                Log.e(TAG, "md5 exception ", e);
                 return "";
             }
         }

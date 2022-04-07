@@ -85,10 +85,10 @@ public class FragmentFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
             try {
                 return loadClass(classLoader, str);
-            } catch (ClassCastException e2) {
-                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class is a valid subclass of Fragment", e2);
-            } catch (ClassNotFoundException e3) {
-                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists", e3);
+            } catch (ClassCastException e) {
+                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class is a valid subclass of Fragment", e);
+            } catch (ClassNotFoundException e2) {
+                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists", e2);
             }
         }
         return (Class) invokeLL.objValue;
@@ -101,14 +101,14 @@ public class FragmentFactory {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, classLoader, str)) == null) {
             try {
                 return loadFragmentClass(classLoader, str).getConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e);
+            } catch (InstantiationException e2) {
                 throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e2);
-            } catch (InstantiationException e3) {
-                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": make sure class name exists, is public, and has an empty constructor that is public", e3);
-            } catch (NoSuchMethodException e4) {
-                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": could not find Fragment constructor", e4);
-            } catch (InvocationTargetException e5) {
-                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": calling Fragment constructor caused an exception", e5);
+            } catch (NoSuchMethodException e3) {
+                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": could not find Fragment constructor", e3);
+            } catch (InvocationTargetException e4) {
+                throw new Fragment.InstantiationException("Unable to instantiate fragment " + str + ": calling Fragment constructor caused an exception", e4);
             }
         }
         return (Fragment) invokeLL.objValue;

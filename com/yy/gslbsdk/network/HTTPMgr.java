@@ -23,7 +23,7 @@ import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class HTTPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HTTPMgr";
@@ -83,8 +83,8 @@ public class HTTPMgr {
                         for (String str4 : hashMap.keySet()) {
                             httpURLConnection.addRequestProperty(str4, hashMap.get(str4));
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         LogTools.printWarning(TAG, "doHttpURLConnection: " + e.getMessage());
                     }
                 }
@@ -131,8 +131,8 @@ public class HTTPMgr {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             httpURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
@@ -266,8 +266,8 @@ public class HTTPMgr {
                         return strArr;
                     }
                     LogTools.printDebug(TAG, String.format(Locale.US, "doHttpsURLConnection data failed, code = %d", Integer.valueOf(responseCode)));
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     LogTools.printWarning(TAG, "doHttpsURLConnection：" + e.getMessage());
                 }
             } catch (Throwable th) {
@@ -278,8 +278,8 @@ public class HTTPMgr {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             httpsURLConnection = null;
         } catch (Throwable th2) {
             th = th2;
@@ -321,8 +321,8 @@ public class HTTPMgr {
                     }
                     str = str + readLine;
                 }
-            } catch (IOException e2) {
-                LogTools.printError(TAG, "inputStreamToString：" + e2.getMessage());
+            } catch (IOException e) {
+                LogTools.printError(TAG, "inputStreamToString：" + e.getMessage());
             }
             return str;
         }
@@ -403,8 +403,8 @@ public class HTTPMgr {
                         httpURLConnection.disconnect();
                     }
                     return strArr;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     LogTools.printWarning(TAG, "postHttp：" + e.getMessage());
                     if (httpURLConnection != null) {
                         httpURLConnection.disconnect();
@@ -419,8 +419,8 @@ public class HTTPMgr {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             httpURLConnection = null;
         } catch (Throwable th2) {
             th = th2;

@@ -32,7 +32,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryGroupRequest";
@@ -44,7 +44,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public String mKey;
     public String mRequestParam;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,8 +152,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                                     i2 = i5;
                                     optString = str2;
                                     jSONArray = jSONArray2;
-                                } catch (JSONException e2) {
-                                    e = e2;
+                                } catch (JSONException e) {
+                                    e = e;
                                     mytask = this;
                                     arrayList = arrayList2;
                                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
@@ -166,15 +166,15 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                                     if (i != 0) {
                                     }
                                 }
-                            } catch (JSONException e3) {
-                                e = e3;
+                            } catch (JSONException e2) {
+                                e = e2;
                             }
                         }
                     }
                     i = i2;
                     str = optString;
-                } catch (JSONException e4) {
-                    e = e4;
+                } catch (JSONException e3) {
+                    e = e3;
                 }
                 if (i == 0 || arrayList.size() <= 0) {
                     mytask.this$0.uploadGroupInfoFailInfo("get_groupinfo_request_onSuccess", "param = " + mytask.this$0.mRequestParam + "  reponse = " + mytask.mJson);

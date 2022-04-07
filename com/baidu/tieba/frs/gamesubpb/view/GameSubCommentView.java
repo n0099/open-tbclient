@@ -3,8 +3,6 @@ package com.baidu.tieba.frs.gamesubpb.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.p0.f1.y1.a;
-import c.a.p0.f1.y1.d.d;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -15,19 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.al6;
+import com.repackage.uk6;
+/* loaded from: classes3.dex */
 public class GameSubCommentView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
+    public SpannableTextView b;
+    public uk6.a c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public SpannableTextView f32608b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a.InterfaceC1121a f32609c;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class GameSubCommentViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,29 +50,27 @@ public class GameSubCommentView {
             this.a = gameSubCommentView;
         }
 
-        public void c(d dVar) {
+        public void c(al6 al6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                this.a.b(dVar);
+            if (interceptable == null || interceptable.invokeL(1048576, this, al6Var) == null) {
+                this.a.b(al6Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
+        public final /* synthetic */ al6 a;
+        public final /* synthetic */ GameSubCommentView b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ GameSubCommentView f32610b;
-
-        public a(GameSubCommentView gameSubCommentView, d dVar) {
+        public a(GameSubCommentView gameSubCommentView, al6 al6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameSubCommentView, dVar};
+                Object[] objArr = {gameSubCommentView, al6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,17 +80,17 @@ public class GameSubCommentView {
                     return;
                 }
             }
-            this.f32610b = gameSubCommentView;
-            this.a = dVar;
+            this.b = gameSubCommentView;
+            this.a = al6Var;
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f32610b.f32609c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.c == null) {
                 return;
             }
-            this.f32610b.f32609c.c(this.a);
+            this.b.c.c(this.a);
         }
     }
 
@@ -115,20 +109,20 @@ public class GameSubCommentView {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037b, (ViewGroup) null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037d, (ViewGroup) null);
         this.a = inflate;
-        SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091db9);
-        this.f32608b = spannableTextView;
+        SpannableTextView spannableTextView = (SpannableTextView) inflate.findViewById(R.id.obfuscated_res_0x7f091da5);
+        this.b = spannableTextView;
         SkinManager.setViewTextColor(spannableTextView, (int) R.color.CAM_X0106);
     }
 
-    public void b(d dVar) {
+    public void b(al6 al6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) || dVar == null || dVar.f14867d == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, al6Var) == null) || al6Var == null || al6Var.d == null) {
             return;
         }
-        this.f32608b.e(dVar);
-        this.f32608b.setOnClickListener(new a(this, dVar));
+        this.b.e(al6Var);
+        this.b.setOnClickListener(new a(this, al6Var));
     }
 
     public View c() {
@@ -137,11 +131,11 @@ public class GameSubCommentView {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (View) invokeV.objValue;
     }
 
-    public void d(a.InterfaceC1121a interfaceC1121a) {
+    public void d(uk6.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1121a) == null) {
-            this.f32609c = interfaceC1121a;
-            this.f32608b.setClickListener(interfaceC1121a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.c = aVar;
+            this.b.setClickListener(aVar);
         }
     }
 }

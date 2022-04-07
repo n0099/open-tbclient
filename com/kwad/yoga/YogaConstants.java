@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YogaConstants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float UNDEFINED = Float.NaN;
@@ -34,10 +34,10 @@ public class YogaConstants {
         return invokeV.floatValue;
     }
 
-    public static boolean isUndefined(float f2) {
+    public static boolean isUndefined(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f2)) == null) ? Float.compare(f2, Float.NaN) == 0 : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? Float.compare(f, Float.NaN) == 0 : invokeF.booleanValue;
     }
 
     public static boolean isUndefined(YogaValue yogaValue) {

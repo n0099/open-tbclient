@@ -2,7 +2,6 @@ package com.baidu.searchbox.perfframe.ubc;
 
 import android.content.Context;
 import android.util.Log;
-import c.a.g0.b.a.a;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -19,12 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.UBCManager;
+import com.repackage.ub1;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class UbcPerfFrameRegister implements IPerfFrameRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UbcPerfFrameRegister";
@@ -60,7 +60,7 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 jSONObject.put("time", String.valueOf(perfExpInfo.getTime()));
                 jSONObject.put("description", perfExpInfo.getException());
                 jSONObject.put("page", perfExpInfo.getPage());
-                jSONObject.put("processName", a.b());
+                jSONObject.put("processName", ub1.b());
                 jSONObject.put(Constant.KEY_BUSINESS, perfExpInfo.getBusiness());
                 JSONObject jSONObject2 = new JSONObject();
                 if (perfExpInfo.isNeedPageTrace() && (trackUIs = perfExpInfo.getTrackUIs()) != null && trackUIs.size() > 0) {
@@ -157,8 +157,8 @@ public class UbcPerfFrameRegister implements IPerfFrameRegister {
                 if (uBCManager != null) {
                     uBCManager.onEvent(perfExpInfo.getUbcId(), jSONObject);
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }

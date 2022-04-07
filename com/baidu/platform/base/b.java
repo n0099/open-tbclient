@@ -8,17 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ d a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f28183b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f28184c;
+    public final /* synthetic */ Object b;
+    public final /* synthetic */ a c;
 
     public b(a aVar, d dVar, Object obj) {
         Interceptable interceptable = $ic;
@@ -35,16 +31,16 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f28184c = aVar;
+        this.c = aVar;
         this.a = dVar;
-        this.f28183b = obj;
+        this.b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f28184c.a(httpStateError, this.a, this.f28183b);
+            this.c.a(httpStateError, this.a, this.b);
         }
     }
 
@@ -53,13 +49,13 @@ public class b extends HttpClient.ProtoResultCallback {
         AsyncHttpClient asyncHttpClient;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String a = this.a instanceof com.baidu.platform.core.b.e ? this.f28184c.a(str) : "";
+            String a = this.a instanceof com.baidu.platform.core.b.e ? this.c.a(str) : "";
             String str2 = !TextUtils.isEmpty(a) ? a : str;
-            this.f28184c.c(str2);
-            a aVar = this.f28184c;
+            this.c.c(str2);
+            a aVar = this.c;
             d dVar = this.a;
-            Object obj = this.f28183b;
-            asyncHttpClient = aVar.f28178b;
+            Object obj = this.b;
+            asyncHttpClient = aVar.b;
             aVar.a(str2, dVar, obj, asyncHttpClient, this);
         }
     }

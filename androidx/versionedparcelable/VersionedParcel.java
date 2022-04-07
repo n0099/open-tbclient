@@ -295,8 +295,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(65549, this, versionedParcelable) == null) {
             try {
                 writeString(findParcelClass(versionedParcelable.getClass()).getName());
-            } catch (ClassNotFoundException e2) {
-                throw new RuntimeException(versionedParcelable.getClass().getSimpleName() + " does not have a Parcelizer", e2);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(versionedParcelable.getClass().getSimpleName() + " does not have a Parcelizer", e);
             }
         }
     }
@@ -342,10 +342,10 @@ public abstract class VersionedParcel {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, bundle, i)) == null) ? !readField(i) ? bundle : readBundle() : (Bundle) invokeLI.objValue;
     }
 
-    public byte readByte(byte b2, int i) {
+    public byte readByte(byte b, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Byte.valueOf(b2), Integer.valueOf(i)})) == null) ? !readField(i) ? b2 : (byte) (readInt() & 255) : invokeCommon.byteValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Byte.valueOf(b), Integer.valueOf(i)})) == null) ? !readField(i) ? b : (byte) (readInt() & 255) : invokeCommon.byteValue;
     }
 
     public abstract byte[] readByteArray();
@@ -386,10 +386,10 @@ public abstract class VersionedParcel {
 
     public abstract double readDouble();
 
-    public double readDouble(double d2, int i) {
+    public double readDouble(double d, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i)})) == null) ? !readField(i) ? d2 : readDouble() : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)})) == null) ? !readField(i) ? d : readDouble() : invokeCommon.doubleValue;
     }
 
     public double[] readDoubleArray(double[] dArr, int i) {
@@ -409,10 +409,10 @@ public abstract class VersionedParcel {
 
     public abstract float readFloat();
 
-    public float readFloat(float f2, int i) {
+    public float readFloat(float f, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) ? !readField(i) ? f2 : readFloat() : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) ? !readField(i) ? f : readFloat() : invokeCommon.floatValue;
     }
 
     public float[] readFloatArray(float[] fArr, int i) {
@@ -427,17 +427,17 @@ public abstract class VersionedParcel {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, versionedParcel)) == null) {
             try {
                 return (T) getReadMethod(str).invoke(null, versionedParcel);
-            } catch (ClassNotFoundException e2) {
-                throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e2);
-            } catch (IllegalAccessException e3) {
-                throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e3);
-            } catch (NoSuchMethodException e4) {
-                throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e4);
-            } catch (InvocationTargetException e5) {
-                if (e5.getCause() instanceof RuntimeException) {
-                    throw ((RuntimeException) e5.getCause());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e);
+            } catch (IllegalAccessException e2) {
+                throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e2);
+            } catch (NoSuchMethodException e3) {
+                throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e3);
+            } catch (InvocationTargetException e4) {
+                if (e4.getCause() instanceof RuntimeException) {
+                    throw ((RuntimeException) e4.getCause());
                 }
-                throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e5);
+                throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e4);
             }
         }
         return (T) invokeLL.objValue;
@@ -560,10 +560,10 @@ public abstract class VersionedParcel {
                         return (Class) invokeL.objValue;
                     }
                 }.readObject();
-            } catch (IOException e2) {
-                throw new RuntimeException("VersionedParcelable encountered IOException reading a Serializable object (name = " + readString + SmallTailInfo.EMOTION_SUFFIX, e2);
-            } catch (ClassNotFoundException e3) {
-                throw new RuntimeException("VersionedParcelable encountered ClassNotFoundException reading a Serializable object (name = " + readString + SmallTailInfo.EMOTION_SUFFIX, e3);
+            } catch (IOException e) {
+                throw new RuntimeException("VersionedParcelable encountered IOException reading a Serializable object (name = " + readString + SmallTailInfo.EMOTION_SUFFIX, e);
+            } catch (ClassNotFoundException e2) {
+                throw new RuntimeException("VersionedParcelable encountered ClassNotFoundException reading a Serializable object (name = " + readString + SmallTailInfo.EMOTION_SUFFIX, e2);
             }
         }
         return (Serializable) invokeV.objValue;
@@ -693,11 +693,11 @@ public abstract class VersionedParcel {
         }
     }
 
-    public void writeByte(byte b2, int i) {
+    public void writeByte(byte b, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Byte.valueOf(b2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Byte.valueOf(b), Integer.valueOf(i)}) == null) {
             setOutputField(i);
-            writeInt(b2);
+            writeInt(b);
         }
     }
 
@@ -719,8 +719,8 @@ public abstract class VersionedParcel {
             setOutputField(i);
             if (cArr != null) {
                 writeInt(cArr.length);
-                for (char c2 : cArr) {
-                    writeInt(c2);
+                for (char c : cArr) {
+                    writeInt(c);
                 }
                 return;
             }
@@ -738,13 +738,13 @@ public abstract class VersionedParcel {
         }
     }
 
-    public abstract void writeDouble(double d2);
+    public abstract void writeDouble(double d);
 
-    public void writeDouble(double d2, int i) {
+    public void writeDouble(double d, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)}) == null) {
             setOutputField(i);
-            writeDouble(d2);
+            writeDouble(d);
         }
     }
 
@@ -797,13 +797,13 @@ public abstract class VersionedParcel {
         }
     }
 
-    public abstract void writeFloat(float f2);
+    public abstract void writeFloat(float f);
 
-    public void writeFloat(float f2, int i) {
+    public void writeFloat(float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
             setOutputField(i);
-            writeFloat(f2);
+            writeFloat(f);
         }
     }
 
@@ -992,17 +992,17 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeLL(1048678, this, t, versionedParcel) == null) {
             try {
                 getWriteMethod(t.getClass()).invoke(null, t, versionedParcel);
-            } catch (ClassNotFoundException e2) {
-                throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e2);
-            } catch (IllegalAccessException e3) {
-                throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e3);
-            } catch (NoSuchMethodException e4) {
-                throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e4);
-            } catch (InvocationTargetException e5) {
-                if (e5.getCause() instanceof RuntimeException) {
-                    throw ((RuntimeException) e5.getCause());
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException("VersionedParcel encountered ClassNotFoundException", e);
+            } catch (IllegalAccessException e2) {
+                throw new RuntimeException("VersionedParcel encountered IllegalAccessException", e2);
+            } catch (NoSuchMethodException e3) {
+                throw new RuntimeException("VersionedParcel encountered NoSuchMethodException", e3);
+            } catch (InvocationTargetException e4) {
+                if (e4.getCause() instanceof RuntimeException) {
+                    throw ((RuntimeException) e4.getCause());
                 }
-                throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e5);
+                throw new RuntimeException("VersionedParcel encountered InvocationTargetException", e4);
             }
         }
     }
@@ -1086,8 +1086,8 @@ public abstract class VersionedParcel {
                 objectOutputStream.writeObject(serializable);
                 objectOutputStream.close();
                 writeByteArray(byteArrayOutputStream.toByteArray());
-            } catch (IOException e2) {
-                throw new RuntimeException("VersionedParcelable encountered IOException writing serializable object (name = " + name + SmallTailInfo.EMOTION_SUFFIX, e2);
+            } catch (IOException e) {
+                throw new RuntimeException("VersionedParcelable encountered IOException writing serializable object (name = " + name + SmallTailInfo.EMOTION_SUFFIX, e);
             }
         }
     }
@@ -1307,8 +1307,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048647, this, dArr) == null) {
             if (dArr != null) {
                 writeInt(dArr.length);
-                for (double d2 : dArr) {
-                    writeDouble(d2);
+                for (double d : dArr) {
+                    writeDouble(d);
                 }
                 return;
             }
@@ -1321,8 +1321,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048652, this, fArr) == null) {
             if (fArr != null) {
                 writeInt(fArr.length);
-                for (float f2 : fArr) {
-                    writeFloat(f2);
+                for (float f : fArr) {
+                    writeFloat(f);
                 }
                 return;
             }

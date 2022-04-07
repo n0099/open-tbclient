@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import org.json.JSONArray;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoAsyncHostHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEO_MPD_HOST = "key_video_mpd_hosts";
@@ -94,9 +94,9 @@ public class VideoAsyncHostHelper {
                 for (int i = 0; i < jSONArray.length(); i++) {
                     sVideoHostWhiteList.add(jSONArray.opt(i).toString());
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (BDPlayerConfig.isDebug()) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
             }
         }

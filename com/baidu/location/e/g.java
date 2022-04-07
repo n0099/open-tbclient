@@ -15,17 +15,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f26073b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f26074c;
+    public final /* synthetic */ boolean b;
+    public final /* synthetic */ e c;
 
     public g(e eVar, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -42,17 +38,17 @@ public class g implements Runnable {
                 return;
             }
         }
-        this.f26074c = eVar;
+        this.c = eVar;
         this.a = str;
-        this.f26073b = z;
+        this.b = z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:113:0x01e6 A[LOOP:0: B:5:0x0026->B:113:0x01e6, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x01ee  */
-    /* JADX WARN: Removed duplicated region for block: B:140:0x01f3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:152:0x0209 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:162:0x01fe A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:175:0x0213 A[EDGE_INSN: B:175:0x0213->B:131:0x0213 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x01e5 A[LOOP:0: B:5:0x0026->B:113:0x01e5, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x01ed  */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x01f2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x0208 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x01fd A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:175:0x0212 A[EDGE_INSN: B:175:0x0212->B:131:0x0212 ?: BREAK  , SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -65,17 +61,17 @@ public class g implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f26074c.f26072h = k.e();
-            this.f26074c.b();
-            this.f26074c.a();
-            int i = this.f26074c.i;
+            this.c.h = k.e();
+            this.c.b();
+            this.c.a();
+            int i = this.c.i;
             OutputStream outputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i > 0) {
                 try {
-                    URL url = new URL(this.f26074c.f26072h);
+                    URL url = new URL(this.c.h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.f26074c.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.c.k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -90,8 +86,8 @@ public class g implements Runnable {
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f26042b);
-                        httpURLConnection2.setReadTimeout(a.f26042b);
+                        httpURLConnection2.setConnectTimeout(a.b);
+                        httpURLConnection2.setReadTimeout(a.b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
@@ -122,11 +118,11 @@ public class g implements Runnable {
                                             }
                                             byteArrayOutputStream.write(bArr, 0, read);
                                         }
-                                        this.f26074c.j = new String(byteArrayOutputStream.toByteArray(), IMAudioTransRequest.CHARSET);
-                                        if (this.f26073b) {
-                                            this.f26074c.m = byteArrayOutputStream.toByteArray();
+                                        this.c.j = new String(byteArrayOutputStream.toByteArray(), IMAudioTransRequest.CHARSET);
+                                        if (this.b) {
+                                            this.c.m = byteArrayOutputStream.toByteArray();
                                         }
-                                        this.f26074c.a(true);
+                                        this.c.a(true);
                                         z = true;
                                     } catch (Error unused) {
                                         outputStream2 = outputStream4;
@@ -315,7 +311,7 @@ public class g implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f26074c;
+            e eVar = this.c;
             eVar.j = null;
             eVar.a(false);
         }

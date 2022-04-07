@@ -13,7 +13,7 @@ import com.vivo.push.o;
 import com.vivo.push.util.p;
 import com.vivo.push.util.t;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,8 +21,8 @@ public final class a {
     public static void a(Context context, String str, o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, oVar) == null) {
-            boolean c2 = oVar.c();
-            b a = b.a(context, c2 ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
+            boolean c = oVar.c();
+            b a = b.a(context, c ? "com.vivo.vms.upstageservice" : "com.vivo.vms.aidlservice");
             boolean a2 = a.a();
             if (TextUtils.isEmpty(oVar.a())) {
                 oVar.a(context.getPackageName());
@@ -38,12 +38,12 @@ public final class a {
             }
             Intent intent = new Intent("com.vivo.pushservice.action.METHOD");
             intent.setPackage(str);
-            intent.setClassName(str, c2 ? "com.vivo.push.sdk.service.UpstageService" : "com.vivo.push.sdk.service.PushService");
+            intent.setClassName(str, c ? "com.vivo.push.sdk.service.UpstageService" : "com.vivo.push.sdk.service.PushService");
             oVar.a(intent);
             try {
                 a(context, intent);
-            } catch (Exception e2) {
-                p.a("CommandBridge", "CommandBridge startService exception: ", e2);
+            } catch (Exception e) {
+                p.a("CommandBridge", "CommandBridge startService exception: ", e);
             }
         }
     }
@@ -55,8 +55,8 @@ public final class a {
                 try {
                     context.startService(intent);
                     return;
-                } catch (Exception e2) {
-                    p.a("CommandBridge", "start service error", e2);
+                } catch (Exception e) {
+                    p.a("CommandBridge", "start service error", e);
                     intent.setComponent(null);
                     context.sendBroadcast(intent);
                     return;
@@ -71,10 +71,10 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, context, oVar, str) == null) {
             try {
-                boolean d2 = t.d(context, str);
-                String str2 = d2 ? "com.vivo.pushservice.action.RECEIVE" : "com.vivo.pushclient.action.RECEIVE";
+                boolean d = t.d(context, str);
+                String str2 = d ? "com.vivo.pushservice.action.RECEIVE" : "com.vivo.pushclient.action.RECEIVE";
                 if (!TextUtils.isEmpty(str)) {
-                    if (d2 || a(context, str2, str)) {
+                    if (d || a(context, str2, str)) {
                         if (TextUtils.isEmpty(oVar.a())) {
                             oVar.a(context.getPackageName());
                         }
@@ -84,7 +84,7 @@ public final class a {
                             intent.setAction(str2);
                         }
                         intent.setPackage(str);
-                        intent.setClassName(str, d2 ? "com.vivo.push.sdk.service.CommandService" : "com.vivo.push.sdk.service.CommandClientService");
+                        intent.setClassName(str, d ? "com.vivo.push.sdk.service.CommandService" : "com.vivo.push.sdk.service.CommandClientService");
                         intent.putExtra("security_avoid_pull", com.vivo.push.util.a.a(context).a("com.vivo.pushservice"));
                         oVar.b(intent);
                         intent.putExtra("command_type", "reflect_receiver");
@@ -95,8 +95,8 @@ public final class a {
                 }
                 p.c(context, "消息接受者包名为空！");
                 throw new Exception("消息接受者包名为空！");
-            } catch (Exception e2) {
-                p.a("CommandBridge", "CommandBridge sendCommandToClient exception", e2);
+            } catch (Exception e) {
+                p.a("CommandBridge", "CommandBridge sendCommandToClient exception", e);
             }
         }
     }

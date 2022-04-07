@@ -11,34 +11,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class hh {
     public static /* synthetic */ Interceptable $ic;
     public static final hh a;
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hh[] f456a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final hh f44330b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final hh f44331c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final hh f44332d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final hh f44333e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final hh f44334f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final hh f44335g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final hh f44336h;
+    public static final hh b;
+    public static final hh c;
+    public static final hh d;
+    public static final hh e;
+    public static final hh f;
+    public static final hh g;
+    public static final hh h;
     public static final hh i;
     public static final hh j;
     public static final hh k;
@@ -74,13 +60,13 @@ public final class hh {
             }
         }
         a = new hh("DeviceInfo", 0, 1);
-        f44330b = new hh("AppInstallList", 1, 2);
-        f44331c = new hh("AppActiveList", 2, 3);
-        f44332d = new hh("Bluetooth", 3, 4);
-        f44333e = new hh(Headers.LOCATION, 4, 5);
-        f44334f = new hh("Account", 5, 6);
-        f44335g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
-        f44336h = new hh("Cellular", 7, 8);
+        b = new hh("AppInstallList", 1, 2);
+        c = new hh("AppActiveList", 2, 3);
+        d = new hh("Bluetooth", 3, 4);
+        e = new hh(Headers.LOCATION, 4, 5);
+        f = new hh("Account", 5, 6);
+        g = new hh(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 6, 7);
+        h = new hh("Cellular", 7, 8);
         i = new hh("TopApp", 8, 9);
         j = new hh("BroadcastAction", 9, 10);
         k = new hh("BroadcastActionAdded", 10, 11);
@@ -98,7 +84,7 @@ public final class hh {
         w = new hh("Storage", 22, 23);
         hh hhVar = new hh("AppIsInstalled", 23, 24);
         x = hhVar;
-        f456a = new hh[]{a, f44330b, f44331c, f44332d, f44333e, f44334f, f44335g, f44336h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
+        f456a = new hh[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, hhVar};
     }
 
     public hh(String str, int i2, int i3) {
@@ -130,19 +116,19 @@ public final class hh {
                 case 1:
                     return a;
                 case 2:
-                    return f44330b;
+                    return b;
                 case 3:
-                    return f44331c;
+                    return c;
                 case 4:
-                    return f44332d;
+                    return d;
                 case 5:
-                    return f44333e;
+                    return e;
                 case 6:
-                    return f44334f;
+                    return f;
                 case 7:
-                    return f44335g;
+                    return g;
                 case 8:
-                    return f44336h;
+                    return h;
                 case 9:
                     return i;
                 case 10:

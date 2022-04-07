@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaSharedPrefHelper {
     public static /* synthetic */ Interceptable $ic;
     public static AlaSharedPrefHelper mInstance;
@@ -72,13 +72,13 @@ public class AlaSharedPrefHelper {
         return invokeLZ.booleanValue;
     }
 
-    public float getFloat(String str, float f2) {
+    public float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
-            return sharedPreferences.getFloat(str, f2);
+            return sharedPreferences.getFloat(str, f);
         }
         return invokeLF.floatValue;
     }
@@ -102,8 +102,8 @@ public class AlaSharedPrefHelper {
                 SharedPreferences sharedPreferences = getSharedPreferences();
                 this.mSP = sharedPreferences;
                 return sharedPreferences.getLong(str, j);
-            } catch (ClassCastException e2) {
-                BdLog.e(e2);
+            } catch (ClassCastException e) {
+                BdLog.e(e);
                 return j;
             }
         }
@@ -141,12 +141,12 @@ public class AlaSharedPrefHelper {
         }
     }
 
-    public void putFloat(String str, float f2) {
+    public void putFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048583, this, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(1048583, this, str, f) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
-            EditorHelper.putFloat(sharedPreferences, str, f2);
+            EditorHelper.putFloat(sharedPreferences, str, f);
         }
     }
 

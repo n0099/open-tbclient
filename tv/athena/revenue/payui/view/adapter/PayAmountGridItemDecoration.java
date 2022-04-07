@@ -9,25 +9,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c6a;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import h.a.a.e.h.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f45917b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f45918c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f45919d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public GridLayoutManager f45920e;
+    public int b;
+    public int c;
+    public int d;
+    public GridLayoutManager e;
 
     public PayAmountGridItemDecoration(int i, int i2, int i3, int i4, GridLayoutManager gridLayoutManager) {
         Interceptable interceptable = $ic;
@@ -45,29 +37,29 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             }
         }
         this.a = i;
-        this.f45917b = i2;
-        this.f45918c = i3;
-        this.f45919d = i4;
-        this.f45920e = gridLayoutManager;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
+        this.e = gridLayoutManager;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(@NonNull Rect rect, @NonNull View view, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            View findViewByPosition = this.f45920e.findViewByPosition(this.f45919d);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+            View findViewByPosition = this.e.findViewByPosition(this.d);
             boolean z = findViewByPosition != null && findViewByPosition.getVisibility() == 0;
-            int childAdapterPosition = recyclerView.getChildAdapterPosition(view);
+            int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
             int i = -1;
-            int i2 = this.f45919d;
+            int i2 = this.d;
             if (childAdapterPosition == i2) {
                 rect.left = 0;
                 rect.right = 0;
-                rect.top = z ? c.a(2.0f) : 0;
+                rect.top = z ? c6a.a(2.0f) : 0;
             } else if (childAdapterPosition < i2) {
                 int i3 = this.a;
                 int i4 = childAdapterPosition % i3;
-                int i5 = this.f45918c;
+                int i5 = this.c;
                 rect.left = (i4 * i5) / i3;
                 rect.right = i5 - (((i4 + 1) * i5) / i3);
                 rect.top = 0;
@@ -75,10 +67,10 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             } else if (childAdapterPosition > i2) {
                 int i6 = this.a;
                 i = (childAdapterPosition - 1) % i6;
-                int i7 = this.f45918c;
+                int i7 = this.c;
                 rect.left = (i * i7) / i6;
                 rect.right = i7 - (((i + 1) * i7) / i6);
-                rect.top = z ? c.a(2.0f) : this.f45917b;
+                rect.top = z ? c6a.a(2.0f) : this.b;
             }
             RLog.debug("PayAmountGridItemDecoration", "position:" + childAdapterPosition + "    columnIndex: " + i + "    left,right ->" + rect.left + "," + rect.right + " isCampaignItemVisible:" + z);
         }

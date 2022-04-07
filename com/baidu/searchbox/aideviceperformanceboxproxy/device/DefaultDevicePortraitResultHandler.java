@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DefaultDevicePortraitResultHandler implements IDevicePortraitResultHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SP_KEY_STATIC_SCORE = "static_predict_score";
@@ -30,32 +30,32 @@ public class DefaultDevicePortraitResultHandler implements IDevicePortraitResult
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
-    public float getStaticPredictScore(float f2) {
+    public float getStaticPredictScore(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE, -1.0f) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE, -1.0f) : invokeF.floatValue;
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
-    public float getStaticScorePercent(float f2) {
+    public float getStaticScorePercent(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, -1.0f) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) ? DeviceInfoSharedPreferenceWrapper.getInstance().getFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, -1.0f) : invokeF.floatValue;
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
-    public void putStaticPredictScore(float f2) {
+    public void putStaticPredictScore(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_STATIC_SCORE, f2);
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_STATIC_SCORE, f);
         }
     }
 
     @Override // com.baidu.searchbox.aideviceperformance.device.IDevicePortraitResultHandler
-    public void putStaticScorePercent(float f2) {
+    public void putStaticScorePercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, f2);
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(SP_KEY_STATIC_SCORE_PERCENTAGE, f);
         }
     }
 

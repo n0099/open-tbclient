@@ -2,9 +2,6 @@ package com.baidu.tieba.barselect;
 
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.e0.b.d;
-import c.a.p0.e0.b.f;
-import c.a.p0.e0.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
@@ -13,21 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dw5;
+import com.repackage.uv5;
+import com.repackage.wv5;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public f f31520b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<d> f31521c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f31522d;
+    public wv5 b;
+    public List<uv5> c;
+    public int d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -44,14 +38,14 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 return;
             }
         }
-        this.f31522d = -1;
+        this.d = -1;
         this.a = tbPageContext;
     }
 
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31522d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -71,18 +65,18 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f31522d = i;
+            this.d = i;
         }
     }
 
-    public void g(f fVar) {
+    public void g(wv5 wv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.f31520b = fVar;
-            if (fVar != null) {
-                this.f31521c = fVar.b();
+        if (interceptable == null || interceptable.invokeL(1048579, this, wv5Var) == null) {
+            this.b = wv5Var;
+            if (wv5Var != null) {
+                this.c = wv5Var.b();
             }
-            this.f31522d = -1;
+            this.d = -1;
             notifyDataSetChanged();
         }
     }
@@ -92,7 +86,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<d> list = this.f31521c;
+            List<uv5> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -106,11 +100,11 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List<d> list = this.f31521c;
-            if (list == null || list.size() <= i || this.f31521c.get(i).i() != 1 || i != 0) {
+            List<uv5> list = this.c;
+            if (list == null || list.size() <= i || this.c.get(i).i() != 1 || i != 0) {
                 return 0;
             }
-            return a.f13758c;
+            return dw5.c;
         }
         return invokeI.intValue;
     }
@@ -119,7 +113,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048582, this, viewHolder, i) == null) && (viewHolder instanceof VoteViewHolder)) {
-            ((VoteViewHolder) viewHolder).a(i, this.f31520b);
+            ((VoteViewHolder) viewHolder).a(i, this.b);
         }
     }
 }

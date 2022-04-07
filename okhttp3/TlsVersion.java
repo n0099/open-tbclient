@@ -70,53 +70,53 @@ public final class TlsVersion {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static TlsVersion forJavaName(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             int hashCode = str.hashCode();
             if (hashCode == 79201641) {
                 if (str.equals("SSLv3")) {
-                    c2 = 4;
+                    c = 4;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != 79923350) {
                 switch (hashCode) {
                     case -503070503:
                         if (str.equals("TLSv1.1")) {
-                            c2 = 2;
+                            c = 2;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -503070502:
                         if (str.equals("TLSv1.2")) {
-                            c2 = 1;
+                            c = 1;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     case -503070501:
                         if (str.equals("TLSv1.3")) {
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
-                        c2 = 65535;
+                        c = 65535;
                         break;
                     default:
-                        c2 = 65535;
+                        c = 65535;
                         break;
                 }
             } else {
                 if (str.equals("TLSv1")) {
-                    c2 = 3;
+                    c = 3;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 != 3) {
-                            if (c2 == 4) {
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c == 4) {
                                 return SSL_3_0;
                             }
                             throw new IllegalArgumentException("Unexpected TLS version: " + str);

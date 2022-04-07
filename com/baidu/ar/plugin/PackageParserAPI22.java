@@ -29,7 +29,7 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PackageParserAPI22 extends PackageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PackageParserAPI22";
@@ -89,8 +89,8 @@ public class PackageParserAPI22 extends PackageParser {
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
                 return ((Integer) MethodUtils.invokeStaticMethod(UserHandle.class, "getCallingUserId", new Object[0])).intValue();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 0;
             }
         }
@@ -176,8 +176,8 @@ public class PackageParserAPI22 extends PackageParser {
             Method accessibleMethod = MethodUtils.getAccessibleMethod(cls2, "generatePackageInfo", this.mPackage.getClass(), int[].class, Integer.TYPE, cls3, cls3, cls, this.sPackageUserStateClass);
             try {
                 obj = this.sArraySetClass.getConstructor(Collection.class).newInstance(hashSet);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 obj = null;
             }
             if (obj == null) {

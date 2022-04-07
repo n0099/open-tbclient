@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class u0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,15 +59,15 @@ public class u0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                String str = r0.a + r0.f38966b;
-                String e2 = s0.e(this.a);
-                if (!TextUtils.isEmpty(e2)) {
-                    str = str + "?" + e2;
+                String str = r0.a + r0.b;
+                String e = s0.e(this.a);
+                if (!TextUtils.isEmpty(e)) {
+                    str = str + "?" + e;
                 }
                 JSONObject jSONObject = new JSONObject();
-                JSONObject c2 = s0.c(this.a);
-                if (c2 != null) {
-                    jSONObject.put("data", new m1(this.a).b(c2.toString()));
+                JSONObject c = s0.c(this.a);
+                if (c != null) {
+                    jSONObject.put("data", new m1(this.a).b(c.toString()));
                 }
                 a(new p1(this.a, null).a(str, jSONObject.toString().getBytes()));
             } catch (Exception unused) {

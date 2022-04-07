@@ -30,9 +30,7 @@ import java.util.Stack;
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.a.a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f42581b;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,7 +46,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f42581b = f.f42567b;
+        b = f.b;
         new Stack();
     }
 
@@ -102,8 +100,8 @@ public class a extends com.sdk.base.framework.f.a {
                     return packageInfo.versionName;
                 }
                 return null;
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return null;
             }
         }
@@ -127,8 +125,8 @@ public class a extends com.sdk.base.framework.f.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             try {
                 return Build.VERSION.SDK_INT;
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return -1;
             }
         }
@@ -148,8 +146,8 @@ public class a extends com.sdk.base.framework.f.a {
                     return packageInfo.versionCode;
                 }
                 return -1;
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return -1;
             }
         }
@@ -170,8 +168,8 @@ public class a extends com.sdk.base.framework.f.a {
                     return null;
                 }
                 return (T) bundle.get(str);
-            } catch (Exception e2) {
-                c.a(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (Exception e) {
+                c.a(a, e.getMessage(), Boolean.valueOf(b));
                 return null;
             }
         }
@@ -183,13 +181,13 @@ public class a extends com.sdk.base.framework.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (context == null) {
-                c.c(a, "mContext 为空", Boolean.valueOf(f42581b));
+                c.c(a, "mContext 为空", Boolean.valueOf(b));
                 return null;
             }
             try {
                 return context.getPackageName();
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return null;
             }
         }
@@ -210,14 +208,14 @@ public class a extends com.sdk.base.framework.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (context == null) {
-                com.sdk.base.framework.f.a.a(a, "getAppLable", "mContext 为空", f42581b);
+                com.sdk.base.framework.f.a.a(a, "getAppLable", "mContext 为空", b);
                 return null;
             }
             try {
                 PackageManager packageManager = context.getPackageManager();
                 return packageManager.getApplicationLabel(packageManager.getApplicationInfo(context.getPackageName(), 128)).toString();
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return null;
             }
         }
@@ -231,8 +229,8 @@ public class a extends com.sdk.base.framework.f.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
             try {
                 packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 64);
-            } catch (PackageManager.NameNotFoundException e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42581b));
+            } catch (PackageManager.NameNotFoundException e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 packageInfo = null;
             }
             if (packageInfo != null) {
@@ -260,8 +258,8 @@ public class a extends com.sdk.base.framework.f.a {
                         str = str + hexString;
                     }
                     return str;
-                } catch (Exception e3) {
-                    c.b(a, e3.getMessage(), Boolean.valueOf(f42581b));
+                } catch (Exception e2) {
+                    c.b(a, e2.getMessage(), Boolean.valueOf(b));
                     return null;
                 }
             }

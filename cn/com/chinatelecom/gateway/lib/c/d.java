@@ -33,7 +33,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
@@ -149,8 +149,8 @@ public class d {
                                             if (bufferedReader != null) {
                                                 try {
                                                     bufferedReader.close();
-                                                } catch (Exception e2) {
-                                                    e2.printStackTrace();
+                                                } catch (Exception e) {
+                                                    e.printStackTrace();
                                                     throw th2;
                                                 }
                                             }
@@ -208,8 +208,8 @@ public class d {
                     th = th5;
                     inputStream = null;
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
             return str2;
         }
@@ -243,7 +243,7 @@ public class d {
     /* JADX WARN: Removed duplicated region for block: B:135:0x02bb A[Catch: all -> 0x0350, TRY_ENTER, TRY_LEAVE, TryCatch #8 {all -> 0x0350, blocks: (B:109:0x0231, B:122:0x0276, B:135:0x02bb, B:148:0x0300, B:161:0x0344), top: B:182:0x0020 }] */
     /* JADX WARN: Removed duplicated region for block: B:148:0x0300 A[Catch: all -> 0x0350, TRY_ENTER, TRY_LEAVE, TryCatch #8 {all -> 0x0350, blocks: (B:109:0x0231, B:122:0x0276, B:135:0x02bb, B:148:0x0300, B:161:0x0344), top: B:182:0x0020 }] */
     /* JADX WARN: Removed duplicated region for block: B:161:0x0344 A[Catch: all -> 0x0350, TRY_ENTER, TRY_LEAVE, TryCatch #8 {all -> 0x0350, blocks: (B:109:0x0231, B:122:0x0276, B:135:0x02bb, B:148:0x0300, B:161:0x0344), top: B:182:0x0020 }] */
-    /* JADX WARN: Type inference failed for: r10v0, types: [java.io.BufferedReader, int] */
+    /* JADX WARN: Type inference failed for: r10v0, types: [int, java.io.BufferedReader] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -361,8 +361,8 @@ public class d {
                                         }
                                         sb.append(readLine);
                                         sb.append("\n");
-                                    } catch (SocketTimeoutException e2) {
-                                        socketTimeoutException = e2;
+                                    } catch (SocketTimeoutException e) {
+                                        socketTimeoutException = e;
                                         bufferedReader5 = bufferedReader7;
                                         str7 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
                                         String str8 = a;
@@ -377,8 +377,8 @@ public class d {
                                         a3.h(sb3.toString());
                                         if (bufferedReader5 != null) {
                                         }
-                                    } catch (UnknownHostException e3) {
-                                        unknownHostException = e3;
+                                    } catch (UnknownHostException e2) {
+                                        unknownHostException = e2;
                                         bufferedReader4 = bufferedReader7;
                                         str7 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
                                         String str9 = a;
@@ -393,8 +393,8 @@ public class d {
                                         a4.h(sb5.toString());
                                         if (bufferedReader4 != null) {
                                         }
-                                    } catch (SSLPeerUnverifiedException e4) {
-                                        sSLPeerUnverifiedException = e4;
+                                    } catch (SSLPeerUnverifiedException e3) {
+                                        sSLPeerUnverifiedException = e3;
                                         bufferedReader3 = bufferedReader7;
                                         str7 = "{\"result\":80013,\"msg\":\"域名校验未通过\"}";
                                         String str10 = a;
@@ -409,8 +409,8 @@ public class d {
                                         a5.h(sb7.toString());
                                         if (bufferedReader3 != null) {
                                         }
-                                    } catch (IOException e5) {
-                                        iOException = e5;
+                                    } catch (IOException e4) {
+                                        iOException = e4;
                                         bufferedReader2 = bufferedReader7;
                                         str7 = "{\"result\":80007,\"msg\":\"IO异常\"}";
                                         String str11 = a;
@@ -447,8 +447,8 @@ public class d {
                                 cn.com.chinatelecom.gateway.lib.b.e.a(str4).g(a(context, httpsURLConnection));
                                 inputStream2 = inputStream;
                                 bufferedReader6 = bufferedReader7;
-                            } catch (SocketTimeoutException e6) {
-                                socketTimeoutException = e6;
+                            } catch (SocketTimeoutException e5) {
+                                socketTimeoutException = e5;
                                 bufferedReader5 = null;
                                 str7 = "{\"result\":80005,\"msg\":\"Socket超时异常\"}";
                                 String str82 = a;
@@ -464,8 +464,8 @@ public class d {
                                 if (bufferedReader5 != null) {
                                     bufferedReader5.close();
                                 }
-                            } catch (UnknownHostException e7) {
-                                unknownHostException = e7;
+                            } catch (UnknownHostException e6) {
+                                unknownHostException = e6;
                                 bufferedReader4 = null;
                                 str7 = "{\"result\":80006,\"msg\":\"域名解析异常\"}";
                                 String str92 = a;
@@ -481,8 +481,8 @@ public class d {
                                 if (bufferedReader4 != null) {
                                     bufferedReader4.close();
                                 }
-                            } catch (SSLPeerUnverifiedException e8) {
-                                sSLPeerUnverifiedException = e8;
+                            } catch (SSLPeerUnverifiedException e7) {
+                                sSLPeerUnverifiedException = e7;
                                 bufferedReader3 = null;
                                 str7 = "{\"result\":80013,\"msg\":\"域名校验未通过\"}";
                                 String str102 = a;
@@ -498,8 +498,8 @@ public class d {
                                 if (bufferedReader3 != null) {
                                     bufferedReader3.close();
                                 }
-                            } catch (IOException e9) {
-                                iOException = e9;
+                            } catch (IOException e8) {
+                                iOException = e8;
                                 bufferedReader2 = null;
                                 str7 = "{\"result\":80007,\"msg\":\"IO异常\"}";
                                 String str112 = a;
@@ -564,17 +564,17 @@ public class d {
                     }
                     throw th4;
                 }
-            } catch (SocketTimeoutException e10) {
-                socketTimeoutException = e10;
+            } catch (SocketTimeoutException e9) {
+                socketTimeoutException = e9;
                 inputStream = null;
-            } catch (UnknownHostException e11) {
-                unknownHostException = e11;
+            } catch (UnknownHostException e10) {
+                unknownHostException = e10;
                 inputStream = null;
-            } catch (SSLPeerUnverifiedException e12) {
-                sSLPeerUnverifiedException = e12;
+            } catch (SSLPeerUnverifiedException e11) {
+                sSLPeerUnverifiedException = e11;
                 inputStream = null;
-            } catch (IOException e13) {
-                iOException = e13;
+            } catch (IOException e12) {
+                iOException = e12;
                 inputStream = null;
             } catch (Throwable th5) {
                 th = th5;

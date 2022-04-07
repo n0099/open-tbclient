@@ -13,34 +13,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class s extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
+    public float b;
+    public int c;
+    public int d;
+    public int e;
+    public float f;
+    public float g;
+    public final int h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public float f38645b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f38646c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f38647d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f38648e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f38649f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f38650g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final int f38651h;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,18 +52,18 @@ public class s extends FrameLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            View view;
+            View view2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view = (View) this.a.getParent()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = (View) this.a.getParent()) == null) {
                 return;
             }
-            int width = view.getWidth();
-            int height = view.getHeight();
+            int width = view2.getWidth();
+            int height = view2.getHeight();
             s sVar = this.a;
             int height2 = height - sVar.getHeight();
             s sVar2 = this.a;
-            sVar.f38648e = height2 - sVar2.f38646c;
-            sVar2.f38647d = (width - sVar2.getWidth()) - this.a.f38646c;
+            sVar.e = height2 - sVar2.c;
+            sVar2.d = (width - sVar2.getWidth()) - this.a.c;
         }
     }
 
@@ -105,8 +91,8 @@ public class s extends FrameLayout {
         if (Build.VERSION.SDK_INT >= 21) {
             setClipToOutline(true);
         }
-        this.f38646c = i;
-        this.f38651h = ViewConfiguration.get(context).getScaledTouchSlop();
+        this.c = i;
+        this.h = ViewConfiguration.get(context).getScaledTouchSlop();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -132,37 +118,37 @@ public class s extends FrameLayout {
             int action = motionEvent.getAction();
             if (action == 0) {
                 this.a = getX() - motionEvent.getRawX();
-                this.f38645b = getY() - motionEvent.getRawY();
-                this.f38649f = 0.0f;
-                this.f38650g = 0.0f;
+                this.b = getY() - motionEvent.getRawY();
+                this.f = 0.0f;
+                this.g = 0.0f;
             } else if (action == 1) {
-                float f2 = this.f38647d;
-                if ((motionEvent.getRawX() + this.a) * 2.0f <= f2) {
-                    f2 = this.f38646c;
+                float f = this.d;
+                if ((motionEvent.getRawX() + this.a) * 2.0f <= f) {
+                    f = this.c;
                 }
-                animate().x(f2).setDuration(0L).start();
-                float f3 = this.f38649f;
-                float f4 = this.f38651h;
-                if (f3 > f4 || this.f38650g > f4) {
+                animate().x(f).setDuration(0L).start();
+                float f2 = this.f;
+                float f3 = this.h;
+                if (f2 > f3 || this.g > f3) {
                     return true;
                 }
             } else if (action == 2) {
                 float rawX = motionEvent.getRawX() + this.a;
-                float rawY = motionEvent.getRawY() + this.f38645b;
-                this.f38649f += Math.abs(rawX - getX());
-                this.f38650g += Math.abs(rawY - getY());
-                int i = this.f38646c;
-                float f5 = i;
-                if (rawX < f5) {
-                    rawX = f5;
+                float rawY = motionEvent.getRawY() + this.b;
+                this.f += Math.abs(rawX - getX());
+                this.g += Math.abs(rawY - getY());
+                int i = this.c;
+                float f4 = i;
+                if (rawX < f4) {
+                    rawX = f4;
                 } else {
-                    float f6 = this.f38647d;
-                    if (rawX > f6) {
-                        rawX = f6;
+                    float f5 = this.d;
+                    if (rawX > f5) {
+                        rawX = f5;
                     }
                 }
-                if (rawY >= f5) {
-                    i = this.f38648e;
+                if (rawY >= f4) {
+                    i = this.e;
                 }
                 rawY = i;
                 animate().x(rawX).y(rawY).setDuration(0L).start();

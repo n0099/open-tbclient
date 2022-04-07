@@ -173,13 +173,13 @@ public class ActivityChooserModel extends DataSetObservable {
                     ActivityInfo activityInfo = activityResolveInfo.resolveInfo.activityInfo;
                     map.put(new ComponentName(activityInfo.packageName, activityInfo.name), activityResolveInfo);
                 }
-                float f2 = 1.0f;
+                float f = 1.0f;
                 for (int size2 = list2.size() - 1; size2 >= 0; size2--) {
                     HistoricalRecord historicalRecord = list2.get(size2);
                     ActivityResolveInfo activityResolveInfo2 = map.get(historicalRecord.activity);
                     if (activityResolveInfo2 != null) {
-                        activityResolveInfo2.weight += historicalRecord.weight * f2;
-                        f2 *= 0.95f;
+                        activityResolveInfo2.weight += historicalRecord.weight * f;
+                        f *= 0.95f;
                     }
                 }
                 Collections.sort(list);
@@ -196,13 +196,13 @@ public class ActivityChooserModel extends DataSetObservable {
         public final float weight;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public HistoricalRecord(String str, long j, float f2) {
-            this(ComponentName.unflattenFromString(str), j, f2);
+        public HistoricalRecord(String str, long j, float f) {
+            this(ComponentName.unflattenFromString(str), j, f);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j), Float.valueOf(f2)};
+                Object[] objArr = {str, Long.valueOf(j), Float.valueOf(f)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -261,12 +261,12 @@ public class ActivityChooserModel extends DataSetObservable {
             return (String) invokeV.objValue;
         }
 
-        public HistoricalRecord(ComponentName componentName, long j, float f2) {
+        public HistoricalRecord(ComponentName componentName, long j, float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {componentName, Long.valueOf(j), Float.valueOf(f2)};
+                Object[] objArr = {componentName, Long.valueOf(j), Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -278,7 +278,7 @@ public class ActivityChooserModel extends DataSetObservable {
             }
             this.activity = componentName;
             this.time = j;
-            this.weight = f2;
+            this.weight = f;
         }
     }
 
@@ -374,23 +374,23 @@ public class ActivityChooserModel extends DataSetObservable {
                             }
                             throw th;
                         }
-                    } catch (IllegalArgumentException e2) {
+                    } catch (IllegalArgumentException e) {
                         String str2 = ActivityChooserModel.LOG_TAG;
-                        Log.e(str2, "Error writing historical record file: " + this.this$0.mHistoryFileName, e2);
+                        Log.e(str2, "Error writing historical record file: " + this.this$0.mHistoryFileName, e);
                         this.this$0.mCanReadHistoricalData = true;
                     }
-                } catch (IOException e3) {
+                } catch (IOException e2) {
                     String str3 = ActivityChooserModel.LOG_TAG;
-                    Log.e(str3, "Error writing historical record file: " + this.this$0.mHistoryFileName, e3);
+                    Log.e(str3, "Error writing historical record file: " + this.this$0.mHistoryFileName, e2);
                     this.this$0.mCanReadHistoricalData = true;
-                } catch (IllegalStateException e4) {
+                } catch (IllegalStateException e3) {
                     String str4 = ActivityChooserModel.LOG_TAG;
-                    Log.e(str4, "Error writing historical record file: " + this.this$0.mHistoryFileName, e4);
+                    Log.e(str4, "Error writing historical record file: " + this.this$0.mHistoryFileName, e3);
                     this.this$0.mCanReadHistoricalData = true;
                 }
-            } catch (FileNotFoundException e5) {
+            } catch (FileNotFoundException e4) {
                 String str5 = ActivityChooserModel.LOG_TAG;
-                Log.e(str5, "Error writing historical record file: " + str, e5);
+                Log.e(str5, "Error writing historical record file: " + str, e4);
                 return null;
             }
         }
@@ -579,15 +579,15 @@ public class ActivityChooserModel extends DataSetObservable {
                     }
                     throw th;
                 }
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 String str = LOG_TAG;
-                Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
+                Log.e(str, "Error reading historical recrod file: " + this.mHistoryFileName, e);
                 if (openFileInput == null) {
                     return;
                 }
-            } catch (XmlPullParserException e3) {
+            } catch (XmlPullParserException e2) {
                 String str2 = LOG_TAG;
-                Log.e(str2, "Error reading historical recrod file: " + this.mHistoryFileName, e3);
+                Log.e(str2, "Error reading historical recrod file: " + this.mHistoryFileName, e2);
                 if (openFileInput == null) {
                     return;
                 }

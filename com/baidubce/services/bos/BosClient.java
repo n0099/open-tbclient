@@ -106,7 +106,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";
@@ -213,8 +213,8 @@ public class BosClient extends AbstractBceClient {
             }
             try {
                 return new URL(str3);
-            } catch (MalformedURLException e2) {
-                throw new BceClientException("Unable to convert request to well formed URL: " + e2.getMessage(), e2);
+            } catch (MalformedURLException e) {
+                throw new BceClientException("Unable to convert request to well formed URL: " + e.getMessage(), e);
             }
         }
         return (URL) invokeL.objValue;
@@ -265,8 +265,8 @@ public class BosClient extends AbstractBceClient {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 byte[] bArr3 = new byte[getStreamBufferSize()];
@@ -277,27 +277,27 @@ public class BosClient extends AbstractBceClient {
                     } else {
                         try {
                             break;
-                        } catch (Exception e3) {
-                            BLog.error("Couldn't close the output stream", e3.getCause());
+                        } catch (Exception e2) {
+                            BLog.error("Couldn't close the output stream", e2.getCause());
                         }
                     }
                 }
                 bufferedOutputStream.close();
                 try {
                     bosObject.getObjectContent().close();
-                } catch (Exception e4) {
-                    BLog.error("Couldn't get object content", e4.getCause());
+                } catch (Exception e3) {
+                    BLog.error("Couldn't get object content", e3.getCause());
                 }
                 if (z) {
                     ObjectMetadata objectMetadata = bosObject.getObjectMetadata();
                     try {
-                    } catch (Exception e5) {
-                        e = e5;
+                    } catch (Exception e4) {
+                        e = e4;
                         objectMetadata = null;
                     }
                     try {
-                    } catch (Exception e6) {
-                        e = e6;
+                    } catch (Exception e5) {
+                        e = e5;
                         BLog.error("Unable to verify the integrity of the downloaded file", (Throwable) e);
                         bArr = null;
                         bArr2 = objectMetadata;
@@ -323,13 +323,13 @@ public class BosClient extends AbstractBceClient {
                     if (bArr2 == null) {
                     }
                 }
-            } catch (IOException e7) {
-                e = e7;
+            } catch (IOException e6) {
+                e = e6;
                 bufferedOutputStream2 = bufferedOutputStream;
                 try {
                     bosObject.getObjectContent().close();
-                } catch (IOException e8) {
-                    BLog.error("Couldn't abort stream", (Throwable) e8);
+                } catch (IOException e7) {
+                    BLog.error("Couldn't abort stream", (Throwable) e7);
                 }
                 throw new BceClientException("Unable to write to disk:" + e.getMessage(), e);
             } catch (Throwable th2) {
@@ -338,14 +338,14 @@ public class BosClient extends AbstractBceClient {
                 if (bufferedOutputStream2 != null) {
                     try {
                         bufferedOutputStream2.close();
-                    } catch (Exception e9) {
-                        BLog.error("Couldn't close the output stream", e9.getCause());
+                    } catch (Exception e8) {
+                        BLog.error("Couldn't close the output stream", e8.getCause());
                     }
                 }
                 try {
                     bosObject.getObjectContent().close();
-                } catch (Exception e10) {
-                    BLog.error("Couldn't get object content", e10.getCause());
+                } catch (Exception e9) {
+                    BLog.error("Couldn't get object content", e9.getCause());
                 }
                 throw th;
             }
@@ -433,8 +433,8 @@ public class BosClient extends AbstractBceClient {
                     }
                     j += read;
                     i += read;
-                } catch (IOException e2) {
-                    throw new BceClientException("Fail to read data:" + e2.getMessage(), e2);
+                } catch (IOException e) {
+                    throw new BceClientException("Fail to read data:" + e.getMessage(), e);
                 }
             }
         }
@@ -469,8 +469,8 @@ public class BosClient extends AbstractBceClient {
                         try {
                             try {
                                 fileInputStream = new FileInputStream(file);
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                             }
                         } catch (Throwable th) {
                             th = th;
@@ -482,8 +482,8 @@ public class BosClient extends AbstractBceClient {
                             } catch (Exception unused) {
                                 BLog.error("The inputStream accured error");
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             fileInputStream2 = fileInputStream;
                             throw new BceClientException("Unable to calculate SHA-256 hash", e);
                         } catch (Throwable th2) {
@@ -501,8 +501,8 @@ public class BosClient extends AbstractBceClient {
                     }
                     try {
                         internalRequest.setContent(new RestartableFileInputStream(file));
-                    } catch (FileNotFoundException e4) {
-                        throw new BceClientException("Unable to find file to upload", e4);
+                    } catch (FileNotFoundException e3) {
+                        throw new BceClientException("Unable to find file to upload", e3);
                     }
                 } else {
                     BceServiceException bceServiceException = new BceServiceException("Your proposed upload exceeds the maximum allowed object size.");
@@ -535,8 +535,8 @@ public class BosClient extends AbstractBceClient {
             } finally {
                 try {
                     internalRequest.getContent().close();
-                } catch (Exception e5) {
-                    BLog.error("Fail to close input stream", (Throwable) e5);
+                } catch (Exception e4) {
+                    BLog.error("Fail to close input stream", (Throwable) e4);
                 }
             }
         }
@@ -805,14 +805,14 @@ public class BosClient extends AbstractBceClient {
             try {
                 invokeHttpClient(createRequest(doesBucketExistRequest, HttpMethodName.HEAD), BosResponse.class);
                 return true;
-            } catch (BceServiceException e2) {
-                if (e2.getStatusCode() == 403) {
+            } catch (BceServiceException e) {
+                if (e.getStatusCode() == 403) {
                     return true;
                 }
-                if (e2.getStatusCode() == 404) {
+                if (e.getStatusCode() == 404) {
                     return false;
                 }
-                throw e2;
+                throw e;
             }
         }
         return invokeL.booleanValue;
@@ -886,12 +886,12 @@ public class BosClient extends AbstractBceClient {
                     } catch (IOException unused) {
                     }
                     return inputStreamToByte;
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     try {
                         objectContent.close();
                     } catch (IOException unused2) {
                     }
-                    throw new BceClientException("Fail read object content:" + e2.getMessage(), e2);
+                    throw new BceClientException("Fail read object content:" + e.getMessage(), e);
                 }
             } catch (Throwable th) {
                 try {
@@ -1019,8 +1019,8 @@ public class BosClient extends AbstractBceClient {
                     createRequest.addHeader("Content-Length", String.valueOf(bytes.length));
                     createRequest.addHeader("Content-Type", "application/json");
                     createRequest.setContent(RestartableInputStream.wrap(bytes));
-                } catch (UnsupportedEncodingException e2) {
-                    throw new BceClientException("Fail to get UTF-8 bytes:" + e2.getMessage(), e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
                 }
             } else {
                 CheckUtils.isNotNull(null, "request.acl should not be null.");
@@ -1035,8 +1035,8 @@ public class BosClient extends AbstractBceClient {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, str, str2, str3)) == null) {
             try {
                 return appendObject(str, str2, str3.getBytes("UTF-8"), new ObjectMetadata());
-            } catch (UnsupportedEncodingException e2) {
-                throw new BceClientException("Fail to get bytes.", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes.", e);
             }
         }
         return (AppendObjectResponse) invokeLLL.objValue;
@@ -1062,8 +1062,8 @@ public class BosClient extends AbstractBceClient {
                 completeMultipartUploadResponse.setBucketName(completeMultipartUploadRequest.getBucketName());
                 completeMultipartUploadResponse.setCrc32(completeMultipartUploadResponse.getMetadata().getCrc32());
                 return completeMultipartUploadResponse;
-            } catch (UnsupportedEncodingException e2) {
-                throw new BceClientException("Fail to get UTF-8 bytes:" + e2.getMessage(), e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get UTF-8 bytes:" + e.getMessage(), e);
             }
         }
         return (CompleteMultipartUploadResponse) invokeL.objValue;
@@ -1170,8 +1170,8 @@ public class BosClient extends AbstractBceClient {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048635, this, str, str2, str3)) == null) {
             try {
                 return putObject(str, str2, str3.getBytes("UTF-8"), new ObjectMetadata());
-            } catch (UnsupportedEncodingException e2) {
-                throw new BceClientException("Fail to get bytes:" + e2.getMessage(), e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes:" + e.getMessage(), e);
             }
         }
         return (PutObjectResponse) invokeLLL.objValue;
@@ -1201,8 +1201,8 @@ public class BosClient extends AbstractBceClient {
                     try {
                         inputStream = new MD5DigestCalculatingInputStream(inputStream);
                         mD5DigestCalculatingInputStream = inputStream;
-                    } catch (NoSuchAlgorithmException e2) {
-                        BLog.error("Unable to verify data integrity.", (Throwable) e2);
+                    } catch (NoSuchAlgorithmException e) {
+                        BLog.error("Unable to verify data integrity.", (Throwable) e);
                     }
                 }
                 if (uploadPartRequest.getCrc32() != null) {
@@ -1216,8 +1216,8 @@ public class BosClient extends AbstractBceClient {
                             if (!Arrays.equals(mD5DigestCalculatingInputStream.getMd5Digest(), ConvertUtils.decodeHex(bosResponse.getMetadata().getETag().toCharArray()))) {
                                 throw new BceClientException("Unable to verify integrity of data upload.  Client calculated content hash didn't match hash calculated by Baidu BOS.  You may need to delete the data stored in Baidu BOS.");
                             }
-                        } catch (Exception e3) {
-                            throw new BceClientException("Unable to verify integrity of data upload:" + e3.getMessage(), e3);
+                        } catch (Exception e2) {
+                            throw new BceClientException("Unable to verify integrity of data upload:" + e2.getMessage(), e2);
                         }
                     }
                     UploadPartResponse uploadPartResponse = new UploadPartResponse();
@@ -1264,8 +1264,8 @@ public class BosClient extends AbstractBceClient {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, objectMetadata)) == null) {
             try {
                 return appendObject(str, str2, str3.getBytes("UTF-8"), objectMetadata);
-            } catch (UnsupportedEncodingException e2) {
-                throw new BceClientException("Fail to get bytes.", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes.", e);
             }
         }
         return (AppendObjectResponse) invokeLLLL.objValue;
@@ -1315,8 +1315,8 @@ public class BosClient extends AbstractBceClient {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048636, this, str, str2, str3, objectMetadata)) == null) {
             try {
                 return putObject(str, str2, str3.getBytes("UTF-8"), objectMetadata);
-            } catch (UnsupportedEncodingException e2) {
-                throw new BceClientException("Fail to get bytes:" + e2.getMessage(), e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new BceClientException("Fail to get bytes:" + e.getMessage(), e);
             }
         }
         return (PutObjectResponse) invokeLLLL.objValue;

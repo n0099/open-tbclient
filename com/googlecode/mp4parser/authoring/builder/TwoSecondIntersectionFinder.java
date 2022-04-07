@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.authoring.Movie;
 import com.googlecode.mp4parser.authoring.Track;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,15 +40,15 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, track)) == null) {
-            double d2 = 0.0d;
+            double d = 0.0d;
             for (Track track2 : this.movie.getTracks()) {
                 double duration = track2.getDuration() / track2.getTrackMetaData().getTimescale();
-                if (d2 < duration) {
-                    d2 = duration;
+                if (d < duration) {
+                    d = duration;
                 }
             }
             int i = 1;
-            int ceil = ((int) Math.ceil(d2 / this.fragmentLength)) - 1;
+            int ceil = ((int) Math.ceil(d / this.fragmentLength)) - 1;
             int i2 = ceil < 1 ? 1 : ceil;
             long[] jArr = new long[i2];
             Arrays.fill(jArr, -1L);

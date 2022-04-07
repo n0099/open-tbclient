@@ -8,14 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "PassHttpClientRequest";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f28134b;
+    public int b;
     public volatile boolean cancelRequest;
     public Context context;
     public Method method;
@@ -38,7 +36,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             }
         }
         this.cancelRequest = false;
-        this.f28134b = i;
+        this.b = i;
         this.method = method;
         this.context = context;
         this.paramDTO = passHttpParamDTO;
@@ -63,11 +61,11 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             }
             try {
                 new b().a(this);
-            } catch (Exception e2) {
-                Log.e(a, "PassHttpClientRequestrun " + e2.getMessage());
+            } catch (Exception e) {
+                Log.e(a, "PassHttpClientRequestrun " + e.getMessage());
                 HttpResponseHandler httpResponseHandler2 = this.responseHandler;
                 if (httpResponseHandler2 != null) {
-                    httpResponseHandler2.b(e2, e2.getMessage());
+                    httpResponseHandler2.b(e, e.getMessage());
                 }
             }
             HttpResponseHandler httpResponseHandler3 = this.responseHandler;
@@ -85,7 +83,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
             ReqPriority reqPriority = this.paramDTO.priority;
             ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            return reqPriority == reqPriority2 ? this.f28134b - passHttpClientRequest.f28134b : reqPriority2.ordinal() - reqPriority.ordinal();
+            return reqPriority == reqPriority2 ? this.b - passHttpClientRequest.b : reqPriority2.ordinal() - reqPriority.ordinal();
         }
         return invokeL.intValue;
     }

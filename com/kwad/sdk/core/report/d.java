@@ -11,7 +11,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static boolean a;
 
@@ -48,7 +48,7 @@ public class d {
         reportAction.aW = z;
         reportAction.aX = str;
         if (ksScene instanceof SceneImpl) {
-            reportAction.f39690b = (SceneImpl) ksScene;
+            reportAction.b = (SceneImpl) ksScene;
         }
         f.a(reportAction);
     }
@@ -119,21 +119,21 @@ public class d {
     public static void a(com.kwad.sdk.h.a.b bVar) {
         ReportAction reportAction = new ReportAction(10215L);
         reportAction.bl = bVar.a;
-        reportAction.bp = bVar.f40555b;
-        reportAction.bm = bVar.f40556c;
-        reportAction.bn = bVar.f40557d;
+        reportAction.bp = bVar.b;
+        reportAction.bm = bVar.c;
+        reportAction.bn = bVar.d;
         f.a(reportAction);
     }
 
     public static void a(SceneImpl sceneImpl, com.kwad.sdk.core.network.a.a aVar) {
         ReportAction reportAction = new ReportAction(10214L);
-        reportAction.f39690b = sceneImpl;
-        reportAction.bf = aVar.f39568g;
+        reportAction.b = sceneImpl;
+        reportAction.bf = aVar.g;
         reportAction.bg = aVar.a;
-        reportAction.bh = aVar.f39564c;
-        reportAction.bi = aVar.f39565d;
-        reportAction.bj = aVar.f39566e;
-        reportAction.bk = aVar.f39567f;
+        reportAction.bh = aVar.c;
+        reportAction.bi = aVar.d;
+        reportAction.bj = aVar.e;
+        reportAction.bk = aVar.f;
         f.a(reportAction);
     }
 
@@ -214,8 +214,8 @@ public class d {
             jSONObject.put("what", i);
             jSONObject.put("extra", i2);
             reportAction.aD = jSONObject.toString();
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
         f.a(reportAction);
     }

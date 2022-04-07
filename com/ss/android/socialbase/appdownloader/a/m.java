@@ -31,20 +31,20 @@ public class m extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        String c2 = this.f43006b.c("s");
-        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("bb"), c2);
+        String c = this.b.c("s");
+        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("bb"), c);
         if (!TextUtils.isEmpty(a) && a.split(",").length == 2) {
-            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("bc"), c2);
+            String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("bc"), c);
             if (!TextUtils.isEmpty(a2) && a2.split(",").length == 2) {
                 String[] split = a.split(",");
                 String[] split2 = a2.split(",");
-                String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c(Config.DEVICE_BRAND), c2);
-                String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("be"), c2);
-                String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("bf"), c2);
+                String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c(Config.DEVICE_BRAND), c);
+                String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("be"), c);
+                String a5 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("bf"), c);
                 HashMap hashMap = new HashMap();
                 hashMap.put(split[0], split[1]);
                 hashMap.put(split2[0], split2[1]);
-                hashMap.put(a3, this.f43007c);
+                hashMap.put(a3, this.c);
                 Intent intent = new Intent();
                 intent.setAction(a5);
                 intent.setData(Uri.parse(a4 + a(hashMap)));

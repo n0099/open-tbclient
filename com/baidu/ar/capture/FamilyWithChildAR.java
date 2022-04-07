@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -263,15 +263,15 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
             return;
         }
         this.lv = true;
-        FaceResultData c2 = com.baidu.ar.face.c.c(eA);
+        FaceResultData c = com.baidu.ar.face.c.c(eA);
         n nVar = (n) lVar.dd();
-        if (c2 != null && nVar != null) {
-            c2.setAlgoImageWidth(nVar.bX());
-            c2.setAlgoImageHeight(nVar.bY());
+        if (c != null && nVar != null) {
+            c.setAlgoImageWidth(nVar.bX());
+            c.setAlgoImageHeight(nVar.bY());
         }
         e eVar = this.lu;
         if (eVar != null) {
-            eVar.lk = c2;
+            eVar.lk = c;
         }
         cN();
     }

@@ -54,7 +54,7 @@ public abstract class ViewStructure {
 
     public abstract void setActivated(boolean z);
 
-    public abstract void setAlpha(float f2);
+    public abstract void setAlpha(float f);
 
     public abstract void setAssistBlocked(boolean z);
 
@@ -74,7 +74,7 @@ public abstract class ViewStructure {
 
     public abstract void setDimens(int i, int i2, int i3, int i4, int i5, int i6);
 
-    public abstract void setElevation(float f2);
+    public abstract void setElevation(float f);
 
     public abstract void setEnabled(boolean z);
 
@@ -96,7 +96,7 @@ public abstract class ViewStructure {
 
     public abstract void setTextLines(int[] iArr, int[] iArr2);
 
-    public abstract void setTextStyle(float f2, int i, int i2, int i3);
+    public abstract void setTextStyle(float f, int i, int i2, int i3);
 
     public abstract void setTransformation(Matrix matrix);
 

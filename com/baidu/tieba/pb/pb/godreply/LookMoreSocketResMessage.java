@@ -15,7 +15,7 @@ import tbclient.Error;
 import tbclient.GetPostList.DataRes;
 import tbclient.GetPostList.GetPostListResIdl;
 import tbclient.Post;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LookMoreSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class LookMoreSocketResMessage extends SocketResponsedMessage {
             }
             for (Post post : list) {
                 PostData postData = new PostData();
-                postData.h0(post);
+                postData.j0(post);
                 postData.M = 102;
                 this.list.add(postData);
             }

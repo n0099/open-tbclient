@@ -12,19 +12,15 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public List<HashMap<String, String>> b;
+    public a<String> c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f25597b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public a<String> f25598c;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -44,8 +40,8 @@ public class e {
                 return;
             }
         }
-        this.f25597b = null;
-        this.f25598c = null;
+        this.b = null;
+        this.c = null;
         this.a = context;
     }
 
@@ -93,11 +89,11 @@ public class e {
                 jSONObject = new JSONObject();
                 try {
                     jSONObject.put("status", -1);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            a<String> aVar = this.f25598c;
+            a<String> aVar = this.c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -155,8 +151,8 @@ public class e {
                 }
                 com.baidu.lbsapi.auth.a.a("i-1 result is not 0,return first result");
                 a((String) arrayList.get(0));
-            } catch (JSONException e2) {
-                a(ErrorMessage.a("JSONException:" + e2.getMessage()));
+            } catch (JSONException e) {
+                a(ErrorMessage.a("JSONException:" + e.getMessage()));
             }
         }
     }
@@ -164,8 +160,8 @@ public class e {
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, hashMap, strArr, aVar) == null) {
-            this.f25597b = a(hashMap, strArr);
-            this.f25598c = aVar;
+            this.b = a(hashMap, strArr);
+            this.c = aVar;
             new Thread(new f(this)).start();
         }
     }

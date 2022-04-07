@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -231,8 +231,8 @@ public class c {
                     return true;
                 }
                 return new JSONObject(string).getBoolean("needHeadPose");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return z;
             }
         }
@@ -249,8 +249,8 @@ public class c {
                     return 1;
                 }
                 return i2;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return i;
             }
         }
@@ -310,8 +310,8 @@ public class c {
                     return true;
                 }
                 return new JSONObject(string).getBoolean("needSkeleton");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return z;
             }
         }
@@ -328,8 +328,8 @@ public class c {
                     return true;
                 }
                 return new JSONObject(string).getBoolean("needTriggers");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return z;
             }
         }
@@ -346,8 +346,8 @@ public class c {
                     return false;
                 }
                 return new JSONObject(string).getBoolean("needExpression");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return z;
             }
         }
@@ -364,8 +364,8 @@ public class c {
                     return false;
                 }
                 return new JSONObject(string).getBoolean("needDumoji");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return z;
             }
         }
@@ -382,8 +382,8 @@ public class c {
                     return true;
                 }
                 return new JSONObject(string).getBoolean("needRefineEyes");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return z;
             }
         }

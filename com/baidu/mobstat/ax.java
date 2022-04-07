@@ -2,7 +2,6 @@ package com.baidu.mobstat;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,17 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ax {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final ax f27272c;
+    public static final ax c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f27273b;
+    public volatile boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +31,7 @@ public class ax {
                 return;
             }
         }
-        f27272c = new ax();
+        c = new ax();
     }
 
     public ax() {
@@ -58,7 +53,7 @@ public class ax {
     public static ax a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27272c : (ax) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (ax) invokeV.objValue;
     }
 
     public boolean b() {
@@ -74,9 +69,9 @@ public class ax {
         }
         try {
             JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-            this.a = (jSONObject != null ? jSONObject.optInt(IntentConfig.CLOSE) : 0) != 0;
+            this.a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
         } catch (Exception unused) {
         }
-        this.f27273b = true;
+        this.b = true;
     }
 }

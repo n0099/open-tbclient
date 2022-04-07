@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -24,7 +24,7 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
     public OnSqliteUpdateListener onSqliteUpdateListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSqliteUpdateListener {
         void onSqliteUpdateListener(SQLiteDatabase sQLiteDatabase, int i, int i2);
     }
@@ -77,9 +77,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                         sQLiteDatabase = getWritableDatabase();
                         sQLiteDatabase.delete(str, str2, strArr);
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.w(TAG, "", e2);
+                        Log.w(TAG, "", e);
                     }
                     if (sQLiteDatabase == null) {
                         return;
@@ -115,9 +115,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                         sQLiteDatabase = getWritableDatabase();
                         sQLiteDatabase.execSQL(str, objArr);
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.w(TAG, "", e2);
+                        Log.w(TAG, "", e);
                     }
                     if (sQLiteDatabase == null) {
                         return;
@@ -192,20 +192,20 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                                     if (cursor != null) {
                                         try {
                                             cursor.close();
-                                        } catch (Exception e2) {
-                                            e = e2;
+                                        } catch (Exception e) {
+                                            e = e;
                                             e.printStackTrace();
                                         }
                                     }
-                                } catch (Exception e3) {
+                                } catch (Exception e2) {
                                     if (DEBUG) {
-                                        Log.w(TAG, "", e3);
+                                        Log.w(TAG, "", e2);
                                     }
                                     if (cursor != null) {
                                         try {
                                             cursor.close();
-                                        } catch (Exception e4) {
-                                            e = e4;
+                                        } catch (Exception e3) {
+                                            e = e3;
                                             e.printStackTrace();
                                         }
                                     }
@@ -214,15 +214,15 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
-                                    } catch (Exception e5) {
-                                        e5.printStackTrace();
+                                    } catch (Exception e4) {
+                                        e4.printStackTrace();
                                     }
                                 }
                                 throw th2;
                             }
                         }
-                    } catch (Exception e6) {
-                        e = e6;
+                    } catch (Exception e5) {
+                        e = e5;
                         if (0 != 0) {
                             sQLiteDatabase2.close();
                         }
@@ -230,8 +230,8 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                             Log.w(TAG, "", e);
                         }
                     }
-                } catch (Exception e7) {
-                    e = e7;
+                } catch (Exception e6) {
+                    e = e6;
                     sQLiteDatabase = null;
                 } catch (Throwable th3) {
                     th = th3;
@@ -270,9 +270,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5);
                 }
                 return query;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.w(TAG, "", e2);
+                    Log.w(TAG, "", e);
                     return null;
                 }
                 return null;
@@ -291,9 +291,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     rawQuery = getReadableDatabase().rawQuery(str, strArr);
                 }
                 return rawQuery;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.w(TAG, "", e2);
+                    Log.w(TAG, "", e);
                     return null;
                 }
                 return null;
@@ -320,9 +320,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                         sQLiteDatabase = getWritableDatabase();
                         sQLiteDatabase.update(str, contentValues, str2, strArr);
                     }
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     if (DEBUG) {
-                        Log.w(TAG, "", e2);
+                        Log.w(TAG, "", e);
                     }
                     if (sQLiteDatabase == null) {
                         return;
@@ -350,9 +350,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5, str6);
                 }
                 return query;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.w(TAG, "", e2);
+                    Log.w(TAG, "", e);
                     return null;
                 }
                 return null;
@@ -371,9 +371,9 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     query = getReadableDatabase().query(str, null, str2, null, null, null, null);
                 }
                 return query;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 if (DEBUG) {
-                    Log.w(TAG, "", e2);
+                    Log.w(TAG, "", e);
                     return null;
                 }
                 return null;

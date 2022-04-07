@@ -3,7 +3,7 @@ package com.kwad.sdk.ec.a;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static String a(String str, int i, String str2) {
         return TextUtils.isEmpty(str2) ? str : (i == 0 || i == 3) ? a(str, str2) : str;

@@ -7,7 +7,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
@@ -17,23 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ni;
+/* loaded from: classes3.dex */
 public final class ShareThreadView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public EditText f34830b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f34831c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f34832d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34833e;
+    public EditText b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareThreadView(Context context, AttributeSet attributeSet) {
@@ -69,19 +61,19 @@ public final class ShareThreadView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0838, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082f, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cb8);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce0);
-            this.f34833e = textView;
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ca6);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091cce);
+            this.e = textView;
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
-            this.f34830b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905fc);
-            this.f34831c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905f6);
-            this.f34832d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f5);
-            SkinManager.setViewTextColor(this.f34830b, R.color.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f34832d, R.color.CAM_X0106, 1);
-            this.f34830b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f34830b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f090605);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905ff);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905fe);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0106, 1);
+            this.b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
             a();
         }
     }
@@ -89,25 +81,25 @@ public final class ShareThreadView extends LinearLayout {
     public void c(String str, boolean z) {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.f34831c) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.c) == null) {
             return;
         }
-        tbImageView.J(str, z ? 17 : 18, false);
+        tbImageView.K(str, z ? 17 : 18, false);
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34830b : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            EditText editText = this.f34830b;
+            EditText editText = this.b;
             if (editText != null) {
-                return m.charSequence2String(editText.getText(), null);
+                return ni.charSequence2String(editText.getText(), null);
             }
             return null;
         }
@@ -117,7 +109,7 @@ public final class ShareThreadView extends LinearLayout {
     public void setDesc(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (textView = this.f34832d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (textView = this.d) == null) {
             return;
         }
         textView.setText(str);
@@ -126,7 +118,7 @@ public final class ShareThreadView extends LinearLayout {
     public void setTitle(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (textView = this.f34833e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || (textView = this.e) == null) {
             return;
         }
         textView.setText(str);

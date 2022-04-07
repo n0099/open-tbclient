@@ -5,7 +5,7 @@ import com.kwad.sdk.utils.as;
 import com.kwad.sdk.utils.t;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends com.kwad.sdk.core.network.d {
     public b() {
         JSONArray jSONArray = new JSONArray();

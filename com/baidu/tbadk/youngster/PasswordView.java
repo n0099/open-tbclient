@@ -13,7 +13,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,36 +22,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
+import com.repackage.pg;
+import com.repackage.zi8;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PasswordView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public EditText f31058b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public EditText f31059c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public EditText f31060d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public EditText f31061e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f31062f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f31063g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView f31064h;
+    public EditText b;
+    public EditText c;
+    public EditText d;
+    public EditText e;
+    public ImageView f;
+    public ImageView g;
+    public ImageView h;
     public ImageView i;
     public FrameLayout j;
     public List<EditText> k;
@@ -62,7 +50,7 @@ public class PasswordView extends RelativeLayout {
     public Runnable o;
     public Runnable p;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,14 +77,14 @@ public class PasswordView extends RelativeLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f31061e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.e == null) {
                 return;
             }
-            n.L(this.a.getContext(), this.a.f31061e);
+            oi.L(this.a.getContext(), this.a.e);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +119,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,25 +144,21 @@ public class PasswordView extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.q();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EditText f31065b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ PasswordView f31066c;
+        public final /* synthetic */ EditText b;
+        public final /* synthetic */ PasswordView c;
 
         public d(PasswordView passwordView, ImageView imageView, EditText editText) {
             Interceptable interceptable = $ic;
@@ -191,9 +175,9 @@ public class PasswordView extends RelativeLayout {
                     return;
                 }
             }
-            this.f31066c = passwordView;
+            this.c = passwordView;
             this.a = imageView;
-            this.f31065b = editText;
+            this.b = editText;
         }
 
         @Override // android.text.TextWatcher
@@ -202,9 +186,9 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    this.f31066c.r(this.f31065b);
-                    this.f31065b.requestFocus();
-                    this.f31066c.f31061e = this.f31065b;
+                    this.c.r(this.b);
+                    this.b.requestFocus();
+                    this.c.e = this.b;
                     return;
                 }
                 this.a.setVisibility(8);
@@ -226,14 +210,12 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImageView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PasswordView f31067b;
+        public final /* synthetic */ PasswordView b;
 
         public e(PasswordView passwordView, ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -250,7 +232,7 @@ public class PasswordView extends RelativeLayout {
                     return;
                 }
             }
-            this.f31067b = passwordView;
+            this.b = passwordView;
             this.a = imageView;
         }
 
@@ -260,7 +242,7 @@ public class PasswordView extends RelativeLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable.length() > 0) {
                     this.a.setVisibility(0);
-                    c.a.d.f.m.e.a().post(this.f31067b.p);
+                    pg.a().post(this.b.p);
                     return;
                 }
                 this.a.setVisibility(8);
@@ -282,20 +264,14 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f implements View.OnKeyListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EditText a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ EditText f31068b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ImageView f31069c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PasswordView f31070d;
+        public final /* synthetic */ EditText b;
+        public final /* synthetic */ ImageView c;
+        public final /* synthetic */ PasswordView d;
 
         public f(PasswordView passwordView, EditText editText, EditText editText2, ImageView imageView) {
             Interceptable interceptable = $ic;
@@ -312,27 +288,27 @@ public class PasswordView extends RelativeLayout {
                     return;
                 }
             }
-            this.f31070d = passwordView;
+            this.d = passwordView;
             this.a = editText;
-            this.f31068b = editText2;
-            this.f31069c = imageView;
+            this.b = editText2;
+            this.c = imageView;
         }
 
         @Override // android.view.View.OnKeyListener
-        public boolean onKey(View view, int i, KeyEvent keyEvent) {
+        public boolean onKey(View view2, int i, KeyEvent keyEvent) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view, i, keyEvent)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, view2, i, keyEvent)) == null) {
                 if (i == 67 && keyEvent.getAction() == 0) {
                     if (this.a.getText().length() > 0) {
                         this.a.getText().clear();
                     } else {
-                        this.f31068b.getText().clear();
+                        this.b.getText().clear();
                     }
-                    this.f31069c.setVisibility(8);
-                    this.f31070d.r(this.f31068b);
-                    this.f31068b.requestFocus();
-                    this.f31070d.f31061e = this.f31068b;
+                    this.c.setVisibility(8);
+                    this.d.r(this.b);
+                    this.b.requestFocus();
+                    this.d.e = this.b;
                     return true;
                 }
                 return false;
@@ -341,7 +317,7 @@ public class PasswordView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface g {
         void onComplete();
     }
@@ -372,7 +348,7 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setStroke(n.f(getContext(), R.dimen.tbds3), c.a.p0.a4.c.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
+            gradientDrawable.setStroke(oi.f(getContext(), R.dimen.tbds3), zi8.a(SkinManager.getColor(R.color.CAM_X0105), 0.16f));
             return gradientDrawable;
         }
         return (Drawable) invokeV.objValue;
@@ -418,31 +394,31 @@ public class PasswordView extends RelativeLayout {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n.w(getContext(), this.a);
+            oi.w(getContext(), this.a);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d089e, this);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090855);
-            this.f31058b = (EditText) findViewById(R.id.obfuscated_res_0x7f090856);
-            this.f31059c = (EditText) findViewById(R.id.obfuscated_res_0x7f090857);
-            this.f31060d = (EditText) findViewById(R.id.obfuscated_res_0x7f090858);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0894, this);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f09085d);
+            this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f09085e);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f09085f);
+            this.d = (EditText) findViewById(R.id.obfuscated_res_0x7f090860);
             this.k.add(this.a);
-            this.k.add(this.f31058b);
-            this.k.add(this.f31059c);
-            this.k.add(this.f31060d);
-            this.f31062f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09084d);
-            this.f31063g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09084e);
-            this.f31064h = (ImageView) findViewById(R.id.obfuscated_res_0x7f09084f);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090850);
-            this.l.add(this.f31062f);
-            this.l.add(this.f31063g);
-            this.l.add(this.f31064h);
+            this.k.add(this.b);
+            this.k.add(this.c);
+            this.k.add(this.d);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090855);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090856);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090857);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090858);
+            this.l.add(this.f);
+            this.l.add(this.g);
+            this.l.add(this.h);
             this.l.add(this.i);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091661);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09165b);
             this.j = frameLayout;
             frameLayout.setOnClickListener(new c(this));
             n();
@@ -471,7 +447,7 @@ public class PasswordView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             r(this.a);
             this.a.requestFocus();
-            this.f31061e = this.a;
+            this.e = this.a;
         }
     }
 
@@ -563,8 +539,8 @@ public class PasswordView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDetachedFromWindow();
-            c.a.d.f.m.e.a().removeCallbacks(this.o);
-            c.a.d.f.m.e.a().removeCallbacks(this.p);
+            pg.a().removeCallbacks(this.o);
+            pg.a().removeCallbacks(this.p);
             k();
         }
     }
@@ -586,8 +562,8 @@ public class PasswordView extends RelativeLayout {
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            c.a.d.f.m.e.a().removeCallbacks(this.o);
-            c.a.d.f.m.e.a().postDelayed(this.o, 300L);
+            pg.a().removeCallbacks(this.o);
+            pg.a().postDelayed(this.o, 300L);
         }
     }
 

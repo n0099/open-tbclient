@@ -14,22 +14,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AspectGLSurfaceView extends GLSurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public double a;
+    public int b;
+    public GLSurfaceView.Renderer c;
+    public GLSurfaceView.Renderer d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f37031b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public GLSurfaceView.Renderer f37032c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public GLSurfaceView.Renderer f37033d;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements GLSurfaceView.Renderer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,8 +51,8 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         public void onDrawFrame(GL10 gl10) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gl10) == null) {
-                if (this.a.f37033d != null) {
-                    this.a.f37033d.onDrawFrame(gl10);
+                if (this.a.d != null) {
+                    this.a.d.onDrawFrame(gl10);
                 } else {
                     gl10.glClear(16640);
                 }
@@ -69,8 +63,8 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         public void onSurfaceChanged(GL10 gl10, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gl10, i, i2) == null) {
-                if (this.a.f37033d != null) {
-                    this.a.f37033d.onSurfaceChanged(gl10, i, i2);
+                if (this.a.d != null) {
+                    this.a.d.onSurfaceChanged(gl10, i, i2);
                 } else {
                     gl10.glViewport(0, 0, i, i2);
                 }
@@ -81,8 +75,8 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gl10, eGLConfig) == null) {
-                if (this.a.f37033d != null) {
-                    this.a.f37033d.onSurfaceCreated(gl10, eGLConfig);
+                if (this.a.d != null) {
+                    this.a.d.onSurfaceCreated(gl10, eGLConfig);
                 } else {
                     gl10.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
                 }
@@ -114,9 +108,9 @@ public class AspectGLSurfaceView extends GLSurfaceView {
     public void b(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            this.f37032c = new a(this);
+            this.c = new a(this);
             setEGLContextClientVersion(i);
-            super.setRenderer(this.f37032c);
+            super.setRenderer(this.c);
             setRenderMode(i2);
         }
     }
@@ -132,13 +126,13 @@ public class AspectGLSurfaceView extends GLSurfaceView {
                 int paddingTop = getPaddingTop() + getPaddingBottom();
                 int i3 = size - paddingLeft;
                 int i4 = size2 - paddingTop;
-                double d2 = i3;
-                double d3 = i4;
-                double d4 = this.a;
-                if (d4 <= d2 / d3 ? this.f37031b != 1 : this.f37031b == 1) {
-                    i3 = (int) (d3 * d4);
+                double d = i3;
+                double d2 = i4;
+                double d3 = this.a;
+                if (d3 <= d / d2 ? this.b != 1 : this.b == 1) {
+                    i3 = (int) (d2 * d3);
                 } else {
-                    i4 = (int) (d2 / d4);
+                    i4 = (int) (d / d3);
                 }
                 i = View.MeasureSpec.makeMeasureSpec(i3 + paddingLeft, 1073741824);
                 i2 = View.MeasureSpec.makeMeasureSpec(i4 + paddingTop, 1073741824);
@@ -147,12 +141,12 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         }
     }
 
-    public void setAspectRatio(double d2, int i) {
+    public void setAspectRatio(double d, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i)}) == null) {
-            this.f37031b = i;
-            if (this.a != d2) {
-                this.a = d2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d), Integer.valueOf(i)}) == null) {
+            this.b = i;
+            if (this.a != d) {
+                this.a = d;
                 requestLayout();
             }
         }
@@ -162,10 +156,10 @@ public class AspectGLSurfaceView extends GLSurfaceView {
     public void setRenderer(GLSurfaceView.Renderer renderer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, renderer) == null) {
-            if (this.f37032c == null) {
+            if (this.c == null) {
                 super.setRenderer(renderer);
             } else {
-                this.f37033d = renderer;
+                this.d = renderer;
             }
         }
     }
@@ -201,6 +195,6 @@ public class AspectGLSurfaceView extends GLSurfaceView {
             }
         }
         this.a = -1.0d;
-        this.f37031b = 1;
+        this.b = 1;
     }
 }

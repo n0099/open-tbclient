@@ -12,7 +12,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetBannerConfigRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class GetBannerConfigRequest implements IRequestProtocol {
                 jSONObject.put("seq", this.seq);
                 jSONObject.put("expand", this.expand);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                RLog.error("GetBannerConfigRequest", "constructPSCIMessageRequest", e2);
+            } catch (JSONException e) {
+                RLog.error("GetBannerConfigRequest", "constructPSCIMessageRequest", e);
                 return "";
             }
         }

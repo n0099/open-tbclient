@@ -11,20 +11,14 @@ import com.kuaishou.weapon.un.x;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static String a = "b";
+    public HashMap<String, String> b;
+    public HashMap<String, Object> c;
+    public HashMap<String, String> d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f42130b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HashMap<String, Object> f42131c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, String> f42132d;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public Context a = null;
 
@@ -39,9 +33,9 @@ public class b {
     }
 
     public b(a aVar) {
-        this.f42130b = new HashMap<>();
-        this.f42131c = new HashMap<>();
-        this.f42132d = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        this.d = new HashMap<>();
         d();
         e();
         f();
@@ -56,14 +50,14 @@ public class b {
         if ((str == null || obj == null || str.isEmpty()) && (!(obj instanceof String) || ((String) obj).isEmpty())) {
             return;
         }
-        this.f42131c.put(str, obj);
+        this.c.put(str, obj);
     }
 
     private void a(String str, String str2) {
         if (str == null || str2 == null || str.isEmpty() || str2.isEmpty()) {
             return;
         }
-        this.f42132d.put(str, str2);
+        this.d.put(str, str2);
     }
 
     private void d() {
@@ -83,7 +77,7 @@ public class b {
     }
 
     public Map<String, Object> a() {
-        return this.f42131c;
+        return this.c;
     }
 
     public void a(Context context) {
@@ -92,31 +86,31 @@ public class b {
     }
 
     public Map<String, String> b() {
-        return this.f42132d;
+        return this.d;
     }
 
     public void b(Context context) {
-        Location c2 = e.c(context);
-        if (c2 == null) {
+        Location c = e.c(context);
+        if (c == null) {
             com.meizu.cloud.pushsdk.c.f.c.a(a, "Location information not available.", new Object[0]);
             return;
         }
-        a(D.COLUMN_PLUGIN_PLUGIN_NOT_EXIST_LAST_POINT, Double.valueOf(c2.getLatitude()));
-        a(WebvttCueParser.ENTITY_LESS_THAN, Double.valueOf(c2.getLongitude()));
-        a("al", Double.valueOf(c2.getAltitude()));
-        a("lla", Float.valueOf(c2.getAccuracy()));
-        a("speed", Float.valueOf(c2.getSpeed()));
-        a(TtmlNode.TAG_BR, Float.valueOf(c2.getBearing()));
+        a(D.COLUMN_PLUGIN_PLUGIN_NOT_EXIST_LAST_POINT, Double.valueOf(c.getLatitude()));
+        a(WebvttCueParser.ENTITY_LESS_THAN, Double.valueOf(c.getLongitude()));
+        a("al", Double.valueOf(c.getAltitude()));
+        a("lla", Float.valueOf(c.getAccuracy()));
+        a("speed", Float.valueOf(c.getSpeed()));
+        a(TtmlNode.TAG_BR, Float.valueOf(c.getBearing()));
     }
 
     public Map<String, String> c() {
-        return this.f42130b;
+        return this.b;
     }
 
     public void c(Context context) {
-        String b2 = e.b(context);
-        if (b2 != null) {
-            a("ca", b2);
+        String b = e.b(context);
+        if (b != null) {
+            a("ca", b);
         }
     }
 }

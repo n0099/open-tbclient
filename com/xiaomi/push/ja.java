@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -12,9 +12,7 @@ public final class ja {
 
     /* renamed from: a  reason: collision with other field name */
     public final int f795a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final byte f44519b;
+    public final byte b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ja() {
@@ -35,12 +33,12 @@ public final class ja {
         }
     }
 
-    public ja(byte b2, byte b3, int i) {
+    public ja(byte b, byte b2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Byte.valueOf(b2), Byte.valueOf(b3), Integer.valueOf(i)};
+            Object[] objArr = {Byte.valueOf(b), Byte.valueOf(b2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -50,8 +48,8 @@ public final class ja {
                 return;
             }
         }
-        this.a = b2;
-        this.f44519b = b3;
+        this.a = b;
+        this.b = b2;
         this.f795a = i;
     }
 }

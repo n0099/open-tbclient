@@ -278,17 +278,17 @@ public class StringsKt__StringsJVMKt extends StringsKt__StringNumberConversionsK
     }
 
     @InlineOnly
-    public static final int nativeIndexOf(String str, char c2, int i) {
+    public static final int nativeIndexOf(String str, char c, int i) {
         if (str != null) {
-            return str.indexOf(c2, i);
+            return str.indexOf(c, i);
         }
         throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
     }
 
     @InlineOnly
-    public static final int nativeLastIndexOf(String str, char c2, int i) {
+    public static final int nativeLastIndexOf(String str, char c, int i) {
         if (str != null) {
-            return str.lastIndexOf(c2, i);
+            return str.lastIndexOf(c, i);
         }
         throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
     }
@@ -349,18 +349,18 @@ public class StringsKt__StringsJVMKt extends StringsKt__StringNumberConversionsK
         }
     }
 
-    public static final String replace(String replace, char c2, char c3, boolean z) {
+    public static final String replace(String replace, char c, char c2, boolean z) {
         Intrinsics.checkNotNullParameter(replace, "$this$replace");
         if (!z) {
-            String replace2 = replace.replace(c2, c3);
+            String replace2 = replace.replace(c, c2);
             Intrinsics.checkNotNullExpressionValue(replace2, "(this as java.lang.Strin…replace(oldChar, newChar)");
             return replace2;
         }
         StringBuilder sb = new StringBuilder(replace.length());
         for (int i = 0; i < replace.length(); i++) {
             char charAt = replace.charAt(i);
-            if (CharsKt__CharKt.equals(charAt, c2, z)) {
-                charAt = c3;
+            if (CharsKt__CharKt.equals(charAt, c, z)) {
+                charAt = c2;
             }
             sb.append(charAt);
         }
@@ -369,24 +369,24 @@ public class StringsKt__StringsJVMKt extends StringsKt__StringNumberConversionsK
         return sb2;
     }
 
-    public static /* synthetic */ String replace$default(String str, char c2, char c3, boolean z, int i, Object obj) {
+    public static /* synthetic */ String replace$default(String str, char c, char c2, boolean z, int i, Object obj) {
         if ((i & 4) != 0) {
             z = false;
         }
-        return replace(str, c2, c3, z);
+        return replace(str, c, c2, z);
     }
 
-    public static final String replaceFirst(String replaceFirst, char c2, char c3, boolean z) {
+    public static final String replaceFirst(String replaceFirst, char c, char c2, boolean z) {
         Intrinsics.checkNotNullParameter(replaceFirst, "$this$replaceFirst");
-        int indexOf$default = StringsKt__StringsKt.indexOf$default(replaceFirst, c2, 0, z, 2, (Object) null);
-        return indexOf$default < 0 ? replaceFirst : StringsKt__StringsKt.replaceRange((CharSequence) replaceFirst, indexOf$default, indexOf$default + 1, (CharSequence) String.valueOf(c3)).toString();
+        int indexOf$default = StringsKt__StringsKt.indexOf$default(replaceFirst, c, 0, z, 2, (Object) null);
+        return indexOf$default < 0 ? replaceFirst : StringsKt__StringsKt.replaceRange((CharSequence) replaceFirst, indexOf$default, indexOf$default + 1, (CharSequence) String.valueOf(c2)).toString();
     }
 
-    public static /* synthetic */ String replaceFirst$default(String str, char c2, char c3, boolean z, int i, Object obj) {
+    public static /* synthetic */ String replaceFirst$default(String str, char c, char c2, boolean z, int i, Object obj) {
         if ((i & 4) != 0) {
             z = false;
         }
-        return replaceFirst(str, c2, c3, z);
+        return replaceFirst(str, c, c2, z);
     }
 
     public static final List<String> split(CharSequence split, Pattern regex, int i) {

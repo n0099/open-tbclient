@@ -3,8 +3,6 @@ package com.baidu.tbadk.core.growthFunnel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
-import c.a.o0.r.a0.a;
-import c.a.o0.r.a0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ks4;
+import com.repackage.ms4;
+/* loaded from: classes3.dex */
 public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f29907b;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,9 +54,9 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onCreate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.q();
-            a.u(null, true);
-            c.a().j(true);
+            ks4.q();
+            ks4.t(null, true);
+            ms4.a().j(true);
         }
     }
 
@@ -68,18 +66,18 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (a) {
                 a = false;
-                a.l("lifecycle-1st-create", false);
-                a.z();
+                ks4.l("lifecycle-1st-create", false);
+                ks4.y();
                 return;
             }
-            a.f10491b = true;
-            long currentTimeMillis = System.currentTimeMillis() - f29907b;
+            ks4.b = true;
+            long currentTimeMillis = System.currentTimeMillis() - b;
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = -1;
             }
-            a.k(currentTimeMillis);
-            a.l("lifecycle", true);
-            a.z();
+            ks4.k(currentTimeMillis);
+            ks4.l("lifecycle", true);
+            ks4.y();
         }
     }
 
@@ -87,10 +85,10 @@ public class GrowthAppLifecycleObserver implements LifecycleObserver {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a.u(null, true);
-            f29907b = System.currentTimeMillis();
-            a.f10491b = false;
-            c.a().j(false);
+            ks4.t(null, true);
+            b = System.currentTimeMillis();
+            ks4.b = false;
+            ms4.a().j(false);
         }
     }
 }

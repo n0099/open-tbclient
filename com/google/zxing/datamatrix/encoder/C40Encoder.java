@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class C40Encoder implements Encoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,44 +90,44 @@ public class C40Encoder implements Encoder {
         }
     }
 
-    public int encodeChar(char c2, StringBuilder sb) {
+    public int encodeChar(char c, StringBuilder sb) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c2), sb})) == null) {
-            if (c2 == ' ') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Character.valueOf(c), sb})) == null) {
+            if (c == ' ') {
                 sb.append((char) 3);
                 return 1;
-            } else if (c2 >= '0' && c2 <= '9') {
-                sb.append((char) ((c2 - '0') + 4));
+            } else if (c >= '0' && c <= '9') {
+                sb.append((char) ((c - '0') + 4));
                 return 1;
-            } else if (c2 >= 'A' && c2 <= 'Z') {
-                sb.append((char) ((c2 - 'A') + 14));
+            } else if (c >= 'A' && c <= 'Z') {
+                sb.append((char) ((c - 'A') + 14));
                 return 1;
-            } else if (c2 >= 0 && c2 <= 31) {
+            } else if (c >= 0 && c <= 31) {
                 sb.append((char) 0);
-                sb.append(c2);
+                sb.append(c);
                 return 2;
-            } else if (c2 >= '!' && c2 <= '/') {
+            } else if (c >= '!' && c <= '/') {
                 sb.append((char) 1);
-                sb.append((char) (c2 - '!'));
+                sb.append((char) (c - '!'));
                 return 2;
-            } else if (c2 >= ':' && c2 <= '@') {
+            } else if (c >= ':' && c <= '@') {
                 sb.append((char) 1);
-                sb.append((char) ((c2 - ':') + 15));
+                sb.append((char) ((c - ':') + 15));
                 return 2;
-            } else if (c2 >= '[' && c2 <= '_') {
+            } else if (c >= '[' && c <= '_') {
                 sb.append((char) 1);
-                sb.append((char) ((c2 - '[') + 22));
+                sb.append((char) ((c - '[') + 22));
                 return 2;
-            } else if (c2 >= '`' && c2 <= 127) {
+            } else if (c >= '`' && c <= 127) {
                 sb.append((char) 2);
-                sb.append((char) (c2 - '`'));
+                sb.append((char) (c - '`'));
                 return 2;
-            } else if (c2 >= 128) {
+            } else if (c >= 128) {
                 sb.append("\u0001\u001e");
-                return encodeChar((char) (c2 - 128), sb) + 2;
+                return encodeChar((char) (c - 128), sb) + 2;
             } else {
-                throw new IllegalArgumentException("Illegal character: " + c2);
+                throw new IllegalArgumentException("Illegal character: " + c);
             }
         }
         return invokeCommon.intValue;

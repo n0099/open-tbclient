@@ -20,10 +20,11 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.MessageLiteOrBuilder;
 import com.google.protobuf.Parser;
+import com.repackage.k80;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class LcmPb$Common extends GeneratedMessageLite implements MessageLiteOrBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_ID_FIELD_NUMBER = 6;
@@ -54,7 +55,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
     public Object romVersion_;
     public Object sdkVersion_;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class a extends AbstractParser<LcmPb$Common> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,32 +84,18 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$Common, b> implements Object {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public Object f25615b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public Object f25616c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Object f25617d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Object f25618e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public Object f25619f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public Object f25620g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public Object f25621h;
+        public Object b;
+        public Object c;
+        public Object d;
+        public Object e;
+        public Object f;
+        public Object g;
+        public Object h;
         public Object i;
         public Object j;
         public Object k;
@@ -126,13 +113,13 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                     return;
                 }
             }
-            this.f25615b = "";
-            this.f25616c = "";
-            this.f25617d = "";
-            this.f25618e = "";
-            this.f25619f = "";
-            this.f25620g = "";
-            this.f25621h = "";
+            this.b = "";
+            this.c = "";
+            this.d = "";
+            this.e = "";
+            this.f = "";
+            this.g = "";
+            this.h = "";
             this.i = "";
             this.j = "";
             this.k = "";
@@ -165,7 +152,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 if (str != null) {
                     this.a |= 4;
-                    this.f25617d = str;
+                    this.d = str;
                     return this;
                 }
                 throw null;
@@ -252,34 +239,34 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (c.a.t.a.e.a) null);
+                LcmPb$Common lcmPb$Common = new LcmPb$Common(this, (k80) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
-                lcmPb$Common.cuid_ = this.f25615b;
+                lcmPb$Common.cuid_ = this.b;
                 if ((i & 2) == 2) {
                     i2 |= 2;
                 }
-                lcmPb$Common.deviceType_ = this.f25616c;
+                lcmPb$Common.deviceType_ = this.c;
                 if ((i & 4) == 4) {
                     i2 |= 4;
                 }
-                lcmPb$Common.osVersion_ = this.f25617d;
+                lcmPb$Common.osVersion_ = this.d;
                 if ((i & 8) == 8) {
                     i2 |= 8;
                 }
-                lcmPb$Common.manufacture_ = this.f25618e;
+                lcmPb$Common.manufacture_ = this.e;
                 if ((i & 16) == 16) {
                     i2 |= 16;
                 }
-                lcmPb$Common.modelType_ = this.f25619f;
+                lcmPb$Common.modelType_ = this.f;
                 if ((i & 32) == 32) {
                     i2 |= 32;
                 }
-                lcmPb$Common.appId_ = this.f25620g;
+                lcmPb$Common.appId_ = this.g;
                 if ((i & 64) == 64) {
                     i2 |= 64;
                 }
-                lcmPb$Common.appVersion_ = this.f25621h;
+                lcmPb$Common.appVersion_ = this.h;
                 if ((i & 128) == 128) {
                     i2 |= 128;
                 }
@@ -303,25 +290,25 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
                 super.clear();
-                this.f25615b = "";
+                this.b = "";
                 int i = this.a & (-2);
                 this.a = i;
-                this.f25616c = "";
+                this.c = "";
                 int i2 = i & (-3);
                 this.a = i2;
-                this.f25617d = "";
+                this.d = "";
                 int i3 = i2 & (-5);
                 this.a = i3;
-                this.f25618e = "";
+                this.e = "";
                 int i4 = i3 & (-9);
                 this.a = i4;
-                this.f25619f = "";
+                this.f = "";
                 int i5 = i4 & (-17);
                 this.a = i5;
-                this.f25620g = "";
+                this.g = "";
                 int i6 = i5 & (-33);
                 this.a = i6;
-                this.f25621h = "";
+                this.h = "";
                 int i7 = i6 & (-65);
                 this.a = i7;
                 this.i = "";
@@ -369,31 +356,31 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                 }
                 if (lcmPb$Common.hasCuid()) {
                     this.a |= 1;
-                    this.f25615b = lcmPb$Common.cuid_;
+                    this.b = lcmPb$Common.cuid_;
                 }
                 if (lcmPb$Common.hasDeviceType()) {
                     this.a |= 2;
-                    this.f25616c = lcmPb$Common.deviceType_;
+                    this.c = lcmPb$Common.deviceType_;
                 }
                 if (lcmPb$Common.hasOsVersion()) {
                     this.a |= 4;
-                    this.f25617d = lcmPb$Common.osVersion_;
+                    this.d = lcmPb$Common.osVersion_;
                 }
                 if (lcmPb$Common.hasManufacture()) {
                     this.a |= 8;
-                    this.f25618e = lcmPb$Common.manufacture_;
+                    this.e = lcmPb$Common.manufacture_;
                 }
                 if (lcmPb$Common.hasModelType()) {
                     this.a |= 16;
-                    this.f25619f = lcmPb$Common.modelType_;
+                    this.f = lcmPb$Common.modelType_;
                 }
                 if (lcmPb$Common.hasAppId()) {
                     this.a |= 32;
-                    this.f25620g = lcmPb$Common.appId_;
+                    this.g = lcmPb$Common.appId_;
                 }
                 if (lcmPb$Common.hasAppVersion()) {
                     this.a |= 64;
-                    this.f25621h = lcmPb$Common.appVersion_;
+                    this.h = lcmPb$Common.appVersion_;
                 }
                 if (lcmPb$Common.hasSdkVersion()) {
                     this.a |= 128;
@@ -428,10 +415,10 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                             s(parsePartialFrom);
                         }
                         return this;
-                    } catch (InvalidProtocolBufferException e2) {
-                        LcmPb$Common lcmPb$Common2 = (LcmPb$Common) e2.getUnfinishedMessage();
+                    } catch (InvalidProtocolBufferException e) {
+                        LcmPb$Common lcmPb$Common2 = (LcmPb$Common) e.getUnfinishedMessage();
                         try {
-                            throw e2;
+                            throw e;
                         } catch (Throwable th) {
                             th = th;
                             lcmPb$Common = lcmPb$Common2;
@@ -457,7 +444,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
                 if (str != null) {
                     this.a |= 32;
-                    this.f25620g = str;
+                    this.g = str;
                     return this;
                 }
                 throw null;
@@ -471,7 +458,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
                 if (str != null) {
                     this.a |= 64;
-                    this.f25621h = str;
+                    this.h = str;
                     return this;
                 }
                 throw null;
@@ -485,7 +472,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
                 if (str != null) {
                     this.a |= 1;
-                    this.f25615b = str;
+                    this.b = str;
                     return this;
                 }
                 throw null;
@@ -499,7 +486,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
                 if (str != null) {
                     this.a |= 2;
-                    this.f25616c = str;
+                    this.c = str;
                     return this;
                 }
                 throw null;
@@ -513,7 +500,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
                 if (str != null) {
                     this.a |= 8;
-                    this.f25618e = str;
+                    this.e = str;
                     return this;
                 }
                 throw null;
@@ -527,7 +514,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
             if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
                 if (str != null) {
                     this.a |= 16;
-                    this.f25619f = str;
+                    this.f = str;
                     return this;
                 }
                 throw null;
@@ -575,7 +562,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         lcmPb$Common.initFields();
     }
 
-    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, c.a.t.a.e.a aVar) throws InvalidProtocolBufferException {
+    public /* synthetic */ LcmPb$Common(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, k80 k80Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -1119,7 +1106,7 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
         }
     }
 
-    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, c.a.t.a.e.a aVar) {
+    public /* synthetic */ LcmPb$Common(GeneratedMessageLite.Builder builder, k80 k80Var) {
         this(builder);
     }
 
@@ -1322,11 +1309,11 @@ public final class LcmPb$Common extends GeneratedMessageLite implements MessageL
                                 }
                         }
                         z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e) {
+                        throw e.setUnfinishedMessage(this);
                     }
-                } catch (IOException e3) {
-                    throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                } catch (IOException e2) {
+                    throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                 }
             } finally {
                 makeExtensionsImmutable();

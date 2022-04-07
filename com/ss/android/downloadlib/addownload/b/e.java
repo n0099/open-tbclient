@@ -13,113 +13,107 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class e implements com.ss.android.downloadad.api.a.a {
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public DownloadModel f42774b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public DownloadEventConfig f42775c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public DownloadController f42776d;
+    public DownloadModel b;
+    public DownloadEventConfig c;
+    public DownloadController d;
 
     public e() {
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String a() {
-        return this.f42774b.getDownloadUrl();
+        return this.b.getDownloadUrl();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public long b() {
-        return this.f42774b.getId();
+        return this.b.getId();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean c() {
-        return this.f42774b.isAd();
+        return this.b.isAd();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String d() {
-        return this.f42774b.getLogExtra();
+        return this.b.getLogExtra();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String e() {
-        return this.f42774b.getPackageName();
+        return this.b.getPackageName();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String f() {
-        if (this.f42774b.getDeepLink() != null) {
-            return this.f42774b.getDeepLink().getOpenUrl();
+        if (this.b.getDeepLink() != null) {
+            return this.b.getDeepLink().getOpenUrl();
         }
         return null;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject g() {
-        return this.f42774b.getExtra();
+        return this.b.getExtra();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public int h() {
-        if (this.f42776d.getDownloadMode() == 2) {
+        if (this.d.getDownloadMode() == 2) {
             return 2;
         }
-        return this.f42774b.getFunnelType();
+        return this.b.getFunnelType();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String i() {
-        return this.f42775c.getRefer();
+        return this.c.getRefer();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String j() {
-        return this.f42775c.getClickButtonTag();
+        return this.c.getClickButtonTag();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject k() {
-        return this.f42775c.getParamsJson();
+        return this.c.getParamsJson();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public long l() {
-        return this.f42774b.getExtraValue();
+        return this.b.getExtraValue();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean m() {
-        return this.f42775c.isEnableV3Event();
+        return this.c.isEnableV3Event();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public List<String> n() {
-        return this.f42774b.getClickTrackUrl();
+        return this.b.getClickTrackUrl();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public Object o() {
-        return this.f42775c.getExtraEventObject();
+        return this.c.getExtraEventObject();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject p() {
-        return this.f42775c.getExtraJson();
+        return this.c.getExtraJson();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public boolean q() {
-        return this.f42776d.enableNewActivity();
+        return this.d.enableNewActivity();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public JSONObject r() {
-        return this.f42774b.getDownloadSettings();
+        return this.b.getDownloadSettings();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -129,27 +123,27 @@ public class e implements com.ss.android.downloadad.api.a.a {
 
     @Override // com.ss.android.downloadad.api.a.a
     public int t() {
-        return this.f42775c.getDownloadScene();
+        return this.c.getDownloadScene();
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadModel u() {
-        return this.f42774b;
+        return this.b;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadEventConfig v() {
-        return this.f42775c;
+        return this.c;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public DownloadController w() {
-        return this.f42776d;
+        return this.d;
     }
 
     public boolean x() {
         DownloadModel downloadModel;
-        if (this.a == 0 || (downloadModel = this.f42774b) == null || this.f42775c == null || this.f42776d == null) {
+        if (this.a == 0 || (downloadModel = this.b) == null || this.c == null || this.d == null) {
             return true;
         }
         return downloadModel.isAd() && this.a <= 0;
@@ -159,17 +153,17 @@ public class e implements com.ss.android.downloadad.api.a.a {
         if (x()) {
             return false;
         }
-        if (this.f42774b.isAd()) {
-            DownloadModel downloadModel = this.f42774b;
-            return (downloadModel instanceof AdDownloadModel) && !TextUtils.isEmpty(downloadModel.getLogExtra()) && (this.f42775c instanceof AdDownloadEventConfig) && (this.f42776d instanceof AdDownloadController);
+        if (this.b.isAd()) {
+            DownloadModel downloadModel = this.b;
+            return (downloadModel instanceof AdDownloadModel) && !TextUtils.isEmpty(downloadModel.getLogExtra()) && (this.c instanceof AdDownloadEventConfig) && (this.d instanceof AdDownloadController);
         }
-        return this.f42774b instanceof AdDownloadModel;
+        return this.b instanceof AdDownloadModel;
     }
 
     public e(long j, @NonNull DownloadModel downloadModel, @NonNull DownloadEventConfig downloadEventConfig, @NonNull DownloadController downloadController) {
         this.a = j;
-        this.f42774b = downloadModel;
-        this.f42775c = downloadEventConfig;
-        this.f42776d = downloadController;
+        this.b = downloadModel;
+        this.c = downloadEventConfig;
+        this.d = downloadController;
     }
 }

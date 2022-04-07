@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.HttpVersion;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_DATA_KEY = "data";
@@ -31,7 +31,7 @@ public abstract class NetMessage {
     public BdUniqueId tag;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class NetType {
         public static final /* synthetic */ NetType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -92,7 +92,7 @@ public abstract class NetMessage {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface a {
         boolean checkToSwitchHttp(SocketResponsedMessage socketResponsedMessage);
     }
@@ -233,37 +233,30 @@ public abstract class NetMessage {
         }
     }
 
-    public void setLogID(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.clientLogID = j;
-        }
-    }
-
     public void setNetType(NetType netType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, netType) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, netType) == null) {
             this.mNetType = netType;
         }
     }
 
     public void setSocketCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
             this.socketCostTime = j;
         }
     }
 
     public void setSocketErrNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.socketErrNo = i;
         }
     }
 
     public void setSwitchToHttpStrategy(a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) || aVar == null) {
             return;
         }
         this.mSwitchToHttpStrategy = aVar;
@@ -271,7 +264,7 @@ public abstract class NetMessage {
 
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bdUniqueId) == null) {
             this.tag = bdUniqueId;
         }
     }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoCloudSetting {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ERROR_LOG_CLOSE_ALL = "close_all";
@@ -53,7 +53,7 @@ public class VideoCloudSetting {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MatchedType {
         public static final /* synthetic */ MatchedType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,7 +116,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class VideoCloudSettingItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -282,7 +282,7 @@ public class VideoCloudSetting {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class VideoSettings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -444,8 +444,8 @@ public class VideoCloudSetting {
             if (videoCfgValue != null) {
                 try {
                     parseInt = Integer.parseInt(videoCfgValue);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 Log.d(TAG, "getFeedVideoPvCount count ".concat(String.valueOf(parseInt)));
                 return parseInt;
@@ -493,8 +493,8 @@ public class VideoCloudSetting {
             if (videoCfgValue != null) {
                 try {
                     parseInt = Integer.parseInt(videoCfgValue);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 Log.d(TAG, "getVideoPvCount count ".concat(String.valueOf(parseInt)));
                 return parseInt;

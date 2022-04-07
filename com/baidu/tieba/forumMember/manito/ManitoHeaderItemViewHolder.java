@@ -8,23 +8,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f32193b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ManitoHeaderItemViewHolder(View view) {
-        super(view);
+    public ManitoHeaderItemViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,7 +33,7 @@ public class ManitoHeaderItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f32193b = 3;
-        this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091395);
+        this.b = 3;
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09138a);
     }
 }

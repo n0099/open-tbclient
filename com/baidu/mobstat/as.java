@@ -3,7 +3,6 @@ package com.baidu.mobstat;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,23 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class as {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final as f27216e;
+    public static final as e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public float f27217b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f27218c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f27219d;
+    public float b;
+    public long c;
+    public volatile boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +34,7 @@ public class as {
                 return;
             }
         }
-        f27216e = new as();
+        e = new as();
     }
 
     public as() {
@@ -60,14 +51,14 @@ public class as {
             }
         }
         this.a = false;
-        this.f27217b = 50.0f;
-        this.f27218c = 500L;
+        this.b = 50.0f;
+        this.c = 500L;
     }
 
     public static as a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27216e : (as) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (as) invokeV.objValue;
     }
 
     public boolean b() {
@@ -80,13 +71,13 @@ public class as {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            float f2 = this.f27217b;
-            if (f2 < 0.0f) {
-                f2 = 0.0f;
-            } else if (f2 > 100.0f) {
-                f2 = 100.0f;
+            float f = this.b;
+            if (f < 0.0f) {
+                f = 0.0f;
+            } else if (f > 100.0f) {
+                f = 100.0f;
             }
-            return f2 / 100.0f;
+            return f / 100.0f;
         }
         return invokeV.floatValue;
     }
@@ -94,7 +85,7 @@ public class as {
     public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27218c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.longValue;
     }
 
     public void a(String str) {
@@ -105,22 +96,22 @@ public class as {
         try {
             JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("sv");
             if (jSONObject != null) {
-                int optInt = jSONObject.optInt(IntentConfig.CLOSE);
+                int optInt = jSONObject.optInt("close");
                 String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                 String optString2 = jSONObject.optString("duration");
                 this.a = optInt != 0;
                 if (!TextUtils.isEmpty(optString)) {
                     try {
-                        this.f27217b = Float.valueOf(optString).floatValue();
+                        this.b = Float.valueOf(optString).floatValue();
                     } catch (Exception unused) {
                     }
                 }
                 if (!TextUtils.isEmpty(optString2)) {
-                    this.f27218c = Long.valueOf(optString2).longValue();
+                    this.c = Long.valueOf(optString2).longValue();
                 }
             }
         } catch (Exception unused2) {
         }
-        this.f27219d = true;
+        this.d = true;
     }
 }

@@ -33,7 +33,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Cea608Decoder extends CeaDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BASIC_CHARACTER_SET;
@@ -80,7 +80,7 @@ public final class Cea608Decoder extends CeaDecoder {
     public boolean repeatableControlSet;
     public final int selectedField;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BASE_ROW = 15;
@@ -98,7 +98,7 @@ public final class Cea608Decoder extends CeaDecoder {
         public int tabOffset;
         public int underlineStartPosition;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes4.dex */
         public static class CueStyle {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -149,10 +149,10 @@ public final class Cea608Decoder extends CeaDecoder {
             reset(i, i2);
         }
 
-        public void append(char c2) {
+        public void append(char c) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c2)}) == null) {
-                this.captionStringBuilder.append(c2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Character.valueOf(c)}) == null) {
+                this.captionStringBuilder.append(c);
             }
         }
 
@@ -168,7 +168,7 @@ public final class Cea608Decoder extends CeaDecoder {
         public Cue build() {
             InterceptResult invokeV;
             int length;
-            float f2;
+            float f;
             int i;
             int i2;
             int i3;
@@ -186,13 +186,13 @@ public final class Cea608Decoder extends CeaDecoder {
                 int i5 = this.indent + this.tabOffset;
                 int length2 = i5 - ((32 - i5) - spannableStringBuilder.length());
                 if (this.captionMode == 2 && Math.abs(length2) < 3) {
-                    f2 = 0.5f;
+                    f = 0.5f;
                     i = 1;
                 } else if (this.captionMode != 2 || length2 <= 0) {
-                    f2 = ((i5 / 32.0f) * 0.8f) + 0.1f;
+                    f = ((i5 / 32.0f) * 0.8f) + 0.1f;
                     i = 0;
                 } else {
-                    f2 = (((32 - length) / 32.0f) * 0.8f) + 0.1f;
+                    f = (((32 - length) / 32.0f) * 0.8f) + 0.1f;
                     i = 2;
                 }
                 if (this.captionMode == 1 || (i2 = this.row) > 7) {
@@ -201,7 +201,7 @@ public final class Cea608Decoder extends CeaDecoder {
                 } else {
                     i3 = 0;
                 }
-                return new Cue(spannableStringBuilder, Layout.Alignment.ALIGN_NORMAL, i2, 1, i3, f2, i, Float.MIN_VALUE);
+                return new Cue(spannableStringBuilder, Layout.Alignment.ALIGN_NORMAL, i2, 1, i3, f, i, Float.MIN_VALUE);
             }
             return (Cue) invokeV.objValue;
         }
@@ -345,7 +345,7 @@ public final class Cea608Decoder extends CeaDecoder {
         COLORS = new int[]{-1, -16711936, -16776961, -16711681, SupportMenu.CATEGORY_MASK, -256, -65281};
         BASIC_CHARACTER_SET = new int[]{32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 225, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, WriteActivity.CONTENT_MAX_COUNT, 93, 237, 243, 250, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 231, GDiffPatcher.DATA_USHORT, 209, 241, 9632};
         SPECIAL_CHARACTER_SET = new int[]{MatroskaExtractor.ID_TRACK_ENTRY, MatroskaExtractor.ID_PIXEL_WIDTH, PsExtractor.PRIVATE_STREAM_1, w0.M, 8482, 162, MatroskaExtractor.ID_SIMPLE_BLOCK, 9834, 224, 32, w0.c1, Constants.METHOD_MEDIA_NOTIFY, 234, 238, GDiffPatcher.COPY_UBYTE_UBYTE, 251};
-        SPECIAL_ES_FR_CHARACTER_SET = new int[]{193, 201, w0.A, 218, 220, 252, 8216, 161, 42, 39, 8212, w0.w, 8480, 8226, 8220, 8221, 192, 194, w0.b1, 200, 202, 203, w0.k0, 206, 207, 239, w0.f39024h, 217, 249, 219, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, MatroskaExtractor.ID_CUE_POINT};
+        SPECIAL_ES_FR_CHARACTER_SET = new int[]{193, 201, w0.A, 218, 220, 252, 8216, 161, 42, 39, 8212, w0.w, 8480, 8226, 8220, 8221, 192, 194, w0.b1, 200, 202, 203, w0.k0, 206, 207, 239, w0.h, 217, 249, 219, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, MatroskaExtractor.ID_CUE_POINT};
         SPECIAL_PT_DE_CHARACTER_SET = new int[]{195, w0.z, 205, 204, 236, 210, w0.i0, 213, 245, 123, 125, 92, 94, 95, 124, 126, 196, 228, w0.c0, 246, 223, w0.n0, 164, 9474, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 229, 216, 248, 9484, 9488, 9492, 9496};
     }
 
@@ -377,10 +377,10 @@ public final class Cea608Decoder extends CeaDecoder {
         resetCueBuilders();
     }
 
-    public static char getChar(byte b2) {
+    public static char getChar(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) ? (char) BASIC_CHARACTER_SET[(b2 & ByteCompanionObject.MAX_VALUE) - 32] : invokeB.charValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) ? (char) BASIC_CHARACTER_SET[(b & ByteCompanionObject.MAX_VALUE) - 32] : invokeB.charValue;
     }
 
     private List<Cue> getDisplayCues() {
@@ -399,57 +399,57 @@ public final class Cea608Decoder extends CeaDecoder {
         return (List) invokeV.objValue;
     }
 
-    public static char getExtendedEsFrChar(byte b2) {
+    public static char getExtendedEsFrChar(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(InputDeviceCompat.SOURCE_TRACKBALL, null, b2)) == null) ? (char) SPECIAL_ES_FR_CHARACTER_SET[b2 & 31] : invokeB.charValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(InputDeviceCompat.SOURCE_TRACKBALL, null, b)) == null) ? (char) SPECIAL_ES_FR_CHARACTER_SET[b & 31] : invokeB.charValue;
     }
 
-    public static char getExtendedPtDeChar(byte b2) {
+    public static char getExtendedPtDeChar(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65541, null, b2)) == null) ? (char) SPECIAL_PT_DE_CHARACTER_SET[b2 & 31] : invokeB.charValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65541, null, b)) == null) ? (char) SPECIAL_PT_DE_CHARACTER_SET[b & 31] : invokeB.charValue;
     }
 
-    public static char getSpecialChar(byte b2) {
+    public static char getSpecialChar(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65542, null, b2)) == null) ? (char) SPECIAL_CHARACTER_SET[b2 & 15] : invokeB.charValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65542, null, b)) == null) ? (char) SPECIAL_CHARACTER_SET[b & 15] : invokeB.charValue;
     }
 
-    private boolean handleCtrl(byte b2, byte b3) {
+    private boolean handleCtrl(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            boolean isRepeatable = isRepeatable(b2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
+            boolean isRepeatable = isRepeatable(b);
             if (isRepeatable) {
-                if (this.repeatableControlSet && this.repeatableControlCc1 == b2 && this.repeatableControlCc2 == b3) {
+                if (this.repeatableControlSet && this.repeatableControlCc1 == b && this.repeatableControlCc2 == b2) {
                     this.repeatableControlSet = false;
                     return true;
                 }
                 this.repeatableControlSet = true;
-                this.repeatableControlCc1 = b2;
-                this.repeatableControlCc2 = b3;
+                this.repeatableControlCc1 = b;
+                this.repeatableControlCc2 = b2;
             }
-            if (isMidrowCtrlCode(b2, b3)) {
-                handleMidrowCtrl(b3);
-            } else if (isPreambleAddressCode(b2, b3)) {
-                handlePreambleAddressCode(b2, b3);
-            } else if (isTabCtrlCode(b2, b3)) {
-                this.currentCueBuilder.setTab(b3 - 32);
-            } else if (isMiscCode(b2, b3)) {
-                handleMiscCode(b3);
+            if (isMidrowCtrlCode(b, b2)) {
+                handleMidrowCtrl(b2);
+            } else if (isPreambleAddressCode(b, b2)) {
+                handlePreambleAddressCode(b, b2);
+            } else if (isTabCtrlCode(b, b2)) {
+                this.currentCueBuilder.setTab(b2 - 32);
+            } else if (isMiscCode(b, b2)) {
+                handleMiscCode(b2);
             }
             return isRepeatable;
         }
         return invokeCommon.booleanValue;
     }
 
-    private void handleMidrowCtrl(byte b2) {
+    private void handleMidrowCtrl(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(65544, this, b2) == null) {
-            this.currentCueBuilder.setUnderline((b2 & 1) == 1);
-            int i = (b2 >> 1) & 15;
+        if (interceptable == null || interceptable.invokeB(65544, this, b) == null) {
+            this.currentCueBuilder.setUnderline((b & 1) == 1);
+            int i = (b >> 1) & 15;
             if (i == 7) {
                 this.currentCueBuilder.setMidrowStyle(new StyleSpan(2), 2);
                 this.currentCueBuilder.setMidrowStyle(new ForegroundColorSpan(-1), 1);
@@ -459,13 +459,13 @@ public final class Cea608Decoder extends CeaDecoder {
         }
     }
 
-    private void handleMiscCode(byte b2) {
+    private void handleMiscCode(byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(65545, this, b2) == null) {
-            if (b2 == 32) {
+        if (interceptable == null || interceptable.invokeB(65545, this, b) == null) {
+            if (b == 32) {
                 setCaptionMode(2);
-            } else if (b2 != 41) {
-                switch (b2) {
+            } else if (b != 41) {
+                switch (b) {
                     case 37:
                         this.captionRowCount = 2;
                         setCaptionMode(1);
@@ -483,8 +483,8 @@ public final class Cea608Decoder extends CeaDecoder {
                         if (i == 0) {
                             return;
                         }
-                        if (b2 != 33) {
-                            switch (b2) {
+                        if (b != 33) {
+                            switch (b) {
                                 case 44:
                                     this.cues = null;
                                     if (i == 1 || i == 3) {
@@ -518,11 +518,11 @@ public final class Cea608Decoder extends CeaDecoder {
         }
     }
 
-    private void handlePreambleAddressCode(byte b2, byte b3) {
+    private void handlePreambleAddressCode(byte b, byte b2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)}) == null) {
-            int i = ROW_INDICES[b2 & 7];
-            if ((b3 & 32) != 0) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)}) == null) {
+            int i = ROW_INDICES[b & 7];
+            if ((b2 & 32) != 0) {
                 i++;
             }
             if (i != this.currentCueBuilder.getRow()) {
@@ -533,10 +533,10 @@ public final class Cea608Decoder extends CeaDecoder {
                 }
                 this.currentCueBuilder.setRow(i);
             }
-            if ((b3 & 1) == 1) {
+            if ((b2 & 1) == 1) {
                 this.currentCueBuilder.setPreambleStyle(new UnderlineSpan());
             }
-            int i2 = (b3 >> 1) & 15;
+            int i2 = (b2 >> 1) & 15;
             if (i2 > 7) {
                 this.currentCueBuilder.setIndent(COLUMN_INDICES[i2 & 7]);
             } else if (i2 == 7) {
@@ -548,34 +548,34 @@ public final class Cea608Decoder extends CeaDecoder {
         }
     }
 
-    public static boolean isMidrowCtrlCode(byte b2, byte b3) {
+    public static boolean isMidrowCtrlCode(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) ? (b2 & 247) == 17 && (b3 & 240) == 32 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 17 && (b2 & 240) == 32 : invokeCommon.booleanValue;
     }
 
-    public static boolean isMiscCode(byte b2, byte b3) {
+    public static boolean isMiscCode(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) ? (b2 & 247) == 20 && (b3 & 240) == 32 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 20 && (b2 & 240) == 32 : invokeCommon.booleanValue;
     }
 
-    public static boolean isPreambleAddressCode(byte b2, byte b3) {
+    public static boolean isPreambleAddressCode(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) ? (b2 & 240) == 16 && (b3 & 192) == 64 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 240) == 16 && (b2 & 192) == 64 : invokeCommon.booleanValue;
     }
 
-    public static boolean isRepeatable(byte b2) {
+    public static boolean isRepeatable(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65550, null, b2)) == null) ? (b2 & 240) == 16 : invokeB.booleanValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65550, null, b)) == null) ? (b & 240) == 16 : invokeB.booleanValue;
     }
 
-    public static boolean isTabCtrlCode(byte b2, byte b3) {
+    public static boolean isTabCtrlCode(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) ? (b2 & 247) == 23 && b3 >= 33 && b3 <= 35 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) ? (b & 247) == 23 && b2 >= 33 && b2 <= 35 : invokeCommon.booleanValue;
     }
 
     private void resetCueBuilders() {

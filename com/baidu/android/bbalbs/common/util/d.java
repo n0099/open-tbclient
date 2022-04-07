@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.CharArrayWriter;
 import java.io.File;
 import java.io.FileReader;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,8 +29,8 @@ public final class d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
                 return Settings.System.getString(context.getContentResolver(), str);
-            } catch (Exception e2) {
-                a(e2);
+            } catch (Exception e) {
+                a(e);
                 return null;
             }
         }
@@ -65,18 +65,18 @@ public final class d {
                     String charArrayWriter2 = charArrayWriter.toString();
                     try {
                         fileReader.close();
-                    } catch (Exception e2) {
-                        a(e2);
+                    } catch (Exception e) {
+                        a(e);
                     }
                     return charArrayWriter2;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     a(e);
                     if (fileReader != null) {
                         try {
                             fileReader.close();
-                        } catch (Exception e4) {
-                            a(e4);
+                        } catch (Exception e3) {
+                            a(e3);
                         }
                     }
                     return null;
@@ -87,14 +87,14 @@ public final class d {
                 if (fileReader2 != null) {
                     try {
                         fileReader2.close();
-                    } catch (Exception e5) {
-                        a(e5);
+                    } catch (Exception e4) {
+                        a(e4);
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
-            e = e6;
+        } catch (Exception e5) {
+            e = e5;
             fileReader = null;
         } catch (Throwable th2) {
             th = th2;
@@ -116,8 +116,8 @@ public final class d {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2)) == null) {
             try {
                 return Settings.System.putString(context.getContentResolver(), str, str2);
-            } catch (Exception e2) {
-                a(e2);
+            } catch (Exception e) {
+                a(e);
                 return false;
             }
         }

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import c.a.d.f.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -26,7 +25,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mi;
+/* loaded from: classes3.dex */
 public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PUBLISH_COMMENT_URL = "game/forum/addComment";
@@ -46,7 +46,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public int mScore;
     public TextView mTitle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,22 +71,22 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!l.z()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f06ec);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!mi.z()) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f06f1);
                     return;
                 }
                 this.a.closeLoadingDialog();
                 FrsGameCommentActivity frsGameCommentActivity = this.a;
-                frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c6));
+                frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06cb));
                 this.a.publishComment();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,34 +111,34 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.a.mGrade1) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.mGrade1) {
                     this.a.mGrade2.setChecked(false);
                     this.a.mGrade3.setChecked(false);
                     this.a.mGrade4.setChecked(false);
                     this.a.mGrade5.setChecked(false);
                     this.a.mScore = 2;
-                } else if (view == this.a.mGrade2) {
+                } else if (view2 == this.a.mGrade2) {
                     this.a.mGrade1.setChecked(true);
                     this.a.mGrade3.setChecked(false);
                     this.a.mGrade4.setChecked(false);
                     this.a.mGrade5.setChecked(false);
                     this.a.mScore = 4;
-                } else if (view == this.a.mGrade3) {
+                } else if (view2 == this.a.mGrade3) {
                     this.a.mGrade1.setChecked(true);
                     this.a.mGrade2.setChecked(true);
                     this.a.mGrade4.setChecked(false);
                     this.a.mGrade5.setChecked(false);
                     this.a.mScore = 6;
-                } else if (view == this.a.mGrade4) {
+                } else if (view2 == this.a.mGrade4) {
                     this.a.mGrade1.setChecked(true);
                     this.a.mGrade2.setChecked(true);
                     this.a.mGrade3.setChecked(true);
                     this.a.mGrade5.setChecked(false);
                     this.a.mScore = 8;
-                } else if (view == this.a.mGrade5) {
+                } else if (view2 == this.a.mGrade5) {
                     this.a.mGrade1.setChecked(true);
                     this.a.mGrade2.setChecked(true);
                     this.a.mGrade3.setChecked(true);
@@ -149,7 +149,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -202,7 +202,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,33 +271,33 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0314);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090af6);
+            setContentView(R.layout.obfuscated_res_0x7f0d0315);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090b02);
             this.mNavBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mTitle = this.mNavBar.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c8));
+            this.mTitle = this.mNavBar.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06cd));
             this.mNavBar.showBottomLine(true);
             TextView addCreateGroupButton = this.mNavBar.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new a(this));
             this.mPublish = addCreateGroupButton;
-            addCreateGroupButton.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f10e1));
+            addCreateGroupButton.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f10e9));
             this.mPublish.setTextColor(getPageContext().getPageActivity().getResources().getColor(R.color.CAM_X0110));
             this.mPublish.setEnabled(false);
-            RadioButton radioButton = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af1);
+            RadioButton radioButton = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090afd);
             this.mGrade1 = radioButton;
             radioButton.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton2 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af2);
+            RadioButton radioButton2 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090afe);
             this.mGrade2 = radioButton2;
             radioButton2.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton3 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af3);
+            RadioButton radioButton3 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090aff);
             this.mGrade3 = radioButton3;
             radioButton3.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton4 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af4);
+            RadioButton radioButton4 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090b00);
             this.mGrade4 = radioButton4;
             radioButton4.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton5 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af5);
+            RadioButton radioButton5 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090b01);
             this.mGrade5 = radioButton5;
             radioButton5.setOnClickListener(this.mOnClickListener);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090af0);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090afc);
             this.mCommentEdit = editText;
             editText.addTextChangedListener(this.mCommentChangeListener);
             int i = this.mScore;

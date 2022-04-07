@@ -6,22 +6,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public t b;
+    public ServiceConnection c;
+    public a d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public t f38680b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f38681c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f38682d;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface a<T> {
         void a(T t, v vVar);
     }
@@ -40,6 +34,6 @@ public class v {
             }
         }
         this.a = null;
-        this.f38682d = null;
+        this.d = null;
     }
 }

@@ -434,15 +434,15 @@ public final class PrintHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rectF, Integer.valueOf(i3)})) == null) {
             Matrix matrix = new Matrix();
-            float f2 = i;
-            float width = rectF.width() / f2;
+            float f = i;
+            float width = rectF.width() / f;
             if (i3 == 2) {
                 min = Math.max(width, rectF.height() / i2);
             } else {
                 min = Math.min(width, rectF.height() / i2);
             }
             matrix.postScale(min, min);
-            matrix.postTranslate((rectF.width() - (f2 * min)) / 2.0f, (rectF.height() - (i2 * min)) / 2.0f);
+            matrix.postTranslate((rectF.width() - (f * min)) / 2.0f, (rectF.height() - (i2 * min)) / 2.0f);
             return matrix;
         }
         return (Matrix) invokeCommon.objValue;
@@ -470,8 +470,8 @@ public final class PrintHelper {
                     if (openInputStream != null) {
                         try {
                             openInputStream.close();
-                        } catch (IOException e2) {
-                            Log.w(LOG_TAG, "close fail ", e2);
+                        } catch (IOException e) {
+                            Log.w(LOG_TAG, "close fail ", e);
                         }
                     }
                     return decodeStream;
@@ -481,8 +481,8 @@ public final class PrintHelper {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e3) {
-                            Log.w(LOG_TAG, "close fail ", e3);
+                        } catch (IOException e2) {
+                            Log.w(LOG_TAG, "close fail ", e2);
                         }
                     }
                     throw th;

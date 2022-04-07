@@ -13,10 +13,6 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.o0.f0.g;
-import c.a.o0.f0.h;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -36,53 +32,49 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.appbar.AppBarLayout;
+import com.repackage.aq7;
+import com.repackage.av4;
+import com.repackage.g45;
+import com.repackage.h45;
+import com.repackage.mi;
+import com.repackage.oi;
+import com.repackage.pg;
+import com.repackage.uo;
+import com.repackage.wr4;
+import com.repackage.zp7;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class HotTopicListView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static int y;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbPageContext<?> f34800b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.p0.t2.b f34801c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f34802d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public NavigationBar f34803e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f34804f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public LottieSlideLoadingLayout f34805g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public AppBarLayout f34806h;
+    public TbPageContext<?> b;
+    public zp7 c;
+    public View d;
+    public NavigationBar e;
+    public ViewGroup f;
+    public LottieSlideLoadingLayout g;
+    public AppBarLayout h;
     public View i;
     public ImageView j;
     public ImageView k;
     public View l;
     public BdTypeRecyclerView m;
-    public c.a.p0.t2.c.a n;
+    public aq7 n;
     public ViewGroup o;
     public PbListView p;
-    public g q;
-    public h r;
+    public g45 q;
+    public h45 r;
     public boolean s;
     public ValueAnimator t;
     public boolean u;
     public AppBarLayout.OnOffsetChangedListener v;
-    public c.a.o0.r.l0.q.b w;
+    public av4 w;
     public Runnable x;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements AppBarLayout.OnOffsetChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -110,22 +102,22 @@ public class HotTopicListView extends RelativeLayout {
         public void onOffsetChanged(AppBarLayout appBarLayout, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, appBarLayout, i) == null) {
-                if (this.a.f34805g != null) {
-                    this.a.f34805g.setEnableSlideLoading(i == 0);
+                if (this.a.g != null) {
+                    this.a.g.setEnableSlideLoading(i == 0);
                 }
                 if (i + HotTopicListView.y < 0) {
-                    this.a.f34802d.setVisibility(0);
-                    this.a.f34803e.setCenterTextTitle(this.a.f34803e.getContext().getString(R.string.obfuscated_res_0x7f0f0878));
+                    this.a.d.setVisibility(0);
+                    this.a.e.setCenterTextTitle(this.a.e.getContext().getString(R.string.obfuscated_res_0x7f0f0878));
                     return;
                 }
-                this.a.f34802d.setVisibility(8);
-                this.a.f34803e.setCenterTextTitle(null);
+                this.a.d.setVisibility(8);
+                this.a.e.setCenterTextTitle(null);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements c.a.o0.r.l0.q.b {
+    /* loaded from: classes3.dex */
+    public class b implements av4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicListView a;
@@ -148,14 +140,14 @@ public class HotTopicListView extends RelativeLayout {
             this.a = hotTopicListView;
         }
 
-        @Override // c.a.o0.r.l0.q.b
+        @Override // com.repackage.av4
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // c.a.o0.r.l0.q.b
+        @Override // com.repackage.av4
         public void onLoadingStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -164,7 +156,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -197,7 +189,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +226,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -259,10 +251,10 @@ public class HotTopicListView extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A() && this.a.f34801c != null) {
-                this.a.f34801c.loadData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && mi.A() && this.a.c != null) {
+                this.a.c.loadData();
             }
         }
     }
@@ -284,13 +276,13 @@ public class HotTopicListView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotTopicListView(TbPageContext<?> tbPageContext, c.a.p0.t2.b bVar, Bundle bundle) {
+    public HotTopicListView(TbPageContext<?> tbPageContext, zp7 zp7Var, Bundle bundle) {
         super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bVar, bundle};
+            Object[] objArr = {tbPageContext, zp7Var, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -307,8 +299,8 @@ public class HotTopicListView extends RelativeLayout {
         this.v = new a(this);
         this.w = new b(this);
         this.x = new c(this);
-        this.f34800b = tbPageContext;
-        this.f34801c = bVar;
+        this.b = tbPageContext;
+        this.c = zp7Var;
         o(bundle);
         q();
     }
@@ -328,26 +320,26 @@ public class HotTopicListView extends RelativeLayout {
                 this.t.removeAllUpdateListeners();
                 this.t = null;
             }
-            c.a.d.f.m.e.a().removeCallbacks(this.x);
+            pg.a().removeCallbacks(this.x);
         }
     }
 
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.d.f.m.e.a().postDelayed(this.x, 5000L);
+            pg.a().postDelayed(this.x, 5000L);
             this.s = true;
-            this.f34801c.loadData();
+            this.c.loadData();
         }
     }
 
     public void m() {
-        g gVar;
+        g45 g45Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.q) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (g45Var = this.q) == null) {
             return;
         }
-        gVar.dettachView(this.f34804f);
+        g45Var.dettachView(this.f);
     }
 
     public void n() {
@@ -356,44 +348,44 @@ public class HotTopicListView extends RelativeLayout {
             return;
         }
         this.i.setVisibility(0);
-        this.r.dettachView(this.f34804f);
+        this.r.dettachView(this.f);
         this.r = null;
     }
 
     public final void o(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0039, (ViewGroup) this, true);
-            this.f34802d = findViewById(R.id.obfuscated_res_0x7f09209c);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a4);
-            this.f34803e = navigationBar;
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d003c, (ViewGroup) this, true);
+            this.d = findViewById(R.id.obfuscated_res_0x7f092081);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f092381);
+            this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.l = findViewById(R.id.obfuscated_res_0x7f090d3f);
-            this.i = findViewById(R.id.obfuscated_res_0x7f090d34);
-            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f090356);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090358);
-            LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.obfuscated_res_0x7f0906d9);
-            this.f34805g = lottieSlideLoadingLayout;
+            this.l = findViewById(R.id.obfuscated_res_0x7f090d47);
+            this.i = findViewById(R.id.obfuscated_res_0x7f090d3c);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f090361);
+            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f090363);
+            LottieSlideLoadingLayout lottieSlideLoadingLayout = (LottieSlideLoadingLayout) findViewById(R.id.obfuscated_res_0x7f0906e2);
+            this.g = lottieSlideLoadingLayout;
             lottieSlideLoadingLayout.j(this.w);
-            this.f34805g.l(this.i);
-            this.f34805g.n();
-            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f09027d);
-            this.f34806h = appBarLayout;
+            this.g.l(this.i);
+            this.g.n();
+            AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.obfuscated_res_0x7f090285);
+            this.h = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.v);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a25);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091a15);
             this.m = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             this.m.setFadingEdgeLength(0);
             this.m.setOverScrollMode(2);
-            this.m.setPadding(0, n.f(getContext(), R.dimen.tbds16), 0, n.f(getContext(), R.dimen.tbds16));
-            this.n = new c.a.p0.t2.c.a(this.f34800b, this.m);
-            this.o = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906d8);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091da9);
+            this.m.setPadding(0, oi.f(getContext(), R.dimen.tbds16), 0, oi.f(getContext(), R.dimen.tbds16));
+            this.n = new aq7(this.b, this.m);
+            this.o = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906e1);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091d95);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = UtilHelper.getStatusBarHeight();
             findViewById.setLayoutParams(layoutParams);
-            this.f34804f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906dc);
-            PbListView pbListView = new PbListView(this.f34800b.getPageActivity());
+            this.f = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0906e5);
+            PbListView pbListView = new PbListView(this.b.getPageActivity());
             this.p = pbListView;
             pbListView.a();
             this.p.p(R.color.CAM_X0205);
@@ -415,11 +407,11 @@ public class HotTopicListView extends RelativeLayout {
             return;
         }
         this.u = true;
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.f34803e.findViewById(R.id.obfuscated_res_0x7f09246f), R.drawable.obfuscated_res_0x7f080624, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        SkinManager.setViewTextColor(this.f34803e.getCenterText(), (int) R.color.CAM_X0101);
-        c.a.p0.t2.b bVar = this.f34801c;
-        if (bVar instanceof Activity) {
-            UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) bVar);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09244a), R.drawable.obfuscated_res_0x7f080623, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SkinManager.setViewTextColor(this.e.getCenterText(), (int) R.color.CAM_X0101);
+        zp7 zp7Var = this.c;
+        if (zp7Var instanceof Activity) {
+            UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) zp7Var);
         }
     }
 
@@ -429,10 +421,10 @@ public class HotTopicListView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
-        SkinManager.setBackgroundColor(this.f34802d, R.color.obfuscated_res_0x7f0608ae);
-        SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080f13);
-        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080f14);
-        c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(this.l);
+        SkinManager.setBackgroundColor(this.d, R.color.obfuscated_res_0x7f0608bd);
+        SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080f1d);
+        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080f1e);
+        wr4 d2 = wr4.d(this.l);
         d2.m(1);
         d2.n(R.string.J_X14);
         d2.f(R.color.CAM_X0201);
@@ -449,7 +441,7 @@ public class HotTopicListView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.s = false;
-            this.f34805g.o();
+            this.g.o();
         }
     }
 
@@ -457,13 +449,13 @@ public class HotTopicListView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (this.q == null) {
-                this.q = new g(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ab));
+                this.q = new g45(getContext(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b8));
             }
-            this.q.attachView(this.f34804f, false);
+            this.q.attachView(this.f, false);
         }
     }
 
-    public void setData(@NonNull List<c.a.d.o.e.n> list) {
+    public void setData(@NonNull List<uo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.n.c(list);
@@ -475,14 +467,14 @@ public class HotTopicListView extends RelativeLayout {
     public void t(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            h hVar = this.r;
-            if (hVar == null || !hVar.isViewAttached()) {
+            h45 h45Var = this.r;
+            if (h45Var == null || !h45Var.isViewAttached()) {
                 if (this.r == null) {
-                    this.r = new h(getContext(), new e(this));
+                    this.r = new h45(getContext(), new e(this));
                 }
                 this.i.setVisibility(8);
-                this.r.k(this.f34800b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a3));
-                this.r.attachView(this.f34804f, z);
+                this.r.k(this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ad));
+                this.r.attachView(this.f, z);
                 this.r.p();
             }
         }
@@ -493,8 +485,8 @@ public class HotTopicListView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.m.setNextPage(this.p);
             this.p.f();
-            this.p.M(0);
-            this.p.D(getResources().getString(R.string.obfuscated_res_0x7f0f0f2c));
+            this.p.L(0);
+            this.p.C(getResources().getString(R.string.obfuscated_res_0x7f0f0f31));
         }
     }
 
@@ -502,7 +494,7 @@ public class HotTopicListView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.s) {
             r();
-            c.a.d.f.m.e.a().removeCallbacks(this.x);
+            pg.a().removeCallbacks(this.x);
         }
     }
 }

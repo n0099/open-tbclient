@@ -1,7 +1,7 @@
 package com.airbnb.lottie.model.animatable;
 
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AnimatableTextProperties {
     @Nullable
     public final AnimatableColorValue color;

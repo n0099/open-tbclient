@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType ALTERNATIVE;
@@ -42,7 +42,7 @@ public final class MultipartBody extends RequestBody {
     public final MediaType originalType;
     public final List<Part> parts;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public final class MultipartBody extends RequestBody {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Part {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

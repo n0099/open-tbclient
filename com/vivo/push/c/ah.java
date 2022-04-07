@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.cache.ClientConfigManagerImpl;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ah extends com.vivo.push.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public final class ah extends com.vivo.push.l {
                 com.vivo.push.util.p.d("SendCommandTask", "SendCommandTask pushCommand is Null");
             } else {
                 com.vivo.push.model.b a = com.vivo.push.util.t.a(context);
-                int b2 = oVar.b();
-                if (b2 != 0) {
-                    if (b2 == 2009) {
+                int b = oVar.b();
+                if (b != 0) {
+                    if (b == 2009) {
                         com.vivo.push.util.p.a(ClientConfigManagerImpl.getInstance(this.a).isDebug());
                         if (com.vivo.push.util.p.a()) {
                             com.vivo.push.e.a().i();
@@ -63,8 +63,8 @@ public final class ah extends com.vivo.push.l {
                                 ClientConfigManagerImpl.getInstance(this.a).clearPush();
                             }
                         }
-                    } else if (b2 != 2011) {
-                        switch (b2) {
+                    } else if (b != 2011) {
+                        switch (b) {
                             case 2002:
                             case 2003:
                             case 2004:

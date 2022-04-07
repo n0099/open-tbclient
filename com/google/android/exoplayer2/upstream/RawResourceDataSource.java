@@ -15,7 +15,7 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class RawResourceDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RAW_RESOURCE_SCHEME = "rawresource";
@@ -28,7 +28,7 @@ public final class RawResourceDataSource implements DataSource {
     public final Resources resources;
     public Uri uri;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class RawResourceDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +122,8 @@ public final class RawResourceDataSource implements DataSource {
                             if (this.assetFileDescriptor != null) {
                                 this.assetFileDescriptor.close();
                             }
-                        } catch (IOException e2) {
-                            throw new RawResourceDataSourceException(e2);
+                        } catch (IOException e) {
+                            throw new RawResourceDataSourceException(e);
                         }
                     } finally {
                         this.assetFileDescriptor = null;
@@ -135,8 +135,8 @@ public final class RawResourceDataSource implements DataSource {
                             }
                         }
                     }
-                } catch (IOException e3) {
-                    throw new RawResourceDataSourceException(e3);
+                } catch (IOException e2) {
+                    throw new RawResourceDataSourceException(e2);
                 }
             } catch (Throwable th) {
                 this.inputStream = null;
@@ -154,8 +154,8 @@ public final class RawResourceDataSource implements DataSource {
                             }
                         }
                         throw th;
-                    } catch (IOException e4) {
-                        throw new RawResourceDataSourceException(e4);
+                    } catch (IOException e3) {
+                        throw new RawResourceDataSourceException(e3);
                     }
                 } finally {
                     this.assetFileDescriptor = null;
@@ -216,8 +216,8 @@ public final class RawResourceDataSource implements DataSource {
                     }
                 }
                 throw new RawResourceDataSourceException("URI must use scheme rawresource");
-            } catch (IOException e2) {
-                throw new RawResourceDataSourceException(e2);
+            } catch (IOException e) {
+                throw new RawResourceDataSourceException(e);
             }
         }
         return invokeL.longValue;
@@ -238,8 +238,8 @@ public final class RawResourceDataSource implements DataSource {
             if (j != -1) {
                 try {
                     i2 = (int) Math.min(j, i2);
-                } catch (IOException e2) {
-                    throw new RawResourceDataSourceException(e2);
+                } catch (IOException e) {
+                    throw new RawResourceDataSourceException(e);
                 }
             }
             int read = this.inputStream.read(bArr, i, i2);

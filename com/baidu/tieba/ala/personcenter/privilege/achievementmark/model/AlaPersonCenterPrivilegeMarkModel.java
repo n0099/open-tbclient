@@ -18,16 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public HttpMessageListener b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f31472b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +62,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i, String str, Object obj);
     }
@@ -84,11 +82,11 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
                 return;
             }
         }
-        this.f31472b = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
+        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);
         this.unique_id = bdUniqueId;
         this.a = bVar;
         registerTask();
-        registerListener(this.f31472b);
+        registerListener(this.b);
     }
 
     public void A() {

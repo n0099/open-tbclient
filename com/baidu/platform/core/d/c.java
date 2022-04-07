@@ -22,7 +22,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,14 +94,14 @@ public class c extends k {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
+            double d = 0.0d;
             double d2 = 0.0d;
-            double d3 = 0.0d;
             for (int i = 5; i < length; i++) {
                 if (i % 2 != 0) {
-                    d3 += jSONArray.optInt(i);
-                } else {
                     d2 += jSONArray.optInt(i);
-                    arrayList.add(CoordUtil.mc2ll(new GeoPoint(d2, d3)));
+                } else {
+                    d += jSONArray.optInt(i);
+                    arrayList.add(CoordUtil.mc2ll(new GeoPoint(d, d2)));
                 }
             }
             return arrayList;
@@ -220,9 +220,9 @@ public class c extends k {
                         }
                     }
                     return arrayList;
-                } catch (JSONException e2) {
+                } catch (JSONException e) {
                     if (Logger.debugEnable()) {
-                        e2.printStackTrace();
+                        e.printStackTrace();
                     }
                 }
             }
@@ -326,9 +326,9 @@ public class c extends k {
                             if (optJSONObject6 != null) {
                                 i4 += optJSONObject6.optInt("distance");
                                 i2 += optJSONObject6.optInt("duration");
-                                List<DrivingRouteLine.DrivingStep> b2 = b(optJSONObject6.optJSONArray("stepis"), a3);
-                                if (b2 != null) {
-                                    arrayList3.addAll(b2);
+                                List<DrivingRouteLine.DrivingStep> b = b(optJSONObject6.optJSONArray("stepis"), a3);
+                                if (b != null) {
+                                    arrayList3.addAll(b);
                                 }
                             }
                             i3++;
@@ -361,8 +361,8 @@ public class c extends k {
                 drivingRouteResult.setRouteLines(arrayList2);
                 drivingRouteResult.setTaxiInfos(b(optJSONObject4.optString("taxis")));
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }

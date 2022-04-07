@@ -24,7 +24,7 @@ import com.tachikoma.core.utility.V8Proxy;
 import java.util.ArrayList;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKBaseAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class TKBaseAdapter extends BaseAdapter {
     public final V8Object mV8Adapter;
     public final List<V8Object> v8Objects;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public final class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,12 +79,12 @@ public class TKBaseAdapter extends BaseAdapter {
         this.mTKJSContext = V8Proxy.getTKContext(list);
     }
 
-    public View convertView(View view, int i) {
+    public View convertView(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view, i)) == null) {
-            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view.getTag(R.id.obfuscated_res_0x7f090d61)).jsObj, Integer.valueOf(i));
-            return view;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) {
+            V8Proxy.executeJsFunction(this.mV8Adapter, this.mTKJSContext, "convertView", ((ViewHolder) view2.getTag(R.id.obfuscated_res_0x7f090d69)).jsObj, Integer.valueOf(i));
+            return view2;
         }
         return (View) invokeLI.objValue;
     }
@@ -141,25 +141,25 @@ public class TKBaseAdapter extends BaseAdapter {
             Object obj2 = tKBase.style.get("height");
             int formatNumber = obj != null ? (int) TKYogaConfig.formatNumber(0, obj) : -1;
             int formatNumber2 = obj2 != null ? (int) TKYogaConfig.formatNumber(0, obj2) : -2;
-            View view = tKBase.getView();
-            view.setLayoutParams(new ViewGroup.LayoutParams(formatNumber, formatNumber2));
+            View view2 = tKBase.getView();
+            view2.setLayoutParams(new ViewGroup.LayoutParams(formatNumber, formatNumber2));
             V8Object twin = v8Object.twin();
             ViewHolder viewHolder = new ViewHolder(this);
             viewHolder.base = tKBase;
             viewHolder.jsObj = twin;
             this.v8Objects.add(twin);
-            view.setTag(R.id.obfuscated_res_0x7f090d61, viewHolder);
+            view2.setTag(R.id.obfuscated_res_0x7f090d69, viewHolder);
             Log.e("test1", "consumer time :: " + (System.currentTimeMillis() - currentTimeMillis));
-            return view;
+            return view2;
         }
         return (View) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) ? view == null ? getView(i) : convertView(view, i) : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) ? view2 == null ? getView(i) : convertView(view2, i) : (View) invokeILL.objValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

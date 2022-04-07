@@ -25,7 +25,7 @@ import com.kuaishou.weapon.un.v;
 import java.io.File;
 import java.math.BigDecimal;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DeviceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

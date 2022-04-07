@@ -10,20 +10,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PrivatePopInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class PrivateForumPopInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f29829b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f29830c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Integer f29831d;
+    public String b;
+    public String c;
+    public Integer d;
 
     public PrivateForumPopInfoData() {
         Interceptable interceptable = $ic;
@@ -39,9 +33,9 @@ public class PrivateForumPopInfoData extends OrmObject {
             }
         }
         this.a = null;
-        this.f29829b = null;
-        this.f29830c = null;
-        this.f29831d = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
     }
 
     public String A() {
@@ -53,7 +47,7 @@ public class PrivateForumPopInfoData extends OrmObject {
     public String B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29830c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public void C(PrivatePopInfo privatePopInfo) {
@@ -63,25 +57,25 @@ public class PrivateForumPopInfoData extends OrmObject {
         }
         try {
             this.a = privatePopInfo.pop_type;
-            this.f29829b = privatePopInfo.pop_content;
-            this.f29830c = privatePopInfo.pop_url;
-            this.f29831d = privatePopInfo.pop_forum_id;
-        } catch (Exception e2) {
-            BdLog.detailException(e2);
+            this.b = privatePopInfo.pop_content;
+            this.c = privatePopInfo.pop_url;
+            this.d = privatePopInfo.pop_forum_id;
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 
     public void D(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f29829b = str;
+            this.b = str;
         }
     }
 
     public void E(Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            this.f29831d = num;
+            this.d = num;
         }
     }
 
@@ -95,19 +89,19 @@ public class PrivateForumPopInfoData extends OrmObject {
     public void G(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f29830c = str;
+            this.c = str;
         }
     }
 
     public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29829b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public Integer z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29831d : (Integer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (Integer) invokeV.objValue;
     }
 }

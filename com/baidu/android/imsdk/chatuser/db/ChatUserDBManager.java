@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChatUserDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChatUserDBManager";
@@ -453,9 +453,9 @@ public class ChatUserDBManager extends DBBase {
                 }
                 try {
                     return getChatUser(openDatabase, j);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getChatUser:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getChatUser:", e);
                     return null;
                 }
             }
@@ -508,9 +508,9 @@ public class ChatUserDBManager extends DBBase {
                     ChatUser constructChatUser = constructChatUser(cursor);
                     longSparseArray.put(constructChatUser.getBuid(), constructChatUser);
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "getChatUser:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "getChatUser:", e);
             }
         }
     }
@@ -526,9 +526,9 @@ public class ChatUserDBManager extends DBBase {
                 }
                 try {
                     return getChatUserByBuid(openDatabase, j);
-                } catch (Exception e2) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(TAG, "getChatUser:", e2);
+                } catch (Exception e) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(TAG, "getChatUser:", e);
                     return null;
                 }
             }
@@ -580,9 +580,9 @@ public class ChatUserDBManager extends DBBase {
                     }
                     arrayList.add(Long.valueOf(cursor.getLong(cursor.getColumnIndex("buid"))));
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "getChatUser:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "getChatUser:", e);
             }
         }
     }
@@ -635,8 +635,8 @@ public class ChatUserDBManager extends DBBase {
                                 str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
                             }
                             str = "uid in (" + str2 + ") ";
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             cursor = null;
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
@@ -670,8 +670,8 @@ public class ChatUserDBManager extends DBBase {
                             }
                             list.remove(chatSession);
                             arrayList.add(constructShieldUsers(chatSession, cursor, false));
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             LogUtils.e(TAG, "getShieldUser:", e);
                             iGetUserShieldListener.onResult(-1, "exception", null);
                         }
@@ -683,8 +683,8 @@ public class ChatUserDBManager extends DBBase {
                     } else {
                         getUserInfo(list, arrayList, iGetUserShieldListener);
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     cursor = null;
                 } catch (Throwable th2) {
                     th = th2;
@@ -724,8 +724,8 @@ public class ChatUserDBManager extends DBBase {
                                 break;
                             }
                             arrayList.add(constructShieldUsers(new ChatSession(), cursor, true));
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             LogUtils.e(TAG, "getShieldUser:", e);
                             if (cursor != null) {
                                 cursor.close();
@@ -746,8 +746,8 @@ public class ChatUserDBManager extends DBBase {
                     cursor.close();
                 }
                 return arrayList;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th2) {
                 th = th2;
@@ -800,14 +800,14 @@ public class ChatUserDBManager extends DBBase {
                                 }
                                 return valueOf;
                             }
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getChatUser:", e);
                         }
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;
@@ -1155,14 +1155,14 @@ public class ChatUserDBManager extends DBBase {
                             }
                             return constructChatUser;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getChatUser:", e);
                     }
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th) {
                 th = th;
@@ -1220,14 +1220,14 @@ public class ChatUserDBManager extends DBBase {
                             }
                             return constructChatUser;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                         LogUtils.e(TAG, "getChatUser:", e);
                     }
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 cursor = null;
             } catch (Throwable th) {
                 th = th;
@@ -1270,8 +1270,8 @@ public class ChatUserDBManager extends DBBase {
                                 break;
                             }
                             arrayList.add(constructChatUser(cursor));
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "getChatUser:", e);
                             if (cursor != null) {
@@ -1284,8 +1284,8 @@ public class ChatUserDBManager extends DBBase {
                         cursor.close();
                     }
                     return arrayList;
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     cursor = null;
                 } catch (Throwable th) {
                     th = th;

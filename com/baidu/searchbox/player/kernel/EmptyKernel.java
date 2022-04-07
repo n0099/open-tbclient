@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class EmptyKernel extends AbsVideoKernel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "EmptyKernel";
@@ -319,10 +319,10 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setSpeed(float f2) {
+    public void setSpeed(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
-            BdVideoLog.e(TAG, "setSpeed(" + f2 + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || interceptable.invokeF(1048607, this, f) == null) {
+            BdVideoLog.e(TAG, "setSpeed(" + f + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
@@ -383,10 +383,10 @@ public class EmptyKernel extends AbsVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f2) {
+    public boolean takeSnapshotAsync(OnSnapShotFrameListener onSnapShotFrameListener, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048616, this, onSnapShotFrameListener, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048616, this, onSnapShotFrameListener, f)) == null) {
             return false;
         }
         return invokeLF.booleanValue;

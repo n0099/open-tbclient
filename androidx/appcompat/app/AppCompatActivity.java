@@ -64,10 +64,10 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public void addContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view, layoutParams) == null) {
-            getDelegate().addContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, layoutParams) == null) {
+            getDelegate().addContentView(view2, layoutParams);
         }
     }
 
@@ -520,18 +520,18 @@ public class AppCompatActivity extends FragmentActivity implements AppCompatCall
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view) {
+    public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, view) == null) {
-            getDelegate().setContentView(view);
+        if (interceptable == null || interceptable.invokeL(1048612, this, view2) == null) {
+            getDelegate().setContentView(view2);
         }
     }
 
     @Override // android.app.Activity
-    public void setContentView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void setContentView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048613, this, view, layoutParams) == null) {
-            getDelegate().setContentView(view, layoutParams);
+        if (interceptable == null || interceptable.invokeLL(1048613, this, view2, layoutParams) == null) {
+            getDelegate().setContentView(view2, layoutParams);
         }
     }
 }

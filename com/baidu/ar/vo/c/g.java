@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class g implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -106,26 +106,26 @@ public class g implements d {
 
     @Override // com.baidu.ar.vo.c.d
     public void a(b bVar) {
+        float f;
         float f2;
-        float f3;
         Runnable runnable;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
             return;
         }
         if (bVar.za) {
-            int[] b2 = b(bVar.x, bVar.y);
-            f2 = b2[0];
-            f3 = b2[1];
+            int[] b = b(bVar.x, bVar.y);
+            f = b[0];
+            f2 = b[1];
         } else {
-            f2 = bVar.x;
-            f3 = bVar.y;
+            f = bVar.x;
+            f2 = bVar.y;
         }
         String a = a(this.zb);
         int i = bVar.type;
         if (i == 3) {
             this.zc.hi();
-            a(a, (int) f2, (int) f3, null, (int) bVar.yZ);
+            a(a, (int) f, (int) f2, null, (int) bVar.yZ);
             runnable = new Runnable(this) { // from class: com.baidu.ar.vo.c.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class g implements d {
             return;
         } else {
             this.zc.hi();
-            a(a, (int) f2, (int) f3, null, (int) bVar.yZ);
+            a(a, (int) f, (int) f2, null, (int) bVar.yZ);
             runnable = new Runnable(this) { // from class: com.baidu.ar.vo.c.g.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -200,24 +200,24 @@ public class g implements d {
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void a(String str, int i, int i2, float[] fArr, float f2) {
+    public void a(String str, int i, int i2, float[] fArr, float f) {
         com.baidu.ar.vo.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f2)}) == null) || (aVar = this.zc) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f)}) == null) || (aVar = this.zc) == null) {
             return;
         }
-        aVar.insertModel(str, i, i2, fArr, f2);
+        aVar.insertModel(str, i, i2, fArr, f);
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public int[] b(float f2, float f3) {
+    public int[] b(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             int[] iArr = new int[2];
             if (this.mPreviewWidth != 0) {
-                iArr[1] = this.mPreviewHeight - ((int) (f2 * 720.0f));
-                iArr[0] = (int) (f3 * 1280.0f);
+                iArr[1] = this.mPreviewHeight - ((int) (f * 720.0f));
+                iArr[0] = (int) (f2 * 1280.0f);
             } else {
                 iArr[1] = 640;
                 iArr[0] = 360;

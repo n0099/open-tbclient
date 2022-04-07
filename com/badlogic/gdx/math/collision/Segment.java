@@ -8,15 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Segment implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2739667069736519602L;
     public transient /* synthetic */ FieldHolder $fh;
     public final Vector3 a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final Vector3 f23788b;
+    public final Vector3 b;
 
     public Segment(Vector3 vector3, Vector3 vector32) {
         Interceptable interceptable = $ic;
@@ -34,9 +32,9 @@ public class Segment implements Serializable {
             }
         }
         this.a = new Vector3();
-        this.f23788b = new Vector3();
+        this.b = new Vector3();
         this.a.set(vector3);
-        this.f23788b.set(vector32);
+        this.b.set(vector32);
     }
 
     public boolean equals(Object obj) {
@@ -50,7 +48,7 @@ public class Segment implements Serializable {
                 return false;
             }
             Segment segment = (Segment) obj;
-            return this.a.equals(segment.a) && this.f23788b.equals(segment.f23788b);
+            return this.a.equals(segment.a) && this.b.equals(segment.b);
         }
         return invokeL.booleanValue;
     }
@@ -58,27 +56,27 @@ public class Segment implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.f23788b.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.a.hashCode() + 71) * 71) + this.b.hashCode() : invokeV.intValue;
     }
 
     public float len() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.f23788b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.dst(this.b) : invokeV.floatValue;
     }
 
     public float len2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.f23788b) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.dst2(this.b) : invokeV.floatValue;
     }
 
-    public Segment(float f2, float f3, float f4, float f5, float f6, float f7) {
+    public Segment(float f, float f2, float f3, float f4, float f5, float f6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,8 +87,8 @@ public class Segment implements Serializable {
             }
         }
         this.a = new Vector3();
-        this.f23788b = new Vector3();
-        this.a.set(f2, f3, f4);
-        this.f23788b.set(f5, f6, f7);
+        this.b = new Vector3();
+        this.a.set(f, f2, f3);
+        this.b.set(f4, f5, f6);
     }
 }

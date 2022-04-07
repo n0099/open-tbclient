@@ -17,7 +17,7 @@ import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.dumper.ZeusLogRecorder;
 import com.baidu.webkit.sdk.jschecker.BdJsCheckPolicy;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BdSailorWebSettings implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean lastNightModeEnabled;
@@ -25,7 +25,7 @@ public class BdSailorWebSettings implements INoProGuard {
     public transient /* synthetic */ FieldHolder $fh;
     public WebSettings mWebSettings;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class BdSailorWebSettingsExt implements ISailorWebSettingsExt {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ENABLE_LOG_RECORD = "enable_log_record";
@@ -316,11 +316,11 @@ public class BdSailorWebSettings implements INoProGuard {
         }
 
         @Override // com.baidu.browser.sailor.ISailorWebSettingsExt
-        public synchronized void setFastFlingDampFactorExt(float f2) {
+        public synchronized void setFastFlingDampFactorExt(float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048606, this, f2) == null) {
+            if (interceptable == null || interceptable.invokeF(1048606, this, f) == null) {
                 synchronized (this) {
-                    this.this$0.mWebSettings.setFastFlingDampFactor(f2);
+                    this.this$0.mWebSettings.setFastFlingDampFactor(f);
                 }
             }
         }
@@ -435,8 +435,8 @@ public class BdSailorWebSettings implements INoProGuard {
                 }
                 try {
                     ZeusLogRecorder.getInstance().initAndUpload();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -614,8 +614,8 @@ public class BdSailorWebSettings implements INoProGuard {
                     }
                     return null;
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
@@ -651,8 +651,8 @@ public class BdSailorWebSettings implements INoProGuard {
                     return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY)).booleanValue();
                 }
                 return false;
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
                 return false;
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "getEnableSpdyExt error:".concat(String.valueOf(th)));
@@ -671,8 +671,8 @@ public class BdSailorWebSettings implements INoProGuard {
                     return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME)).booleanValue();
                 }
                 return false;
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
                 return false;
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "getGifOneFrameEnabledExt error:".concat(String.valueOf(th)));
@@ -727,8 +727,8 @@ public class BdSailorWebSettings implements INoProGuard {
                     return ((Boolean) WebViewFactory.getProvider().getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE)).booleanValue();
                 }
                 return false;
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
                 return false;
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "getEnableSpdyExt error:".concat(String.valueOf(th)));
@@ -745,8 +745,8 @@ public class BdSailorWebSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_ENABLE_JS_PROMPT, Boolean.valueOf(z));
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
@@ -760,8 +760,8 @@ public class BdSailorWebSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_JS_CHECK_POLICY, bdJsCheckPolicy);
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
@@ -775,8 +775,8 @@ public class BdSailorWebSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE, Boolean.valueOf(z));
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setDefaultEnableJsPromptSailor error:".concat(String.valueOf(th)));
             }
@@ -802,8 +802,8 @@ public class BdSailorWebSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_SPDY, Boolean.valueOf(z));
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setEnableSpdyExt error:".concat(String.valueOf(th)));
             }
@@ -817,8 +817,8 @@ public class BdSailorWebSettings implements INoProGuard {
                 if (WebViewFactory.hasProvider()) {
                     WebViewFactory.getProvider().setStaticWebSeting(WebViewFactoryProvider.SETTING_GIF_FIRST_FRAME, Boolean.valueOf(z));
                 }
-            } catch (UnsatisfiedLinkError e2) {
-                e2.printStackTrace();
+            } catch (UnsatisfiedLinkError e) {
+                e.printStackTrace();
             } catch (Throwable th) {
                 Log.e(Log.LOG_TAG, "setGifOneFrameEnabledExt error:".concat(String.valueOf(th)));
             }

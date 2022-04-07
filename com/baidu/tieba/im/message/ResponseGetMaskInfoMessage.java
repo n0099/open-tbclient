@@ -14,7 +14,7 @@ import java.util.List;
 import protobuf.GetMaskInfo.DataRes;
 import protobuf.GetMaskInfo.GetMaskInfoResIdl;
 import protobuf.GetMaskInfo.UserInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final int FALSE = 0;

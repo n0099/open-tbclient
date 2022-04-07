@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class VideoFrameReleaseTimeHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CHOREOGRAPHER_SAMPLE_DELAY_MILLIS = 500;
@@ -44,7 +45,7 @@ public final class VideoFrameReleaseTimeHelper {
     public final WindowManager windowManager;
 
     @TargetApi(17)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public final class DefaultDisplayListener implements DisplayManager.DisplayListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +108,7 @@ public final class VideoFrameReleaseTimeHelper {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class VSyncSampler implements Choreographer.FrameCallback, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CREATE_CHOREOGRAPHER = 0;
@@ -287,7 +288,7 @@ public final class VideoFrameReleaseTimeHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            DisplayManager displayManager = (DisplayManager) context.getSystemService("display");
+            DisplayManager displayManager = (DisplayManager) context.getSystemService(CriusAttrConstants.DISPLAY);
             if (displayManager == null) {
                 return null;
             }

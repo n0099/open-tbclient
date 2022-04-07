@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Callback<ChunkSampleStream<DashChunkSource>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
     public final TrackGroupInfo[] trackGroupInfos;
     public final TrackGroupArray trackGroups;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class TrackGroupInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,7 +154,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
             int length = groupedAdaptationSetIndices.length;
             boolean[] zArr = new boolean[length];
             boolean[] zArr2 = new boolean[length];
-            char c2 = 0;
+            char c = 0;
             int i2 = length;
             int i3 = 0;
             while (true) {
@@ -187,7 +187,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
                 for (int i7 = 0; i7 < size; i7++) {
                     formatArr[i7] = ((Representation) arrayList.get(i7)).format;
                 }
-                AdaptationSet adaptationSet = list.get(iArr[c2]);
+                AdaptationSet adaptationSet = list.get(iArr[c]);
                 boolean z = zArr[i4];
                 boolean z2 = zArr2[i4];
                 trackGroupArr[i5] = new TrackGroup(formatArr);
@@ -210,7 +210,7 @@ public final class DashMediaPeriod implements MediaPeriod, SequenceableLoader.Ca
                 }
                 i4++;
                 i5 = i8;
-                c2 = 0;
+                c = 0;
                 i = 1;
             }
             return Pair.create(new TrackGroupArray(trackGroupArr), trackGroupInfoArr);

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Feature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,12 +46,12 @@ public class Feature {
         this.cropImageName = "";
     }
 
-    public Feature(int i, float f2) {
+    public Feature(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -68,7 +68,7 @@ public class Feature {
         this.userName = "";
         this.cropImageName = "";
         this.id = i;
-        this.score = f2;
+        this.score = f;
     }
 
     public String getCropImageName() {
@@ -206,10 +206,10 @@ public class Feature {
         }
     }
 
-    public void setScore(float f2) {
+    public void setScore(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            this.score = f2;
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            this.score = f;
         }
     }
 

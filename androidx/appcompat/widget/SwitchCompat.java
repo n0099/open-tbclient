@@ -145,10 +145,10 @@ public class SwitchCompat extends CompoundButton {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.util.Property
-            public void set(SwitchCompat switchCompat, Float f2) {
+            public void set(SwitchCompat switchCompat, Float f) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, switchCompat, f2) == null) {
-                    switchCompat.setThumbPosition(f2.floatValue());
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, switchCompat, f) == null) {
+                    switchCompat.setThumbPosition(f.floatValue());
                 }
             }
         };
@@ -248,10 +248,10 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public static float constrain(float f2, float f3, float f4) {
+    public static float constrain(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 < f3 ? f3 : f2 > f4 ? f4 : f2 : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f < f2 ? f2 : f > f3 ? f3 : f : invokeCommon.floatValue;
     }
 
     private boolean getTargetCheckedState() {
@@ -262,15 +262,15 @@ public class SwitchCompat extends CompoundButton {
 
     private int getThumbOffset() {
         InterceptResult invokeV;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
             if (ViewUtils.isLayoutRtl(this)) {
-                f2 = 1.0f - this.mThumbPosition;
+                f = 1.0f - this.mThumbPosition;
             } else {
-                f2 = this.mThumbPosition;
+                f = this.mThumbPosition;
             }
-            return (int) ((f2 * getThumbScrollRange()) + 0.5f);
+            return (int) ((f * getThumbScrollRange()) + 0.5f);
         }
         return invokeV.intValue;
     }
@@ -297,10 +297,10 @@ public class SwitchCompat extends CompoundButton {
         return invokeV.intValue;
     }
 
-    private boolean hitThumb(float f2, float f3) {
+    private boolean hitThumb(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (this.mThumbDrawable == null) {
                 return false;
             }
@@ -311,7 +311,7 @@ public class SwitchCompat extends CompoundButton {
             int i3 = i - i2;
             int i4 = (this.mSwitchLeft + thumbOffset) - i2;
             Rect rect = this.mTempRect;
-            return f2 > ((float) i4) && f2 < ((float) ((((this.mThumbWidth + i4) + rect.left) + rect.right) + i2)) && f3 > ((float) i3) && f3 < ((float) (this.mSwitchBottom + i2));
+            return f > ((float) i4) && f < ((float) ((((this.mThumbWidth + i4) + rect.left) + rect.right) + i2)) && f2 > ((float) i3) && f2 < ((float) (this.mSwitchBottom + i2));
         }
         return invokeCommon.booleanValue;
     }
@@ -439,19 +439,19 @@ public class SwitchCompat extends CompoundButton {
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    public void drawableHotspotChanged(float f2, float f3) {
+    public void drawableHotspotChanged(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                super.drawableHotspotChanged(f2, f3);
+                super.drawableHotspotChanged(f, f2);
             }
             Drawable drawable = this.mThumbDrawable;
             if (drawable != null) {
-                DrawableCompat.setHotspot(drawable, f2, f3);
+                DrawableCompat.setHotspot(drawable, f, f2);
             }
             Drawable drawable2 = this.mTrackDrawable;
             if (drawable2 != null) {
-                DrawableCompat.setHotspot(drawable2, f2, f3);
+                DrawableCompat.setHotspot(drawable2, f, f2);
             }
         }
     }
@@ -862,12 +862,12 @@ public class SwitchCompat extends CompoundButton {
                         } else if (i == 2) {
                             float x2 = motionEvent.getX();
                             int thumbScrollRange = getThumbScrollRange();
-                            float f2 = x2 - this.mTouchX;
-                            float f3 = thumbScrollRange != 0 ? f2 / thumbScrollRange : f2 > 0.0f ? 1.0f : -1.0f;
+                            float f = x2 - this.mTouchX;
+                            float f2 = thumbScrollRange != 0 ? f / thumbScrollRange : f > 0.0f ? 1.0f : -1.0f;
                             if (ViewUtils.isLayoutRtl(this)) {
-                                f3 = -f3;
+                                f2 = -f2;
                             }
-                            float constrain = constrain(this.mThumbPosition + f3, 0.0f, 1.0f);
+                            float constrain = constrain(this.mThumbPosition + f2, 0.0f, 1.0f);
                             if (constrain != this.mThumbPosition) {
                                 this.mTouchX = x2;
                                 setThumbPosition(constrain);
@@ -965,9 +965,9 @@ public class SwitchCompat extends CompoundButton {
             }
             int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(R$styleable.TextAppearance_android_textSize, 0);
             if (dimensionPixelSize != 0) {
-                float f2 = dimensionPixelSize;
-                if (f2 != this.mTextPaint.getTextSize()) {
-                    this.mTextPaint.setTextSize(f2);
+                float f = dimensionPixelSize;
+                if (f != this.mTextPaint.getTextSize()) {
+                    this.mTextPaint.setTextSize(f);
                     requestLayout();
                 }
             }
@@ -1034,10 +1034,10 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setThumbPosition(float f2) {
+    public void setThumbPosition(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048615, this, f2) == null) {
-            this.mThumbPosition = f2;
+        if (interceptable == null || interceptable.invokeF(1048615, this, f) == null) {
+            this.mThumbPosition = f;
             invalidate();
         }
     }

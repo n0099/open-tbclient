@@ -5,23 +5,21 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.n0.n.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.v64;
+/* loaded from: classes2.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c<View> a;
+    public v64<View> a;
+    public SparseArray<View> b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f29680b;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface a {
         void recycle();
     }
@@ -39,11 +37,11 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
                 return;
             }
         }
-        this.a = new c<>(5);
-        this.f29680b = new SparseArray<>();
+        this.a = new v64<>(5);
+        this.b = new SparseArray<>();
     }
 
-    public abstract void b(View view, int i);
+    public abstract void b(View view2, int i);
 
     public abstract View c(ViewGroup viewGroup, int i);
 
@@ -51,13 +49,13 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) {
-            View view = (View) obj;
-            if (view instanceof a) {
-                ((a) view).recycle();
+            View view2 = (View) obj;
+            if (view2 instanceof a) {
+                ((a) view2).recycle();
             }
-            viewGroup.removeView(view);
-            this.a.b(view);
-            this.f29680b.remove(i);
+            viewGroup.removeView(view2);
+            this.a.b(view2);
+            this.b.remove(i);
         }
     }
 
@@ -80,7 +78,7 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
             if (a2 == null) {
                 a2 = c(viewGroup, i);
             }
-            this.f29680b.put(i, a2);
+            this.b.put(i, a2);
             viewGroup.addView(a2);
             b(a2, i);
             return a2;
@@ -89,10 +87,10 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public boolean isViewFromObject(View view, Object obj) {
+    public boolean isViewFromObject(View view2, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

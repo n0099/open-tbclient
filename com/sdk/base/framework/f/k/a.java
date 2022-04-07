@@ -19,9 +19,7 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Boolean f42598b;
+    public static Boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +37,7 @@ public class a {
         }
         new TreeMap();
         a = a.class.getSimpleName();
-        f42598b = Boolean.valueOf(f.f42567b);
+        b = Boolean.valueOf(f.b);
     }
 
     public a() {
@@ -67,7 +65,7 @@ public class a {
             } catch (Throwable th) {
                 com.sdk.base.framework.f.f.a.a(th.toString());
                 String str2 = a;
-                c.b(str2, "SDK解密异常：" + th.toString(), f42598b);
+                c.b(str2, "SDK解密异常：" + th.toString(), b);
                 return null;
             }
         }
@@ -87,7 +85,7 @@ public class a {
                     dataInfo.putData("msg", str);
                     dataInfo.putData("obj", a2);
                     dataInfo.putData("seq", str2);
-                    aVar.a(aVar.f42575c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.f42537b);
+                    aVar.a(aVar.c, "/st/api/v1.0/ses", dataInfo, aVar.a(), 0, j.b);
                 } catch (Throwable unused) {
                 }
             }
@@ -100,9 +98,9 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return new JSONObject(str).optLong("exp") < System.currentTimeMillis();
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 String str2 = a;
-                c.c(str2, "out data error" + e2, f42598b);
+                c.c(str2, "out data error" + e, b);
                 return true;
             }
         }

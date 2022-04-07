@@ -8,20 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ HistoryTraceQueryOptions f26781b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f26782c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ b.a f26783d;
+    public final /* synthetic */ HistoryTraceQueryOptions b;
+    public final /* synthetic */ String c;
+    public final /* synthetic */ b.a d;
 
     public d(b.a aVar, int i, HistoryTraceQueryOptions historyTraceQueryOptions, String str) {
         Interceptable interceptable = $ic;
@@ -38,10 +32,10 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
                 return;
             }
         }
-        this.f26783d = aVar;
+        this.d = aVar;
         this.a = i;
-        this.f26781b = historyTraceQueryOptions;
-        this.f26782c = str;
+        this.b = historyTraceQueryOptions;
+        this.c = str;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.synchronization.c.e
@@ -51,17 +45,17 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (c.a.f26808e == aVar || c.a.f26805b == aVar || c.a.f26806c == aVar || c.a.f26807d == aVar) {
-                i = b.f26777g;
+            if (c.a.e == aVar || c.a.b == aVar || c.a.c == aVar || c.a.d == aVar) {
+                i = b.g;
                 if (i <= 2) {
-                    this.f26783d.a(this.f26782c, this.a, this.f26781b);
-                    i2 = b.f26777g;
-                    int unused = b.f26777g = i2 + 1;
+                    this.d.a(this.c, this.a, this.b);
+                    i2 = b.g;
+                    int unused = b.g = i2 + 1;
                 }
             }
-            i3 = b.f26777g;
+            i3 = b.g;
             if (2 < i3) {
-                this.f26783d.a(aVar, this.a);
+                this.d.a(aVar, this.a);
             }
         }
     }
@@ -72,8 +66,8 @@ public class d extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             String str2 = b.a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str2, "Request success, the result = " + str);
-            this.f26783d.a(3, str, this.a, this.f26781b);
-            int unused = b.f26777g = 0;
+            this.d.a(3, str, this.a, this.b);
+            int unused = b.g = 0;
         }
     }
 }

@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MPDParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class MPDInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class MPDParser {
                 String decode = URLDecoder.decode(queryParameter, "UTF-8");
                 parseInt = Integer.parseInt(queryParameter2);
                 jSONArray = new JSONObject(decode).getJSONObject("video").getJSONArray("adaptation_set");
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 uri2 = uri;
             }
             if (jSONArray.length() >= 1) {
@@ -112,8 +112,8 @@ public class MPDParser {
                                 uri2 = Uri.parse(jSONObject.getString("url"));
                             }
                             i++;
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             CyberLog.d("sdk_MPDParser", "mpd urlWithMPDURL parse exception " + e.getMessage());
                             if (!bool.booleanValue()) {
                             }
@@ -141,8 +141,8 @@ public class MPDParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             try {
                 return getDefaultUrlFromMPDURL(Uri.parse(str)).toString();
-            } catch (Exception e2) {
-                CyberLog.d("sdk_MPDParser", "mpd parse exception " + e2.getMessage());
+            } catch (Exception e) {
+                CyberLog.d("sdk_MPDParser", "mpd parse exception " + e.getMessage());
                 return str;
             }
         }
@@ -163,19 +163,19 @@ public class MPDParser {
                 CyberLog.d("sdk_MPDParser", "mpd autoMode: " + queryParameter3 + " selectedClarity:" + queryParameter2);
                 try {
                     mPDInfo.mpdClarity = Integer.parseInt(queryParameter2);
-                } catch (Exception e2) {
-                    CyberLog.d("sdk_MPDParser", "mpd parse exception " + e2.getMessage());
+                } catch (Exception e) {
+                    CyberLog.d("sdk_MPDParser", "mpd parse exception " + e.getMessage());
                 }
                 try {
                     mPDInfo.mpdAuto = Integer.parseInt(queryParameter3);
-                } catch (Exception e3) {
-                    CyberLog.d("sdk_MPDParser", "mpd parse exception " + e3.getMessage());
+                } catch (Exception e2) {
+                    CyberLog.d("sdk_MPDParser", "mpd parse exception " + e2.getMessage());
                 }
                 String decode = URLDecoder.decode(queryParameter, "UTF-8");
                 CyberLog.d("sdk_MPDParser", "mpd uri decodedStr is => " + decode);
                 mPDInfo.urlStr = decode;
-            } catch (Exception e4) {
-                CyberLog.d("sdk_MPDParser", "mpd parse exception " + e4.getMessage());
+            } catch (Exception e3) {
+                CyberLog.d("sdk_MPDParser", "mpd parse exception " + e3.getMessage());
             }
             return mPDInfo;
         }

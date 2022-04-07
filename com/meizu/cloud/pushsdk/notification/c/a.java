@@ -1,11 +1,12 @@
 package com.meizu.cloud.pushsdk.notification.c;
 
 import com.baidu.searchbox.aperf.bosuploader.FileUtil;
+import com.repackage.rm9;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static void a(String str, String str2) {
         try {
@@ -31,8 +32,8 @@ public class a {
                     a(str + "/" + list[i], str2 + "/" + list[i]);
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -80,8 +81,8 @@ public class a {
             public boolean accept(File file2) {
                 try {
                     return Long.valueOf(str2).longValue() > Long.valueOf(file2.getName().split("-")[1]).longValue();
-                } catch (Exception e2) {
-                    c.h.a.a.a.b(FileUtil.TAG, "filters file error " + e2.getMessage());
+                } catch (Exception e) {
+                    rm9.b(FileUtil.TAG, "filters file error " + e.getMessage());
                     return true;
                 }
             }

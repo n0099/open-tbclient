@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdPlayerProgressView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CENTER = 0;
@@ -187,11 +187,11 @@ public class BdPlayerProgressView extends View {
         }
     }
 
-    public void setTextSize(float f2) {
+    public void setTextSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.mTextSize = f2;
-            this.mPaint.setTextSize(f2);
+        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f) == null) {
+            this.mTextSize = f;
+            this.mPaint.setTextSize(f);
             invalidate();
         }
     }

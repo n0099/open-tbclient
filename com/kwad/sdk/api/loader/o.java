@@ -13,14 +13,12 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.kwad.sdk.api.loader.Reflect;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class o {
     public static Map<String, Resources> a = new HashMap();
+    public static final Object b = new Object();
 
-    /* renamed from: b  reason: collision with root package name */
-    public static final Object f39145b = new Object();
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
@@ -35,17 +33,17 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class b {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
                 return c(resources, assetManager);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 try {
                     return a.b(resources, assetManager);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 }
             }
@@ -60,17 +58,17 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class c {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
                 return c(resources, assetManager);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 try {
                     return a.b(resources, assetManager);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 }
             }
@@ -85,17 +83,17 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class d {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
                 return c(resources, assetManager);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 try {
                     return a.b(resources, assetManager);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 }
             }
@@ -110,17 +108,17 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class e {
         public static Resources b(Resources resources, AssetManager assetManager) {
             try {
                 return c(resources, assetManager);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 try {
                     return a.b(resources, assetManager);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 }
             }
@@ -135,17 +133,17 @@ public class o {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class f {
         public static Resources b(Context context, Resources resources, AssetManager assetManager) {
             try {
                 return c(context, resources, assetManager);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 try {
                     return a.b(resources, assetManager);
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                     return new Resources(assetManager, resources.getDisplayMetrics(), resources.getConfiguration());
                 }
             }
@@ -156,13 +154,13 @@ public class o {
             if (resources2 != null) {
                 try {
                     Reflect.a(resources2).a("init", new Class[]{String.class}, context.getPackageName());
-                } catch (Reflect.ReflectException e2) {
-                    e2.printStackTrace();
+                } catch (Reflect.ReflectException e) {
+                    e.printStackTrace();
                 }
                 try {
                     Reflect.a(resources2).a("mThemeValues", Reflect.a(resources).b("mThemeValues"));
-                } catch (Reflect.ReflectException e3) {
-                    e3.printStackTrace();
+                } catch (Reflect.ReflectException e2) {
+                    e2.printStackTrace();
                 }
                 return resources2;
             }
@@ -178,7 +176,7 @@ public class o {
     @NonNull
     public static Resources a(Context context, Resources resources, String str) {
         Resources resources2;
-        synchronized (f39145b) {
+        synchronized (b) {
             resources2 = a.get(str);
             if (resources2 == null) {
                 resources2 = b(context, resources, str);

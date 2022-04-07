@@ -1,14 +1,19 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ReplyMeActivityConfig extends IntentConfig {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int KEY_FROM_MSG = 1;
+    public static final int KEY_FROM_PUSH = 2;
+    public static final String KEY_HIGH_LIGHT_POST_ID = "high_light_post_id";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -29,5 +34,23 @@ public class ReplyMeActivityConfig extends IntentConfig {
                 return;
             }
         }
+    }
+
+    public void setFrom(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra("from", i);
+    }
+
+    public void setHighLightPostId(String str) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra("high_light_post_id", str);
     }
 }

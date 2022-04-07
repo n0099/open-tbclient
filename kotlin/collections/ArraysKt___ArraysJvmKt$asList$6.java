@@ -46,11 +46,11 @@ public final class ArraysKt___ArraysJvmKt$asList$6 extends AbstractList<Double> 
         return -1;
     }
 
-    public boolean contains(double d2) {
+    public boolean contains(double d) {
         double[] dArr = this.$this_asList;
         int length = dArr.length;
         for (int i = 0; i < length; i++) {
-            if (Double.doubleToLongBits(dArr[i]) == Double.doubleToLongBits(d2)) {
+            if (Double.doubleToLongBits(dArr[i]) == Double.doubleToLongBits(d)) {
                 return true;
             }
         }
@@ -63,21 +63,21 @@ public final class ArraysKt___ArraysJvmKt$asList$6 extends AbstractList<Double> 
         return Double.valueOf(this.$this_asList[i]);
     }
 
-    public int indexOf(double d2) {
+    public int indexOf(double d) {
         double[] dArr = this.$this_asList;
         int length = dArr.length;
         for (int i = 0; i < length; i++) {
-            if (Double.doubleToLongBits(dArr[i]) == Double.doubleToLongBits(d2)) {
+            if (Double.doubleToLongBits(dArr[i]) == Double.doubleToLongBits(d)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int lastIndexOf(double d2) {
+    public int lastIndexOf(double d) {
         double[] dArr = this.$this_asList;
         for (int length = dArr.length - 1; length >= 0; length--) {
-            if (Double.doubleToLongBits(dArr[length]) == Double.doubleToLongBits(d2)) {
+            if (Double.doubleToLongBits(dArr[length]) == Double.doubleToLongBits(d)) {
                 return length;
             }
         }

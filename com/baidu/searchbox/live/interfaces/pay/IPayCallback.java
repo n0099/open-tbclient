@@ -1,5 +1,5 @@
 package com.baidu.searchbox.live.interfaces.pay;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface IPayCallback {
     public static final int STATE_CODE_CANCEL = 2;
     public static final int STATE_CODE_CODE_FAIL = 6;

@@ -16,7 +16,7 @@ import com.bytedance.pangle.g;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZeusLogger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Zeus";
@@ -103,8 +103,8 @@ public class ZeusLogger {
                     return "\t\t[" + stackTraceElement.toString() + PreferencesUtil.RIGHT_MOUNT;
                 }
                 return "\t\t[No Trace Info]";
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return "\t\t[No Trace Info]";
             }
         }
@@ -190,8 +190,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.i(str, prefixTraceInfo);
-            } else if (g.a().f38133b.getLogger() != null) {
-                g.a().f38133b.getLogger().i(str, prefixTraceInfo);
+            } else if (g.a().b.getLogger() != null) {
+                g.a().b.getLogger().i(str, prefixTraceInfo);
             }
         }
     }
@@ -202,8 +202,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.v(str, prefixTraceInfo);
-            } else if (g.a().f38133b.getLogger() != null) {
-                g.a().f38133b.getLogger().v(str, prefixTraceInfo);
+            } else if (g.a().b.getLogger() != null) {
+                g.a().b.getLogger().v(str, prefixTraceInfo);
             }
         }
     }
@@ -214,8 +214,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.w(str, prefixTraceInfo);
-            } else if (g.a().f38133b.getLogger() != null) {
-                g.a().f38133b.getLogger().w(str, prefixTraceInfo);
+            } else if (g.a().b.getLogger() != null) {
+                g.a().b.getLogger().w(str, prefixTraceInfo);
             }
         }
     }
@@ -237,15 +237,15 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.e(str, prefixTraceInfo, th);
-            } else if (g.a().f38133b.getLogger() != null) {
-                g.a().f38133b.getLogger().e(str, prefixTraceInfo, th);
+            } else if (g.a().b.getLogger() != null) {
+                g.a().b.getLogger().e(str, prefixTraceInfo, th);
             }
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             if (str != null) {
                 try {
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
                 if (str.startsWith(TAG)) {
                     jSONObject.putOpt("log_tag", d.a(str));
@@ -272,8 +272,8 @@ public class ZeusLogger {
             String prefixTraceInfo = prefixTraceInfo(str2);
             if (sDebug) {
                 Log.w(str, prefixTraceInfo, th);
-            } else if (g.a().f38133b.getLogger() != null) {
-                g.a().f38133b.getLogger().w(str, prefixTraceInfo, th);
+            } else if (g.a().b.getLogger() != null) {
+                g.a().b.getLogger().w(str, prefixTraceInfo, th);
             }
         }
     }

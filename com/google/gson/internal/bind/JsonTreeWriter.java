@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class JsonTreeWriter extends JsonWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonPrimitive SENTINEL_CLOSED;
@@ -299,14 +299,14 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(double d2) throws IOException {
+    public JsonWriter value(double d) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)})) == null) {
-            if (!isLenient() && (Double.isNaN(d2) || Double.isInfinite(d2))) {
-                throw new IllegalArgumentException("JSON forbids NaN and infinities: " + d2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)})) == null) {
+            if (!isLenient() && (Double.isNaN(d) || Double.isInfinite(d))) {
+                throw new IllegalArgumentException("JSON forbids NaN and infinities: " + d);
             }
-            put(new JsonPrimitive((Number) Double.valueOf(d2)));
+            put(new JsonPrimitive((Number) Double.valueOf(d)));
             return this;
         }
         return (JsonWriter) invokeCommon.objValue;

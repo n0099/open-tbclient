@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EditorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,13 +40,13 @@ public class EditorHelper {
         }
     }
 
-    public static void putFloat(SharedPreferences sharedPreferences, String str, float f2) {
+    public static void putFloat(SharedPreferences sharedPreferences, String str, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sharedPreferences, str, Float.valueOf(f2)}) == null) || sharedPreferences == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sharedPreferences, str, Float.valueOf(f)}) == null) || sharedPreferences == null) {
             return;
         }
         SharedPreferences.Editor edit = sharedPreferences.edit();
-        edit.putFloat(str, f2);
+        edit.putFloat(str, f);
         if (Build.VERSION.SDK_INT >= 9) {
             edit.apply();
         } else {

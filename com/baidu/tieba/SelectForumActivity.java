@@ -4,10 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
-import c.a.d.f.p.n;
-import c.a.p0.f;
-import c.a.p0.p;
-import c.a.p0.q;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,8 +16,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fi5;
+import com.repackage.gi5;
+import com.repackage.h95;
+import com.repackage.oi;
+import com.repackage.wg5;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SelectForumActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +30,9 @@ public class SelectForumActivity extends SuspendedActivity {
     public CustomMessageListener mCloseListener;
     public CustomMessageListener mPermissionsListener;
     public ArrayList<SelectForumData> mSelectedForums;
-    public f selectForumView;
+    public wg5 selectForumView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +70,7 @@ public class SelectForumActivity extends SuspendedActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,13 +106,13 @@ public class SelectForumActivity extends SuspendedActivity {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.getString(R.string.obfuscated_res_0x7f0f008d);
                 }
-                n.N(this.a, str);
+                oi.N(this.a, str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements q.f {
+    /* loaded from: classes3.dex */
+    public class c implements gi5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -134,7 +135,7 @@ public class SelectForumActivity extends SuspendedActivity {
             this.a = selectForumActivity;
         }
 
-        @Override // c.a.p0.q.f
+        @Override // com.repackage.gi5.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -164,10 +165,10 @@ public class SelectForumActivity extends SuspendedActivity {
         this.mPermissionsListener = new b(this, 2921507);
     }
 
-    private q.f getSaveInterestForumListener() {
+    private gi5.f getSaveInterestForumListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new c(this) : (q.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new c(this) : (gi5.f) invokeV.objValue;
     }
 
     private void initData() {
@@ -181,20 +182,20 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.o0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public h95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.selectForumView == null) {
                 if (this.isSelectInterestForum) {
-                    this.selectForumView = new q(getPageContext(), linearLayout, navigationBar, getSaveInterestForumListener(), this.mSelectedForums);
+                    this.selectForumView = new gi5(getPageContext(), linearLayout, navigationBar, getSaveInterestForumListener(), this.mSelectedForums);
                 } else {
-                    this.selectForumView = new p(getPageContext(), linearLayout, navigationBar);
+                    this.selectForumView = new fi5(getPageContext(), linearLayout, navigationBar);
                 }
             }
             return this.selectForumView;
         }
-        return (c.a.o0.x0.b) invokeLL.objValue;
+        return (h95) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -214,9 +215,9 @@ public class SelectForumActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            f fVar = this.selectForumView;
-            if (fVar != null) {
-                fVar.onDestroy();
+            wg5 wg5Var = this.selectForumView;
+            if (wg5Var != null) {
+                wg5Var.onDestroy();
             }
         }
     }
@@ -226,9 +227,9 @@ public class SelectForumActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            f fVar = this.selectForumView;
-            if (fVar != null) {
-                fVar.onResume();
+            wg5 wg5Var = this.selectForumView;
+            if (wg5Var != null) {
+                wg5Var.onResume();
             }
         }
     }

@@ -9,7 +9,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
-import c.a.d.j.g.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -19,7 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.dm;
+/* loaded from: classes.dex */
 public class PluginInstallerService extends HighPriorityIntentService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_INSTALL = "com.baidu.adp.plugin.action.install";
@@ -31,7 +31,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
     public Handler handler;
     public Messenger messenger;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public class PluginInstallerService extends HighPriorityIntentService {
             try {
                 message2.setData(message.getData());
                 message.replyTo.send(message2);
-            } catch (RemoteException e2) {
-                BdLog.detailException(e2);
+            } catch (RemoteException e) {
+                BdLog.detailException(e);
             }
         }
     }
@@ -139,7 +139,7 @@ public class PluginInstallerService extends HighPriorityIntentService {
     public void onHandleIntent(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            d.o(intent);
+            dm.o(intent);
         }
     }
 

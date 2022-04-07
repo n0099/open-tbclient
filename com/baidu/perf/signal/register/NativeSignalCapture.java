@@ -1,8 +1,6 @@
 package com.baidu.perf.signal.register;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d0.a.a.a;
-import c.a.d0.a.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.o71;
+import com.repackage.p71;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NativeSignalCapture {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<a> sANRListeners;
+    public static final LinkedList<o71> sANRListeners;
     public static final Object sANRMutex;
-    public static final LinkedList<b> sExceptionListeners;
+    public static final LinkedList<p71> sExceptionListeners;
     public static final Object sExceptionMutex;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -54,23 +54,23 @@ public class NativeSignalCapture {
         }
     }
 
-    public static void addANRListener(a aVar) {
+    public static void addANRListener(o71 o71Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, o71Var) == null) || o71Var == null) {
             return;
         }
         synchronized (sANRMutex) {
-            sANRListeners.add(aVar);
+            sANRListeners.add(o71Var);
         }
     }
 
-    public static void addExceptionListener(b bVar) {
+    public static void addExceptionListener(p71 p71Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, bVar) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65539, null, p71Var) == null) || p71Var == null) {
             return;
         }
         synchronized (sExceptionMutex) {
-            sExceptionListeners.add(bVar);
+            sExceptionListeners.add(p71Var);
         }
     }
 
@@ -100,7 +100,7 @@ public class NativeSignalCapture {
             return;
         }
         synchronized (sANRMutex) {
-            Iterator<a> it = sANRListeners.iterator();
+            Iterator<o71> it = sANRListeners.iterator();
             while (it.hasNext()) {
                 it.next().onNativeANR(i);
             }
@@ -113,7 +113,7 @@ public class NativeSignalCapture {
             return;
         }
         synchronized (sExceptionMutex) {
-            Iterator<b> it = sExceptionListeners.iterator();
+            Iterator<p71> it = sExceptionListeners.iterator();
             while (it.hasNext()) {
                 it.next().a(i, i2, i3);
             }
@@ -124,23 +124,23 @@ public class NativeSignalCapture {
 
     public static native int registerException(int i);
 
-    public static void removeANRListener(a aVar) {
+    public static void removeANRListener(o71 o71Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, o71Var) == null) || o71Var == null) {
             return;
         }
         synchronized (sANRMutex) {
-            sANRListeners.remove(aVar);
+            sANRListeners.remove(o71Var);
         }
     }
 
-    public static void removeExceptionListener(b bVar) {
+    public static void removeExceptionListener(p71 p71Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, null, bVar) == null) || bVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, null, p71Var) == null) || p71Var == null) {
             return;
         }
         synchronized (sExceptionMutex) {
-            sExceptionListeners.remove(bVar);
+            sExceptionListeners.remove(p71Var);
         }
     }
 

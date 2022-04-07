@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CloudControlUBCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_COUNT = "count";
@@ -48,9 +48,9 @@ public class CloudControlUBCData {
             try {
                 this.controlJsonObject.put("count", i + "," + i2 + "," + i3);
                 this.controlJsonObject.put("items", jSONArray);
-            } catch (JSONException e2) {
+            } catch (JSONException e) {
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "collectDegradegInfo is error" + e2.toString());
+                    Log.d(TAG, "collectDegradegInfo is error" + e.toString());
                 }
             }
         }

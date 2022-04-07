@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.stub.activity;
 
 import com.bytedance.pangle.activity.GenerateProxyActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Stub_Standard_Landscape_Activity extends GenerateProxyActivity {
     @Override // com.bytedance.pangle.activity.GenerateProxyActivity, com.bytedance.pangle.activity.b
     public String getPluginPkgName() {

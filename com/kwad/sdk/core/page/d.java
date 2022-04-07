@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.google.protobuf.CodedInputStream;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d extends com.kwad.sdk.h.b {
     public boolean a;
 

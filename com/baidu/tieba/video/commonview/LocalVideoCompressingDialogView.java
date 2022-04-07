@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocalVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CompressProgressView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f36409b;
+    public TextView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalVideoCompressingDialogView(Context context) {
@@ -44,9 +42,9 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d052e, this);
-            this.a = (CompressProgressView) findViewById(R.id.obfuscated_res_0x7f0906a8);
-            this.f36409b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906a7);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0529, this);
+            this.a = (CompressProgressView) findViewById(R.id.obfuscated_res_0x7f0906b1);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b0);
         }
     }
 
@@ -56,7 +54,7 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
             return;
         }
         this.a.setProgress(i);
-        TextView textView = this.f36409b;
+        TextView textView = this.b;
         textView.setText(i + "%");
     }
 

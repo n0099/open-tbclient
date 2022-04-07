@@ -4,15 +4,13 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class h extends b<a> {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String a = "";
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f39343b = "";
+        public String b = "";
     }
 
     public h() {
@@ -21,16 +19,16 @@ public class h extends b<a> {
 
     @Override // com.kwad.sdk.core.config.item.b
     public void a(SharedPreferences.Editor editor) {
-        String b2;
+        String b;
         String str;
         if (a() == null || a().toJson() == null) {
-            b2 = b();
+            b = b();
             str = "";
         } else {
-            b2 = b();
+            b = b();
             str = a().toJson().toString();
         }
-        editor.putString(b2, str);
+        editor.putString(b, str);
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -43,8 +41,8 @@ public class h extends b<a> {
         if (!TextUtils.isEmpty(string)) {
             try {
                 a2.parseJson(new JSONObject(string));
-            } catch (JSONException e2) {
-                com.kwad.sdk.core.d.a.b(e2);
+            } catch (JSONException e) {
+                com.kwad.sdk.core.d.a.b(e);
             }
         }
         a((h) a2);
@@ -68,6 +66,6 @@ public class h extends b<a> {
 
     public String e() {
         a a2 = a();
-        return (a2 == null || TextUtils.isEmpty(a2.f39343b)) ? "" : a2.f39343b;
+        return (a2 == null || TextUtils.isEmpty(a2.b)) ? "" : a2.b;
     }
 }

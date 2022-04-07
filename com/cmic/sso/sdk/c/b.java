@@ -14,12 +14,10 @@ import java.net.InetAddress;
 import java.net.Socket;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String[] f38431b;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
     public final SSLSocketFactory a;
 
@@ -36,7 +34,7 @@ public class b extends SSLSocketFactory {
                 return;
             }
         }
-        f38431b = new String[]{"TLSv1.2"};
+        b = new String[]{"TLSv1.2"};
     }
 
     public b(SSLSocketFactory sSLSocketFactory) {
@@ -66,7 +64,7 @@ public class b extends SSLSocketFactory {
                 for (String str : sSLSocket.getEnabledProtocols()) {
                     c.a("enableProtocol", str);
                 }
-                sSLSocket.setEnabledProtocols(f38431b);
+                sSLSocket.setEnabledProtocols(b);
                 sSLSocket.setEnabledCipherSuites(new String[]{"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"});
             }
             return socket;

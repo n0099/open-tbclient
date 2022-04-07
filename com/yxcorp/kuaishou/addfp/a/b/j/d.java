@@ -13,23 +13,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f44655b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Context f44656c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f44657d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f44658e;
+    public com.yxcorp.kuaishou.addfp.a.b.b b;
+    public Context c;
+    public CountDownLatch d;
+    public ServiceConnection e;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -45,8 +37,8 @@ public final class d {
             }
         }
         this.a = null;
-        this.f44657d = new CountDownLatch(1);
-        this.f44658e = new e(this);
+        this.d = new CountDownLatch(1);
+        this.e = new e(this);
     }
 
     private void a(boolean z) {
@@ -56,7 +48,7 @@ public final class d {
                 try {
                     String a = this.a.a();
                     if (!TextUtils.isEmpty(a)) {
-                        this.f44655b.a(a);
+                        this.b.a(a);
                         return;
                     }
                 } catch (Throwable th) {
@@ -64,7 +56,7 @@ public final class d {
                     return;
                 }
             }
-            this.f44655b.e();
+            this.b.e();
         }
     }
 
@@ -86,10 +78,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                if (this.f44658e == null || context == null) {
+                if (this.e == null || context == null) {
                     return;
                 }
-                context.unbindService(this.f44658e);
+                context.unbindService(this.e);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -100,8 +92,8 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, bVar) == null) {
             try {
-                this.f44655b = bVar;
-                this.f44656c = context;
+                this.b = bVar;
+                this.c = context;
                 if (b(context)) {
                     String packageName = context.getPackageName();
                     Intent intent = new Intent();
@@ -115,11 +107,11 @@ public final class d {
                 intent2.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent2.setAction("com.bun.msa.action.bindto.service");
                 intent2.putExtra("com.bun.msa.param.pkgname", context.getPackageName());
-                if (!context.bindService(intent2, this.f44658e, 1)) {
+                if (!context.bindService(intent2, this.e, 1)) {
                     a(false);
                     return;
                 }
-                this.f44657d.await(10L, TimeUnit.SECONDS);
+                this.d.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {
@@ -137,7 +129,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return this.f44656c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
+                return this.c.getPackageManager().getPackageInfo("com.mdid.msa", 0) != null;
             } catch (Throwable unused) {
                 return false;
             }

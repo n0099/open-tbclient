@@ -27,7 +27,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Zeus {
     public static /* synthetic */ Interceptable $ic;
     public static Application sApplication;
@@ -77,7 +77,7 @@ public class Zeus {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, zeusPluginListener) == null) {
             com.bytedance.pangle.download.g a = com.bytedance.pangle.download.g.a();
             synchronized (a) {
-                Iterator<PluginDownloadBean> it = a.f38091c.iterator();
+                Iterator<PluginDownloadBean> it = a.c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         pluginDownloadBean = null;
@@ -89,7 +89,7 @@ public class Zeus {
                     }
                 }
                 if (pluginDownloadBean == null) {
-                    Iterator<PluginDownloadBean> it2 = a.f38090b.iterator();
+                    Iterator<PluginDownloadBean> it2 = a.b.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
@@ -261,10 +261,10 @@ public class Zeus {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65557, null, zeusPluginStateListener) == null) {
             g a = g.a();
-            if (a.f38134c.isEmpty()) {
-                a.f38134c = new CopyOnWriteArrayList();
+            if (a.c.isEmpty()) {
+                a.c = new CopyOnWriteArrayList();
             }
-            a.f38134c.add(zeusPluginStateListener);
+            a.c.add(zeusPluginStateListener);
         }
     }
 
@@ -283,8 +283,8 @@ public class Zeus {
             if (a != null) {
                 try {
                     return a.c(str);
-                } catch (RemoteException e2) {
-                    ZeusLogger.e(ZeusLogger.TAG_INSTALL, "syncInstallPlugin error.", e2);
+                } catch (RemoteException e) {
+                    ZeusLogger.e(ZeusLogger.TAG_INSTALL, "syncInstallPlugin error.", e);
                     return false;
                 }
             }
@@ -307,8 +307,8 @@ public class Zeus {
         g a;
         List<ZeusPluginStateListener> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).f38134c) != null && list.contains(zeusPluginStateListener)) {
-            a.f38134c.remove(zeusPluginStateListener);
+        if ((interceptable == null || interceptable.invokeL(65561, null, zeusPluginStateListener) == null) && (list = (a = g.a()).c) != null && list.contains(zeusPluginStateListener)) {
+            a.c.remove(zeusPluginStateListener);
         }
     }
 

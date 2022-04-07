@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatisHttpUtil extends AbstractStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] ADDRESSES;

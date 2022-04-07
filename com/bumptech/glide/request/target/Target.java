@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.manager.LifecycleListener;
 import com.bumptech.glide.request.Request;
 import com.bumptech.glide.request.transition.Transition;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface Target<R> extends LifecycleListener {
     public static final int SIZE_ORIGINAL = Integer.MIN_VALUE;
 

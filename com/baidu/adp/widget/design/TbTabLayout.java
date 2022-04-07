@@ -46,7 +46,6 @@ import androidx.core.widget.TextViewCompat;
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -59,10 +58,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TbTabLayout extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] I;
@@ -78,27 +78,13 @@ public class TbTabLayout extends HorizontalScrollView {
     public final Pools.Pool<g> G;
     public int H;
     public final ArrayList<f> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public f f24019b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final e f24020c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f24021d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f24022e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f24023f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f24024g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f24025h;
+    public f b;
+    public final e c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
     public ColorStateList i;
     public float j;
     public float k;
@@ -118,17 +104,13 @@ public class TbTabLayout extends HorizontalScrollView {
     public ValueAnimator y;
     public ViewPager z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class TbTabLayoutOnPageChangeListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final WeakReference<TbTabLayout> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f24026b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f24027c;
+        public int b;
+        public int c;
 
         public TbTabLayoutOnPageChangeListener(TbTabLayout tbTabLayout) {
             Interceptable interceptable = $ic;
@@ -151,8 +133,8 @@ public class TbTabLayout extends HorizontalScrollView {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f24027c = 0;
-                this.f24026b = 0;
+                this.c = 0;
+                this.b = 0;
             }
         }
 
@@ -160,20 +142,20 @@ public class TbTabLayout extends HorizontalScrollView {
         public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.f24026b = this.f24027c;
-                this.f24027c = i;
+                this.b = this.c;
+                this.c = i;
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f2, int i2) {
+        public void onPageScrolled(int i, float f, int i2) {
             TbTabLayout tbTabLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || (tbTabLayout = this.a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) || (tbTabLayout = this.a.get()) == null) {
                 return;
             }
             boolean z = false;
-            tbTabLayout.H(i, f2, this.f24027c != 2 || this.f24026b == 1, (this.f24027c == 2 && this.f24026b == 0) ? true : true);
+            tbTabLayout.H(i, f, this.c != 2 || this.b == 1, (this.c == 2 && this.b == 0) ? true : true);
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -183,12 +165,12 @@ public class TbTabLayout extends HorizontalScrollView {
             if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (tbTabLayout = this.a.get()) == null || tbTabLayout.getSelectedTabPosition() == i || i >= tbTabLayout.getTabCount()) {
                 return;
             }
-            int i2 = this.f24027c;
-            tbTabLayout.F(tbTabLayout.w(i), i2 == 0 || (i2 == 2 && this.f24026b == 0));
+            int i2 = this.c;
+            tbTabLayout.F(tbTabLayout.w(i), i2 == 0 || (i2 == 2 && this.b == 0));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,14 +203,12 @@ public class TbTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b implements ViewPager.OnAdapterChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ TbTabLayout f24028b;
+        public final /* synthetic */ TbTabLayout b;
 
         public b(TbTabLayout tbTabLayout) {
             Interceptable interceptable = $ic;
@@ -245,7 +225,7 @@ public class TbTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f24028b = tbTabLayout;
+            this.b = tbTabLayout;
         }
 
         public void a(boolean z) {
@@ -259,7 +239,7 @@ public class TbTabLayout extends HorizontalScrollView {
         public void onAdapterChanged(@NonNull ViewPager viewPager, @Nullable PagerAdapter pagerAdapter, @Nullable PagerAdapter pagerAdapter2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewPager, pagerAdapter, pagerAdapter2) == null) {
-                TbTabLayout tbTabLayout = this.f24028b;
+                TbTabLayout tbTabLayout = this.b;
                 if (tbTabLayout.z == viewPager) {
                     tbTabLayout.G(pagerAdapter2, this.a);
                 }
@@ -267,7 +247,7 @@ public class TbTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface c {
         void a(f fVar);
 
@@ -276,7 +256,7 @@ public class TbTabLayout extends HorizontalScrollView {
         void e(f fVar);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class d extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -317,53 +297,31 @@ public class TbTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class e extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f24029b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f24030c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public final Paint f24031d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f24032e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public float f24033f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f24034g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public int f24035h;
+        public int b;
+        public int c;
+        public final Paint d;
+        public int e;
+        public float f;
+        public int g;
+        public int h;
         public int i;
         public ValueAnimator j;
         public final /* synthetic */ TbTabLayout k;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public class a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f24036b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ int f24037c;
-
-            /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ int f24038d;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ e f24039e;
+            public final /* synthetic */ int b;
+            public final /* synthetic */ int c;
+            public final /* synthetic */ int d;
+            public final /* synthetic */ e e;
 
             public a(e eVar, int i, int i2, int i3, int i4) {
                 Interceptable interceptable = $ic;
@@ -380,11 +338,11 @@ public class TbTabLayout extends HorizontalScrollView {
                         return;
                     }
                 }
-                this.f24039e = eVar;
+                this.e = eVar;
                 this.a = i;
-                this.f24036b = i2;
-                this.f24037c = i3;
-                this.f24038d = i4;
+                this.b = i2;
+                this.c = i3;
+                this.d = i4;
             }
 
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -392,19 +350,17 @@ public class TbTabLayout extends HorizontalScrollView {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                     float animatedFraction = valueAnimator.getAnimatedFraction();
-                    this.f24039e.d(TbTabLayout.y(this.a, this.f24036b, animatedFraction), TbTabLayout.y(this.f24037c, this.f24038d, animatedFraction));
+                    this.e.d(TbTabLayout.y(this.a, this.b, animatedFraction), TbTabLayout.y(this.c, this.d, animatedFraction));
                 }
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes.dex */
         public class b extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ e f24040b;
+            public final /* synthetic */ e b;
 
             public b(e eVar, int i) {
                 Interceptable interceptable = $ic;
@@ -421,7 +377,7 @@ public class TbTabLayout extends HorizontalScrollView {
                         return;
                     }
                 }
-                this.f24040b = eVar;
+                this.b = eVar;
                 this.a = i;
             }
 
@@ -429,9 +385,9 @@ public class TbTabLayout extends HorizontalScrollView {
             public void onAnimationEnd(Animator animator) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                    e eVar = this.f24040b;
-                    eVar.f24032e = this.a;
-                    eVar.f24033f = 0.0f;
+                    e eVar = this.b;
+                    eVar.e = this.a;
+                    eVar.f = 0.0f;
                 }
             }
         }
@@ -455,15 +411,15 @@ public class TbTabLayout extends HorizontalScrollView {
                 }
             }
             this.k = tbTabLayout;
-            this.f24032e = -1;
-            this.f24034g = -1;
-            this.f24035h = -1;
+            this.e = -1;
+            this.g = -1;
+            this.h = -1;
             this.i = -1;
             setWillNotDraw(false);
             Paint paint = new Paint();
-            this.f24031d = paint;
+            this.d = paint;
             paint.setStrokeCap(Paint.Cap.ROUND);
-            this.f24031d.setAntiAlias(true);
+            this.d.setAntiAlias(true);
         }
 
         public void a(int i, int i2) {
@@ -483,12 +439,12 @@ public class TbTabLayout extends HorizontalScrollView {
                 }
                 int left = childAt.getLeft();
                 int right = childAt.getRight();
-                if (Math.abs(i - this.f24032e) <= 1) {
-                    i3 = this.f24035h;
+                if (Math.abs(i - this.e) <= 1) {
+                    i3 = this.h;
                     i4 = this.i;
                 } else {
                     int u = this.k.u(24);
-                    i3 = (i >= this.f24032e ? !z : z) ? left - u : u + right;
+                    i3 = (i >= this.e ? !z : z) ? left - u : u + right;
                     i4 = i3;
                 }
                 if (i3 == left && i4 == right) {
@@ -523,16 +479,16 @@ public class TbTabLayout extends HorizontalScrollView {
         public float c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24032e + this.f24033f : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e + this.f : invokeV.floatValue;
         }
 
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-                if (i == this.f24035h && i2 == this.i) {
+                if (i == this.h && i2 == this.i) {
                     return;
                 }
-                this.f24035h = i;
+                this.h = i;
                 this.i = i2;
                 ViewCompat.postInvalidateOnAnimation(this);
             }
@@ -546,55 +502,55 @@ public class TbTabLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
                 super.draw(canvas);
-                int i2 = this.f24035h;
+                int i2 = this.h;
                 if (i2 >= 0 && (i = this.i) > i2) {
-                    int i3 = this.f24030c;
+                    int i3 = this.c;
                     int i4 = (i3 <= 0 || i - i2 <= i3) ? 0 : ((i - i2) - i3) / 2;
-                    canvas.drawLine(this.f24035h + i4, (getHeight() - (this.a / 2)) - this.f24029b, this.i - i4, (getHeight() - (this.a / 2)) - this.f24029b, this.f24031d);
+                    canvas.drawLine(this.h + i4, (getHeight() - (this.a / 2)) - this.b, this.i - i4, (getHeight() - (this.a / 2)) - this.b, this.d);
                 }
                 for (int childCount = getChildCount() - 1; childCount >= 0; childCount--) {
                     if (getChildAt(childCount) instanceof g) {
                         g gVar = (g) getChildAt(childCount);
-                        if (gVar.f24053g != null) {
+                        if (gVar.g != null) {
                             TextView textView = null;
-                            if (gVar.f24048b != null) {
-                                textView = gVar.f24048b;
-                            } else if (gVar.f24051e != null) {
-                                textView = gVar.f24051e;
+                            if (gVar.b != null) {
+                                textView = gVar.b;
+                            } else if (gVar.e != null) {
+                                textView = gVar.e;
                             }
                             if (textView != null) {
-                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - n.f(getContext(), R.dimen.tbds3);
-                                int top = (textView.getTop() - (gVar.f24053g.getIntrinsicHeight() / 2)) + n.f(getContext(), R.dimen.tbds10);
-                                gVar.f24053g.setBounds(right, top, gVar.f24053g.getIntrinsicWidth() + right, gVar.f24053g.getIntrinsicHeight() + top);
-                                gVar.f24053g.draw(canvas);
-                                if (!TextUtils.isEmpty(gVar.f24054h)) {
-                                    if (gVar.f24054h.equals(StringHelper.STRING_MORE)) {
+                                int right = (gVar.getRight() - (gVar.getWidth() - textView.getRight())) - oi.f(getContext(), R.dimen.tbds3);
+                                int top = (textView.getTop() - (gVar.g.getIntrinsicHeight() / 2)) + oi.f(getContext(), R.dimen.tbds10);
+                                gVar.g.setBounds(right, top, gVar.g.getIntrinsicWidth() + right, gVar.g.getIntrinsicHeight() + top);
+                                gVar.g.draw(canvas);
+                                if (!TextUtils.isEmpty(gVar.h)) {
+                                    if (gVar.h.equals(StringHelper.STRING_MORE)) {
                                         Drawable drawable = SkinManager.getDrawable(R.drawable.icon_news_white_dot);
-                                        int intrinsicWidth = right + (gVar.f24053g.getIntrinsicWidth() / 2);
-                                        int intrinsicHeight2 = top + (gVar.f24053g.getIntrinsicHeight() / 2);
-                                        int f2 = n.f(getContext(), R.dimen.tbds6);
-                                        int f3 = n.f(getContext(), R.dimen.tbds7);
-                                        int i5 = f2 / 2;
+                                        int intrinsicWidth = right + (gVar.g.getIntrinsicWidth() / 2);
+                                        int intrinsicHeight2 = top + (gVar.g.getIntrinsicHeight() / 2);
+                                        int f = oi.f(getContext(), R.dimen.tbds6);
+                                        int f2 = oi.f(getContext(), R.dimen.tbds7);
+                                        int i5 = f / 2;
                                         int i6 = intrinsicWidth - i5;
                                         int i7 = intrinsicHeight2 - i5;
                                         int i8 = intrinsicWidth + i5;
                                         int i9 = intrinsicHeight2 + i5;
                                         drawable.setBounds(i6, i7, i8, i9);
                                         drawable.draw(canvas);
-                                        int i10 = i6 - f3;
-                                        drawable.setBounds(i10 - f2, i7, i10, i9);
+                                        int i10 = i6 - f2;
+                                        drawable.setBounds(i10 - f, i7, i10, i9);
                                         drawable.draw(canvas);
-                                        int i11 = i8 + f3;
-                                        drawable.setBounds(i11, i7, f2 + i11, i9);
+                                        int i11 = i8 + f2;
+                                        drawable.setBounds(i11, i7, f + i11, i9);
                                         drawable.draw(canvas);
                                     } else {
                                         Paint paint = new Paint(1);
                                         paint.setColor(SkinManager.getColor(R.color.CAM_X0101));
-                                        paint.setTextSize(n.f(getContext(), R.dimen.tbfontsize26));
+                                        paint.setTextSize(oi.f(getContext(), R.dimen.tbfontsize26));
                                         paint.setTextAlign(Paint.Align.CENTER);
                                         paint.setTypeface(Typeface.MONOSPACE);
-                                        paint.getTextBounds(gVar.f24054h, 0, gVar.f24054h.length(), new Rect());
-                                        canvas.drawText(gVar.f24054h, right + (gVar.f24053g.getIntrinsicWidth() / 2), (intrinsicHeight - ((gVar.f24053g.getIntrinsicHeight() - rect.height()) / 2)) - this.k.H, paint);
+                                        paint.getTextBounds(gVar.h, 0, gVar.h.length(), new Rect());
+                                        canvas.drawText(gVar.h, right + (gVar.g.getIntrinsicWidth() / 2), (intrinsicHeight - ((gVar.g.getIntrinsicHeight() - rect.height()) / 2)) - this.k.H, paint);
                                     }
                                 }
                             }
@@ -604,34 +560,34 @@ public class TbTabLayout extends HorizontalScrollView {
             }
         }
 
-        public void e(int i, float f2) {
+        public void e(int i, float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
                 ValueAnimator valueAnimator = this.j;
                 if (valueAnimator != null && valueAnimator.isRunning()) {
                     this.j.cancel();
                 }
-                this.f24032e = i;
-                this.f24033f = f2;
+                this.e = i;
+                this.f = f;
                 j();
             }
         }
 
         public void f(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.f24029b == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.b == i) {
                 return;
             }
-            this.f24029b = i;
+            this.b = i;
             ViewCompat.postInvalidateOnAnimation(this);
         }
 
         public void g(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.f24031d.getColor() == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.d.getColor() == i) {
                 return;
             }
-            this.f24031d.setColor(i);
+            this.d.setColor(i);
             ViewCompat.postInvalidateOnAnimation(this);
         }
 
@@ -641,16 +597,16 @@ public class TbTabLayout extends HorizontalScrollView {
                 return;
             }
             this.a = i;
-            this.f24031d.setStrokeWidth(i);
+            this.d.setStrokeWidth(i);
             ViewCompat.postInvalidateOnAnimation(this);
         }
 
         public void i(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.f24030c == i) {
+            if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.c == i) {
                 return;
             }
-            this.f24030c = i;
+            this.c = i;
             ViewCompat.postInvalidateOnAnimation(this);
         }
 
@@ -659,19 +615,19 @@ public class TbTabLayout extends HorizontalScrollView {
             int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-                View childAt = getChildAt(this.f24032e);
+                View childAt = getChildAt(this.e);
                 if (childAt == null || childAt.getWidth() <= 0) {
                     i = -1;
                     i2 = -1;
                 } else {
                     i = childAt.getLeft();
                     i2 = childAt.getRight();
-                    if (this.f24033f > 0.0f && this.f24032e < getChildCount() - 1) {
-                        View childAt2 = getChildAt(this.f24032e + 1);
-                        float left = this.f24033f * childAt2.getLeft();
-                        float f2 = this.f24033f;
-                        i = (int) (left + ((1.0f - f2) * i));
-                        i2 = (int) ((f2 * childAt2.getRight()) + ((1.0f - this.f24033f) * i2));
+                    if (this.f > 0.0f && this.e < getChildCount() - 1) {
+                        View childAt2 = getChildAt(this.e + 1);
+                        float left = this.f * childAt2.getLeft();
+                        float f = this.f;
+                        i = (int) (left + ((1.0f - f) * i));
+                        i2 = (int) ((f * childAt2.getRight()) + ((1.0f - this.f) * i2));
                     }
                 }
                 d(i, i2);
@@ -686,7 +642,7 @@ public class TbTabLayout extends HorizontalScrollView {
                 ValueAnimator valueAnimator = this.j;
                 if (valueAnimator != null && valueAnimator.isRunning()) {
                     this.j.cancel();
-                    a(this.f24032e, Math.round((1.0f - this.j.getAnimatedFraction()) * ((float) this.j.getDuration())));
+                    a(this.e, Math.round((1.0f - this.j.getAnimatedFraction()) * ((float) this.j.getDuration())));
                     return;
                 }
                 j();
@@ -743,41 +699,27 @@ public class TbTabLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
                 super.onRtlPropertiesChanged(i);
-                if (Build.VERSION.SDK_INT >= 23 || this.f24034g == i) {
+                if (Build.VERSION.SDK_INT >= 23 || this.g == i) {
                     return;
                 }
                 requestLayout();
-                this.f24034g = i;
+                this.g = i;
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Drawable a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public CharSequence f24041b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public CharSequence f24042c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f24043d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public View f24044e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f24045f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f24046g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f24047h;
+        public CharSequence b;
+        public CharSequence c;
+        public int d;
+        public View e;
+        public int f;
+        public int g;
+        public boolean h;
         public TbTabLayout i;
         public g j;
 
@@ -794,23 +736,23 @@ public class TbTabLayout extends HorizontalScrollView {
                     return;
                 }
             }
-            this.f24043d = -1;
-            this.f24046g = 0;
-            this.f24047h = false;
+            this.d = -1;
+            this.g = 0;
+            this.h = false;
         }
 
         @Nullable
         public CharSequence a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24042c : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (CharSequence) invokeV.objValue;
         }
 
         @Nullable
         public View b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24044e : (View) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (View) invokeV.objValue;
         }
 
         @Nullable
@@ -823,26 +765,26 @@ public class TbTabLayout extends HorizontalScrollView {
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24045f : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.intValue;
         }
 
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f24043d : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
         }
 
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f24046g : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : invokeV.intValue;
         }
 
         @Nullable
         public CharSequence g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f24041b : (CharSequence) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (CharSequence) invokeV.objValue;
         }
 
         public boolean h() {
@@ -851,7 +793,7 @@ public class TbTabLayout extends HorizontalScrollView {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 TbTabLayout tbTabLayout = this.i;
                 if (tbTabLayout != null) {
-                    return tbTabLayout.getSelectedTabPosition() == this.f24043d;
+                    return tbTabLayout.getSelectedTabPosition() == this.d;
                 }
                 throw new IllegalArgumentException("Tab not attached to a TbTabLayout");
             }
@@ -861,15 +803,15 @@ public class TbTabLayout extends HorizontalScrollView {
         public boolean i() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24047h : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : invokeV.booleanValue;
         }
 
         public f j(int i, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-                this.f24046g = i;
-                this.f24047h = z;
+                this.g = i;
+                this.h = z;
                 t();
                 return this;
             }
@@ -882,10 +824,10 @@ public class TbTabLayout extends HorizontalScrollView {
                 this.i = null;
                 this.j = null;
                 this.a = null;
-                this.f24041b = null;
-                this.f24042c = null;
-                this.f24043d = -1;
-                this.f24044e = null;
+                this.b = null;
+                this.c = null;
+                this.d = -1;
+                this.e = null;
             }
         }
 
@@ -906,7 +848,7 @@ public class TbTabLayout extends HorizontalScrollView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, charSequence)) == null) {
-                this.f24042c = charSequence;
+                this.c = charSequence;
                 t();
                 return this;
             }
@@ -925,11 +867,11 @@ public class TbTabLayout extends HorizontalScrollView {
         }
 
         @NonNull
-        public f o(@Nullable View view) {
+        public f o(@Nullable View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view)) == null) {
-                this.f24044e = view;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, view2)) == null) {
+                this.e = view2;
                 t();
                 return this;
             }
@@ -952,7 +894,7 @@ public class TbTabLayout extends HorizontalScrollView {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-                this.f24045f = i;
+                this.f = i;
                 return this;
             }
             return (f) invokeI.objValue;
@@ -961,7 +903,7 @@ public class TbTabLayout extends HorizontalScrollView {
         public void r(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-                this.f24043d = i;
+                this.d = i;
             }
         }
 
@@ -970,7 +912,7 @@ public class TbTabLayout extends HorizontalScrollView {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
-                this.f24041b = charSequence;
+                this.b = charSequence;
                 t();
                 return this;
             }
@@ -987,32 +929,18 @@ public class TbTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class g extends LinearLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public f a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f24048b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ImageView f24049c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public View f24050d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f24051e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public ImageView f24052f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public Drawable f24053g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f24054h;
+        public TextView b;
+        public ImageView c;
+        public View d;
+        public TextView e;
+        public ImageView f;
+        public Drawable g;
+        public String h;
         public int i;
         public final /* synthetic */ TbTabLayout j;
 
@@ -1040,17 +968,17 @@ public class TbTabLayout extends HorizontalScrollView {
             if (i3 != 0) {
                 ViewCompat.setBackground(this, AppCompatResources.getDrawable(context, i3));
             }
-            ViewCompat.setPaddingRelative(this, tbTabLayout.f24021d, tbTabLayout.f24022e, tbTabLayout.f24023f, tbTabLayout.f24024g);
+            ViewCompat.setPaddingRelative(this, tbTabLayout.d, tbTabLayout.e, tbTabLayout.f, tbTabLayout.g);
             setGravity(17);
             setOrientation(1);
             setClickable(true);
             ViewCompat.setPointerIcon(this, PointerIconCompat.getSystemIcon(getContext(), 1002));
         }
 
-        public final float e(Layout layout, int i, float f2) {
+        public final float e(Layout layout, int i, float f) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{layout, Integer.valueOf(i), Float.valueOf(f2)})) == null) ? layout.getLineWidth(i) * (f2 / layout.getPaint().getTextSize()) : invokeCommon.floatValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{layout, Integer.valueOf(i), Float.valueOf(f)})) == null) ? layout.getLineWidth(i) * (f / layout.getPaint().getTextSize()) : invokeCommon.floatValue;
         }
 
         public void f() {
@@ -1073,44 +1001,44 @@ public class TbTabLayout extends HorizontalScrollView {
         public final void h(boolean z) {
             TextView textView;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.f24048b) == null) {
+            if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.b) == null) {
                 return;
             }
             if (z) {
-                float f2 = this.j.l;
-                if (f2 > 0.0f) {
-                    textView.setTextSize(0, f2);
+                float f = this.j.l;
+                if (f > 0.0f) {
+                    textView.setTextSize(0, f);
                     if (!z && this.j.m) {
-                        this.f24048b.setTypeface(Typeface.defaultFromStyle(1));
+                        this.b.setTypeface(Typeface.defaultFromStyle(1));
                         return;
                     } else {
-                        this.f24048b.setTypeface(Typeface.defaultFromStyle(0));
+                        this.b.setTypeface(Typeface.defaultFromStyle(0));
                     }
                 }
             }
-            this.f24048b.setTextSize(0, this.j.j);
+            this.b.setTextSize(0, this.j.j);
             if (!z) {
             }
-            this.f24048b.setTypeface(Typeface.defaultFromStyle(0));
+            this.b.setTypeface(Typeface.defaultFromStyle(0));
         }
 
         public final void i(@Nullable TextView textView, @Nullable ImageView imageView) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, textView, imageView) == null) {
                 f fVar = this.a;
-                Drawable c2 = fVar != null ? fVar.c() : null;
+                Drawable c = fVar != null ? fVar.c() : null;
                 f fVar2 = this.a;
-                CharSequence g2 = fVar2 != null ? fVar2.g() : null;
+                CharSequence g = fVar2 != null ? fVar2.g() : null;
                 f fVar3 = this.a;
                 CharSequence a = fVar3 != null ? fVar3.a() : null;
                 f fVar4 = this.a;
                 int i = 0;
-                int f2 = fVar4 != null ? fVar4.f() : 0;
+                int f = fVar4 != null ? fVar4.f() : 0;
                 f fVar5 = this.a;
                 boolean i2 = fVar5 != null ? fVar5.i() : false;
                 if (imageView != null) {
-                    if (c2 != null) {
-                        imageView.setImageDrawable(c2);
+                    if (c != null) {
+                        imageView.setImageDrawable(c);
                         imageView.setVisibility(0);
                         setVisibility(0);
                     } else {
@@ -1119,10 +1047,10 @@ public class TbTabLayout extends HorizontalScrollView {
                     }
                     imageView.setContentDescription(a);
                 }
-                boolean z = !TextUtils.isEmpty(g2);
+                boolean z = !TextUtils.isEmpty(g);
                 if (textView != null) {
                     if (z) {
-                        textView.setText(g2);
+                        textView.setText(g);
                         textView.setVisibility(0);
                         setVisibility(0);
                     } else {
@@ -1133,24 +1061,24 @@ public class TbTabLayout extends HorizontalScrollView {
                 }
                 if (textView != null && z) {
                     if (i2) {
-                        if (f2 <= 0) {
-                            this.f24053g = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
-                            this.f24054h = null;
-                        } else if (f2 < 10) {
-                            this.f24053g = SkinManager.getDrawable(R.drawable.icon_news_red_dot_one_number);
-                            this.f24054h = String.valueOf(f2);
-                        } else if (f2 < 100) {
-                            this.f24053g = SkinManager.getDrawable(R.drawable.icon_news_red_dot_two_number);
-                            this.f24054h = String.valueOf(f2);
+                        if (f <= 0) {
+                            this.g = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
+                            this.h = null;
+                        } else if (f < 10) {
+                            this.g = SkinManager.getDrawable(R.drawable.icon_news_red_dot_one_number);
+                            this.h = String.valueOf(f);
+                        } else if (f < 100) {
+                            this.g = SkinManager.getDrawable(R.drawable.icon_news_red_dot_two_number);
+                            this.h = String.valueOf(f);
                         } else {
-                            this.f24053g = SkinManager.getDrawable(R.drawable.icon_news_red_dot_two_number);
-                            this.f24054h = StringHelper.STRING_MORE;
+                            this.g = SkinManager.getDrawable(R.drawable.icon_news_red_dot_two_number);
+                            this.h = StringHelper.STRING_MORE;
                         }
-                        if (this.f24053g == null) {
-                            this.f24053g = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
+                        if (this.g == null) {
+                            this.g = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
                         }
                     } else {
-                        this.f24053g = null;
+                        this.g = null;
                     }
                 }
                 if (imageView != null) {
@@ -1196,30 +1124,30 @@ public class TbTabLayout extends HorizontalScrollView {
                     i = View.MeasureSpec.makeMeasureSpec(this.j.o, Integer.MIN_VALUE);
                 }
                 super.onMeasure(i, i2);
-                if (this.f24048b != null) {
+                if (this.b != null) {
                     getResources();
-                    float f2 = this.j.j;
+                    float f = this.j.j;
                     int i3 = this.i;
-                    ImageView imageView = this.f24049c;
+                    ImageView imageView = this.c;
                     boolean z = true;
                     if (imageView == null || imageView.getVisibility() != 0) {
-                        TextView textView = this.f24048b;
+                        TextView textView = this.b;
                         if (textView != null && textView.getLineCount() > 1) {
-                            f2 = this.j.k;
+                            f = this.j.k;
                         }
                     } else {
                         i3 = 1;
                     }
-                    float textSize = this.f24048b.getTextSize();
-                    int lineCount = this.f24048b.getLineCount();
-                    int maxLines = TextViewCompat.getMaxLines(this.f24048b);
-                    int i4 = (f2 > textSize ? 1 : (f2 == textSize ? 0 : -1));
+                    float textSize = this.b.getTextSize();
+                    int lineCount = this.b.getLineCount();
+                    int maxLines = TextViewCompat.getMaxLines(this.b);
+                    int i4 = (f > textSize ? 1 : (f == textSize ? 0 : -1));
                     if (i4 != 0 || (maxLines >= 0 && i3 != maxLines)) {
-                        if (this.j.u == 1 && i4 > 0 && lineCount == 1 && ((layout = this.f24048b.getLayout()) == null || e(layout, 0, f2) > (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight())) {
+                        if (this.j.u == 1 && i4 > 0 && lineCount == 1 && ((layout = this.b.getLayout()) == null || e(layout, 0, f) > (getMeasuredWidth() - getPaddingLeft()) - getPaddingRight())) {
                             z = false;
                         }
                         if (z) {
-                            this.f24048b.setMaxLines(i3);
+                            this.b.setMaxLines(i3);
                             super.onMeasure(i, i2);
                         }
                     }
@@ -1257,17 +1185,17 @@ public class TbTabLayout extends HorizontalScrollView {
                 if (z2 && z && Build.VERSION.SDK_INT < 16) {
                     sendAccessibilityEvent(4);
                 }
-                TextView textView = this.f24048b;
+                TextView textView = this.b;
                 if (textView != null) {
                     textView.setSelected(z);
                 }
-                ImageView imageView = this.f24049c;
+                ImageView imageView = this.c;
                 if (imageView != null) {
                     imageView.setSelected(z);
                 }
-                View view = this.f24050d;
-                if (view != null) {
-                    view.setSelected(z);
+                View view2 = this.d;
+                if (view2 != null) {
+                    view2.setSelected(z);
                 }
                 h(z);
             }
@@ -1277,61 +1205,61 @@ public class TbTabLayout extends HorizontalScrollView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 f fVar = this.a;
-                View b2 = fVar != null ? fVar.b() : null;
-                if (b2 != null) {
-                    ViewParent parent = b2.getParent();
+                View b = fVar != null ? fVar.b() : null;
+                if (b != null) {
+                    ViewParent parent = b.getParent();
                     if (parent != this) {
                         if (parent != null) {
-                            ((ViewGroup) parent).removeView(b2);
+                            ((ViewGroup) parent).removeView(b);
                         }
-                        addView(b2);
+                        addView(b);
                     }
-                    this.f24050d = b2;
-                    TextView textView = this.f24048b;
+                    this.d = b;
+                    TextView textView = this.b;
                     if (textView != null) {
                         textView.setVisibility(8);
                     }
-                    ImageView imageView = this.f24049c;
+                    ImageView imageView = this.c;
                     if (imageView != null) {
                         imageView.setVisibility(8);
-                        this.f24049c.setImageDrawable(null);
+                        this.c.setImageDrawable(null);
                     }
-                    TextView textView2 = (TextView) b2.findViewById(16908308);
-                    this.f24051e = textView2;
+                    TextView textView2 = (TextView) b.findViewById(16908308);
+                    this.e = textView2;
                     if (textView2 != null) {
                         this.i = TextViewCompat.getMaxLines(textView2);
                     }
-                    this.f24052f = (ImageView) b2.findViewById(16908294);
+                    this.f = (ImageView) b.findViewById(16908294);
                 } else {
-                    View view = this.f24050d;
-                    if (view != null) {
-                        removeView(view);
-                        this.f24050d = null;
+                    View view2 = this.d;
+                    if (view2 != null) {
+                        removeView(view2);
+                        this.d = null;
                     }
-                    this.f24051e = null;
-                    this.f24052f = null;
+                    this.e = null;
+                    this.f = null;
                 }
                 boolean z = false;
-                if (this.f24050d == null) {
-                    if (this.f24049c == null) {
-                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0221, (ViewGroup) this, false);
+                if (this.d == null) {
+                    if (this.c == null) {
+                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0222, (ViewGroup) this, false);
                         addView(imageView2, 0);
-                        this.f24049c = imageView2;
+                        this.c = imageView2;
                     }
-                    if (this.f24048b == null) {
-                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0222, (ViewGroup) this, false);
+                    if (this.b == null) {
+                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0223, (ViewGroup) this, false);
                         addView(textView3);
-                        this.f24048b = textView3;
+                        this.b = textView3;
                         this.i = TextViewCompat.getMaxLines(textView3);
                     }
-                    TextViewCompat.setTextAppearance(this.f24048b, this.j.f24025h);
+                    TextViewCompat.setTextAppearance(this.b, this.j.h);
                     ColorStateList colorStateList = this.j.i;
                     if (colorStateList != null) {
-                        this.f24048b.setTextColor(colorStateList);
+                        this.b.setTextColor(colorStateList);
                     }
-                    i(this.f24048b, this.f24049c);
-                } else if (this.f24051e != null || this.f24052f != null) {
-                    i(this.f24051e, this.f24052f);
+                    i(this.b, this.c);
+                } else if (this.e != null || this.f != null) {
+                    i(this.e, this.f);
                 }
                 if (fVar != null && fVar.h()) {
                     z = true;
@@ -1341,7 +1269,7 @@ public class TbTabLayout extends HorizontalScrollView {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class h implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1454,7 +1382,7 @@ public class TbTabLayout extends HorizontalScrollView {
     private float getScrollPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.f24020c.c() : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? this.c.c() : invokeV.floatValue;
     }
 
     private int getTabMinWidth() {
@@ -1476,7 +1404,7 @@ public class TbTabLayout extends HorizontalScrollView {
     private int getTabScrollRange() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? Math.max(0, ((this.f24020c.getWidth() - getWidth()) - getPaddingLeft()) - getPaddingRight()) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? Math.max(0, ((this.c.getWidth() - getWidth()) - getPaddingLeft()) - getPaddingRight()) : invokeV.intValue;
     }
 
     public static void m(Context context) {
@@ -1500,12 +1428,12 @@ public class TbTabLayout extends HorizontalScrollView {
     private void setSelectedTabView(int i) {
         int childCount;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65548, this, i) == null) || i >= (childCount = this.f24020c.getChildCount())) {
+        if (!(interceptable == null || interceptable.invokeI(65548, this, i) == null) || i >= (childCount = this.c.getChildCount())) {
             return;
         }
         int i2 = 0;
         while (i2 < childCount) {
-            this.f24020c.getChildAt(i2).setSelected(i2 == i);
+            this.c.getChildAt(i2).setSelected(i2 == i);
             i2++;
         }
     }
@@ -1541,7 +1469,7 @@ public class TbTabLayout extends HorizontalScrollView {
     public void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int childCount = this.f24020c.getChildCount() - 1; childCount >= 0; childCount--) {
+            for (int childCount = this.c.getChildCount() - 1; childCount >= 0; childCount--) {
                 D(childCount);
             }
             Iterator<f> it = this.a.iterator();
@@ -1551,7 +1479,7 @@ public class TbTabLayout extends HorizontalScrollView {
                 next.k();
                 K.release(next);
             }
-            this.f24019b = null;
+            this.b = null;
         }
     }
 
@@ -1565,8 +1493,8 @@ public class TbTabLayout extends HorizontalScrollView {
     public final void D(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            g gVar = (g) this.f24020c.getChildAt(i);
-            this.f24020c.removeViewAt(i);
+            g gVar = (g) this.c.getChildAt(i);
+            this.c.removeViewAt(i);
             if (gVar != null) {
                 gVar.f();
                 this.G.release(gVar);
@@ -1585,7 +1513,7 @@ public class TbTabLayout extends HorizontalScrollView {
     public void F(f fVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, fVar, z) == null) {
-            f fVar2 = this.f24019b;
+            f fVar2 = this.b;
             if (fVar2 == fVar) {
                 if (fVar2 != null) {
                     r(fVar);
@@ -1608,7 +1536,7 @@ public class TbTabLayout extends HorizontalScrollView {
             if (fVar2 != null) {
                 t(fVar2);
             }
-            this.f24019b = fVar;
+            this.b = fVar;
             if (fVar != null) {
                 s(fVar);
             }
@@ -1637,11 +1565,11 @@ public class TbTabLayout extends HorizontalScrollView {
     public void H(int i, float f2, boolean z, boolean z2) {
         int round;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (round = Math.round(i + f2)) < 0 || round >= this.f24020c.getChildCount()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (round = Math.round(i + f2)) < 0 || round >= this.c.getChildCount()) {
             return;
         }
         if (z2) {
-            this.f24020c.e(i, f2);
+            this.c.e(i, f2);
         }
         ValueAnimator valueAnimator = this.y;
         if (valueAnimator != null && valueAnimator.isRunning()) {
@@ -1726,8 +1654,8 @@ public class TbTabLayout extends HorizontalScrollView {
     public void L(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            for (int i = 0; i < this.f24020c.getChildCount(); i++) {
-                View childAt = this.f24020c.getChildAt(i);
+            for (int i = 0; i < this.c.getChildCount(); i++) {
+                View childAt = this.c.getChildAt(i);
                 childAt.setMinimumWidth(getTabMinWidth());
                 K((LinearLayout.LayoutParams) childAt.getLayoutParams());
                 if (z) {
@@ -1738,10 +1666,10 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public void addView(View view) {
+    public void addView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
-            i(view);
+        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
+            i(view2);
         }
     }
 
@@ -1791,11 +1719,11 @@ public class TbTabLayout extends HorizontalScrollView {
             if (charSequence != null) {
                 z.s(charSequence);
             }
-            Drawable drawable = tbTabItem.f24017b;
+            Drawable drawable = tbTabItem.b;
             if (drawable != null) {
                 z.p(drawable);
             }
-            int i = tbTabItem.f24018c;
+            int i = tbTabItem.c;
             if (i != 0) {
                 z.n(i);
             }
@@ -1810,7 +1738,7 @@ public class TbTabLayout extends HorizontalScrollView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            f fVar = this.f24019b;
+            f fVar = this.b;
             if (fVar != null) {
                 return fVar.e();
             }
@@ -1853,15 +1781,15 @@ public class TbTabLayout extends HorizontalScrollView {
     public final void h(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, fVar) == null) {
-            this.f24020c.addView(fVar.j, fVar.e(), p());
+            this.c.addView(fVar.j, fVar.e(), p());
         }
     }
 
-    public final void i(View view) {
+    public final void i(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, view) == null) {
-            if (view instanceof TbTabItem) {
-                g((TbTabItem) view);
+        if (interceptable == null || interceptable.invokeL(1048606, this, view2) == null) {
+            if (view2 instanceof TbTabItem) {
+                g((TbTabItem) view2);
                 return;
             }
             throw new IllegalArgumentException("Only FcTabItem instances can be added to TbTabLayout");
@@ -1873,7 +1801,7 @@ public class TbTabLayout extends HorizontalScrollView {
         if (!(interceptable == null || interceptable.invokeI(1048607, this, i) == null) || i == -1) {
             return;
         }
-        if (getWindowToken() != null && ViewCompat.isLaidOut(this) && !this.f24020c.b()) {
+        if (getWindowToken() != null && ViewCompat.isLaidOut(this) && !this.c.b()) {
             int scrollX = getScrollX();
             int l = l(i, 0.0f);
             if (scrollX != l) {
@@ -1881,7 +1809,7 @@ public class TbTabLayout extends HorizontalScrollView {
                 this.y.setIntValues(scrollX, l);
                 this.y.start();
             }
-            this.f24020c.a(i, 300);
+            this.c.a(i, 300);
             return;
         }
         setScrollPosition(i, 0.0f, true);
@@ -1890,12 +1818,12 @@ public class TbTabLayout extends HorizontalScrollView {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            ViewCompat.setPaddingRelative(this.f24020c, this.u == 0 ? Math.max(0, this.s - this.f24021d) : 0, 0, 0, 0);
+            ViewCompat.setPaddingRelative(this.c, this.u == 0 ? Math.max(0, this.s - this.d) : 0, 0, 0, 0);
             int i = this.u;
             if (i == 0) {
-                this.f24020c.setGravity(GravityCompat.START);
+                this.c.setGravity(GravityCompat.START);
             } else if (i == 1) {
-                this.f24020c.setGravity(1);
+                this.c.setGravity(1);
             }
             L(true);
         }
@@ -1906,9 +1834,9 @@ public class TbTabLayout extends HorizontalScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
             if (this.u == 0) {
-                View childAt = this.f24020c.getChildAt(i);
+                View childAt = this.c.getChildAt(i);
                 int i2 = i + 1;
-                View childAt2 = i2 < this.f24020c.getChildCount() ? this.f24020c.getChildAt(i2) : null;
+                View childAt2 = i2 < this.c.getChildCount() ? this.c.getChildAt(i2) : null;
                 int width = childAt != null ? childAt.getWidth() : 0;
                 int width2 = childAt2 != null ? childAt2.getWidth() : 0;
                 int left = ((childAt != null ? childAt.getLeft() : 0) + (width / 2)) - (getWidth() / 2);
@@ -2100,28 +2028,28 @@ public class TbTabLayout extends HorizontalScrollView {
     public void setSelectedIndicatorBottomMargin(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
-            this.f24020c.f(i);
+            this.c.f(i);
         }
     }
 
     public void setSelectedTabIndicatorColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
-            this.f24020c.g(i);
+            this.c.g(i);
         }
     }
 
     public void setSelectedTabIndicatorHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
-            this.f24020c.h(i);
+            this.c.h(i);
         }
     }
 
     public void setSelectedTabIndicatorWidth(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
-            this.f24020c.i(i);
+            this.c.i(i);
         }
     }
 
@@ -2239,7 +2167,7 @@ public class TbTabLayout extends HorizontalScrollView {
         if (interceptable == null || interceptable.invokeV(1048641, this) == null) {
             String str = Build.MODEL;
             if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
-                this.H = n.f(getContext(), R.dimen.tbds2);
+                this.H = oi.f(getContext(), R.dimen.tbds2);
             }
         }
     }
@@ -2282,10 +2210,10 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public void addView(View view, int i) {
+    public void addView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, view, i) == null) {
-            i(view);
+        if (interceptable == null || interceptable.invokeLI(1048589, this, view2, i) == null) {
+            i(view2);
         }
     }
 
@@ -2331,24 +2259,24 @@ public class TbTabLayout extends HorizontalScrollView {
         m(context);
         setHorizontalScrollBarEnabled(false);
         e eVar = new e(this, context);
-        this.f24020c = eVar;
+        this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405ab, R.attr.obfuscated_res_0x7f0405ac, R.attr.obfuscated_res_0x7f0405ad, R.attr.obfuscated_res_0x7f0405ae, R.attr.obfuscated_res_0x7f0405af, R.attr.obfuscated_res_0x7f0405b0, R.attr.obfuscated_res_0x7f0405b1, R.attr.obfuscated_res_0x7f0405b2, R.attr.obfuscated_res_0x7f0405b3, R.attr.obfuscated_res_0x7f0405b4, R.attr.obfuscated_res_0x7f0405b5, R.attr.obfuscated_res_0x7f0405b7, R.attr.obfuscated_res_0x7f0405b8, R.attr.obfuscated_res_0x7f0405b9, R.attr.obfuscated_res_0x7f0405ba, R.attr.obfuscated_res_0x7f0405bb, R.attr.obfuscated_res_0x7f0405bc, R.attr.obfuscated_res_0x7f0405bd, R.attr.obfuscated_res_0x7f0405be, R.attr.obfuscated_res_0x7f0405bf, R.attr.obfuscated_res_0x7f0405c0, R.attr.obfuscated_res_0x7f0405c1, R.attr.obfuscated_res_0x7f0405c3, R.attr.obfuscated_res_0x7f0405c4, R.attr.obfuscated_res_0x7f0405c5}, i, R.style.obfuscated_res_0x7f10032b);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405b6});
-        this.f24020c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
-        this.f24020c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
-        this.f24020c.g(obtainStyledAttributes.getColor(7, 0));
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405e9, R.attr.obfuscated_res_0x7f0405ea, R.attr.obfuscated_res_0x7f0405eb, R.attr.obfuscated_res_0x7f0405ec, R.attr.obfuscated_res_0x7f0405ed, R.attr.obfuscated_res_0x7f0405ee, R.attr.obfuscated_res_0x7f0405ef, R.attr.obfuscated_res_0x7f0405f0, R.attr.obfuscated_res_0x7f0405f1, R.attr.obfuscated_res_0x7f0405f2, R.attr.obfuscated_res_0x7f0405f3, R.attr.obfuscated_res_0x7f0405f5, R.attr.obfuscated_res_0x7f0405f6, R.attr.obfuscated_res_0x7f0405f7, R.attr.obfuscated_res_0x7f0405f8, R.attr.obfuscated_res_0x7f0405f9, R.attr.obfuscated_res_0x7f0405fa, R.attr.obfuscated_res_0x7f0405fb, R.attr.obfuscated_res_0x7f0405fc, R.attr.obfuscated_res_0x7f0405fd, R.attr.obfuscated_res_0x7f0405fe, R.attr.obfuscated_res_0x7f0405ff, R.attr.obfuscated_res_0x7f040601, R.attr.obfuscated_res_0x7f040602, R.attr.obfuscated_res_0x7f040603}, i, R.style.obfuscated_res_0x7f100330);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0405f4});
+        this.c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
+        this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
+        this.c.g(obtainStyledAttributes.getColor(7, 0));
         int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(15, 0);
-        this.f24024g = dimensionPixelSize;
-        this.f24023f = dimensionPixelSize;
-        this.f24022e = dimensionPixelSize;
-        this.f24021d = dimensionPixelSize;
-        this.f24021d = obtainStyledAttributes.getDimensionPixelSize(18, dimensionPixelSize);
-        this.f24022e = obtainStyledAttributes.getDimensionPixelSize(19, this.f24022e);
-        this.f24023f = obtainStyledAttributes.getDimensionPixelSize(17, this.f24023f);
-        this.f24024g = obtainStyledAttributes.getDimensionPixelSize(16, this.f24024g);
-        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f1001fc);
-        this.f24025h = resourceId;
+        this.g = dimensionPixelSize;
+        this.f = dimensionPixelSize;
+        this.e = dimensionPixelSize;
+        this.d = dimensionPixelSize;
+        this.d = obtainStyledAttributes.getDimensionPixelSize(18, dimensionPixelSize);
+        this.e = obtainStyledAttributes.getDimensionPixelSize(19, this.e);
+        this.f = obtainStyledAttributes.getDimensionPixelSize(17, this.f);
+        this.g = obtainStyledAttributes.getDimensionPixelSize(16, this.g);
+        int resourceId = obtainStyledAttributes.getResourceId(22, R.style.obfuscated_res_0x7f1001fd);
+        this.h = resourceId;
         TypedArray obtainStyledAttributes3 = context.obtainStyledAttributes(resourceId, R$styleable.TextAppearance);
         try {
             this.j = obtainStyledAttributes3.getDimensionPixelSize(R$styleable.TextAppearance_android_textSize, 0);
@@ -2369,8 +2297,8 @@ public class TbTabLayout extends HorizontalScrollView {
             obtainStyledAttributes.recycle();
             obtainStyledAttributes2.recycle();
             Resources resources = getResources();
-            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070222);
-            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070220);
+            this.k = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070228);
+            this.r = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070226);
             k();
             x();
         } catch (Throwable th) {
@@ -2380,18 +2308,18 @@ public class TbTabLayout extends HorizontalScrollView {
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup, android.view.ViewManager
-    public void addView(View view, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, view, layoutParams) == null) {
-            i(view);
+        if (interceptable == null || interceptable.invokeLL(1048591, this, view2, layoutParams) == null) {
+            i(view2);
         }
     }
 
     @Override // android.widget.HorizontalScrollView, android.view.ViewGroup
-    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view2, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048590, this, view, i, layoutParams) == null) {
-            i(view);
+        if (interceptable == null || interceptable.invokeLIL(1048590, this, view2, i, layoutParams) == null) {
+            i(view2);
         }
     }
 

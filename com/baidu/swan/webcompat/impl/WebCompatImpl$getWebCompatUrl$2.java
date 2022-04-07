@@ -11,7 +11,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"externalUrlTransform", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class WebCompatImpl$getWebCompatUrl$2 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,9 +52,9 @@ public final class WebCompatImpl$getWebCompatUrl$2 extends Lambda implements Fun
             j = this.this$0.j();
             if (j != null) {
                 WebCompatImpl$getWebCompatUrl$1 webCompatImpl$getWebCompatUrl$1 = this.$urlTransform$1;
-                String b2 = j.b();
-                Intrinsics.checkNotNullExpressionValue(b2, "it.filesUrl");
-                String invoke = webCompatImpl$getWebCompatUrl$1.invoke(b2, "external_files");
+                String b = j.b();
+                Intrinsics.checkNotNullExpressionValue(b, "it.filesUrl");
+                String invoke = webCompatImpl$getWebCompatUrl$1.invoke(b, "external_files");
                 if (invoke != null) {
                     return invoke;
                 }

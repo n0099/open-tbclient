@@ -105,11 +105,11 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(E e2) {
+    public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e2)) == null) {
-            if (e2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e)) == null) {
+            if (e != null) {
                 int i = this.mask;
                 long j = this.producerIndex.get();
                 int calcElementOffset = calcElementOffset(j, i);
@@ -121,7 +121,7 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
                         return false;
                     }
                 }
-                soElement(calcElementOffset, e2);
+                soElement(calcElementOffset, e);
                 soProducerIndex(j + 1);
                 return true;
             }
@@ -156,10 +156,10 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
         }
     }
 
-    public void soElement(int i, E e2) {
+    public void soElement(int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i, e2) == null) {
-            lazySet(i, e2);
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, e) == null) {
+            lazySet(i, e);
         }
     }
 
@@ -171,9 +171,9 @@ public final class SpscArrayQueue<E> extends AtomicReferenceArray<E> implements 
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue
-    public boolean offer(E e2, E e3) {
+    public boolean offer(E e, E e2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, e2, e3)) == null) ? offer(e2) && offer(e3) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, e, e2)) == null) ? offer(e) && offer(e2) : invokeLL.booleanValue;
     }
 }

@@ -7,14 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
     public static e a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static long f28697b;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -38,9 +36,9 @@ public final class f {
             synchronized (f.class) {
                 if (a != null) {
                     e eVar = a;
-                    a = eVar.f28695f;
-                    eVar.f28695f = null;
-                    f28697b -= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                    a = eVar.f;
+                    eVar.f = null;
+                    b -= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
                     return eVar;
                 }
                 return new e();
@@ -52,18 +50,18 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f28695f == null && eVar.f28696g == null) {
-                if (eVar.f28693d) {
+            if (eVar.f == null && eVar.g == null) {
+                if (eVar.d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f28697b + PlaybackStateCompat.ACTION_PLAY_FROM_URI > 65536) {
+                    if (b + PlaybackStateCompat.ACTION_PLAY_FROM_URI > 65536) {
                         return;
                     }
-                    f28697b += PlaybackStateCompat.ACTION_PLAY_FROM_URI;
-                    eVar.f28695f = a;
-                    eVar.f28692c = 0;
-                    eVar.f28691b = 0;
+                    b += PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                    eVar.f = a;
+                    eVar.c = 0;
+                    eVar.b = 0;
                     a = eVar;
                     return;
                 }

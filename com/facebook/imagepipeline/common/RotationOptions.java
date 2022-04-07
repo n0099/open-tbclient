@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.HashCodeUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RotationOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISABLE_ROTATION = -2;
@@ -29,7 +29,7 @@ public class RotationOptions {
     public final int mRotation;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface RotationAngle {
     }
 

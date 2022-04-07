@@ -1,7 +1,5 @@
 package com.baidu.nad.jni;
 
-import c.a.a0.h.a;
-import c.a.a0.h0.v.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.hi0;
+import com.repackage.v11;
+/* loaded from: classes2.dex */
 public class NADNativeHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class NADNativeHelper {
             }
         }
         try {
-            c.l(a.b(), "nad-lib");
+            v11.l(hi0.b(), "nad-lib");
         } catch (Throwable th) {
             th.printStackTrace();
         }

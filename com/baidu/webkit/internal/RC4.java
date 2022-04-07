@@ -14,7 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RC4 implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "RC4";
@@ -25,7 +25,7 @@ public class RC4 implements INoProGuard {
     public int x;
     public int y;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a extends GZIPOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +126,9 @@ public class RC4 implements INoProGuard {
                     byte[] bArr3 = this.engineState;
                     int i7 = (bArr3[i6] + this.y) & 255;
                     this.y = i7;
-                    byte b2 = bArr3[i6];
+                    byte b = bArr3[i6];
                     bArr3[i6] = bArr3[i7];
-                    bArr3[i7] = b2;
+                    bArr3[i7] = b;
                     bArr2[i5 + i3] = (byte) (bArr3[(bArr3[i6] + bArr3[i7]) & 255] ^ bArr[i5 + i]);
                 }
                 return;
@@ -166,9 +166,9 @@ public class RC4 implements INoProGuard {
             for (int i4 = 0; i4 < 256; i4++) {
                 byte[] bArr2 = this.engineState;
                 i3 = ((bArr[i2] & 255) + bArr2[i4] + i3) & 255;
-                byte b2 = bArr2[i4];
+                byte b = bArr2[i4];
                 bArr2[i4] = bArr2[i3];
-                bArr2[i3] = b2;
+                bArr2[i3] = b;
                 i2 = (i2 + 1) % bArr.length;
             }
         }

@@ -602,10 +602,10 @@ public abstract class Message {
         return (List) invokeL.objValue;
     }
 
-    public static <E extends Enum & ProtoEnum> int intFromEnum(E e2) {
+    public static <E extends Enum & ProtoEnum> int intFromEnum(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e2)) == null) ? WIRE.enumAdapter(e2.getClass()).toInt(e2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, e)) == null) ? WIRE.enumAdapter(e.getClass()).toInt(e) : invokeL.intValue;
     }
 
     private void write(WireOutput wireOutput) {
@@ -613,8 +613,8 @@ public abstract class Message {
         if (interceptable == null || interceptable.invokeL(65545, this, wireOutput) == null) {
             try {
                 WIRE.messageAdapter(getClass()).write(this, wireOutput);
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }

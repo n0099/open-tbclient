@@ -198,17 +198,17 @@ public final class DataReq extends Message {
             } else {
                 this.secretKey = byteString;
             }
-            Double d2 = builder.lat;
-            if (d2 == null) {
+            Double d = builder.lat;
+            if (d == null) {
                 this.lat = DEFAULT_LAT;
             } else {
-                this.lat = d2;
+                this.lat = d;
             }
-            Double d3 = builder.lng;
-            if (d3 == null) {
+            Double d2 = builder.lng;
+            if (d2 == null) {
                 this.lng = DEFAULT_LNG;
             } else {
-                this.lng = d3;
+                this.lng = d2;
             }
             Integer num = builder.width;
             if (num == null) {

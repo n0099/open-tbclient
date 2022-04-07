@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -22,32 +21,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class BawuMemberInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
+    public View b;
+    public HeadImageView c;
+    public TextView d;
+    public ImageView e;
+    public TextView f;
+    public BawuRoleInfoPub g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public View f32187b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public HeadImageView f32188c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f32189d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f32190e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f32191f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public BawuRoleInfoPub f32192g;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,14 +60,14 @@ public class BawuMemberInfoView extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f32192g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null) {
                 return;
             }
             MessageManager messageManager = MessageManager.getInstance();
             Context context = this.a.a;
-            messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, "" + this.a.f32192g.user_id, this.a.f32192g.user_name)));
+            messageManager.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, "" + this.a.g.user_id, this.a.g.user_name)));
         }
     }
 
@@ -114,71 +102,71 @@ public class BawuMemberInfoView extends RelativeLayout {
             setVisibility(8);
             return;
         }
-        this.f32192g = bawuRoleInfoPub;
-        this.f32188c.J(bawuRoleInfoPub.portrait, 12, false);
-        this.f32189d.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+        this.g = bawuRoleInfoPub;
+        this.c.K(bawuRoleInfoPub.portrait, 12, false);
+        this.d.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
         if (StringUtils.isNull(bawuRoleInfoPub.level_name)) {
-            this.f32191f.setVisibility(8);
+            this.f.setVisibility(8);
         } else {
-            this.f32191f.setText(bawuRoleInfoPub.level_name);
-            this.f32191f.setVisibility(0);
+            this.f.setText(bawuRoleInfoPub.level_name);
+            this.f.setVisibility(0);
         }
         int smallGradeResourceIdNew = BitmapHelper.getSmallGradeResourceIdNew(bawuRoleInfoPub.user_level.intValue());
         if (smallGradeResourceIdNew == 0) {
-            this.f32190e.setVisibility(8);
+            this.e.setVisibility(8);
             return;
         }
-        ImageView imageView = this.f32190e;
-        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f0481) + bawuRoleInfoPub.user_level);
-        SkinManager.setImageResource(this.f32190e, smallGradeResourceIdNew);
-        this.f32190e.setVisibility(0);
+        ImageView imageView = this.e;
+        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f0488) + bawuRoleInfoPub.user_level);
+        SkinManager.setImageResource(this.e, smallGradeResourceIdNew);
+        this.e.setVisibility(0);
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0149, this);
-            this.f32187b = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e8d);
-            this.f32188c = headImageView;
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d014b, this);
+            this.b = inflate;
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e88);
+            this.c = headImageView;
             headImageView.setIsRound(true);
-            this.f32188c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.f32188c.setBorderWidth(n.f(this.a, R.dimen.obfuscated_res_0x7f070198));
-            this.f32187b.setOnClickListener(new a(this));
-            this.f32190e = (ImageView) this.f32187b.findViewById(R.id.obfuscated_res_0x7f090e8e);
-            this.f32189d = (TextView) this.f32187b.findViewById(R.id.obfuscated_res_0x7f091f77);
-            this.f32191f = (TextView) this.f32187b.findViewById(R.id.obfuscated_res_0x7f091f76);
+            this.c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.c.setBorderWidth(oi.f(this.a, R.dimen.obfuscated_res_0x7f070198));
+            this.b.setOnClickListener(new a(this));
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e89);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f63);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f62);
         }
     }
 
     public ImageView getLevelIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32190e : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (ImageView) invokeV.objValue;
     }
 
     public TextView getLevelNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32191f : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (TextView) invokeV.objValue;
     }
 
     public BawuRoleInfoPub getMemberData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f32192g : (BawuRoleInfoPub) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (BawuRoleInfoPub) invokeV.objValue;
     }
 
     public HeadImageView getPhotoView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f32188c : (HeadImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (HeadImageView) invokeV.objValue;
     }
 
     public TextView getUserNameView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32189d : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (TextView) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

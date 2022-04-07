@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
 import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DtsUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHANNELS_BY_AMODE;

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ABTestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 1;
@@ -261,8 +261,8 @@ public final class ABTestHandler {
                                     hashMap.put(next, parseTest);
                                 }
                             }
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                     if (hashMap.isEmpty()) {

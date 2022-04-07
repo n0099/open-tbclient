@@ -12,26 +12,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DressupItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34467b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f34468c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TbImageView f34469d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34470e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f34471f;
+    public View b;
+    public TbImageView c;
+    public TbImageView d;
+    public TextView e;
+    public TextView f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupItemView(Context context) {
@@ -58,15 +48,15 @@ public class DressupItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ea, this);
-            this.f34467b = inflate;
-            this.f34468c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
-            TbImageView tbImageView = (TbImageView) this.f34467b.findViewById(R.id.obfuscated_res_0x7f09176d);
-            this.f34469d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f34469d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
-            this.f34470e = (TextView) this.f34467b.findViewById(R.id.obfuscated_res_0x7f092245);
-            this.f34471f = (TextView) this.f34467b.findViewById(R.id.obfuscated_res_0x7f09223e);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e7, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090368);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09176a);
+            this.d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081207);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081207);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092229);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092222);
         }
     }
 

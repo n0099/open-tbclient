@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMFetchMsgRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgRequest";
@@ -219,8 +219,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                             try {
                                 arrayList2 = MessageParser.parserMessage(this.mContext, jSONArray, type, true, false);
                                 i4 = length;
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 i4 = length;
                                 LogUtils.e("IMPaSetDisturbRequest", "JSONException", e);
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -272,8 +272,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                                 }
                             }
                         }
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                     }
                 }
                 i2 = i4;
@@ -281,8 +281,8 @@ public class IMFetchMsgRequest extends BaseHttpRequest {
                 str = optString;
                 z2 = z;
                 i3 = i5;
-            } catch (Exception e4) {
-                e = e4;
+            } catch (Exception e3) {
+                e = e3;
                 z = false;
             }
             LogUtils.d(TAG, "requestid : " + str2 + " , resultCode: " + i3 + " , resultMsg : " + str);

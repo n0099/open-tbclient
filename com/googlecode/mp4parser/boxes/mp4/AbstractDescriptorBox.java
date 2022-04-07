@@ -18,7 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AbstractDescriptorBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ JoinPoint.StaticPart ajc$tjp_0 = null;
@@ -87,10 +87,10 @@ public class AbstractDescriptorBox extends AbstractFullBox {
             try {
                 this.data.rewind();
                 this.descriptor = ObjectDescriptorFactory.createFrom(-1, this.data);
-            } catch (IOException e2) {
+            } catch (IOException e) {
+                log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e);
+            } catch (IndexOutOfBoundsException e2) {
                 log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e2);
-            } catch (IndexOutOfBoundsException e3) {
-                log.log(Level.WARNING, "Error parsing ObjectDescriptor", (Throwable) e3);
             }
         }
     }

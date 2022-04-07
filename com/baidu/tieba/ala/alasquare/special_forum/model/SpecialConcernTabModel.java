@@ -1,10 +1,5 @@
 package com.baidu.tieba.ala.alasquare.special_forum.model;
 
-import c.a.d.o.e.n;
-import c.a.p0.c0.f.g.c.d;
-import c.a.p0.c0.f.g.c.e;
-import c.a.p0.c0.f.g.c.f;
-import c.a.p0.c0.f.g.c.g;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -21,24 +16,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tq5;
+import com.repackage.uo;
+import com.repackage.uq5;
+import com.repackage.vq5;
+import com.repackage.wq5;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SpecialConcernTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public b b;
+    public List<uo> c;
+    public HttpMessageListener d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f31345b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public List<n> f31346c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public HttpMessageListener f31347d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,54 +67,54 @@ public class SpecialConcernTabModel extends BdBaseModel {
                 AlaSpecialConcernResponse alaSpecialConcernResponse = (AlaSpecialConcernResponse) httpResponsedMessage;
                 if (alaSpecialConcernResponse.isSuccess()) {
                     if (this.a.a == 1) {
-                        this.a.f31346c.clear();
+                        this.a.c.clear();
                     }
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (this.a.a == 1) {
-                            this.a.f31346c.add(new e());
+                            this.a.c.add(new uq5());
                         }
                     } else {
-                        for (d dVar : alaSpecialConcernResponse.followList) {
-                            f fVar = new f();
-                            fVar.a = dVar.a;
-                            fVar.f13078b = dVar.f13075b;
-                            fVar.f13079c = false;
-                            this.a.f31346c.add(fVar);
+                        for (tq5 tq5Var : alaSpecialConcernResponse.followList) {
+                            vq5 vq5Var = new vq5();
+                            vq5Var.a = tq5Var.a;
+                            vq5Var.b = tq5Var.b;
+                            vq5Var.c = false;
+                            this.a.c.add(vq5Var);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
-                        g gVar = new g();
+                        wq5 wq5Var = new wq5();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            gVar.a = false;
+                            wq5Var.a = false;
                         } else {
-                            gVar.a = true;
+                            wq5Var.a = true;
                         }
-                        this.a.f31346c.add(gVar);
-                        for (d dVar2 : alaSpecialConcernResponse.recommendList) {
-                            f fVar2 = new f();
-                            fVar2.a = dVar2.a;
-                            fVar2.f13078b = dVar2.f13075b;
-                            fVar2.f13079c = true;
-                            this.a.f31346c.add(fVar2);
+                        this.a.c.add(wq5Var);
+                        for (tq5 tq5Var2 : alaSpecialConcernResponse.recommendList) {
+                            vq5 vq5Var2 = new vq5();
+                            vq5Var2.a = tq5Var2.a;
+                            vq5Var2.b = tq5Var2.b;
+                            vq5Var2.c = true;
+                            this.a.c.add(vq5Var2);
                         }
                     }
                     SpecialConcernTabModel.z(this.a);
-                    if (this.a.f31345b != null) {
-                        this.a.f31345b.b(this.a.f31346c, z, alaSpecialConcernResponse.totalFollowCount);
+                    if (this.a.b != null) {
+                        this.a.b.b(this.a.c, z, alaSpecialConcernResponse.totalFollowCount);
                     }
-                } else if (this.a.f31345b != null) {
-                    this.a.f31345b.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                } else if (this.a.b != null) {
+                    this.a.b.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(int i, String str);
 
-        void b(List<n> list, boolean z, int i);
+        void b(List<uo> list, boolean z, int i);
     }
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {
@@ -139,9 +133,9 @@ public class SpecialConcernTabModel extends BdBaseModel {
             }
         }
         this.a = 1;
-        this.f31347d = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
-        this.f31346c = new ArrayList();
-        MessageManager.getInstance().registerListener(this.f31347d);
+        this.d = new a(this, AlaCmdConfigHttp.CMD_ALA_SPECIAL_CONCERN_TAB);
+        this.c = new ArrayList();
+        MessageManager.getInstance().registerListener(this.d);
     }
 
     public static /* synthetic */ int z(SpecialConcernTabModel specialConcernTabModel) {
@@ -177,7 +171,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public void F(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f31345b = bVar;
+            this.b = bVar;
         }
     }
 
@@ -204,7 +198,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f31347d);
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 }

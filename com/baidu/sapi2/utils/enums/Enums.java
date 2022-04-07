@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Enums {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class FingerprintAuthType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int LOGIN = 3;
@@ -41,7 +41,7 @@ public class Enums {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class LastLoginType {
         public static final /* synthetic */ LastLoginType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -196,7 +196,7 @@ public class Enums {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class NormalizeWay {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NONE = 0;
@@ -220,7 +220,7 @@ public class Enums {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class PreLoginType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CHINA_MOBILE_OAUTH = 12;

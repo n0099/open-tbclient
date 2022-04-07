@@ -17,14 +17,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MultiGraphicTextMsg> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Article[] mArticles;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class Article implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Article> CREATOR;
@@ -339,8 +339,8 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                     this.mArticles[i].setSchema(jSONObject.optString("schema"));
                 }
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e("GraphicTextMsg", "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("GraphicTextMsg", "parseJsonString JSONException", e);
                 return false;
             }
         }

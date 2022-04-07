@@ -1,9 +1,6 @@
 package com.baidu.tieba.addresslist.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.f;
-import c.a.o0.s.f.c;
-import c.a.p0.z.d.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,12 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.hk5;
+import com.repackage.jy4;
+import com.repackage.ly4;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public hk5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -33,13 +34,13 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a.d();
+        this.a = hk5.d();
     }
 
     public void A(long j) {
@@ -49,7 +50,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public List<c.a.o0.s.f.a> B() {
+    public List<jy4> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c() : (List) invokeV.objValue;
@@ -69,24 +70,24 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void E(a.InterfaceC1557a interfaceC1557a) {
+    public void E(hk5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interfaceC1557a) == null) {
-            this.a.f(interfaceC1557a);
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.a.f(aVar);
         }
     }
 
-    public void F(List<c.a.o0.s.f.a> list) {
+    public void F(List<jy4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void G(a.InterfaceC1557a interfaceC1557a) {
+    public void G(hk5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC1557a) == null) {
-            this.a.h(interfaceC1557a);
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.a.h(aVar);
         }
     }
 
@@ -110,22 +111,22 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void y(c.a.o0.s.f.a aVar) {
+    public void y(jy4 jy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
-            this.a.a(aVar);
+        if (interceptable == null || interceptable.invokeL(1048585, this, jy4Var) == null) {
+            this.a.a(jy4Var);
         }
     }
 
     public int z(String str) {
         InterceptResult invokeL;
-        List<c.a.o0.s.f.a> c2;
+        List<jy4> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (c.a(str) && (c2 = this.a.c()) != null) {
-                for (c.a.o0.s.f.a aVar : c2) {
-                    if (str.equals(aVar.a())) {
-                        return c2.indexOf(aVar);
+            if (ly4.a(str) && (c = this.a.c()) != null) {
+                for (jy4 jy4Var : c) {
+                    if (str.equals(jy4Var.a())) {
+                        return c.indexOf(jy4Var);
                     }
                 }
                 return -1;

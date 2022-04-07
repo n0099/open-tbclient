@@ -1,6 +1,6 @@
 package com.baidu.android.imsdk;
 
 import com.baidu.android.imsdk.utils.NoProGuard;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IMListener extends NoProGuard {
 }

@@ -21,7 +21,7 @@ import com.yy.hiidostatis.inner.util.hdid.ClientIdProxy;
 import com.yy.hiidostatis.inner.util.hdid.DeviceProxy;
 import com.yy.hiidostatis.inner.util.hdid.UuidManager;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class CommonFiller {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANDROID_OS = 2;

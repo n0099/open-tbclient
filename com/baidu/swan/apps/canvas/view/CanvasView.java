@@ -8,38 +8,32 @@ import android.graphics.PaintFlagsDrawFilter;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import c.a.n0.a.p2.q0;
-import c.a.n0.a.q.a.j.f;
-import c.a.n0.a.q.a.j.f0;
-import c.a.n0.a.q.a.j.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.de3;
+import com.repackage.pt1;
+import com.repackage.qt1;
+import com.repackage.ut1;
+import com.repackage.uu1;
+import com.repackage.zt1;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CanvasView extends AbsCanvasView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<b> b;
+    public final DrawFilter c;
+    public int d;
+    public HashMap<String, Bitmap> e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<b> f28800b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final DrawFilter f28801c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f28802d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, Bitmap> f28803e;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,14 +66,12 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<c.a.n0.a.q.a.j.a> a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public c.a.n0.a.q.a.j.b f28804b;
+        public List<pt1> a;
+        public qt1 b;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -100,7 +92,7 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface c {
         void a();
     }
@@ -126,44 +118,44 @@ public class CanvasView extends AbsCanvasView {
         }
     }
 
-    public void c(List<c.a.n0.a.q.a.j.a> list, boolean z) {
+    public void c(List<pt1> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || list == null || this.f28800b.contains(list)) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) || list == null || this.b.contains(list)) {
             return;
         }
         if (!z) {
-            this.f28800b.clear();
+            this.b.clear();
         }
-        int size = this.f28800b.size();
+        int size = this.b.size();
         boolean z2 = z && size > 0;
         b bVar = new b(null);
         if (z2) {
-            b bVar2 = this.f28800b.get(size - 1);
-            bVar.f28804b = bVar2.f28804b;
-            List<c.a.n0.a.q.a.j.a> list2 = bVar2.a;
+            b bVar2 = this.b.get(size - 1);
+            bVar.b = bVar2.b;
+            List<pt1> list2 = bVar2.a;
             bVar.a = list2;
             list2.addAll(list);
         } else {
-            bVar.f28804b = new c.a.n0.a.q.a.j.b(this);
+            bVar.b = new qt1(this);
             bVar.a = list;
         }
-        this.f28800b.add(bVar);
-        q0.e0(new a(this));
+        this.b.add(bVar);
+        de3.e0(new a(this));
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.f28802d;
-            if (this.f28800b.size() > 0) {
-                for (b bVar : this.f28800b) {
-                    Iterator<c.a.n0.a.q.a.j.a> it = bVar.a.iterator();
+            int i = this.d;
+            if (this.b.size() > 0) {
+                for (b bVar : this.b) {
+                    Iterator<pt1> it = bVar.a.iterator();
                     while (true) {
                         if (it.hasNext()) {
-                            c.a.n0.a.q.a.j.a next = it.next();
-                            if (next instanceof f) {
+                            pt1 next = it.next();
+                            if (next instanceof ut1) {
                                 i = 2;
-                            } else if (next instanceof f0) {
+                            } else if (next instanceof uu1) {
                                 i = 1;
                                 break;
                             }
@@ -184,7 +176,7 @@ public class CanvasView extends AbsCanvasView {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.f28803e.get(str);
+            return this.e.get(str);
         }
         return (Bitmap) invokeL.objValue;
     }
@@ -193,22 +185,22 @@ public class CanvasView extends AbsCanvasView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f28803e.clear();
+                this.e.clear();
             }
         }
     }
 
-    public c.a.n0.a.q.a.j.b getCanvasContext() {
+    public qt1 getCanvasContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28800b.size() > 0) {
-                List<b> list = this.f28800b;
-                return list.get(list.size() - 1).f28804b;
+            if (this.b.size() > 0) {
+                List<b> list = this.b;
+                return list.get(list.size() - 1).b;
             }
             return null;
         }
-        return (c.a.n0.a.q.a.j.b) invokeV.objValue;
+        return (qt1) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -216,17 +208,17 @@ public class CanvasView extends AbsCanvasView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f28800b.size() > 0) {
+            if (this.b.size() > 0) {
                 int save = canvas.save();
-                canvas.setDrawFilter(this.f28801c);
-                for (b bVar : this.f28800b) {
-                    List<c.a.n0.a.q.a.j.a> list = bVar.a;
-                    c.a.n0.a.q.a.j.b bVar2 = bVar.f28804b;
-                    bVar2.d();
-                    for (c.a.n0.a.q.a.j.a aVar : list) {
-                        aVar.a(bVar2, canvas);
-                        if (aVar instanceof k) {
-                            ((k) aVar).e(this.f28803e);
+                canvas.setDrawFilter(this.c);
+                for (b bVar : this.b) {
+                    List<pt1> list = bVar.a;
+                    qt1 qt1Var = bVar.b;
+                    qt1Var.d();
+                    for (pt1 pt1Var : list) {
+                        pt1Var.a(qt1Var, canvas);
+                        if (pt1Var instanceof zt1) {
+                            ((zt1) pt1Var).e(this.e);
                         }
                     }
                 }
@@ -284,10 +276,10 @@ public class CanvasView extends AbsCanvasView {
                 return;
             }
         }
-        this.f28800b = new ArrayList();
-        this.f28801c = new PaintFlagsDrawFilter(0, 3);
-        this.f28802d = 0;
-        this.f28803e = new HashMap<>();
-        this.f28802d = getLayerType();
+        this.b = new ArrayList();
+        this.c = new PaintFlagsDrawFilter(0, 3);
+        this.d = 0;
+        this.e = new HashMap<>();
+        this.d = getLayerType();
     }
 }

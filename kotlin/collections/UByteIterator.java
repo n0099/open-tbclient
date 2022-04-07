@@ -15,16 +15,16 @@ public abstract class UByteIterator implements Iterator<UByte>, KMappedMarker {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ UByte next() {
-        return UByte.m704boximpl(m1151nextw2LRezQ());
+        return UByte.m700boximpl(m1147nextw2LRezQ());
     }
 
     /* renamed from: next-w2LRezQ  reason: not valid java name */
-    public final byte m1151nextw2LRezQ() {
-        return mo777nextUBytew2LRezQ();
+    public final byte m1147nextw2LRezQ() {
+        return mo773nextUBytew2LRezQ();
     }
 
     /* renamed from: nextUByte-w2LRezQ */
-    public abstract byte mo777nextUBytew2LRezQ();
+    public abstract byte mo773nextUBytew2LRezQ();
 
     @Override // java.util.Iterator
     public void remove() {

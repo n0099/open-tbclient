@@ -16,7 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,10 +77,10 @@ public class a implements b {
             httpURLConnection = httpURLConnection2;
             try {
                 try {
-                    Map<String, String> c2 = cVar.c();
-                    if (c2 != null) {
-                        for (String str3 : c2.keySet()) {
-                            httpURLConnection.addRequestProperty(str3, c2.get(str3));
+                    Map<String, String> c = cVar.c();
+                    if (c != null) {
+                        for (String str3 : c.keySet()) {
+                            httpURLConnection.addRequestProperty(str3, c.get(str3));
                         }
                     }
                     if ((httpURLConnection instanceof HttpsURLConnection) && Build.VERSION.SDK_INT < 20) {
@@ -92,15 +92,15 @@ public class a implements b {
                     httpURLConnection.setConnectTimeout(5000);
                     httpURLConnection.setReadTimeout(5000);
                     httpURLConnection.setDefaultUseCaches(false);
-                    String e2 = cVar.e();
-                    httpURLConnection.setRequestMethod(e2);
+                    String e = cVar.e();
+                    httpURLConnection.setRequestMethod(e);
                     httpURLConnection.setDoOutput(true);
                     if (cVar instanceof com.cmic.sso.sdk.c.c.b) {
                         httpURLConnection.connect();
                         try {
                             ((com.cmic.sso.sdk.c.c.b) cVar).a(aVar);
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             str = "";
                             inputStream = null;
                             sb = null;
@@ -150,13 +150,13 @@ public class a implements b {
                             }
                         }
                     }
-                    if (e2.endsWith("POST")) {
+                    if (e.endsWith("POST")) {
                         closeable = httpURLConnection.getOutputStream();
                         try {
                             closeable.write(cVar.d().getBytes(IMAudioTransRequest.CHARSET));
                             closeable.flush();
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             str = "";
                             inputStream = null;
                             sb = null;
@@ -220,8 +220,8 @@ public class a implements b {
                                     try {
                                         sb.append(new String(bArr, 0, read, IMAudioTransRequest.CHARSET));
                                         str2 = str;
-                                    } catch (Exception e5) {
-                                        e = e5;
+                                    } catch (Exception e4) {
+                                        e = e4;
                                         i = responseCode;
                                         e.printStackTrace();
                                         StringBuilder sb222 = new StringBuilder();
@@ -260,8 +260,8 @@ public class a implements b {
                                         cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                                         throw th;
                                     }
-                                } catch (Exception e6) {
-                                    e = e6;
+                                } catch (Exception e5) {
+                                    e = e5;
                                     str = str2;
                                 } catch (Throwable th4) {
                                     th = th4;
@@ -285,8 +285,8 @@ public class a implements b {
                             } else {
                                 cVar2.a(bVar);
                             }
-                        } catch (Exception e7) {
-                            e = e7;
+                        } catch (Exception e6) {
+                            e = e6;
                             str = "";
                             i = responseCode;
                             sb = null;
@@ -329,8 +329,8 @@ public class a implements b {
                             cVar2.a((com.cmic.sso.sdk.c.d.b) null);
                             throw th;
                         }
-                    } catch (Exception e8) {
-                        e = e8;
+                    } catch (Exception e7) {
+                        e = e7;
                         str = "";
                         i = responseCode;
                         inputStream = null;
@@ -347,11 +347,11 @@ public class a implements b {
                     sb = null;
                     closeable = null;
                 }
-            } catch (Exception e9) {
-                e = e9;
+            } catch (Exception e8) {
+                e = e8;
             }
-        } catch (Exception e10) {
-            e = e10;
+        } catch (Exception e9) {
+            e = e9;
             str = "";
             inputStream = null;
             sb = null;
@@ -376,8 +376,8 @@ public class a implements b {
         }
         try {
             closeable.close();
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

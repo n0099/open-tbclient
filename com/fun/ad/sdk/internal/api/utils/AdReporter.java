@@ -3,9 +3,6 @@ package com.fun.ad.sdk.internal.api.utils;
 import android.text.TextUtils;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.d.c0;
-import c.d.j;
-import c.d.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,13 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.repackage.kf9;
+import com.repackage.rk9;
+import com.repackage.tf9;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AdReporter {
     public static /* synthetic */ Interceptable $ic;
     public static final Reporter a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c0 mAdIdent;
+    public final rk9 mAdIdent;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public class AdReporter {
                 return;
             }
         }
-        a = s.a();
+        a = tf9.a();
     }
 
     public AdReporter() {
@@ -54,27 +54,27 @@ public class AdReporter {
                 return;
             }
         }
-        this.mAdIdent = new c0();
+        this.mAdIdent = new rk9();
     }
 
-    public static void adEvent(c0 c0Var, Object obj, Object... objArr) {
+    public static void adEvent(rk9 rk9Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, c0Var, obj, objArr) == null) {
-            report("ad", c0Var, obj, false, objArr);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, rk9Var, obj, objArr) == null) {
+            report("ad", rk9Var, obj, false, objArr);
         }
     }
 
-    public static void adEvent(boolean z, c0 c0Var, Object obj, Object... objArr) {
+    public static void adEvent(boolean z, rk9 rk9Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), c0Var, obj, objArr}) == null) {
-            report("ad", c0Var, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), rk9Var, obj, objArr}) == null) {
+            report("ad", rk9Var, obj, z, objArr);
         }
     }
 
-    public static void report(String str, c0 c0Var, Object obj, boolean z, Object... objArr) {
+    public static void report(String str, rk9 rk9Var, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, c0Var, obj, Boolean.valueOf(z), objArr}) == null) {
-            report(str, c0Var.a, c0Var.f23131b, c0Var.f23133d, c0Var.f23134e, c0Var.f23132c, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, rk9Var, obj, Boolean.valueOf(z), objArr}) == null) {
+            report(str, rk9Var.a, rk9Var.b, rk9Var.d, rk9Var.e, rk9Var.c, obj, z, objArr);
         }
     }
 
@@ -85,27 +85,13 @@ public class AdReporter {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ long a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f38626b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f38627c;
-
-                /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ String f38628d;
-
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ String f38629e;
-
-                /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Object f38630f;
-
-                /* renamed from: g  reason: collision with root package name */
-                public final /* synthetic */ boolean f38631g;
-
-                /* renamed from: h  reason: collision with root package name */
-                public final /* synthetic */ Object[] f38632h;
+                public final /* synthetic */ String b;
+                public final /* synthetic */ int c;
+                public final /* synthetic */ String d;
+                public final /* synthetic */ String e;
+                public final /* synthetic */ Object f;
+                public final /* synthetic */ boolean g;
+                public final /* synthetic */ Object[] h;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -123,13 +109,13 @@ public class AdReporter {
                         }
                     }
                     this.a = j;
-                    this.f38626b = str2;
-                    this.f38627c = i;
-                    this.f38628d = str4;
-                    this.f38629e = str3;
-                    this.f38630f = obj;
-                    this.f38631g = z;
-                    this.f38632h = objArr;
+                    this.b = str2;
+                    this.c = i;
+                    this.d = str4;
+                    this.e = str3;
+                    this.f = obj;
+                    this.g = z;
+                    this.h = objArr;
                     put("lid", Long.valueOf(j));
                     put("sid", str2);
                     put("sidv", Integer.valueOf(i));
@@ -145,11 +131,11 @@ public class AdReporter {
                     }
                     int i4 = 0;
                     while (true) {
-                        Object[] objArr3 = this.f38632h;
+                        Object[] objArr3 = this.h;
                         if (i4 >= objArr3.length) {
                             return;
                         }
-                        put(objArr3[i4].toString(), this.f38632h[i4 + 1]);
+                        put(objArr3[i4].toString(), this.h[i4 + 1]);
                         i4 += 2;
                     }
                 }
@@ -181,17 +167,17 @@ public class AdReporter {
     public void recordLoadStart(FunAdSlot funAdSlot, Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, funAdSlot, pid) == null) {
-            int a2 = j.a(funAdSlot.getSid(), pid);
-            c0 c0Var = this.mAdIdent;
+            int a2 = kf9.a(funAdSlot.getSid(), pid);
+            rk9 rk9Var = this.mAdIdent;
             String sid = funAdSlot.getSid();
             long currentTimeMillis = System.currentTimeMillis();
             String str = pid.pid;
             String str2 = pid.type;
-            c0Var.a = sid;
-            c0Var.f23131b = a2;
-            c0Var.f23132c = currentTimeMillis;
-            c0Var.f23133d = str;
-            c0Var.f23134e = str2;
+            rk9Var.a = sid;
+            rk9Var.b = a2;
+            rk9Var.c = currentTimeMillis;
+            rk9Var.d = str;
+            rk9Var.e = str2;
             adEvent(this.mAdIdent, "ld_start", new Object[0]);
         }
     }

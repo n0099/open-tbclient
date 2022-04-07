@@ -25,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SubProcessManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUNDLE_KEY_BINDER_HOLDER = "bundle_key_binder_holder";
@@ -249,8 +249,8 @@ public class SubProcessManager {
                     return createBundleWithErrorCode(-202);
                 }
                 return iMutiProcessHandler.getPluginStatus(str);
-            } catch (RemoteException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (RemoteException e) {
+                CommonMethods.handleNuLException(e);
                 return createBundleWithErrorCode(-203);
             } catch (Throwable th) {
                 CommonMethods.handleNuLException(th);
@@ -329,8 +329,8 @@ public class SubProcessManager {
                     return createBundleWithErrorCode(-202);
                 }
                 return iMutiProcessHandler.callPlugin(bundle);
-            } catch (RemoteException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (RemoteException e) {
+                CommonMethods.handleNuLException(e);
                 return createBundleWithErrorCode(-203);
             } catch (Throwable th) {
                 CommonMethods.handleNuLException(th);
@@ -418,8 +418,8 @@ public class SubProcessManager {
                     }
                 }
                 return i2;
-            } catch (RemoteException e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (RemoteException e) {
+                CommonMethods.handleNuLException(e);
                 return -203;
             } catch (Throwable th) {
                 CommonMethods.handleNuLException(th);

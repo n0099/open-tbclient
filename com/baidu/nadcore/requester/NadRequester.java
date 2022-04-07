@@ -1,7 +1,6 @@
 package com.baidu.nadcore.requester;
 
 import androidx.annotation.NonNull;
-import c.a.a0.w.c;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,14 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hi0;
+import com.repackage.sy0;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class NadRequester {
     public static /* synthetic */ Interceptable $ic;
-    public static final c a;
+    public static final sy0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Error extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,8 +100,8 @@ public class NadRequester {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class a implements c {
+    /* loaded from: classes2.dex */
+    public static class a implements sy0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -118,7 +119,7 @@ public class NadRequester {
             }
         }
 
-        @Override // c.a.a0.w.c
+        @Override // com.repackage.sy0
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
@@ -126,7 +127,7 @@ public class NadRequester {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface b {
         void a(@NonNull Error error);
 
@@ -146,17 +147,17 @@ public class NadRequester {
                 return;
             }
         }
-        c cVar = (c) ServiceManager.getService(c.a);
-        if (cVar == null) {
-            cVar = new a();
+        sy0 sy0Var = (sy0) ServiceManager.getService(sy0.a);
+        if (sy0Var == null) {
+            sy0Var = new a();
         }
-        a = cVar;
+        a = sy0Var;
     }
 
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (c.a.a0.h.a.a().v()) {
+            if (hi0.a().v()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

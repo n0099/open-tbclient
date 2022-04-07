@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class OpenBdussService extends AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -214,8 +214,8 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                                         return;
                                     }
                                     this.val$callback.onFailure(fromJson2);
-                                } catch (Exception e2) {
-                                    Log.e(e2);
+                                } catch (Exception e) {
+                                    Log.e(e);
                                     OpenBdussResult openBdussResult3 = new OpenBdussResult();
                                     openBdussResult3.setResultCode(-202);
                                     this.val$callback.onFailure(openBdussResult3);
@@ -324,8 +324,8 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                                 return;
                             }
                             this.val$callback.onFailure(fromJson2);
-                        } catch (Exception e2) {
-                            Log.e(e2);
+                        } catch (Exception e) {
+                            Log.e(e);
                             OpenBdussResult openBdussResult3 = new OpenBdussResult();
                             openBdussResult3.setResultCode(-202);
                             this.val$callback.onFailure(openBdussResult3);

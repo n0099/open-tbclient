@@ -61,14 +61,14 @@ public class ChangeClipBounds extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view = transitionValues.view;
-            if (view.getVisibility() == 8) {
+            View view2 = transitionValues.f980view;
+            if (view2.getVisibility() == 8) {
                 return;
             }
-            Rect clipBounds = ViewCompat.getClipBounds(view);
+            Rect clipBounds = ViewCompat.getClipBounds(view2);
             transitionValues.values.put(PROPNAME_CLIP, clipBounds);
             if (clipBounds == null) {
-                transitionValues.values.put(PROPNAME_BOUNDS, new Rect(0, 0, view.getWidth(), view.getHeight()));
+                transitionValues.values.put(PROPNAME_BOUNDS, new Rect(0, 0, view2.getWidth(), view2.getHeight()));
             }
         }
     }
@@ -110,10 +110,10 @@ public class ChangeClipBounds extends Transition {
                 if (rect.equals(rect2)) {
                     return null;
                 }
-                ViewCompat.setClipBounds(transitionValues2.view, rect);
-                objectAnimator = ObjectAnimator.ofObject(transitionValues2.view, (Property<View, V>) ViewUtils.CLIP_BOUNDS, (TypeEvaluator) new RectEvaluator(new Rect()), (Object[]) new Rect[]{rect, rect2});
+                ViewCompat.setClipBounds(transitionValues2.f980view, rect);
+                objectAnimator = ObjectAnimator.ofObject(transitionValues2.f980view, (Property<View, V>) ViewUtils.CLIP_BOUNDS, (TypeEvaluator) new RectEvaluator(new Rect()), (Object[]) new Rect[]{rect, rect2});
                 if (z) {
-                    objectAnimator.addListener(new AnimatorListenerAdapter(this, transitionValues2.view) { // from class: androidx.transition.ChangeClipBounds.1
+                    objectAnimator.addListener(new AnimatorListenerAdapter(this, transitionValues2.f980view) { // from class: androidx.transition.ChangeClipBounds.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ ChangeClipBounds this$0;

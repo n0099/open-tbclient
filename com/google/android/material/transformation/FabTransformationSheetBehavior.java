@@ -23,7 +23,7 @@ import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,10 +44,10 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
         }
     }
 
-    private void updateImportantForAccessibility(@NonNull View view, boolean z) {
+    private void updateImportantForAccessibility(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65538, this, view, z) == null) {
-            ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLZ(65538, this, view2, z) == null) {
+            ViewParent parent = view2.getParent();
             if (parent instanceof CoordinatorLayout) {
                 CoordinatorLayout coordinatorLayout = (CoordinatorLayout) parent;
                 int childCount = coordinatorLayout.getChildCount();
@@ -57,7 +57,7 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
                 for (int i = 0; i < childCount; i++) {
                     View childAt = coordinatorLayout.getChildAt(i);
                     boolean z2 = (childAt.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) && (((CoordinatorLayout.LayoutParams) childAt.getLayoutParams()).getBehavior() instanceof FabTransformationScrimBehavior);
-                    if (childAt != view && !z2) {
+                    if (childAt != view2 && !z2) {
                         if (!z) {
                             Map<View, Integer> map = this.importantForAccessibilityMap;
                             if (map != null && map.containsKey(childAt)) {
@@ -96,12 +96,12 @@ public class FabTransformationSheetBehavior extends FabTransformationBehavior {
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior, com.google.android.material.transformation.ExpandableBehavior
     @CallSuper
-    public boolean onExpandedStateChange(@NonNull View view, @NonNull View view2, boolean z, boolean z2) {
+    public boolean onExpandedStateChange(@NonNull View view2, @NonNull View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            updateImportantForAccessibility(view2, z);
-            return super.onExpandedStateChange(view, view2, z, z2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            updateImportantForAccessibility(view3, z);
+            return super.onExpandedStateChange(view2, view3, z, z2);
         }
         return invokeCommon.booleanValue;
     }

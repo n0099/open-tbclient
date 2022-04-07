@@ -4,19 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.m.a.e3;
-import c.m.a.r0;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.repackage.cs9;
+import com.repackage.pp9;
+/* loaded from: classes8.dex */
 public class PBMediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e3 a;
+    public cs9 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -79,22 +79,22 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.a = new e3(context);
-        addView(this.a.f23428c, new FrameLayout.LayoutParams(-1, -1));
+        this.a = new cs9(context);
+        addView(this.a.c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
-            int b2 = r0.b(context, 15);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
+            int b = pp9.b(context, 15);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b, b);
             layoutParams.gravity = 3;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08125c);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081263);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }
     }
 
-    public e3 getHtmlWebView() {
+    public cs9 getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (e3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (cs9) invokeV.objValue;
     }
 }

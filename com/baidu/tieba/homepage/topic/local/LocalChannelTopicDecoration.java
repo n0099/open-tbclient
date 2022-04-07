@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -17,17 +16,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final int f33515b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ColorDrawable f33516c;
+    public final int b;
+    public ColorDrawable c;
 
     public LocalChannelTopicDecoration() {
         Interceptable interceptable = $ic;
@@ -42,18 +38,18 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.f33515b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        this.f33516c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
+        this.a = oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        this.b = oi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-    public void getItemOffsets(@NonNull Rect rect, @NonNull View view, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
+    public void getItemOffsets(@NonNull Rect rect, @NonNull View view2, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view, recyclerView, state) == null) {
-            super.getItemOffsets(rect, view, recyclerView, state);
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
+            super.getItemOffsets(rect, view2, recyclerView, state);
             RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
-            int childLayoutPosition = recyclerView.getChildLayoutPosition(view);
+            int childLayoutPosition = recyclerView.getChildLayoutPosition(view2);
             if (childLayoutPosition != -1 && (layoutManager instanceof LinearLayoutManager)) {
                 if (childLayoutPosition == state.getItemCount() - 1) {
                     rect.set(0, 0, 0, 0);
@@ -73,8 +69,8 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
                 View childAt = recyclerView.getChildAt(i);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                    this.f33516c.setBounds(this.f33515b, bottom, recyclerView.getWidth() - this.f33515b, this.a + bottom);
-                    this.f33516c.draw(canvas);
+                    this.c.setBounds(this.b, bottom, recyclerView.getWidth() - this.b, this.a + bottom);
+                    this.c.draw(canvas);
                 }
             }
         }

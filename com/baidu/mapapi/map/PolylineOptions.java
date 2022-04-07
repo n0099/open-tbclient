@@ -12,32 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PolylineOptions extends OverlayOptions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f26267b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Bundle f26268c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f26269d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<LatLng> f26270e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<Integer> f26271f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public List<Integer> f26272g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f26273h;
+    public boolean b;
+    public Bundle c;
+    public int d;
+    public List<LatLng> e;
+    public List<Integer> f;
+    public List<Integer> g;
+    public int h;
     public BitmapDescriptor i;
     public List<BitmapDescriptor> j;
     public boolean k;
@@ -57,11 +43,11 @@ public final class PolylineOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f26269d = -16777216;
-        this.f26273h = 5;
+        this.d = -16777216;
+        this.h = 5;
         this.k = true;
         this.l = false;
-        this.f26267b = true;
+        this.b = true;
         this.m = false;
     }
 
@@ -71,52 +57,52 @@ public final class PolylineOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Polyline polyline = new Polyline();
-            polyline.A = this.f26267b;
-            polyline.f26264f = this.m;
+            polyline.A = this.b;
+            polyline.f = this.m;
             polyline.z = this.a;
-            polyline.B = this.f26268c;
-            List<LatLng> list = this.f26270e;
+            polyline.B = this.c;
+            List<LatLng> list = this.e;
             if (list == null || list.size() < 2) {
                 throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
             }
-            polyline.f26260b = this.f26270e;
-            polyline.a = this.f26269d;
-            polyline.f26263e = this.f26273h;
+            polyline.b = this.e;
+            polyline.a = this.d;
+            polyline.e = this.h;
             polyline.i = this.i;
             polyline.j = this.j;
-            polyline.f26265g = this.k;
-            polyline.f26266h = this.l;
-            List<Integer> list2 = this.f26271f;
-            if (list2 != null && list2.size() < this.f26270e.size() - 1) {
-                ArrayList arrayList = new ArrayList((this.f26270e.size() - 1) - this.f26271f.size());
-                List<Integer> list3 = this.f26271f;
+            polyline.g = this.k;
+            polyline.h = this.l;
+            List<Integer> list2 = this.f;
+            if (list2 != null && list2.size() < this.e.size() - 1) {
+                ArrayList arrayList = new ArrayList((this.e.size() - 1) - this.f.size());
+                List<Integer> list3 = this.f;
                 list3.addAll(list3.size(), arrayList);
             }
-            List<Integer> list4 = this.f26271f;
+            List<Integer> list4 = this.f;
             int i = 0;
             if (list4 != null && list4.size() > 0) {
-                int[] iArr = new int[this.f26271f.size()];
+                int[] iArr = new int[this.f.size()];
                 int i2 = 0;
-                for (Integer num : this.f26271f) {
+                for (Integer num : this.f) {
                     iArr[i2] = num.intValue();
                     i2++;
                 }
-                polyline.f26261c = iArr;
+                polyline.c = iArr;
             }
-            List<Integer> list5 = this.f26272g;
-            if (list5 != null && list5.size() < this.f26270e.size() - 1) {
-                ArrayList arrayList2 = new ArrayList((this.f26270e.size() - 1) - this.f26272g.size());
-                List<Integer> list6 = this.f26272g;
+            List<Integer> list5 = this.g;
+            if (list5 != null && list5.size() < this.e.size() - 1) {
+                ArrayList arrayList2 = new ArrayList((this.e.size() - 1) - this.g.size());
+                List<Integer> list6 = this.g;
                 list6.addAll(list6.size(), arrayList2);
             }
-            List<Integer> list7 = this.f26272g;
+            List<Integer> list7 = this.g;
             if (list7 != null && list7.size() > 0) {
-                int[] iArr2 = new int[this.f26272g.size()];
-                for (Integer num2 : this.f26272g) {
+                int[] iArr2 = new int[this.g.size()];
+                for (Integer num2 : this.g) {
                     iArr2[i] = num2.intValue();
                     i++;
                 }
-                polyline.f26262d = iArr2;
+                polyline.d = iArr2;
             }
             return polyline;
         }
@@ -127,7 +113,7 @@ public final class PolylineOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.f26269d = i;
+            this.d = i;
             return this;
         }
         return (PolylineOptions) invokeI.objValue;
@@ -141,7 +127,7 @@ public final class PolylineOptions extends OverlayOptions {
                 if (list.contains(null)) {
                     throw new IllegalArgumentException("BDMapSDKException: colors list can not contains null");
                 }
-                this.f26272g = list;
+                this.g = list;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: colors list can not be null");
@@ -194,7 +180,7 @@ public final class PolylineOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bundle)) == null) {
-            this.f26268c = bundle;
+            this.c = bundle;
             return this;
         }
         return (PolylineOptions) invokeL.objValue;
@@ -213,7 +199,7 @@ public final class PolylineOptions extends OverlayOptions {
     public int getColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26269d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public BitmapDescriptor getCustomTexture() {
@@ -231,25 +217,25 @@ public final class PolylineOptions extends OverlayOptions {
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26268c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.c : (Bundle) invokeV.objValue;
     }
 
     public List<LatLng> getPoints() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f26270e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
     public List<Integer> getTextureIndexs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26271f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f : (List) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f26273h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.h : invokeV.intValue;
     }
 
     public int getZIndex() {
@@ -273,7 +259,7 @@ public final class PolylineOptions extends OverlayOptions {
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f26267b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
     public PolylineOptions keepScale(boolean z) {
@@ -295,7 +281,7 @@ public final class PolylineOptions extends OverlayOptions {
                     if (list.contains(null)) {
                         throw new IllegalArgumentException("BDMapSDKException: points list can not contains null");
                     }
-                    this.f26270e = list;
+                    this.e = list;
                     return this;
                 }
                 throw new IllegalArgumentException("BDMapSDKException: points count can not less than 2");
@@ -313,7 +299,7 @@ public final class PolylineOptions extends OverlayOptions {
                 if (list.contains(null)) {
                     throw new IllegalArgumentException("BDMapSDKException: index list can not contains null");
                 }
-                this.f26271f = list;
+                this.f = list;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: indexs list can not be null");
@@ -325,7 +311,7 @@ public final class PolylineOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-            this.f26267b = z;
+            this.b = z;
             return this;
         }
         return (PolylineOptions) invokeZ.objValue;
@@ -336,7 +322,7 @@ public final class PolylineOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
             if (i > 0) {
-                this.f26273h = i;
+                this.h = i;
             }
             return this;
         }

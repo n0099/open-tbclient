@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d extends j {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -159,26 +159,26 @@ public class d extends j {
                     if (this.sx.booleanValue()) {
                         long j = this.timestamp;
                         if (j != 0) {
-                            float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
+                            float f = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
                             float[] fArr2 = sensorEvent.values;
-                            float f3 = fArr2[0];
-                            float f4 = fArr2[1];
-                            float f5 = fArr2[2];
-                            double sqrt = Math.sqrt((f3 * f3) + (f4 * f4) + (f5 * f5));
+                            float f2 = fArr2[0];
+                            float f3 = fArr2[1];
+                            float f4 = fArr2[2];
+                            double sqrt = Math.sqrt((f2 * f2) + (f3 * f3) + (f4 * f4));
                             this.rC = sqrt;
                             if (sqrt > 0.10000000149011612d) {
+                                f2 = (float) (f2 / sqrt);
                                 f3 = (float) (f3 / sqrt);
                                 f4 = (float) (f4 / sqrt);
-                                f5 = (float) (f5 / sqrt);
                             } else {
                                 this.rC = 0.0d;
                             }
-                            double d2 = (this.rC * f2) / 2.0d;
-                            double sin = Math.sin(d2);
-                            double cos = Math.cos(d2);
-                            this.rA.setX((float) (f3 * sin));
-                            this.rA.setY((float) (f4 * sin));
-                            this.rA.setZ((float) (sin * f5));
+                            double d = (this.rC * f) / 2.0d;
+                            double sin = Math.sin(d);
+                            double cos = Math.cos(d);
+                            this.rA.setX((float) (f2 * sin));
+                            this.rA.setY((float) (f3 * sin));
+                            this.rA.setZ((float) (sin * f4));
                             this.rA.setW(-((float) cos));
                             Quaternion quaternion = this.rA;
                             Quaternion quaternion2 = this.rJ;
@@ -198,14 +198,14 @@ public class d extends j {
                             }
                             if (this.rM > 60) {
                                 com.baidu.ar.h.b.c(TAG, "Rotation VectorPanic counter is bigger than threshold; this indicates a Gyroscope failure. Panic reset is imminent.");
-                                double d3 = this.rC;
-                                if (d3 < 3.0d) {
+                                double d2 = this.rC;
+                                if (d2 < 3.0d) {
                                     com.baidu.ar.h.b.c(TAG, "Rotation VectorPerforming Panic-reset. Resetting orientation to rotation-vector value.");
                                     a(this.rK);
                                     this.rJ.copyVec4(this.rK);
                                     this.rM = 0;
                                 } else {
-                                    String format = String.format("Panic reset delayed due to ongoing motion (user is still shaking the device). Gyroscope Velocity: %.2f > 3", Double.valueOf(d3));
+                                    String format = String.format("Panic reset delayed due to ongoing motion (user is still shaking the device). Gyroscope Velocity: %.2f > 3", Double.valueOf(d2));
                                     com.baidu.ar.h.b.c(TAG, "Rotation Vector" + format);
                                 }
                             }

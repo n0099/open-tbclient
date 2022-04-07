@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PopupEmotionView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEIGHT_DP = 85;
@@ -70,11 +70,11 @@ public class PopupEmotionView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.mCtx = context;
             setLayoutParams(new ViewGroup.LayoutParams((int) UIUtils.dp2px(this.mCtx, 75.0f), (int) UIUtils.dp2px(this.mCtx, 85.0f)));
-            setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804cb));
+            setBackground(this.mCtx.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0804c9));
             setPadding(0, 0, 0, 0);
-            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0273, (ViewGroup) this, true);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e06);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
+            LayoutInflater.from(this.mCtx).inflate(R.layout.obfuscated_res_0x7f0d0274, (ViewGroup) this, true);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e0e);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f091f07);
         }
     }
 

@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import com.repackage.ul9;
+/* loaded from: classes5.dex */
 public final class a extends com.google.a.a.a implements ILoadedInstanceCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,8 +42,8 @@ public final class a extends com.google.a.a.a implements ILoadedInstanceCreator 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, iObjectWrapper, iObjectWrapper2)) == null) {
             Parcel a = a();
-            c.f.a.a.a.b(a, iObjectWrapper);
-            c.f.a.a.a.b(a, iObjectWrapper2);
+            ul9.b(a, iObjectWrapper);
+            ul9.b(a, iObjectWrapper2);
             Parcel a2 = a(1, a);
             IBinder readStrongBinder = a2.readStrongBinder();
             if (readStrongBinder == null) {

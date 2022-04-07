@@ -2,9 +2,6 @@ package com.baidu.tieba.videoplay.model;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.d.a.f;
-import c.a.o0.i0.d.a;
-import c.a.o0.r.r.z0;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -17,42 +14,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.qp4;
+import com.repackage.y45;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoHotTopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public VideoHotTopicParams a;
     @Nullable
-
-    /* renamed from: b  reason: collision with root package name */
-    public b f36743b;
+    public b b;
     @NonNull
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.o0.i0.d.a f36744c;
+    public y45 c;
     @NonNull
+    public List<Map<String, Object>> d;
+    public int e;
+    public boolean f;
 
-    /* renamed from: d  reason: collision with root package name */
-    public List<Map<String, Object>> f36745d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f36746e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f36747f;
-
-    /* loaded from: classes6.dex */
-    public class a implements a.InterfaceC0813a {
+    /* loaded from: classes4.dex */
+    public class a implements y45.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicParams a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ VideoHotTopicModel f36748b;
+        public final /* synthetic */ VideoHotTopicModel b;
 
         public a(VideoHotTopicModel videoHotTopicModel, VideoHotTopicParams videoHotTopicParams) {
             Interceptable interceptable = $ic;
@@ -69,22 +57,22 @@ public class VideoHotTopicModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f36748b = videoHotTopicModel;
+            this.b = videoHotTopicModel;
             this.a = videoHotTopicParams;
         }
 
-        @Override // c.a.o0.i0.d.a.InterfaceC0813a
+        @Override // com.repackage.y45.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f36748b.f36747f = false;
+                this.b.f = false;
             }
         }
 
-        @Override // c.a.o0.i0.d.a.InterfaceC0813a
+        @Override // com.repackage.y45.a
         public void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.f36748b.f36743b == null || list.isEmpty()) {
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map) == null) || this.b.b == null || list.isEmpty()) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
@@ -94,14 +82,14 @@ public class VideoHotTopicModel extends BdBaseModel {
                 arrayList.add(videoItemData);
             }
             if (map != null) {
-                this.f36748b.f36745d.add(map);
+                this.b.d.add(map);
             }
-            this.a.setCurrentPn(this.f36748b.f36746e);
-            this.f36748b.f36743b.a(arrayList);
+            this.a.setCurrentPn(this.b.e);
+            this.b.b.a(arrayList);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(@NonNull List<VideoItemData> list);
     }
@@ -118,43 +106,43 @@ public class VideoHotTopicModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36744c = (c.a.o0.i0.d.a) ServiceManager.getService(c.a.o0.i0.d.a.a);
-        this.f36745d = new ArrayList();
-        this.f36747f = false;
+        this.c = (y45) ServiceManager.getService(y45.a);
+        this.d = new ArrayList();
+        this.f = false;
         this.a = videoHotTopicParams;
-        this.f36744c.a(tbPageContext, videoHotTopicParams.getTopicId(), videoHotTopicParams.getTopicName());
-        this.f36744c.c(new a(this, videoHotTopicParams));
+        this.c.a(tbPageContext, videoHotTopicParams.getTopicId(), videoHotTopicParams.getTopicName());
+        this.c.c(new a(this, videoHotTopicParams));
     }
 
     @NonNull
     public List<Map<String, Object>> C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36745d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
     public void D(@NonNull Long l) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) || this.f36747f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) || this.f) {
             return;
         }
-        this.f36747f = true;
-        this.f36746e = this.a.getCurrentPn() + 1;
-        z0 z0Var = new z0();
-        z0Var.k(this.f36746e);
-        this.f36744c.b(this.a.getSortType(), z0Var, l.longValue());
+        this.f = true;
+        this.e = this.a.getCurrentPn() + 1;
+        qp4 qp4Var = new qp4();
+        qp4Var.k(this.e);
+        this.c.b(this.a.getSortType(), qp4Var, l.longValue());
     }
 
     public void E(@Nullable b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.f36743b = bVar;
+            this.b = bVar;
         }
     }
 

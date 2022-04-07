@@ -1,26 +1,26 @@
 package com.baidu.tieba.horizonalList.widget;
 
 import android.view.View;
-import c.a.p0.r1.b.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.o37;
+/* loaded from: classes3.dex */
 public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ItemViewHolder(View view) {
-        super(view);
+    public ItemViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,9 +33,9 @@ public abstract class ItemViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public abstract void c(c cVar);
+    public abstract void c(o37 o37Var);
 
-    public abstract ItemViewHolder d(View view);
+    public abstract ItemViewHolder d(View view2);
 
     public abstract void e(int i);
 

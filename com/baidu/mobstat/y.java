@@ -14,32 +14,18 @@ import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.text.SimpleDateFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
     public static y a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Context f27432b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public JSONObject f27433c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f27434d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f27435e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f27436f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f27437g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f27438h;
+    public Context b;
+    public JSONObject c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
     public long i;
     public long j;
     public long k;
@@ -65,12 +51,12 @@ public class y {
                 return;
             }
         }
-        this.f27433c = new JSONObject();
-        this.f27434d = 24L;
-        this.f27435e = 0L;
-        this.f27436f = 0L;
-        this.f27437g = 0L;
-        this.f27438h = 5L;
+        this.c = new JSONObject();
+        this.d = 24L;
+        this.e = 0L;
+        this.f = 0L;
+        this.g = 0L;
+        this.h = 5L;
         this.i = 24L;
         this.j = 15L;
         this.k = 15L;
@@ -80,7 +66,7 @@ public class y {
         this.o = 24L;
         this.p = "";
         this.q = "";
-        this.f27432b = context;
+        this.b = context;
         m();
         j();
         k();
@@ -105,12 +91,12 @@ public class y {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            String b2 = bo.b("backups/system/.timestamp");
+            String b = bo.b("backups/system/.timestamp");
             try {
-                if (TextUtils.isEmpty(b2)) {
+                if (TextUtils.isEmpty(b)) {
                     return;
                 }
-                this.f27433c = new JSONObject(b2);
+                this.c = new JSONObject(b);
             } catch (Exception unused) {
             }
         }
@@ -119,13 +105,13 @@ public class y {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27436f != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f != 0 : invokeV.booleanValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27434d * 60 * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d * 60 * 60 * 1000 : invokeV.longValue;
     }
 
     public long d() {
@@ -137,7 +123,7 @@ public class y {
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f27438h * 60 * 1000 : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h * 60 * 1000 : invokeV.longValue;
     }
 
     public long f() {
@@ -168,73 +154,73 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f27432b, ".config2").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".config2").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 try {
-                    this.f27435e = jSONObject.getLong("c");
+                    this.e = jSONObject.getLong("c");
+                } catch (JSONException e) {
+                    bb.c().b(e);
+                }
+                try {
+                    this.h = jSONObject.getLong("d");
                 } catch (JSONException e2) {
                     bb.c().b(e2);
                 }
                 try {
-                    this.f27438h = jSONObject.getLong("d");
+                    this.i = jSONObject.getLong("e");
                 } catch (JSONException e3) {
                     bb.c().b(e3);
                 }
                 try {
-                    this.i = jSONObject.getLong("e");
+                    this.j = jSONObject.getLong("i");
                 } catch (JSONException e4) {
                     bb.c().b(e4);
                 }
                 try {
-                    this.j = jSONObject.getLong("i");
+                    this.d = jSONObject.getLong("f");
                 } catch (JSONException e5) {
                     bb.c().b(e5);
                 }
                 try {
-                    this.f27434d = jSONObject.getLong("f");
+                    this.o = jSONObject.getLong("s");
                 } catch (JSONException e6) {
                     bb.c().b(e6);
                 }
                 try {
-                    this.o = jSONObject.getLong("s");
+                    this.k = jSONObject.getLong(PushConstants.URI_PACKAGE_NAME);
                 } catch (JSONException e7) {
                     bb.c().b(e7);
                 }
                 try {
-                    this.k = jSONObject.getLong(PushConstants.URI_PACKAGE_NAME);
+                    this.l = jSONObject.getLong("at");
                 } catch (JSONException e8) {
                     bb.c().b(e8);
                 }
                 try {
-                    this.l = jSONObject.getLong("at");
+                    this.m = jSONObject.getLong("as");
                 } catch (JSONException e9) {
                     bb.c().b(e9);
                 }
                 try {
-                    this.m = jSONObject.getLong("as");
+                    this.n = jSONObject.getLong(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST);
                 } catch (JSONException e10) {
                     bb.c().b(e10);
                 }
                 try {
-                    this.n = jSONObject.getLong(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST);
+                    this.f = jSONObject.getLong(Config.DEVICE_MAC_ID);
                 } catch (JSONException e11) {
                     bb.c().b(e11);
                 }
                 try {
-                    this.f27436f = jSONObject.getLong(Config.DEVICE_MAC_ID);
+                    this.g = jSONObject.getLong("lsc");
                 } catch (JSONException e12) {
                     bb.c().b(e12);
                 }
-                try {
-                    this.f27437g = jSONObject.getLong("lsc");
-                } catch (JSONException e13) {
-                    bb.c().b(e13);
-                }
-            } catch (Exception e14) {
-                bb.c().b(e14);
+            } catch (Exception e13) {
+                bb.c().b(e13);
             }
         }
     }
@@ -243,23 +229,23 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             try {
-                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.f27432b, ".sign").getBytes())));
+                String str = new String(bv.b(false, br.a(), bp.a(bo.a(this.b, ".sign").getBytes())));
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
                 JSONObject jSONObject = new JSONObject(str);
                 try {
                     this.q = jSONObject.getString("sign");
-                } catch (Exception e2) {
-                    bb.c().b(e2);
+                } catch (Exception e) {
+                    bb.c().b(e);
                 }
                 try {
                     this.p = jSONObject.getString("ver");
-                } catch (Exception e3) {
-                    bb.c().b(e3);
+                } catch (Exception e2) {
+                    bb.c().b(e2);
                 }
-            } catch (Exception e4) {
-                bb.c().b(e4);
+            } catch (Exception e3) {
+                bb.c().b(e3);
             }
         }
     }
@@ -269,11 +255,11 @@ public class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long a2 = a(g.f27409h);
-            long d2 = d();
-            bb c2 = bb.c();
-            c2.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d2);
-            return currentTimeMillis - a2 > d2 || !a(a2);
+            long a2 = a(g.h);
+            long d = d();
+            bb c = bb.c();
+            c.a("canSend now=" + currentTimeMillis + ";lastSendTime=" + a2 + ";sendLogTimeInterval=" + d);
+            return currentTimeMillis - a2 > d || !a(a2);
         }
         return invokeV.booleanValue;
     }
@@ -281,7 +267,7 @@ public class y {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            bo.a(this.f27432b, ".sign", str, false);
+            bo.a(this.b, ".sign", str, false);
             k();
         }
     }
@@ -307,13 +293,13 @@ public class y {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27435e != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e != 0 : invokeV.booleanValue;
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            bo.a(this.f27432b, ".config2", str, false);
+            bo.a(this.b, ".config2", str, false);
             j();
         }
     }
@@ -325,11 +311,11 @@ public class y {
             long j = gVar.j;
             try {
                 String str = gVar.toString();
-                if (this.f27433c.has(str)) {
-                    j = this.f27433c.getLong(str);
+                if (this.c.has(str)) {
+                    j = this.c.getLong(str);
                 }
-            } catch (Exception e2) {
-                bb.c().a(e2);
+            } catch (Exception e) {
+                bb.c().a(e);
             }
             return b(j);
         }
@@ -341,14 +327,14 @@ public class y {
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gVar, j) == null) {
             gVar.j = j;
             try {
-                this.f27433c.put(gVar.toString(), j);
-            } catch (Exception e2) {
-                bb.c().a(e2);
+                this.c.put(gVar.toString(), j);
+            } catch (Exception e) {
+                bb.c().a(e);
             }
             try {
-                bo.a("backups/system/.timestamp", this.f27433c.toString(), false);
-            } catch (Exception e3) {
-                bb.c().a(e3);
+                bo.a("backups/system/.timestamp", this.c.toString(), false);
+            } catch (Exception e2) {
+                bb.c().a(e2);
             }
         }
     }

@@ -20,7 +20,7 @@ import java.util.Map;
 import okhttp3.Headers;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpUtils {
     public static /* synthetic */ Interceptable $ic;
     public static boolean HTTP_VERBOSE;
@@ -102,8 +102,8 @@ public class HttpUtils {
             }
             try {
                 return new URI(sb.toString());
-            } catch (URISyntaxException e2) {
-                throw new RuntimeException("Unexpected error", e2);
+            } catch (URISyntaxException e) {
+                throw new RuntimeException("Unexpected error", e);
             }
         }
         return (URI) invokeLL.objValue;
@@ -174,17 +174,17 @@ public class HttpUtils {
             }
             try {
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : str.getBytes("UTF-8")) {
-                    int i = b2 & 255;
+                for (byte b : str.getBytes("UTF-8")) {
+                    int i = b & 255;
                     if (URI_UNRESERVED_CHARACTERS.get(i)) {
-                        sb.append((char) b2);
+                        sb.append((char) b);
                     } else {
                         sb.append(PERCENT_ENCODED_STRINGS[i]);
                     }
                 }
                 return sb.toString();
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeL.objValue;

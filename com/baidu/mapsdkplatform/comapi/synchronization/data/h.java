@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +48,7 @@ public class h extends com.baidu.mapsdkplatform.comapi.synchronization.c.e {
                 bVar3 = this.a.j;
                 bVar3.sendMessage(obtainMessage);
             }
-            if (c.a.f26808e == aVar || c.a.f26805b == aVar || c.a.f26806c == aVar) {
+            if (c.a.e == aVar || c.a.b == aVar || c.a.c == aVar) {
                 g.b(this.a);
             }
         }

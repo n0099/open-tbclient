@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKView extends TKBase<TKYogaLayout> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -164,7 +164,7 @@ public class TKView extends TKBase<TKYogaLayout> {
                                     tKDispatchEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.view.TKView.1.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C20961 this$2;
+                                        public final /* synthetic */ C06401 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -230,9 +230,9 @@ public class TKView extends TKBase<TKYogaLayout> {
                 getDomNode().layoutSubviews();
                 associateReference.close();
                 associateReference2.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throwIfDebug(e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throwIfDebug(e);
             }
         }
     }
@@ -257,10 +257,10 @@ public class TKView extends TKBase<TKYogaLayout> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            TKYogaLayout view = getView();
-            if (view != null) {
-                view.removeAllViews();
-                view.unRegisterListener();
+            TKYogaLayout view2 = getView();
+            if (view2 != null) {
+                view2.removeAllViews();
+                view2.unRegisterListener();
             }
             JSContext.V8AssociateReference.closeAllReference(this.associateChildRefList.iterator());
             this.associateChildRefList.clear();
@@ -285,9 +285,9 @@ public class TKView extends TKBase<TKYogaLayout> {
                 getDomNode().layoutSubviews();
                 associateReference.close();
                 JSContext.V8AssociateReference.closeByNative(tKBase, this.associateChildRefList.iterator());
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throwIfDebug(e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throwIfDebug(e);
             }
         }
     }
@@ -306,9 +306,9 @@ public class TKView extends TKBase<TKYogaLayout> {
                     v8AssociateReference.close();
                 }
                 this.associateChildRefList.clear();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throwIfDebug(e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throwIfDebug(e);
             }
         }
     }
@@ -328,9 +328,9 @@ public class TKView extends TKBase<TKYogaLayout> {
                 JSContext.V8AssociateReference.closeByNative(associateReference2, this.associateChildRefList.iterator());
                 this.associateChildRefList.add(associateReference);
                 getDomNode().layoutSubviews();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throwIfDebug(e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throwIfDebug(e);
             }
         }
     }

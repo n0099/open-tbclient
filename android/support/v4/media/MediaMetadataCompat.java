@@ -244,8 +244,8 @@ public final class MediaMetadataCompat implements Parcelable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
                 return (Bitmap) this.mBundle.getParcelable(str);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve a key as Bitmap.", e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to retrieve a key as Bitmap.", e);
                 return null;
             }
         }
@@ -377,8 +377,8 @@ public final class MediaMetadataCompat implements Parcelable {
                     return RatingCompat.fromRating(this.mBundle.getParcelable(str));
                 }
                 return (RatingCompat) this.mBundle.getParcelable(str);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve a key as Rating.", e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to retrieve a key as Rating.", e);
                 return null;
             }
         }
@@ -450,8 +450,8 @@ public final class MediaMetadataCompat implements Parcelable {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, bitmap, i)) == null) {
-                float f2 = i;
-                float min = Math.min(f2 / bitmap.getWidth(), f2 / bitmap.getHeight());
+                float f = i;
+                float min = Math.min(f / bitmap.getWidth(), f / bitmap.getHeight());
                 return Bitmap.createScaledBitmap(bitmap, (int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), true);
             }
             return (Bitmap) invokeLI.objValue;

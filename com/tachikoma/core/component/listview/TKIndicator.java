@@ -17,7 +17,7 @@ import com.tachikoma.core.component.anim.TimeFunctionConst;
 import com.tachikoma.core.component.listview.TKPagerIndicatorDecoration;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKIndicator extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,29 +52,29 @@ public class TKIndicator extends TKBase<View> {
 
     public TKPagerIndicatorDecoration.IIndicatorRender create() {
         InterceptResult invokeV;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String str = this.mType;
             int hashCode = str.hashCode();
             if (hashCode == -1360216880) {
                 if (str.equals(Config.TRACE_CIRCLE)) {
-                    c2 = 2;
+                    c = 2;
                 }
-                c2 = 65535;
+                c = 65535;
             } else if (hashCode != -1102672091) {
                 if (hashCode == -1034364087 && str.equals("number")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals(TimeFunctionConst.Timing.LINEAR)) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
+            if (c != 0) {
+                if (c != 1) {
                     return new TKCircleIndicator(this.mSize, this.mMarginTop, this.mPadding, Color.parseColor(this.mInActiveColor), Color.parseColor(this.mActiveColor));
                 }
                 TKNumberIndicator tKNumberIndicator = new TKNumberIndicator(Color.parseColor(this.mActiveColor));

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_MAX_SIZE = 20;

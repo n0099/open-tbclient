@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class bz implements cb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public abstract class bz implements cb {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, byVar, cqVar) == null) {
             cr crVar = new cr(cqVar);
-            crVar.a(cq.a.f27374e);
+            crVar.a(cq.a.e);
             byVar.a(crVar);
         }
     }

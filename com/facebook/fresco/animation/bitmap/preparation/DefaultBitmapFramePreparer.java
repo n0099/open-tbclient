@@ -16,7 +16,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -27,7 +27,7 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public final SparseArray<Runnable> mPendingFrameDecodeJobs;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class FrameDecodeRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
                     boolean renderFrameAndCache = renderFrameAndCache(i, bitmapToReuseForFrame, i2);
                     CloseableReference.closeSafely(bitmapToReuseForFrame);
                     return (renderFrameAndCache || i3 == -1) ? renderFrameAndCache : prepareFrameAndCache(i, i3);
-                } catch (RuntimeException e2) {
-                    FLog.w(DefaultBitmapFramePreparer.TAG, "Failed to create frame bitmap", e2);
+                } catch (RuntimeException e) {
+                    FLog.w(DefaultBitmapFramePreparer.TAG, "Failed to create frame bitmap", e);
                     return false;
                 } finally {
                     CloseableReference.closeSafely((CloseableReference<?>) null);

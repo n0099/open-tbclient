@@ -9,31 +9,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic = null;
     public static g a = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f25919b = "Temp_in.dat";
-
-    /* renamed from: c  reason: collision with root package name */
-    public static File f25920c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static StringBuffer f25921d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static boolean f25922e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f25923f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f25924g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static long f25925h;
+    public static String b = "Temp_in.dat";
+    public static File c;
+    public static StringBuffer d;
+    public static boolean e;
+    public static int f;
+    public static int g;
+    public static long h;
     public static long i;
     public static long j;
     public static double k;
@@ -56,12 +42,12 @@ public class g {
                 return;
             }
         }
-        f25920c = new File(com.baidu.location.e.j.a, f25919b);
-        f25921d = null;
-        f25922e = true;
-        f25923f = 0;
-        f25924g = 0;
-        f25925h = 0L;
+        c = new File(com.baidu.location.e.j.a, b);
+        d = null;
+        e = true;
+        f = 0;
+        g = 0;
+        h = 0L;
         i = 0L;
         j = 0L;
         k = 0.0d;
@@ -80,10 +66,10 @@ public class g {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = f25920c;
+            File file = c;
             if (file != null && file.exists()) {
                 try {
-                    randomAccessFile = new RandomAccessFile(f25920c, "rw");
+                    randomAccessFile = new RandomAccessFile(c, "rw");
                     randomAccessFile.seek(0L);
                     readInt = randomAccessFile.readInt();
                     readInt2 = randomAccessFile.readInt();
@@ -138,11 +124,11 @@ public class g {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            f25922e = true;
-            f25921d = null;
-            f25923f = 0;
-            f25924g = 0;
-            f25925h = 0L;
+            e = true;
+            d = null;
+            f = 0;
+            g = 0;
+            h = 0L;
             i = 0L;
             j = 0L;
             k = 0.0d;
@@ -157,22 +143,22 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f25920c.exists()) {
-                f25920c.delete();
+            if (c.exists()) {
+                c.delete();
             }
-            if (!f25920c.getParentFile().exists()) {
-                f25920c.getParentFile().mkdirs();
+            if (!c.getParentFile().exists()) {
+                c.getParentFile().mkdirs();
             }
             try {
-                f25920c.createNewFile();
-                RandomAccessFile randomAccessFile = new RandomAccessFile(f25920c, "rw");
+                c.createNewFile();
+                RandomAccessFile randomAccessFile = new RandomAccessFile(c, "rw");
                 randomAccessFile.seek(0L);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(0);
                 randomAccessFile.writeInt(1);
                 randomAccessFile.close();
                 b();
-                return f25920c.exists();
+                return c.exists();
             } catch (IOException unused) {
                 return false;
             }

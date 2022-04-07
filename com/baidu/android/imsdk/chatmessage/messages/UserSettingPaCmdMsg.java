@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<UserSettingPaCmdMsg> CREATOR;
@@ -97,8 +97,8 @@ public class UserSettingPaCmdMsg extends NotifyMsg implements Parcelable, NoProG
                 this.status = jSONObject.getInt("status");
                 this.updateTime = jSONObject.getInt("update_time");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 return false;
             }
         }

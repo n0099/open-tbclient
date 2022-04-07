@@ -10,7 +10,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class l {
     public static String a(String str) {
         MimeTypeMap singleton = MimeTypeMap.getSingleton();
@@ -34,8 +34,8 @@ public class l {
         if (closeable != null) {
             try {
                 closeable.close();
-            } catch (IOException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (IOException e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
         }
     }
@@ -50,24 +50,24 @@ public class l {
     public static String b(String str) {
         try {
             return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e2) {
-            throw new RuntimeException("Error encoding url", e2);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("Error encoding url", e);
         }
     }
 
     public static String c(String str) {
         try {
             return URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
-        } catch (UnsupportedEncodingException e2) {
-            throw new RuntimeException("Error decoding url", e2);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException("Error decoding url", e);
         }
     }
 
     public static String d(String str) {
         try {
             return a(MessageDigest.getInstance("MD5").digest(str.getBytes()));
-        } catch (NoSuchAlgorithmException e2) {
-            throw new IllegalStateException(e2);
+        } catch (NoSuchAlgorithmException e) {
+            throw new IllegalStateException(e);
         }
     }
 }

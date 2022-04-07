@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ModelInfoDataProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULTMODELNAME_AMENDEDSTATICSCORE = "amended_static_score.mlmodel";
@@ -33,7 +33,7 @@ public class ModelInfoDataProvider {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class DevicePerformanceModelInfoType {
         public static final /* synthetic */ DevicePerformanceModelInfoType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

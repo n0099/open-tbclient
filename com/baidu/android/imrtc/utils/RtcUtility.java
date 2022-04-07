@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RtcUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APPID = "appid";
@@ -83,8 +83,8 @@ public class RtcUtility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e2) {
-                LogUtils.e("Utility", "getAppVersionName NameNotFoundException", e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                LogUtils.e("Utility", "getAppVersionName NameNotFoundException", e);
                 return null;
             }
         }

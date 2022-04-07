@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.b.a;
 import com.kwai.filedownloader.b.b;
 import com.kwai.filedownloader.message.MessageSnapshot;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownloader.b.b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a extends a.AbstractBinderC2013a {
+    /* loaded from: classes5.dex */
+    public static class a extends a.AbstractBinderC0353a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,8 +100,8 @@ public class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
             if (c()) {
                 try {
                     return d().a(i);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -119,8 +119,8 @@ public class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
                 try {
                     d().a(str, str2, z, i, i2, i3, z2, bVar, z3);
                     return true;
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -137,8 +137,8 @@ public class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
             if (c()) {
                 try {
                     return d().e(i);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return (byte) 0;
                 }
             }
@@ -165,8 +165,8 @@ public class p extends com.kwai.filedownloader.services.a<a, com.kwai.filedownlo
             if (c()) {
                 try {
                     return d().f(i);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
+                } catch (RemoteException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }

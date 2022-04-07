@@ -2,7 +2,6 @@ package com.baidu.tieba.write.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import c.a.d.a.f;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
@@ -10,7 +9,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.b9;
+/* loaded from: classes4.dex */
 public class TransparentNavigationBar extends NavigationBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class TransparentNavigationBar extends NavigationBar {
     }
 
     @Override // com.baidu.tbadk.core.view.NavigationBar
-    public void onChangeSkinType(f<?> fVar, int i) {
+    public void onChangeSkinType(b9<?> b9Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, fVar, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, b9Var, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.common_color_10094);
             initPadding();
         }

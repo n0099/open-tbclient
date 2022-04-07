@@ -107,8 +107,8 @@ public class EnvDrawText {
                 textPaint3.reset();
                 textPaint3.setSubpixelText(true);
                 textPaint3.setAntiAlias(true);
-                float f2 = i;
-                textPaint3.setTextSize(f2);
+                float f = i;
+                textPaint3.setTextSize(f);
                 textPaint3.setShadowLayer(0.0f, 0.0f, 0.0f, 0);
                 textPaint3.setTypeface(i21 != 1 ? i21 != 2 ? Typeface.create(Typeface.DEFAULT, 0) : Typeface.create(Typeface.DEFAULT, 2) : Typeface.create(Typeface.DEFAULT, 1));
                 if (i6 != 0) {
@@ -122,7 +122,7 @@ public class EnvDrawText {
                 if (i21 != 0 && fontCache != null && (aVar = fontCache.get(i21)) != null) {
                     textPaint3.setTypeface(aVar.a);
                 }
-                textPaint3.setTextSize(f2);
+                textPaint3.setTextSize(f);
                 int indexOf2 = str.indexOf(92, 0);
                 if (indexOf2 == -1) {
                     Paint.FontMetrics fontMetrics3 = textPaint3.getFontMetrics();
@@ -383,13 +383,13 @@ public class EnvDrawText {
             textPaint.setTextSize(i);
             int i6 = 2;
             textPaint.setTypeface(i5 != 1 ? i5 != 2 ? Typeface.create(Typeface.DEFAULT, 0) : Typeface.create(Typeface.DEFAULT, 2) : Typeface.create(Typeface.DEFAULT, 1));
-            float f2 = (i3 * 1.3f) + 0.5f;
+            float f = (i3 * 1.3f) + 0.5f;
             int i7 = 92;
             int indexOf = str.indexOf(92, 0);
             Bitmap bitmap = null;
             if (indexOf == -1) {
                 Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-                int desiredWidth2 = (int) (Layout.getDesiredWidth(str, 0, str.length(), textPaint) + f2);
+                int desiredWidth2 = (int) (Layout.getDesiredWidth(str, 0, str.length(), textPaint) + f);
                 int ceil = (int) Math.ceil(fontMetrics.descent - fontMetrics.ascent);
                 if (desiredWidth2 > 0 && ceil > 0) {
                     bitmap = Bitmap.createBitmap(desiredWidth2, ceil, Bitmap.Config.ALPHA_8);
@@ -400,7 +400,7 @@ public class EnvDrawText {
                     canvas.setBitmap(bitmap);
                 }
                 textPaint.setStyle(Paint.Style.FILL);
-                canvas.drawText(str, f2 * 0.5f, 0.0f - fontMetrics.ascent, textPaint);
+                canvas.drawText(str, f * 0.5f, 0.0f - fontMetrics.ascent, textPaint);
             } else {
                 int i8 = indexOf + 1;
                 int desiredWidth3 = (int) (Layout.getDesiredWidth(str.substring(0, indexOf), textPaint) + 0.5d);
@@ -433,7 +433,7 @@ public class EnvDrawText {
                     canvas.setBitmap(bitmap);
                 }
                 textPaint.setTextAlign(getTextAlignedType(3));
-                float f3 = i9 - (f2 * 0.5f);
+                float f2 = i9 - (f * 0.5f);
                 int i11 = 0;
                 while (true) {
                     int indexOf3 = str.indexOf(92, i4);
@@ -443,7 +443,7 @@ public class EnvDrawText {
                     String substring = str.substring(i4, indexOf3);
                     Layout.getDesiredWidth(substring, textPaint);
                     textPaint.setStyle(Paint.Style.FILL);
-                    canvas.drawText(substring, f3, (i11 * ceil2) - fontMetrics2.ascent, textPaint);
+                    canvas.drawText(substring, f2, (i11 * ceil2) - fontMetrics2.ascent, textPaint);
                     i11++;
                     i4 = indexOf3 + 1;
                 }
@@ -451,7 +451,7 @@ public class EnvDrawText {
                     String substring2 = str.substring(i4, str.length());
                     Layout.getDesiredWidth(substring2, textPaint);
                     textPaint.setStyle(Paint.Style.FILL);
-                    canvas.drawText(substring2, f3, (i11 * ceil2) - fontMetrics2.ascent, textPaint);
+                    canvas.drawText(substring2, f2, (i11 * ceil2) - fontMetrics2.ascent, textPaint);
                 }
             }
             return bitmap;
@@ -745,10 +745,10 @@ public class EnvDrawText {
                 if (aVar == null) {
                     a aVar2 = new a();
                     aVar2.a = typeface;
-                    aVar2.f45365b++;
+                    aVar2.b++;
                     fontCache.put(i, aVar2);
                 } else {
-                    aVar.f45365b++;
+                    aVar.b++;
                 }
             }
         }
@@ -762,8 +762,8 @@ public class EnvDrawText {
                 if (aVar == null) {
                     return;
                 }
-                int i2 = aVar.f45365b - 1;
-                aVar.f45365b = i2;
+                int i2 = aVar.b - 1;
+                aVar.b = i2;
                 if (i2 == 0) {
                     fontCache.remove(i);
                 }

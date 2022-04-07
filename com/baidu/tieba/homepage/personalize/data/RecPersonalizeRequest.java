@@ -1,13 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
-import c.a.d.f.p.n;
-import c.a.o0.c1.b0;
-import c.a.o0.c1.i;
-import c.a.o0.r.r.e1;
-import c.a.p0.l3.k0.a;
-import c.a.p0.l3.m0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -20,9 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mc8;
+import com.repackage.mg;
+import com.repackage.mi;
+import com.repackage.oi;
+import com.repackage.rc5;
+import com.repackage.rc8;
+import com.repackage.vp4;
+import com.repackage.xb5;
 import tbclient.Personalized.DataReq;
 import tbclient.Personalized.PersonalizedReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RecPersonalizeRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOAD_TYPE_LOAD_MORE = 2;
@@ -66,7 +67,7 @@ public class RecPersonalizeRequest extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            b0.c(builder, true, false, true);
+            rc5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -74,29 +75,29 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.pn = Integer.valueOf(this.pn);
             builder.sug_count = Integer.valueOf(this.suggestCount);
             builder.tag_code = 0;
-            builder.scr_w = Integer.valueOf(n.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(n.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(oi.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(oi.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(oi.h(TbadkCoreApplication.getInst()));
             builder.q_type = Integer.valueOf(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             builder.need_forumlist = Integer.valueOf(this.needForumlist);
-            builder.new_net_type = Integer.valueOf(l.I());
+            builder.new_net_type = Integer.valueOf(mi.I());
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = b.f().d("HOME");
-            builder.app_pos = a.e().c();
+            builder.ad_context_list = rc8.f().d("HOME");
+            builder.app_pos = mc8.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                e1 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
-                builder.from_tid = Long.valueOf(c.a.d.f.m.b.g(pbToHomeUpdateData.a, 0L));
-                builder.query_eqid = pbToHomeUpdateData.f10846b;
-                builder.first_dir = pbToHomeUpdateData.f10847c;
-                builder.second_dir = pbToHomeUpdateData.f10848d;
+                vp4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                builder.from_tid = Long.valueOf(mg.g(pbToHomeUpdateData.a, 0L));
+                builder.query_eqid = pbToHomeUpdateData.b;
+                builder.first_dir = pbToHomeUpdateData.c;
+                builder.second_dir = pbToHomeUpdateData.d;
                 TbSingleton.getInstance().setPbToHomeUpdateData(null);
             }
-            AdExtParam.a b2 = AdExtParam.a.b();
-            b2.e(this.adFloorInfo);
-            builder.ad_ext_params = b2.a();
-            builder.app_transmit_data = i.b();
+            AdExtParam.a b = AdExtParam.a.b();
+            b.e(this.adFloorInfo);
+            builder.ad_ext_params = b.a();
+            builder.app_transmit_data = xb5.b();
             PersonalizedReqIdl.Builder builder2 = new PersonalizedReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

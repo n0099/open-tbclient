@@ -195,8 +195,8 @@ public final class Http1Codec implements HttpCodec {
                         return;
                     }
                     throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.bytesRemainingInChunk + trim + "\"");
-                } catch (NumberFormatException e2) {
-                    throw new ProtocolException(e2.getMessage());
+                } catch (NumberFormatException e) {
+                    throw new ProtocolException(e.getMessage());
                 }
             }
         }
@@ -692,9 +692,9 @@ public final class Http1Codec implements HttpCodec {
                 }
                 this.state = 4;
                 return headers;
-            } catch (EOFException e2) {
+            } catch (EOFException e) {
                 IOException iOException = new IOException("unexpected end of stream on " + this.streamAllocation);
-                iOException.initCause(e2);
+                iOException.initCause(e);
                 throw iOException;
             }
         }
@@ -787,9 +787,9 @@ public final class Http1Codec implements HttpCodec {
                         this.bytesRead += read;
                     }
                     return read;
-                } catch (IOException e2) {
-                    endOfInput(false, e2);
-                    throw e2;
+                } catch (IOException e) {
+                    endOfInput(false, e);
+                    throw e;
                 }
             }
             return invokeLJ.longValue;

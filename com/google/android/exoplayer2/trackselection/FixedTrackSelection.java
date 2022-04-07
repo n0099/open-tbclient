@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class FixedTrackSelection extends BaseTrackSelection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object data;
     public final int reason;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

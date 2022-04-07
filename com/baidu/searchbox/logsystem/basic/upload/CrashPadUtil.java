@@ -21,7 +21,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class CrashPadUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -75,8 +75,8 @@ public final class CrashPadUtil {
                 Log.d(TAG, "json-extra.size = " + ((String) readFile.first).length());
             }
             jsonWriter.name(Constant.CRASH_ENVIR).value((String) readFile.first);
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -92,15 +92,15 @@ public final class CrashPadUtil {
             fileInputStream = new FileInputStream(file);
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 byteArrayOutputStream = null;
             } catch (Throwable th) {
                 th = th;
                 byteArrayOutputStream = null;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             byteArrayOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
@@ -125,8 +125,8 @@ public final class CrashPadUtil {
             }
             jsonWriter.name(Constant.STACKTRACE_BDMP).value(encodeToString);
             Closeables.closeSafely(fileInputStream);
-        } catch (Exception e4) {
-            e = e4;
+        } catch (Exception e3) {
+            e = e3;
             fileInputStream2 = fileInputStream;
             try {
                 e.printStackTrace();

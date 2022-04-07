@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SampleMetadataQueue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SAMPLE_CAPACITY_INCREMENT = 1000;
@@ -37,7 +37,7 @@ public final class SampleMetadataQueue {
     public boolean upstreamKeyframeRequired;
     public int upstreamSourceId;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class SampleExtrasHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

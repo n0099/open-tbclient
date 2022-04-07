@@ -3,7 +3,6 @@ package com.baidu.tieba.newfaceshop.nativemotionmanager.managers;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import c.a.p0.r2.h.d.a;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,39 +15,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.po7;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MyEmotionHorizontalAdater extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<EmotionPackageData> a;
+    public List<po7.a> b;
+    public TbPageContext c;
+    public int d;
+    public int e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public List<a.C1361a> f34699b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbPageContext f34700c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f34701d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f34702e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public EmotionManageHorizontalView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public EmotionGridViewHolder(View view) {
-            super(view);
+        public EmotionGridViewHolder(View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,7 +51,7 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (EmotionManageHorizontalView) view;
+            this.a = (EmotionManageHorizontalView) view2;
         }
 
         public void d(EmotionPackageData emotionPackageData, int i) {
@@ -72,14 +64,12 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements AbsHListView.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MyEmotionHorizontalAdater f34703b;
+        public final /* synthetic */ MyEmotionHorizontalAdater b;
 
         public a(MyEmotionHorizontalAdater myEmotionHorizontalAdater, int i) {
             Interceptable interceptable = $ic;
@@ -96,21 +86,21 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
                     return;
                 }
             }
-            this.f34703b = myEmotionHorizontalAdater;
+            this.b = myEmotionHorizontalAdater;
             this.a = i;
         }
 
         @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
         public void a(AbsHListView absHListView, int i, int i2, int i3) {
             int i4;
-            a.C1361a c1361a;
+            po7.a aVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absHListView, i, i2, i3) == null) || (i4 = this.a) < 0 || i4 >= this.f34703b.f34699b.size() || (c1361a = (a.C1361a) this.f34703b.f34699b.get(this.a)) == null) {
+            if (!(interceptable == null || interceptable.invokeLIII(1048576, this, absHListView, i, i2, i3) == null) || (i4 = this.a) < 0 || i4 >= this.b.b.size() || (aVar = (po7.a) this.b.b.get(this.a)) == null) {
                 return;
             }
             int left = absHListView.getChildCount() > 0 ? absHListView.getChildAt(0).getLeft() : 0;
-            c1361a.f18070b = i;
-            c1361a.f18071c = left;
+            aVar.b = i;
+            aVar.c = left;
         }
 
         @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
@@ -121,7 +111,7 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
         }
     }
 
-    public MyEmotionHorizontalAdater(List<EmotionPackageData> list, List<a.C1361a> list2, TbPageContext tbPageContext) {
+    public MyEmotionHorizontalAdater(List<EmotionPackageData> list, List<po7.a> list2, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,27 +127,27 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
             }
         }
         this.a = list;
-        this.f34699b = list2;
-        this.f34700c = tbPageContext;
+        this.b = list2;
+        this.c = tbPageContext;
         c();
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34701d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f34701d = 0;
-            this.f34702e = 0;
+            this.d = 0;
+            this.e = 0;
             for (EmotionPackageData emotionPackageData : this.a) {
                 if (emotionPackageData.ishasdownload) {
-                    this.f34701d++;
+                    this.d++;
                 } else {
-                    this.f34702e++;
+                    this.e++;
                 }
             }
         }
@@ -192,30 +182,30 @@ public class MyEmotionHorizontalAdater extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         EmotionGridViewHolder emotionGridViewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view, viewGroup)) == null) {
-            if (view == null) {
-                view = new EmotionManageHorizontalView(this.f34700c);
-                view.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                emotionGridViewHolder = new EmotionGridViewHolder(view);
-                view.setTag(emotionGridViewHolder);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = new EmotionManageHorizontalView(this.c);
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                emotionGridViewHolder = new EmotionGridViewHolder(view2);
+                view2.setTag(emotionGridViewHolder);
             } else {
                 emotionGridViewHolder = null;
             }
             if (emotionGridViewHolder == null) {
-                emotionGridViewHolder = (EmotionGridViewHolder) view.getTag();
+                emotionGridViewHolder = (EmotionGridViewHolder) view2.getTag();
             }
-            emotionGridViewHolder.d(this.a.get(i), this.f34702e);
+            emotionGridViewHolder.d(this.a.get(i), this.e);
             HListView listView = emotionGridViewHolder.a.getListView();
-            a.C1361a c1361a = this.f34699b.get(i);
-            if (c1361a != null) {
-                listView.setSelectionFromLeft(c1361a.f18070b, c1361a.f18071c);
+            po7.a aVar = this.b.get(i);
+            if (aVar != null) {
+                listView.setSelectionFromLeft(aVar.b, aVar.c);
             }
             listView.setOnScrollListener(new a(this, i));
-            return view;
+            return view2;
         }
         return (View) invokeILL.objValue;
     }

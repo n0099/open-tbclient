@@ -32,7 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -98,9 +98,9 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 CookieManager cookieManager = CookieManager.getInstance();
                 cookieManager.setCookie("baidu.com", "BDUSS=" + bduss);
                 hashMap.put("cookie", cookieManager.getCookie("baidu.com"));
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 LogUtils.e("IMGenBosObjectUrlRequest", "set bduss exception");
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
             return hashMap;
         }
@@ -173,10 +173,10 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             if (!TextUtils.isEmpty(this.mContentType)) {
                 try {
                     sb.append("&content_type=" + URLEncoder.encode(this.mContentType, "UTF-8"));
-                } catch (UnsupportedEncodingException e2) {
-                    LogUtils.e("IMGenBosObjectUrlRequest", e2.getMessage(), e2);
+                } catch (UnsupportedEncodingException e) {
+                    LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
                     sb.append("&content_type=" + URLEncoder.encode(this.mContentType));
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 }
             }
             if (!TextUtils.isEmpty(this.mFormat)) {
@@ -199,9 +199,9 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             }
             try {
                 str = getMd5("" + currentTimeMillis + bduss + appid);
-            } catch (Exception e3) {
-                LogUtils.e(IMGenBosObjectUrlRequest.class.getSimpleName(), "Exception ", e3);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
+            } catch (Exception e2) {
+                LogUtils.e(IMGenBosObjectUrlRequest.class.getSimpleName(), "Exception ", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
             sb.append("&sign=" + str);
             return sb.toString().getBytes();
@@ -259,8 +259,8 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                             }
                             string = Constants.ERROR_MSG_SUCCESS;
                             str7 = str;
-                        } catch (JSONException e2) {
-                            e = e2;
+                        } catch (JSONException e) {
+                            e = e;
                             LogUtils.e("IMGenBosObjectUrlRequest", e.getMessage(), e);
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             str3 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
@@ -270,8 +270,8 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                             i2 = 1010;
                             ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
                         }
-                    } catch (JSONException e3) {
-                        e = e3;
+                    } catch (JSONException e2) {
+                        e = e2;
                         str2 = null;
                     }
                 } else {
@@ -285,8 +285,8 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 str4 = str7;
                 str5 = str2;
                 hashMap = hashMap2;
-            } catch (JSONException e4) {
-                e = e4;
+            } catch (JSONException e3) {
+                e = e3;
                 str = null;
                 str2 = null;
             }

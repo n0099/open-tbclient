@@ -33,7 +33,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class DefaultAudioSink implements AudioSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_MULTIPLICATION_FACTOR = 4;
@@ -123,7 +123,7 @@ public final class DefaultAudioSink implements AudioSink {
     public long writtenEncodedFrames;
     public long writtenPcmBytes;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AudioTrackUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long FORCE_RESET_WORKAROUND_TIMEOUT_MS = 200;
@@ -263,7 +263,7 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @TargetApi(19)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class AudioTrackUtilV19 extends AudioTrackUtil {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -336,7 +336,7 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class InvalidAudioTrackTimestampException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -362,7 +362,7 @@ public final class DefaultAudioSink implements AudioSink {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class PlaybackParametersCheckpoint {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -572,46 +572,46 @@ public final class DefaultAudioSink implements AudioSink {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static int getEncodingForMimeType(String str) {
         InterceptResult invokeL;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             switch (str.hashCode()) {
                 case -1095064472:
                     if (str.equals(MimeTypes.AUDIO_DTS)) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 187078296:
                     if (str.equals(MimeTypes.AUDIO_AC3)) {
-                        c2 = 0;
+                        c = 0;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1504578661:
                     if (str.equals(MimeTypes.AUDIO_E_AC3)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 1505942594:
                     if (str.equals(MimeTypes.AUDIO_DTS_HD)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        return c2 != 3 ? 0 : 8;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return c != 3 ? 0 : 8;
                     }
                     return 7;
                 }
@@ -944,17 +944,17 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @TargetApi(21)
-    public static void setVolumeInternalV21(AudioTrack audioTrack, float f2) {
+    public static void setVolumeInternalV21(AudioTrack audioTrack, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65562, null, audioTrack, f2) == null) {
-            audioTrack.setVolume(f2);
+        if (interceptable == null || interceptable.invokeLF(65562, null, audioTrack, f) == null) {
+            audioTrack.setVolume(f);
         }
     }
 
-    public static void setVolumeInternalV3(AudioTrack audioTrack, float f2) {
+    public static void setVolumeInternalV3(AudioTrack audioTrack, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65563, null, audioTrack, f2) == null) {
-            audioTrack.setStereoVolume(f2, f2);
+        if (interceptable == null || interceptable.invokeLF(65563, null, audioTrack, f) == null) {
+            audioTrack.setStereoVolume(f, f);
         }
     }
 
@@ -1095,8 +1095,8 @@ public final class DefaultAudioSink implements AudioSink {
                             i2 = audioProcessor.getOutputSampleRateHz();
                             i3 = audioProcessor.getOutputEncoding();
                         }
-                    } catch (AudioProcessor.UnhandledFormatException e2) {
-                        throw new AudioSink.ConfigurationException(e2);
+                    } catch (AudioProcessor.UnhandledFormatException e) {
+                        throw new AudioSink.ConfigurationException(e);
                     }
                 }
                 if (z) {
@@ -1595,12 +1595,12 @@ public final class DefaultAudioSink implements AudioSink {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioSink
-    public void setVolume(float f2) {
+    public void setVolume(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048595, this, f2) == null) || this.volume == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048595, this, f) == null) || this.volume == f) {
             return;
         }
-        this.volume = f2;
+        this.volume = f;
         setVolumeInternal();
     }
 }

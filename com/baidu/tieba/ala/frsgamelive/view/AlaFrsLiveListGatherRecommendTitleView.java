@@ -2,7 +2,6 @@ package com.baidu.tieba.ala.frsgamelive.view;
 
 import android.view.View;
 import android.widget.TextView;
-import c.a.p0.h0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -14,8 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.c0.g.b.b> {
+import com.repackage.hs5;
+import com.repackage.rw5;
+/* loaded from: classes3.dex */
+public class AlaFrsLiveListGatherRecommendTitleView extends rw5<hs5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -24,7 +25,7 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.c0.g.b.b> {
     public TbPageContext l;
     public int m;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class AlaFrsLiveListGatherRecommendTitleViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,20 +71,20 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.c0.g.b.b> {
         }
         this.m = 3;
         View k = k();
-        this.i = k.findViewById(R.id.obfuscated_res_0x7f090b04);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b03);
-        this.k = k.findViewById(R.id.obfuscated_res_0x7f090b05);
+        this.i = k.findViewById(R.id.obfuscated_res_0x7f090b10);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090b0f);
+        this.k = k.findViewById(R.id.obfuscated_res_0x7f090b11);
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.p0.h0.b
-    public int g() {
+    @Override // com.repackage.rw5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f7 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f9 : invokeV.intValue;
     }
 
-    @Override // c.a.p0.h0.b
+    @Override // com.repackage.rw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.m == i) {
@@ -96,18 +97,18 @@ public class AlaFrsLiveListGatherRecommendTitleView extends b<c.a.p0.c0.g.b.b> {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.h0.b
-    /* renamed from: q */
-    public void l(c.a.p0.c0.g.b.b bVar) {
+    @Override // com.repackage.rw5
+    /* renamed from: s */
+    public void l(hs5 hs5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, hs5Var) == null) {
             m(this.l, TbadkCoreApplication.getInst().getSkinType());
         }
     }

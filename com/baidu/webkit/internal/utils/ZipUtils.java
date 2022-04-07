@@ -20,14 +20,14 @@ import java.util.Stack;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ZipUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static ZipUtils singleton;
     public transient /* synthetic */ FieldHolder $fh;
     public ZipEntry nextEntry;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends ZipInputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,8 +125,8 @@ public class ZipUtils implements INoProGuard {
                     if (this.nextEntry == null) {
                         safeClose(zipInputStream);
                     }
-                } catch (IOException e2) {
-                    throw new RuntimeException("could not get next zip entry", e2);
+                } catch (IOException e) {
+                    throw new RuntimeException("could not get next zip entry", e);
                 } catch (RuntimeException unused) {
                     if (this.nextEntry == null) {
                         safeClose(zipInputStream);
@@ -160,8 +160,8 @@ public class ZipUtils implements INoProGuard {
         }
         try {
             zipInputStream.close();
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

@@ -1,10 +1,6 @@
 package com.baidu.swan.facade.provider.processor;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.g.j.a.a;
-import c.a.n0.g.j.a.b;
-import c.a.n0.g.j.a.c;
-import c.a.n0.g.j.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,8 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.om3;
+import com.repackage.pm3;
+import com.repackage.qm3;
+import com.repackage.rm3;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ProcessorInfo {
     public static final /* synthetic */ ProcessorInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -22,7 +22,7 @@ public final class ProcessorInfo {
     public static final ProcessorInfo HISTORY;
     public static final ProcessorInfo PARAMS;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class<? extends a> mClass;
+    public Class<? extends om3> mClass;
     public int mMatcherCode;
     public String mPath;
 
@@ -39,9 +39,9 @@ public final class ProcessorInfo {
                 return;
             }
         }
-        PARAMS = new ProcessorInfo("PARAMS", 0, d.class, "params");
-        FAVORITE = new ProcessorInfo("FAVORITE", 1, b.class, "favorite");
-        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, c.class, "history");
+        PARAMS = new ProcessorInfo("PARAMS", 0, rm3.class, "params");
+        FAVORITE = new ProcessorInfo("FAVORITE", 1, pm3.class, "favorite");
+        ProcessorInfo processorInfo = new ProcessorInfo("HISTORY", 2, qm3.class, "history");
         HISTORY = processorInfo;
         $VALUES = new ProcessorInfo[]{PARAMS, FAVORITE, processorInfo};
     }
@@ -69,7 +69,7 @@ public final class ProcessorInfo {
         this.mMatcherCode = ordinal();
     }
 
-    public static Class<? extends a> getProcessorClass(int i) {
+    public static Class<? extends om3> getProcessorClass(int i) {
         InterceptResult invokeI;
         ProcessorInfo[] values;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public final class ProcessorInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mPath : (String) invokeV.objValue;
     }
 
-    private Class<? extends a> getProcessorClass() {
+    private Class<? extends om3> getProcessorClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mClass : (Class) invokeV.objValue;

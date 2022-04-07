@@ -42,7 +42,7 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ShareStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_APP_IS_NOT_ONLINE = -102;
@@ -76,12 +76,12 @@ public class ShareStorage {
     public String mAesKey;
     public boolean readSpFromChmodFile;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface CallBack {
         void call(StorageModel storageModel);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class StorageModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -242,8 +242,8 @@ public class ShareStorage {
                             if (fromJSON != null && !TextUtils.isEmpty(fromJSON.displayname) && !TextUtils.isEmpty(fromJSON.url)) {
                                 arrayList.add(fromJSON);
                             }
-                        } catch (JSONException e2) {
-                            Log.e(e2);
+                        } catch (JSONException e) {
+                            Log.e(e);
                         }
                     }
                     return arrayList;
@@ -461,8 +461,8 @@ public class ShareStorage {
                 StorageModel fromJSON = StorageModel.fromJSON(new JSONObject(new String(SecurityUtil.aesDecrypt(Base64.decode(sd, 0), this.mAesIv, this.mAesKey))));
                 fromJSON.where = 1;
                 return fromJSON;
-            } catch (Exception e2) {
-                Log.e(ShareUtils.TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.e(ShareUtils.TAG, e.getMessage());
                 return null;
             }
         }
@@ -502,8 +502,8 @@ public class ShareStorage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
-            } catch (Exception e2) {
-                Log.e(ShareUtils.TAG, e2.getMessage());
+            } catch (Exception e) {
+                Log.e(ShareUtils.TAG, e.getMessage());
             }
             if (!SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this.context)) {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
@@ -638,8 +638,8 @@ public class ShareStorage {
                         String md5 = SecurityUtil.md5(this.this$0.context.getPackageName().getBytes(), false);
                         try {
                             str = new String(Base64.encode(SecurityUtil.aesEncrypt(storageModel.toJSON().toString(), this.this$0.mAesIv, this.this$0.mAesKey), 0));
-                        } catch (Exception e2) {
-                            Log.e(e2);
+                        } catch (Exception e) {
+                            Log.e(e);
                             str = "";
                         }
                         this.this$0.setSp(md5, str);
@@ -671,8 +671,8 @@ public class ShareStorage {
                 } else {
                     try {
                         sharedPreferences = this.context.createPackageContext(str, 2).getSharedPreferences(SP_FILE_NAME, MODE);
-                    } catch (Exception e2) {
-                        Log.e(ShareUtils.TAG, e2.getMessage());
+                    } catch (Exception e) {
+                        Log.e(ShareUtils.TAG, e.getMessage());
                     }
                 }
                 string = sharedPreferences != null ? sharedPreferences.getString(str2, "") : null;

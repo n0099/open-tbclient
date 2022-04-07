@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class UnzipUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] PNG_END_CODE;
@@ -77,7 +77,7 @@ public class UnzipUtil {
         FileOutputStream fileOutputStream;
         Throwable th;
         InputStream inputStream;
-        Exception e2;
+        Exception e;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLLLL(65538, null, context, str, str2, str3) != null) {
             return;
@@ -110,9 +110,9 @@ public class UnzipUtil {
                                 inputStream.close();
                             }
                             fileOutputStream.close();
-                        } catch (Exception e3) {
-                            e2 = e3;
-                            Logger.logE("copyAssetsFile exception", e2);
+                        } catch (Exception e2) {
+                            e = e2;
+                            Logger.logE("copyAssetsFile exception", e);
                             if (inputStream != null) {
                                 inputStream.close();
                             }
@@ -125,8 +125,8 @@ public class UnzipUtil {
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (IOException e4) {
-                                Logger.logE("copyAssetsFile exception", e4);
+                            } catch (IOException e3) {
+                                Logger.logE("copyAssetsFile exception", e3);
                                 throw th;
                             }
                         }
@@ -135,9 +135,9 @@ public class UnzipUtil {
                         }
                         throw th;
                     }
-                } catch (Exception e5) {
+                } catch (Exception e4) {
                     fileOutputStream = null;
-                    e2 = e5;
+                    e = e4;
                 } catch (Throwable th3) {
                     fileOutputStream = null;
                     th = th3;
@@ -147,12 +147,12 @@ public class UnzipUtil {
                     }
                     throw th;
                 }
-            } catch (IOException e6) {
-                Logger.logE("copyAssetsFile exception", e6);
+            } catch (IOException e5) {
+                Logger.logE("copyAssetsFile exception", e5);
             }
-        } catch (Exception e7) {
+        } catch (Exception e6) {
             fileOutputStream = null;
-            e2 = e7;
+            e = e6;
             inputStream = null;
         } catch (Throwable th4) {
             fileOutputStream = null;

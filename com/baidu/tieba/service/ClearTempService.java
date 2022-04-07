@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Date;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ClearTempService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETE_FILE_COUNT = 300;
@@ -27,7 +27,7 @@ public class ClearTempService extends BdBaseService {
     public volatile boolean interrupted;
     public Thread thread;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +62,7 @@ public class ClearTempService extends BdBaseService {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,8 +100,8 @@ public class ClearTempService extends BdBaseService {
                     this.a.deleteDir(file2);
                     this.a.deleteDir(file3);
                     this.a.deleteDir(file4);
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
                 this.a.handler.sendMessage(this.a.handler.obtainMessage());
             }
@@ -220,9 +220,9 @@ public class ClearTempService extends BdBaseService {
                     this.thread = bVar;
                     bVar.start();
                 }
-            } catch (OutOfMemoryError e2) {
+            } catch (OutOfMemoryError e) {
                 System.gc();
-                BdLog.e(e2.getMessage());
+                BdLog.e(e.getMessage());
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
             }

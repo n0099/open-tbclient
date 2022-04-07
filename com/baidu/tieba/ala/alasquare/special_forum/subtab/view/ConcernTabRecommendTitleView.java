@@ -3,8 +3,6 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.p0.c0.f.g.c.g;
-import c.a.p0.h0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -16,32 +14,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class ConcernTabRecommendTitleView extends b<g> {
+import com.repackage.rw5;
+import com.repackage.wq5;
+/* loaded from: classes3.dex */
+public class ConcernTabRecommendTitleView extends rw5<wq5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f31390b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f31391c;
+        public TextView b;
+        public View c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ViewHolder(View view) {
-            super(view);
+        public ViewHolder(View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,9 +48,9 @@ public class ConcernTabRecommendTitleView extends b<g> {
                     return;
                 }
             }
-            this.a = view;
-            this.f31390b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09202b);
-            this.f31391c = this.a.findViewById(R.id.obfuscated_res_0x7f0907e1);
+            this.a = view2;
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092012);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907ea);
         }
     }
 
@@ -81,41 +77,41 @@ public class ConcernTabRecommendTitleView extends b<g> {
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.p0.h0.b
-    public int g() {
+    @Override // com.repackage.rw5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d078a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0781 : invokeV.intValue;
     }
 
-    @Override // c.a.p0.h0.b
+    @Override // com.repackage.rw5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setViewTextColor(this.i.f31390b, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.i.b, (int) R.color.CAM_X0109);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.h0.b
-    /* renamed from: q */
-    public void l(g gVar) {
+    @Override // com.repackage.rw5
+    /* renamed from: s */
+    public void l(wq5 wq5Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, wq5Var) == null) || (viewHolder = this.i) == null) {
             return;
         }
-        if (gVar.a) {
-            viewHolder.f31391c.setVisibility(0);
+        if (wq5Var.a) {
+            viewHolder.c.setVisibility(0);
         } else {
-            viewHolder.f31391c.setVisibility(8);
+            viewHolder.c.setVisibility(8);
         }
     }
 }

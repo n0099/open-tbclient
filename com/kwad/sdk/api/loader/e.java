@@ -24,23 +24,15 @@ import java.util.Map;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public String a;
+    public String b;
+    public int c;
+    public Map<String, String> d = new HashMap();
+    public IKsAdSDK e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f39105b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f39106c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Map<String, String> f39107d = new HashMap();
-
-    /* renamed from: e  reason: collision with root package name */
-    public IKsAdSDK f39108e;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -48,9 +40,9 @@ public class e {
     }
 
     public e(String str, IKsAdSDK iKsAdSDK) {
-        this.f39105b = str;
+        this.b = str;
         this.a = str;
-        this.f39108e = iKsAdSDK;
+        this.e = iKsAdSDK;
     }
 
     private String a() {
@@ -79,19 +71,19 @@ public class e {
             jSONObject.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, deviceInfo);
             jSONObject.put("networkInfo", networkInfo);
             jSONObject.put("sdkAbi", s.b());
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        if (this.f39108e != null) {
+        if (this.e != null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("version", "3.3.17.4");
                 jSONObject2.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, appInfo.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID));
-                jSONObject2.put("message", this.f39108e.getRM(jSONObject.toString()));
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+                jSONObject2.put("message", this.e.getRM(jSONObject.toString()));
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            this.f39108e.sR(this.f39105b.replace("https://open.e.kuaishou.com", ""), this.f39107d, jSONObject2.toString());
+            this.e.sR(this.b.replace("https://open.e.kuaishou.com", ""), this.d, jSONObject2.toString());
             return jSONObject2.toString();
         }
         return jSONObject.toString();
@@ -112,31 +104,31 @@ public class e {
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e2) {
-                            e2.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
                         }
                     }
                     try {
                         byteArrayOutputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
                     }
                     throw th;
                 }
-            } catch (IOException e4) {
-                e4.printStackTrace();
+            } catch (IOException e3) {
+                e3.printStackTrace();
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 try {
                     byteArrayOutputStream.close();
                     return null;
-                } catch (IOException e6) {
-                    e6.printStackTrace();
+                } catch (IOException e5) {
+                    e5.printStackTrace();
                     return null;
                 }
             }
@@ -145,14 +137,14 @@ public class e {
         if (inputStream != null) {
             try {
                 inputStream.close();
-            } catch (IOException e7) {
-                e7.printStackTrace();
+            } catch (IOException e6) {
+                e6.printStackTrace();
             }
         }
         try {
             byteArrayOutputStream.close();
-        } catch (IOException e8) {
-            e8.printStackTrace();
+        } catch (IOException e7) {
+            e7.printStackTrace();
         }
         return str;
     }
@@ -175,7 +167,7 @@ public class e {
     }
 
     private void a(String str, String str2) {
-        this.f39107d.put(str, str2);
+        this.d.put(str, str2);
     }
 
     @Nullable
@@ -189,9 +181,9 @@ public class e {
         httpURLConnection.setInstanceFollowRedirects(true);
         a("Content-Type", "application/json; charset=UTF-8");
         a("User-Agent", RequestParamsUtils.getUserAgent());
-        IKsAdSDK iKsAdSDK = this.f39108e;
+        IKsAdSDK iKsAdSDK = this.e;
         if (iKsAdSDK != null) {
-            iKsAdSDK.addHp(this.f39107d);
+            iKsAdSDK.addHp(this.d);
         }
         return httpURLConnection;
     }
@@ -204,8 +196,8 @@ public class e {
                 httpURLConnection = b();
                 if (httpURLConnection != null) {
                     String a2 = a();
-                    if (this.f39107d != null) {
-                        for (Map.Entry<String, String> entry : this.f39107d.entrySet()) {
+                    if (this.d != null) {
+                        for (Map.Entry<String, String> entry : this.d.entrySet()) {
                             httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                         }
                     }
@@ -216,24 +208,24 @@ public class e {
                         String a3 = a(httpURLConnection.getInputStream());
                         a.b bVar = new a.b();
                         JSONObject jSONObject = new JSONObject(a3);
-                        if (this.f39108e != null) {
-                            jSONObject.put("data", new JSONObject(this.f39108e.getRD(jSONObject.optString("data"))));
+                        if (this.e != null) {
+                            jSONObject.put("data", new JSONObject(this.e.getRD(jSONObject.optString("data"))));
                         }
                         bVar.a(jSONObject);
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f39106c < 21) {
+                    } else if (this.c < 21) {
                         this.a = httpURLConnection.getHeaderField(Headers.LOCATION);
-                        this.f39106c++;
+                        this.c++;
                         b(aVar);
                     }
                 }
                 if (httpURLConnection == null) {
                     return;
                 }
-            } catch (Exception e2) {
-                aVar.a(e2);
+            } catch (Exception e) {
+                aVar.a(e);
                 if (0 == 0) {
                     return;
                 }

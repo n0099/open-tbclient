@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.library.widget.refresh.RefreshLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b extends RefreshLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +79,7 @@ public class b extends RefreshLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, attributeSet)) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404eb});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040527, R.attr.obfuscated_res_0x7f040529});
             int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, this.mRefreshViewSize);
             int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(1, this.mRefreshViewSize);
             obtainStyledAttributes.recycle();
@@ -93,7 +93,7 @@ public class b extends RefreshLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, attributeSet)) == null) {
-            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0404e9, R.attr.obfuscated_res_0x7f0404eb});
+            TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040527, R.attr.obfuscated_res_0x7f040529});
             this.mRefreshLayout = obtainStyledAttributes.getResourceId(0, 0);
             obtainStyledAttributes.recycle();
             int a = g.a(getContext(), 22.5f);
@@ -111,10 +111,10 @@ public class b extends RefreshLayout {
         }
     }
 
-    public void setRefreshView(View view) {
+    public void setRefreshView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.mRefreshView = view;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.mRefreshView = view2;
         }
     }
 }

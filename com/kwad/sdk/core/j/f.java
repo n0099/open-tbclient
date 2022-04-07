@@ -2,10 +2,10 @@ package com.kwad.sdk.core.j;
 
 import android.view.View;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f extends a {
-    public f(@NonNull View view, int i) {
-        super(view, i);
+    public f(@NonNull View view2, int i) {
+        super(view2, i);
     }
 
     @Override // com.kwad.sdk.core.j.a

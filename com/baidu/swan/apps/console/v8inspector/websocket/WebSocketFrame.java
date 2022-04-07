@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.yunjiasu.ping.Ping;
+import com.repackage.tg1;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,35 +24,21 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WebSocketFrame {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final boolean f28820g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final Charset f28821h;
+    public static final boolean g;
+    public static final Charset h;
     public transient /* synthetic */ FieldHolder $fh;
     public OpCode a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f28822b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public byte[] f28823c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public byte[] f28824d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f28825e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f28826f;
+    public boolean b;
+    public byte[] c;
+    public byte[] d;
+    public int e;
+    public String f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class CloseCode {
         public static final /* synthetic */ CloseCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -137,7 +124,7 @@ public class WebSocketFrame {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class OpCode {
         public static final /* synthetic */ OpCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -194,13 +181,13 @@ public class WebSocketFrame {
             this.mCode = (byte) i2;
         }
 
-        public static OpCode find(byte b2) {
+        public static OpCode find(byte b) {
             InterceptResult invokeB;
             OpCode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) {
+            if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b)) == null) {
                 for (OpCode opCode : values()) {
-                    if (opCode.getValue() == b2) {
+                    if (opCode.getValue() == b) {
                         return opCode;
                     }
                 }
@@ -234,13 +221,13 @@ public class WebSocketFrame {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b extends WebSocketFrame {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -339,8 +326,8 @@ public class WebSocketFrame {
                 return;
             }
         }
-        f28820g = c.a.n0.a.a.a;
-        f28821h = Charset.forName("UTF-8");
+        g = tg1.a;
+        h = Charset.forName("UTF-8");
     }
 
     public WebSocketFrame(WebSocketFrame webSocketFrame) {
@@ -367,7 +354,7 @@ public class WebSocketFrame {
     public static String a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) ? new String(bArr, i, i2, f28821h) : (String) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) ? new String(bArr, i, i2, h) : (String) invokeLII.objValue;
     }
 
     public static String b(byte[] bArr) {
@@ -422,19 +409,19 @@ public class WebSocketFrame {
     public static byte[] s(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? str.getBytes(f28821h) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? str.getBytes(h) : (byte[]) invokeL.objValue;
     }
 
     public byte[] d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28824d : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (byte[]) invokeV.objValue;
     }
 
     public final byte[] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28823c : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (byte[]) invokeV.objValue;
     }
 
     public OpCode f() {
@@ -447,10 +434,10 @@ public class WebSocketFrame {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f28826f == null) {
-                this.f28826f = b(d());
+            if (this.f == null) {
+                this.f = b(d());
             }
-            return this.f28826f;
+            return this.f;
         }
         return (String) invokeV.objValue;
     }
@@ -458,14 +445,14 @@ public class WebSocketFrame {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28822b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
     public final boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            byte[] bArr = this.f28823c;
+            byte[] bArr = this.c;
             return bArr != null && bArr.length == 4;
         }
         return invokeV.booleanValue;
@@ -475,12 +462,12 @@ public class WebSocketFrame {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f28824d == null) {
+            if (this.d == null) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             sb.append('[');
-            sb.append(this.f28824d.length);
+            sb.append(this.d.length);
             sb.append("b] ");
             if (f() == OpCode.Text) {
                 String g2 = g();
@@ -492,10 +479,10 @@ public class WebSocketFrame {
                 }
             } else {
                 sb.append("0x");
-                for (int i = 0; i < Math.min(this.f28824d.length, 50); i++) {
-                    sb.append(Integer.toHexString(this.f28824d[i] & 255));
+                for (int i = 0; i < Math.min(this.d.length, 50); i++) {
+                    sb.append(Integer.toHexString(this.d[i] & 255));
                 }
-                if (this.f28824d.length > 50) {
+                if (this.d.length > 50) {
                     sb.append(StringHelper.STRING_MORE);
                 }
             }
@@ -507,30 +494,30 @@ public class WebSocketFrame {
     public final void l(InputStream inputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, inputStream) == null) {
-            this.f28824d = new byte[this.f28825e];
+            this.d = new byte[this.e];
             int i = 0;
             int i2 = 0;
             while (true) {
-                int i3 = this.f28825e;
+                int i3 = this.e;
                 if (i2 >= i3) {
                     break;
                 }
-                int read = inputStream.read(this.f28824d, i2, i3 - i2);
+                int read = inputStream.read(this.d, i2, i3 - i2);
                 c(read);
                 i2 += read;
             }
             if (i()) {
                 while (true) {
-                    byte[] bArr = this.f28824d;
+                    byte[] bArr = this.d;
                     if (i >= bArr.length) {
                         break;
                     }
-                    bArr[i] = (byte) (bArr[i] ^ this.f28823c[i % 4]);
+                    bArr[i] = (byte) (bArr[i] ^ this.c[i % 4]);
                     i++;
                 }
             }
             if (f() == OpCode.Text) {
-                this.f28826f = b(d());
+                this.f = b(d());
             }
         }
     }
@@ -547,14 +534,14 @@ public class WebSocketFrame {
         int i = 0;
         boolean z = (b2 & 128) != 0;
         byte b3 = (byte) (b2 & ByteCompanionObject.MAX_VALUE);
-        this.f28825e = b3;
+        this.e = b3;
         if (b3 == 126) {
             int read2 = inputStream.read();
             c(read2);
             int read3 = inputStream.read();
             c(read3);
             int i2 = ((read2 << 8) | read3) & 65535;
-            this.f28825e = i2;
+            this.e = i2;
             if (i2 < 126) {
                 throw new WebSocketException(CloseCode.ProtocolError, "Invalid data frame 2byte length.(not using minimal length encoding)");
             }
@@ -580,13 +567,13 @@ public class WebSocketFrame {
                 throw new IOException("Invalid data frame 4byte length.(not using minimal length encoding)");
             }
             if (j <= 2147483647L) {
-                this.f28825e = (int) j;
+                this.e = (int) j;
             } else {
                 throw new WebSocketException(CloseCode.MessageTooLong, "Max frame length has been exceeded.");
             }
         }
         if (this.a.isControlFrame()) {
-            int i3 = this.f28825e;
+            int i3 = this.e;
             if (i3 <= 125) {
                 if (this.a == OpCode.Close && i3 == 1) {
                     throw new WebSocketException(CloseCode.ProtocolError, "Received close frame with mPayload len 1.");
@@ -598,9 +585,9 @@ public class WebSocketFrame {
         if (!z) {
             return;
         }
-        this.f28823c = new byte[4];
+        this.c = new byte[4];
         while (true) {
-            byte[] bArr = this.f28823c;
+            byte[] bArr = this.c;
             if (i >= bArr.length) {
                 return;
             }
@@ -613,26 +600,26 @@ public class WebSocketFrame {
     public final void n(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bArr) == null) {
-            this.f28824d = bArr;
-            this.f28825e = bArr.length;
-            this.f28826f = null;
+            this.d = bArr;
+            this.e = bArr.length;
+            this.f = null;
         }
     }
 
     public final void o(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f28822b = z;
+            this.b = z;
         }
     }
 
     public final void p(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bArr) == null) {
-            if (bArr != null && bArr.length != 4 && f28820g) {
+            if (bArr != null && bArr.length != 4 && g) {
                 Log.e("WebSocketFrame", "MaskingKey " + Arrays.toString(bArr) + " hasn't length 4");
             }
-            this.f28823c = bArr;
+            this.c = bArr;
         }
     }
 
@@ -646,36 +633,36 @@ public class WebSocketFrame {
     public final void r(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f28824d = s(str);
-            this.f28825e = str.length();
-            this.f28826f = str;
+            this.d = s(str);
+            this.e = str.length();
+            this.f = str;
         }
     }
 
     public void t(OutputStream outputStream) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, outputStream) == null) {
-            outputStream.write((byte) ((this.f28822b ? (byte) 128 : (byte) 0) | (this.a.getValue() & 15)));
+            outputStream.write((byte) ((this.b ? (byte) 128 : (byte) 0) | (this.a.getValue() & 15)));
             int length = d().length;
-            this.f28825e = length;
+            this.e = length;
             if (length <= 125) {
-                outputStream.write(i() ? ((byte) this.f28825e) | 128 : (byte) this.f28825e);
+                outputStream.write(i() ? ((byte) this.e) | 128 : (byte) this.e);
             } else if (length < 65536) {
                 outputStream.write(i() ? 254 : 126);
-                outputStream.write(this.f28825e >>> 8);
-                outputStream.write(this.f28825e);
+                outputStream.write(this.e >>> 8);
+                outputStream.write(this.e);
             } else {
                 outputStream.write(i() ? 255 : 127);
                 outputStream.write(new byte[4]);
-                outputStream.write(this.f28825e >>> 24);
-                outputStream.write(this.f28825e >>> 16);
-                outputStream.write(this.f28825e >>> 8);
-                outputStream.write(this.f28825e);
+                outputStream.write(this.e >>> 24);
+                outputStream.write(this.e >>> 16);
+                outputStream.write(this.e >>> 8);
+                outputStream.write(this.e);
             }
             if (i()) {
-                outputStream.write(this.f28823c);
-                for (int i = 0; i < this.f28825e; i++) {
-                    outputStream.write(d()[i] ^ this.f28823c[i % 4]);
+                outputStream.write(this.c);
+                for (int i = 0; i < this.e; i++) {
+                    outputStream.write(d()[i] ^ this.c[i % 4]);
                 }
             } else {
                 outputStream.write(d());
@@ -744,7 +731,7 @@ public class WebSocketFrame {
         }
         if (j >= 0 && j <= 2147483647L) {
             int i3 = (int) j;
-            this.f28825e = i3;
+            this.e = i3;
             byte[] bArr = new byte[i3];
             int i4 = 0;
             for (WebSocketFrame webSocketFrame : list) {
@@ -752,7 +739,7 @@ public class WebSocketFrame {
                 i4 += webSocketFrame.d().length;
             }
             n(bArr);
-        } else if (f28820g) {
+        } else if (g) {
             throw new RuntimeException("Max frame length has been exceeded.");
         }
     }

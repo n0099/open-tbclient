@@ -46,21 +46,21 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
             int count = listAdapter.getCount();
-            View view = null;
+            View view2 = null;
             int i2 = 0;
             int i3 = 0;
             for (int i4 = 0; i4 < count; i4++) {
                 int itemViewType = listAdapter.getItemViewType(i4);
                 if (itemViewType != i3) {
-                    view = null;
+                    view2 = null;
                     i3 = itemViewType;
                 }
                 if (viewGroup == null) {
                     viewGroup = new FrameLayout(context);
                 }
-                view = listAdapter.getView(i4, view, viewGroup);
-                view.measure(makeMeasureSpec, makeMeasureSpec2);
-                int measuredWidth = view.getMeasuredWidth();
+                view2 = listAdapter.getView(i4, view2, viewGroup);
+                view2.measure(makeMeasureSpec, makeMeasureSpec2);
+                int measuredWidth = view2.getMeasuredWidth();
                 if (measuredWidth >= i) {
                     return i;
                 }
@@ -166,15 +166,15 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
             toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i), this, closeMenuOnSubMenuOpened() ? 0 : 4);
         }
     }
 
-    public abstract void setAnchorView(View view);
+    public abstract void setAnchorView(View view2);
 
     public void setEpicenterBounds(Rect rect) {
         Interceptable interceptable = $ic;

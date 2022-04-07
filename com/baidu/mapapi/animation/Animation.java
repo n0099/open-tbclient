@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c bdAnimation;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface AnimationListener {
         void onAnimationCancel();
 
@@ -27,7 +27,7 @@ public abstract class Animation {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class RepeatMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RepeatMode RESTART;

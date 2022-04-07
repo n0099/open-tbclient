@@ -14,7 +14,7 @@ import tbclient.ActiveCenter;
 import tbclient.ActiveCenterMission;
 import tbclient.ActiveCenterStatus;
 import tbclient.ActiveConfig.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ActiveCenterData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREF_KEY_ACTIVE_DIALOG_DAY_NUM = "pref_key_active_dialog_day_num";
@@ -27,7 +27,7 @@ public class ActiveCenterData implements Serializable {
     public int win_jump_time;
     public String win_title;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ActiveCenterMissionData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,7 +71,7 @@ public class ActiveCenterData implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ActiveCenterStatusData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

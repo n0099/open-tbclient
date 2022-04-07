@@ -1,9 +1,6 @@
 package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.b0;
-import c.a.o0.c1.i;
-import c.a.p0.l3.k0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,10 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mc8;
+import com.repackage.rc5;
+import com.repackage.xb5;
 import com.squareup.wire.Message;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class FRSPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -257,10 +257,10 @@ public class FRSPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setScrDip(double d2) {
+    public void setScrDip(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.scrDip = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.scrDip = d;
         }
     }
 
@@ -338,9 +338,9 @@ public class FRSPageRequestMessage extends NetMessage {
             builder.lastids = this.lastId;
             builder.category_id = Integer.valueOf(this.categoryId);
             builder.call_from = Integer.valueOf(this.callFrom);
-            builder.app_pos = a.e().a();
-            builder.app_transmit_data = i.b();
-            b0.c(builder, true, false, true);
+            builder.app_pos = mc8.e().a();
+            builder.app_transmit_data = xb5.b();
+            rc5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder2 = new FrsPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

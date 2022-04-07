@@ -12,32 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f38935b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f38936c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f38937d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f38938e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Context f38939f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ClassLoader f38940g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f38941h;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public Context f;
+    public ClassLoader g;
+    public String h;
     public String i;
     public String j;
     public String k;
@@ -90,8 +76,8 @@ public class p {
         }
         this.y = -1;
         this.a = i;
-        this.f38937d = str;
-        this.f38938e = str2;
+        this.d = str;
+        this.e = str2;
     }
 
     public p(PackageInfo packageInfo, int i, String str, String str2, String str3, String str4) {
@@ -112,8 +98,8 @@ public class p {
         this.y = -1;
         this.s = packageInfo;
         this.a = i;
-        this.f38936c = str;
-        this.f38937d = str2;
+        this.c = str;
+        this.d = str2;
         this.i = str3;
         this.j = str4;
     }
@@ -134,8 +120,8 @@ public class p {
             }
         }
         this.y = -1;
-        this.f38937d = str;
-        this.f38938e = str2;
+        this.d = str;
+        this.e = str2;
     }
 
     public boolean equals(Object obj) {
@@ -146,8 +132,8 @@ public class p {
                 return true;
             }
             if (obj != null && p.class == obj.getClass()) {
-                String str = this.f38936c;
-                String str2 = ((p) obj).f38936c;
+                String str = this.c;
+                String str2 = ((p) obj).c;
                 if (str == null) {
                     if (str2 != null) {
                         return false;
@@ -166,7 +152,7 @@ public class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f38936c;
+            String str = this.c;
             return (str == null ? 0 : str.hashCode()) + 31;
         }
         return invokeV.intValue;
@@ -177,7 +163,7 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                return "WeaponApkInfo [key=" + this.a + ", apkInitStatus=" + this.f38935b + ", apkPackageName=" + this.f38936c + ", apkVersionName=" + this.f38937d + ", apkPkgPath=" + this.f38938e + ", apkHostContext=" + this.f38939f + ", classLoader=" + this.f38940g + ", apkLibPath=" + this.f38941h + ", apkDownloadURL=" + this.i + ", apkMD5=" + this.j + ", apkSignMD5=" + this.k + ", activities=" + Arrays.toString(this.l) + ", dataDir=" + this.m + ", apkDexPath=" + this.n + ", apkClassName=" + this.o + ", apkParseSuc=" + this.p + ", apkApplicationTheme=" + this.q + ", apkIntentFilters=" + this.r + ", apkCloudPkgInfo=" + this.s + ", apkStartTime=" + this.t + ", duration=" + this.u + ", network=" + this.v + ", apkIsOnce=" + this.w + ", apkRunStatus=" + this.x + PreferencesUtil.RIGHT_MOUNT;
+                return "WeaponApkInfo [key=" + this.a + ", apkInitStatus=" + this.b + ", apkPackageName=" + this.c + ", apkVersionName=" + this.d + ", apkPkgPath=" + this.e + ", apkHostContext=" + this.f + ", classLoader=" + this.g + ", apkLibPath=" + this.h + ", apkDownloadURL=" + this.i + ", apkMD5=" + this.j + ", apkSignMD5=" + this.k + ", activities=" + Arrays.toString(this.l) + ", dataDir=" + this.m + ", apkDexPath=" + this.n + ", apkClassName=" + this.o + ", apkParseSuc=" + this.p + ", apkApplicationTheme=" + this.q + ", apkIntentFilters=" + this.r + ", apkCloudPkgInfo=" + this.s + ", apkStartTime=" + this.t + ", duration=" + this.u + ", network=" + this.v + ", apkIsOnce=" + this.w + ", apkRunStatus=" + this.x + PreferencesUtil.RIGHT_MOUNT;
             } catch (Throwable unused) {
                 return "";
             }

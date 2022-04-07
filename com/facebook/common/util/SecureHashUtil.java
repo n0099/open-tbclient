@@ -16,7 +16,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SecureHashUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
@@ -58,8 +58,8 @@ public class SecureHashUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder(bArr.length);
-            for (byte b2 : bArr) {
-                int i = b2 & 255;
+            for (byte b : bArr) {
+                int i = b & 255;
                 sb.append((char) HEX_CHAR_TABLE[i >>> 4]);
                 sb.append((char) HEX_CHAR_TABLE[i & 15]);
             }
@@ -76,10 +76,10 @@ public class SecureHashUtil {
                 MessageDigest messageDigest = MessageDigest.getInstance(str);
                 messageDigest.update(bArr, 0, bArr.length);
                 return convertToHex(messageDigest.digest());
-            } catch (UnsupportedEncodingException e2) {
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchAlgorithmException e2) {
                 throw new RuntimeException(e2);
-            } catch (NoSuchAlgorithmException e3) {
-                throw new RuntimeException(e3);
             }
         }
         return (String) invokeLL.objValue;
@@ -91,8 +91,8 @@ public class SecureHashUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
                 return makeMD5Hash(str.getBytes(IMAudioTransRequest.CHARSET));
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeL.objValue;
@@ -104,8 +104,8 @@ public class SecureHashUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             try {
                 return makeSHA1Hash(str.getBytes(IMAudioTransRequest.CHARSET));
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException(e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeL.objValue;
@@ -119,8 +119,8 @@ public class SecureHashUtil {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
                 messageDigest.update(bArr, 0, bArr.length);
                 return Base64.encodeToString(messageDigest.digest(), 11);
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
         return (String) invokeL.objValue;
@@ -167,10 +167,10 @@ public class SecureHashUtil {
                     return convertToHex(messageDigest.digest());
                 }
             }
-        } catch (UnsupportedEncodingException e2) {
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        } catch (NoSuchAlgorithmException e2) {
             throw new RuntimeException(e2);
-        } catch (NoSuchAlgorithmException e3) {
-            throw new RuntimeException(e3);
         }
     }
 }

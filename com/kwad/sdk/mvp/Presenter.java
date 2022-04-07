@@ -12,20 +12,14 @@ import com.kwad.sdk.core.kwai.a;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class Presenter {
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f40589b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Object f40590c;
+    public View b;
+    public Object c;
     public final List<Presenter> a = new ArrayList();
+    public PresenterState d = PresenterState.INIT;
 
-    /* renamed from: d  reason: collision with root package name */
-    public PresenterState f40591d = PresenterState.INIT;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public enum PresenterState {
         INIT(0) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.1
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
@@ -37,10 +31,10 @@ public class Presenter {
             public void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.c(presenter.f40589b);
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
+                        presenter2.c(presenter.b);
+                    } catch (Exception e) {
+                        a.a(e);
+                        com.kwad.sdk.core.d.a.a(e);
                     }
                 }
             }
@@ -50,10 +44,10 @@ public class Presenter {
             public void performCallState(Presenter presenter) {
                 for (Presenter presenter2 : presenter.a) {
                     try {
-                        presenter2.a(presenter.f40590c);
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
+                        presenter2.a(presenter.c);
+                    } catch (Exception e) {
+                        a.a(e);
+                        com.kwad.sdk.core.d.a.a(e);
                     }
                 }
             }
@@ -64,9 +58,9 @@ public class Presenter {
                 for (Presenter presenter2 : presenter.a) {
                     try {
                         presenter2.j();
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
+                    } catch (Exception e) {
+                        a.a(e);
+                        com.kwad.sdk.core.d.a.a(e);
                     }
                 }
             }
@@ -77,9 +71,9 @@ public class Presenter {
                 for (Presenter presenter2 : presenter.a) {
                     try {
                         presenter2.k();
-                    } catch (Exception e2) {
-                        a.a(e2);
-                        com.kwad.sdk.core.d.a.a(e2);
+                    } catch (Exception e) {
+                        a.a(e);
+                        com.kwad.sdk.core.d.a.a(e);
                     }
                 }
             }
@@ -99,7 +93,7 @@ public class Presenter {
     }
 
     public final <T extends View> T a(int i) {
-        return (T) this.f40589b.findViewById(i);
+        return (T) this.b.findViewById(i);
     }
 
     public void a() {
@@ -110,32 +104,32 @@ public class Presenter {
         if (!l() || presenter.l()) {
             return;
         }
-        c(this.f40589b);
+        c(this.b);
     }
 
     @UiThread
     public final void a(@NonNull Object obj) {
-        if (this.f40591d != PresenterState.INIT) {
+        if (this.d != PresenterState.INIT) {
             PresenterState presenterState = PresenterState.DESTROY;
         }
-        if (this.f40591d == PresenterState.BIND) {
+        if (this.d == PresenterState.BIND) {
             j();
         }
-        this.f40591d = PresenterState.BIND;
-        this.f40590c = obj;
+        this.d = PresenterState.BIND;
+        this.c = obj;
         a();
-        this.f40591d.performCallState(this);
+        this.d.performCallState(this);
     }
 
     public void c() {
     }
 
     @UiThread
-    public final void c(View view) {
-        this.f40591d = PresenterState.CREATE;
-        this.f40589b = view;
+    public final void c(View view2) {
+        this.d = PresenterState.CREATE;
+        this.b = view2;
         c_();
-        this.f40591d.performCallState(this);
+        this.d.performCallState(this);
     }
 
     public void c_() {
@@ -146,27 +140,27 @@ public class Presenter {
 
     @UiThread
     public final void j() {
-        this.f40591d = PresenterState.UNBIND;
+        this.d = PresenterState.UNBIND;
         c();
-        this.f40591d.performCallState(this);
+        this.d.performCallState(this);
     }
 
     @UiThread
     public final void k() {
-        if (this.f40591d == PresenterState.BIND) {
+        if (this.d == PresenterState.BIND) {
             j();
         }
-        this.f40591d = PresenterState.DESTROY;
+        this.d = PresenterState.DESTROY;
         d_();
-        this.f40591d.performCallState(this);
+        this.d.performCallState(this);
     }
 
     public final boolean l() {
-        return this.f40591d.index() >= PresenterState.CREATE.index();
+        return this.d.index() >= PresenterState.CREATE.index();
     }
 
     public View m() {
-        return this.f40589b;
+        return this.b;
     }
 
     public List<Presenter> n() {
@@ -198,14 +192,14 @@ public class Presenter {
     }
 
     public Object p() {
-        return this.f40590c;
+        return this.c;
     }
 
     public final Context q() {
-        View view = this.f40589b;
-        if (view == null) {
+        View view2 = this.b;
+        if (view2 == null) {
             return null;
         }
-        return view.getContext();
+        return view2.getContext();
     }
 }

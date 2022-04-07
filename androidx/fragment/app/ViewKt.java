@@ -12,13 +12,13 @@ public final class ViewKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <F extends Fragment> F findFragment(View view) {
+    public static final <F extends Fragment> F findFragment(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view)) == null) {
-            F f2 = (F) FragmentManager.findFragment(view);
-            Intrinsics.checkExpressionValueIsNotNull(f2, "FragmentManager.findFragment(this)");
-            return f2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            F f = (F) FragmentManager.findFragment(view2);
+            Intrinsics.checkExpressionValueIsNotNull(f, "FragmentManager.findFragment(this)");
+            return f;
         }
         return (F) invokeL.objValue;
     }

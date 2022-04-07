@@ -119,8 +119,8 @@ public class MediaSessionCompatApi24 {
             MediaSession mediaSession = (MediaSession) obj;
             try {
                 return (String) mediaSession.getClass().getMethod("getCallingPackage", new Class[0]).invoke(mediaSession, new Object[0]);
-            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
-                Log.e(TAG, "Cannot execute MediaSession.getCallingPackage()", e2);
+            } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                Log.e(TAG, "Cannot execute MediaSession.getCallingPackage()", e);
                 return null;
             }
         }

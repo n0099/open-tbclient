@@ -6,7 +6,6 @@ import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import c.a.d.o.e.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.CardLinkageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.zo;
+/* loaded from: classes.dex */
 public class ThreadCardView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s a;
+    public zo a;
+    public ViewGroup b;
+    public int c;
+    public boolean d;
+    public Runnable e;
+    public Runnable f;
 
-    /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f25200b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f25201c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f25202d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Runnable f25203e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Runnable f25204f;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,21 +52,21 @@ public class ThreadCardView extends FrameLayout {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f25202d) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.d) {
                 return;
             }
             if (this.a.a != null) {
-                CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.f25201c, true);
-            } else if (this.a.f25200b instanceof s) {
-                CardLinkageManager.INSTANCE.pressLinkage((s) this.a.f25200b, this.a.f25201c, true);
+                CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, true);
+            } else if (this.a.b instanceof zo) {
+                CardLinkageManager.INSTANCE.pressLinkage((zo) this.a.b, this.a.c, true);
             }
-            if (this.a.f25202d) {
-                CardLinkageManager.INSTANCE.pressLinkage((s) this.a.f25200b, this.a.f25201c, false);
+            if (this.a.d) {
+                CardLinkageManager.INSTANCE.pressLinkage((zo) this.a.b, this.a.c, false);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,9 +95,9 @@ public class ThreadCardView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.a != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.f25201c, false);
-                } else if (this.a.f25200b instanceof s) {
-                    CardLinkageManager.INSTANCE.pressLinkage((s) this.a.f25200b, this.a.f25201c, false);
+                    CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, false);
+                } else if (this.a.b instanceof zo) {
+                    CardLinkageManager.INSTANCE.pressLinkage((zo) this.a.b, this.a.c, false);
                 }
             }
         }
@@ -131,16 +121,16 @@ public class ThreadCardView extends FrameLayout {
                 return;
             }
         }
-        this.f25203e = new a(this);
-        this.f25204f = new b(this);
+        this.e = new a(this);
+        this.f = new b(this);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeCallbacks(this.f25203e);
-            removeCallbacks(this.f25204f);
+            removeCallbacks(this.e);
+            removeCallbacks(this.f);
             super.onDetachedFromWindow();
         }
     }
@@ -152,24 +142,24 @@ public class ThreadCardView extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.f25202d = false;
-                postDelayed(this.f25203e, ViewConfiguration.getTapTimeout());
+                this.d = false;
+                postDelayed(this.e, ViewConfiguration.getTapTimeout());
             } else if (action == 1) {
-                this.f25202d = true;
-                removeCallbacks(this.f25203e);
-                CardLinkageManager.INSTANCE.pressLinkage(this.a, this.f25201c, true);
-                postDelayed(this.f25204f, ViewConfiguration.getTapTimeout());
+                this.d = true;
+                removeCallbacks(this.e);
+                CardLinkageManager.INSTANCE.pressLinkage(this.a, this.c, true);
+                postDelayed(this.f, ViewConfiguration.getTapTimeout());
             } else if (action == 3) {
-                this.f25202d = true;
-                removeCallbacks(this.f25203e);
-                removeCallbacks(this.f25204f);
-                s sVar = this.a;
-                if (sVar != null) {
-                    CardLinkageManager.INSTANCE.pressLinkage(sVar, this.f25201c, false);
+                this.d = true;
+                removeCallbacks(this.e);
+                removeCallbacks(this.f);
+                zo zoVar = this.a;
+                if (zoVar != null) {
+                    CardLinkageManager.INSTANCE.pressLinkage(zoVar, this.c, false);
                 } else {
-                    ViewGroup viewGroup = this.f25200b;
-                    if (viewGroup instanceof s) {
-                        CardLinkageManager.INSTANCE.pressLinkage((s) viewGroup, this.f25201c, false);
+                    ViewGroup viewGroup = this.b;
+                    if (viewGroup instanceof zo) {
+                        CardLinkageManager.INSTANCE.pressLinkage((zo) viewGroup, this.c, false);
                     }
                 }
             }
@@ -178,24 +168,24 @@ public class ThreadCardView extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void setITypeListView(s sVar) {
+    public void setITypeListView(zo zoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sVar) == null) {
-            this.a = sVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zoVar) == null) {
+            this.a = zoVar;
         }
     }
 
     public void setParent(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, viewGroup) == null) {
-            this.f25200b = viewGroup;
+            this.b = viewGroup;
         }
     }
 
     public void setPosition(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f25201c = i;
+            this.c = i;
         }
     }
 
@@ -218,8 +208,8 @@ public class ThreadCardView extends FrameLayout {
                 return;
             }
         }
-        this.f25203e = new a(this);
-        this.f25204f = new b(this);
+        this.e = new a(this);
+        this.f = new b(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -241,7 +231,7 @@ public class ThreadCardView extends FrameLayout {
                 return;
             }
         }
-        this.f25203e = new a(this);
-        this.f25204f = new b(this);
+        this.e = new a(this);
+        this.f = new b(this);
     }
 }

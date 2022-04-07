@@ -25,16 +25,12 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f28204b = "d";
+    public static final String b = "d";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f28205c;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -64,7 +60,7 @@ public class d extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f28205c = false;
+        this.c = false;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -91,9 +87,9 @@ public class d extends com.baidu.platform.base.d {
                 if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
                     return false;
                 }
-                return this.f28205c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
-            } catch (JSONException e2) {
-                Log.e(f28204b, "Parse detail search result error", e2);
+                return this.c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+            } catch (JSONException e) {
+                Log.e(b, "Parse detail search result error", e);
                 return false;
             }
         }
@@ -198,12 +194,12 @@ public class d extends com.baidu.platform.base.d {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SearchResult poiDetailSearchResult = this.f28205c ? new PoiDetailSearchResult() : new PoiDetailResult();
+            SearchResult poiDetailSearchResult = this.c ? new PoiDetailSearchResult() : new PoiDetailResult();
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                } catch (JSONException e2) {
-                    Log.e(f28204b, "Parse detail search result failed", e2);
+                } catch (JSONException e) {
+                    Log.e(b, "Parse detail search result failed", e);
                 }
                 if (jSONObject.length() == 0) {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -223,16 +219,16 @@ public class d extends com.baidu.platform.base.d {
                         }
                         if (optJSONObject.has("httpStateError")) {
                             String optString = optJSONObject.optString("httpStateError");
-                            char c2 = 65535;
+                            char c = 65535;
                             int hashCode = optString.hashCode();
                             if (hashCode != -879828873) {
                                 if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
-                                    c2 = 1;
+                                    c = 1;
                                 }
                             } else if (optString.equals("NETWORK_ERROR")) {
-                                c2 = 0;
+                                c = 0;
                             }
-                            poiDetailSearchResult.error = c2 != 0 ? c2 != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
+                            poiDetailSearchResult.error = c != 0 ? c != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
                         }
                         return poiDetailSearchResult;
                     }
@@ -250,7 +246,7 @@ public class d extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
             OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
-            if (this.f28205c) {
+            if (this.c) {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
             } else {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
@@ -261,7 +257,7 @@ public class d extends com.baidu.platform.base.d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f28205c = z;
+            this.c = z;
         }
     }
 }

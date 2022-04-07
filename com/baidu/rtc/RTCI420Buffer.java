@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.webrtc.JniCommon;
 import org.webrtc.RefCounted;
 import org.webrtc.VideoFrame;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public static Class mCropClass;
@@ -32,7 +32,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public final int strideY;
     public final int width;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class RefCountDelegate implements RefCounted {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,15 +98,15 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
             try {
                 mCropClass = cls;
                 method = cls.getMethod("cropAndScaleI420", VideoFrame.I420Buffer.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-            } catch (NoSuchMethodException e2) {
-                e2.printStackTrace();
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
                 method = null;
             }
             if (method != null) {
                 mCropMethod = method;
             }
-        } catch (ClassNotFoundException e3) {
-            e3.printStackTrace();
+        } catch (ClassNotFoundException e2) {
+            e2.printStackTrace();
         }
         if (mCropMethod == null) {
             try {
@@ -114,14 +114,14 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
                 try {
                     mCropClass = cls2;
                     method2 = cls2.getMethod("cropAndScaleI420", VideoFrame.I420Buffer.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                } catch (NoSuchMethodException e4) {
-                    e4.printStackTrace();
+                } catch (NoSuchMethodException e3) {
+                    e3.printStackTrace();
                 }
                 if (method2 != null) {
                     mCropMethod = method2;
                 }
-            } catch (ClassNotFoundException e5) {
-                e5.printStackTrace();
+            } catch (ClassNotFoundException e4) {
+                e4.printStackTrace();
             }
         }
     }
@@ -171,7 +171,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
             nativeAllocateByteBuffer.position(i8);
             nativeAllocateByteBuffer.limit(i8 + i7);
-            return new RTCI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: c.a.h0.b
+            return new RTCI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: com.repackage.jc1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -229,11 +229,11 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
                     return (VideoFrame.Buffer) mCropMethod.invoke(mCropClass, this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
                 }
                 return null;
-            } catch (IllegalAccessException e2) {
-                e2.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
                 return null;
-            } catch (InvocationTargetException e3) {
-                e3.printStackTrace();
+            } catch (InvocationTargetException e2) {
+                e2.printStackTrace();
                 return null;
             }
         }

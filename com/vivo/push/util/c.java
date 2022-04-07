@@ -5,7 +5,7 @@ import android.graphics.Matrix;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,11 +16,11 @@ public final class c {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i, i2)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            float f2 = i / width;
-            float f3 = i2 / height;
+            float f = i / width;
+            float f2 = i2 / height;
             try {
                 Matrix matrix = new Matrix();
-                matrix.postScale(f2, f3);
+                matrix.postScale(f, f2);
                 return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
             } catch (Exception unused) {
                 return bitmap;

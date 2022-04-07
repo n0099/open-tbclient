@@ -1,6 +1,5 @@
 package com.fun.ad.sdk.channel;
 
-import c.d.a0.b.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +10,8 @@ import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-/* loaded from: classes6.dex */
+import com.repackage.mh9;
+/* loaded from: classes4.dex */
 public class GdtModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class GdtModule implements Module {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             GDTADManager.getInstance().initWith(funAdConfig.appContext, str);
             GlobalSetting.setChannel(3);
-            return new c();
+            return new mh9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

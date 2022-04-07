@@ -17,27 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a implements b.a {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public InterfaceC1748a f25359b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f25360c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f25361d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f25362e;
+    public InterfaceC0088a b;
+    public String c;
+    public String d;
+    public ArrayList<String> e;
 
     /* renamed from: com.baidu.cyberplayer.sdk.downloader.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1748a {
+    /* loaded from: classes.dex */
+    public interface InterfaceC0088a {
         void a(String str, long j);
 
         void a(String str, long j, int i, String str2);
@@ -76,7 +68,7 @@ public class a implements b.a {
                 return;
             }
         }
-        this.f25362e = null;
+        this.e = null;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:19:0x004c, code lost:
@@ -104,13 +96,13 @@ public class a implements b.a {
         File file3 = null;
         try {
             try {
-                file = new File(this.f25361d, this.f25360c);
+                file = new File(this.d, this.c);
                 try {
-                    this.f25362e = o.a(file, this.f25361d);
-                    CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.f25362e);
-                } catch (Exception e2) {
-                    e = e2;
-                    this.f25362e = null;
+                    this.e = o.a(file, this.d);
+                    CyberLog.d("CyberFileDownloader", "mUnzipFilesList:" + this.e);
+                } catch (Exception e) {
+                    e = e;
+                    this.e = null;
                     str = e.toString();
                     if (file != null) {
                     }
@@ -124,8 +116,8 @@ public class a implements b.a {
                 }
                 throw th;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             file = null;
         } catch (Throwable th2) {
             th = th2;
@@ -207,8 +199,8 @@ public class a implements b.a {
                             }
                         }
                         i++;
-                    } catch (Exception e2) {
-                        return e2.toString();
+                    } catch (Exception e) {
+                        return e.toString();
                     }
                 }
             }
@@ -223,13 +215,13 @@ public class a implements b.a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             String str = a;
             try {
-                if (this.f25362e != null) {
+                if (this.e != null) {
                     CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----start");
-                    for (int i = 0; i < this.f25362e.size(); i++) {
-                        String str2 = this.f25362e.get(i);
+                    for (int i = 0; i < this.e.size(); i++) {
+                        String str2 = this.e.get(i);
                         if (!TextUtils.isEmpty(str2) && str2.startsWith("md5_")) {
                             String substring = str2.substring(4, 36);
-                            if (!o.a(substring, this.f25361d + File.separator + str2)) {
+                            if (!o.a(substring, this.d + File.separator + str2)) {
                                 CyberLog.d("CyberFileDownloader", "---step---checkUnzipFilesMd5----fail");
                                 return "md5 check fail.";
                             }
@@ -249,7 +241,7 @@ public class a implements b.a {
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-            this.f25359b.a(str, j);
+            this.b.a(str, j);
         }
     }
 
@@ -257,7 +249,7 @@ public class a implements b.a {
     public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            this.f25359b.a(str, j, j2);
+            this.b.a(str, j, j2);
         }
     }
 
@@ -265,24 +257,24 @@ public class a implements b.a {
     public void a(String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
-            this.f25359b.a(str, j, -1, str2 + ",networkstatus:" + o.i() + ",url:" + str);
+            this.b.a(str, j, -1, str2 + ",networkstatus:" + o.i() + ",url:" + str);
         }
     }
 
-    public void a(String str, String str2, String str3, InterfaceC1748a interfaceC1748a) {
+    public void a(String str, String str2, String str3, InterfaceC0088a interfaceC0088a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC1748a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC1748a == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, interfaceC0088a) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || interfaceC0088a == null) {
             return;
         }
-        this.f25360c = str2;
-        this.f25359b = interfaceC1748a;
-        this.f25361d = str3;
+        this.c = str2;
+        this.b = interfaceC0088a;
+        this.d = str3;
         o.b(str3);
-        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.f25361d);
+        CyberLog.d("CyberFileDownloader", " unzipFolder:" + this.d);
         HashMap hashMap = new HashMap();
-        hashMap.put("url", str + File.separator + this.f25360c);
-        hashMap.put("file-folder", this.f25361d);
-        hashMap.put("file-name", this.f25360c);
+        hashMap.put("url", str + File.separator + this.c);
+        hashMap.put("file-folder", this.d);
+        hashMap.put("file-name", this.c);
         hashMap.put("is-asyn", "0");
         b.a(hashMap, this);
     }
@@ -293,23 +285,23 @@ public class a implements b.a {
         if (interceptable == null || interceptable.invokeLJ(1048580, this, str, j) == null) {
             String a2 = a();
             if (!a.equals(a2)) {
-                o.a(this.f25361d, this.f25362e);
-                this.f25359b.a(str, j, -2, a2);
+                o.a(this.d, this.e);
+                this.b.a(str, j, -2, a2);
                 return;
             }
-            String b2 = b();
-            if (!a.equals(b2)) {
-                o.a(this.f25361d, this.f25362e);
-                this.f25359b.a(str, j, -3, b2);
+            String b = b();
+            if (!a.equals(b)) {
+                o.a(this.d, this.e);
+                this.b.a(str, j, -3, b);
                 return;
             }
-            String a3 = a(this.f25361d, this.f25362e);
+            String a3 = a(this.d, this.e);
             if (a.equals(a3)) {
-                this.f25359b.a(str, j, this.f25362e);
+                this.b.a(str, j, this.e);
                 return;
             }
-            o.a(this.f25361d, this.f25362e);
-            this.f25359b.a(str, j, -6, a3);
+            o.a(this.d, this.e);
+            this.b.a(str, j, -6, a3);
         }
     }
 }

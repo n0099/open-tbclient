@@ -1,7 +1,7 @@
 package com.baidu.searchbox.ubcprocessor;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface UBCCloudConfigObserver {
     void onReceiveUbcCloudConfig(String str, JSONObject jSONObject);
 }

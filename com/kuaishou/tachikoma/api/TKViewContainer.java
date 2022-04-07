@@ -24,7 +24,7 @@ import com.tachikoma.core.IV8Function;
 import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.component.TKBase;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TKViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public class TKViewContainer extends FrameLayout {
     public IJS2NativeInvoker mInvoker;
     public TKBase tkView;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface IJS2NativeInvoker {
         Object onJSInvokeNativeWithJSONString(String str, String str2, IFunction iFunction);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public interface INativeCallback {
         Object invoke(List<Object> list);
     }
@@ -64,15 +64,15 @@ public class TKViewContainer extends FrameLayout {
         bindTKView((TKBase) v8AssociateReference.nativeObject);
     }
 
-    private void dfsDestroyChildren(@Nullable View view) {
+    private void dfsDestroyChildren(@Nullable View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, view) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view instanceof ViewGroup) {
+        if (view2 instanceof ViewGroup) {
             int i = 0;
             while (true) {
-                ViewGroup viewGroup = (ViewGroup) view;
+                ViewGroup viewGroup = (ViewGroup) view2;
                 if (i >= viewGroup.getChildCount()) {
                     break;
                 }
@@ -80,7 +80,7 @@ public class TKViewContainer extends FrameLayout {
                 i++;
             }
         }
-        TKBase tKBaseFromView = TKBase.getTKBaseFromView(view);
+        TKBase tKBaseFromView = TKBase.getTKBaseFromView(view2);
         if (tKBaseFromView != null) {
             tKBaseFromView.destroy();
         }

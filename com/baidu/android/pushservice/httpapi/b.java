@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +24,8 @@ public final class b {
             hashMap.put("v", "1");
             try {
                 hashMap.put("vcode", com.baidu.android.pushservice.i.f.a(URLEncoder.encode(currentTimeMillis + "bccs", "UTF-8").getBytes(), false));
-            } catch (UnsupportedEncodingException e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (UnsupportedEncodingException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
         }
     }

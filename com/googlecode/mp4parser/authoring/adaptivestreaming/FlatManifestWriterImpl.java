@@ -43,14 +43,14 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class DependentSubstreamMask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,12 +59,12 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         public EC3SpecificBox.Entry entry;
         public final /* synthetic */ FlatManifestWriterImpl this$0;
 
-        public DependentSubstreamMask(FlatManifestWriterImpl flatManifestWriterImpl, byte b2, byte b3, EC3SpecificBox.Entry entry) {
+        public DependentSubstreamMask(FlatManifestWriterImpl flatManifestWriterImpl, byte b, byte b2, EC3SpecificBox.Entry entry) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {flatManifestWriterImpl, Byte.valueOf(b2), Byte.valueOf(b3), entry};
+                Object[] objArr = {flatManifestWriterImpl, Byte.valueOf(b), Byte.valueOf(b2), entry};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,8 +75,8 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 }
             }
             this.this$0 = flatManifestWriterImpl;
-            this.dWChannelMaskFirstByte = b2;
-            this.dWChannelMaskSecondByte = b3;
+            this.dWChannelMaskFirstByte = b;
+            this.dWChannelMaskSecondByte = b2;
             this.entry = entry;
         }
 
@@ -279,15 +279,15 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
     private AudioQuality getEc3AudioQuality(Track track, AudioSampleEntry audioSampleEntry) {
         InterceptResult invokeLL;
         int i;
-        byte b2;
+        byte b;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, track, audioSampleEntry)) == null) {
             EC3SpecificBox eC3SpecificBox = (EC3SpecificBox) audioSampleEntry.getBoxes(EC3SpecificBox.class).get(0);
             if (eC3SpecificBox != null) {
+                byte b2 = 0;
                 byte b3 = 0;
-                byte b4 = 0;
                 short s = 0;
                 short s2 = 0;
                 for (EC3SpecificBox.Entry entry : eC3SpecificBox.getEntries()) {
@@ -297,34 +297,34 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         case 1:
                             s = (short) (s + 1);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process.getdWChannelMaskFirstByte());
-                                b2 = process.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process.getdWChannelMaskFirstByte());
+                                b = process.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                     s2 = (short) (s2 + 1);
-                                    b3 = (byte) (b3 | YogaNodeJNIBase.HAS_NEW_LAYOUT);
+                                    b2 = (byte) (b2 | YogaNodeJNIBase.HAS_NEW_LAYOUT);
                                 }
                             } else {
-                                i = b3 | 32;
-                                b3 = (byte) i;
+                                i = b2 | 32;
+                                b2 = (byte) i;
                                 if (entry.lfeon == 1) {
                                 }
                             }
                         case 2:
                             s = (short) (s + 2);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process2 = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process2.getdWChannelMaskFirstByte());
-                                b2 = process2.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process2 = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process2.getdWChannelMaskFirstByte());
+                                b = process2.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i = b3 | 192;
-                                b3 = (byte) i;
+                                i = b2 | 192;
+                                b2 = (byte) i;
                                 if (entry.lfeon == 1) {
                                 }
                             }
@@ -332,16 +332,16 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         case 3:
                             s = (short) (s + 3);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process3 = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process3.getdWChannelMaskFirstByte());
-                                b2 = process3.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process3 = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process3.getdWChannelMaskFirstByte());
+                                b = process3.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i = b3 | 224;
-                                b3 = (byte) i;
+                                i = b2 | 224;
+                                b2 = (byte) i;
                                 if (entry.lfeon == 1) {
                                 }
                             }
@@ -349,18 +349,18 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         case 4:
                             s = (short) (s + 3);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process4 = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process4.getdWChannelMaskFirstByte());
-                                b2 = process4.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process4 = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process4.getdWChannelMaskFirstByte());
+                                b = process4.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i2 = b3 | 192;
-                                b3 = (byte) i2;
-                                i3 = b4 | 128;
-                                b4 = (byte) i3;
+                                i2 = b2 | 192;
+                                b2 = (byte) i2;
+                                i3 = b3 | 128;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             }
@@ -368,18 +368,18 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         case 5:
                             s = (short) (s + 4);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process5 = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process5.getdWChannelMaskFirstByte());
-                                b2 = process5.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process5 = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process5.getdWChannelMaskFirstByte());
+                                b = process5.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i2 = b3 | 224;
-                                b3 = (byte) i2;
-                                i3 = b4 | 128;
-                                b4 = (byte) i3;
+                                i2 = b2 | 224;
+                                b2 = (byte) i2;
+                                i3 = b3 | 128;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             }
@@ -387,16 +387,16 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         case 6:
                             s = (short) (s + 4);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process6 = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process6.getdWChannelMaskFirstByte());
-                                b2 = process6.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process6 = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process6.getdWChannelMaskFirstByte());
+                                b = process6.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i = b3 | 204;
-                                b3 = (byte) i;
+                                i = b2 | 204;
+                                b2 = (byte) i;
                                 if (entry.lfeon == 1) {
                                 }
                             }
@@ -404,16 +404,16 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                         case 7:
                             s = (short) (s + 5);
                             if (entry.num_dep_sub > 0) {
-                                DependentSubstreamMask process7 = new DependentSubstreamMask(this, b3, b4, entry).process();
-                                b3 = (byte) (b3 | process7.getdWChannelMaskFirstByte());
-                                b2 = process7.getdWChannelMaskSecondByte();
-                                i3 = b4 | b2;
-                                b4 = (byte) i3;
+                                DependentSubstreamMask process7 = new DependentSubstreamMask(this, b2, b3, entry).process();
+                                b2 = (byte) (b2 | process7.getdWChannelMaskFirstByte());
+                                b = process7.getdWChannelMaskSecondByte();
+                                i3 = b3 | b;
+                                b3 = (byte) i3;
                                 if (entry.lfeon == 1) {
                                 }
                             } else {
-                                i = b3 | 236;
-                                b3 = (byte) i;
+                                i = b2 | 236;
+                                b2 = (byte) i;
                                 if (entry.lfeon == 1) {
                                 }
                             }
@@ -426,8 +426,8 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 }
                 ByteBuffer allocate = ByteBuffer.allocate(22);
                 allocate.put(new byte[]{0, 6});
+                allocate.put(b2);
                 allocate.put(b3);
-                allocate.put(b4);
                 allocate.put(new byte[2]);
                 allocate.put(new byte[]{-81, -121, -5, -89, 2, 45, -5, 66, -92, -44, 5, -51, -109, -124, 59, -35});
                 ByteBuffer allocate2 = ByteBuffer.allocate((int) eC3SpecificBox.getContentSize());
@@ -712,13 +712,13 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                     newTransformer.setOutputProperty("indent", "yes");
                     newTransformer.transform(dOMSource, streamResult);
                     return stringWriter.getBuffer().toString();
-                } catch (TransformerConfigurationException e2) {
+                } catch (TransformerConfigurationException e) {
+                    throw new IOException(e);
+                } catch (TransformerException e2) {
                     throw new IOException(e2);
-                } catch (TransformerException e3) {
-                    throw new IOException(e3);
                 }
-            } catch (ParserConfigurationException e4) {
-                throw new IOException(e4);
+            } catch (ParserConfigurationException e3) {
+                throw new IOException(e3);
             }
         }
         return (String) invokeL.objValue;

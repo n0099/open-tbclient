@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.LongSparseArray;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.Filter;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
@@ -35,11 +34,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ChatUserManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ChatUserManagerImpl";
@@ -336,12 +336,12 @@ public class ChatUserManagerImpl {
                     creatMethodIntent.putExtras(bundle);
                     creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i);
                     try {
-                        a.g(mContext).f(mContext, creatMethodIntent);
+                        p70.g(mContext).f(mContext, creatMethodIntent);
                         return;
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onGetUserIpResult(mContext, i, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, arrayList, null);
-                        LogUtils.e(TAG, "Exception ", e2);
+                        LogUtils.e(TAG, "Exception ", e);
                         return;
                     }
                 }
@@ -488,12 +488,12 @@ public class ChatUserManagerImpl {
                     bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
                     creatMethodIntent.putExtras(bundle);
                     try {
-                        a.g(mContext).f(mContext, creatMethodIntent);
+                        p70.g(mContext).f(mContext, creatMethodIntent);
                         return;
-                    } catch (Exception e2) {
+                    } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onGetUsersStatusResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
-                        LogUtils.e(TAG, "Exception ", e2);
+                        LogUtils.e(TAG, "Exception ", e);
                         return;
                     }
                 } else {

@@ -32,84 +32,70 @@ import com.kwad.sdk.utils.z;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissListener, DialogInterface.OnShowListener {
     @NonNull
     public AdTemplate a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AdInfo f40398b;
+    public AdInfo b;
     @Nullable
-
-    /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f40399c;
+    public com.kwad.sdk.core.download.a.b c;
     @Nullable
-
-    /* renamed from: d  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f40400d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public b f40401e;
+    public KsNativeAd.AdInteractionListener d;
+    public b e;
     @Nullable
-
-    /* renamed from: f  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f40402f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f40403g = new KsNativeAd.VideoPlayListener() { // from class: com.kwad.sdk.f.a.6
+    public KsNativeAd.VideoPlayListener f;
+    public KsNativeAd.VideoPlayListener g = new KsNativeAd.VideoPlayListener() { // from class: com.kwad.sdk.f.a.6
         @Override // com.kwad.sdk.api.KsNativeAd.VideoPlayListener
         public void onVideoPlayComplete() {
-            if (a.this.f40402f != null) {
-                a.this.f40402f.onVideoPlayComplete();
+            if (a.this.f != null) {
+                a.this.f.onVideoPlayComplete();
             }
         }
 
         @Override // com.kwad.sdk.api.KsNativeAd.VideoPlayListener
         public void onVideoPlayError(int i, int i2) {
-            if (a.this.f40402f != null) {
-                a.this.f40402f.onVideoPlayError(i, i2);
+            if (a.this.f != null) {
+                a.this.f.onVideoPlayError(i, i2);
             }
         }
 
         @Override // com.kwad.sdk.api.KsNativeAd.VideoPlayListener
         public void onVideoPlayStart() {
-            if (a.this.f40402f != null) {
-                a.this.f40402f.onVideoPlayStart();
+            if (a.this.f != null) {
+                a.this.f.onVideoPlayStart();
             }
         }
     };
-
-    /* renamed from: h  reason: collision with root package name */
-    public InterfaceC1981a f40404h = new InterfaceC1981a() { // from class: com.kwad.sdk.f.a.7
-        @Override // com.kwad.sdk.f.a.InterfaceC1981a
+    public InterfaceC0321a h = new InterfaceC0321a() { // from class: com.kwad.sdk.f.a.7
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void a() {
-            if (a.this.f40400d != null) {
+            if (a.this.d != null) {
                 try {
-                    a.this.f40400d.onDownloadTipsDialogShow();
+                    a.this.d.onDownloadTipsDialogShow();
                 } catch (Throwable unused) {
                 }
             }
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC1981a
-        public void a(View view, KsNativeAd ksNativeAd) {
-            if (a.this.f40400d != null) {
-                a.this.f40400d.onAdClicked(view, a.this);
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
+        public void a(View view2, KsNativeAd ksNativeAd) {
+            if (a.this.d != null) {
+                a.this.d.onAdClicked(view2, a.this);
             }
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC1981a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void a(KsNativeAd ksNativeAd) {
-            if (a.this.f40400d != null) {
-                a.this.f40400d.onAdShow(a.this);
+            if (a.this.d != null) {
+                a.this.d.onAdShow(a.this);
             }
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC1981a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public boolean a(DialogInterface.OnClickListener onClickListener) {
-            if (a.this.f40400d != null) {
+            if (a.this.d != null) {
                 try {
-                    return a.this.f40400d.handleDownloadDialog(onClickListener);
+                    return a.this.d.handleDownloadDialog(onClickListener);
                 } catch (Throwable th) {
                     com.kwad.sdk.core.d.a.b(th);
                     return false;
@@ -118,11 +104,11 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
             return false;
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC1981a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void b() {
-            if (a.this.f40400d != null) {
+            if (a.this.d != null) {
                 try {
-                    a.this.f40400d.onDownloadTipsDialogDismiss();
+                    a.this.d.onDownloadTipsDialogDismiss();
                 } catch (Throwable unused) {
                 }
             }
@@ -130,11 +116,11 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     };
 
     /* renamed from: com.kwad.sdk.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1981a {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0321a {
         void a();
 
-        void a(View view, KsNativeAd ksNativeAd);
+        void a(View view2, KsNativeAd ksNativeAd);
 
         void a(KsNativeAd ksNativeAd);
 
@@ -146,20 +132,20 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     public a(@NonNull AdTemplate adTemplate) {
         this.a = adTemplate;
         AdInfo j = d.j(adTemplate);
-        this.f40398b = j;
+        this.b = j;
         if (com.kwad.sdk.core.response.a.a.B(j)) {
             com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(this.a);
-            this.f40399c = bVar;
+            this.c = bVar;
             bVar.a((DialogInterface.OnShowListener) this);
-            this.f40399c.a((DialogInterface.OnDismissListener) this);
-            this.f40399c.a(new b.a() { // from class: com.kwad.sdk.f.a.1
+            this.c.a((DialogInterface.OnDismissListener) this);
+            this.c.a(new b.a() { // from class: com.kwad.sdk.f.a.1
                 @Override // com.kwad.sdk.core.download.a.b.a
                 public boolean a(DialogInterface.OnClickListener onClickListener) {
-                    return a.this.f40404h.a(onClickListener);
+                    return a.this.h.a(onClickListener);
                 }
             });
         }
-        KSImageLoader.preloadImage(com.kwad.sdk.core.response.a.a.c(this.f40398b), this.a);
+        KSImageLoader.preloadImage(com.kwad.sdk.core.response.a.a.c(this.b), this.a);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -169,78 +155,76 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(@Nullable Activity activity, final View view, final z.a aVar) {
+    public void a(@Nullable Activity activity, final View view2, final z.a aVar) {
         Context context;
         if (activity == null) {
-            context = view.getContext();
+            context = view2.getContext();
         }
         com.kwad.sdk.core.download.a.a.a(Wrapper.wrapContextIfNeed(context), this.a, new a.b() { // from class: com.kwad.sdk.f.a.4
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 com.kwad.sdk.core.report.a.a(a.this.a, aVar);
-                a.this.f40404h.a(view, a.this);
+                a.this.h.a(view2, a.this);
             }
-        }, this.f40399c, false);
+        }, this.c, false);
     }
 
     private void a(@Nullable final Activity activity, @NonNull final ViewGroup viewGroup, @NonNull List<View> list) {
-        for (View view : list) {
+        for (View view2 : list) {
             final z.a aVar = new z.a();
-            view.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.f.a.2
-
-                /* renamed from: d  reason: collision with root package name */
-                public int[] f40407d = new int[2];
+            view2.setOnTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.f.a.2
+                public int[] d = new int[2];
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(View view2, MotionEvent motionEvent) {
+                public boolean onTouch(View view3, MotionEvent motionEvent) {
                     int action = motionEvent.getAction();
                     if (action == 0) {
                         aVar.a(viewGroup.getWidth(), viewGroup.getHeight());
-                        viewGroup.getLocationOnScreen(this.f40407d);
-                        aVar.a(Math.abs(motionEvent.getRawX() - this.f40407d[0]), Math.abs(motionEvent.getRawY() - this.f40407d[1]));
+                        viewGroup.getLocationOnScreen(this.d);
+                        aVar.a(Math.abs(motionEvent.getRawX() - this.d[0]), Math.abs(motionEvent.getRawY() - this.d[1]));
                     } else if (action == 1) {
-                        aVar.b(Math.abs(motionEvent.getRawX() - this.f40407d[0]), Math.abs(motionEvent.getRawY() - this.f40407d[1]));
+                        aVar.b(Math.abs(motionEvent.getRawX() - this.d[0]), Math.abs(motionEvent.getRawY() - this.d[1]));
                     }
                     return false;
                 }
             });
-            view.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.f.a.3
+            view2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.f.a.3
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view2) {
-                    a.this.a(activity, view2, aVar);
+                public void onClick(View view3) {
+                    a.this.a(activity, view3, aVar);
                 }
             });
         }
     }
 
     private void a(ViewGroup viewGroup) {
-        com.kwad.sdk.core.page.widget.a b2 = b(viewGroup);
-        if (b2 == null) {
-            b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
-            viewGroup.addView(b2);
+        com.kwad.sdk.core.page.widget.a b = b(viewGroup);
+        if (b == null) {
+            b = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
+            viewGroup.addView(b);
         }
-        b2.setViewCallback(new a.InterfaceC1965a() { // from class: com.kwad.sdk.f.a.5
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
+        b.setViewCallback(new a.InterfaceC0305a() { // from class: com.kwad.sdk.f.a.5
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
-            public void a(View view) {
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
+            public void a(View view2) {
                 if (!a.this.a.mPvReported) {
-                    a.this.f40404h.a(a.this);
+                    a.this.h.a(a.this);
                 }
                 com.kwad.sdk.core.report.a.a(a.this.a, (JSONObject) null);
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1965a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void b() {
             }
         });
-        b2.setNeedCheckingShow(true);
+        b.setNeedCheckingShow(true);
     }
 
     private com.kwad.sdk.core.page.widget.a b(ViewGroup viewGroup) {
@@ -258,7 +242,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     @Nullable
     /* renamed from: a */
     public com.kwad.sdk.internal.api.b getVideoCoverImage() {
-        AdInfo.AdMaterialInfo.MaterialFeature J = com.kwad.sdk.core.response.a.a.J(this.f40398b);
+        AdInfo.AdMaterialInfo.MaterialFeature J = com.kwad.sdk.core.response.a.a.J(this.b);
         if (TextUtils.isEmpty(J.coverUrl)) {
             return null;
         }
@@ -273,25 +257,25 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getActionDescription() {
-        return com.kwad.sdk.core.response.a.a.A(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.A(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAdDescription() {
-        return com.kwad.sdk.core.response.a.a.s(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.s(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAdSource() {
-        return com.kwad.sdk.core.response.a.a.z(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.z(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAdSourceLogoUrl(@AdSourceLogoType int i) {
-        AdInfo adInfo = this.f40398b;
+        AdInfo adInfo = this.b;
         if (adInfo == null) {
             return null;
         }
@@ -301,57 +285,57 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppDownloadCountDes() {
-        return com.kwad.sdk.core.response.a.a.w(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.w(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppIconUrl() {
-        return com.kwad.sdk.core.response.a.a.au(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.au(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getAppName() {
-        return com.kwad.sdk.core.response.a.a.t(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.t(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppPackageName() {
-        return com.kwad.sdk.core.response.a.a.v(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.v(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public long getAppPackageSize() {
-        return com.kwad.sdk.core.response.a.a.am(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.am(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppPrivacyUrl() {
-        return com.kwad.sdk.core.response.a.a.ak(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.ak(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public float getAppScore() {
-        return com.kwad.sdk.core.response.a.a.x(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.x(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getAppVersion() {
-        return com.kwad.sdk.core.response.a.a.al(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.al(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getCorporationName() {
-        return com.kwad.sdk.core.response.a.a.ah(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.ah(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.a.a.F(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.F(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
@@ -359,7 +343,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
     public List<KsImage> getImageList() {
         ArrayList arrayList = new ArrayList();
         AdInfo j = d.j(this.a);
-        int R = com.kwad.sdk.core.response.a.a.R(this.f40398b);
+        int R = com.kwad.sdk.core.response.a.a.R(this.b);
         if (R == 2 || R == 3) {
             for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature : j.adMaterialInfo.materialFeatureList) {
                 if (materialFeature.featureType == 2 && !TextUtils.isEmpty(materialFeature.materialUrl)) {
@@ -372,29 +356,29 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getInteractionType() {
-        return com.kwad.sdk.core.response.a.a.E(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.E(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getMaterialType() {
-        return com.kwad.sdk.core.response.a.a.R(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.R(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getPermissionInfo() {
-        return com.kwad.sdk.core.response.a.a.ai(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.ai(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     @Nullable
     public String getPermissionInfoUrl() {
-        return com.kwad.sdk.core.response.a.a.aj(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.aj(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getProductName() {
-        return com.kwad.sdk.core.response.a.a.u(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.u(this.b);
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsNativeAd
@@ -403,22 +387,22 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
         if (context == null) {
             return null;
         }
-        return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080c9f);
+        return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080ca0);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoDuration() {
-        return com.kwad.sdk.core.response.a.a.b(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.b(this.b);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoHeight() {
-        return com.kwad.sdk.core.response.a.a.J(this.f40398b).videoHeight;
+        return com.kwad.sdk.core.response.a.a.J(this.b).videoHeight;
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public String getVideoUrl() {
-        return com.kwad.sdk.core.response.a.a.a(this.f40398b);
+        return com.kwad.sdk.core.response.a.a.a(this.b);
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsNativeAd
@@ -428,14 +412,14 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
             com.kwad.sdk.core.d.a.d("KsNativeAdControl", "videoUrl is empty");
             return null;
         }
-        if (this.f40401e == null) {
+        if (this.e == null) {
             b bVar = new b(context);
-            this.f40401e = bVar;
-            bVar.setInnerAdInteractionListener(this.f40404h);
-            this.f40401e.setVideoPlayListener(this.f40403g);
-            this.f40401e.a(this.a, this.f40399c, ksAdVideoPlayConfig);
+            this.e = bVar;
+            bVar.setInnerAdInteractionListener(this.h);
+            this.e.setVideoPlayListener(this.g);
+            this.e.a(this.a, this.c, ksAdVideoPlayConfig);
         }
-        return this.f40401e;
+        return this.e;
     }
 
     @Override // com.kwad.sdk.api.core.AbstractKsNativeAd
@@ -445,22 +429,22 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public int getVideoWidth() {
-        return com.kwad.sdk.core.response.a.a.J(this.f40398b).videoWidth;
+        return com.kwad.sdk.core.response.a.a.J(this.b).videoWidth;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
-        this.f40404h.b();
+        this.h.b();
     }
 
     @Override // android.content.DialogInterface.OnShowListener
     public void onShow(DialogInterface dialogInterface) {
-        this.f40404h.a();
+        this.h.a();
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public void registerViewForInteraction(Activity activity, @NonNull ViewGroup viewGroup, @NonNull List<View> list, KsNativeAd.AdInteractionListener adInteractionListener) {
-        this.f40400d = adInteractionListener;
+        this.d = adInteractionListener;
         a(viewGroup);
         a(activity, viewGroup, list);
     }
@@ -494,7 +478,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public void setDownloadListener(KsAppDownloadListener ksAppDownloadListener) {
-        com.kwad.sdk.core.download.a.b bVar = this.f40399c;
+        com.kwad.sdk.core.download.a.b bVar = this.c;
         if (bVar == null || ksAppDownloadListener == null) {
             return;
         }
@@ -503,6 +487,6 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
 
     @Override // com.kwad.sdk.api.KsNativeAd
     public void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {
-        this.f40402f = videoPlayListener;
+        this.f = videoPlayListener;
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.ugc.bean;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.j.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.f99;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable<LocalAlbumInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FACE_SCORE_BASE = 20;
@@ -88,9 +88,9 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new b().a(list);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                return new f99().a(list);
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -105,9 +105,9 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
                 return null;
             }
             try {
-                return new b().a(localAlbumInfo);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                return new f99().a(localAlbumInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -145,18 +145,18 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            float f2 = this.mSelfSpeed;
-            float f3 = this.mGlobalSpeed;
-            if (f2 * f3 <= 0.0f) {
+            float f = this.mSelfSpeed;
+            float f2 = this.mGlobalSpeed;
+            if (f * f2 <= 0.0f) {
                 return 1.0f;
             }
-            if (f2 * f3 > 8.0f) {
+            if (f * f2 > 8.0f) {
                 return 8.0f;
             }
-            if (f2 * f3 < 0.01f) {
+            if (f * f2 < 0.01f) {
                 return 0.01f;
             }
-            return f2 * f3;
+            return f * f2;
         }
         return invokeV.floatValue;
     }
@@ -259,7 +259,7 @@ public class LocalAlbumInfo extends LocalEntity implements Cloneable, Comparable
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public LocalAlbumInfo m92clone() {
+    public LocalAlbumInfo m88clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -12,7 +12,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3
 
     @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
     /* renamed from: com.baidu.bdtask.ui.components.buoy.TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class AnonymousClass1 extends Lambda implements Function0<Unit> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,11 +61,11 @@ public final class TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3
             String J;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ProgressBar progressBar = this.this$0.this$0.a.f24965h;
+                ProgressBar progressBar = this.this$0.this$0.a.h;
                 if (progressBar != null) {
                     progressBar.setVisibility(8);
                 }
-                this.this$0.this$0.a.f24960c.setVisibility(0);
+                this.this$0.this$0.a.c.setVisibility(0);
                 TaskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3 taskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3 = this.this$0;
                 TaskBuoyView taskBuoyView = taskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3.this$0.a;
                 J = taskBuoyView.J(taskBuoyView$onViewModelBind$1$$special$$inlined$let$lambda$3.$it.getCurProcessRate(), this.this$0.$it.getMessage(), this.this$0.$it.getTotal());

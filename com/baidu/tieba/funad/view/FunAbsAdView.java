@@ -6,8 +6,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import c.a.p0.a4.k0.n;
-import c.a.p0.g1.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,14 +13,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import com.repackage.cs6;
+import com.repackage.uk8;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f33073c;
+    public String c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAbsAdView(Context context) {
@@ -53,7 +51,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract void e(BdUniqueId bdUniqueId);
 
-    public abstract void f(@NonNull n nVar, @NonNull Activity activity);
+    public abstract void f(@NonNull uk8 uk8Var, @NonNull Activity activity);
 
     public abstract void g(Context context);
 
@@ -65,7 +63,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract int getLayoutId();
 
-    public abstract b.g getLogItem();
+    public abstract cs6.g getLogItem();
 
     public abstract String getPageType();
 

@@ -8,7 +8,7 @@ import com.airbnb.lottie.animation.content.FillContent;
 import com.airbnb.lottie.model.animatable.AnimatableColorValue;
 import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ShapeFill implements ContentModel {
     @Nullable
     public final AnimatableColorValue color;

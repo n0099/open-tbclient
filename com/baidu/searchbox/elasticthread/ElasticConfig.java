@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class ElasticConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ARTERY_CONFIG_BACKGROUND_CORE_POOL_SIZE = 0;

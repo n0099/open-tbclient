@@ -12,7 +12,7 @@ import com.facebook.common.internal.Preconditions;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BufferMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BufferMemoryChunk";
@@ -188,7 +188,7 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
     @Override // com.facebook.imagepipeline.memory.MemoryChunk
     public synchronized byte read(int i) {
         InterceptResult invokeI;
-        byte b2;
+        byte b;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             synchronized (this) {
@@ -199,9 +199,9 @@ public class BufferMemoryChunk implements MemoryChunk, Closeable {
                     z = false;
                 }
                 Preconditions.checkArgument(z);
-                b2 = this.mBuffer.get(i);
+                b = this.mBuffer.get(i);
             }
-            return b2;
+            return b;
         }
         return invokeI.byteValue;
     }

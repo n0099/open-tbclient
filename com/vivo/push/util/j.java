@@ -13,31 +13,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f43950b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final boolean f43951c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final boolean f43952d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final boolean f43953e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final boolean f43954f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final boolean f43955g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final boolean f43956h;
+    public static final String b;
+    public static final boolean c;
+    public static final boolean d;
+    public static final boolean e;
+    public static final boolean f;
+    public static final boolean g;
+    public static final boolean h;
     public static Method i;
     public static String j;
     public static String k;
@@ -65,13 +51,13 @@ public final class j {
         } else {
             b2 = aa.b("ro.product.customize.bbk", "N");
         }
-        f43950b = b2;
-        f43951c = "RU".equals(b2);
-        f43952d = "IN".equals(f43950b);
-        f43953e = b("rom_1.0");
-        f43954f = b("rom_2.0");
-        f43955g = b("rom_2.5");
-        f43956h = b("rom_3.0");
+        b = b2;
+        c = "RU".equals(b2);
+        d = "IN".equals(b);
+        e = b("rom_1.0");
+        f = b("rom_2.0");
+        g = b("rom_2.5");
+        h = b("rom_3.0");
         j = null;
         k = null;
         l = "";

@@ -15,7 +15,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class VideoPlayData implements Jsonable, Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<VideoPlayData> CREATOR;
@@ -192,8 +192,8 @@ public class VideoPlayData implements Jsonable, Parcelable, Serializable {
                 jSONObject.put("width", this.width);
                 jSONObject.put("height", this.height);
                 jSONObject.put("mMaterialId", this.mMaterialId);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

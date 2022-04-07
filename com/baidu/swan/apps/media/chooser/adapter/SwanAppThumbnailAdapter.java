@@ -22,40 +22,33 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import com.repackage.qj2;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<MediaModel> a;
+    public MediaModel b;
+    public int c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public MediaModel f28938b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f28939c;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public SimpleDraweeView a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public View f28940b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f28941c;
+        public View b;
+        public View c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view) {
-            super(view);
+        public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {swanAppThumbnailAdapter, view};
+                Object[] objArr = {swanAppThumbnailAdapter, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,9 +59,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view.findViewById(R.id.obfuscated_res_0x7f090833);
-            this.f28940b = view.findViewById(R.id.obfuscated_res_0x7f090257);
-            this.f28941c = view.findViewById(R.id.obfuscated_res_0x7f090256);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09083b);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f09025f);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f09025e);
         }
     }
 
@@ -87,7 +80,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                 return;
             }
         }
-        this.f28939c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070682);
+        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070690);
     }
 
     public MediaModel d(int i) {
@@ -120,17 +113,17 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         }
         MediaModel mediaModel = arrayList.get(i);
         aVar.a.setImageURI(Uri.fromFile(new File(mediaModel.getPath())));
-        aVar.f28940b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
-        aVar.f28941c.setVisibility(mediaModel.equals(this.f28938b) ? 0 : 8);
+        aVar.b.setVisibility(mediaModel instanceof VideoModel ? 0 : 8);
+        aVar.c.setVisibility(mediaModel.equals(this.b) ? 0 : 8);
         ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(mediaModel.getPath())));
-        int i2 = this.f28939c;
+        int i2 = this.c;
         newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
         newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
         AbstractDraweeController build = Fresco.newDraweeControllerBuilder().setOldController(aVar.a.getController()).setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).build();
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            c.a.n0.a.s0.a.C().c((GenericDraweeHierarchy) hierarchy, false);
+            qj2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -140,7 +133,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e3, viewGroup, false)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07da, viewGroup, false)) : (a) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -165,8 +158,8 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
             if (arrayList == null) {
                 return 0;
             }
-            MediaModel mediaModel2 = this.f28938b;
-            this.f28938b = mediaModel;
+            MediaModel mediaModel2 = this.b;
+            this.b = mediaModel;
             int size = arrayList.size();
             int i = 0;
             int i2 = -1;
@@ -194,7 +187,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
             this.a = arrayList;
             if (arrayList != null && arrayList.size() == 1) {
-                this.f28938b = arrayList.get(0);
+                this.b = arrayList.get(0);
             }
             notifyDataSetChanged();
         }

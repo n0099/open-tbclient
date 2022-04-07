@@ -29,7 +29,7 @@ import com.kwad.sdk.reward.j;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     public static final String KEY_TEMPLATE = "key_template_json";
     public static final String KEY_URL = "key_langingpage_url";
@@ -63,26 +63,26 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
     private void initView() {
         KsAdWebView ksAdWebView;
         String G;
-        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091188);
+        KsAdWebView ksAdWebView2 = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091181);
         this.mAdWebView = ksAdWebView2;
         handlerLandingPageAtEndCard(ksAdWebView2);
         this.mAdWebView.setTemplateData(this.mAdTemplate);
         this.mAdWebView.setDeepLinkEnabled(false);
         this.mAdWebView.b();
-        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118c);
-        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910b3);
+        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091185);
+        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910ac);
         this.mWebCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdRewardPreviewActivityProxy.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 com.kwad.sdk.core.report.a.a(AdRewardPreviewActivityProxy.this.mAdTemplate, 1, (JSONObject) null);
                 AdRewardPreviewActivityProxy.this.finish();
             }
         });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091125);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09111e);
         this.mCountDownTips = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdRewardPreviewActivityProxy.2
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AdRewardPreviewActivityProxy.this.showCloseDialog();
             }
         });
@@ -137,7 +137,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
         this.mWebContainer.setDispatchTouchListener(new View.OnTouchListener() { // from class: com.kwad.sdk.core.page.AdRewardPreviewActivityProxy.5
             @Override // android.view.View.OnTouchListener
             @SuppressLint({"ClickableViewAccessibility"})
-            public boolean onTouch(View view, MotionEvent motionEvent) {
+            public boolean onTouch(View view2, MotionEvent motionEvent) {
                 if (motionEvent.getX() > AdRewardPreviewActivityProxy.this.mWebCloseBtn.getX() && motionEvent.getX() - AdRewardPreviewActivityProxy.this.mWebCloseBtn.getX() < AdRewardPreviewActivityProxy.this.mWebCloseBtn.getWidth() && motionEvent.getY() > AdRewardPreviewActivityProxy.this.mWebCloseBtn.getY() && motionEvent.getY() - AdRewardPreviewActivityProxy.this.mWebCloseBtn.getY() < AdRewardPreviewActivityProxy.this.mWebCloseBtn.getHeight()) {
                     com.kwad.sdk.core.d.a.a(AdRewardPreviewActivityProxy.TAG, "onClick backIcon");
                     return false;
@@ -231,7 +231,7 @@ public class AdRewardPreviewActivityProxy extends com.kwad.sdk.h.a {
 
     @Override // com.kwad.sdk.h.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
-        setContentView(R.layout.obfuscated_res_0x7f0d041e);
+        setContentView(R.layout.obfuscated_res_0x7f0d0419);
         String stringExtra = getIntent().getStringExtra("key_template_json");
         this.mUrl = getIntent().getStringExtra(KEY_URL);
         try {

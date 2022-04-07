@@ -23,7 +23,7 @@ public final class AbstractCollection$toString$1 extends Lambda implements Funct
 
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function1
-    public final CharSequence invoke(E e2) {
-        return e2 == this.this$0 ? "(this Collection)" : String.valueOf(e2);
+    public final CharSequence invoke(E e) {
+        return e == this.this$0 ? "(this Collection)" : String.valueOf(e);
     }
 }

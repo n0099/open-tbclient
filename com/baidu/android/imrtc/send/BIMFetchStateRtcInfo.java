@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMFetchStateRtcInfo";
@@ -21,7 +21,7 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
     public List<UserState> mUkStates;
     public String roomStateMsg;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class UserState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class BIMFetchStateRtcInfo extends BIMRtcInfo {
                     this.mUkStates.add(new UserState(this, jSONObject.optLong("uk"), jSONObject.optInt("status")));
                 }
             }
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "BIMFetchStateRtcInfo Exception:", e2);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "BIMFetchStateRtcInfo Exception:", e);
         }
     }
 

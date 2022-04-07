@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "a";
@@ -29,8 +29,8 @@ public class a {
     public d un;
 
     /* renamed from: com.baidu.ar.recorder.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public class C1718a {
+    /* loaded from: classes.dex */
+    public class C0058a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ByteBuffer uE;
@@ -38,7 +38,7 @@ public class a {
         public long uG;
         public final /* synthetic */ a uH;
 
-        public C1718a(a aVar, ByteBuffer byteBuffer, int i, long j) {
+        public C0058a(a aVar, ByteBuffer byteBuffer, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,7 +60,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,8 +99,8 @@ public class a {
                         this.uH.fK();
                         return;
                     case 1003:
-                        C1718a c1718a = (C1718a) message.obj;
-                        this.uH.b(c1718a.uE, c1718a.uF, c1718a.uG);
+                        C0058a c0058a = (C0058a) message.obj;
+                        this.uH.b(c0058a.uE, c0058a.uF, c0058a.uG);
                         return;
                     case 1004:
                         this.uH.fL();
@@ -235,12 +235,12 @@ public class a {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || byteBuffer == null || i <= 0) {
             return;
         }
-        C1718a c1718a = new C1718a(this, byteBuffer, i, j);
+        C0058a c0058a = new C0058a(this, byteBuffer, i, j);
         if (this.uC == null || !this.ua) {
             return;
         }
         Handler handler = this.uC;
-        handler.sendMessage(handler.obtainMessage(1003, c1718a));
+        handler.sendMessage(handler.obtainMessage(1003, c0058a));
     }
 
     public boolean a(EncoderParams encoderParams, d dVar, c cVar) {

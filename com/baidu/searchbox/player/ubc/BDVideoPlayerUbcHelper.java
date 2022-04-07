@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDVideoPlayerUbcHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,8 +43,8 @@ public class BDVideoPlayerUbcHelper {
                 jSONObject2.put("klogid", kernelLogId);
                 jSONObject2.put("traceid", traceId);
                 jSONObject.put("player_log", jSONObject2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -54,8 +54,8 @@ public class BDVideoPlayerUbcHelper {
         if ((interceptable == null || interceptable.invokeLL(65538, null, jSONObject, iUbcPlayerStatusFetcher) == null) && TextUtils.isEmpty(jSONObject.optString("url"))) {
             try {
                 jSONObject.put("url", iUbcPlayerStatusFetcher.getPlayUrl());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -78,8 +78,8 @@ public class BDVideoPlayerUbcHelper {
             if (jSONObject == null) {
                 try {
                     jSONObject = new JSONObject();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             jSONObject.put("from", bDVideoPlayerUbcContent.getFrom());
@@ -113,8 +113,8 @@ public class BDVideoPlayerUbcHelper {
             if (jSONObject == null) {
                 try {
                     jSONObject = new JSONObject();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             jSONObject.put("from", bDVideoPlayerUbcContent.getFrom());
@@ -146,8 +146,8 @@ public class BDVideoPlayerUbcHelper {
             if (jSONObject2 == null) {
                 try {
                     jSONObject2 = new JSONObject();
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             jSONObject2.put("from", bDVideoPlayerUbcContent.getFrom());

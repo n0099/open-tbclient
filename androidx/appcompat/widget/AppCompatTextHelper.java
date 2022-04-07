@@ -167,10 +167,10 @@ public class AppCompatTextHelper {
         }
     }
 
-    private void setTextSizeInternal(int i, float f2) {
+    private void setTextSizeInternal(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            this.mAutoSizeTextHelper.setTextSizeInternal(i, f2);
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            this.mAutoSizeTextHelper.setTextSizeInternal(i, f);
         }
     }
 
@@ -670,11 +670,11 @@ public class AppCompatTextHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setTextSize(int i, float f2) {
+    public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || isAutoSizeEnabled()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || isAutoSizeEnabled()) {
             return;
         }
-        setTextSizeInternal(i, f2);
+        setTextSizeInternal(i, f);
     }
 }

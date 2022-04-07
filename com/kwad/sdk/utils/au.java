@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class au {
     public static Class a;
 
@@ -45,8 +45,8 @@ public class au {
             try {
                 try {
                     str2 = bufferedReader.readLine();
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     com.kwad.sdk.core.d.a.a(e);
                 }
             } catch (Throwable th) {
@@ -60,8 +60,8 @@ public class au {
                 }
                 throw th;
             }
-        } catch (IOException e3) {
-            e = e3;
+        } catch (IOException e2) {
+            e = e2;
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;

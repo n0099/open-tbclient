@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import com.facebook.fresco.animation.frame.FrameScheduler;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AnimatedDrawable2DebugDrawListener implements AnimatedDrawable2.DrawListener {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

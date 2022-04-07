@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class o implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ com.vivo.push.b.n a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n f43873b;
+    public final /* synthetic */ n b;
 
     public o(n nVar, com.vivo.push.b.n nVar2) {
         Interceptable interceptable = $ic;
@@ -30,7 +28,7 @@ public final class o implements Runnable {
                 return;
             }
         }
-        this.f43873b = nVar;
+        this.b = nVar;
         this.a = nVar2;
     }
 
@@ -39,8 +37,8 @@ public final class o implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            n nVar = this.f43873b;
-            PushMessageCallback pushMessageCallback = ((z) nVar).f43881b;
+            n nVar = this.b;
+            PushMessageCallback pushMessageCallback = ((z) nVar).b;
             context = nVar.a;
             pushMessageCallback.onLog(context, this.a.d(), this.a.e(), this.a.f());
         }

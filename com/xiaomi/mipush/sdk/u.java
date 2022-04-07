@@ -19,12 +19,12 @@ import com.xiaomi.push.service.az;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class u {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,7 @@ public class u {
 
         /* renamed from: a  reason: collision with other field name */
         public boolean f77a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f44083b;
+        public String b;
 
         /* renamed from: b  reason: collision with other field name */
         public boolean f78b;
@@ -83,7 +81,7 @@ public class u {
             this.a = str;
             this.f77a = z;
             this.f78b = z2;
-            this.f44083b = str2;
+            this.b = str2;
         }
     }
 
@@ -201,8 +199,8 @@ public class u {
                 } else {
                     a(a2, new Boolean[]{Boolean.TRUE, Boolean.FALSE});
                 }
-            } catch (ClassNotFoundException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (ClassNotFoundException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
             Intent intent2 = new Intent("com.xiaomi.mipush.RECEIVE_MESSAGE");
             intent2.setPackage(packageName);
@@ -211,8 +209,8 @@ public class u {
                 ActivityInfo activityInfo = resolveInfo.activityInfo;
                 if (activityInfo != null) {
                     try {
-                    } catch (ClassNotFoundException e3) {
-                        com.xiaomi.channel.commonutils.logger.b.a(e3);
+                    } catch (ClassNotFoundException e2) {
+                        com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
                     if (!TextUtils.isEmpty(activityInfo.name) && PushMessageReceiver.class.isAssignableFrom(com.xiaomi.push.t.a(context, activityInfo.name)) && activityInfo.enabled) {
                         z = true;
@@ -300,7 +298,7 @@ public class u {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
                         boolean z = bVar.f77a;
                         boolean z2 = bVar.f78b;
-                        String str = bVar.f44083b;
+                        String str = bVar.b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NetStatusReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetStatusReceiver";
@@ -20,7 +20,7 @@ public class NetStatusReceiver {
     public BroadcastReceiver mNetReceiver;
     public boolean mRegistered;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ChangeNetworkInter {
         void onNetStateChanged();
     }
@@ -86,8 +86,8 @@ public class NetStatusReceiver {
         try {
             context.registerReceiver(this.mNetReceiver, intentFilter);
             this.mRegistered = true;
-        } catch (Exception e2) {
-            LogTools.printWarning(TAG, String.format(Locale.US, "register net receiver failed! error: %s", e2.getMessage()));
+        } catch (Exception e) {
+            LogTools.printWarning(TAG, String.format(Locale.US, "register net receiver failed! error: %s", e.getMessage()));
         }
     }
 

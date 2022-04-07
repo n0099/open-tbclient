@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryFansUnreadRequest extends IMMediaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansUnreadRequest";
@@ -84,8 +84,8 @@ public class IMQueryFansUnreadRequest extends IMMediaBaseHttpRequest {
             try {
                 putCommonParams(jSONObject);
                 jSONObject.put("sign", generateSign(jSONObject));
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
             return jSONObject.toString().getBytes();
         }
@@ -119,9 +119,9 @@ public class IMQueryFansUnreadRequest extends IMMediaBaseHttpRequest {
                 i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 i3 = jSONObject.optInt("unread_num", 0);
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 i2 = 1010;
             }

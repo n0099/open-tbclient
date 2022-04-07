@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.Cue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Cea708Cue extends Cue implements Comparable<Cea708Cue> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PRIORITY_UNSET = -1;
@@ -16,13 +16,13 @@ public final class Cea708Cue extends Cue implements Comparable<Cea708Cue> {
     public final int priority;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Cea708Cue(CharSequence charSequence, Layout.Alignment alignment, float f2, int i, int i2, float f3, int i3, float f4, boolean z, int i4, int i5) {
-        super(charSequence, alignment, f2, i, i2, f3, i3, f4, z, i4);
+    public Cea708Cue(CharSequence charSequence, Layout.Alignment alignment, float f, int i, int i2, float f2, int i3, float f3, boolean z, int i4, int i5) {
+        super(charSequence, alignment, f, i, i2, f2, i3, f3, z, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {charSequence, alignment, Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3), Float.valueOf(f4), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {charSequence, alignment, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Float.valueOf(f3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i6 = newInitContext.flag;
             if ((i6 & 1) != 0) {

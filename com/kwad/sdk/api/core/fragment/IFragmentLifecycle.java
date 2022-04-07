@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public interface IFragmentLifecycle {
     @Deprecated
     void onActivityCreated(@Nullable Bundle bundle);
@@ -40,7 +40,7 @@ public interface IFragmentLifecycle {
 
     Animator onCreateAnimator(int i, boolean z, int i2);
 
-    void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo);
+    void onCreateContextMenu(ContextMenu contextMenu, View view2, ContextMenu.ContextMenuInfo contextMenuInfo);
 
     void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater);
 
@@ -85,7 +85,7 @@ public interface IFragmentLifecycle {
 
     void onStop();
 
-    void onViewCreated(@NonNull View view, @Nullable Bundle bundle);
+    void onViewCreated(@NonNull View view2, @Nullable Bundle bundle);
 
     void onViewStateRestored(@Nullable Bundle bundle);
 }

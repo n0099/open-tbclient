@@ -49,10 +49,10 @@ public final class Conversions {
         return invokeL.booleanValue;
     }
 
-    public static Object byteObject(byte b2) {
+    public static Object byteObject(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) ? new Byte(b2) : invokeB.objValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b)) == null) ? new Byte(b) : invokeB.objValue;
     }
 
     public static byte byteValue(Object obj) {
@@ -73,10 +73,10 @@ public final class Conversions {
         return invokeL.byteValue;
     }
 
-    public static Object charObject(char c2) {
+    public static Object charObject(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2)})) == null) ? new Character(c2) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) ? new Character(c) : invokeCommon.objValue;
     }
 
     public static char charValue(Object obj) {
@@ -97,10 +97,10 @@ public final class Conversions {
         return invokeL.charValue;
     }
 
-    public static Object doubleObject(double d2) {
+    public static Object doubleObject(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Double.valueOf(d2)})) == null) ? new Double(d2) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Double.valueOf(d)})) == null) ? new Double(d) : invokeCommon.objValue;
     }
 
     public static double doubleValue(Object obj) {
@@ -121,10 +121,10 @@ public final class Conversions {
         return invokeL.doubleValue;
     }
 
-    public static Object floatObject(float f2) {
+    public static Object floatObject(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f2)) == null) ? new Float(f2) : invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65545, null, f)) == null) ? new Float(f) : invokeF.objValue;
     }
 
     public static float floatValue(Object obj) {

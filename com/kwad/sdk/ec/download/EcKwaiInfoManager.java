@@ -28,7 +28,7 @@ import com.kwad.sdk.utils.u;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public enum EcKwaiInfoManager {
     INSTAANCE;
     
@@ -50,7 +50,7 @@ public enum EcKwaiInfoManager {
     public int mDownloadSource = 0;
 
     @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a extends Handler {
         public a() {
             super(Looper.getMainLooper());
@@ -136,43 +136,43 @@ public enum EcKwaiInfoManager {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private String generatePullNewUrl(String str) {
-        String d2;
+        String d;
         String a2;
         String pullNewUrl = EcKwaiInfo.getPullNewUrl(this.mEcKwaiInfo);
         Uri.Builder builder = new Uri.Builder();
         Uri parse = Uri.parse(pullNewUrl);
         builder.scheme(parse.getScheme()).authority(parse.getAuthority()).path(parse.getPath());
         for (String str2 : parse.getQueryParameterNames()) {
-            char c2 = 65535;
+            char c = 65535;
             int hashCode = str2.hashCode();
             if (hashCode != 3367) {
                 if (hashCode != 3236040) {
                     if (hashCode != 1131700202) {
                         if (hashCode == 2099989403 && str2.equals("siteSet")) {
-                            c2 = 2;
+                            c = 2;
                         }
                     } else if (str2.equals("androidId")) {
-                        c2 = 1;
+                        c = 1;
                     }
                 } else if (str2.equals("imei")) {
-                    c2 = 0;
+                    c = 0;
                 }
             } else if (str2.equals("ip")) {
-                c2 = 3;
+                c = 3;
             }
-            if (c2 != 0) {
-                if (c2 == 1) {
-                    d2 = av.t(this.mAppContext);
-                } else if (c2 == 2) {
+            if (c != 0) {
+                if (c == 1) {
+                    d = av.t(this.mAppContext);
+                } else if (c == 2) {
                     a2 = KsAdSDKImpl.get().getAppId() + "_" + str;
-                } else if (c2 == 3) {
+                } else if (c == 3) {
                     a2 = av.s(this.mAppContext);
                     if (!TextUtils.isEmpty(a2)) {
                     }
                 }
                 a2 = parse.getQueryParameter(str2);
             } else {
-                d2 = av.d(this.mAppContext);
+                d = av.d(this.mAppContext);
             }
             builder.appendQueryParameter(str2, a2);
         }
@@ -266,8 +266,8 @@ public enum EcKwaiInfoManager {
         }
         try {
             this.mEcKwaiInfo = EcKwaiInfo.fromJson(new JSONObject(string));
-        } catch (JSONException e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (JSONException e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 

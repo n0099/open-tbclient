@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RequestTask implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "pmsRequestTask";
@@ -91,9 +91,9 @@ public class RequestTask implements Runnable {
                 arrayList.add(createPostData);
                 try {
                     CloudControlManager.getInstance().fetchCloudControl(this.requestParams.getRunType(), arrayList);
-                } catch (Exception e2) {
-                    DebugUtils.log(e2);
-                    ResponseDataProcess.dispatchFetchError(new ErrorInfo(2102, e2.getLocalizedMessage()), this.requestParams.getChannelList());
+                } catch (Exception e) {
+                    DebugUtils.log(e);
+                    ResponseDataProcess.dispatchFetchError(new ErrorInfo(2102, e.getLocalizedMessage()), this.requestParams.getChannelList());
                 }
             }
         }

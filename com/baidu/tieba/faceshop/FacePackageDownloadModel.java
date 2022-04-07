@@ -1,8 +1,6 @@
 package com.baidu.tieba.faceshop;
 
 import android.content.Context;
-import c.a.d.a.f;
-import c.a.d.f.p.n;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -16,35 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.b9;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
+    public FacePackageDownloadData b;
+    public int c;
+    public int d;
+    public float e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public FacePackageDownloadData f32053b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f32054c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f32055d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f32056e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Object, FacePackageDownloadData, FacePackageDownloadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f32057b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FacePackageDownloadModel f32058c;
+        public String b;
+        public final /* synthetic */ FacePackageDownloadModel c;
 
         public a(FacePackageDownloadModel facePackageDownloadModel, String str) {
             Interceptable interceptable = $ic;
@@ -61,8 +49,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                     return;
                 }
             }
-            this.f32058c = facePackageDownloadModel;
-            this.f32057b = str;
+            this.c = facePackageDownloadModel;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -73,19 +61,19 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 try {
-                    if (this.f32057b != null && this.f32057b.length() > 0) {
+                    if (this.b != null && this.b.length() > 0) {
                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DOWNLOAD_URL);
                         this.a = netWork;
-                        netWork.addPostData("pid", this.f32057b);
-                        this.a.addPostData("scr_w", String.valueOf(this.f32058c.f32054c));
-                        this.a.addPostData("scr_h", String.valueOf(this.f32058c.f32055d));
-                        this.a.addPostData("scr_dip", String.valueOf(this.f32058c.f32056e));
-                        this.f32058c.f32053b = (FacePackageDownloadData) OrmObject.objectWithJsonStr(this.a.postNetData(), FacePackageDownloadData.class);
+                        netWork.addPostData("pid", this.b);
+                        this.a.addPostData("scr_w", String.valueOf(this.c.c));
+                        this.a.addPostData("scr_h", String.valueOf(this.c.d));
+                        this.a.addPostData("scr_dip", String.valueOf(this.c.e));
+                        this.c.b = (FacePackageDownloadData) OrmObject.objectWithJsonStr(this.a.postNetData(), FacePackageDownloadData.class);
                     }
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
-                return this.f32058c.f32053b;
+                return this.c.b;
             }
             return (FacePackageDownloadData) invokeL.objValue;
         }
@@ -96,8 +84,8 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
         public void onPostExecute(FacePackageDownloadData facePackageDownloadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, facePackageDownloadData) == null) {
-                this.f32058c.a = null;
-                this.f32058c.mLoadDataCallBack.c(facePackageDownloadData);
+                this.c.a = null;
+                this.c.mLoadDataCallBack.c(facePackageDownloadData);
                 super.onPostExecute(facePackageDownloadData);
             }
         }
@@ -112,7 +100,7 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
                     netWork.cancelNetConnect();
                     this.a = null;
                 }
-                this.f32058c.a = null;
+                this.c.a = null;
             }
         }
     }
@@ -129,20 +117,20 @@ public class FacePackageDownloadModel extends BdBaseModel<FacePackageDetailActiv
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32053b = null;
-        this.f32054c = 0;
-        this.f32055d = 0;
+        this.b = null;
+        this.c = 0;
+        this.d = 0;
         this.a = null;
         TbadkApplication inst = TbadkApplication.getInst();
-        this.f32054c = n.k(inst);
-        this.f32055d = n.i(inst);
-        this.f32056e = inst.getResources().getDisplayMetrics().density;
+        this.c = oi.k(inst);
+        this.d = oi.i(inst);
+        this.e = inst.getResources().getDisplayMetrics().density;
     }
 
     public void F(String str) {

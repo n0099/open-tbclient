@@ -26,30 +26,16 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.w;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class KsAuthorIconView extends FrameLayout {
     public ViewGroup a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public KSCornerImageView f41466b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f41467c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public KSCornerImageView f41468d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public KSCornerImageView f41469e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f41470f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f41471g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView f41472h;
+    public KSCornerImageView b;
+    public KSCornerImageView c;
+    public KSCornerImageView d;
+    public KSCornerImageView e;
+    public TextView f;
+    public View g;
+    public ImageView h;
 
     public KsAuthorIconView(@NonNull Context context) {
         super(context);
@@ -73,20 +59,20 @@ public class KsAuthorIconView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animator a(View view) {
-        float width = view.getWidth();
+    public Animator a(View view2) {
+        float width = view2.getWidth();
         if (width <= 0.0f) {
             return null;
         }
-        float f2 = 1.2f * width;
-        com.kwad.sdk.core.d.a.a("KsAuthorIconView", "getIconScaleAnimator size: " + width + ", endSize: " + f2);
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(width, f2);
-        ofFloat.addUpdateListener(b(view));
+        float f = 1.2f * width;
+        com.kwad.sdk.core.d.a.a("KsAuthorIconView", "getIconScaleAnimator size: " + width + ", endSize: " + f);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(width, f);
+        ofFloat.addUpdateListener(b(view2));
         Interpolator create = PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
         ofFloat.setDuration(500L);
         ofFloat.setInterpolator(create);
-        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f2, width);
-        ofFloat2.addUpdateListener(b(view));
+        ValueAnimator ofFloat2 = ValueAnimator.ofFloat(f, width);
+        ofFloat2.addUpdateListener(b(view2));
         Interpolator create2 = PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
         ofFloat2.setDuration(500L);
         ofFloat2.setInterpolator(create2);
@@ -96,13 +82,13 @@ public class KsAuthorIconView extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Animator a(View view, long j) {
-        if (view == null || view.getWidth() == 0 || view.getHeight() == 0) {
+    public Animator a(View view2, long j) {
+        if (view2 == null || view2.getWidth() == 0 || view2.getHeight() == 0) {
             return null;
         }
-        ValueAnimator ofFloat = ValueAnimator.ofFloat(view.getWidth(), getResources().getDimension(R.dimen.obfuscated_res_0x7f07037a));
-        ofFloat.addUpdateListener(b(view));
-        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, AnimationProperty.OPACITY, 1.0f, 0.0f);
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(view2.getWidth(), getResources().getDimension(R.dimen.obfuscated_res_0x7f070384));
+        ofFloat.addUpdateListener(b(view2));
+        ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, 1.0f, 0.0f);
         Interpolator create = PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setDuration(j);
@@ -112,34 +98,34 @@ public class KsAuthorIconView extends FrameLayout {
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0425, this);
-        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091040);
-        this.f41467c = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09103f);
-        this.f41466b = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091041);
-        this.f41468d = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09103b);
-        this.f41469e = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09103c);
-        this.f41470f = (TextView) findViewById(R.id.obfuscated_res_0x7f091084);
-        this.f41471g = findViewById(R.id.obfuscated_res_0x7f09103e);
-        this.f41472h = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103d);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0420, this);
+        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091039);
+        this.c = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091038);
+        this.b = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09103a);
+        this.d = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091034);
+        this.e = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091035);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09107d);
+        this.g = findViewById(R.id.obfuscated_res_0x7f091037);
+        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091036);
     }
 
     private void a(c cVar, Drawable drawable) {
         if (drawable instanceof GradientDrawable) {
-            ((GradientDrawable) drawable).setStroke(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070378), cVar.a());
+            ((GradientDrawable) drawable).setStroke(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070382), cVar.a());
         }
     }
 
-    public static ValueAnimator.AnimatorUpdateListener b(final View view) {
+    public static ValueAnimator.AnimatorUpdateListener b(final View view2) {
         return new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.widget.KsAuthorIconView.2
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
                 if (layoutParams != null) {
                     int i = (int) floatValue;
                     layoutParams.width = i;
                     layoutParams.height = i;
-                    view.setLayoutParams(layoutParams);
+                    view2.setLayoutParams(layoutParams);
                 }
             }
         };
@@ -149,18 +135,18 @@ public class KsAuthorIconView extends FrameLayout {
         AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
         String aE = com.kwad.sdk.core.response.a.a.aE(j);
         if (!TextUtils.isEmpty(aE)) {
-            KSImageLoader.loadImage(this.f41467c, aE, adTemplate);
+            KSImageLoader.loadImage(this.c, aE, adTemplate);
         }
-        this.f41470f.setText(com.kwad.sdk.core.response.a.a.aB(j));
-        this.f41468d.post(new Runnable() { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
+        this.f.setText(com.kwad.sdk.core.response.a.a.aB(j));
+        this.d.post(new Runnable() { // from class: com.kwad.sdk.widget.KsAuthorIconView.1
             @Override // java.lang.Runnable
             public void run() {
                 KsAuthorIconView ksAuthorIconView = KsAuthorIconView.this;
-                final Animator a = ksAuthorIconView.a(ksAuthorIconView.f41468d, 900L);
+                final Animator a = ksAuthorIconView.a(ksAuthorIconView.d, 900L);
                 KsAuthorIconView ksAuthorIconView2 = KsAuthorIconView.this;
-                final Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.f41469e, 1000L);
+                final Animator a2 = ksAuthorIconView2.a(ksAuthorIconView2.e, 1000L);
                 KsAuthorIconView ksAuthorIconView3 = KsAuthorIconView.this;
-                final Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.f41467c);
+                final Animator a3 = ksAuthorIconView3.a(ksAuthorIconView3.c);
                 if (a == null || a2 == null || a3 == null) {
                     return;
                 }
@@ -185,16 +171,16 @@ public class KsAuthorIconView extends FrameLayout {
         int i;
         w.a(cVar, this);
         if (z) {
-            imageView = this.f41472h;
-            i = R.drawable.obfuscated_res_0x7f080c92;
-        } else {
-            imageView = this.f41472h;
+            imageView = this.h;
             i = R.drawable.obfuscated_res_0x7f080c93;
+        } else {
+            imageView = this.h;
+            i = R.drawable.obfuscated_res_0x7f080c94;
         }
         imageView.setImageResource(i);
-        a(cVar, this.f41468d.getBackground());
-        a(cVar, this.f41466b.getBackground());
-        a(cVar, this.f41469e.getBackground());
+        a(cVar, this.d.getBackground());
+        a(cVar, this.b.getBackground());
+        a(cVar, this.e.getBackground());
         a(cVar, this.a.getBackground());
     }
 }

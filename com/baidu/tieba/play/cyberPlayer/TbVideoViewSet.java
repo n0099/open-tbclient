@@ -1,6 +1,5 @@
 package com.baidu.tieba.play.cyberPlayer;
 
-import c.a.d.f.p.m;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -14,22 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static TbVideoViewSet f35571c;
+    public static TbVideoViewSet c;
     public transient /* synthetic */ FieldHolder $fh;
     public LRULinkedHashMap<String, TbVideoViewContainer> a;
+    public boolean b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f35572b;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbVideoViewContainer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_PLAYERS = 3;
@@ -67,9 +63,9 @@ public class TbVideoViewSet {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
                 boolean z = size() > 3;
                 if (z && (value = entry.getValue()) != null) {
-                    this.this$0.f35572b = true;
+                    this.this$0.b = true;
                     value.getControl().stopPlayback();
-                    this.this$0.f35572b = false;
+                    this.this$0.b = false;
                 }
                 return z;
             }
@@ -77,7 +73,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +108,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
@@ -155,14 +151,14 @@ public class TbVideoViewSet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f35571c == null) {
+            if (c == null) {
                 synchronized (TbVideoViewSet.class) {
-                    if (f35571c == null) {
-                        f35571c = new TbVideoViewSet();
+                    if (c == null) {
+                        c = new TbVideoViewSet();
                     }
                 }
             }
-            return f35571c;
+            return c;
         }
         return (TbVideoViewSet) invokeV.objValue;
     }
@@ -171,7 +167,7 @@ public class TbVideoViewSet {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (m.isEmpty(str) || !this.a.containsKey(str)) {
+            if (ni.isEmpty(str) || !this.a.containsKey(str)) {
                 return null;
             }
             return this.a.get(str);
@@ -182,7 +178,7 @@ public class TbVideoViewSet {
     public void d(String str) {
         TbVideoViewContainer remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f35572b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
             return;
         }
         remove.getControl().stopPlayback();
@@ -209,7 +205,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.f35572b && !m.isEmpty(str2)) {
+                if (!this.b && !ni.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

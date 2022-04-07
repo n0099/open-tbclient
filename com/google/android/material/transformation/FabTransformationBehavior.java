@@ -48,7 +48,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,59 +102,59 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     @Nullable
-    private ViewGroup calculateChildContentContainer(@NonNull View view) {
+    private ViewGroup calculateChildContentContainer(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view)) == null) {
-            View findViewById = view.findViewById(R.id.obfuscated_res_0x7f09146a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f091463);
             if (findViewById != null) {
                 return toViewGroupOrNull(findViewById);
             }
-            if (!(view instanceof TransformationChildLayout) && !(view instanceof TransformationChildCard)) {
-                return toViewGroupOrNull(view);
+            if (!(view2 instanceof TransformationChildLayout) && !(view2 instanceof TransformationChildCard)) {
+                return toViewGroupOrNull(view2);
             }
-            return toViewGroupOrNull(((ViewGroup) view).getChildAt(0));
+            return toViewGroupOrNull(((ViewGroup) view2).getChildAt(0));
         }
         return (ViewGroup) invokeL.objValue;
     }
 
-    private void calculateChildVisibleBoundsAtEndOfExpansion(@NonNull View view, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull MotionTiming motionTiming, @NonNull MotionTiming motionTiming2, float f2, float f3, float f4, float f5, @NonNull RectF rectF) {
+    private void calculateChildVisibleBoundsAtEndOfExpansion(@NonNull View view2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull MotionTiming motionTiming, @NonNull MotionTiming motionTiming2, float f, float f2, float f3, float f4, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{view, fabTransformationSpec, motionTiming, motionTiming2, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), rectF}) == null) {
-            float calculateValueOfAnimationAtEndOfExpansion = calculateValueOfAnimationAtEndOfExpansion(fabTransformationSpec, motionTiming, f2, f4);
-            float calculateValueOfAnimationAtEndOfExpansion2 = calculateValueOfAnimationAtEndOfExpansion(fabTransformationSpec, motionTiming2, f3, f5);
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{view2, fabTransformationSpec, motionTiming, motionTiming2, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), rectF}) == null) {
+            float calculateValueOfAnimationAtEndOfExpansion = calculateValueOfAnimationAtEndOfExpansion(fabTransformationSpec, motionTiming, f, f3);
+            float calculateValueOfAnimationAtEndOfExpansion2 = calculateValueOfAnimationAtEndOfExpansion(fabTransformationSpec, motionTiming2, f2, f4);
             Rect rect = this.tmpRect;
-            view.getWindowVisibleDisplayFrame(rect);
+            view2.getWindowVisibleDisplayFrame(rect);
             RectF rectF2 = this.tmpRectF1;
             rectF2.set(rect);
             RectF rectF3 = this.tmpRectF2;
-            calculateWindowBounds(view, rectF3);
+            calculateWindowBounds(view2, rectF3);
             rectF3.offset(calculateValueOfAnimationAtEndOfExpansion, calculateValueOfAnimationAtEndOfExpansion2);
             rectF3.intersect(rectF2);
             rectF.set(rectF3);
         }
     }
 
-    private void calculateDependencyWindowBounds(@NonNull View view, @NonNull RectF rectF) {
+    private void calculateDependencyWindowBounds(@NonNull View view2, @NonNull RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view, rectF) == null) {
-            calculateWindowBounds(view, rectF);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, view2, rectF) == null) {
+            calculateWindowBounds(view2, rectF);
             rectF.offset(this.dependencyOriginalTranslationX, this.dependencyOriginalTranslationY);
         }
     }
 
     @NonNull
-    private Pair<MotionTiming, MotionTiming> calculateMotionTiming(float f2, float f3, boolean z, @NonNull FabTransformationSpec fabTransformationSpec) {
+    private Pair<MotionTiming, MotionTiming> calculateMotionTiming(float f, float f2, boolean z, @NonNull FabTransformationSpec fabTransformationSpec) {
         InterceptResult invokeCommon;
         MotionTiming timing;
         MotionTiming timing2;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z), fabTransformationSpec})) == null) {
-            if (f2 == 0.0f || f3 == 0.0f) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z), fabTransformationSpec})) == null) {
+            if (f == 0.0f || f2 == 0.0f) {
                 timing = fabTransformationSpec.timings.getTiming("translationXLinear");
                 timing2 = fabTransformationSpec.timings.getTiming("translationYLinear");
-            } else if ((z && f3 < 0.0f) || (!z && i > 0)) {
+            } else if ((z && f2 < 0.0f) || (!z && i > 0)) {
                 timing = fabTransformationSpec.timings.getTiming("translationXCurveUpwards");
                 timing2 = fabTransformationSpec.timings.getTiming("translationYCurveUpwards");
             } else {
@@ -166,45 +166,45 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         return (Pair) invokeCommon.objValue;
     }
 
-    private float calculateRevealCenterX(@NonNull View view, @NonNull View view2, @NonNull Positioning positioning) {
+    private float calculateRevealCenterX(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, view, view2, positioning)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, this, view2, view3, positioning)) == null) {
             RectF rectF = this.tmpRectF1;
             RectF rectF2 = this.tmpRectF2;
-            calculateDependencyWindowBounds(view, rectF);
-            calculateWindowBounds(view2, rectF2);
-            rectF2.offset(-calculateTranslationX(view, view2, positioning), 0.0f);
+            calculateDependencyWindowBounds(view2, rectF);
+            calculateWindowBounds(view3, rectF2);
+            rectF2.offset(-calculateTranslationX(view2, view3, positioning), 0.0f);
             return rectF.centerX() - rectF2.left;
         }
         return invokeLLL.floatValue;
     }
 
-    private float calculateRevealCenterY(@NonNull View view, @NonNull View view2, @NonNull Positioning positioning) {
+    private float calculateRevealCenterY(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, view, view2, positioning)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, this, view2, view3, positioning)) == null) {
             RectF rectF = this.tmpRectF1;
             RectF rectF2 = this.tmpRectF2;
-            calculateDependencyWindowBounds(view, rectF);
-            calculateWindowBounds(view2, rectF2);
-            rectF2.offset(0.0f, -calculateTranslationY(view, view2, positioning));
+            calculateDependencyWindowBounds(view2, rectF);
+            calculateWindowBounds(view3, rectF2);
+            rectF2.offset(0.0f, -calculateTranslationY(view2, view3, positioning));
             return rectF.centerY() - rectF2.top;
         }
         return invokeLLL.floatValue;
     }
 
-    private float calculateTranslationX(@NonNull View view, @NonNull View view2, @NonNull Positioning positioning) {
+    private float calculateTranslationX(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         float centerX;
         float centerX2;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, this, view, view2, positioning)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, this, view2, view3, positioning)) == null) {
             RectF rectF = this.tmpRectF1;
             RectF rectF2 = this.tmpRectF2;
-            calculateDependencyWindowBounds(view, rectF);
-            calculateWindowBounds(view2, rectF2);
+            calculateDependencyWindowBounds(view2, rectF);
+            calculateWindowBounds(view3, rectF2);
             int i = positioning.gravity & 7;
             if (i == 1) {
                 centerX = rectF2.centerX();
@@ -216,26 +216,26 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 centerX = rectF2.right;
                 centerX2 = rectF.right;
             } else {
-                f2 = 0.0f;
-                return f2 + positioning.xAdjustment;
+                f = 0.0f;
+                return f + positioning.xAdjustment;
             }
-            f2 = centerX - centerX2;
-            return f2 + positioning.xAdjustment;
+            f = centerX - centerX2;
+            return f + positioning.xAdjustment;
         }
         return invokeLLL.floatValue;
     }
 
-    private float calculateTranslationY(@NonNull View view, @NonNull View view2, @NonNull Positioning positioning) {
+    private float calculateTranslationY(@NonNull View view2, @NonNull View view3, @NonNull Positioning positioning) {
         InterceptResult invokeLLL;
         float centerY;
         float centerY2;
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, this, view, view2, positioning)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, this, view2, view3, positioning)) == null) {
             RectF rectF = this.tmpRectF1;
             RectF rectF2 = this.tmpRectF2;
-            calculateDependencyWindowBounds(view, rectF);
-            calculateWindowBounds(view2, rectF2);
+            calculateDependencyWindowBounds(view2, rectF);
+            calculateWindowBounds(view3, rectF2);
             int i = positioning.gravity & 112;
             if (i == 16) {
                 centerY = rectF2.centerY();
@@ -247,44 +247,44 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 centerY = rectF2.bottom;
                 centerY2 = rectF.bottom;
             } else {
-                f2 = 0.0f;
-                return f2 + positioning.yAdjustment;
+                f = 0.0f;
+                return f + positioning.yAdjustment;
             }
-            f2 = centerY - centerY2;
-            return f2 + positioning.yAdjustment;
+            f = centerY - centerY2;
+            return f + positioning.yAdjustment;
         }
         return invokeLLL.floatValue;
     }
 
-    private float calculateValueOfAnimationAtEndOfExpansion(@NonNull FabTransformationSpec fabTransformationSpec, @NonNull MotionTiming motionTiming, float f2, float f3) {
+    private float calculateValueOfAnimationAtEndOfExpansion(@NonNull FabTransformationSpec fabTransformationSpec, @NonNull MotionTiming motionTiming, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{fabTransformationSpec, motionTiming, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{fabTransformationSpec, motionTiming, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             long delay = motionTiming.getDelay();
             long duration = motionTiming.getDuration();
             MotionTiming timing = fabTransformationSpec.timings.getTiming("expansion");
-            return AnimationUtils.lerp(f2, f3, motionTiming.getInterpolator().getInterpolation(((float) (((timing.getDelay() + timing.getDuration()) + 17) - delay)) / ((float) duration)));
+            return AnimationUtils.lerp(f, f2, motionTiming.getInterpolator().getInterpolation(((float) (((timing.getDelay() + timing.getDuration()) + 17) - delay)) / ((float) duration)));
         }
         return invokeCommon.floatValue;
     }
 
-    private void calculateWindowBounds(@NonNull View view, RectF rectF) {
+    private void calculateWindowBounds(@NonNull View view2, RectF rectF) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, this, view, rectF) == null) {
-            rectF.set(0.0f, 0.0f, view.getWidth(), view.getHeight());
+        if (interceptable == null || interceptable.invokeLL(65547, this, view2, rectF) == null) {
+            rectF.set(0.0f, 0.0f, view2.getWidth(), view2.getHeight());
             int[] iArr = this.tmpArray;
-            view.getLocationInWindow(iArr);
+            view2.getLocationInWindow(iArr);
             rectF.offsetTo(iArr[0], iArr[1]);
-            rectF.offset((int) (-view.getTranslationX()), (int) (-view.getTranslationY()));
+            rectF.offset((int) (-view2.getTranslationX()), (int) (-view2.getTranslationY()));
         }
     }
 
-    private void createChildrenFadeAnimation(View view, View view2, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
+    private void createChildrenFadeAnimation(View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ViewGroup calculateChildContentContainer;
         ObjectAnimator ofFloat;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view2 instanceof ViewGroup)) {
-            if (((view2 instanceof CircularRevealWidget) && CircularRevealHelper.STRATEGY == 0) || (calculateChildContentContainer = calculateChildContentContainer(view2)) == null) {
+        if ((interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view3 instanceof ViewGroup)) {
+            if (((view3 instanceof CircularRevealWidget) && CircularRevealHelper.STRATEGY == 0) || (calculateChildContentContainer = calculateChildContentContainer(view3)) == null) {
                 return;
             }
             if (z) {
@@ -300,12 +300,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createColorAnimation(@NonNull View view, View view2, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
+    private void createColorAnimation(@NonNull View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofInt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view2 instanceof CircularRevealWidget)) {
-            CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view2;
-            int backgroundTint = getBackgroundTint(view);
+        if ((interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view3 instanceof CircularRevealWidget)) {
+            CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view3;
+            int backgroundTint = getBackgroundTint(view2);
             int i = 16777215 & backgroundTint;
             if (z) {
                 if (!z2) {
@@ -321,11 +321,11 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createDependencyTranslationAnimation(@NonNull View view, @NonNull View view2, boolean z, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list) {
+    private void createDependencyTranslationAnimation(@NonNull View view2, @NonNull View view3, boolean z, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{view, view2, Boolean.valueOf(z), fabTransformationSpec, list}) == null) {
-            float calculateTranslationX = calculateTranslationX(view, view2, fabTransformationSpec.positioning);
-            float calculateTranslationY = calculateTranslationY(view, view2, fabTransformationSpec.positioning);
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{view2, view3, Boolean.valueOf(z), fabTransformationSpec, list}) == null) {
+            float calculateTranslationX = calculateTranslationX(view2, view3, fabTransformationSpec.positioning);
+            float calculateTranslationY = calculateTranslationY(view2, view3, fabTransformationSpec.positioning);
             Pair<MotionTiming, MotionTiming> calculateMotionTiming = calculateMotionTiming(calculateTranslationX, calculateTranslationY, z, fabTransformationSpec);
             MotionTiming motionTiming = (MotionTiming) calculateMotionTiming.first;
             MotionTiming motionTiming2 = (MotionTiming) calculateMotionTiming.second;
@@ -335,14 +335,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 calculateTranslationX = this.dependencyOriginalTranslationX;
             }
             fArr[0] = calculateTranslationX;
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, property, fArr);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, property, fArr);
             Property property2 = View.TRANSLATION_Y;
             float[] fArr2 = new float[1];
             if (!z) {
                 calculateTranslationY = this.dependencyOriginalTranslationY;
             }
             fArr2[0] = calculateTranslationY;
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view, property2, fArr2);
+            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(view2, property2, fArr2);
             motionTiming.apply(ofFloat);
             motionTiming2.apply(ofFloat2);
             list.add(ofFloat);
@@ -351,32 +351,32 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     @TargetApi(21)
-    private void createElevationAnimation(View view, @NonNull View view2, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
+    private void createElevationAnimation(View view2, @NonNull View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofFloat;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) {
-            float elevation = ViewCompat.getElevation(view2) - ViewCompat.getElevation(view);
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) {
+            float elevation = ViewCompat.getElevation(view3) - ViewCompat.getElevation(view2);
             if (z) {
                 if (!z2) {
-                    view2.setTranslationZ(-elevation);
+                    view3.setTranslationZ(-elevation);
                 }
-                ofFloat = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Z, 0.0f);
+                ofFloat = ObjectAnimator.ofFloat(view3, View.TRANSLATION_Z, 0.0f);
             } else {
-                ofFloat = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Z, -elevation);
+                ofFloat = ObjectAnimator.ofFloat(view3, View.TRANSLATION_Z, -elevation);
             }
             fabTransformationSpec.timings.getTiming("elevation").apply(ofFloat);
             list.add(ofFloat);
         }
     }
 
-    private void createExpansionAnimation(@NonNull View view, View view2, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, float f2, float f3, @NonNull List<Animator> list, @NonNull List<Animator.AnimatorListener> list2) {
+    private void createExpansionAnimation(@NonNull View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, float f, float f2, @NonNull List<Animator> list, @NonNull List<Animator.AnimatorListener> list2) {
         Animator animator;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, Float.valueOf(f2), Float.valueOf(f3), list, list2}) == null) && (view2 instanceof CircularRevealWidget)) {
-            CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view2;
-            float calculateRevealCenterX = calculateRevealCenterX(view, view2, fabTransformationSpec.positioning);
-            float calculateRevealCenterY = calculateRevealCenterY(view, view2, fabTransformationSpec.positioning);
-            ((FloatingActionButton) view).getContentRect(this.tmpRect);
+        if ((interceptable == null || interceptable.invokeCommon(65552, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, Float.valueOf(f), Float.valueOf(f2), list, list2}) == null) && (view3 instanceof CircularRevealWidget)) {
+            CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view3;
+            float calculateRevealCenterX = calculateRevealCenterX(view2, view3, fabTransformationSpec.positioning);
+            float calculateRevealCenterY = calculateRevealCenterY(view2, view3, fabTransformationSpec.positioning);
+            ((FloatingActionButton) view2).getContentRect(this.tmpRect);
             float width = this.tmpRect.width() / 2.0f;
             MotionTiming timing = fabTransformationSpec.timings.getTiming("expansion");
             if (z) {
@@ -386,7 +386,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 if (z2) {
                     width = circularRevealWidget.getRevealInfo().radius;
                 }
-                animator = CircularRevealCompat.createCircularReveal(circularRevealWidget, calculateRevealCenterX, calculateRevealCenterY, MathUtils.distanceToFurthestCorner(calculateRevealCenterX, calculateRevealCenterY, 0.0f, 0.0f, f2, f3));
+                animator = CircularRevealCompat.createCircularReveal(circularRevealWidget, calculateRevealCenterX, calculateRevealCenterY, MathUtils.distanceToFurthestCorner(calculateRevealCenterX, calculateRevealCenterY, 0.0f, 0.0f, f, f2));
                 animator.addListener(new AnimatorListenerAdapter(this, circularRevealWidget) { // from class: com.google.android.material.transformation.FabTransformationBehavior.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -422,14 +422,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                         }
                     }
                 });
-                createPreFillRadialExpansion(view2, timing.getDelay(), (int) calculateRevealCenterX, (int) calculateRevealCenterY, width, list);
+                createPreFillRadialExpansion(view3, timing.getDelay(), (int) calculateRevealCenterX, (int) calculateRevealCenterY, width, list);
             } else {
-                float f4 = circularRevealWidget.getRevealInfo().radius;
+                float f3 = circularRevealWidget.getRevealInfo().radius;
                 Animator createCircularReveal = CircularRevealCompat.createCircularReveal(circularRevealWidget, calculateRevealCenterX, calculateRevealCenterY, width);
                 int i = (int) calculateRevealCenterX;
                 int i2 = (int) calculateRevealCenterY;
-                createPreFillRadialExpansion(view2, timing.getDelay(), i, i2, f4, list);
-                createPostFillRadialExpansion(view2, timing.getDelay(), timing.getDuration(), fabTransformationSpec.timings.getTotalDuration(), i, i2, width, list);
+                createPreFillRadialExpansion(view3, timing.getDelay(), i, i2, f3, list);
+                createPostFillRadialExpansion(view3, timing.getDelay(), timing.getDuration(), fabTransformationSpec.timings.getTotalDuration(), i, i2, width, list);
                 animator = createCircularReveal;
             }
             timing.apply(animator);
@@ -438,12 +438,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createIconFadeAnimation(View view, View view2, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, @NonNull List<Animator.AnimatorListener> list2) {
+    private void createIconFadeAnimation(View view2, View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, @NonNull List<Animator.AnimatorListener> list2) {
         ObjectAnimator ofInt;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view2 instanceof CircularRevealWidget) && (view instanceof ImageView)) {
-            CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view2;
-            Drawable drawable = ((ImageView) view).getDrawable();
+        if ((interceptable == null || interceptable.invokeCommon(65553, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view3 instanceof CircularRevealWidget) && (view2 instanceof ImageView)) {
+            CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view3;
+            Drawable drawable = ((ImageView) view2).getDrawable();
             if (drawable == null) {
                 return;
             }
@@ -456,7 +456,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             } else {
                 ofInt = ObjectAnimator.ofInt(drawable, DrawableAlphaProperty.DRAWABLE_ALPHA_COMPAT, 255);
             }
-            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view2) { // from class: com.google.android.material.transformation.FabTransformationBehavior.2
+            ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this, view3) { // from class: com.google.android.material.transformation.FabTransformationBehavior.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FabTransformationBehavior this$0;
@@ -467,7 +467,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view2};
+                        Object[] objArr = {this, view3};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -478,7 +478,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                         }
                     }
                     this.this$0 = this;
-                    this.val$child = view2;
+                    this.val$child = view3;
                 }
 
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -537,52 +537,52 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createPostFillRadialExpansion(View view, long j, long j2, long j3, int i, int i2, float f2, @NonNull List<Animator> list) {
+    private void createPostFillRadialExpansion(View view2, long j, long j2, long j3, int i, int i2, float f, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), list}) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         long j4 = j + j2;
         if (j4 < j3) {
-            Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i, i2, f2, f2);
+            Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view2, i, i2, f, f);
             createCircularReveal.setStartDelay(j4);
             createCircularReveal.setDuration(j3 - j4);
             list.add(createCircularReveal);
         }
     }
 
-    private void createPreFillRadialExpansion(View view, long j, int i, int i2, float f2, @NonNull List<Animator> list) {
+    private void createPreFillRadialExpansion(View view2, long j, int i, int i2, float f, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21 || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), list}) == null) || Build.VERSION.SDK_INT < 21 || j <= 0) {
             return;
         }
-        Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i, i2, f2, f2);
+        Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view2, i, i2, f, f);
         createCircularReveal.setStartDelay(0L);
         createCircularReveal.setDuration(j);
         list.add(createCircularReveal);
     }
 
-    private void createTranslationAnimation(@NonNull View view, @NonNull View view2, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2, @NonNull RectF rectF) {
+    private void createTranslationAnimation(@NonNull View view2, @NonNull View view3, boolean z, boolean z2, @NonNull FabTransformationSpec fabTransformationSpec, @NonNull List<Animator> list, List<Animator.AnimatorListener> list2, @NonNull RectF rectF) {
         ObjectAnimator ofFloat;
         ObjectAnimator ofFloat2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2, rectF}) == null) {
-            float calculateTranslationX = calculateTranslationX(view, view2, fabTransformationSpec.positioning);
-            float calculateTranslationY = calculateTranslationY(view, view2, fabTransformationSpec.positioning);
+        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2, rectF}) == null) {
+            float calculateTranslationX = calculateTranslationX(view2, view3, fabTransformationSpec.positioning);
+            float calculateTranslationY = calculateTranslationY(view2, view3, fabTransformationSpec.positioning);
             Pair<MotionTiming, MotionTiming> calculateMotionTiming = calculateMotionTiming(calculateTranslationX, calculateTranslationY, z, fabTransformationSpec);
             MotionTiming motionTiming = (MotionTiming) calculateMotionTiming.first;
             MotionTiming motionTiming2 = (MotionTiming) calculateMotionTiming.second;
             if (z) {
                 if (!z2) {
-                    view2.setTranslationX(-calculateTranslationX);
-                    view2.setTranslationY(-calculateTranslationY);
+                    view3.setTranslationX(-calculateTranslationX);
+                    view3.setTranslationY(-calculateTranslationY);
                 }
-                ofFloat = ObjectAnimator.ofFloat(view2, View.TRANSLATION_X, 0.0f);
-                ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, 0.0f);
-                calculateChildVisibleBoundsAtEndOfExpansion(view2, fabTransformationSpec, motionTiming, motionTiming2, -calculateTranslationX, -calculateTranslationY, 0.0f, 0.0f, rectF);
+                ofFloat = ObjectAnimator.ofFloat(view3, View.TRANSLATION_X, 0.0f);
+                ofFloat2 = ObjectAnimator.ofFloat(view3, View.TRANSLATION_Y, 0.0f);
+                calculateChildVisibleBoundsAtEndOfExpansion(view3, fabTransformationSpec, motionTiming, motionTiming2, -calculateTranslationX, -calculateTranslationY, 0.0f, 0.0f, rectF);
             } else {
-                ofFloat = ObjectAnimator.ofFloat(view2, View.TRANSLATION_X, -calculateTranslationX);
-                ofFloat2 = ObjectAnimator.ofFloat(view2, View.TRANSLATION_Y, -calculateTranslationY);
+                ofFloat = ObjectAnimator.ofFloat(view3, View.TRANSLATION_X, -calculateTranslationX);
+                ofFloat2 = ObjectAnimator.ofFloat(view3, View.TRANSLATION_Y, -calculateTranslationY);
             }
             motionTiming.apply(ofFloat);
             motionTiming2.apply(ofFloat2);
@@ -591,13 +591,13 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private int getBackgroundTint(@NonNull View view) {
+    private int getBackgroundTint(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, view)) == null) {
-            ColorStateList backgroundTintList = ViewCompat.getBackgroundTintList(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, view2)) == null) {
+            ColorStateList backgroundTintList = ViewCompat.getBackgroundTintList(view2);
             if (backgroundTintList != null) {
-                return backgroundTintList.getColorForState(view.getDrawableState(), backgroundTintList.getDefaultColor());
+                return backgroundTintList.getColorForState(view2.getDrawableState(), backgroundTintList.getDefaultColor());
             }
             return 0;
         }
@@ -605,12 +605,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     }
 
     @Nullable
-    private ViewGroup toViewGroupOrNull(View view) {
+    private ViewGroup toViewGroupOrNull(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, view)) == null) {
-            if (view instanceof ViewGroup) {
-                return (ViewGroup) view;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, view2)) == null) {
+            if (view2 instanceof ViewGroup) {
+                return (ViewGroup) view2;
             }
             return null;
         }
@@ -619,14 +619,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
 
     @Override // com.google.android.material.transformation.ExpandableBehavior, androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     @CallSuper
-    public boolean layoutDependsOn(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, @NonNull View view2) {
+    public boolean layoutDependsOn(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view2, @NonNull View view3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, view, view2)) == null) {
-            if (view.getVisibility() != 8) {
-                if (view2 instanceof FloatingActionButton) {
-                    int expandedComponentIdHint = ((FloatingActionButton) view2).getExpandedComponentIdHint();
-                    return expandedComponentIdHint == 0 || expandedComponentIdHint == view.getId();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, coordinatorLayout, view2, view3)) == null) {
+            if (view2.getVisibility() != 8) {
+                if (view3 instanceof FloatingActionButton) {
+                    int expandedComponentIdHint = ((FloatingActionButton) view3).getExpandedComponentIdHint();
+                    return expandedComponentIdHint == 0 || expandedComponentIdHint == view2.getId();
                 }
                 return false;
             }
@@ -646,32 +646,32 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
 
     @Override // com.google.android.material.transformation.ExpandableTransformationBehavior
     @NonNull
-    public AnimatorSet onCreateExpandedStateChangeAnimation(@NonNull View view, @NonNull View view2, boolean z, boolean z2) {
+    public AnimatorSet onCreateExpandedStateChangeAnimation(@NonNull View view2, @NonNull View view3, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            FabTransformationSpec onCreateMotionSpec = onCreateMotionSpec(view2.getContext(), z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, view3, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            FabTransformationSpec onCreateMotionSpec = onCreateMotionSpec(view3.getContext(), z);
             if (z) {
-                this.dependencyOriginalTranslationX = view.getTranslationX();
-                this.dependencyOriginalTranslationY = view.getTranslationY();
+                this.dependencyOriginalTranslationX = view2.getTranslationX();
+                this.dependencyOriginalTranslationY = view2.getTranslationY();
             }
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
             if (Build.VERSION.SDK_INT >= 21) {
-                createElevationAnimation(view, view2, z, z2, onCreateMotionSpec, arrayList, arrayList2);
+                createElevationAnimation(view2, view3, z, z2, onCreateMotionSpec, arrayList, arrayList2);
             }
             RectF rectF = this.tmpRectF1;
-            createTranslationAnimation(view, view2, z, z2, onCreateMotionSpec, arrayList, arrayList2, rectF);
+            createTranslationAnimation(view2, view3, z, z2, onCreateMotionSpec, arrayList, arrayList2, rectF);
             float width = rectF.width();
             float height = rectF.height();
-            createDependencyTranslationAnimation(view, view2, z, onCreateMotionSpec, arrayList);
-            createIconFadeAnimation(view, view2, z, z2, onCreateMotionSpec, arrayList, arrayList2);
-            createExpansionAnimation(view, view2, z, z2, onCreateMotionSpec, width, height, arrayList, arrayList2);
-            createColorAnimation(view, view2, z, z2, onCreateMotionSpec, arrayList, arrayList2);
-            createChildrenFadeAnimation(view, view2, z, z2, onCreateMotionSpec, arrayList, arrayList2);
+            createDependencyTranslationAnimation(view2, view3, z, onCreateMotionSpec, arrayList);
+            createIconFadeAnimation(view2, view3, z, z2, onCreateMotionSpec, arrayList, arrayList2);
+            createExpansionAnimation(view2, view3, z, z2, onCreateMotionSpec, width, height, arrayList, arrayList2);
+            createColorAnimation(view2, view3, z, z2, onCreateMotionSpec, arrayList, arrayList2);
+            createChildrenFadeAnimation(view2, view3, z, z2, onCreateMotionSpec, arrayList, arrayList2);
             AnimatorSet animatorSet = new AnimatorSet();
             AnimatorSetCompat.playTogether(animatorSet, arrayList);
-            animatorSet.addListener(new AnimatorListenerAdapter(this, z, view2, view) { // from class: com.google.android.material.transformation.FabTransformationBehavior.1
+            animatorSet.addListener(new AnimatorListenerAdapter(this, z, view3, view2) { // from class: com.google.android.material.transformation.FabTransformationBehavior.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FabTransformationBehavior this$0;
@@ -684,7 +684,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), view2, view};
+                        Object[] objArr = {this, Boolean.valueOf(z), view3, view2};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -696,8 +696,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                     }
                     this.this$0 = this;
                     this.val$expanded = z;
-                    this.val$child = view2;
-                    this.val$dependency = view;
+                    this.val$child = view3;
+                    this.val$dependency = view2;
                 }
 
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener

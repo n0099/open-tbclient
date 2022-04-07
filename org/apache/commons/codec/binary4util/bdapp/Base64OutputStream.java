@@ -102,8 +102,8 @@ public class Base64OutputStream extends FilterOutputStream {
                 flushBuffer();
                 internalWrite(EMPTY, 0, 0, true);
                 e = null;
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 if ((this.flags & 16) == 0) {
@@ -111,9 +111,9 @@ public class Base64OutputStream extends FilterOutputStream {
                 } else {
                     ((FilterOutputStream) this).out.flush();
                 }
-            } catch (IOException e3) {
+            } catch (IOException e2) {
                 if (e != null) {
-                    e = e3;
+                    e = e2;
                 }
             }
             if (e != null) {

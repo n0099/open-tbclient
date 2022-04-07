@@ -12,11 +12,11 @@ public final class FloatSpreadBuilder extends PrimitiveSpreadBuilder<float[]> {
         this.values = new float[i];
     }
 
-    public final void add(float f2) {
+    public final void add(float f) {
         float[] fArr = this.values;
         int position = getPosition();
         setPosition(position + 1);
-        fArr[position] = f2;
+        fArr[position] = f;
     }
 
     public final float[] toArray() {

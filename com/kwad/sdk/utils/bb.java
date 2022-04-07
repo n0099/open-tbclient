@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.util.HashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class bb {
     public static long a;
 
@@ -29,23 +29,23 @@ public class bb {
         return displayMetrics.heightPixels;
     }
 
-    public static int a(Context context, float f2) {
-        return (int) (context == null ? f2 * 2.0f : (f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+    public static int a(Context context, float f) {
+        return (int) (context == null ? f * 2.0f : (f * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     @NonNull
-    public static Context a(@NonNull View view) {
-        Activity b2 = b(view);
-        if (b2 == null && (view.getParent() instanceof View)) {
-            b2 = b((View) view.getParent());
+    public static Context a(@NonNull View view2) {
+        Activity b = b(view2);
+        if (b == null && (view2.getParent() instanceof View)) {
+            b = b((View) view2.getParent());
         }
-        return b2 == null ? view.getContext() : b2;
+        return b == null ? view2.getContext() : b;
     }
 
-    public static void a(View view, int i, int i2, int i3, int i4) {
-        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).setMargins(i, i2, i3, i4);
-            view.requestLayout();
+    public static void a(View view2, int i, int i2, int i3, int i4) {
+        if (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ((ViewGroup.MarginLayoutParams) view2.getLayoutParams()).setMargins(i, i2, i3, i4);
+            view2.requestLayout();
         }
     }
 
@@ -63,51 +63,51 @@ public class bb {
         if (videoInfo == null) {
             return false;
         }
-        float f2 = videoInfo.width;
-        float f3 = videoInfo.height;
-        if (f2 >= f3) {
+        float f = videoInfo.width;
+        float f2 = videoInfo.height;
+        if (f >= f2) {
             return false;
         }
-        float f4 = (float) videoInfo.leftRatio;
-        float f5 = (float) videoInfo.topRatio;
-        float f6 = (float) videoInfo.widthRatio;
-        float f7 = (float) videoInfo.heightRatio;
-        float f8 = i;
-        float f9 = f8 / f2;
-        float f10 = i2;
-        float f11 = f10 / f3;
-        float f12 = f9 / f11;
-        if (Math.abs(f12 - 1.0f) < 0.01d) {
+        float f3 = (float) videoInfo.leftRatio;
+        float f4 = (float) videoInfo.topRatio;
+        float f5 = (float) videoInfo.widthRatio;
+        float f6 = (float) videoInfo.heightRatio;
+        float f7 = i;
+        float f8 = f7 / f;
+        float f9 = i2;
+        float f10 = f9 / f2;
+        float f11 = f8 / f10;
+        if (Math.abs(f11 - 1.0f) < 0.01d) {
             return false;
         }
-        if (f9 > f11) {
-            float f13 = f11 / f9;
-            float f14 = (f13 + 1.0f) / 2.0f;
-            if (f5 < (1.0f - f13) / 2.0f || f5 + f7 > f14) {
+        if (f8 > f10) {
+            float f12 = f10 / f8;
+            float f13 = (f12 + 1.0f) / 2.0f;
+            if (f4 < (1.0f - f12) / 2.0f || f4 + f6 > f13) {
                 return false;
             }
         } else {
-            float f15 = (f12 + 1.0f) / 2.0f;
-            if (f4 < (1.0f - f12) / 2.0f || f4 + f6 > f15) {
+            float f14 = (f11 + 1.0f) / 2.0f;
+            if (f3 < (1.0f - f11) / 2.0f || f3 + f5 > f14) {
                 return false;
             }
-            f9 = f11;
+            f8 = f10;
         }
         if (matrix == null) {
             return true;
         }
-        matrix.preTranslate((f8 - f2) / 2.0f, (f10 - f3) / 2.0f);
-        matrix.preScale(f2 / f8, f3 / f10);
-        matrix.postScale(f9, f9, f8 / 2.0f, f10 / 2.0f);
+        matrix.preTranslate((f7 - f) / 2.0f, (f9 - f2) / 2.0f);
+        matrix.preScale(f / f7, f2 / f9);
+        matrix.postScale(f8, f8, f7 / 2.0f, f9 / 2.0f);
         return true;
     }
 
-    public static boolean a(View view, int i) {
-        return view != null && b(view, i, true) && view.hasWindowFocus() && e(view.getContext());
+    public static boolean a(View view2, int i) {
+        return view2 != null && b(view2, i, true) && view2.hasWindowFocus() && e(view2.getContext());
     }
 
-    public static boolean a(View view, int i, boolean z) {
-        return view != null && b(view, i, z) && e(view.getContext());
+    public static boolean a(View view2, int i, boolean z) {
+        return view2 != null && b(view2, i, z) && e(view2.getContext());
     }
 
     @Deprecated
@@ -121,8 +121,8 @@ public class bb {
     }
 
     @Nullable
-    public static Activity b(View view) {
-        Context context = view.getContext();
+    public static Activity b(View view2) {
+        Context context = view2.getContext();
         HashSet hashSet = new HashSet();
         do {
             hashSet.add(context);
@@ -137,22 +137,22 @@ public class bb {
         return null;
     }
 
-    public static boolean b(View view, int i, boolean z) {
-        if (view == null || view.getParent() == null) {
+    public static boolean b(View view2, int i, boolean z) {
+        if (view2 == null || view2.getParent() == null) {
             return false;
         }
         if (com.kwad.sdk.core.config.b.ay()) {
-            if (!view.isShown() && view.getVisibility() != 0) {
+            if (!view2.isShown() && view2.getVisibility() != 0) {
                 return false;
             }
-        } else if (!view.isShown() || view.getVisibility() != 0) {
+        } else if (!view2.isShown() || view2.getVisibility() != 0) {
             return false;
         }
-        if (!z || view.hasWindowFocus()) {
+        if (!z || view2.hasWindowFocus()) {
             Rect rect = new Rect();
-            if (view.getGlobalVisibleRect(rect)) {
+            if (view2.getGlobalVisibleRect(rect)) {
                 long height = rect.height() * rect.width();
-                long height2 = view.getHeight() * view.getWidth();
+                long height2 = view2.getHeight() * view2.getWidth();
                 return height2 > 0 && height * 100 >= ((long) i) * height2;
             }
             return false;
@@ -165,12 +165,12 @@ public class bb {
     }
 
     @Nullable
-    public static int[] c(View view) {
-        if (view == null) {
+    public static int[] c(View view2) {
+        if (view2 == null) {
             return null;
         }
-        view.getLocationInWindow(r1);
-        int[] iArr = {iArr[0] + (view.getWidth() / 2), iArr[1] + (view.getHeight() / 2)};
+        view2.getLocationInWindow(r1);
+        int[] iArr = {iArr[0] + (view2.getWidth() / 2), iArr[1] + (view2.getHeight() / 2)};
         return iArr;
     }
 

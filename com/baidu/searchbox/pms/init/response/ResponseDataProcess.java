@@ -35,7 +35,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ResponseDataProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -144,8 +144,8 @@ public class ResponseDataProcess {
                             PackageInfo packageInfo2 = (PackageInfo) packageInfo.clone();
                             next.copyTo(packageInfo2);
                             PackageControl.getInstance().addOrUpdate(packageInfo2);
-                        } catch (CloneNotSupportedException e2) {
-                            DebugUtils.printStackTrace(e2);
+                        } catch (CloneNotSupportedException e) {
+                            DebugUtils.printStackTrace(e);
                         }
                         arrayList4.add(next);
                     } else {
@@ -322,8 +322,8 @@ public class ResponseDataProcess {
                             jSONObject.put("valid", str);
                             jSONObject.put("version", packageInfo2.updateVersion);
                             jSONArray.put(jSONObject);
-                        } catch (JSONException e2) {
-                            e2.printStackTrace();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
                         str = "1";
                         JSONObject jSONObject2 = new JSONObject();
@@ -335,8 +335,8 @@ public class ResponseDataProcess {
             try {
                 jSONObject3.put("count", String.format("%s,%s,%s", Integer.valueOf(size), Integer.valueOf(i3), Integer.valueOf(i)));
                 jSONObject3.put("items", jSONArray);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
             DebugUtils.log(jSONObject3);
             if (iCloudControlUBCCallBack != null) {

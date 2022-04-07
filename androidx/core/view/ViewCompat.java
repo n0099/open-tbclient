@@ -152,43 +152,43 @@ public class ViewCompat {
         }
 
         @RequiresApi(19)
-        private void checkPaneVisibility(View view, boolean z) {
+        private void checkPaneVisibility(View view2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65537, this, view, z) == null) {
-                boolean z2 = view.getVisibility() == 0;
+            if (interceptable == null || interceptable.invokeLZ(65537, this, view2, z) == null) {
+                boolean z2 = view2.getVisibility() == 0;
                 if (z != z2) {
                     if (z2) {
-                        ViewCompat.notifyViewAccessibilityStateChangedIfNeeded(view, 16);
+                        ViewCompat.notifyViewAccessibilityStateChangedIfNeeded(view2, 16);
                     }
-                    this.mPanesToVisible.put(view, Boolean.valueOf(z2));
+                    this.mPanesToVisible.put(view2, Boolean.valueOf(z2));
                 }
             }
         }
 
         @RequiresApi(19)
-        private void registerForLayoutCallback(View view) {
+        private void registerForLayoutCallback(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65538, this, view) == null) {
-                view.getViewTreeObserver().addOnGlobalLayoutListener(this);
+            if (interceptable == null || interceptable.invokeL(65538, this, view2) == null) {
+                view2.getViewTreeObserver().addOnGlobalLayoutListener(this);
             }
         }
 
         @RequiresApi(19)
-        private void unregisterForLayoutCallback(View view) {
+        private void unregisterForLayoutCallback(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65539, this, view) == null) {
-                view.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+            if (interceptable == null || interceptable.invokeL(65539, this, view2) == null) {
+                view2.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         }
 
         @RequiresApi(19)
-        public void addAccessibilityPane(View view) {
+        public void addAccessibilityPane(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.mPanesToVisible.put(view, Boolean.valueOf(view.getVisibility() == 0));
-                view.addOnAttachStateChangeListener(this);
-                if (view.isAttachedToWindow()) {
-                    registerForLayoutCallback(view);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.mPanesToVisible.put(view2, Boolean.valueOf(view2.getVisibility() == 0));
+                view2.addOnAttachStateChangeListener(this);
+                if (view2.isAttachedToWindow()) {
+                    registerForLayoutCallback(view2);
                 }
             }
         }
@@ -206,27 +206,27 @@ public class ViewCompat {
 
         @Override // android.view.View.OnAttachStateChangeListener
         @RequiresApi(19)
-        public void onViewAttachedToWindow(View view) {
+        public void onViewAttachedToWindow(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-                registerForLayoutCallback(view);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+                registerForLayoutCallback(view2);
             }
         }
 
         @Override // android.view.View.OnAttachStateChangeListener
-        public void onViewDetachedFromWindow(View view) {
+        public void onViewDetachedFromWindow(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             }
         }
 
         @RequiresApi(19)
-        public void removeAccessibilityPane(View view) {
+        public void removeAccessibilityPane(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-                this.mPanesToVisible.remove(view);
-                view.removeOnAttachStateChangeListener(this);
-                unregisterForLayoutCallback(view);
+            if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+                this.mPanesToVisible.remove(view2);
+                view2.removeOnAttachStateChangeListener(this);
+                unregisterForLayoutCallback(view2);
             }
         }
     }
@@ -281,19 +281,19 @@ public class ViewCompat {
             return invokeLL.booleanValue;
         }
 
-        public abstract T frameworkGet(View view);
+        public abstract T frameworkGet(View view2);
 
-        public abstract void frameworkSet(View view, T t);
+        public abstract void frameworkSet(View view2, T t);
 
-        public T get(View view) {
+        public T get(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
                 if (frameworkAvailable()) {
-                    return frameworkGet(view);
+                    return frameworkGet(view2);
                 }
                 if (extrasAvailable()) {
-                    T t = (T) view.getTag(this.mTagKey);
+                    T t = (T) view2.getTag(this.mTagKey);
                     if (this.mType.isInstance(t)) {
                         return t;
                     }
@@ -304,15 +304,15 @@ public class ViewCompat {
             return (T) invokeL.objValue;
         }
 
-        public void set(View view, T t) {
+        public void set(View view2, T t) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, view, t) == null) {
+            if (interceptable == null || interceptable.invokeLL(1048580, this, view2, t) == null) {
                 if (frameworkAvailable()) {
-                    frameworkSet(view, t);
-                } else if (extrasAvailable() && shouldUpdate(get(view), t)) {
-                    ViewCompat.getOrCreateAccessibilityDelegateCompat(view);
-                    view.setTag(this.mTagKey, t);
-                    ViewCompat.notifyViewAccessibilityStateChangedIfNeeded(view, 0);
+                    frameworkSet(view2, t);
+                } else if (extrasAvailable() && shouldUpdate(get(view2), t)) {
+                    ViewCompat.getOrCreateAccessibilityDelegateCompat(view2);
+                    view2.setTag(this.mTagKey, t);
+                    ViewCompat.notifyViewAccessibilityStateChangedIfNeeded(view2, 0);
                 }
             }
         }
@@ -364,13 +364,13 @@ public class ViewCompat {
             }
         }
 
-        public static WindowInsetsCompat computeSystemWindowInsets(@NonNull View view, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Rect rect) {
+        public static WindowInsetsCompat computeSystemWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Rect rect) {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view, windowInsetsCompat, rect)) == null) {
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, view2, windowInsetsCompat, rect)) == null) {
                 WindowInsets windowInsets = windowInsetsCompat.toWindowInsets();
                 if (windowInsets != null) {
-                    return WindowInsetsCompat.toWindowInsetsCompat(view.computeSystemWindowInsets(windowInsets, rect));
+                    return WindowInsetsCompat.toWindowInsetsCompat(view2.computeSystemWindowInsets(windowInsets, rect));
                 }
                 rect.setEmpty();
                 return windowInsetsCompat;
@@ -399,10 +399,10 @@ public class ViewCompat {
             }
         }
 
-        public static WindowInsets getRootWindowInsets(View view) {
+        public static WindowInsets getRootWindowInsets(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view)) == null) ? view.getRootWindowInsets() : (WindowInsets) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) ? view2.getRootWindowInsets() : (WindowInsets) invokeL.objValue;
         }
     }
 
@@ -426,10 +426,10 @@ public class ViewCompat {
             }
         }
 
-        public static void saveAttributeDataForStyleable(@NonNull View view, @NonNull Context context, @NonNull int[] iArr, @Nullable AttributeSet attributeSet, @NonNull TypedArray typedArray, int i, int i2) {
+        public static void saveAttributeDataForStyleable(@NonNull View view2, @NonNull Context context, @NonNull int[] iArr, @Nullable AttributeSet attributeSet, @NonNull TypedArray typedArray, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view, context, iArr, attributeSet, typedArray, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-                view.saveAttributeDataForStyleable(context, iArr, attributeSet, typedArray, i, i2);
+            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, context, iArr, attributeSet, typedArray, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+                view2.saveAttributeDataForStyleable(context, iArr, attributeSet, typedArray, i, i2);
             }
         }
     }
@@ -460,7 +460,7 @@ public class ViewCompat {
 
     /* loaded from: classes.dex */
     public interface OnUnhandledKeyEventListenerCompat {
-        boolean onUnhandledKeyEvent(View view, KeyEvent keyEvent);
+        boolean onUnhandledKeyEvent(View view2, KeyEvent keyEvent);
     }
 
     @Retention(RetentionPolicy.SOURCE)
@@ -519,14 +519,14 @@ public class ViewCompat {
             this.mLastDispatchedPreViewKeyEvent = null;
         }
 
-        public static UnhandledKeyEventManager at(View view) {
+        public static UnhandledKeyEventManager at(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view)) == null) {
-                UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view.getTag(R$id.tag_unhandled_key_event_manager);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+                UnhandledKeyEventManager unhandledKeyEventManager = (UnhandledKeyEventManager) view2.getTag(R$id.tag_unhandled_key_event_manager);
                 if (unhandledKeyEventManager == null) {
                     UnhandledKeyEventManager unhandledKeyEventManager2 = new UnhandledKeyEventManager();
-                    view.setTag(R$id.tag_unhandled_key_event_manager, unhandledKeyEventManager2);
+                    view2.setTag(R$id.tag_unhandled_key_event_manager, unhandledKeyEventManager2);
                     return unhandledKeyEventManager2;
                 }
                 return unhandledKeyEventManager;
@@ -535,14 +535,14 @@ public class ViewCompat {
         }
 
         @Nullable
-        private View dispatchInOrder(View view, KeyEvent keyEvent) {
+        private View dispatchInOrder(View view2, KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, view, keyEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, view2, keyEvent)) == null) {
                 WeakHashMap<View, Boolean> weakHashMap = this.mViewsContainingListeners;
-                if (weakHashMap != null && weakHashMap.containsKey(view)) {
-                    if (view instanceof ViewGroup) {
-                        ViewGroup viewGroup = (ViewGroup) view;
+                if (weakHashMap != null && weakHashMap.containsKey(view2)) {
+                    if (view2 instanceof ViewGroup) {
+                        ViewGroup viewGroup = (ViewGroup) view2;
                         for (int childCount = viewGroup.getChildCount() - 1; childCount >= 0; childCount--) {
                             View dispatchInOrder = dispatchInOrder(viewGroup.getChildAt(childCount), keyEvent);
                             if (dispatchInOrder != null) {
@@ -550,8 +550,8 @@ public class ViewCompat {
                             }
                         }
                     }
-                    if (onUnhandledKeyEvent(view, keyEvent)) {
-                        return view;
+                    if (onUnhandledKeyEvent(view2, keyEvent)) {
+                        return view2;
                     }
                 }
                 return null;
@@ -571,14 +571,14 @@ public class ViewCompat {
             return (SparseArray) invokeV.objValue;
         }
 
-        private boolean onUnhandledKeyEvent(@NonNull View view, @NonNull KeyEvent keyEvent) {
+        private boolean onUnhandledKeyEvent(@NonNull View view2, @NonNull KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view, keyEvent)) == null) {
-                ArrayList arrayList = (ArrayList) view.getTag(R$id.tag_unhandled_key_listeners);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, view2, keyEvent)) == null) {
+                ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_unhandled_key_listeners);
                 if (arrayList != null) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
-                        if (((OnUnhandledKeyEventListenerCompat) arrayList.get(size)).onUnhandledKeyEvent(view, keyEvent)) {
+                        if (((OnUnhandledKeyEventListenerCompat) arrayList.get(size)).onUnhandledKeyEvent(view2, keyEvent)) {
                             return true;
                         }
                     }
@@ -604,12 +604,12 @@ public class ViewCompat {
                         this.mViewsContainingListeners = new WeakHashMap<>();
                     }
                     for (int size = sViewsWithListeners.size() - 1; size >= 0; size--) {
-                        View view = sViewsWithListeners.get(size).get();
-                        if (view == null) {
+                        View view2 = sViewsWithListeners.get(size).get();
+                        if (view2 == null) {
                             sViewsWithListeners.remove(size);
                         } else {
-                            this.mViewsContainingListeners.put(view, Boolean.TRUE);
-                            for (ViewParent parent = view.getParent(); parent instanceof View; parent = parent.getParent()) {
+                            this.mViewsContainingListeners.put(view2, Boolean.TRUE);
+                            for (ViewParent parent = view2.getParent(); parent instanceof View; parent = parent.getParent()) {
                                 this.mViewsContainingListeners.put((View) parent, Boolean.TRUE);
                             }
                         }
@@ -618,27 +618,27 @@ public class ViewCompat {
             }
         }
 
-        public static void registerListeningView(View view) {
+        public static void registerListeningView(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65543, null, view) == null) {
+            if (interceptable == null || interceptable.invokeL(65543, null, view2) == null) {
                 synchronized (sViewsWithListeners) {
                     Iterator<WeakReference<View>> it = sViewsWithListeners.iterator();
                     while (it.hasNext()) {
-                        if (it.next().get() == view) {
+                        if (it.next().get() == view2) {
                             return;
                         }
                     }
-                    sViewsWithListeners.add(new WeakReference<>(view));
+                    sViewsWithListeners.add(new WeakReference<>(view2));
                 }
             }
         }
 
-        public static void unregisterListeningView(View view) {
+        public static void unregisterListeningView(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65544, null, view) == null) {
+            if (interceptable == null || interceptable.invokeL(65544, null, view2) == null) {
                 synchronized (sViewsWithListeners) {
                     for (int i = 0; i < sViewsWithListeners.size(); i++) {
-                        if (sViewsWithListeners.get(i).get() == view) {
+                        if (sViewsWithListeners.get(i).get() == view2) {
                             sViewsWithListeners.remove(i);
                             return;
                         }
@@ -647,14 +647,14 @@ public class ViewCompat {
             }
         }
 
-        public boolean dispatch(View view, KeyEvent keyEvent) {
+        public boolean dispatch(View view2, KeyEvent keyEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, keyEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, keyEvent)) == null) {
                 if (keyEvent.getAction() == 0) {
                     recalcViewsWithUnhandled();
                 }
-                View dispatchInOrder = dispatchInOrder(view, keyEvent);
+                View dispatchInOrder = dispatchInOrder(view2, keyEvent);
                 if (keyEvent.getAction() == 0) {
                     int keyCode = keyEvent.getKeyCode();
                     if (dispatchInOrder != null && !KeyEvent.isModifierKey(keyCode)) {
@@ -684,9 +684,9 @@ public class ViewCompat {
                         weakReference2 = capturedKeys.get(keyEvent.getKeyCode());
                     }
                     if (weakReference2 != null) {
-                        View view = weakReference2.get();
-                        if (view != null && ViewCompat.isAttachedToWindow(view)) {
-                            onUnhandledKeyEvent(view, keyEvent);
+                        View view2 = weakReference2.get();
+                        if (view2 != null && ViewCompat.isAttachedToWindow(view2)) {
+                            onUnhandledKeyEvent(view2, keyEvent);
                         }
                         return true;
                     }
@@ -764,19 +764,19 @@ public class ViewCompat {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             @RequiresApi(28)
-            public Boolean frameworkGet(View view) {
+            public Boolean frameworkGet(View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view)) == null) ? Boolean.valueOf(view.isAccessibilityHeading()) : (Boolean) invokeL.objValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? Boolean.valueOf(view2.isAccessibilityHeading()) : (Boolean) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             @RequiresApi(28)
-            public void frameworkSet(View view, Boolean bool) {
+            public void frameworkSet(View view2, Boolean bool) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, bool) == null) {
-                    view.setAccessibilityHeading(bool.booleanValue());
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bool) == null) {
+                    view2.setAccessibilityHeading(bool.booleanValue());
                 }
             }
 
@@ -790,35 +790,35 @@ public class ViewCompat {
         } : (AccessibilityViewProperty) invokeV.objValue;
     }
 
-    public static int addAccessibilityAction(@NonNull View view, @NonNull CharSequence charSequence, @NonNull AccessibilityViewCommand accessibilityViewCommand) {
+    public static int addAccessibilityAction(@NonNull View view2, @NonNull CharSequence charSequence, @NonNull AccessibilityViewCommand accessibilityViewCommand) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, view, charSequence, accessibilityViewCommand)) == null) {
-            int availableActionIdFromResources = getAvailableActionIdFromResources(view);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, view2, charSequence, accessibilityViewCommand)) == null) {
+            int availableActionIdFromResources = getAvailableActionIdFromResources(view2);
             if (availableActionIdFromResources != -1) {
-                addAccessibilityAction(view, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(availableActionIdFromResources, charSequence, accessibilityViewCommand));
+                addAccessibilityAction(view2, new AccessibilityNodeInfoCompat.AccessibilityActionCompat(availableActionIdFromResources, charSequence, accessibilityViewCommand));
             }
             return availableActionIdFromResources;
         }
         return invokeLLL.intValue;
     }
 
-    public static void addKeyboardNavigationClusters(@NonNull View view, @NonNull Collection<View> collection, int i) {
+    public static void addKeyboardNavigationClusters(@NonNull View view2, @NonNull Collection<View> collection, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, view, collection, i) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLLI(65541, null, view2, collection, i) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.addKeyboardNavigationClusters(collection, i);
+        view2.addKeyboardNavigationClusters(collection, i);
     }
 
-    public static void addOnUnhandledKeyEventListener(@NonNull View view, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
+    public static void addOnUnhandledKeyEventListener(@NonNull View view2, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view, onUnhandledKeyEventListenerCompat) == null) {
+        if (interceptable == null || interceptable.invokeLL(65542, null, view2, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view.getTag(R$id.tag_unhandled_key_listeners);
+                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R$id.tag_unhandled_key_listeners);
                 if (simpleArrayMap == null) {
                     simpleArrayMap = new SimpleArrayMap();
-                    view.setTag(R$id.tag_unhandled_key_listeners, simpleArrayMap);
+                    view2.setTag(R$id.tag_unhandled_key_listeners, simpleArrayMap);
                 }
                 View.OnUnhandledKeyEventListener onUnhandledKeyEventListener = new View.OnUnhandledKeyEventListener(onUnhandledKeyEventListenerCompat) { // from class: androidx.core.view.ViewCompat.2
                     public static /* synthetic */ Interceptable $ic;
@@ -844,40 +844,40 @@ public class ViewCompat {
                     }
 
                     @Override // android.view.View.OnUnhandledKeyEventListener
-                    public boolean onUnhandledKeyEvent(View view2, KeyEvent keyEvent) {
+                    public boolean onUnhandledKeyEvent(View view3, KeyEvent keyEvent) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, keyEvent)) == null) ? this.val$listener.onUnhandledKeyEvent(view2, keyEvent) : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, keyEvent)) == null) ? this.val$listener.onUnhandledKeyEvent(view3, keyEvent) : invokeLL.booleanValue;
                     }
                 };
                 simpleArrayMap.put(onUnhandledKeyEventListenerCompat, onUnhandledKeyEventListener);
-                view.addOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
+                view2.addOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
                 return;
             }
-            ArrayList arrayList = (ArrayList) view.getTag(R$id.tag_unhandled_key_listeners);
+            ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_unhandled_key_listeners);
             if (arrayList == null) {
                 arrayList = new ArrayList();
-                view.setTag(R$id.tag_unhandled_key_listeners, arrayList);
+                view2.setTag(R$id.tag_unhandled_key_listeners, arrayList);
             }
             arrayList.add(onUnhandledKeyEventListenerCompat);
             if (arrayList.size() == 1) {
-                UnhandledKeyEventManager.registerListeningView(view);
+                UnhandledKeyEventManager.registerListeningView(view2);
             }
         }
     }
 
     @NonNull
-    public static ViewPropertyAnimatorCompat animate(@NonNull View view) {
+    public static ViewPropertyAnimatorCompat animate(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
             if (sViewPropertyAnimatorMap == null) {
                 sViewPropertyAnimatorMap = new WeakHashMap<>();
             }
-            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = sViewPropertyAnimatorMap.get(view);
+            ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = sViewPropertyAnimatorMap.get(view2);
             if (viewPropertyAnimatorCompat == null) {
-                ViewPropertyAnimatorCompat viewPropertyAnimatorCompat2 = new ViewPropertyAnimatorCompat(view);
-                sViewPropertyAnimatorMap.put(view, viewPropertyAnimatorCompat2);
+                ViewPropertyAnimatorCompat viewPropertyAnimatorCompat2 = new ViewPropertyAnimatorCompat(view2);
+                sViewPropertyAnimatorMap.put(view2, viewPropertyAnimatorCompat2);
                 return viewPropertyAnimatorCompat2;
             }
             return viewPropertyAnimatorCompat;
@@ -891,33 +891,33 @@ public class ViewCompat {
             try {
                 sDispatchStartTemporaryDetach = View.class.getDeclaredMethod("dispatchStartTemporaryDetach", new Class[0]);
                 sDispatchFinishTemporaryDetach = View.class.getDeclaredMethod("dispatchFinishTemporaryDetach", new Class[0]);
-            } catch (NoSuchMethodException e2) {
-                Log.e(TAG, "Couldn't find method", e2);
+            } catch (NoSuchMethodException e) {
+                Log.e(TAG, "Couldn't find method", e);
             }
             sTempDetachBound = true;
         }
     }
 
     @Deprecated
-    public static boolean canScrollHorizontally(View view, int i) {
+    public static boolean canScrollHorizontally(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, view, i)) == null) ? view.canScrollHorizontally(i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, view2, i)) == null) ? view2.canScrollHorizontally(i) : invokeLI.booleanValue;
     }
 
     @Deprecated
-    public static boolean canScrollVertically(View view, int i) {
+    public static boolean canScrollVertically(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, view, i)) == null) ? view.canScrollVertically(i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, view2, i)) == null) ? view2.canScrollVertically(i) : invokeLI.booleanValue;
     }
 
-    public static void cancelDragAndDrop(@NonNull View view) {
+    public static void cancelDragAndDrop(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, view) == null) || Build.VERSION.SDK_INT < 24) {
+        if (!(interceptable == null || interceptable.invokeL(65547, null, view2) == null) || Build.VERSION.SDK_INT < 24) {
             return;
         }
-        view.cancelDragAndDrop();
+        view2.cancelDragAndDrop();
     }
 
     @Deprecated
@@ -927,13 +927,13 @@ public class ViewCompat {
         return (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i, i2)) == null) ? View.combineMeasuredStates(i, i2) : invokeII.intValue;
     }
 
-    public static void compatOffsetLeftAndRight(View view, int i) {
+    public static void compatOffsetLeftAndRight(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, view, i) == null) {
-            view.offsetLeftAndRight(i);
-            if (view.getVisibility() == 0) {
-                tickleInvalidationFlag(view);
-                ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLI(65549, null, view2, i) == null) {
+            view2.offsetLeftAndRight(i);
+            if (view2.getVisibility() == 0) {
+                tickleInvalidationFlag(view2);
+                ViewParent parent = view2.getParent();
                 if (parent instanceof View) {
                     tickleInvalidationFlag((View) parent);
                 }
@@ -941,13 +941,13 @@ public class ViewCompat {
         }
     }
 
-    public static void compatOffsetTopAndBottom(View view, int i) {
+    public static void compatOffsetTopAndBottom(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, view, i) == null) {
-            view.offsetTopAndBottom(i);
-            if (view.getVisibility() == 0) {
-                tickleInvalidationFlag(view);
-                ViewParent parent = view.getParent();
+        if (interceptable == null || interceptable.invokeLI(65550, null, view2, i) == null) {
+            view2.offsetTopAndBottom(i);
+            if (view2.getVisibility() == 0) {
+                tickleInvalidationFlag(view2);
+                ViewParent parent = view2.getParent();
                 if (parent instanceof View) {
                     tickleInvalidationFlag((View) parent);
                 }
@@ -956,25 +956,25 @@ public class ViewCompat {
     }
 
     @NonNull
-    public static WindowInsetsCompat computeSystemWindowInsets(@NonNull View view, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Rect rect) {
+    public static WindowInsetsCompat computeSystemWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat, @NonNull Rect rect) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, view, windowInsetsCompat, rect)) == null) ? Build.VERSION.SDK_INT >= 21 ? Api21Impl.computeSystemWindowInsets(view, windowInsetsCompat, rect) : windowInsetsCompat : (WindowInsetsCompat) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65551, null, view2, windowInsetsCompat, rect)) == null) ? Build.VERSION.SDK_INT >= 21 ? Api21Impl.computeSystemWindowInsets(view2, windowInsetsCompat, rect) : windowInsetsCompat : (WindowInsetsCompat) invokeLLL.objValue;
     }
 
     @NonNull
-    public static WindowInsetsCompat dispatchApplyWindowInsets(@NonNull View view, @NonNull WindowInsetsCompat windowInsetsCompat) {
+    public static WindowInsetsCompat dispatchApplyWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
         InterceptResult invokeLL;
         WindowInsets windowInsets;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, view, windowInsetsCompat)) == null) ? (Build.VERSION.SDK_INT < 21 || (windowInsets = windowInsetsCompat.toWindowInsets()) == null || view.dispatchApplyWindowInsets(windowInsets).equals(windowInsets)) ? windowInsetsCompat : WindowInsetsCompat.toWindowInsetsCompat(windowInsets) : (WindowInsetsCompat) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, view2, windowInsetsCompat)) == null) ? (Build.VERSION.SDK_INT < 21 || (windowInsets = windowInsetsCompat.toWindowInsets()) == null || view2.dispatchApplyWindowInsets(windowInsets).equals(windowInsets)) ? windowInsetsCompat : WindowInsetsCompat.toWindowInsetsCompat(windowInsets) : (WindowInsetsCompat) invokeLL.objValue;
     }
 
-    public static void dispatchFinishTemporaryDetach(@NonNull View view) {
+    public static void dispatchFinishTemporaryDetach(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65553, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                view.dispatchFinishTemporaryDetach();
+                view2.dispatchFinishTemporaryDetach();
                 return;
             }
             if (!sTempDetachBound) {
@@ -983,82 +983,82 @@ public class ViewCompat {
             Method method = sDispatchFinishTemporaryDetach;
             if (method != null) {
                 try {
-                    method.invoke(view, new Object[0]);
+                    method.invoke(view2, new Object[0]);
                     return;
-                } catch (Exception e2) {
-                    Log.d(TAG, "Error calling dispatchFinishTemporaryDetach", e2);
+                } catch (Exception e) {
+                    Log.d(TAG, "Error calling dispatchFinishTemporaryDetach", e);
                     return;
                 }
             }
-            view.onFinishTemporaryDetach();
+            view2.onFinishTemporaryDetach();
         }
     }
 
-    public static boolean dispatchNestedFling(@NonNull View view, float f2, float f3, boolean z) {
+    public static boolean dispatchNestedFling(@NonNull View view2, float f, float f2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.dispatchNestedFling(f2, f3, z);
+                return view2.dispatchNestedFling(f, f2, z);
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).dispatchNestedFling(f2, f3, z);
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).dispatchNestedFling(f, f2, z);
             }
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean dispatchNestedPreFling(@NonNull View view, float f2, float f3) {
+    public static boolean dispatchNestedPreFling(@NonNull View view2, float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.dispatchNestedPreFling(f2, f3);
+                return view2.dispatchNestedPreFling(f, f2);
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).dispatchNestedPreFling(f2, f3);
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).dispatchNestedPreFling(f, f2);
             }
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean dispatchNestedPreScroll(@NonNull View view, int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2) {
+    public static boolean dispatchNestedPreScroll(@NonNull View view2, int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.dispatchNestedPreScroll(i, i2, iArr, iArr2);
+                return view2.dispatchNestedPreScroll(i, i2, iArr, iArr2);
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).dispatchNestedPreScroll(i, i2, iArr, iArr2);
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).dispatchNestedPreScroll(i, i2, iArr, iArr2);
             }
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean dispatchNestedScroll(@NonNull View view, int i, int i2, int i3, int i4, @Nullable int[] iArr) {
+    public static boolean dispatchNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, @Nullable int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.dispatchNestedScroll(i, i2, i3, i4, iArr);
+                return view2.dispatchNestedScroll(i, i2, i3, i4, iArr);
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).dispatchNestedScroll(i, i2, i3, i4, iArr);
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).dispatchNestedScroll(i, i2, i3, i4, iArr);
             }
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static void dispatchStartTemporaryDetach(@NonNull View view) {
+    public static void dispatchStartTemporaryDetach(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65561, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                view.dispatchStartTemporaryDetach();
+                view2.dispatchStartTemporaryDetach();
                 return;
             }
             if (!sTempDetachBound) {
@@ -1067,49 +1067,49 @@ public class ViewCompat {
             Method method = sDispatchStartTemporaryDetach;
             if (method != null) {
                 try {
-                    method.invoke(view, new Object[0]);
+                    method.invoke(view2, new Object[0]);
                     return;
-                } catch (Exception e2) {
-                    Log.d(TAG, "Error calling dispatchStartTemporaryDetach", e2);
+                } catch (Exception e) {
+                    Log.d(TAG, "Error calling dispatchStartTemporaryDetach", e);
                     return;
                 }
             }
-            view.onStartTemporaryDetach();
+            view2.onStartTemporaryDetach();
         }
     }
 
     @UiThread
-    public static boolean dispatchUnhandledKeyEventBeforeCallback(View view, KeyEvent keyEvent) {
+    public static boolean dispatchUnhandledKeyEventBeforeCallback(View view2, KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, view, keyEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, view2, keyEvent)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return false;
             }
-            return UnhandledKeyEventManager.at(view).dispatch(view, keyEvent);
+            return UnhandledKeyEventManager.at(view2).dispatch(view2, keyEvent);
         }
         return invokeLL.booleanValue;
     }
 
     @UiThread
-    public static boolean dispatchUnhandledKeyEventBeforeHierarchy(View view, KeyEvent keyEvent) {
+    public static boolean dispatchUnhandledKeyEventBeforeHierarchy(View view2, KeyEvent keyEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, view, keyEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, view2, keyEvent)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
                 return false;
             }
-            return UnhandledKeyEventManager.at(view).preDispatch(keyEvent);
+            return UnhandledKeyEventManager.at(view2).preDispatch(keyEvent);
         }
         return invokeLL.booleanValue;
     }
 
-    public static void enableAccessibleClickableSpanSupport(View view) {
+    public static void enableAccessibleClickableSpanSupport(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65564, null, view) == null) || Build.VERSION.SDK_INT < 19) {
+        if (!(interceptable == null || interceptable.invokeL(65564, null, view2) == null) || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        getOrCreateAccessibilityDelegateCompat(view);
+        getOrCreateAccessibilityDelegateCompat(view2);
     }
 
     public static int generateViewId() {
@@ -1134,11 +1134,11 @@ public class ViewCompat {
     }
 
     @Nullable
-    public static AccessibilityDelegateCompat getAccessibilityDelegate(@NonNull View view) {
+    public static AccessibilityDelegateCompat getAccessibilityDelegate(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, view)) == null) {
-            View.AccessibilityDelegate accessibilityDelegateInternal = getAccessibilityDelegateInternal(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, view2)) == null) {
+            View.AccessibilityDelegate accessibilityDelegateInternal = getAccessibilityDelegateInternal(view2);
             if (accessibilityDelegateInternal == null) {
                 return null;
             }
@@ -1151,23 +1151,23 @@ public class ViewCompat {
     }
 
     @Nullable
-    public static View.AccessibilityDelegate getAccessibilityDelegateInternal(@NonNull View view) {
+    public static View.AccessibilityDelegate getAccessibilityDelegateInternal(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
-                return view.getAccessibilityDelegate();
+                return view2.getAccessibilityDelegate();
             }
-            return getAccessibilityDelegateThroughReflection(view);
+            return getAccessibilityDelegateThroughReflection(view2);
         }
         return (View.AccessibilityDelegate) invokeL.objValue;
     }
 
     @Nullable
-    public static View.AccessibilityDelegate getAccessibilityDelegateThroughReflection(@NonNull View view) {
+    public static View.AccessibilityDelegate getAccessibilityDelegateThroughReflection(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, view2)) == null) {
             if (sAccessibilityDelegateCheckFailed) {
                 return null;
             }
@@ -1182,7 +1182,7 @@ public class ViewCompat {
                 }
             }
             try {
-                Object obj = sAccessibilityDelegateField.get(view);
+                Object obj = sAccessibilityDelegateField.get(view2);
                 if (obj instanceof View.AccessibilityDelegate) {
                     return (View.AccessibilityDelegate) obj;
                 }
@@ -1195,24 +1195,24 @@ public class ViewCompat {
         return (View.AccessibilityDelegate) invokeL.objValue;
     }
 
-    public static int getAccessibilityLiveRegion(@NonNull View view) {
+    public static int getAccessibilityLiveRegion(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return view.getAccessibilityLiveRegion();
+                return view2.getAccessibilityLiveRegion();
             }
             return 0;
         }
         return invokeL.intValue;
     }
 
-    public static AccessibilityNodeProviderCompat getAccessibilityNodeProvider(@NonNull View view) {
+    public static AccessibilityNodeProviderCompat getAccessibilityNodeProvider(@NonNull View view2) {
         InterceptResult invokeL;
         AccessibilityNodeProvider accessibilityNodeProvider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, view)) == null) {
-            if (Build.VERSION.SDK_INT < 16 || (accessibilityNodeProvider = view.getAccessibilityNodeProvider()) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, view2)) == null) {
+            if (Build.VERSION.SDK_INT < 16 || (accessibilityNodeProvider = view2.getAccessibilityNodeProvider()) == null) {
                 return null;
             }
             return new AccessibilityNodeProviderCompat(accessibilityNodeProvider);
@@ -1221,20 +1221,20 @@ public class ViewCompat {
     }
 
     @UiThread
-    public static CharSequence getAccessibilityPaneTitle(View view) {
+    public static CharSequence getAccessibilityPaneTitle(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, view)) == null) ? paneTitleProperty().get(view) : (CharSequence) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65571, null, view2)) == null) ? paneTitleProperty().get(view2) : (CharSequence) invokeL.objValue;
     }
 
-    public static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view) {
+    public static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, view)) == null) {
-            ArrayList arrayList = (ArrayList) view.getTag(R$id.tag_accessibility_actions);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, view2)) == null) {
+            ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_accessibility_actions);
             if (arrayList == null) {
                 ArrayList arrayList2 = new ArrayList();
-                view.setTag(R$id.tag_accessibility_actions, arrayList2);
+                view2.setTag(R$id.tag_accessibility_actions, arrayList2);
                 return arrayList2;
             }
             return arrayList;
@@ -1243,17 +1243,17 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static float getAlpha(View view) {
+    public static float getAlpha(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, view)) == null) ? view.getAlpha() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, view2)) == null) ? view2.getAlpha() : invokeL.floatValue;
     }
 
-    public static int getAvailableActionIdFromResources(View view) {
+    public static int getAvailableActionIdFromResources(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, view)) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, view2)) == null) {
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view2);
             int i = 0;
             int i2 = -1;
             while (true) {
@@ -1276,30 +1276,30 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static ColorStateList getBackgroundTintList(@NonNull View view) {
+    public static ColorStateList getBackgroundTintList(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getBackgroundTintList();
+                return view2.getBackgroundTintList();
             }
-            if (view instanceof TintableBackgroundView) {
-                return ((TintableBackgroundView) view).getSupportBackgroundTintList();
+            if (view2 instanceof TintableBackgroundView) {
+                return ((TintableBackgroundView) view2).getSupportBackgroundTintList();
             }
             return null;
         }
         return (ColorStateList) invokeL.objValue;
     }
 
-    public static PorterDuff.Mode getBackgroundTintMode(@NonNull View view) {
+    public static PorterDuff.Mode getBackgroundTintMode(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getBackgroundTintMode();
+                return view2.getBackgroundTintMode();
             }
-            if (view instanceof TintableBackgroundView) {
-                return ((TintableBackgroundView) view).getSupportBackgroundTintMode();
+            if (view2 instanceof TintableBackgroundView) {
+                return ((TintableBackgroundView) view2).getSupportBackgroundTintMode();
             }
             return null;
         }
@@ -1307,12 +1307,12 @@ public class ViewCompat {
     }
 
     @Nullable
-    public static Rect getClipBounds(@NonNull View view) {
+    public static Rect getClipBounds(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
-                return view.getClipBounds();
+                return view2.getClipBounds();
             }
             return null;
         }
@@ -1320,27 +1320,27 @@ public class ViewCompat {
     }
 
     @Nullable
-    public static Display getDisplay(@NonNull View view) {
+    public static Display getDisplay(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return view.getDisplay();
+                return view2.getDisplay();
             }
-            if (isAttachedToWindow(view)) {
-                return ((WindowManager) view.getContext().getSystemService("window")).getDefaultDisplay();
+            if (isAttachedToWindow(view2)) {
+                return ((WindowManager) view2.getContext().getSystemService("window")).getDefaultDisplay();
             }
             return null;
         }
         return (Display) invokeL.objValue;
     }
 
-    public static float getElevation(@NonNull View view) {
+    public static float getElevation(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getElevation();
+                return view2.getElevation();
             }
             return 0.0f;
         }
@@ -1365,24 +1365,24 @@ public class ViewCompat {
         return (Rect) invokeV.objValue;
     }
 
-    public static boolean getFitsSystemWindows(@NonNull View view) {
+    public static boolean getFitsSystemWindows(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.getFitsSystemWindows();
+                return view2.getFitsSystemWindows();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static int getImportantForAccessibility(@NonNull View view) {
+    public static int getImportantForAccessibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.getImportantForAccessibility();
+                return view2.getImportantForAccessibility();
             }
             return 0;
         }
@@ -1390,24 +1390,24 @@ public class ViewCompat {
     }
 
     @SuppressLint({"InlinedApi"})
-    public static int getImportantForAutofill(@NonNull View view) {
+    public static int getImportantForAutofill(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65583, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.getImportantForAutofill();
+                return view2.getImportantForAutofill();
             }
             return 0;
         }
         return invokeL.intValue;
     }
 
-    public static int getLabelFor(@NonNull View view) {
+    public static int getLabelFor(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return view.getLabelFor();
+                return view2.getLabelFor();
             }
             return 0;
         }
@@ -1415,18 +1415,18 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static int getLayerType(View view) {
+    public static int getLayerType(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, view)) == null) ? view.getLayerType() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65585, null, view2)) == null) ? view2.getLayerType() : invokeL.intValue;
     }
 
-    public static int getLayoutDirection(@NonNull View view) {
+    public static int getLayoutDirection(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return view.getLayoutDirection();
+                return view2.getLayoutDirection();
             }
             return 0;
         }
@@ -1435,39 +1435,39 @@ public class ViewCompat {
 
     @Nullable
     @Deprecated
-    public static Matrix getMatrix(View view) {
+    public static Matrix getMatrix(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65587, null, view)) == null) ? view.getMatrix() : (Matrix) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65587, null, view2)) == null) ? view2.getMatrix() : (Matrix) invokeL.objValue;
     }
 
     @Deprecated
-    public static int getMeasuredHeightAndState(View view) {
+    public static int getMeasuredHeightAndState(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65588, null, view)) == null) ? view.getMeasuredHeightAndState() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65588, null, view2)) == null) ? view2.getMeasuredHeightAndState() : invokeL.intValue;
     }
 
     @Deprecated
-    public static int getMeasuredState(View view) {
+    public static int getMeasuredState(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65589, null, view)) == null) ? view.getMeasuredState() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65589, null, view2)) == null) ? view2.getMeasuredState() : invokeL.intValue;
     }
 
     @Deprecated
-    public static int getMeasuredWidthAndState(View view) {
+    public static int getMeasuredWidthAndState(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, view)) == null) ? view.getMeasuredWidthAndState() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65590, null, view2)) == null) ? view2.getMeasuredWidthAndState() : invokeL.intValue;
     }
 
-    public static int getMinimumHeight(@NonNull View view) {
+    public static int getMinimumHeight(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65591, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.getMinimumHeight();
+                return view2.getMinimumHeight();
             }
             if (!sMinHeightFieldFetched) {
                 try {
@@ -1481,7 +1481,7 @@ public class ViewCompat {
             Field field = sMinHeightField;
             if (field != null) {
                 try {
-                    return ((Integer) field.get(view)).intValue();
+                    return ((Integer) field.get(view2)).intValue();
                 } catch (Exception unused2) {
                     return 0;
                 }
@@ -1491,12 +1491,12 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getMinimumWidth(@NonNull View view) {
+    public static int getMinimumWidth(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.getMinimumWidth();
+                return view2.getMinimumWidth();
             }
             if (!sMinWidthFieldFetched) {
                 try {
@@ -1510,7 +1510,7 @@ public class ViewCompat {
             Field field = sMinWidthField;
             if (field != null) {
                 try {
-                    return ((Integer) field.get(view)).intValue();
+                    return ((Integer) field.get(view2)).intValue();
                 } catch (Exception unused2) {
                     return 0;
                 }
@@ -1520,98 +1520,98 @@ public class ViewCompat {
         return invokeL.intValue;
     }
 
-    public static int getNextClusterForwardId(@NonNull View view) {
+    public static int getNextClusterForwardId(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.getNextClusterForwardId();
+                return view2.getNextClusterForwardId();
             }
             return -1;
         }
         return invokeL.intValue;
     }
 
-    public static AccessibilityDelegateCompat getOrCreateAccessibilityDelegateCompat(@NonNull View view) {
+    public static AccessibilityDelegateCompat getOrCreateAccessibilityDelegateCompat(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, view)) == null) {
-            AccessibilityDelegateCompat accessibilityDelegate = getAccessibilityDelegate(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, view2)) == null) {
+            AccessibilityDelegateCompat accessibilityDelegate = getAccessibilityDelegate(view2);
             if (accessibilityDelegate == null) {
                 accessibilityDelegate = new AccessibilityDelegateCompat();
             }
-            setAccessibilityDelegate(view, accessibilityDelegate);
+            setAccessibilityDelegate(view2, accessibilityDelegate);
             return accessibilityDelegate;
         }
         return (AccessibilityDelegateCompat) invokeL.objValue;
     }
 
     @Deprecated
-    public static int getOverScrollMode(View view) {
+    public static int getOverScrollMode(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65595, null, view)) == null) ? view.getOverScrollMode() : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65595, null, view2)) == null) ? view2.getOverScrollMode() : invokeL.intValue;
     }
 
     @Px
-    public static int getPaddingEnd(@NonNull View view) {
+    public static int getPaddingEnd(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return view.getPaddingEnd();
+                return view2.getPaddingEnd();
             }
-            return view.getPaddingRight();
+            return view2.getPaddingRight();
         }
         return invokeL.intValue;
     }
 
     @Px
-    public static int getPaddingStart(@NonNull View view) {
+    public static int getPaddingStart(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65597, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return view.getPaddingStart();
+                return view2.getPaddingStart();
             }
-            return view.getPaddingLeft();
+            return view2.getPaddingLeft();
         }
         return invokeL.intValue;
     }
 
-    public static ViewParent getParentForAccessibility(@NonNull View view) {
+    public static ViewParent getParentForAccessibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.getParentForAccessibility();
+                return view2.getParentForAccessibility();
             }
-            return view.getParent();
+            return view2.getParent();
         }
         return (ViewParent) invokeL.objValue;
     }
 
     @Deprecated
-    public static float getPivotX(View view) {
+    public static float getPivotX(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65599, null, view)) == null) ? view.getPivotX() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65599, null, view2)) == null) ? view2.getPivotX() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getPivotY(View view) {
+    public static float getPivotY(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65600, null, view)) == null) ? view.getPivotY() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65600, null, view2)) == null) ? view2.getPivotY() : invokeL.floatValue;
     }
 
     @Nullable
-    public static WindowInsetsCompat getRootWindowInsets(@NonNull View view) {
+    public static WindowInsetsCompat getRootWindowInsets(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65601, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return WindowInsetsCompat.toWindowInsetsCompat(Api23Impl.getRootWindowInsets(view));
+                return WindowInsetsCompat.toWindowInsetsCompat(Api23Impl.getRootWindowInsets(view2));
             }
             return null;
         }
@@ -1619,46 +1619,46 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static float getRotation(View view) {
+    public static float getRotation(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65602, null, view)) == null) ? view.getRotation() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65602, null, view2)) == null) ? view2.getRotation() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getRotationX(View view) {
+    public static float getRotationX(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65603, null, view)) == null) ? view.getRotationX() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65603, null, view2)) == null) ? view2.getRotationX() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getRotationY(View view) {
+    public static float getRotationY(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65604, null, view)) == null) ? view.getRotationY() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65604, null, view2)) == null) ? view2.getRotationY() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getScaleX(View view) {
+    public static float getScaleX(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65605, null, view)) == null) ? view.getScaleX() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65605, null, view2)) == null) ? view2.getScaleX() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getScaleY(View view) {
+    public static float getScaleY(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65606, null, view)) == null) ? view.getScaleY() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65606, null, view2)) == null) ? view2.getScaleY() : invokeL.floatValue;
     }
 
-    public static int getScrollIndicators(@NonNull View view) {
+    public static int getScrollIndicators(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65607, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65607, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return view.getScrollIndicators();
+                return view2.getScrollIndicators();
             }
             return 0;
         }
@@ -1666,12 +1666,12 @@ public class ViewCompat {
     }
 
     @NonNull
-    public static List<Rect> getSystemGestureExclusionRects(@NonNull View view) {
+    public static List<Rect> getSystemGestureExclusionRects(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
-                return view.getSystemGestureExclusionRects();
+                return view2.getSystemGestureExclusionRects();
             }
             return Collections.emptyList();
         }
@@ -1679,54 +1679,54 @@ public class ViewCompat {
     }
 
     @Nullable
-    public static String getTransitionName(@NonNull View view) {
+    public static String getTransitionName(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65609, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getTransitionName();
+                return view2.getTransitionName();
             }
             WeakHashMap<View, String> weakHashMap = sTransitionNameMap;
             if (weakHashMap == null) {
                 return null;
             }
-            return weakHashMap.get(view);
+            return weakHashMap.get(view2);
         }
         return (String) invokeL.objValue;
     }
 
     @Deprecated
-    public static float getTranslationX(View view) {
+    public static float getTranslationX(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65610, null, view)) == null) ? view.getTranslationX() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65610, null, view2)) == null) ? view2.getTranslationX() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getTranslationY(View view) {
+    public static float getTranslationY(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65611, null, view)) == null) ? view.getTranslationY() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65611, null, view2)) == null) ? view2.getTranslationY() : invokeL.floatValue;
     }
 
-    public static float getTranslationZ(@NonNull View view) {
+    public static float getTranslationZ(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65612, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getTranslationZ();
+                return view2.getTranslationZ();
             }
             return 0.0f;
         }
         return invokeL.floatValue;
     }
 
-    public static int getWindowSystemUiVisibility(@NonNull View view) {
+    public static int getWindowSystemUiVisibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65613, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65613, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.getWindowSystemUiVisibility();
+                return view2.getWindowSystemUiVisibility();
             }
             return 0;
         }
@@ -1734,94 +1734,94 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static float getX(View view) {
+    public static float getX(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65614, null, view)) == null) ? view.getX() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65614, null, view2)) == null) ? view2.getX() : invokeL.floatValue;
     }
 
     @Deprecated
-    public static float getY(View view) {
+    public static float getY(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65615, null, view)) == null) ? view.getY() : invokeL.floatValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65615, null, view2)) == null) ? view2.getY() : invokeL.floatValue;
     }
 
-    public static float getZ(@NonNull View view) {
+    public static float getZ(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65616, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.getZ();
+                return view2.getZ();
             }
             return 0.0f;
         }
         return invokeL.floatValue;
     }
 
-    public static boolean hasAccessibilityDelegate(@NonNull View view) {
+    public static boolean hasAccessibilityDelegate(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65617, null, view)) == null) ? getAccessibilityDelegateInternal(view) != null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65617, null, view2)) == null) ? getAccessibilityDelegateInternal(view2) != null : invokeL.booleanValue;
     }
 
-    public static boolean hasExplicitFocusable(@NonNull View view) {
+    public static boolean hasExplicitFocusable(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65618, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.hasExplicitFocusable();
+                return view2.hasExplicitFocusable();
             }
-            return view.hasFocusable();
+            return view2.hasFocusable();
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean hasNestedScrollingParent(@NonNull View view) {
+    public static boolean hasNestedScrollingParent(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.hasNestedScrollingParent();
+                return view2.hasNestedScrollingParent();
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).hasNestedScrollingParent();
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).hasNestedScrollingParent();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean hasOnClickListeners(@NonNull View view) {
+    public static boolean hasOnClickListeners(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65621, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65621, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 15) {
-                return view.hasOnClickListeners();
+                return view2.hasOnClickListeners();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean hasOverlappingRendering(@NonNull View view) {
+    public static boolean hasOverlappingRendering(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65622, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65622, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.hasOverlappingRendering();
+                return view2.hasOverlappingRendering();
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean hasTransientState(@NonNull View view) {
+    public static boolean hasTransientState(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65623, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.hasTransientState();
+                return view2.hasTransientState();
             }
             return false;
         }
@@ -1829,11 +1829,11 @@ public class ViewCompat {
     }
 
     @UiThread
-    public static boolean isAccessibilityHeading(View view) {
+    public static boolean isAccessibilityHeading(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, view)) == null) {
-            Boolean bool = accessibilityHeadingProperty().get(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65624, null, view2)) == null) {
+            Boolean bool = accessibilityHeadingProperty().get(view2);
             if (bool == null) {
                 return false;
             }
@@ -1842,111 +1842,111 @@ public class ViewCompat {
         return invokeL.booleanValue;
     }
 
-    public static boolean isAttachedToWindow(@NonNull View view) {
+    public static boolean isAttachedToWindow(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return view.isAttachedToWindow();
+                return view2.isAttachedToWindow();
             }
-            return view.getWindowToken() != null;
+            return view2.getWindowToken() != null;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isFocusedByDefault(@NonNull View view) {
+    public static boolean isFocusedByDefault(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.isFocusedByDefault();
+                return view2.isFocusedByDefault();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isImportantForAccessibility(@NonNull View view) {
+    public static boolean isImportantForAccessibility(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.isImportantForAccessibility();
+                return view2.isImportantForAccessibility();
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isImportantForAutofill(@NonNull View view) {
+    public static boolean isImportantForAutofill(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65628, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65628, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.isImportantForAutofill();
+                return view2.isImportantForAutofill();
             }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isInLayout(@NonNull View view) {
+    public static boolean isInLayout(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65629, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65629, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 18) {
-                return view.isInLayout();
+                return view2.isInLayout();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isKeyboardNavigationCluster(@NonNull View view) {
+    public static boolean isKeyboardNavigationCluster(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65630, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65630, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.isKeyboardNavigationCluster();
+                return view2.isKeyboardNavigationCluster();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isLaidOut(@NonNull View view) {
+    public static boolean isLaidOut(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65631, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65631, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return view.isLaidOut();
+                return view2.isLaidOut();
             }
-            return view.getWidth() > 0 && view.getHeight() > 0;
+            return view2.getWidth() > 0 && view2.getHeight() > 0;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isLayoutDirectionResolved(@NonNull View view) {
+    public static boolean isLayoutDirectionResolved(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65632, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65632, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                return view.isLayoutDirectionResolved();
+                return view2.isLayoutDirectionResolved();
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean isNestedScrollingEnabled(@NonNull View view) {
+    public static boolean isNestedScrollingEnabled(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65633, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65633, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.isNestedScrollingEnabled();
+                return view2.isNestedScrollingEnabled();
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).isNestedScrollingEnabled();
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).isNestedScrollingEnabled();
             }
             return false;
         }
@@ -1954,18 +1954,18 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static boolean isOpaque(View view) {
+    public static boolean isOpaque(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65634, null, view)) == null) ? view.isOpaque() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65634, null, view2)) == null) ? view2.isOpaque() : invokeL.booleanValue;
     }
 
-    public static boolean isPaddingRelative(@NonNull View view) {
+    public static boolean isPaddingRelative(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65635, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65635, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return view.isPaddingRelative();
+                return view2.isPaddingRelative();
             }
             return false;
         }
@@ -1973,11 +1973,11 @@ public class ViewCompat {
     }
 
     @UiThread
-    public static boolean isScreenReaderFocusable(View view) {
+    public static boolean isScreenReaderFocusable(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65636, null, view)) == null) {
-            Boolean bool = screenReaderFocusableProperty().get(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65636, null, view2)) == null) {
+            Boolean bool = screenReaderFocusableProperty().get(view2);
             if (bool == null) {
                 return false;
             }
@@ -1987,19 +1987,19 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static void jumpDrawablesToCurrentState(View view) {
+    public static void jumpDrawablesToCurrentState(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65637, null, view) == null) {
-            view.jumpDrawablesToCurrentState();
+        if (interceptable == null || interceptable.invokeL(65637, null, view2) == null) {
+            view2.jumpDrawablesToCurrentState();
         }
     }
 
-    public static View keyboardNavigationClusterSearch(@NonNull View view, View view2, int i) {
+    public static View keyboardNavigationClusterSearch(@NonNull View view2, View view3, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65638, null, view, view2, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65638, null, view2, view3, i)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.keyboardNavigationClusterSearch(view2, i);
+                return view2.keyboardNavigationClusterSearch(view3, i);
             }
             return null;
         }
@@ -2007,17 +2007,17 @@ public class ViewCompat {
     }
 
     @RequiresApi(19)
-    public static void notifyViewAccessibilityStateChangedIfNeeded(View view, int i) {
+    public static void notifyViewAccessibilityStateChangedIfNeeded(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65639, null, view, i) == null) && ((AccessibilityManager) view.getContext().getSystemService("accessibility")).isEnabled()) {
-            boolean z = getAccessibilityPaneTitle(view) != null;
-            if (getAccessibilityLiveRegion(view) == 0 && (!z || view.getVisibility() != 0)) {
-                if (view.getParent() != null) {
+        if ((interceptable == null || interceptable.invokeLI(65639, null, view2, i) == null) && ((AccessibilityManager) view2.getContext().getSystemService("accessibility")).isEnabled()) {
+            boolean z = getAccessibilityPaneTitle(view2) != null;
+            if (getAccessibilityLiveRegion(view2) == 0 && (!z || view2.getVisibility() != 0)) {
+                if (view2.getParent() != null) {
                     try {
-                        view.getParent().notifySubtreeAccessibilityStateChanged(view, view, i);
+                        view2.getParent().notifySubtreeAccessibilityStateChanged(view2, view2, i);
                         return;
-                    } catch (AbstractMethodError e2) {
-                        Log.e(TAG, view.getParent().getClass().getSimpleName() + " does not fully implement ViewParent", e2);
+                    } catch (AbstractMethodError e) {
+                        Log.e(TAG, view2.getParent().getClass().getSimpleName() + " does not fully implement ViewParent", e);
                         return;
                     }
                 }
@@ -2026,68 +2026,68 @@ public class ViewCompat {
             AccessibilityEvent obtain = AccessibilityEvent.obtain();
             obtain.setEventType(z ? 32 : 2048);
             obtain.setContentChangeTypes(i);
-            view.sendAccessibilityEventUnchecked(obtain);
+            view2.sendAccessibilityEventUnchecked(obtain);
         }
     }
 
-    public static void offsetLeftAndRight(@NonNull View view, int i) {
+    public static void offsetLeftAndRight(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65640, null, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65640, null, view2, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 23) {
-                view.offsetLeftAndRight(i);
+                view2.offsetLeftAndRight(i);
             } else if (i2 >= 21) {
                 Rect emptyTempRect = getEmptyTempRect();
                 boolean z = false;
-                ViewParent parent = view.getParent();
+                ViewParent parent = view2.getParent();
                 if (parent instanceof View) {
-                    View view2 = (View) parent;
-                    emptyTempRect.set(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
-                    z = !emptyTempRect.intersects(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+                    View view3 = (View) parent;
+                    emptyTempRect.set(view3.getLeft(), view3.getTop(), view3.getRight(), view3.getBottom());
+                    z = !emptyTempRect.intersects(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
                 }
-                compatOffsetLeftAndRight(view, i);
-                if (z && emptyTempRect.intersect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom())) {
+                compatOffsetLeftAndRight(view2, i);
+                if (z && emptyTempRect.intersect(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom())) {
                     ((View) parent).invalidate(emptyTempRect);
                 }
             } else {
-                compatOffsetLeftAndRight(view, i);
+                compatOffsetLeftAndRight(view2, i);
             }
         }
     }
 
-    public static void offsetTopAndBottom(@NonNull View view, int i) {
+    public static void offsetTopAndBottom(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65641, null, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65641, null, view2, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 23) {
-                view.offsetTopAndBottom(i);
+                view2.offsetTopAndBottom(i);
             } else if (i2 >= 21) {
                 Rect emptyTempRect = getEmptyTempRect();
                 boolean z = false;
-                ViewParent parent = view.getParent();
+                ViewParent parent = view2.getParent();
                 if (parent instanceof View) {
-                    View view2 = (View) parent;
-                    emptyTempRect.set(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
-                    z = !emptyTempRect.intersects(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+                    View view3 = (View) parent;
+                    emptyTempRect.set(view3.getLeft(), view3.getTop(), view3.getRight(), view3.getBottom());
+                    z = !emptyTempRect.intersects(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
                 }
-                compatOffsetTopAndBottom(view, i);
-                if (z && emptyTempRect.intersect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom())) {
+                compatOffsetTopAndBottom(view2, i);
+                if (z && emptyTempRect.intersect(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom())) {
                     ((View) parent).invalidate(emptyTempRect);
                 }
             } else {
-                compatOffsetTopAndBottom(view, i);
+                compatOffsetTopAndBottom(view2, i);
             }
         }
     }
 
     @NonNull
-    public static WindowInsetsCompat onApplyWindowInsets(@NonNull View view, @NonNull WindowInsetsCompat windowInsetsCompat) {
+    public static WindowInsetsCompat onApplyWindowInsets(@NonNull View view2, @NonNull WindowInsetsCompat windowInsetsCompat) {
         InterceptResult invokeLL;
         WindowInsets windowInsets;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65642, null, view, windowInsetsCompat)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65642, null, view2, windowInsetsCompat)) == null) {
             if (Build.VERSION.SDK_INT >= 21 && (windowInsets = windowInsetsCompat.toWindowInsets()) != null) {
-                WindowInsets onApplyWindowInsets = view.onApplyWindowInsets(windowInsets);
+                WindowInsets onApplyWindowInsets = view2.onApplyWindowInsets(windowInsets);
                 if (!onApplyWindowInsets.equals(windowInsets)) {
                     return WindowInsetsCompat.toWindowInsetsCompat(onApplyWindowInsets);
                 }
@@ -2098,25 +2098,25 @@ public class ViewCompat {
     }
 
     @Deprecated
-    public static void onInitializeAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public static void onInitializeAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65643, null, view, accessibilityEvent) == null) {
-            view.onInitializeAccessibilityEvent(accessibilityEvent);
+        if (interceptable == null || interceptable.invokeLL(65643, null, view2, accessibilityEvent) == null) {
+            view2.onInitializeAccessibilityEvent(accessibilityEvent);
         }
     }
 
-    public static void onInitializeAccessibilityNodeInfo(@NonNull View view, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+    public static void onInitializeAccessibilityNodeInfo(@NonNull View view2, AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65644, null, view, accessibilityNodeInfoCompat) == null) {
-            view.onInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat.unwrap());
+        if (interceptable == null || interceptable.invokeLL(65644, null, view2, accessibilityNodeInfoCompat) == null) {
+            view2.onInitializeAccessibilityNodeInfo(accessibilityNodeInfoCompat.unwrap());
         }
     }
 
     @Deprecated
-    public static void onPopulateAccessibilityEvent(View view, AccessibilityEvent accessibilityEvent) {
+    public static void onPopulateAccessibilityEvent(View view2, AccessibilityEvent accessibilityEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65645, null, view, accessibilityEvent) == null) {
-            view.onPopulateAccessibilityEvent(accessibilityEvent);
+        if (interceptable == null || interceptable.invokeLL(65645, null, view2, accessibilityEvent) == null) {
+            view2.onPopulateAccessibilityEvent(accessibilityEvent);
         }
     }
 
@@ -2152,19 +2152,19 @@ public class ViewCompat {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             @RequiresApi(28)
-            public CharSequence frameworkGet(View view) {
+            public CharSequence frameworkGet(View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view)) == null) ? view.getAccessibilityPaneTitle() : (CharSequence) invokeL.objValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? view2.getAccessibilityPaneTitle() : (CharSequence) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             @RequiresApi(28)
-            public void frameworkSet(View view, CharSequence charSequence) {
+            public void frameworkSet(View view2, CharSequence charSequence) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, charSequence) == null) {
-                    view.setAccessibilityPaneTitle(charSequence);
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, charSequence) == null) {
+                    view2.setAccessibilityPaneTitle(charSequence);
                 }
             }
 
@@ -2178,64 +2178,64 @@ public class ViewCompat {
         } : (AccessibilityViewProperty) invokeV.objValue;
     }
 
-    public static boolean performAccessibilityAction(@NonNull View view, int i, Bundle bundle) {
+    public static boolean performAccessibilityAction(@NonNull View view2, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65647, null, view, i, bundle)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65647, null, view2, i, bundle)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return view.performAccessibilityAction(i, bundle);
+                return view2.performAccessibilityAction(i, bundle);
             }
             return false;
         }
         return invokeLIL.booleanValue;
     }
 
-    public static void postInvalidateOnAnimation(@NonNull View view) {
+    public static void postInvalidateOnAnimation(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65648, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65648, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postInvalidateOnAnimation();
+                view2.postInvalidateOnAnimation();
             } else {
-                view.postInvalidate();
+                view2.postInvalidate();
             }
         }
     }
 
-    public static void postOnAnimation(@NonNull View view, Runnable runnable) {
+    public static void postOnAnimation(@NonNull View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65650, null, view, runnable) == null) {
+        if (interceptable == null || interceptable.invokeLL(65650, null, view2, runnable) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postOnAnimation(runnable);
+                view2.postOnAnimation(runnable);
             } else {
-                view.postDelayed(runnable, ValueAnimator.getFrameDelay());
+                view2.postDelayed(runnable, ValueAnimator.getFrameDelay());
             }
         }
     }
 
-    public static void postOnAnimationDelayed(@NonNull View view, Runnable runnable, long j) {
+    public static void postOnAnimationDelayed(@NonNull View view2, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view, runnable, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65651, null, new Object[]{view2, runnable, Long.valueOf(j)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postOnAnimationDelayed(runnable, j);
+                view2.postOnAnimationDelayed(runnable, j);
             } else {
-                view.postDelayed(runnable, ValueAnimator.getFrameDelay() + j);
+                view2.postDelayed(runnable, ValueAnimator.getFrameDelay() + j);
             }
         }
     }
 
-    public static void removeAccessibilityAction(@NonNull View view, int i) {
+    public static void removeAccessibilityAction(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65652, null, view, i) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLI(65652, null, view2, i) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        removeActionWithId(i, view);
-        notifyViewAccessibilityStateChangedIfNeeded(view, 0);
+        removeActionWithId(i, view2);
+        notifyViewAccessibilityStateChangedIfNeeded(view2, 0);
     }
 
-    public static void removeActionWithId(int i, View view) {
+    public static void removeActionWithId(int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65653, null, i, view) == null) {
-            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view);
+        if (interceptable == null || interceptable.invokeIL(65653, null, i, view2) == null) {
+            List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view2);
             for (int i2 = 0; i2 < actionList.size(); i2++) {
                 if (actionList.get(i2).getId() == i) {
                     actionList.remove(i2);
@@ -2245,60 +2245,60 @@ public class ViewCompat {
         }
     }
 
-    public static void removeOnUnhandledKeyEventListener(@NonNull View view, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
+    public static void removeOnUnhandledKeyEventListener(@NonNull View view2, @NonNull OnUnhandledKeyEventListenerCompat onUnhandledKeyEventListenerCompat) {
         View.OnUnhandledKeyEventListener onUnhandledKeyEventListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65654, null, view, onUnhandledKeyEventListenerCompat) == null) {
+        if (interceptable == null || interceptable.invokeLL(65654, null, view2, onUnhandledKeyEventListenerCompat) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view.getTag(R$id.tag_unhandled_key_listeners);
+                SimpleArrayMap simpleArrayMap = (SimpleArrayMap) view2.getTag(R$id.tag_unhandled_key_listeners);
                 if (simpleArrayMap == null || (onUnhandledKeyEventListener = (View.OnUnhandledKeyEventListener) simpleArrayMap.get(onUnhandledKeyEventListenerCompat)) == null) {
                     return;
                 }
-                view.removeOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
+                view2.removeOnUnhandledKeyEventListener(onUnhandledKeyEventListener);
                 return;
             }
-            ArrayList arrayList = (ArrayList) view.getTag(R$id.tag_unhandled_key_listeners);
+            ArrayList arrayList = (ArrayList) view2.getTag(R$id.tag_unhandled_key_listeners);
             if (arrayList != null) {
                 arrayList.remove(onUnhandledKeyEventListenerCompat);
                 if (arrayList.size() == 0) {
-                    UnhandledKeyEventManager.unregisterListeningView(view);
+                    UnhandledKeyEventManager.unregisterListeningView(view2);
                 }
             }
         }
     }
 
-    public static void replaceAccessibilityAction(@NonNull View view, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, @Nullable CharSequence charSequence, @Nullable AccessibilityViewCommand accessibilityViewCommand) {
+    public static void replaceAccessibilityAction(@NonNull View view2, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat, @Nullable CharSequence charSequence, @Nullable AccessibilityViewCommand accessibilityViewCommand) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65655, null, view, accessibilityActionCompat, charSequence, accessibilityViewCommand) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65655, null, view2, accessibilityActionCompat, charSequence, accessibilityViewCommand) == null) {
             if (accessibilityViewCommand == null && charSequence == null) {
-                removeAccessibilityAction(view, accessibilityActionCompat.getId());
+                removeAccessibilityAction(view2, accessibilityActionCompat.getId());
             } else {
-                addAccessibilityAction(view, accessibilityActionCompat.createReplacementAction(charSequence, accessibilityViewCommand));
+                addAccessibilityAction(view2, accessibilityActionCompat.createReplacementAction(charSequence, accessibilityViewCommand));
             }
         }
     }
 
-    public static void requestApplyInsets(@NonNull View view) {
+    public static void requestApplyInsets(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65656, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65656, null, view2) == null) {
             int i = Build.VERSION.SDK_INT;
             if (i >= 20) {
-                view.requestApplyInsets();
+                view2.requestApplyInsets();
             } else if (i >= 16) {
-                view.requestFitSystemWindows();
+                view2.requestFitSystemWindows();
             }
         }
     }
 
     @NonNull
-    public static <T extends View> T requireViewById(@NonNull View view, @IdRes int i) {
+    public static <T extends View> T requireViewById(@NonNull View view2, @IdRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65657, null, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65657, null, view2, i)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return (T) view.requireViewById(i);
+                return (T) view2.requireViewById(i);
             }
-            T t = (T) view.findViewById(i);
+            T t = (T) view2.findViewById(i);
             if (t != null) {
                 return t;
             }
@@ -2314,24 +2314,24 @@ public class ViewCompat {
         return (interceptable == null || (invokeIII = interceptable.invokeIII(65658, null, i, i2, i3)) == null) ? View.resolveSizeAndState(i, i2, i3) : invokeIII.intValue;
     }
 
-    public static boolean restoreDefaultFocus(@NonNull View view) {
+    public static boolean restoreDefaultFocus(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65659, null, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65659, null, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                return view.restoreDefaultFocus();
+                return view2.restoreDefaultFocus();
             }
-            return view.requestFocus();
+            return view2.requestFocus();
         }
         return invokeL.booleanValue;
     }
 
-    public static void saveAttributeDataForStyleable(@NonNull View view, @NonNull @SuppressLint({"ContextFirst"}) Context context, @NonNull int[] iArr, @Nullable AttributeSet attributeSet, @NonNull TypedArray typedArray, int i, int i2) {
+    public static void saveAttributeDataForStyleable(@NonNull View view2, @NonNull @SuppressLint({"ContextFirst"}) Context context, @NonNull int[] iArr, @Nullable AttributeSet attributeSet, @NonNull TypedArray typedArray, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65660, null, new Object[]{view, context, iArr, attributeSet, typedArray, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || Build.VERSION.SDK_INT < 29) {
+        if (!(interceptable == null || interceptable.invokeCommon(65660, null, new Object[]{view2, context, iArr, attributeSet, typedArray, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || Build.VERSION.SDK_INT < 29) {
             return;
         }
-        Api29Impl.saveAttributeDataForStyleable(view, context, iArr, attributeSet, typedArray, i, i2);
+        Api29Impl.saveAttributeDataForStyleable(view2, context, iArr, attributeSet, typedArray, i, i2);
     }
 
     public static AccessibilityViewProperty<Boolean> screenReaderFocusableProperty() {
@@ -2366,19 +2366,19 @@ public class ViewCompat {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             @RequiresApi(28)
-            public Boolean frameworkGet(View view) {
+            public Boolean frameworkGet(View view2) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view)) == null) ? Boolean.valueOf(view.isScreenReaderFocusable()) : (Boolean) invokeL.objValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? Boolean.valueOf(view2.isScreenReaderFocusable()) : (Boolean) invokeL.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.core.view.ViewCompat.AccessibilityViewProperty
             @RequiresApi(28)
-            public void frameworkSet(View view, Boolean bool) {
+            public void frameworkSet(View view2, Boolean bool) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view, bool) == null) {
-                    view.setScreenReaderFocusable(bool.booleanValue());
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bool) == null) {
+                    view2.setScreenReaderFocusable(bool.booleanValue());
                 }
             }
 
@@ -2392,121 +2392,121 @@ public class ViewCompat {
         } : (AccessibilityViewProperty) invokeV.objValue;
     }
 
-    public static void setAccessibilityDelegate(@NonNull View view, AccessibilityDelegateCompat accessibilityDelegateCompat) {
+    public static void setAccessibilityDelegate(@NonNull View view2, AccessibilityDelegateCompat accessibilityDelegateCompat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65662, null, view, accessibilityDelegateCompat) == null) {
-            if (accessibilityDelegateCompat == null && (getAccessibilityDelegateInternal(view) instanceof AccessibilityDelegateCompat.AccessibilityDelegateAdapter)) {
+        if (interceptable == null || interceptable.invokeLL(65662, null, view2, accessibilityDelegateCompat) == null) {
+            if (accessibilityDelegateCompat == null && (getAccessibilityDelegateInternal(view2) instanceof AccessibilityDelegateCompat.AccessibilityDelegateAdapter)) {
                 accessibilityDelegateCompat = new AccessibilityDelegateCompat();
             }
-            view.setAccessibilityDelegate(accessibilityDelegateCompat == null ? null : accessibilityDelegateCompat.getBridge());
+            view2.setAccessibilityDelegate(accessibilityDelegateCompat == null ? null : accessibilityDelegateCompat.getBridge());
         }
     }
 
     @UiThread
-    public static void setAccessibilityHeading(View view, boolean z) {
+    public static void setAccessibilityHeading(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65663, null, view, z) == null) {
-            accessibilityHeadingProperty().set(view, Boolean.valueOf(z));
+        if (interceptable == null || interceptable.invokeLZ(65663, null, view2, z) == null) {
+            accessibilityHeadingProperty().set(view2, Boolean.valueOf(z));
         }
     }
 
-    public static void setAccessibilityLiveRegion(@NonNull View view, int i) {
+    public static void setAccessibilityLiveRegion(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65664, null, view, i) == null) || Build.VERSION.SDK_INT < 19) {
+        if (!(interceptable == null || interceptable.invokeLI(65664, null, view2, i) == null) || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        view.setAccessibilityLiveRegion(i);
+        view2.setAccessibilityLiveRegion(i);
     }
 
     @UiThread
-    public static void setAccessibilityPaneTitle(View view, CharSequence charSequence) {
+    public static void setAccessibilityPaneTitle(View view2, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65665, null, view, charSequence) == null) || Build.VERSION.SDK_INT < 19) {
+        if (!(interceptable == null || interceptable.invokeLL(65665, null, view2, charSequence) == null) || Build.VERSION.SDK_INT < 19) {
             return;
         }
-        paneTitleProperty().set(view, charSequence);
+        paneTitleProperty().set(view2, charSequence);
         if (charSequence != null) {
-            sAccessibilityPaneVisibilityManager.addAccessibilityPane(view);
+            sAccessibilityPaneVisibilityManager.addAccessibilityPane(view2);
         } else {
-            sAccessibilityPaneVisibilityManager.removeAccessibilityPane(view);
+            sAccessibilityPaneVisibilityManager.removeAccessibilityPane(view2);
         }
     }
 
     @Deprecated
-    public static void setActivated(View view, boolean z) {
+    public static void setActivated(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65666, null, view, z) == null) {
-            view.setActivated(z);
+        if (interceptable == null || interceptable.invokeLZ(65666, null, view2, z) == null) {
+            view2.setActivated(z);
         }
     }
 
     @Deprecated
-    public static void setAlpha(View view, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public static void setAlpha(View view2, @FloatRange(from = 0.0d, to = 1.0d) float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65667, null, view, f2) == null) {
-            view.setAlpha(f2);
+        if (interceptable == null || interceptable.invokeLF(65667, null, view2, f) == null) {
+            view2.setAlpha(f);
         }
     }
 
-    public static void setAutofillHints(@NonNull View view, @Nullable String... strArr) {
+    public static void setAutofillHints(@NonNull View view2, @Nullable String... strArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65668, null, view, strArr) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLL(65668, null, view2, strArr) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.setAutofillHints(strArr);
+        view2.setAutofillHints(strArr);
     }
 
-    public static void setBackground(@NonNull View view, @Nullable Drawable drawable) {
+    public static void setBackground(@NonNull View view2, @Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65669, null, view, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLL(65669, null, view2, drawable) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.setBackground(drawable);
+                view2.setBackground(drawable);
             } else {
-                view.setBackgroundDrawable(drawable);
+                view2.setBackgroundDrawable(drawable);
             }
         }
     }
 
-    public static void setBackgroundTintList(@NonNull View view, ColorStateList colorStateList) {
+    public static void setBackgroundTintList(@NonNull View view2, ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65670, null, view, colorStateList) == null) {
+        if (interceptable == null || interceptable.invokeLL(65670, null, view2, colorStateList) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                view.setBackgroundTintList(colorStateList);
+                view2.setBackgroundTintList(colorStateList);
                 if (Build.VERSION.SDK_INT == 21) {
-                    Drawable background = view.getBackground();
-                    boolean z = (view.getBackgroundTintList() == null && view.getBackgroundTintMode() == null) ? false : true;
+                    Drawable background = view2.getBackground();
+                    boolean z = (view2.getBackgroundTintList() == null && view2.getBackgroundTintMode() == null) ? false : true;
                     if (background == null || !z) {
                         return;
                     }
                     if (background.isStateful()) {
-                        background.setState(view.getDrawableState());
+                        background.setState(view2.getDrawableState());
                     }
-                    view.setBackground(background);
+                    view2.setBackground(background);
                 }
-            } else if (view instanceof TintableBackgroundView) {
-                ((TintableBackgroundView) view).setSupportBackgroundTintList(colorStateList);
+            } else if (view2 instanceof TintableBackgroundView) {
+                ((TintableBackgroundView) view2).setSupportBackgroundTintList(colorStateList);
             }
         }
     }
 
-    public static void setBackgroundTintMode(@NonNull View view, PorterDuff.Mode mode) {
+    public static void setBackgroundTintMode(@NonNull View view2, PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65671, null, view, mode) == null) {
+        if (interceptable == null || interceptable.invokeLL(65671, null, view2, mode) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                view.setBackgroundTintMode(mode);
+                view2.setBackgroundTintMode(mode);
                 if (Build.VERSION.SDK_INT == 21) {
-                    Drawable background = view.getBackground();
-                    boolean z = (view.getBackgroundTintList() == null && view.getBackgroundTintMode() == null) ? false : true;
+                    Drawable background = view2.getBackground();
+                    boolean z = (view2.getBackgroundTintList() == null && view2.getBackgroundTintMode() == null) ? false : true;
                     if (background == null || !z) {
                         return;
                     }
                     if (background.isStateful()) {
-                        background.setState(view.getDrawableState());
+                        background.setState(view2.getDrawableState());
                     }
-                    view.setBackground(background);
+                    view2.setBackground(background);
                 }
-            } else if (view instanceof TintableBackgroundView) {
-                ((TintableBackgroundView) view).setSupportBackgroundTintMode(mode);
+            } else if (view2 instanceof TintableBackgroundView) {
+                ((TintableBackgroundView) view2).setSupportBackgroundTintMode(mode);
             }
         }
     }
@@ -2518,158 +2518,158 @@ public class ViewCompat {
             if (sChildrenDrawingOrderMethod == null) {
                 try {
                     sChildrenDrawingOrderMethod = ViewGroup.class.getDeclaredMethod("setChildrenDrawingOrderEnabled", Boolean.TYPE);
-                } catch (NoSuchMethodException e2) {
-                    Log.e(TAG, "Unable to find childrenDrawingOrderEnabled", e2);
+                } catch (NoSuchMethodException e) {
+                    Log.e(TAG, "Unable to find childrenDrawingOrderEnabled", e);
                 }
                 sChildrenDrawingOrderMethod.setAccessible(true);
             }
             try {
                 sChildrenDrawingOrderMethod.invoke(viewGroup, Boolean.valueOf(z));
-            } catch (IllegalAccessException e3) {
+            } catch (IllegalAccessException e2) {
+                Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e2);
+            } catch (IllegalArgumentException e3) {
                 Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e3);
-            } catch (IllegalArgumentException e4) {
+            } catch (InvocationTargetException e4) {
                 Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e4);
-            } catch (InvocationTargetException e5) {
-                Log.e(TAG, "Unable to invoke childrenDrawingOrderEnabled", e5);
             }
         }
     }
 
-    public static void setClipBounds(@NonNull View view, Rect rect) {
+    public static void setClipBounds(@NonNull View view2, Rect rect) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65673, null, view, rect) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeLL(65673, null, view2, rect) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
-        view.setClipBounds(rect);
+        view2.setClipBounds(rect);
     }
 
-    public static void setElevation(@NonNull View view, float f2) {
+    public static void setElevation(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65674, null, view, f2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLF(65674, null, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        view.setElevation(f2);
+        view2.setElevation(f);
     }
 
     @Deprecated
-    public static void setFitsSystemWindows(View view, boolean z) {
+    public static void setFitsSystemWindows(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65675, null, view, z) == null) {
-            view.setFitsSystemWindows(z);
+        if (interceptable == null || interceptable.invokeLZ(65675, null, view2, z) == null) {
+            view2.setFitsSystemWindows(z);
         }
     }
 
-    public static void setFocusedByDefault(@NonNull View view, boolean z) {
+    public static void setFocusedByDefault(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65676, null, view, z) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLZ(65676, null, view2, z) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.setFocusedByDefault(z);
+        view2.setFocusedByDefault(z);
     }
 
-    public static void setHasTransientState(@NonNull View view, boolean z) {
+    public static void setHasTransientState(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65677, null, view, z) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeLZ(65677, null, view2, z) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        view.setHasTransientState(z);
+        view2.setHasTransientState(z);
     }
 
-    public static void setImportantForAccessibility(@NonNull View view, int i) {
+    public static void setImportantForAccessibility(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65678, null, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65678, null, view2, i) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (i2 >= 19) {
-                view.setImportantForAccessibility(i);
+                view2.setImportantForAccessibility(i);
             } else if (i2 >= 16) {
                 if (i == 4) {
                     i = 2;
                 }
-                view.setImportantForAccessibility(i);
+                view2.setImportantForAccessibility(i);
             }
         }
     }
 
-    public static void setImportantForAutofill(@NonNull View view, int i) {
+    public static void setImportantForAutofill(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65679, null, view, i) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLI(65679, null, view2, i) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.setImportantForAutofill(i);
+        view2.setImportantForAutofill(i);
     }
 
-    public static void setKeyboardNavigationCluster(@NonNull View view, boolean z) {
+    public static void setKeyboardNavigationCluster(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65680, null, view, z) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLZ(65680, null, view2, z) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.setKeyboardNavigationCluster(z);
+        view2.setKeyboardNavigationCluster(z);
     }
 
-    public static void setLabelFor(@NonNull View view, @IdRes int i) {
+    public static void setLabelFor(@NonNull View view2, @IdRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65681, null, view, i) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(65681, null, view2, i) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        view.setLabelFor(i);
+        view2.setLabelFor(i);
     }
 
-    public static void setLayerPaint(@NonNull View view, Paint paint) {
+    public static void setLayerPaint(@NonNull View view2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65682, null, view, paint) == null) {
+        if (interceptable == null || interceptable.invokeLL(65682, null, view2, paint) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                view.setLayerPaint(paint);
+                view2.setLayerPaint(paint);
                 return;
             }
-            view.setLayerType(view.getLayerType(), paint);
-            view.invalidate();
+            view2.setLayerType(view2.getLayerType(), paint);
+            view2.invalidate();
         }
     }
 
     @Deprecated
-    public static void setLayerType(View view, int i, Paint paint) {
+    public static void setLayerType(View view2, int i, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65683, null, view, i, paint) == null) {
-            view.setLayerType(i, paint);
+        if (interceptable == null || interceptable.invokeLIL(65683, null, view2, i, paint) == null) {
+            view2.setLayerType(i, paint);
         }
     }
 
-    public static void setLayoutDirection(@NonNull View view, int i) {
+    public static void setLayoutDirection(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65684, null, view, i) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(65684, null, view2, i) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        view.setLayoutDirection(i);
+        view2.setLayoutDirection(i);
     }
 
-    public static void setNestedScrollingEnabled(@NonNull View view, boolean z) {
+    public static void setNestedScrollingEnabled(@NonNull View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65685, null, view, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65685, null, view2, z) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                view.setNestedScrollingEnabled(z);
-            } else if (view instanceof NestedScrollingChild) {
-                ((NestedScrollingChild) view).setNestedScrollingEnabled(z);
+                view2.setNestedScrollingEnabled(z);
+            } else if (view2 instanceof NestedScrollingChild) {
+                ((NestedScrollingChild) view2).setNestedScrollingEnabled(z);
             }
         }
     }
 
-    public static void setNextClusterForwardId(@NonNull View view, int i) {
+    public static void setNextClusterForwardId(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65686, null, view, i) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLI(65686, null, view2, i) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.setNextClusterForwardId(i);
+        view2.setNextClusterForwardId(i);
     }
 
-    public static void setOnApplyWindowInsetsListener(@NonNull View view, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
+    public static void setOnApplyWindowInsetsListener(@NonNull View view2, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65687, null, view, onApplyWindowInsetsListener) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLL(65687, null, view2, onApplyWindowInsetsListener) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         if (onApplyWindowInsetsListener == null) {
-            view.setOnApplyWindowInsetsListener(null);
+            view2.setOnApplyWindowInsetsListener(null);
         } else {
-            view.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener(onApplyWindowInsetsListener) { // from class: androidx.core.view.ViewCompat.1
+            view2.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener(onApplyWindowInsetsListener) { // from class: androidx.core.view.ViewCompat.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OnApplyWindowInsetsListener val$listener;
@@ -2693,320 +2693,320 @@ public class ViewCompat {
                 }
 
                 @Override // android.view.View.OnApplyWindowInsetsListener
-                public WindowInsets onApplyWindowInsets(View view2, WindowInsets windowInsets) {
+                public WindowInsets onApplyWindowInsets(View view3, WindowInsets windowInsets) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, windowInsets)) == null) ? this.val$listener.onApplyWindowInsets(view2, WindowInsetsCompat.toWindowInsetsCompat(windowInsets)).toWindowInsets() : (WindowInsets) invokeLL.objValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, windowInsets)) == null) ? this.val$listener.onApplyWindowInsets(view3, WindowInsetsCompat.toWindowInsetsCompat(windowInsets)).toWindowInsets() : (WindowInsets) invokeLL.objValue;
                 }
             });
         }
     }
 
     @Deprecated
-    public static void setOverScrollMode(View view, int i) {
+    public static void setOverScrollMode(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65688, null, view, i) == null) {
-            view.setOverScrollMode(i);
+        if (interceptable == null || interceptable.invokeLI(65688, null, view2, i) == null) {
+            view2.setOverScrollMode(i);
         }
     }
 
-    public static void setPaddingRelative(@NonNull View view, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
+    public static void setPaddingRelative(@NonNull View view2, @Px int i, @Px int i2, @Px int i3, @Px int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65689, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65689, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                view.setPaddingRelative(i, i2, i3, i4);
+                view2.setPaddingRelative(i, i2, i3, i4);
             } else {
-                view.setPadding(i, i2, i3, i4);
+                view2.setPadding(i, i2, i3, i4);
             }
         }
     }
 
     @Deprecated
-    public static void setPivotX(View view, float f2) {
+    public static void setPivotX(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65690, null, view, f2) == null) {
-            view.setPivotX(f2);
+        if (interceptable == null || interceptable.invokeLF(65690, null, view2, f) == null) {
+            view2.setPivotX(f);
         }
     }
 
     @Deprecated
-    public static void setPivotY(View view, float f2) {
+    public static void setPivotY(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65691, null, view, f2) == null) {
-            view.setPivotY(f2);
+        if (interceptable == null || interceptable.invokeLF(65691, null, view2, f) == null) {
+            view2.setPivotY(f);
         }
     }
 
-    public static void setPointerIcon(@NonNull View view, PointerIconCompat pointerIconCompat) {
+    public static void setPointerIcon(@NonNull View view2, PointerIconCompat pointerIconCompat) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65692, null, view, pointerIconCompat) == null) || Build.VERSION.SDK_INT < 24) {
+        if (!(interceptable == null || interceptable.invokeLL(65692, null, view2, pointerIconCompat) == null) || Build.VERSION.SDK_INT < 24) {
             return;
         }
-        view.setPointerIcon((PointerIcon) (pointerIconCompat != null ? pointerIconCompat.getPointerIcon() : null));
+        view2.setPointerIcon((PointerIcon) (pointerIconCompat != null ? pointerIconCompat.getPointerIcon() : null));
     }
 
     @Deprecated
-    public static void setRotation(View view, float f2) {
+    public static void setRotation(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65693, null, view, f2) == null) {
-            view.setRotation(f2);
+        if (interceptable == null || interceptable.invokeLF(65693, null, view2, f) == null) {
+            view2.setRotation(f);
         }
     }
 
     @Deprecated
-    public static void setRotationX(View view, float f2) {
+    public static void setRotationX(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65694, null, view, f2) == null) {
-            view.setRotationX(f2);
+        if (interceptable == null || interceptable.invokeLF(65694, null, view2, f) == null) {
+            view2.setRotationX(f);
         }
     }
 
     @Deprecated
-    public static void setRotationY(View view, float f2) {
+    public static void setRotationY(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65695, null, view, f2) == null) {
-            view.setRotationY(f2);
+        if (interceptable == null || interceptable.invokeLF(65695, null, view2, f) == null) {
+            view2.setRotationY(f);
         }
     }
 
     @Deprecated
-    public static void setSaveFromParentEnabled(View view, boolean z) {
+    public static void setSaveFromParentEnabled(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65696, null, view, z) == null) {
-            view.setSaveFromParentEnabled(z);
+        if (interceptable == null || interceptable.invokeLZ(65696, null, view2, z) == null) {
+            view2.setSaveFromParentEnabled(z);
         }
     }
 
     @Deprecated
-    public static void setScaleX(View view, float f2) {
+    public static void setScaleX(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65697, null, view, f2) == null) {
-            view.setScaleX(f2);
+        if (interceptable == null || interceptable.invokeLF(65697, null, view2, f) == null) {
+            view2.setScaleX(f);
         }
     }
 
     @Deprecated
-    public static void setScaleY(View view, float f2) {
+    public static void setScaleY(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65698, null, view, f2) == null) {
-            view.setScaleY(f2);
+        if (interceptable == null || interceptable.invokeLF(65698, null, view2, f) == null) {
+            view2.setScaleY(f);
         }
     }
 
     @UiThread
-    public static void setScreenReaderFocusable(View view, boolean z) {
+    public static void setScreenReaderFocusable(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65699, null, view, z) == null) {
-            screenReaderFocusableProperty().set(view, Boolean.valueOf(z));
+        if (interceptable == null || interceptable.invokeLZ(65699, null, view2, z) == null) {
+            screenReaderFocusableProperty().set(view2, Boolean.valueOf(z));
         }
     }
 
-    public static void setScrollIndicators(@NonNull View view, int i) {
+    public static void setScrollIndicators(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65700, null, view, i) == null) || Build.VERSION.SDK_INT < 23) {
+        if (!(interceptable == null || interceptable.invokeLI(65700, null, view2, i) == null) || Build.VERSION.SDK_INT < 23) {
             return;
         }
-        view.setScrollIndicators(i);
+        view2.setScrollIndicators(i);
     }
 
-    public static void setSystemGestureExclusionRects(@NonNull View view, @NonNull List<Rect> list) {
+    public static void setSystemGestureExclusionRects(@NonNull View view2, @NonNull List<Rect> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65702, null, view, list) == null) || Build.VERSION.SDK_INT < 29) {
+        if (!(interceptable == null || interceptable.invokeLL(65702, null, view2, list) == null) || Build.VERSION.SDK_INT < 29) {
             return;
         }
-        view.setSystemGestureExclusionRects(list);
+        view2.setSystemGestureExclusionRects(list);
     }
 
-    public static void setTooltipText(@NonNull View view, @Nullable CharSequence charSequence) {
+    public static void setTooltipText(@NonNull View view2, @Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65703, null, view, charSequence) == null) || Build.VERSION.SDK_INT < 26) {
+        if (!(interceptable == null || interceptable.invokeLL(65703, null, view2, charSequence) == null) || Build.VERSION.SDK_INT < 26) {
             return;
         }
-        view.setTooltipText(charSequence);
+        view2.setTooltipText(charSequence);
     }
 
-    public static void setTransitionName(@NonNull View view, String str) {
+    public static void setTransitionName(@NonNull View view2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65704, null, view, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65704, null, view2, str) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                view.setTransitionName(str);
+                view2.setTransitionName(str);
                 return;
             }
             if (sTransitionNameMap == null) {
                 sTransitionNameMap = new WeakHashMap<>();
             }
-            sTransitionNameMap.put(view, str);
+            sTransitionNameMap.put(view2, str);
         }
     }
 
     @Deprecated
-    public static void setTranslationX(View view, float f2) {
+    public static void setTranslationX(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65705, null, view, f2) == null) {
-            view.setTranslationX(f2);
+        if (interceptable == null || interceptable.invokeLF(65705, null, view2, f) == null) {
+            view2.setTranslationX(f);
         }
     }
 
     @Deprecated
-    public static void setTranslationY(View view, float f2) {
+    public static void setTranslationY(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65706, null, view, f2) == null) {
-            view.setTranslationY(f2);
+        if (interceptable == null || interceptable.invokeLF(65706, null, view2, f) == null) {
+            view2.setTranslationY(f);
         }
     }
 
-    public static void setTranslationZ(@NonNull View view, float f2) {
+    public static void setTranslationZ(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65707, null, view, f2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLF(65707, null, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        view.setTranslationZ(f2);
+        view2.setTranslationZ(f);
     }
 
     @Deprecated
-    public static void setX(View view, float f2) {
+    public static void setX(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65708, null, view, f2) == null) {
-            view.setX(f2);
+        if (interceptable == null || interceptable.invokeLF(65708, null, view2, f) == null) {
+            view2.setX(f);
         }
     }
 
     @Deprecated
-    public static void setY(View view, float f2) {
+    public static void setY(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65709, null, view, f2) == null) {
-            view.setY(f2);
+        if (interceptable == null || interceptable.invokeLF(65709, null, view2, f) == null) {
+            view2.setY(f);
         }
     }
 
-    public static void setZ(@NonNull View view, float f2) {
+    public static void setZ(@NonNull View view2, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65710, null, view, f2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLF(65710, null, view2, f) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        view.setZ(f2);
+        view2.setZ(f);
     }
 
-    public static boolean startDragAndDrop(@NonNull View view, ClipData clipData, View.DragShadowBuilder dragShadowBuilder, Object obj, int i) {
+    public static boolean startDragAndDrop(@NonNull View view2, ClipData clipData, View.DragShadowBuilder dragShadowBuilder, Object obj, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65711, null, new Object[]{view, clipData, dragShadowBuilder, obj, Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65711, null, new Object[]{view2, clipData, dragShadowBuilder, obj, Integer.valueOf(i)})) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return view.startDragAndDrop(clipData, dragShadowBuilder, obj, i);
+                return view2.startDragAndDrop(clipData, dragShadowBuilder, obj, i);
             }
-            return view.startDrag(clipData, dragShadowBuilder, obj, i);
+            return view2.startDrag(clipData, dragShadowBuilder, obj, i);
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean startNestedScroll(@NonNull View view, int i) {
+    public static boolean startNestedScroll(@NonNull View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65712, null, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65712, null, view2, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return view.startNestedScroll(i);
+                return view2.startNestedScroll(i);
             }
-            if (view instanceof NestedScrollingChild) {
-                return ((NestedScrollingChild) view).startNestedScroll(i);
+            if (view2 instanceof NestedScrollingChild) {
+                return ((NestedScrollingChild) view2).startNestedScroll(i);
             }
             return false;
         }
         return invokeLI.booleanValue;
     }
 
-    public static void stopNestedScroll(@NonNull View view) {
+    public static void stopNestedScroll(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65714, null, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65714, null, view2) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                view.stopNestedScroll();
-            } else if (view instanceof NestedScrollingChild) {
-                ((NestedScrollingChild) view).stopNestedScroll();
+                view2.stopNestedScroll();
+            } else if (view2 instanceof NestedScrollingChild) {
+                ((NestedScrollingChild) view2).stopNestedScroll();
             }
         }
     }
 
-    public static void tickleInvalidationFlag(View view) {
+    public static void tickleInvalidationFlag(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65716, null, view) == null) {
-            float translationY = view.getTranslationY();
-            view.setTranslationY(1.0f + translationY);
-            view.setTranslationY(translationY);
+        if (interceptable == null || interceptable.invokeL(65716, null, view2) == null) {
+            float translationY = view2.getTranslationY();
+            view2.setTranslationY(1.0f + translationY);
+            view2.setTranslationY(translationY);
         }
     }
 
-    public static void updateDragShadow(@NonNull View view, View.DragShadowBuilder dragShadowBuilder) {
+    public static void updateDragShadow(@NonNull View view2, View.DragShadowBuilder dragShadowBuilder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65717, null, view, dragShadowBuilder) == null) || Build.VERSION.SDK_INT < 24) {
+        if (!(interceptable == null || interceptable.invokeLL(65717, null, view2, dragShadowBuilder) == null) || Build.VERSION.SDK_INT < 24) {
             return;
         }
-        view.updateDragShadow(dragShadowBuilder);
+        view2.updateDragShadow(dragShadowBuilder);
     }
 
-    public static void setScrollIndicators(@NonNull View view, int i, int i2) {
+    public static void setScrollIndicators(@NonNull View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65701, null, view, i, i2) == null) || Build.VERSION.SDK_INT < 23) {
+        if (!(interceptable == null || interceptable.invokeLII(65701, null, view2, i, i2) == null) || Build.VERSION.SDK_INT < 23) {
             return;
         }
-        view.setScrollIndicators(i, i2);
+        view2.setScrollIndicators(i, i2);
     }
 
-    public static void addAccessibilityAction(@NonNull View view, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat) {
+    public static void addAccessibilityAction(@NonNull View view2, @NonNull AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view, accessibilityActionCompat) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, accessibilityActionCompat) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        getOrCreateAccessibilityDelegateCompat(view);
-        removeActionWithId(accessibilityActionCompat.getId(), view);
-        getActionList(view).add(accessibilityActionCompat);
-        notifyViewAccessibilityStateChangedIfNeeded(view, 0);
+        getOrCreateAccessibilityDelegateCompat(view2);
+        removeActionWithId(accessibilityActionCompat.getId(), view2);
+        getActionList(view2).add(accessibilityActionCompat);
+        notifyViewAccessibilityStateChangedIfNeeded(view2, 0);
     }
 
-    public static void postInvalidateOnAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
+    public static void postInvalidateOnAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65649, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65649, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                view.postInvalidateOnAnimation(i, i2, i3, i4);
+                view2.postInvalidateOnAnimation(i, i2, i3, i4);
             } else {
-                view.postInvalidate(i, i2, i3, i4);
+                view2.postInvalidate(i, i2, i3, i4);
             }
         }
     }
 
-    public static boolean dispatchNestedPreScroll(@NonNull View view, int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2, int i3) {
+    public static boolean dispatchNestedPreScroll(@NonNull View view2, int i, int i2, @Nullable int[] iArr, @Nullable int[] iArr2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
-            if (view instanceof NestedScrollingChild2) {
-                return ((NestedScrollingChild2) view).dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2, Integer.valueOf(i3)})) == null) {
+            if (view2 instanceof NestedScrollingChild2) {
+                return ((NestedScrollingChild2) view2).dispatchNestedPreScroll(i, i2, iArr, iArr2, i3);
             }
             if (i3 == 0) {
-                return dispatchNestedPreScroll(view, i, i2, iArr, iArr2);
+                return dispatchNestedPreScroll(view2, i, i2, iArr, iArr2);
             }
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static void dispatchNestedScroll(@NonNull View view, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @NonNull int[] iArr2) {
+    public static void dispatchNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5, @NonNull int[] iArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
-            if (view instanceof NestedScrollingChild3) {
-                ((NestedScrollingChild3) view).dispatchNestedScroll(i, i2, i3, i4, iArr, i5, iArr2);
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5), iArr2}) == null) {
+            if (view2 instanceof NestedScrollingChild3) {
+                ((NestedScrollingChild3) view2).dispatchNestedScroll(i, i2, i3, i4, iArr, i5, iArr2);
             } else {
-                dispatchNestedScroll(view, i, i2, i3, i4, iArr, i5);
+                dispatchNestedScroll(view2, i, i2, i3, i4, iArr, i5);
             }
         }
     }
 
-    public static boolean hasNestedScrollingParent(@NonNull View view, int i) {
+    public static boolean hasNestedScrollingParent(@NonNull View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65620, null, view, i)) == null) {
-            if (view instanceof NestedScrollingChild2) {
-                ((NestedScrollingChild2) view).hasNestedScrollingParent(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65620, null, view2, i)) == null) {
+            if (view2 instanceof NestedScrollingChild2) {
+                ((NestedScrollingChild2) view2).hasNestedScrollingParent(i);
                 return false;
             } else if (i == 0) {
-                return hasNestedScrollingParent(view);
+                return hasNestedScrollingParent(view2);
             } else {
                 return false;
             }
@@ -3014,41 +3014,41 @@ public class ViewCompat {
         return invokeLI.booleanValue;
     }
 
-    public static boolean startNestedScroll(@NonNull View view, int i, int i2) {
+    public static boolean startNestedScroll(@NonNull View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65713, null, view, i, i2)) == null) {
-            if (view instanceof NestedScrollingChild2) {
-                return ((NestedScrollingChild2) view).startNestedScroll(i, i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65713, null, view2, i, i2)) == null) {
+            if (view2 instanceof NestedScrollingChild2) {
+                return ((NestedScrollingChild2) view2).startNestedScroll(i, i2);
             }
             if (i2 == 0) {
-                return startNestedScroll(view, i);
+                return startNestedScroll(view2, i);
             }
             return false;
         }
         return invokeLII.booleanValue;
     }
 
-    public static void stopNestedScroll(@NonNull View view, int i) {
+    public static void stopNestedScroll(@NonNull View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65715, null, view, i) == null) {
-            if (view instanceof NestedScrollingChild2) {
-                ((NestedScrollingChild2) view).stopNestedScroll(i);
+        if (interceptable == null || interceptable.invokeLI(65715, null, view2, i) == null) {
+            if (view2 instanceof NestedScrollingChild2) {
+                ((NestedScrollingChild2) view2).stopNestedScroll(i);
             } else if (i == 0) {
-                stopNestedScroll(view);
+                stopNestedScroll(view2);
             }
         }
     }
 
-    public static boolean dispatchNestedScroll(@NonNull View view, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5) {
+    public static boolean dispatchNestedScroll(@NonNull View view2, int i, int i2, int i3, int i4, @Nullable int[] iArr, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
-            if (view instanceof NestedScrollingChild2) {
-                return ((NestedScrollingChild2) view).dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, Integer.valueOf(i5)})) == null) {
+            if (view2 instanceof NestedScrollingChild2) {
+                return ((NestedScrollingChild2) view2).dispatchNestedScroll(i, i2, i3, i4, iArr, i5);
             }
             if (i5 == 0) {
-                return dispatchNestedScroll(view, i, i2, i3, i4, iArr);
+                return dispatchNestedScroll(view2, i, i2, i3, i4, iArr);
             }
             return false;
         }

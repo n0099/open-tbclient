@@ -14,23 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PrivilegeItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f34480b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f34481c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public PrivilegeTextView f34482d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f34483e;
+    public View b;
+    public TbImageView c;
+    public PrivilegeTextView d;
+    public TextView e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrivilegeItemView(Context context) {
@@ -57,18 +49,18 @@ public class PrivilegeItemView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ee, this);
-            this.f34480b = inflate;
-            this.f34481c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091904);
-            this.f34482d = (PrivilegeTextView) this.f34480b.findViewById(R.id.obfuscated_res_0x7f091909);
-            this.f34483e = (TextView) this.f34480b.findViewById(R.id.obfuscated_res_0x7f091903);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03eb, this);
+            this.b = inflate;
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918f7);
+            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918fc);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918f6);
         }
     }
 
     public PrivilegeTextView getPrivilegeName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34482d : (PrivilegeTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (PrivilegeTextView) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

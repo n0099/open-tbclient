@@ -8,35 +8,31 @@ import java.io.IOException;
 /* loaded from: classes7.dex */
 public class l implements e {
     public final i a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.model.e f43316b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final e f43317c;
+    public final com.ss.android.socialbase.downloader.model.e b;
+    public final e c;
 
     public l(DownloadInfo downloadInfo, b bVar, i iVar) throws BaseException {
         this.a = iVar;
-        this.f43316b = a(downloadInfo, iVar);
-        this.f43317c = new h(bVar, this);
+        this.b = a(downloadInfo, iVar);
+        this.c = new h(bVar, this);
     }
 
     public e a() {
-        return this.f43317c;
+        return this.c;
     }
 
     @Override // com.ss.android.socialbase.downloader.f.e
     public void b(@NonNull a aVar) throws IOException {
-        this.f43316b.a(aVar.a, 0, aVar.f43284c);
-        this.a.b(aVar.f43284c);
+        this.b.a(aVar.a, 0, aVar.c);
+        this.a.b(aVar.c);
     }
 
     public void c() throws IOException {
-        this.f43316b.c();
+        this.b.c();
     }
 
     public void d() {
-        com.ss.android.socialbase.downloader.i.f.a(this.f43316b);
+        com.ss.android.socialbase.downloader.i.f.a(this.b);
     }
 
     public i e() {
@@ -48,12 +44,12 @@ public class l implements e {
         try {
             a.a(iVar.e());
             return a;
-        } catch (IOException e2) {
-            throw new BaseException((int) RevenueServerConst.ChargeCurrencyHistoryRequest, e2);
+        } catch (IOException e) {
+            throw new BaseException((int) RevenueServerConst.ChargeCurrencyHistoryRequest, e);
         }
     }
 
     public void b() throws IOException {
-        this.f43316b.b();
+        this.b.b();
     }
 }

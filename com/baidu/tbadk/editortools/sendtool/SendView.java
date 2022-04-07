@@ -5,8 +5,6 @@ import android.content.res.ColorStateList;
 import android.view.View;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.w.n;
-import c.a.p0.a4.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,31 +18,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class SendView extends TextView implements n {
+import com.repackage.c15;
+import com.repackage.i05;
+import com.repackage.v05;
+import com.repackage.zi8;
+/* loaded from: classes3.dex */
+public class SendView extends TextView implements v05 {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f30531f = 1;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f30532g;
+    public static int f = 1;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
+    public int b;
+    public boolean[] c;
+    public int[] d;
+    public int e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f30533b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean[] f30534c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int[] f30535d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30536e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,10 +59,10 @@ public class SendView extends TextView implements n {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.a.d(new c.a.o0.w.a(8, -1, null));
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d(new i05(8, -1, null));
             }
         }
     }
@@ -110,31 +100,31 @@ public class SendView extends TextView implements n {
                 return;
             }
         }
-        this.f30534c = new boolean[]{false, false, false, false, false};
-        this.f30535d = new int[]{0, 0};
-        this.f30536e = f30532g;
-        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070250), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070229), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
+        this.c = new boolean[]{false, false, false, false, false};
+        this.d = new int[]{0, 0};
+        this.e = g;
+        setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07025c), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070234), context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f9));
         setGravity(17);
         setIncludeFontPadding(false);
         setEnabled(false);
         setTextSize(0, context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
         setTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
-        setText(R.string.obfuscated_res_0x7f0f10e1);
+        setText(R.string.obfuscated_res_0x7f0f10e9);
         setOnClickListener(new a(this));
     }
 
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i == f30532g) {
-                boolean[] zArr = this.f30534c;
+            if (i == g) {
+                boolean[] zArr = this.c;
                 if (!zArr[0] && !zArr[1] && !zArr[2] && !zArr[3] && !zArr[4]) {
                     setEnabled(false);
                 } else {
                     setEnabled(true);
                 }
-            } else if (i == f30531f) {
-                if (this.f30534c[1]) {
+            } else if (i == f) {
+                if (this.c[1]) {
                     setEnabled(true);
                 } else {
                     setEnabled(false);
@@ -143,7 +133,7 @@ public class SendView extends TextView implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -151,24 +141,24 @@ public class SendView extends TextView implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
-    public void d(c.a.o0.w.a aVar) {
+    @Override // com.repackage.v05
+    public void d(i05 i05Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i05Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(aVar);
+        editorTools.A(i05Var);
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30533b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -176,7 +166,7 @@ public class SendView extends TextView implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -184,90 +174,90 @@ public class SendView extends TextView implements n {
         }
     }
 
-    @Override // c.a.o0.w.b
-    public void onAction(c.a.o0.w.a aVar) {
+    @Override // com.repackage.j05
+    public void onAction(i05 i05Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, i05Var) == null) || i05Var == null) {
             return;
         }
-        int i = aVar.a;
+        int i = i05Var.a;
         if (i == 4) {
-            Object obj = aVar.f11499c;
+            Object obj = i05Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
-                this.f30534c[0] = true;
+                this.c[0] = true;
             } else {
-                this.f30534c[0] = false;
+                this.c[0] = false;
             }
         } else if (i == 39 || i == 28) {
-            this.f30534c[3] = true;
+            this.c[3] = true;
         } else if (i != 29) {
             switch (i) {
                 case 9:
-                    boolean[] zArr = this.f30534c;
+                    boolean[] zArr = this.c;
                     zArr[0] = false;
                     zArr[1] = false;
                     zArr[2] = false;
                     zArr[3] = false;
                     zArr[4] = false;
-                    int[] iArr = this.f30535d;
+                    int[] iArr = this.d;
                     iArr[0] = 0;
                     iArr[1] = 0;
                     break;
                 case 10:
-                    this.f30534c[2] = true;
+                    this.c[2] = true;
                     break;
                 case 11:
-                    this.f30534c[2] = false;
+                    this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = aVar.f11499c;
-                    if (obj2 instanceof c.a.o0.w.r.a) {
-                        c.a.o0.w.r.a aVar2 = (c.a.o0.w.r.a) obj2;
-                        WriteImagesInfo writeImagesInfo = aVar2.a;
+                    Object obj2 = i05Var.c;
+                    if (obj2 instanceof c15) {
+                        c15 c15Var = (c15) obj2;
+                        WriteImagesInfo writeImagesInfo = c15Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.f30535d[0] = aVar2.a.getChosedFiles().size();
+                                this.d[0] = c15Var.a.getChosedFiles().size();
                             } else {
-                                this.f30535d[0] = 0;
+                                this.d[0] = 0;
                             }
                         }
-                        if (this.f30535d[0] > 0) {
-                            this.f30534c[1] = true;
+                        if (this.d[0] > 0) {
+                            this.c[1] = true;
                             break;
                         } else {
-                            this.f30534c[1] = false;
+                            this.c[1] = false;
                             break;
                         }
                     } else {
                         return;
                     }
                 case 13:
-                    int[] iArr2 = this.f30535d;
+                    int[] iArr2 = this.d;
                     iArr2[0] = iArr2[0] - 1;
                     if (iArr2[0] > 0) {
-                        this.f30534c[1] = true;
+                        this.c[1] = true;
                         break;
                     } else {
-                        this.f30534c[1] = false;
+                        this.c[1] = false;
                         break;
                     }
             }
         } else {
-            this.f30534c[3] = false;
+            this.c[3] = false;
         }
-        a(this.f30536e);
+        a(this.e);
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{zi8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), zi8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -275,18 +265,18 @@ public class SendView extends TextView implements n {
         }
     }
 
-    @Override // c.a.o0.w.n
+    @Override // com.repackage.v05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f30533b = i;
+            this.b = i;
         }
     }
 
     public void setType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f30536e = i;
+            this.e = i;
         }
     }
 }

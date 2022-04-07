@@ -18,7 +18,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DESUtil {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] iv;
@@ -65,23 +65,23 @@ public class DESUtil {
                 Cipher cipher = Cipher.getInstance("DES/CBC/PKCS5Padding");
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return new String(cipher.doFinal(decode));
-            } catch (InvalidAlgorithmParameterException e2) {
+            } catch (InvalidAlgorithmParameterException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InvalidKeyException e2) {
                 e2.printStackTrace();
                 return null;
-            } catch (InvalidKeyException e3) {
+            } catch (NoSuchAlgorithmException e3) {
                 e3.printStackTrace();
                 return null;
-            } catch (NoSuchAlgorithmException e4) {
+            } catch (BadPaddingException e4) {
                 e4.printStackTrace();
                 return null;
-            } catch (BadPaddingException e5) {
+            } catch (IllegalBlockSizeException e5) {
                 e5.printStackTrace();
                 return null;
-            } catch (IllegalBlockSizeException e6) {
+            } catch (NoSuchPaddingException e6) {
                 e6.printStackTrace();
-                return null;
-            } catch (NoSuchPaddingException e7) {
-                e7.printStackTrace();
                 return null;
             }
         }
@@ -98,23 +98,23 @@ public class DESUtil {
                 Cipher cipher = Cipher.getInstance("DES/CBC/PKCS7Padding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
-            } catch (InvalidAlgorithmParameterException e2) {
+            } catch (InvalidAlgorithmParameterException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InvalidKeyException e2) {
                 e2.printStackTrace();
                 return null;
-            } catch (InvalidKeyException e3) {
+            } catch (NoSuchAlgorithmException e3) {
                 e3.printStackTrace();
                 return null;
-            } catch (NoSuchAlgorithmException e4) {
+            } catch (BadPaddingException e4) {
                 e4.printStackTrace();
                 return null;
-            } catch (BadPaddingException e5) {
+            } catch (IllegalBlockSizeException e5) {
                 e5.printStackTrace();
                 return null;
-            } catch (IllegalBlockSizeException e6) {
+            } catch (NoSuchPaddingException e6) {
                 e6.printStackTrace();
-                return null;
-            } catch (NoSuchPaddingException e7) {
-                e7.printStackTrace();
                 return null;
             }
         }

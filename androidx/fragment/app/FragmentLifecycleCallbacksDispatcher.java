@@ -274,18 +274,18 @@ public class FragmentLifecycleCallbacksDispatcher {
         }
     }
 
-    public void dispatchOnFragmentViewCreated(@NonNull Fragment fragment, @NonNull View view, @Nullable Bundle bundle, boolean z) {
+    public void dispatchOnFragmentViewCreated(@NonNull Fragment fragment, @NonNull View view2, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{fragment, view, bundle, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{fragment, view2, bundle, Boolean.valueOf(z)}) == null) {
             Fragment parent = this.mFragmentManager.getParent();
             if (parent != null) {
-                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewCreated(fragment, view, bundle, true);
+                parent.getParentFragmentManager().getLifecycleCallbacksDispatcher().dispatchOnFragmentViewCreated(fragment, view2, bundle, true);
             }
             Iterator<FragmentLifecycleCallbacksHolder> it = this.mLifecycleCallbacks.iterator();
             while (it.hasNext()) {
                 FragmentLifecycleCallbacksHolder next = it.next();
                 if (!z || next.mRecursive) {
-                    next.mCallback.onFragmentViewCreated(this.mFragmentManager, fragment, view, bundle);
+                    next.mCallback.onFragmentViewCreated(this.mFragmentManager, fragment, view2, bundle);
                 }
             }
         }

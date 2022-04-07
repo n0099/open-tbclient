@@ -1,7 +1,6 @@
 package com.fun.ad.sdk.internal.api;
 
 import androidx.core.view.InputDeviceCompat;
-import c.d.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +12,8 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.flavor.Flavors;
 import com.fun.ad.sdk.internal.api.flavor.RCInterceptor;
 import com.fun.ad.sdk.internal.api.ripper.AdRipper;
-/* loaded from: classes6.dex */
+import com.repackage.rk9;
+/* loaded from: classes4.dex */
 public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -142,8 +142,8 @@ public abstract class ReporterPidLoader<A> extends BasePidLoader<A> {
             super.onAdShow(a, strArr);
             this.mReporter.recordShowSucceed(z, strArr);
             AdRipper adRipper = this.mAdRipper;
-            c0 c0Var = this.mReporter.mAdIdent;
-            adRipper.report(a, c0Var.a, c0Var.f23132c);
+            rk9 rk9Var = this.mReporter.mAdIdent;
+            adRipper.report(a, rk9Var.a, rk9Var.c);
         }
     }
 

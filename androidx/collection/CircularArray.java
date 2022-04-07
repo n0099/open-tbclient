@@ -56,24 +56,24 @@ public final class CircularArray<E> {
         }
     }
 
-    public void addFirst(E e2) {
+    public void addFirst(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, e) == null) {
             int i = (this.mHead - 1) & this.mCapacityBitmask;
             this.mHead = i;
-            this.mElements[i] = e2;
+            this.mElements[i] = e;
             if (i == this.mTail) {
                 doubleCapacity();
             }
         }
     }
 
-    public void addLast(E e2) {
+    public void addLast(E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e) == null) {
             E[] eArr = this.mElements;
             int i = this.mTail;
-            eArr[i] = e2;
+            eArr[i] = e;
             int i2 = this.mCapacityBitmask & (i + 1);
             this.mTail = i2;
             if (i2 == this.mHead) {
@@ -141,10 +141,10 @@ public final class CircularArray<E> {
             int i = this.mHead;
             if (i != this.mTail) {
                 E[] eArr = this.mElements;
-                E e2 = eArr[i];
+                E e = eArr[i];
                 eArr[i] = null;
                 this.mHead = (i + 1) & this.mCapacityBitmask;
-                return e2;
+                return e;
             }
             throw new ArrayIndexOutOfBoundsException();
         }
@@ -160,10 +160,10 @@ public final class CircularArray<E> {
             if (i != i2) {
                 int i3 = this.mCapacityBitmask & (i2 - 1);
                 E[] eArr = this.mElements;
-                E e2 = eArr[i3];
+                E e = eArr[i3];
                 eArr[i3] = null;
                 this.mTail = i3;
-                return e2;
+                return e;
             }
             throw new ArrayIndexOutOfBoundsException();
         }

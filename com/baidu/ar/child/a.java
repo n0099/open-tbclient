@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CropAlgo lL;
     public HandlerThread lM;
     public Handler lN;
-    public InterfaceC1715a lO;
+    public InterfaceC0055a lO;
     public boolean lP;
     public boolean lQ;
     public d lR;
@@ -26,12 +26,12 @@ public class a {
     public int mInputWidth;
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public interface InterfaceC1715a {
+    /* loaded from: classes.dex */
+    public interface InterfaceC0055a {
         void a(long j, byte[] bArr, int i);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,12 +69,12 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface c {
         void handleMessage(Message message);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,22 +221,22 @@ public class a {
         return invokeJL.longValue;
     }
 
-    public long a(long j, byte[] bArr, int i, int i2, float f2) {
+    public long a(long j, byte[] bArr, int i, int i2, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
             if (j <= 0) {
                 return 0L;
             }
-            return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f2);
+            return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f);
         }
         return invokeCommon.longValue;
     }
 
-    public void a(InterfaceC1715a interfaceC1715a) {
+    public void a(InterfaceC0055a interfaceC0055a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1715a) == null) {
-            this.lO = interfaceC1715a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC0055a) == null) {
+            this.lO = interfaceC0055a;
         }
     }
 

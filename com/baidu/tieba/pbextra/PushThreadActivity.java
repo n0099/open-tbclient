@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PushThreadActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class PushThreadActivity extends BaseActivity {
     public HttpMessageListener mPushThreadMessageListener;
     public List<PushTypeData> mPushTypeDatas;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,12 +79,12 @@ public class PushThreadActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && ((z = httpResponsedMessage instanceof PbPushHttpResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                 } else if (z) {
                     if (this.a.mCurrentPushType == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
                         this.a.setResult(-1, new Intent());
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                     }
                     this.a.finish();
                 }
@@ -92,7 +92,7 @@ public class PushThreadActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,17 +145,17 @@ public class PushThreadActivity extends BaseActivity {
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0711, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fdd);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fdc);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921c9);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+                View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0708, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fd7);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fd6);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921ac);
                 PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.a.mPushTypeDatas, i);
                 if (pushTypeData != null) {
-                    tbImageView.J(pushTypeData.getIcon(), 10, false);
+                    tbImageView.K(pushTypeData.getIcon(), 10, false);
                     textView.setText(pushTypeData.getName());
                     if (pushTypeData.getType() == this.a.mCurrentPushType) {
                         SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
@@ -201,20 +201,20 @@ public class PushThreadActivity extends BaseActivity {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0712);
-            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f09198d), R.drawable.dialog_background);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091c76), (int) R.color.CAM_X0105);
-            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090d0d);
+            setContentView(R.layout.obfuscated_res_0x7f0d0709);
+            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f09197e), R.drawable.dialog_background);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091c64), (int) R.color.CAM_X0105);
+            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090d14);
             this.mGridView.setAdapter((ListAdapter) new b(this));
             this.mGridView.setOnItemClickListener(this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09197d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09196e);
             this.mPushCommit = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f080f93);
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f080f9a);
             SkinManager.setViewTextColor(this.mPushCommit, (int) R.color.CAM_X0101);
             this.mPushCommit.setOnClickListener(this);
-            ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090e02);
+            ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090e0a);
             this.mIbClose = imageButton;
-            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f080f92);
+            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f080f99);
             this.mIbClose.setOnClickListener(this);
         }
     }
@@ -236,12 +236,12 @@ public class PushThreadActivity extends BaseActivity {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view == this.mPushCommit) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2 == this.mPushCommit) {
                 if (this.mCurrentPushType == 0) {
-                    showToast(R.string.obfuscated_res_0x7f0f10bc);
+                    showToast(R.string.obfuscated_res_0x7f0f10c4);
                     return;
                 }
                 long longExtra = getIntent().getLongExtra("forum_id", 0L);
@@ -249,7 +249,7 @@ public class PushThreadActivity extends BaseActivity {
                 long longExtra3 = getIntent().getLongExtra("user_id", 0L);
                 showLoadingDialog("");
                 sendMessage(new PbPushRequestMessage(longExtra, longExtra2, this.mCurrentPushType, longExtra3));
-            } else if (view == this.mIbClose) {
+            } else if (view2 == this.mIbClose) {
                 finish();
             }
         }
@@ -271,12 +271,12 @@ public class PushThreadActivity extends BaseActivity {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView adapterView, View view, int i, long j) {
+    public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ImageView imageView = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090fdc);
-            TextView textView = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921c9);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd6);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921ac);
             this.mPushCommit.setEnabled(true);
             PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.mPushTypeDatas, i);
             if (pushTypeData != null) {
@@ -288,8 +288,8 @@ public class PushThreadActivity extends BaseActivity {
                 }
                 PushTypeData pushTypeData2 = this.mPreSelectData;
                 if (pushTypeData2 != null && (childAt = adapterView.getChildAt(ListUtils.getPosition(this.mPushTypeDatas, pushTypeData2))) != null) {
-                    ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090fdc)).setImageDrawable(null);
-                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f0921c9), (int) R.color.CAM_X0105);
+                    ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090fd6)).setImageDrawable(null);
+                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f0921ac), (int) R.color.CAM_X0105);
                 }
                 SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);

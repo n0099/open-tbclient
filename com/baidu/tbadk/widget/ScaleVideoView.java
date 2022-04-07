@@ -10,22 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ScaleVideoView extends VideoView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
+    public int b;
+    public int c;
+    public MediaPlayer.OnVideoSizeChangedListener d;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f30724b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30725c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public MediaPlayer.OnVideoSizeChangedListener f30726d;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements MediaPlayer.OnVideoSizeChangedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +47,12 @@ public class ScaleVideoView extends VideoView {
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048576, this, mediaPlayer, i, i2) == null) {
-                this.a.f30724b = mediaPlayer.getVideoWidth();
-                this.a.f30725c = mediaPlayer.getVideoHeight();
-                if (this.a.f30724b == 0 || this.a.f30725c == 0) {
+                this.a.b = mediaPlayer.getVideoWidth();
+                this.a.c = mediaPlayer.getVideoHeight();
+                if (this.a.b == 0 || this.a.c == 0) {
                     return;
                 }
-                this.a.getHolder().setFixedSize(this.a.f30724b, this.a.f30725c);
+                this.a.getHolder().setFixedSize(this.a.b, this.a.c);
                 this.a.requestLayout();
             }
         }
@@ -82,15 +76,15 @@ public class ScaleVideoView extends VideoView {
                 return;
             }
         }
-        this.f30726d = new a(this);
+        this.d = new a(this);
         g();
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30724b = 0;
-            this.f30725c = 0;
+            this.b = 0;
+            this.c = 0;
         }
     }
 
@@ -98,17 +92,17 @@ public class ScaleVideoView extends VideoView {
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            int defaultSize = VideoView.getDefaultSize(this.f30724b, i);
-            int defaultSize2 = VideoView.getDefaultSize(this.f30725c, i2);
-            if (this.f30724b > 0 && this.f30725c > 0) {
+            int defaultSize = VideoView.getDefaultSize(this.b, i);
+            int defaultSize2 = VideoView.getDefaultSize(this.c, i2);
+            if (this.b > 0 && this.c > 0) {
                 int mode = View.MeasureSpec.getMode(i);
                 int size = View.MeasureSpec.getSize(i);
                 int mode2 = View.MeasureSpec.getMode(i2);
                 int size2 = View.MeasureSpec.getSize(i2);
                 if (mode == 1073741824 && mode2 == 1073741824) {
-                    int i3 = this.f30724b;
+                    int i3 = this.b;
                     int i4 = i3 * size2;
-                    int i5 = this.f30725c;
+                    int i5 = this.c;
                     if (i4 < size * i5) {
                         defaultSize2 = (i5 * size) / i3;
                         defaultSize = size;
@@ -118,13 +112,13 @@ public class ScaleVideoView extends VideoView {
                     }
                 } else {
                     if (mode == 1073741824) {
-                        defaultSize2 = (this.f30725c * size) / this.f30724b;
+                        defaultSize2 = (this.c * size) / this.b;
                     } else if (mode2 == 1073741824) {
-                        defaultSize = (this.f30724b * size2) / this.f30725c;
+                        defaultSize = (this.b * size2) / this.c;
                         defaultSize2 = size2;
                     } else {
-                        int i6 = this.f30724b;
-                        int i7 = this.f30725c;
+                        int i6 = this.b;
+                        int i7 = this.c;
                         if (mode2 != Integer.MIN_VALUE || i7 <= size2) {
                             defaultSize2 = i7;
                         } else {
@@ -134,7 +128,7 @@ public class ScaleVideoView extends VideoView {
                         if (mode != Integer.MIN_VALUE || i6 <= size) {
                             defaultSize = i6;
                         } else {
-                            defaultSize2 = (this.f30725c * size) / this.f30724b;
+                            defaultSize2 = (this.c * size) / this.b;
                         }
                     }
                     defaultSize = size;
@@ -150,9 +144,9 @@ public class ScaleVideoView extends VideoView {
             return;
         }
         this.a = mediaPlayer;
-        this.f30724b = mediaPlayer.getVideoWidth();
-        this.f30725c = mediaPlayer.getVideoHeight();
-        this.a.setOnVideoSizeChangedListener(this.f30726d);
+        this.b = mediaPlayer.getVideoWidth();
+        this.c = mediaPlayer.getVideoHeight();
+        this.a.setOnVideoSizeChangedListener(this.d);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -174,7 +168,7 @@ public class ScaleVideoView extends VideoView {
                 return;
             }
         }
-        this.f30726d = new a(this);
+        this.d = new a(this);
         g();
     }
 
@@ -197,7 +191,7 @@ public class ScaleVideoView extends VideoView {
                 return;
             }
         }
-        this.f30726d = new a(this);
+        this.d = new a(this);
         g();
     }
 }

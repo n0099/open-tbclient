@@ -1,8 +1,6 @@
 package com.baidu.nadcore.player.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.v.m0.f;
-import c.a.a0.v.v0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ay0;
+import com.repackage.kw0;
 import java.util.ArrayList;
 import java.util.Iterator;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u000b\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0010\u0010\u0011J\u0017\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J#\u0010\n\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\r\u001a\u00020\u00042\u0006\u0010\f\u001a\u00020\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007H\u0002¢\u0006\u0004\b\r\u0010\u000eJ#\u0010\u000f\u001a\u0004\u0018\u00010\u00022\b\u0010\b\u001a\u0004\u0018\u00010\u00072\b\u0010\t\u001a\u0004\u0018\u00010\u0007¢\u0006\u0004\b\u000f\u0010\u000b¨\u0006\u0012"}, d2 = {"Lcom/baidu/nadcore/player/model/HistoryCache;", "Ljava/util/ArrayList;", "Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "element", "", "add", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;)Z", "", "id", TiebaStatic.Params.VID, "findCache", "(Ljava/lang/String;Ljava/lang/String;)Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;", "info", "isSameHistory", "(Lcom/baidu/nadcore/player/model/VideoPlayHistoryItemInfo;Ljava/lang/String;Ljava/lang/String;)Z", "removeCache", "<init>", "()V", "nadcore-lib-widget"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
-public final class HistoryCache extends ArrayList<f> {
+/* loaded from: classes2.dex */
+public final class HistoryCache extends ArrayList<kw0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,42 +44,42 @@ public final class HistoryCache extends ArrayList<f> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private final boolean isSameHistory(f fVar, String str, String str2) {
+    private final boolean isSameHistory(kw0 kw0Var, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, fVar, str, str2)) == null) {
-            String b2 = fVar.b();
-            if (b2 != null) {
-                if (b2.length() > 0) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, kw0Var, str, str2)) == null) {
+            String b = kw0Var.b();
+            if (b != null) {
+                if (b.length() > 0) {
                 }
             }
-            String e2 = fVar.e();
-            if (e2 != null) {
-                return (e2.length() > 0) && Intrinsics.areEqual(fVar.e(), str2);
+            String e = kw0Var.e();
+            if (e != null) {
+                return (e.length() > 0) && Intrinsics.areEqual(kw0Var.e(), str2);
             }
             return false;
         }
         return invokeLLL.booleanValue;
     }
 
-    public /* bridge */ boolean contains(f fVar) {
+    public /* bridge */ boolean contains(kw0 kw0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fVar)) == null) ? super.contains((Object) fVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kw0Var)) == null) ? super.contains((Object) kw0Var) : invokeL.booleanValue;
     }
 
-    public final f findCache(String str, String str2) {
+    public final kw0 findCache(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            for (f fVar : this) {
-                if (isSameHistory(fVar, str, str2)) {
-                    return fVar;
+            for (kw0 kw0Var : this) {
+                if (isSameHistory(kw0Var, str, str2)) {
+                    return kw0Var;
                 }
             }
             return null;
         }
-        return (f) invokeLL.objValue;
+        return (kw0) invokeLL.objValue;
     }
 
     public /* bridge */ int getSize() {
@@ -88,49 +88,49 @@ public final class HistoryCache extends ArrayList<f> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? super.size() : invokeV.intValue;
     }
 
-    public /* bridge */ int indexOf(f fVar) {
+    public /* bridge */ int indexOf(kw0 kw0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fVar)) == null) ? super.indexOf((Object) fVar) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, kw0Var)) == null) ? super.indexOf((Object) kw0Var) : invokeL.intValue;
     }
 
-    public /* bridge */ int lastIndexOf(f fVar) {
+    public /* bridge */ int lastIndexOf(kw0 kw0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar)) == null) ? super.lastIndexOf((Object) fVar) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kw0Var)) == null) ? super.lastIndexOf((Object) kw0Var) : invokeL.intValue;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
-    public final /* bridge */ f remove(int i) {
+    public final /* bridge */ kw0 remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? removeAt(i) : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? removeAt(i) : (kw0) invokeI.objValue;
     }
 
-    public /* bridge */ f removeAt(int i) {
+    public /* bridge */ kw0 removeAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? (f) super.remove(i) : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? (kw0) super.remove(i) : (kw0) invokeI.objValue;
     }
 
-    public final f removeCache(String str, String str2) {
+    public final kw0 removeCache(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, str2)) == null) {
-            Iterator<f> it = iterator();
+            Iterator<kw0> it = iterator();
             Intrinsics.checkNotNullExpressionValue(it, "iterator()");
             while (it.hasNext()) {
-                f next = it.next();
+                kw0 next = it.next();
                 Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-                f fVar = next;
-                if (isSameHistory(fVar, str, str2)) {
+                kw0 kw0Var = next;
+                if (isSameHistory(kw0Var, str, str2)) {
                     it.remove();
-                    return fVar;
+                    return kw0Var;
                 }
             }
             return null;
         }
-        return (f) invokeLL.objValue;
+        return (kw0) invokeLL.objValue;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -142,13 +142,13 @@ public final class HistoryCache extends ArrayList<f> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean add(f element) {
+    public boolean add(kw0 element) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, element)) == null) {
             Intrinsics.checkNotNullParameter(element, "element");
             if (size() >= 50) {
-                h.a("remove item " + remove(0));
+                ay0.a("remove item " + remove(0));
             }
             removeCache(element.b(), element.e());
             return super.add((HistoryCache) element);
@@ -161,8 +161,8 @@ public final class HistoryCache extends ArrayList<f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (obj instanceof f) {
-                return contains((f) obj);
+            if (obj instanceof kw0) {
+                return contains((kw0) obj);
             }
             return false;
         }
@@ -174,8 +174,8 @@ public final class HistoryCache extends ArrayList<f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (obj instanceof f) {
-                return indexOf((f) obj);
+            if (obj instanceof kw0) {
+                return indexOf((kw0) obj);
             }
             return -1;
         }
@@ -187,18 +187,18 @@ public final class HistoryCache extends ArrayList<f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            if (obj instanceof f) {
-                return lastIndexOf((f) obj);
+            if (obj instanceof kw0) {
+                return lastIndexOf((kw0) obj);
             }
             return -1;
         }
         return invokeL.intValue;
     }
 
-    public /* bridge */ boolean remove(f fVar) {
+    public /* bridge */ boolean remove(kw0 kw0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, fVar)) == null) ? super.remove((Object) fVar) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, kw0Var)) == null) ? super.remove((Object) kw0Var) : invokeL.booleanValue;
     }
 
     @Override // java.util.ArrayList, java.util.AbstractCollection, java.util.Collection, java.util.List
@@ -206,8 +206,8 @@ public final class HistoryCache extends ArrayList<f> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, obj)) == null) {
-            if (obj instanceof f) {
-                return remove((f) obj);
+            if (obj instanceof kw0) {
+                return remove((kw0) obj);
             }
             return false;
         }

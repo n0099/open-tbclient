@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ModelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static long defaultModelsVersion = 1;
@@ -118,9 +118,9 @@ public class ModelManager {
                             fileUtil.deleteFile(new File(ModelInfoDataProvider.defaultModelFilePath));
                             fileUtil.copyDirFromAssets(AppRuntime.getAppContext(), ModelInfoDataProvider.defaultModelAssertDir, ModelInfoDataProvider.defaultModelFilePath);
                             DeviceInfoSharedPreferenceWrapper.getInstance().putLong(ModelInfoDataProvider.defaultModelAssertDir, defaultModelsVersion);
-                        } catch (Exception e2) {
+                        } catch (Exception e) {
                             if (Config.isDebug()) {
-                                e2.printStackTrace();
+                                e.printStackTrace();
                             }
                         }
                     }

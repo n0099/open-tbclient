@@ -12,7 +12,7 @@ import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WXImageObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CONTENT_LENGTH_LIMIT = 26214400;
@@ -56,8 +56,8 @@ public class WXImageObject implements WXMediaMessage.IMediaObject {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 85, byteArrayOutputStream);
             this.imageData = byteArrayOutputStream.toByteArray();
             byteArrayOutputStream.close();
-        } catch (Exception e2) {
-            Log.e("MicroMsg.SDK.WXImageObject", "WXImageObject <init>, exception:" + e2.getMessage());
+        } catch (Exception e) {
+            Log.e("MicroMsg.SDK.WXImageObject", "WXImageObject <init>, exception:" + e.getMessage());
         }
     }
 

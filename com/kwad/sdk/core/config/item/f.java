@@ -3,10 +3,10 @@ package com.kwad.sdk.core.config.item;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f extends a<Double> {
-    public f(String str, Double d2) {
-        super(str, d2);
+    public f(String str, Double d) {
+        super(str, d);
     }
 
     @Override // com.kwad.sdk.core.config.item.b

@@ -11,7 +11,7 @@ import com.xiaomi.push.bq;
 import com.xiaomi.push.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class a {
             }
         }
         this.os = bq.a();
-        this.miuiVersion = l.m574a();
+        this.miuiVersion = l.m570a();
     }
 
     public String getPackageName() {
@@ -74,8 +74,8 @@ public class a {
                 jSONObject.put("pkgName", this.pkgName);
                 jSONObject.put(CommandMessage.SDK_VERSION, this.sdkVersion);
                 return jSONObject;
-            } catch (JSONException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
             }
         }

@@ -32,7 +32,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class MP3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BIT_RATE;
@@ -52,7 +52,7 @@ public class MP3TrackImpl extends AbstractTrack {
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class MP3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,8 +139,8 @@ public class MP3TrackImpl extends AbstractTrack {
         this.samples = new LinkedList();
         MP3Header readSamples = readSamples(dataSource);
         this.firstHeader = readSamples;
-        double d2 = readSamples.sampleRate / 1152.0d;
-        double size = this.samples.size() / d2;
+        double d = readSamples.sampleRate / 1152.0d;
+        double size = this.samples.size() / d;
         LinkedList linkedList = new LinkedList();
         Iterator<Sample> it = this.samples.iterator();
         long j = 0;
@@ -182,15 +182,15 @@ public class MP3TrackImpl extends AbstractTrack {
             int size2 = (int) it.next().getSize();
             j += size2;
             linkedList.add(Integer.valueOf(size2));
-            while (linkedList.size() > d2) {
+            while (linkedList.size() > d) {
                 linkedList.pop();
             }
-            if (linkedList.size() == ((int) d2)) {
+            if (linkedList.size() == ((int) d)) {
                 Iterator it2 = linkedList.iterator();
                 while (it2.hasNext()) {
                     i += ((Integer) it2.next()).intValue();
                 }
-                double size3 = ((i * 8.0d) / linkedList.size()) * d2;
+                double size3 = ((i * 8.0d) / linkedList.size()) * d;
                 if (size3 > this.maxBitRate) {
                     this.maxBitRate = (int) size3;
                 }

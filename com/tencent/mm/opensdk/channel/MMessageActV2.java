@@ -14,7 +14,7 @@ import com.tencent.mm.opensdk.constants.Build;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MMessageActV2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_ENTRY_CLASS_NAME = ".wxapi.WXEntryActivity";
@@ -23,7 +23,7 @@ public class MMessageActV2 {
     public static final String TAG = "MicroMsg.SDK.MMessageAct";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Args {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int INVALID_FLAGS = -1;
@@ -111,8 +111,8 @@ public class MMessageActV2 {
                     context.startActivity(intent);
                     Log.d(TAG, "send mm message, intent=" + intent);
                     return true;
-                } catch (Exception e2) {
-                    str = "send fail, ex = " + e2.getMessage();
+                } catch (Exception e) {
+                    str = "send fail, ex = " + e.getMessage();
                 }
             }
             Log.e(TAG, str);

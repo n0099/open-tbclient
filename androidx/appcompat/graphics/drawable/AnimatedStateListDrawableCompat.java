@@ -394,11 +394,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         }
 
         @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f2) {
+        public float getInterpolation(float f) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                int i = (int) ((f2 * this.mTotalDuration) + 0.5f);
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+                int i = (int) ((f * this.mTotalDuration) + 0.5f);
                 int i2 = this.mFrames;
                 int[] iArr = this.mFrameTimes;
                 int i3 = 0;
@@ -539,11 +539,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                     return createFromXmlInner(context, resources, xml, asAttributeSet, theme);
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException e2) {
-                Log.e(LOGTAG, "parser error", e2);
+            } catch (IOException e) {
+                Log.e(LOGTAG, "parser error", e);
                 return null;
-            } catch (XmlPullParserException e3) {
-                Log.e(LOGTAG, "parser error", e3);
+            } catch (XmlPullParserException e2) {
+                Log.e(LOGTAG, "parser error", e2);
                 return null;
             }
         }
@@ -968,8 +968,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspot(float f2, float f3) {
-        super.setHotspot(f2, f3);
+    public /* bridge */ /* synthetic */ void setHotspot(float f, float f2) {
+        super.setHotspot(f, f2);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable

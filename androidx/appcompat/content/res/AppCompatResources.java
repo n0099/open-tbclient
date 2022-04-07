@@ -184,8 +184,8 @@ public final class AppCompatResources {
             Resources resources = context.getResources();
             try {
                 return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i), context.getTheme());
-            } catch (Exception e2) {
-                Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e2);
+            } catch (Exception e) {
+                Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e);
                 return null;
             }
         }

@@ -18,7 +18,7 @@ import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TextureRender {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLOAT_SIZE_BYTES = 4;
@@ -142,8 +142,8 @@ public class TextureRender {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 Bitmap createBitmap = Bitmap.createBitmap(iArr, i, i2, Bitmap.Config.ARGB_8888);
@@ -151,11 +151,11 @@ public class TextureRender {
                 createBitmap.recycle();
                 try {
                     fileOutputStream.close();
-                } catch (IOException e3) {
-                    throw new RuntimeException("Failed to close file " + str, e3);
+                } catch (IOException e2) {
+                    throw new RuntimeException("Failed to close file " + str, e2);
                 }
-            } catch (IOException e4) {
-                e = e4;
+            } catch (IOException e3) {
+                e = e3;
                 throw new RuntimeException("Failed to write file " + str, e);
             } catch (Throwable th2) {
                 th = th2;
@@ -163,8 +163,8 @@ public class TextureRender {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        throw new RuntimeException("Failed to close file " + str, e5);
+                    } catch (IOException e4) {
+                        throw new RuntimeException("Failed to close file " + str, e4);
                     }
                 }
                 throw th;

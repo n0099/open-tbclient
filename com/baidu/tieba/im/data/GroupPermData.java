@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.o.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uo;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
-public class GroupPermData implements n, Serializable {
+/* loaded from: classes3.dex */
+public class GroupPermData implements uo, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MANAGER = 1;
     public static final int NORMAL = 1;
@@ -124,7 +124,7 @@ public class GroupPermData implements n, Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isManager : invokeV.intValue;
     }
 
-    @Override // c.a.d.o.e.n
+    @Override // com.repackage.uo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

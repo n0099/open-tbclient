@@ -11,7 +11,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class AlignmentPatternFinder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,12 +25,12 @@ public final class AlignmentPatternFinder {
     public final int startY;
     public final int width;
 
-    public AlignmentPatternFinder(BitMatrix bitMatrix, int i, int i2, int i3, int i4, float f2, ResultPointCallback resultPointCallback) {
+    public AlignmentPatternFinder(BitMatrix bitMatrix, int i, int i2, int i3, int i4, float f, ResultPointCallback resultPointCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitMatrix, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), resultPointCallback};
+            Object[] objArr = {bitMatrix, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), resultPointCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -46,7 +46,7 @@ public final class AlignmentPatternFinder {
         this.startY = i2;
         this.width = i3;
         this.height = i4;
-        this.moduleSize = f2;
+        this.moduleSize = f;
         this.crossCheckStateCount = new int[3];
         this.resultPointCallback = resultPointCallback;
     }
@@ -132,10 +132,10 @@ public final class AlignmentPatternFinder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, iArr)) == null) {
-            float f2 = this.moduleSize;
-            float f3 = f2 / 2.0f;
+            float f = this.moduleSize;
+            float f2 = f / 2.0f;
             for (int i = 0; i < 3; i++) {
-                if (Math.abs(f2 - iArr[i]) >= f3) {
+                if (Math.abs(f - iArr[i]) >= f2) {
                     return false;
                 }
             }
@@ -154,13 +154,13 @@ public final class AlignmentPatternFinder {
             if (Float.isNaN(crossCheckVertical)) {
                 return null;
             }
-            float f2 = ((iArr[0] + iArr[1]) + iArr[2]) / 3.0f;
+            float f = ((iArr[0] + iArr[1]) + iArr[2]) / 3.0f;
             for (AlignmentPattern alignmentPattern : this.possibleCenters) {
-                if (alignmentPattern.aboutEquals(f2, crossCheckVertical, centerFromEnd)) {
-                    return alignmentPattern.combineEstimate(crossCheckVertical, centerFromEnd, f2);
+                if (alignmentPattern.aboutEquals(f, crossCheckVertical, centerFromEnd)) {
+                    return alignmentPattern.combineEstimate(crossCheckVertical, centerFromEnd, f);
                 }
             }
-            AlignmentPattern alignmentPattern2 = new AlignmentPattern(centerFromEnd, crossCheckVertical, f2);
+            AlignmentPattern alignmentPattern2 = new AlignmentPattern(centerFromEnd, crossCheckVertical, f);
             this.possibleCenters.add(alignmentPattern2);
             ResultPointCallback resultPointCallback = this.resultPointCallback;
             if (resultPointCallback != null) {

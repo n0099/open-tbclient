@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ShareFromTopicMsgData extends ShareBaseMsgData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -134,8 +134,8 @@ public class ShareFromTopicMsgData extends ShareBaseMsgData {
                 jSONArray.put("1");
                 jSONArray.put(jSONObject);
                 return jSONArray.toString();
-            } catch (JSONException e2) {
-                BdLog.detailException(e2);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
                 return null;
             }
         }

@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.ZipFile;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CommentUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,8 +55,8 @@ public class CommentUtils {
         try {
             try {
                 randomAccessFile2 = new RandomAccessFile(file, "r");
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return null;
             }
             try {
@@ -71,38 +71,38 @@ public class CommentUtils {
                 String str = new String(bArr2, IMAudioTransRequest.CHARSET);
                 try {
                     randomAccessFile2.close();
-                } catch (IOException e3) {
-                    e3.printStackTrace();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
                 return str;
-            } catch (FileNotFoundException e4) {
+            } catch (FileNotFoundException e3) {
+                e = e3;
+                e.printStackTrace();
+                if (randomAccessFile2 != null) {
+                    randomAccessFile2.close();
+                }
+                return null;
+            } catch (IOException e4) {
                 e = e4;
                 e.printStackTrace();
                 if (randomAccessFile2 != null) {
                     randomAccessFile2.close();
                 }
                 return null;
-            } catch (IOException e5) {
-                e = e5;
-                e.printStackTrace();
-                if (randomAccessFile2 != null) {
-                    randomAccessFile2.close();
-                }
-                return null;
             }
-        } catch (FileNotFoundException e6) {
-            e = e6;
+        } catch (FileNotFoundException e5) {
+            e = e5;
             randomAccessFile2 = null;
-        } catch (IOException e7) {
-            e = e7;
+        } catch (IOException e6) {
+            e = e6;
             randomAccessFile2 = null;
         } catch (Throwable th2) {
             th = th2;
             if (randomAccessFile3 != null) {
                 try {
                     randomAccessFile3.close();
-                } catch (IOException e8) {
-                    e8.printStackTrace();
+                } catch (IOException e7) {
+                    e7.printStackTrace();
                 }
             }
             throw th;
@@ -129,15 +129,15 @@ public class CommentUtils {
                     try {
                         str = zipFile.getComment();
                         zipFile2 = zipFile;
-                    } catch (IOException e2) {
-                        e = e2;
+                    } catch (IOException e) {
+                        e = e;
                         e.printStackTrace();
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
                                 return null;
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
+                            } catch (Exception e2) {
+                                e2.printStackTrace();
                                 return null;
                             }
                         }
@@ -149,8 +149,8 @@ public class CommentUtils {
                     if (zipFile2 != null) {
                         try {
                             zipFile2.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
                         }
                     }
                     throw th;
@@ -161,13 +161,13 @@ public class CommentUtils {
             if (zipFile2 != null) {
                 try {
                     zipFile2.close();
-                } catch (Exception e5) {
-                    e5.printStackTrace();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
                 }
             }
             return str;
-        } catch (IOException e6) {
-            e = e6;
+        } catch (IOException e5) {
+            e = e5;
             zipFile = null;
         } catch (Throwable th2) {
             th = th2;
@@ -225,8 +225,8 @@ public class CommentUtils {
                 if ((Build.VERSION.SDK_INT >= 19 ? zipFile2.getComment() : "") != null) {
                     try {
                         zipFile2.close();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     return "bad";
                 }
@@ -237,8 +237,8 @@ public class CommentUtils {
                     byteArrayOutputStream.write(short2Stream((short) bytes.length));
                     byteArray = byteArrayOutputStream.toByteArray();
                     randomAccessFile = new RandomAccessFile(file, "rw");
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     randomAccessFile = null;
                 } catch (Throwable th) {
                     th = th;
@@ -252,20 +252,20 @@ public class CommentUtils {
                         zipFile2.close();
                         byteArrayOutputStream.close();
                         randomAccessFile.close();
-                    } catch (Exception e4) {
-                        e4.printStackTrace();
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
                     }
                     return FrsActivityConfig.GOOD;
-                } catch (IOException e5) {
-                    e = e5;
+                } catch (IOException e4) {
+                    e = e4;
                     zipFile = zipFile2;
                     try {
                         e.printStackTrace();
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
-                            } catch (Exception e6) {
-                                e6.printStackTrace();
+                            } catch (Exception e5) {
+                                e5.printStackTrace();
                                 return "bad";
                             }
                         }
@@ -281,8 +281,8 @@ public class CommentUtils {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
-                            } catch (Exception e7) {
-                                e7.printStackTrace();
+                            } catch (Exception e6) {
+                                e6.printStackTrace();
                                 throw th;
                             }
                         }
@@ -305,8 +305,8 @@ public class CommentUtils {
                     }
                     throw th;
                 }
-            } catch (IOException e8) {
-                e = e8;
+            } catch (IOException e7) {
+                e = e7;
                 byteArrayOutputStream = null;
                 randomAccessFile = null;
             } catch (Throwable th4) {
@@ -314,8 +314,8 @@ public class CommentUtils {
                 byteArrayOutputStream = null;
                 randomAccessFile = null;
             }
-        } catch (IOException e9) {
-            e = e9;
+        } catch (IOException e8) {
+            e = e8;
             byteArrayOutputStream = null;
             randomAccessFile = null;
         } catch (Throwable th5) {

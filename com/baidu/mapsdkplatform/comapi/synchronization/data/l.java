@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "l";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public d f26853b;
+    public d b;
 
     static {
         InterceptResult invokeClinit;
@@ -52,7 +50,7 @@ public class l {
             }
         }
         d a2 = d.a();
-        this.f26853b = a2;
+        this.b = a2;
         if (a2 != null) {
             a2.a(roleOptions, displayOptions);
         }
@@ -61,7 +59,7 @@ public class l {
     public void a() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.b();
@@ -70,25 +68,25 @@ public class l {
     public void a(int i) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.a(i);
     }
 
-    public void a(View view) {
+    public void a(View view2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || (dVar = this.b) == null) {
             return;
         }
-        dVar.a(view);
+        dVar.a(view2);
     }
 
     public void a(DisplayOptions displayOptions) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, displayOptions) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, displayOptions) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.a(displayOptions);
@@ -97,7 +95,7 @@ public class l {
     public void a(RoleOptions roleOptions) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, roleOptions) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, roleOptions) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.a(roleOptions);
@@ -106,7 +104,7 @@ public class l {
     public void a(k kVar) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.a(kVar);
@@ -115,7 +113,7 @@ public class l {
     public void b() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.c();
@@ -124,36 +122,36 @@ public class l {
     public void b(int i) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.b(i);
     }
 
-    public void b(View view) {
+    public void b(View view2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) || (dVar = this.b) == null) {
             return;
         }
-        dVar.b(view);
+        dVar.b(view2);
     }
 
     public void c() {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (dVar = this.b) == null) {
             return;
         }
         dVar.d();
     }
 
-    public void c(View view) {
+    public void c(View view2) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (dVar = this.f26853b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, view2) == null) || (dVar = this.b) == null) {
             return;
         }
-        dVar.c(view);
+        dVar.c(view2);
     }
 }

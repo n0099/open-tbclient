@@ -1,0 +1,74 @@
+package com.baidu.searchbox.crius.constants;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes2.dex */
+public class CriusAttrConstants {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String ABSOLUTE = "absolute";
+    public static final String ALIGN_CONTENT = "align-content";
+    public static final String ALIGN_ITEMS = "align-items";
+    public static final String ALIGN_SELF = "align-self";
+    public static final String ASPECT_RATIO = "aspect-ratio";
+    public static final String AUTO = "auto";
+    public static final String BOTTOM = "bottom";
+    public static final String CENTER = "center";
+    public static final String CHILDREN = "children";
+    public static final String COLUMN = "column";
+    public static final String COLUMN_REVERSE = "column-reverse";
+    public static final String DISPLAY = "display";
+    public static final String DISPLAY_FLEX = "flex";
+    public static final String DISPLAY_NONE = "none";
+    public static final double DOUBLE_MIN_VALUE = -10000.0d;
+    public static final String FLEX = "flex";
+    public static final String FLEX_BASIS = "flex-basis";
+    public static final String FLEX_DIRECTION = "flex-direction";
+    public static final String FLEX_END = "flex-end";
+    public static final String FLEX_GROW = "flex-grow";
+    public static final String FLEX_SHRINK = "flex-shrink";
+    public static final String FLEX_START = "flex-start";
+    public static final String HEIGHT = "height";
+    public static final String JUSTIFY_CONTENT = "justify-content";
+    public static final String LEFT = "left";
+    public static final String MARGIN = "margin";
+    public static final String MARGIN_BOTTOM = "margin-bottom";
+    public static final String MARGIN_LEFT = "margin-left";
+    public static final String MARGIN_RIGHT = "margin-right";
+    public static final String MARGIN_TOP = "margin-top";
+    public static final String MAX_HEIGHT = "max-height";
+    public static final String MAX_WIDTH = "max-width";
+    public static final String MIN_HEIGHT = "min-height";
+    public static final String MIN_WIDTH = "min-width";
+    public static final String PADDING = "padding";
+    public static final String PADDING_BOTTOM = "padding-bottom";
+    public static final String PADDING_LEFT = "padding-left";
+    public static final String PADDING_RIGHT = "padding-right";
+    public static final String PADDING_TOP = "padding-top";
+    public static final String POSITION = "position";
+    public static final String RELATIVE = "relative";
+    public static final String RIGHT = "right";
+    public static final String ROW = "row";
+    public static final String ROW_REVERSE = "row-reverse";
+    public static final String SPACE_AROUND = "space-around";
+    public static final String SPACE_BETWEEN = "space-between";
+    public static final String STRETCH = "stretch";
+    public static final String TOP = "top";
+    public static final String WIDTH = "width";
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public CriusAttrConstants() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+}

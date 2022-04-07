@@ -2,6 +2,7 @@ package kotlin.io;
 
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayDeque;
@@ -104,7 +105,7 @@ public final class FileTreeWalk implements Sequence<File> {
             }
         }
 
-        @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0082\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\n\u0010\u0007\u001a\u0004\u0018\u00010\u0003H\u0016R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\b"}, d2 = {"Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$SingleFileState;", "Lkotlin/io/FileTreeWalk$WalkState;", "rootFile", "Ljava/io/File;", "(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V", "visited", "", ShaderParams.VALUE_TYPE_STEP, "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+        @Metadata(d1 = {"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\b\u0082\u0004\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\n\u0010\u0007\u001a\u0004\u0018\u00010\u0003H\u0016R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\b"}, d2 = {"Lkotlin/io/FileTreeWalk$FileTreeWalkIterator$SingleFileState;", "Lkotlin/io/FileTreeWalk$WalkState;", "rootFile", "Ljava/io/File;", "(Lkotlin/io/FileTreeWalk$FileTreeWalkIterator;Ljava/io/File;)V", NativeConstants.VISITED, "", ShaderParams.VALUE_TYPE_STEP, "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
         /* loaded from: classes8.dex */
         public final class SingleFileState extends WalkState {
             public final /* synthetic */ FileTreeWalkIterator this$0;

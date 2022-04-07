@@ -19,10 +19,10 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class InstalledAppInfoManager {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class AppPackageInfo implements Serializable {
         public static final long serialVersionUID = -324393456884895874L;
         public String appName;
@@ -70,8 +70,8 @@ public class InstalledAppInfoManager {
                     t.a(jSONArray, a(appPackageInfo));
                 }
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
         }
         return jSONArray;
     }
@@ -162,11 +162,11 @@ public class InstalledAppInfoManager {
             return hashMap;
         } else {
             try {
-                List<String> b2 = h.b(context);
+                List<String> b = h.b(context);
                 if (com.kwad.sdk.b.a.booleanValue()) {
                     for (String str2 : DeviceInfo.queryInstalledAppList(context)) {
-                        if (b2 != null && !b2.isEmpty()) {
-                            b2.remove(str2);
+                        if (b != null && !b.isEmpty()) {
+                            b.remove(str2);
                         }
                         PackageInfo packageInfo2 = packageManager.getPackageInfo(str2, 0);
                         if (packageInfo2 != null) {
@@ -181,8 +181,8 @@ public class InstalledAppInfoManager {
                     for (ResolveInfo resolveInfo : context.getPackageManager().queryIntentActivities(intent, 32)) {
                         if (resolveInfo != null && resolveInfo.activityInfo != null && !TextUtils.isEmpty(resolveInfo.activityInfo.packageName)) {
                             String str3 = resolveInfo.activityInfo.packageName;
-                            if (b2 != null && !b2.isEmpty()) {
-                                b2.remove(str3);
+                            if (b != null && !b.isEmpty()) {
+                                b.remove(str3);
                             }
                             PackageInfo packageInfo3 = packageManager.getPackageInfo(str3, 0);
                             if (packageInfo3 != null) {
@@ -193,8 +193,8 @@ public class InstalledAppInfoManager {
                         }
                     }
                 }
-                if (b2 != null && !b2.isEmpty()) {
-                    for (String str4 : b2) {
+                if (b != null && !b.isEmpty()) {
+                    for (String str4 : b) {
                         try {
                             PackageInfo packageInfo4 = packageManager.getPackageInfo(str4, 0);
                             if (packageInfo4 != null) {

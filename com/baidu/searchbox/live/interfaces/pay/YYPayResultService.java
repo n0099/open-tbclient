@@ -1,7 +1,7 @@
 package com.baidu.searchbox.live.interfaces.pay;
 
 import com.baidu.searchbox.live.interfaces.service.YYPayService;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface YYPayResultService {
     void onFail(int i, String str);
 

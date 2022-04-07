@@ -12,7 +12,7 @@ import java.util.List;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SerializableItemInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL = "all";
@@ -95,10 +95,10 @@ public class SerializableItemInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.tags : (List) invokeV.objValue;
     }
 
-    public void setAverageScore(double d2) {
+    public void setAverageScore(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.averageScore = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.averageScore = d;
         }
     }
 
@@ -109,10 +109,10 @@ public class SerializableItemInfo implements Serializable {
         }
     }
 
-    public void setIconSize(double d2) {
+    public void setIconSize(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.icon_size = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.icon_size = d;
         }
     }
 

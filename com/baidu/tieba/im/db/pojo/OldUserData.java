@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.db.pojo;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class OldUserData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4483304441506804594L;
@@ -35,7 +35,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
     public long userId;
     public String userName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class Permission extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TRUE = 1;
@@ -291,7 +291,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return;
         }
         userData.setUserIdLong(Math.max(this.id, this.userId));
-        userData.setUserName((m.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
+        userData.setUserName((ni.isEmpty(this.userName) || StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) ? this.name : this.userName);
         userData.setPortrait(this.portrait);
         userData.setSex(this.sex);
         userData.setPosition(this.position);

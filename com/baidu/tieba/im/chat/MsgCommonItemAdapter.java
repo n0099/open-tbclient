@@ -4,8 +4,6 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.h.b;
-import c.a.d.o.e.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,14 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ef;
+import com.repackage.ff;
+import com.repackage.ho;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
+/* loaded from: classes3.dex */
+public abstract class MsgCommonItemAdapter<T> extends ho<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> i;
-    public c.a.d.f.h.a j;
-    public b k;
+    public ef j;
+    public ff k;
     public long l;
     public boolean m;
     public boolean n;
@@ -35,20 +36,20 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public ArrayList<ReportPrivateMsgData> q;
     public AbsMsglistView.g r;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public T a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgViewHolder(View view, T t) {
-            super(view);
+        public MsgViewHolder(View view2, T t) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, t};
+                Object[] objArr = {view2, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -117,17 +118,17 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.d.o.e.a
+    @Override // com.repackage.ho
     /* renamed from: c0 */
-    public View S(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view, viewGroup, chatMessage, msgViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             if (chatMessage != null && chatMessage.getCacheData() == null) {
                 chatMessage.setCacheData(new MsgCacheData());
             }
             Z();
-            return view;
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }
@@ -153,17 +154,17 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
         }
     }
 
-    public void g0(c.a.d.f.h.a aVar) {
+    public void g0(ef efVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.j = aVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, efVar) == null) {
+            this.j = efVar;
         }
     }
 
-    public void h0(b bVar) {
+    public void h0(ff ffVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.k = bVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ffVar) == null) {
+            this.k = ffVar;
         }
     }
 

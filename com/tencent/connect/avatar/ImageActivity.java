@@ -49,32 +49,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RelativeLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public QQToken f43621b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f43622c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Handler f43623d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public c f43624e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Button f43625f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Button f43626g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public b f43627h;
+    public QQToken b;
+    public String c;
+    public Handler d;
+    public c e;
+    public Button f;
+    public Button g;
+    public b h;
     public TextView i;
     public ProgressBar j;
     public int k;
@@ -91,7 +77,7 @@ public class ImageActivity extends Activity {
     public final IUiListener v;
     public final IUiListener w;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class QQAvatarImp extends BaseApi {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,13 +114,13 @@ public class ImageActivity extends Activity {
                 bitmap.recycle();
                 BaseApi.TempRequestListener tempRequestListener = new BaseApi.TempRequestListener(this, iUiListener);
                 a.putByteArray("picture", byteArray);
-                HttpUtils.requestAsync(this.f43645c, f.a(), "user/set_user_face", a, "POST", tempRequestListener);
-                d.a().a(this.f43645c.getOpenId(), this.f43645c.getAppId(), Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "0");
+                HttpUtils.requestAsync(this.c, f.a(), "user/set_user_face", a, "POST", tempRequestListener);
+                d.a().a(this.c.getOpenId(), this.c.getAppId(), Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "0");
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,14 +151,14 @@ public class ImageActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, button) == null) {
                 StateListDrawable stateListDrawable = new StateListDrawable();
-                Drawable b2 = this.a.b("com.tencent.plus.blue_normal.png");
-                Drawable b3 = this.a.b("com.tencent.plus.blue_down.png");
-                Drawable b4 = this.a.b("com.tencent.plus.blue_disable.png");
-                stateListDrawable.addState(View.PRESSED_ENABLED_STATE_SET, b3);
-                stateListDrawable.addState(View.ENABLED_FOCUSED_STATE_SET, b2);
-                stateListDrawable.addState(View.ENABLED_STATE_SET, b2);
-                stateListDrawable.addState(View.FOCUSED_STATE_SET, b2);
-                stateListDrawable.addState(View.EMPTY_STATE_SET, b4);
+                Drawable b = this.a.b("com.tencent.plus.blue_normal.png");
+                Drawable b2 = this.a.b("com.tencent.plus.blue_down.png");
+                Drawable b3 = this.a.b("com.tencent.plus.blue_disable.png");
+                stateListDrawable.addState(View.PRESSED_ENABLED_STATE_SET, b2);
+                stateListDrawable.addState(View.ENABLED_FOCUSED_STATE_SET, b);
+                stateListDrawable.addState(View.ENABLED_STATE_SET, b);
+                stateListDrawable.addState(View.FOCUSED_STATE_SET, b);
+                stateListDrawable.addState(View.EMPTY_STATE_SET, b3);
                 button.setBackgroundDrawable(stateListDrawable);
             }
         }
@@ -181,14 +167,14 @@ public class ImageActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, button) == null) {
                 StateListDrawable stateListDrawable = new StateListDrawable();
-                Drawable b2 = this.a.b("com.tencent.plus.gray_normal.png");
-                Drawable b3 = this.a.b("com.tencent.plus.gray_down.png");
-                Drawable b4 = this.a.b("com.tencent.plus.gray_disable.png");
-                stateListDrawable.addState(View.PRESSED_ENABLED_STATE_SET, b3);
-                stateListDrawable.addState(View.ENABLED_FOCUSED_STATE_SET, b2);
-                stateListDrawable.addState(View.ENABLED_STATE_SET, b2);
-                stateListDrawable.addState(View.FOCUSED_STATE_SET, b2);
-                stateListDrawable.addState(View.EMPTY_STATE_SET, b4);
+                Drawable b = this.a.b("com.tencent.plus.gray_normal.png");
+                Drawable b2 = this.a.b("com.tencent.plus.gray_down.png");
+                Drawable b3 = this.a.b("com.tencent.plus.gray_disable.png");
+                stateListDrawable.addState(View.PRESSED_ENABLED_STATE_SET, b2);
+                stateListDrawable.addState(View.ENABLED_FOCUSED_STATE_SET, b);
+                stateListDrawable.addState(View.ENABLED_STATE_SET, b);
+                stateListDrawable.addState(View.FOCUSED_STATE_SET, b);
+                stateListDrawable.addState(View.EMPTY_STATE_SET, b3);
                 button.setBackgroundDrawable(stateListDrawable);
             }
         }
@@ -238,14 +224,14 @@ public class ImageActivity extends Activity {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     this.a.j.setVisibility(0);
-                    this.a.f43626g.setEnabled(false);
-                    this.a.f43626g.setTextColor(Color.rgb(21, 21, 21));
-                    this.a.f43625f.setEnabled(false);
-                    this.a.f43625f.setTextColor(Color.rgb(36, 94, 134));
+                    this.a.g.setEnabled(false);
+                    this.a.g.setTextColor(Color.rgb(21, 21, 21));
+                    this.a.f.setEnabled(false);
+                    this.a.f.setTextColor(Color.rgb(36, 94, 134));
                     new Thread(new Runnable(this) { // from class: com.tencent.connect.avatar.ImageActivity.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -282,7 +268,7 @@ public class ImageActivity extends Activity {
                         return;
                     }
                     this.a.a("10655", System.currentTimeMillis() - this.a.m);
-                    if (this.a.f43624e.f43632b) {
+                    if (this.a.e.b) {
                         this.a.a("10654", 0L);
                     }
                 }
@@ -312,9 +298,9 @@ public class ImageActivity extends Activity {
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     this.a.a("10656", System.currentTimeMillis() - this.a.m);
                     this.a.setResult(0);
                     this.a.d();
@@ -355,26 +341,26 @@ public class ImageActivity extends Activity {
             public void onComplete(Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                    this.a.f43626g.setEnabled(true);
+                    this.a.g.setEnabled(true);
                     int i3 = -1;
-                    this.a.f43626g.setTextColor(-1);
-                    this.a.f43625f.setEnabled(true);
-                    this.a.f43625f.setTextColor(-1);
+                    this.a.g.setTextColor(-1);
+                    this.a.f.setEnabled(true);
+                    this.a.f.setTextColor(-1);
                     this.a.j.setVisibility(8);
                     JSONObject jSONObject = (JSONObject) obj;
                     try {
                         i3 = jSONObject.getInt(Constants.KEYS.RET);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     if (i3 == 0) {
                         this.a.a("设置成功", 0);
                         this.a.a("10658", 0L);
-                        d.a().a(this.a.f43621b.getOpenId(), this.a.f43621b.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "3", "0");
+                        d.a().a(this.a.b.getOpenId(), this.a.b.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "3", "0");
                         ImageActivity imageActivity = this.a;
-                        if (imageActivity.f43622c != null && !"".equals(this.a.f43622c)) {
+                        if (imageActivity.c != null && !"".equals(this.a.c)) {
                             Intent intent = new Intent();
-                            intent.setClassName(imageActivity, this.a.f43622c);
+                            intent.setClassName(imageActivity, this.a.c);
                             if (imageActivity.getPackageManager().resolveActivity(intent, 0) != null) {
                                 imageActivity.startActivity(intent);
                             }
@@ -384,7 +370,7 @@ public class ImageActivity extends Activity {
                         return;
                     }
                     this.a.a("设置出错了，请重新登录再尝试下呢：）", 1);
-                    d.a().a(this.a.f43621b.getOpenId(), this.a.f43621b.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "1");
+                    d.a().a(this.a.b.getOpenId(), this.a.b.getAppId(), com.tencent.connect.common.Constants.VIA_SET_AVATAR_SUCCEED, "12", "19", "1");
                 }
             }
 
@@ -392,11 +378,11 @@ public class ImageActivity extends Activity {
             public void onError(UiError uiError) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, uiError) == null) {
-                    this.a.f43626g.setEnabled(true);
-                    this.a.f43626g.setTextColor(-1);
-                    this.a.f43625f.setEnabled(true);
-                    this.a.f43625f.setTextColor(-1);
-                    this.a.f43625f.setText("重试");
+                    this.a.g.setEnabled(true);
+                    this.a.g.setTextColor(-1);
+                    this.a.f.setEnabled(true);
+                    this.a.f.setTextColor(-1);
+                    this.a.f.setText("重试");
                     this.a.j.setVisibility(8);
                     this.a.l = true;
                     this.a.a(uiError.errorMessage, 1);
@@ -451,13 +437,11 @@ public class ImageActivity extends Activity {
                     try {
                         i3 = jSONObject.getInt(Constants.KEYS.RET);
                         if (i3 == 0) {
-                            this.a.f43623d.post(new Runnable(this, jSONObject.getString("nickname")) { // from class: com.tencent.connect.avatar.ImageActivity.6.1
+                            this.a.d.post(new Runnable(this, jSONObject.getString("nickname")) { // from class: com.tencent.connect.avatar.ImageActivity.6.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ String a;
-
-                                /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ AnonymousClass6 f43630b;
+                                public final /* synthetic */ AnonymousClass6 b;
 
                                 {
                                     Interceptable interceptable3 = $ic;
@@ -474,7 +458,7 @@ public class ImageActivity extends Activity {
                                             return;
                                         }
                                     }
-                                    this.f43630b = this;
+                                    this.b = this;
                                     this.a = r7;
                                 }
 
@@ -482,7 +466,7 @@ public class ImageActivity extends Activity {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        this.f43630b.a.c(this.a);
+                                        this.b.a.c(this.a);
                                     }
                                 }
                             });
@@ -490,8 +474,8 @@ public class ImageActivity extends Activity {
                         } else {
                             this.a.a("10661", 0L);
                         }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                     if (i3 != 0) {
                         a(i3);
@@ -526,19 +510,19 @@ public class ImageActivity extends Activity {
             super.onCreate(bundle);
             setRequestedOrientation(1);
             setContentView(a());
-            this.f43623d = new Handler();
+            this.d = new Handler();
             Bundle bundleExtra = getIntent().getBundleExtra(com.tencent.connect.common.Constants.KEY_PARAMS);
             this.r = bundleExtra.getString("picture");
-            this.f43622c = bundleExtra.getString("return_activity");
+            this.c = bundleExtra.getString("return_activity");
             String string = bundleExtra.getString("appid");
             String string2 = bundleExtra.getString("access_token");
             long j = bundleExtra.getLong("expires_in");
             String string3 = bundleExtra.getString("openid");
             this.n = bundleExtra.getInt("exitAnim");
             QQToken qQToken = new QQToken(string);
-            this.f43621b = qQToken;
+            this.b = qQToken;
             qQToken.setAccessToken(string2, ((j - System.currentTimeMillis()) / 1000) + "");
-            this.f43621b.setOpenId(string3);
+            this.b.setOpenId(string3);
             b();
             e();
             this.m = System.currentTimeMillis();
@@ -552,7 +536,7 @@ public class ImageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            this.f43624e.setImageBitmap(null);
+            this.e.setImageBitmap(null);
             Bitmap bitmap = this.s;
             if (bitmap == null || bitmap.isRecycled()) {
                 return;
@@ -565,30 +549,30 @@ public class ImageActivity extends Activity {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            Matrix imageMatrix = this.f43624e.getImageMatrix();
+            Matrix imageMatrix = this.e.getImageMatrix();
             float[] fArr = new float[9];
             imageMatrix.getValues(fArr);
-            float f2 = fArr[2];
-            float f3 = fArr[5];
-            float f4 = fArr[0];
+            float f = fArr[2];
+            float f2 = fArr[5];
+            float f3 = fArr[0];
             float width = 640.0f / this.q.width();
-            int i = (int) ((this.q.left - f2) / f4);
+            int i = (int) ((this.q.left - f) / f3);
             int i2 = i < 0 ? 0 : i;
-            int i3 = (int) ((this.q.top - f3) / f4);
+            int i3 = (int) ((this.q.top - f2) / f3);
             int i4 = i3 < 0 ? 0 : i3;
             Matrix matrix = new Matrix();
             matrix.set(imageMatrix);
             matrix.postScale(width, width);
-            int i5 = (int) (650.0f / f4);
+            int i5 = (int) (650.0f / f3);
             try {
                 Bitmap createBitmap = Bitmap.createBitmap(this.s, i2, i4, Math.min(this.s.getWidth() - i2, i5), Math.min(this.s.getHeight() - i4, i5), matrix, true);
                 Bitmap createBitmap2 = Bitmap.createBitmap(createBitmap, 0, 0, 640, 640);
                 createBitmap.recycle();
                 a(createBitmap2);
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
                 a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
-                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e2.getMessage());
+                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
                 d();
             }
         }
@@ -611,7 +595,7 @@ public class ImageActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65561, this) == null) {
             this.k++;
-            new UserInfo(this, this.f43621b).getUserInfo(this.w);
+            new UserInfo(this, this.b).getUserInfo(this.w);
         }
     }
 
@@ -629,16 +613,16 @@ public class ImageActivity extends Activity {
             try {
                 a2 = a(this.r);
                 this.s = a2;
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 a(com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, 1);
-                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e2.getMessage());
+                a(-5, null, com.tencent.connect.common.Constants.MSG_IMAGE_ERROR, e.getMessage());
                 d();
             }
             if (a2 != null) {
-                this.f43624e.setImageBitmap(a2);
-                this.f43625f.setOnClickListener(this.t);
-                this.f43626g.setOnClickListener(this.u);
+                this.e.setImageBitmap(a2);
+                this.f.setOnClickListener(this.t);
+                this.g.setOnClickListener(this.u);
                 this.a.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.tencent.connect.avatar.ImageActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -668,8 +652,8 @@ public class ImageActivity extends Activity {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             this.a.a.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                             ImageActivity imageActivity = this.a;
-                            imageActivity.q = imageActivity.f43627h.a();
-                            this.a.f43624e.a(this.a.q);
+                            imageActivity.q = imageActivity.h.a();
+                            this.a.e.a(this.a.q);
                         }
                     }
                 });
@@ -699,8 +683,8 @@ public class ImageActivity extends Activity {
             }
             try {
                 BitmapFactory.decodeStream(openInputStream, null, options);
-            } catch (OutOfMemoryError e2) {
-                e2.printStackTrace();
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
             }
             openInputStream.close();
             int i2 = options.outWidth;
@@ -714,8 +698,8 @@ public class ImageActivity extends Activity {
             options.inSampleSize = i;
             try {
                 return BitmapFactory.decodeStream(getContentResolver().openInputStream(parse), null, options);
-            } catch (OutOfMemoryError e3) {
-                e3.printStackTrace();
+            } catch (OutOfMemoryError e2) {
+                e2.printStackTrace();
                 return null;
             }
         }
@@ -760,16 +744,16 @@ public class ImageActivity extends Activity {
             relativeLayout2.setLayoutParams(layoutParams3);
             this.a.addView(relativeLayout2);
             c cVar = new c(this);
-            this.f43624e = cVar;
+            this.e = cVar;
             cVar.setLayoutParams(layoutParams2);
-            this.f43624e.setScaleType(ImageView.ScaleType.MATRIX);
-            relativeLayout2.addView(this.f43624e);
-            this.f43627h = new b(this);
+            this.e.setScaleType(ImageView.ScaleType.MATRIX);
+            relativeLayout2.addView(this.e);
+            this.h = new b(this);
             RelativeLayout.LayoutParams layoutParams4 = new RelativeLayout.LayoutParams(layoutParams2);
             layoutParams4.addRule(14, -1);
             layoutParams4.addRule(15, -1);
-            this.f43627h.setLayoutParams(layoutParams4);
-            relativeLayout2.addView(this.f43627h);
+            this.h.setLayoutParams(layoutParams4);
+            relativeLayout2.addView(this.h);
             LinearLayout linearLayout = new LinearLayout(this);
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-2, com.tencent.connect.avatar.a.a(this, 80.0f));
             layoutParams5.addRule(14, -1);
@@ -803,24 +787,24 @@ public class ImageActivity extends Activity {
             a aVar = new a(this, this);
             int a3 = com.tencent.connect.avatar.a.a(this, 14.0f);
             int a4 = com.tencent.connect.avatar.a.a(this, 7.0f);
-            this.f43626g = new Button(this);
-            this.f43626g.setLayoutParams(new RelativeLayout.LayoutParams(com.tencent.connect.avatar.a.a(this, 78.0f), com.tencent.connect.avatar.a.a(this, 45.0f)));
-            this.f43626g.setText(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL);
-            this.f43626g.setTextColor(-1);
-            this.f43626g.setTextSize(18.0f);
-            this.f43626g.setPadding(a3, a4, a3, a4);
-            aVar.b(this.f43626g);
-            relativeLayout3.addView(this.f43626g);
-            this.f43625f = new Button(this);
+            this.g = new Button(this);
+            this.g.setLayoutParams(new RelativeLayout.LayoutParams(com.tencent.connect.avatar.a.a(this, 78.0f), com.tencent.connect.avatar.a.a(this, 45.0f)));
+            this.g.setText(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL);
+            this.g.setTextColor(-1);
+            this.g.setTextSize(18.0f);
+            this.g.setPadding(a3, a4, a3, a4);
+            aVar.b(this.g);
+            relativeLayout3.addView(this.g);
+            this.f = new Button(this);
             RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(com.tencent.connect.avatar.a.a(this, 78.0f), com.tencent.connect.avatar.a.a(this, 45.0f));
             layoutParams8.addRule(11, -1);
-            this.f43625f.setLayoutParams(layoutParams8);
-            this.f43625f.setTextColor(-1);
-            this.f43625f.setTextSize(18.0f);
-            this.f43625f.setPadding(a3, a4, a3, a4);
-            this.f43625f.setText("选取");
-            aVar.a(this.f43625f);
-            relativeLayout3.addView(this.f43625f);
+            this.f.setLayoutParams(layoutParams8);
+            this.f.setTextColor(-1);
+            this.f.setTextSize(18.0f);
+            this.f.setPadding(a3, a4, a3, a4);
+            this.f.setText("选取");
+            aVar.a(this.f);
+            relativeLayout3.addView(this.f);
             TextView textView = new TextView(this);
             RelativeLayout.LayoutParams layoutParams9 = new RelativeLayout.LayoutParams(layoutParams3);
             layoutParams9.addRule(13, -1);
@@ -846,11 +830,11 @@ public class ImageActivity extends Activity {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, str) == null) {
-            String d2 = d(str);
-            if ("".equals(d2)) {
+            String d = d(str);
+            if ("".equals(d)) {
                 return;
             }
-            this.i.setText(d2);
+            this.i.setText(d);
             this.i.setVisibility(0);
         }
     }
@@ -858,7 +842,7 @@ public class ImageActivity extends Activity {
     private void a(Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, this, bitmap) == null) {
-            new QQAvatarImp(this, this.f43621b).setAvator(bitmap, this.v);
+            new QQAvatarImp(this, this.b).setAvator(bitmap, this.v);
         }
     }
 
@@ -866,16 +850,12 @@ public class ImageActivity extends Activity {
     public void a(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65546, this, str, i) == null) {
-            this.f43623d.post(new Runnable(this, str, i) { // from class: com.tencent.connect.avatar.ImageActivity.4
+            this.d.post(new Runnable(this, str, i) { // from class: com.tencent.connect.avatar.ImageActivity.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ int f43628b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ImageActivity f43629c;
+                public final /* synthetic */ int b;
+                public final /* synthetic */ ImageActivity c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -892,16 +872,16 @@ public class ImageActivity extends Activity {
                             return;
                         }
                     }
-                    this.f43629c = this;
+                    this.c = this;
                     this.a = str;
-                    this.f43628b = i;
+                    this.b = i;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f43629c.b(this.a, this.f43628b);
+                        this.c.b(this.a, this.b);
                     }
                 }
             });
@@ -924,7 +904,7 @@ public class ImageActivity extends Activity {
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
-            l.a(this, str, j, this.f43621b.getAppId());
+            l.a(this, str, j, this.b.getAppId());
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.baidu.sapi2.share;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface ShareStatKey {
     public static final String AUTH_APP_BACK_PRESSED = "auth_app_back_pressed";
     public static final String AUTH_APP_INIT_PASS_ERROR = "auth_app_init_pass_error";

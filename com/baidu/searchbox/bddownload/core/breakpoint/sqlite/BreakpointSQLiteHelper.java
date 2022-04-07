@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BreakpointSQLiteHelper extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BLOCK_TABLE_NAME = "block";

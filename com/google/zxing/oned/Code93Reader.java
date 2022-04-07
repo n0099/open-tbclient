@@ -24,7 +24,7 @@ import com.kuaishou.weapon.un.w0;
 import java.util.Arrays;
 import java.util.Map;
 import org.apache.http.HttpStatus;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class Code93Reader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char[] ALPHABET;
@@ -101,7 +101,7 @@ public final class Code93Reader extends OneDReader {
     public static String decodeExtended(CharSequence charSequence) throws FormatException {
         InterceptResult invokeL;
         int i;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             int length = charSequence.length();
@@ -118,7 +118,7 @@ public final class Code93Reader extends OneDReader {
                         case 'a':
                             if (charAt2 >= 'A' && charAt2 <= 'Z') {
                                 i = charAt2 - '@';
-                                c2 = (char) i;
+                                c = (char) i;
                                 break;
                             } else {
                                 throw FormatException.getFormatInstance();
@@ -134,20 +134,20 @@ public final class Code93Reader extends OneDReader {
                             } else if (charAt2 >= 'P' && charAt2 <= 'S') {
                                 i = charAt2 + '+';
                             } else if (charAt2 >= 'T' && charAt2 <= 'Z') {
-                                c2 = 127;
+                                c = 127;
                                 break;
                             } else {
                                 throw FormatException.getFormatInstance();
                             }
-                            c2 = (char) i;
+                            c = (char) i;
                             break;
                         case 'c':
                             if (charAt2 >= 'A' && charAt2 <= 'O') {
                                 i = charAt2 - ' ';
-                                c2 = (char) i;
+                                c = (char) i;
                                 break;
                             } else if (charAt2 == 'Z') {
-                                c2 = ':';
+                                c = ':';
                                 break;
                             } else {
                                 throw FormatException.getFormatInstance();
@@ -155,17 +155,17 @@ public final class Code93Reader extends OneDReader {
                         case 'd':
                             if (charAt2 >= 'A' && charAt2 <= 'Z') {
                                 i = charAt2 + WebvttCueParser.CHAR_SPACE;
-                                c2 = (char) i;
+                                c = (char) i;
                                 break;
                             } else {
                                 throw FormatException.getFormatInstance();
                             }
                             break;
                         default:
-                            c2 = 0;
+                            c = 0;
                             break;
                     }
-                    sb.append(c2);
+                    sb.append(c);
                 } else {
                     throw FormatException.getFormatInstance();
                 }
@@ -298,8 +298,8 @@ public final class Code93Reader extends OneDReader {
                         if (sb.length() >= 2) {
                             checkChecksums(sb);
                             sb.setLength(sb.length() - 2);
-                            float f2 = i;
-                            return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i4 / 2.0f), f2)}, BarcodeFormat.CODE_93);
+                            float f = i;
+                            return new Result(decodeExtended(sb), null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f), new ResultPoint(nextSet + (i4 / 2.0f), f)}, BarcodeFormat.CODE_93);
                         }
                         throw NotFoundException.getNotFoundInstance();
                     }

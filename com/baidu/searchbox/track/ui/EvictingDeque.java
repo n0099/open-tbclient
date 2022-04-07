@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class EvictingDeque<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,18 +58,18 @@ public final class EvictingDeque<E> {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (LinkedList) invokeV.objValue;
     }
 
-    public boolean offerLast(@NonNull E e2) {
+    public boolean offerLast(@NonNull E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2)) == null) {
-            if (e2 != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) {
+            if (e != null) {
                 while (this.mDelegate.size() > 0 && this.mDelegate.size() >= this.mCapacity) {
                     this.mDelegate.pollFirst();
                 }
                 if (this.mCapacity == 0) {
                     return true;
                 }
-                this.mDelegate.offerLast(e2);
+                this.mDelegate.offerLast(e);
                 return true;
             }
             throw new NullPointerException("element should not be null");

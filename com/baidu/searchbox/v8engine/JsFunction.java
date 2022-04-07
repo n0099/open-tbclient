@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @NotProguard
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class JsFunction extends JsReleaser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "JsFunction";
@@ -59,7 +59,7 @@ public class JsFunction extends JsReleaser {
     public native void invokeJsFunctionParamCharArray(long j, char[] cArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void invokeJsFunctionParamDouble(long j, double d2);
+    public native void invokeJsFunctionParamDouble(long j, double d);
 
     /* JADX INFO: Access modifiers changed from: private */
     public native void invokeJsFunctionParamDoubleArray(long j, double[] dArr);
@@ -323,10 +323,10 @@ public class JsFunction extends JsReleaser {
         }
     }
 
-    public void call(double d2) {
+    public void call(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)}) == null) {
-            runOnJSThreadSafely(new Runnable(this, d2) { // from class: com.baidu.searchbox.v8engine.JsFunction.5
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)}) == null) {
+            runOnJSThreadSafely(new Runnable(this, d) { // from class: com.baidu.searchbox.v8engine.JsFunction.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ JsFunction this$0;
@@ -337,7 +337,7 @@ public class JsFunction extends JsReleaser {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Double.valueOf(d2)};
+                        Object[] objArr = {this, Double.valueOf(d)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -348,7 +348,7 @@ public class JsFunction extends JsReleaser {
                         }
                     }
                     this.this$0 = this;
-                    this.val$result = d2;
+                    this.val$result = d;
                 }
 
                 @Override // java.lang.Runnable

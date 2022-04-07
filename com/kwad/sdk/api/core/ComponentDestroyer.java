@@ -8,7 +8,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
 import androidx.fragment.app.Fragment;
 import java.lang.reflect.Field;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ComponentDestroyer {
     public static final String TAG = "ComponentDestroyer";
 
@@ -25,20 +25,20 @@ public class ComponentDestroyer {
         if (fragment == null) {
             return;
         }
-        View view = fragment.getView();
+        View view2 = fragment.getView();
         destroyWebViewInTree(fragment.getView());
-        fixInputMethodManagerLeak(fragment.getContext(), view);
+        fixInputMethodManagerLeak(fragment.getContext(), view2);
     }
 
-    public static synchronized void destroyWebViewInTree(View view) {
+    public static synchronized void destroyWebViewInTree(View view2) {
         synchronized (ComponentDestroyer.class) {
-            if (view == null) {
+            if (view2 == null) {
                 return;
             }
-            if (view instanceof WebView) {
-                ((WebView) view).destroy();
-            } else if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+            if (view2 instanceof WebView) {
+                ((WebView) view2).destroy();
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 int childCount = viewGroup.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     destroyWebViewInTree(viewGroup.getChildAt(i));
@@ -47,9 +47,9 @@ public class ComponentDestroyer {
         }
     }
 
-    public static void fixInputMethodManagerLeak(Context context, View view) {
+    public static void fixInputMethodManagerLeak(Context context, View view2) {
         InputMethodManager inputMethodManager;
-        if (context == null || view == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
+        if (context == null || view2 == null || (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) == null) {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};

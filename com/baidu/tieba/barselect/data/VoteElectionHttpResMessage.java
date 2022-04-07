@@ -1,8 +1,5 @@
 package com.baidu.tieba.barselect.data;
 
-import c.a.p0.e0.b.d;
-import c.a.p0.e0.b.e;
-import c.a.p0.e0.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -11,6 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.uv5;
+import com.repackage.vv5;
+import com.repackage.wv5;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.ElectionInfo.Basic;
@@ -18,11 +18,11 @@ import tbclient.ElectionInfo.ElectionInfoResIdl;
 import tbclient.ElectionList;
 import tbclient.ManagerElection;
 import tbclient.Myrecord;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f mVoteData;
+    public wv5 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionHttpResMessage() {
@@ -42,10 +42,10 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public f getVoteData() {
+    public wv5 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVoteData : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mVoteData : (wv5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,22 +59,22 @@ public class VoteElectionHttpResMessage extends TbHttpResponsedMessage {
                 setErrorString(electionInfoResIdl.error.usermsg);
                 if (getError() == 0 && electionInfoResIdl.data != null) {
                     if (this.mVoteData == null) {
-                        this.mVoteData = new f();
+                        this.mVoteData = new wv5();
                     }
                     if (electionInfoResIdl.data.election_list != null) {
-                        ArrayList<d> arrayList = new ArrayList<>();
+                        ArrayList<uv5> arrayList = new ArrayList<>();
                         for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                            arrayList.add(d.o(electionList));
+                            arrayList.add(uv5.o(electionList));
                         }
                         this.mVoteData.h(arrayList);
                     }
                     Basic basic = electionInfoResIdl.data.basic;
                     if (basic != null) {
-                        this.mVoteData.m(e.i(basic));
+                        this.mVoteData.m(vv5.i(basic));
                     }
                     Myrecord myrecord = electionInfoResIdl.data.my_record;
                     if (myrecord != null) {
-                        this.mVoteData.n(d.p(myrecord));
+                        this.mVoteData.n(uv5.p(myrecord));
                     }
                     Integer num = electionInfoResIdl.data.has_more;
                     if (num != null) {

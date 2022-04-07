@@ -1,6 +1,5 @@
 package com.baidu.searchbox.pms;
 
-import c.a.d.k.c;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.an;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PmsRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,6 +32,6 @@ public class PmsRuntime {
     public static IPmsContext getPmsContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a() : (IPmsContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? an.a() : (IPmsContext) invokeV.objValue;
     }
 }

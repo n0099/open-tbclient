@@ -80,8 +80,8 @@ public class WeiboParameters {
                     if (!TextUtils.isEmpty(str2)) {
                         try {
                             sb.append(URLEncoder.encode(str, "UTF-8") + "=" + URLEncoder.encode(str2, "UTF-8"));
-                        } catch (UnsupportedEncodingException e2) {
-                            e2.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
                         }
                     }
                 }

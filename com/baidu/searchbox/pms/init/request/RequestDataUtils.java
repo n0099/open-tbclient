@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RequestDataUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,8 +62,8 @@ public class RequestDataUtils {
             if (!jSONObject.has(PmsConstant.EnvParam.Key.CPU_ABI)) {
                 try {
                     jSONObject.put(PmsConstant.EnvParam.Key.CPU_ABI, CommonUtils.getCpuAbi());
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject;
@@ -126,8 +126,8 @@ public class RequestDataUtils {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(PmsConstant.EnvParam.Key.CPU_ABI, CommonUtils.getCpuAbi());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
@@ -185,8 +185,8 @@ public class RequestDataUtils {
             JSONObject addFilter = addFilter(requestParams.getFilter());
             try {
                 jSONObject = getPostData(str, requestParams.getChannelList());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 jSONObject = null;
             }
             DebugUtils.log("【请求参数】", jSONObject);

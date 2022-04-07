@@ -17,12 +17,8 @@ public final class i implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadFactory a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f42504b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final ThreadPoolExecutor f42505c;
+    public final BlockingQueue<Runnable> b;
+    public final ThreadPoolExecutor c;
 
     static {
         InterceptResult invokeClinit;
@@ -73,15 +69,15 @@ public final class i implements Executor {
                 return;
             }
         }
-        this.f42504b = new l();
-        this.f42505c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f42504b, a);
+        this.b = new l();
+        this.c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.b, a);
     }
 
     @Override // java.util.concurrent.Executor
     public final void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f42505c.execute(runnable);
+            this.c.execute(runnable);
         }
     }
 }

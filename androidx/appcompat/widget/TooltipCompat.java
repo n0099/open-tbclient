@@ -27,13 +27,13 @@ public class TooltipCompat {
         }
     }
 
-    public static void setTooltipText(@NonNull View view, @Nullable CharSequence charSequence) {
+    public static void setTooltipText(@NonNull View view2, @Nullable CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, view, charSequence) == null) {
+        if (interceptable == null || interceptable.invokeLL(65537, null, view2, charSequence) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                view.setTooltipText(charSequence);
+                view2.setTooltipText(charSequence);
             } else {
-                TooltipCompatHandler.setTooltipText(view, charSequence);
+                TooltipCompatHandler.setTooltipText(view2, charSequence);
             }
         }
     }

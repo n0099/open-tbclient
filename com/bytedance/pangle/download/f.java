@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.pangle.Zeus;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public static volatile f a;
@@ -52,7 +52,7 @@ public class f {
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && com.bytedance.pangle.helper.c.b(Zeus.getAppApplication())) {
             g a2 = g.a();
             b a3 = b.a();
-            a3.f38068b.add(new a(a2) { // from class: com.bytedance.pangle.download.g.1
+            a3.b.add(new a(a2) { // from class: com.bytedance.pangle.download.g.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ g a;
@@ -153,16 +153,16 @@ public class f {
                 public final void onActivityStarted(Activity activity) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048581, this, activity) == null) {
-                        if (this.a.f38070e == 0) {
+                        if (this.a.e == 0) {
                             this.a.a = false;
                             b bVar = this.a;
-                            if (!bVar.f38069c) {
-                                for (a aVar : bVar.f38068b) {
+                            if (!bVar.c) {
+                                for (a aVar : bVar.b) {
                                     aVar.b();
                                 }
-                                this.a.f38069c = true;
+                                this.a.c = true;
                             }
-                            for (a aVar2 : this.a.f38068b) {
+                            for (a aVar2 : this.a.b) {
                                 aVar2.a();
                             }
                         }
@@ -175,9 +175,9 @@ public class f {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048582, this, activity) == null) {
                         b.d(this.a);
-                        if (this.a.f38070e == 0) {
+                        if (this.a.e == 0) {
                             this.a.a = true;
-                            Iterator it = this.a.f38068b.iterator();
+                            Iterator it = this.a.b.iterator();
                             while (it.hasNext()) {
                                 it.next();
                             }

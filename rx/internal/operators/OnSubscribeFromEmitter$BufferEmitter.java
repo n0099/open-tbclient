@@ -5,11 +5,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.j;
-import g.o.a.a;
-import g.o.d.i.f;
-import g.o.d.j.f0;
-import g.o.d.j.z;
+import com.repackage.az9;
+import com.repackage.m1a;
+import com.repackage.m2a;
+import com.repackage.pz9;
+import com.repackage.s2a;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
@@ -23,24 +23,24 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
     public final AtomicInteger wip;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$BufferEmitter(j<? super T> jVar, int i) {
-        super(jVar);
+    public OnSubscribeFromEmitter$BufferEmitter(az9<? super T> az9Var, int i) {
+        super(az9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, Integer.valueOf(i)};
+            Object[] objArr = {az9Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                super((j) newInitContext.callArgs[0]);
+                super((az9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.queue = f0.b() ? new z<>(i) : new f<>(i);
+        this.queue = s2a.b() ? new m2a<>(i) : new m1a<>(i);
         this.wip = new AtomicInteger();
     }
 
@@ -48,7 +48,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
-            j<? super T> jVar = this.actual;
+            az9<? super T> az9Var = this.actual;
             Queue<Object> queue = this.queue;
             int i2 = 1;
             do {
@@ -58,7 +58,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                     i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
                     if (i == 0) {
                         break;
-                    } else if (jVar.isUnsubscribed()) {
+                    } else if (az9Var.isUnsubscribed()) {
                         queue.clear();
                         return;
                     } else {
@@ -77,13 +77,13 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                         } else if (z2) {
                             break;
                         } else {
-                            jVar.onNext((Object) NotificationLite.e(poll));
+                            az9Var.onNext((Object) NotificationLite.e(poll));
                             j2++;
                         }
                     }
                 }
                 if (i == 0) {
-                    if (jVar.isUnsubscribed()) {
+                    if (az9Var.isUnsubscribed()) {
                         queue.clear();
                         return;
                     }
@@ -101,7 +101,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                     }
                 }
                 if (j2 != 0) {
-                    a.g(this, j2);
+                    pz9.g(this, j2);
                 }
                 i2 = this.wip.addAndGet(-i2);
             } while (i2 != 0);

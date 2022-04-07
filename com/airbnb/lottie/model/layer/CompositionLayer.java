@@ -20,7 +20,7 @@ import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class CompositionLayer extends BaseLayer {
     @Nullable
     public Boolean hasMasks;
@@ -34,7 +34,7 @@ public class CompositionLayer extends BaseLayer {
     public BaseKeyframeAnimation<Float, Float> timeRemapping;
 
     /* renamed from: com.airbnb.lottie.model.layer.CompositionLayer$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType;
 
@@ -198,19 +198,19 @@ public class CompositionLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
-        super.setProgress(f2);
+    public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f) {
+        super.setProgress(f);
         if (this.timeRemapping != null) {
-            f2 = ((this.timeRemapping.getValue().floatValue() * this.layerModel.getComposition().getFrameRate()) - this.layerModel.getComposition().getStartFrame()) / (this.lottieDrawable.getComposition().getDurationFrames() + 0.01f);
+            f = ((this.timeRemapping.getValue().floatValue() * this.layerModel.getComposition().getFrameRate()) - this.layerModel.getComposition().getStartFrame()) / (this.lottieDrawable.getComposition().getDurationFrames() + 0.01f);
         }
         if (this.timeRemapping == null) {
-            f2 -= this.layerModel.getStartProgress();
+            f -= this.layerModel.getStartProgress();
         }
         if (this.layerModel.getTimeStretch() != 0.0f) {
-            f2 /= this.layerModel.getTimeStretch();
+            f /= this.layerModel.getTimeStretch();
         }
         for (int size = this.layers.size() - 1; size >= 0; size--) {
-            this.layers.get(size).setProgress(f2);
+            this.layers.get(size).setProgress(f);
         }
     }
 }

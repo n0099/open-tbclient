@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineFactory;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PreLoadBaiduClass extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,55 +35,55 @@ public class PreLoadBaiduClass extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                Class.forName("c.a.g0.b.b.c");
+                Class.forName("com.repackage.hc1");
+            } catch (ClassNotFoundException e) {
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e.toString());
+                e.printStackTrace();
+            }
+            try {
+                Class.forName("androidx.recyclerview.widget.RecyclerView");
             } catch (ClassNotFoundException e2) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e2.toString());
                 e2.printStackTrace();
             }
             try {
-                Class.forName("androidx.recyclerview.widget.RecyclerView");
+                Class.forName("androidx.recyclerview.widget.LinearLayoutManager");
             } catch (ClassNotFoundException e3) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e3.toString());
                 e3.printStackTrace();
             }
             try {
-                Class.forName("androidx.recyclerview.widget.LinearLayoutManager");
+                Class.forName(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
             } catch (ClassNotFoundException e4) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e4.toString());
                 e4.printStackTrace();
             }
             try {
-                Class.forName(SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
+                Class.forName("com.repackage.pn8");
             } catch (ClassNotFoundException e5) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e5.toString());
                 e5.printStackTrace();
             }
             try {
-                Class.forName("c.a.p0.c4.h");
+                Class.forName("com.baidu.tbadk.core.tabHost.FragmentTabHost");
             } catch (ClassNotFoundException e6) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e6.toString());
                 e6.printStackTrace();
             }
             try {
-                Class.forName("com.baidu.tbadk.core.tabHost.FragmentTabHost");
+                Class.forName("com.baidu.sapi2.utils.SapiUtils");
             } catch (ClassNotFoundException e7) {
                 Log.e(LaunchTask.TAG, "preLoadClass exception " + e7.toString());
                 e7.printStackTrace();
-            }
-            try {
-                Class.forName("com.baidu.sapi2.utils.SapiUtils");
-            } catch (ClassNotFoundException e8) {
-                Log.e(LaunchTask.TAG, "preLoadClass exception " + e8.toString());
-                e8.printStackTrace();
             }
             if (Fresco.hasBeenInitialized()) {
                 ImagePipelineFactory.getInstance().getImagePipeline();
             }
             try {
                 Class.forName("com.baidu.webkit.sdk.WebView");
-            } catch (ClassNotFoundException e9) {
-                Log.e(LaunchTask.TAG, "preLoadClass exception " + e9.toString());
-                e9.printStackTrace();
+            } catch (ClassNotFoundException e8) {
+                Log.e(LaunchTask.TAG, "preLoadClass exception " + e8.toString());
+                e8.printStackTrace();
             }
         }
     }

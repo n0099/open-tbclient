@@ -1,7 +1,5 @@
 package com.baidu.tieba.ala.frsgamelive;
 
-import c.a.p0.f1.j0;
-import c.a.p0.f1.k0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -29,12 +27,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.he6;
+import com.repackage.ie6;
+import com.repackage.js5;
+import com.repackage.qs5;
+import com.repackage.rs5;
+/* loaded from: classes3.dex */
 public class AlaFrsLiveStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,21 +70,21 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof k0) {
-                k0 k0Var = (k0) data;
-                c.a.p0.c0.g.c.a aVar = new c.a.p0.c0.g.c.a(true);
-                aVar.b().f10299e = 2;
-                aVar.h(k0Var.c());
-                aVar.i(k0Var.d());
-                aVar.g(k0Var.b());
-                aVar.j(1);
-                aVar.k(false);
-                k0Var.a(aVar);
+            if (data instanceof ie6) {
+                ie6 ie6Var = (ie6) data;
+                js5 js5Var = new js5(true);
+                js5Var.b().e = 2;
+                js5Var.h(ie6Var.c());
+                js5Var.i(ie6Var.d());
+                js5Var.g(ie6Var.b());
+                js5Var.j(1);
+                js5Var.k(false);
+                ie6Var.a(js5Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,23 +117,23 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof j0) {
-                j0 j0Var = (j0) data;
-                c.a.p0.c0.g.c.a aVar = new c.a.p0.c0.g.c.a(true);
-                aVar.b().f10299e = 9;
-                aVar.h(j0Var.c());
-                aVar.i(j0Var.d());
-                aVar.g(j0Var.b());
-                aVar.j(1);
-                aVar.k(true);
-                if (j0Var.h(9)) {
-                    j0Var.a(aVar);
+            if (data instanceof he6) {
+                he6 he6Var = (he6) data;
+                js5 js5Var = new js5(true);
+                js5Var.b().e = 9;
+                js5Var.h(he6Var.c());
+                js5Var.i(he6Var.d());
+                js5Var.g(he6Var.b());
+                js5Var.j(1);
+                js5Var.k(true);
+                if (he6Var.h(9)) {
+                    he6Var.a(js5Var);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,21 +166,21 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof k0) {
-                k0 k0Var = (k0) data;
-                c.a.p0.c0.g.c.a aVar = new c.a.p0.c0.g.c.a(false);
-                aVar.b().f10299e = 1;
-                aVar.h(k0Var.c());
-                aVar.i(k0Var.d());
-                aVar.g(k0Var.b());
-                aVar.j(2);
-                aVar.k(false);
-                k0Var.a(aVar);
+            if (data instanceof ie6) {
+                ie6 ie6Var = (ie6) data;
+                js5 js5Var = new js5(false);
+                js5Var.b().e = 1;
+                js5Var.h(ie6Var.c());
+                js5Var.i(ie6Var.d());
+                js5Var.g(ie6Var.b());
+                js5Var.j(2);
+                js5Var.k(false);
+                ie6Var.a(js5Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,19 +213,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof k0) {
-                k0 k0Var = (k0) data;
-                c.a.p0.c0.i.a.a aVar = new c.a.p0.c0.i.a.a();
-                aVar.b().f10299e = 3;
-                aVar.g(k0Var.c());
-                aVar.h(k0Var.d());
-                aVar.i(false);
-                k0Var.a(aVar);
+            if (data instanceof ie6) {
+                ie6 ie6Var = (ie6) data;
+                rs5 rs5Var = new rs5();
+                rs5Var.b().e = 3;
+                rs5Var.g(ie6Var.c());
+                rs5Var.h(ie6Var.d());
+                rs5Var.i(false);
+                ie6Var.a(rs5Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -255,22 +258,22 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof j0) {
-                j0 j0Var = (j0) data;
-                c.a.p0.c0.i.a.a aVar = new c.a.p0.c0.i.a.a();
-                aVar.b().f10299e = 8;
-                aVar.b().f10296b = R.string.obfuscated_res_0x7f0f0245;
-                aVar.g(j0Var.c());
-                aVar.h(j0Var.d());
-                aVar.i(true);
-                if (j0Var.h(8)) {
-                    j0Var.a(aVar);
+            if (data instanceof he6) {
+                he6 he6Var = (he6) data;
+                rs5 rs5Var = new rs5();
+                rs5Var.b().e = 8;
+                rs5Var.b().b = R.string.obfuscated_res_0x7f0f0246;
+                rs5Var.g(he6Var.c());
+                rs5Var.h(he6Var.d());
+                rs5Var.i(true);
+                if (he6Var.h(8)) {
+                    he6Var.a(rs5Var);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,18 +306,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (data instanceof j0) {
-                j0 j0Var = (j0) data;
-                c.a.p0.c0.h.a aVar = new c.a.p0.c0.h.a();
-                aVar.i(j0Var.c());
-                aVar.j(j0Var.d());
-                aVar.h(j0Var.b());
-                aVar.g(j0Var);
+            if (data instanceof he6) {
+                he6 he6Var = (he6) data;
+                qs5 qs5Var = new qs5();
+                qs5Var.i(he6Var.c());
+                qs5Var.j(he6Var.d());
+                qs5Var.h(he6Var.b());
+                qs5Var.g(he6Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class g implements CustomMessageTask.CustomRunnable<AlaAllGameLiveEntryActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.Method;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static Method sGetFileDescriptorMethod;
@@ -112,8 +112,8 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException e) {
+                e = e;
             }
             try {
                 FileDescriptor memoryFileDescriptor = getMemoryFileDescriptor(copyToMemoryFile);
@@ -125,8 +125,8 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
                     return bitmap;
                 }
                 throw new IllegalStateException("WebpBitmapFactory is null");
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 throw Throwables.propagate(e);
             } catch (Throwable th2) {
                 th = th2;
@@ -149,8 +149,8 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
                 if (sGetFileDescriptorMethod == null) {
                     try {
                         sGetFileDescriptorMethod = MemoryFile.class.getDeclaredMethod("getFileDescriptor", new Class[0]);
-                    } catch (Exception e2) {
-                        throw Throwables.propagate(e2);
+                    } catch (Exception e) {
+                        throw Throwables.propagate(e);
                     }
                 }
                 method = sGetFileDescriptorMethod;
@@ -166,8 +166,8 @@ public class GingerbreadPurgeableDecoder extends DalvikPurgeableDecoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, memoryFile)) == null) {
             try {
                 return (FileDescriptor) getFileDescriptorMethod().invoke(memoryFile, new Object[0]);
-            } catch (Exception e2) {
-                throw Throwables.propagate(e2);
+            } catch (Exception e) {
+                throw Throwables.propagate(e);
             }
         }
         return (FileDescriptor) invokeL.objValue;

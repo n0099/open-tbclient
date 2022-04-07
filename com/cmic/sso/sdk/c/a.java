@@ -15,14 +15,12 @@ import com.cmic.sso.sdk.c.c.c;
 import com.cmic.sso.sdk.e.q;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f38419b;
+    public String b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -43,31 +41,31 @@ public class a {
         List<String> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, bVar, aVar)) == null) {
-            Map<String, List<String>> b2 = bVar.b();
-            if (TextUtils.isEmpty(this.a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+            Map<String, List<String>> b = bVar.b();
+            if (TextUtils.isEmpty(this.a) && (list = b.get("pplocation")) != null && list.size() > 0) {
                 this.a = list.get(0);
             }
             q.b(aVar, String.valueOf(bVar.a()));
-            List<String> list2 = b2.get(Headers.LOCATION);
+            List<String> list2 = b.get(Headers.LOCATION);
             if (list2 == null || list2.isEmpty()) {
-                list2 = b2.get(Headers.LOCATION.toLowerCase());
+                list2 = b.get(Headers.LOCATION.toLowerCase());
             }
             if (list2 != null && list2.size() > 0) {
                 String str = list2.get(0);
-                this.f38419b = str;
+                this.b = str;
                 if (!TextUtils.isEmpty(str)) {
-                    String b3 = aVar.b("operatortype", "0");
-                    if ("2".equals(b3)) {
+                    String b2 = aVar.b("operatortype", "0");
+                    if ("2".equals(b2)) {
                         q.a(aVar, "getUnicomMobile");
-                    } else if ("3".equals(b3)) {
+                    } else if ("3".equals(b2)) {
                         q.a(aVar, "getTelecomMobile");
                     } else {
                         q.a(aVar, "NONE");
                     }
                 }
             }
-            Log.d(Headers.LOCATION, this.f38419b);
-            c a = a(this.f38419b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.k().a()));
+            Log.d(Headers.LOCATION, this.b);
+            c a = a(this.b, cVar.f(), "GET", new com.cmic.sso.sdk.c.b.c(cVar.k().a()));
             a.a(cVar.h());
             return a;
         }
@@ -78,10 +76,10 @@ public class a {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar, aVar)) == null) {
-            String b2 = aVar.b("operatortype", "0");
-            if ("2".equals(b2)) {
+            String b = aVar.b("operatortype", "0");
+            if ("2".equals(b)) {
                 q.a(aVar, "getNewUnicomPhoneNumberNotify");
-            } else if ("3".equals(b2)) {
+            } else if ("3".equals(b)) {
                 q.a(aVar, "getNewTelecomPhoneNumberNotify");
             } else {
                 q.a(aVar, "NONE");

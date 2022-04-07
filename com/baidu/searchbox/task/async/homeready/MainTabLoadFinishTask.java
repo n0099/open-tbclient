@@ -1,7 +1,6 @@
 package com.baidu.searchbox.task.async.homeready;
 
 import android.webkit.WebSettings;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.l30;
+import com.repackage.wt4;
+/* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,14 +42,14 @@ public class MainTabLoadFinishTask extends LaunchTask {
             }
             Loki.startTrack();
             try {
-                b.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                wt4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             try {
-                b.k().y("key_last_cached_oid", c.a.p.b.e(TbadkCoreApplication.getInst().getContext()).f());
-            } catch (Exception e3) {
-                e3.printStackTrace();
+                wt4.k().y("key_last_cached_oid", l30.e(TbadkCoreApplication.getInst().getContext()).f());
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
     }

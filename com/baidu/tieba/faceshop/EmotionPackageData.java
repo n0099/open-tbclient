@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmotionPackageData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMOTION_HITS_STATUS = 5;
@@ -44,7 +44,7 @@ public class EmotionPackageData extends OrmObject {
     public String url;
     public String vote_num;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class SingleEmotionData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

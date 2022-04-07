@@ -70,11 +70,11 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
-    public boolean onPull(float f2) {
+    public boolean onPull(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f2)) == null) {
-            this.mEdgeEffect.onPull(f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+            this.mEdgeEffect.onPull(f);
             return true;
         }
         return invokeF.booleanValue;
@@ -100,23 +100,23 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
-    public boolean onPull(float f2, float f3) {
+    public boolean onPull(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            onPull(this.mEdgeEffect, f2, f3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            onPull(this.mEdgeEffect, f, f2);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static void onPull(@NonNull EdgeEffect edgeEffect, float f2, float f3) {
+    public static void onPull(@NonNull EdgeEffect edgeEffect, float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{edgeEffect, Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{edgeEffect, Float.valueOf(f), Float.valueOf(f2)}) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                edgeEffect.onPull(f2, f3);
+                edgeEffect.onPull(f, f2);
             } else {
-                edgeEffect.onPull(f2);
+                edgeEffect.onPull(f);
             }
         }
     }

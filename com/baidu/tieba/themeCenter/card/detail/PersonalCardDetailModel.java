@@ -11,20 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.aq8;
+import com.repackage.dk8;
+import com.repackage.wa;
+/* loaded from: classes4.dex */
 public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.p0.f4.a a;
+    public aq8 a;
+    public b b;
+    public wa c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public b f36366b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f36367c;
-
-    /* loaded from: classes6.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes4.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardDetailModel a;
@@ -51,7 +50,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
             this.a = personalCardDetailModel;
         }
 
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -64,16 +63,16 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
                 } else if (responsedMessage instanceof PersonalCardDetailSocketReponse) {
                     this.a.a = ((PersonalCardDetailSocketReponse) responsedMessage).getCardData();
                 }
-                if (this.a.f36366b != null) {
-                    this.a.f36366b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
+                if (this.a.b != null) {
+                    this.a.b.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, c.a.p0.f4.a aVar);
+        void a(int i, String str, aq8 aq8Var);
     }
 
     public PersonalCardDetailModel() {
@@ -89,10 +88,10 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
                 return;
             }
         }
-        this.f36367c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
-        c.a.p0.a4.g0.a.h(309333, PersonalCardDetailSocketReponse.class, false, false);
-        c.a.p0.a4.g0.a.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
-        registerListener(this.f36367c);
+        this.c = new a(this, CmdConfigHttp.CMD_GET_CARD_DETAIL, 309333);
+        dk8.h(309333, PersonalCardDetailSocketReponse.class, false, false);
+        dk8.c(309333, CmdConfigHttp.CMD_GET_CARD_DETAIL, TbConfig.GET_CARD_DETAIL, PersonalCardDetailHttpReponse.class, false, false, false, false);
+        registerListener(this.c);
     }
 
     public void B(long j) {
@@ -107,7 +106,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     public void C(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f36366b = bVar;
+            this.b = bVar;
         }
     }
 
@@ -134,7 +133,7 @@ public class PersonalCardDetailModel extends BdBaseModel<PersonalCardDetailActiv
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f36367c);
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 }

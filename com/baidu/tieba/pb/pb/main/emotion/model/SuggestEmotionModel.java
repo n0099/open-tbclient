@@ -1,6 +1,5 @@
 package com.baidu.tieba.pb.pb.main.emotion.model;
 
-import c.a.d.f.m.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -18,41 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.pg;
+import com.repackage.zw7;
+/* loaded from: classes3.dex */
 public class SuggestEmotionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
+    public String b;
+    public String c;
+    public final CustomMessageListener d;
+    public final HttpMessageListener e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f35025b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f35026c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final CustomMessageListener f35027d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f35028e;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SuggestEmotionModel a;
 
         /* renamed from: com.baidu.tieba.pb.pb.main.emotion.model.SuggestEmotionModel$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC1884a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0225a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CustomResponsedMessage a;
+            public final /* synthetic */ a b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f35029b;
-
-            public RunnableC1884a(a aVar, CustomResponsedMessage customResponsedMessage) {
+            public RunnableC0225a(a aVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -67,7 +58,7 @@ public class SuggestEmotionModel extends BdBaseModel {
                         return;
                     }
                 }
-                this.f35029b = aVar;
+                this.b = aVar;
                 this.a = customResponsedMessage;
             }
 
@@ -76,10 +67,10 @@ public class SuggestEmotionModel extends BdBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-                    httpMessage.addParam("forum_id", this.f35029b.a.f35025b);
-                    httpMessage.addParam("forum_name", this.f35029b.a.f35026c);
+                    httpMessage.addParam("forum_id", this.b.a.b);
+                    httpMessage.addParam("forum_name", this.b.a.c);
                     httpMessage.addParam("has_pkg", (String) this.a.getData());
-                    this.f35029b.a.sendMessage(httpMessage);
+                    this.b.a.sendMessage(httpMessage);
                 }
             }
         }
@@ -110,12 +101,12 @@ public class SuggestEmotionModel extends BdBaseModel {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                e.a().post(new RunnableC1884a(this, customResponsedMessage));
+                pg.a().post(new RunnableC0225a(this, customResponsedMessage));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,9 +148,9 @@ public class SuggestEmotionModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface c {
-        void a(c.a.p0.w2.m.f.j1.e.a aVar);
+        void a(zw7 zw7Var);
 
         void onFail(int i, String str);
     }
@@ -177,20 +168,20 @@ public class SuggestEmotionModel extends BdBaseModel {
                 return;
             }
         }
-        this.f35027d = new a(this, 2921322);
-        this.f35028e = new b(this, CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
+        this.d = new a(this, 2921322);
+        this.e = new b(this, CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
         registerTask();
-        this.f35028e.setTag(getUniqueId());
-        this.f35028e.setSelfListener(true);
-        registerListener(this.f35028e);
+        this.e.setTag(getUniqueId());
+        this.e.setSelfListener(true);
+        registerListener(this.e);
     }
 
     public void B(String str, String str2, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, cVar) == null) {
             this.a = cVar;
-            this.f35025b = str;
-            this.f35026c = str2;
+            this.b = str;
+            this.c = str2;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004612, new Integer(2921322)));
         }
     }
@@ -200,9 +191,9 @@ public class SuggestEmotionModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f35028e);
+            MessageManager.getInstance().unRegisterListener(this.e);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION);
-            MessageManager.getInstance().unRegisterListener(this.f35027d);
+            MessageManager.getInstance().unRegisterListener(this.d);
             return true;
         }
         return invokeV.booleanValue;
@@ -224,7 +215,7 @@ public class SuggestEmotionModel extends BdBaseModel {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_SUGGEST_EMOTION, TbConfig.SERVER_ADDRESS + "c/e/meme/suggest");
             tbHttpMessageTask.setResponsedClass(SuggestEmotionResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            MessageManager.getInstance().registerListener(this.f35027d);
+            MessageManager.getInstance().registerListener(this.d);
         }
     }
 }

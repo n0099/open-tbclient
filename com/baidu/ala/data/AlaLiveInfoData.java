@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class AlaLiveInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIVE_SCREEN_DIRECTION_LANDSCAPE = 2;
@@ -149,8 +149,8 @@ public class AlaLiveInfoData extends OrmObject implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

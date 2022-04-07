@@ -4,23 +4,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.o.a.a;
-import g.o.a.k;
+import com.repackage.pz9;
+import com.repackage.wy9;
+import com.repackage.zz9;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements f {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements wy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -657299606803478389L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k<?, ?> parent;
+    public final zz9<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(k<?, ?> kVar) {
+    public OperatorEagerConcatMap$EagerOuterProducer(zz9<?, ?> zz9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kVar};
+            Object[] objArr = {zz9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,10 +30,10 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
                 return;
             }
         }
-        this.parent = kVar;
+        this.parent = zz9Var;
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -41,7 +41,7 @@ public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong 
             if (i < 0) {
                 throw new IllegalStateException("n >= 0 required but it was " + j);
             } else if (i > 0) {
-                a.b(this, j);
+                pz9.b(this, j);
                 this.parent.g();
             }
         }

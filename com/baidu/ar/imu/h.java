@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Observable;
 import java.util.Observer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class h implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -140,22 +140,22 @@ public class h implements Observer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, fArr)) == null) {
-            float f2 = -fArr[0];
-            float f3 = -fArr[1];
-            int i = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
-            if (i != 0 || f2 >= 0.0f) {
-                if (i != 0 || f2 <= 0.0f) {
-                    int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
-                    if (i2 != 0 || f3 >= 0.0f) {
+            float f = -fArr[0];
+            float f2 = -fArr[1];
+            int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+            if (i != 0 || f >= 0.0f) {
+                if (i != 0 || f <= 0.0f) {
+                    int i2 = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
+                    if (i2 != 0 || f2 >= 0.0f) {
                         if (i2 != 0 || i <= 0) {
-                            float atan = (float) ((Math.atan(Math.abs(f3) / Math.abs(f2)) / 3.141592653589793d) * 180.0d);
-                            if (i2 > 0 && f3 < 0.0f) {
+                            float atan = (float) ((Math.atan(Math.abs(f2) / Math.abs(f)) / 3.141592653589793d) * 180.0d);
+                            if (i2 > 0 && f2 < 0.0f) {
                                 atan = 180.0f - atan;
                             }
                             if (i2 > 0 && i > 0) {
                                 atan += 180.0f;
                             }
-                            return (f2 >= 0.0f || i <= 0) ? atan : 360.0f - atan;
+                            return (f >= 0.0f || i <= 0) ? atan : 360.0f - atan;
                         }
                         return 270.0f;
                     }

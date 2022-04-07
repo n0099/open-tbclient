@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DirectorySoSource extends SoSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ON_LD_LIBRARY_PATH = 2;
@@ -110,12 +110,12 @@ public class DirectorySoSource extends SoSource {
             try {
                 SoLoader.sSoFileLoader.load(file2.getAbsolutePath(), i);
                 return 1;
-            } catch (UnsatisfiedLinkError e2) {
-                if (e2.getMessage().contains("bad ELF magic")) {
+            } catch (UnsatisfiedLinkError e) {
+                if (e.getMessage().contains("bad ELF magic")) {
                     Log.d("SoLoader", "Corrupted lib file detected");
                     return 3;
                 }
-                throw e2;
+                throw e;
             }
         }
         return invokeLILL.intValue;

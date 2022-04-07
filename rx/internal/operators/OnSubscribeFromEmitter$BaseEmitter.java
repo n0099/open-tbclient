@@ -7,27 +7,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.j;
-import g.k;
-import g.o.a.a;
-import g.u.d;
+import com.repackage.az9;
+import com.repackage.bz9;
+import com.repackage.kz9;
+import com.repackage.pz9;
+import com.repackage.r3a;
+import com.repackage.wy9;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.internal.subscriptions.CancellableSubscription;
 /* loaded from: classes8.dex */
-public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, f, k {
+public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong implements Object<T>, wy9, bz9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7326289992464377023L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j<? super T> actual;
-    public final d serial;
+    public final az9<? super T> actual;
+    public final r3a serial;
 
-    public OnSubscribeFromEmitter$BaseEmitter(j<? super T> jVar) {
+    public OnSubscribeFromEmitter$BaseEmitter(az9<? super T> az9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
+            Object[] objArr = {az9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,11 +38,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
                 return;
             }
         }
-        this.actual = jVar;
-        this.serial = new d();
+        this.actual = az9Var;
+        this.serial = new r3a();
     }
 
-    @Override // g.k
+    @Override // com.repackage.bz9
     public final boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,11 +87,11 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         }
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public final void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && a.h(j)) {
-            a.b(this, j);
+        if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && pz9.h(j)) {
+            pz9.b(this, j);
             onRequested();
         }
     }
@@ -101,21 +102,21 @@ public abstract class OnSubscribeFromEmitter$BaseEmitter<T> extends AtomicLong i
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? get() : invokeV.longValue;
     }
 
-    public final void setCancellation(g.n.d dVar) {
+    public final void setCancellation(kz9 kz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dVar) == null) {
-            setSubscription(new CancellableSubscription(dVar));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kz9Var) == null) {
+            setSubscription(new CancellableSubscription(kz9Var));
         }
     }
 
-    public final void setSubscription(k kVar) {
+    public final void setSubscription(bz9 bz9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, kVar) == null) {
-            this.serial.a(kVar);
+        if (interceptable == null || interceptable.invokeL(1048585, this, bz9Var) == null) {
+            this.serial.a(bz9Var);
         }
     }
 
-    @Override // g.k
+    @Override // com.repackage.bz9
     public final void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {

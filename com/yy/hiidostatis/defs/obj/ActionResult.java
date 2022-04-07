@@ -11,7 +11,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ActionResult implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +64,8 @@ public class ActionResult implements IJsonSerialize {
                     jSONObject.put("moreinfo", jSONObject2);
                 }
                 return jSONObject;
-            } catch (Exception e2) {
-                L.debug(this, e2.getMessage(), new Object[0]);
+            } catch (Exception e) {
+                L.debug(this, e.getMessage(), new Object[0]);
                 return null;
             }
         }

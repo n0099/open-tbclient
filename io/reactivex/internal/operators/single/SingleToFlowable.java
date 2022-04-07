@@ -23,9 +23,7 @@ public final class SingleToFlowable<T> extends Flowable<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 187782011903685568L;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45357d;
+        public Disposable d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SingleToFlowableObserver(Subscriber<? super T> subscriber) {
@@ -52,7 +50,7 @@ public final class SingleToFlowable<T> extends Flowable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.cancel();
-                this.f45357d.dispose();
+                this.d.dispose();
             }
         }
 
@@ -67,8 +65,8 @@ public final class SingleToFlowable<T> extends Flowable<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.f45357d, disposable)) {
-                this.f45357d = disposable;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

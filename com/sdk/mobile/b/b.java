@@ -14,9 +14,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f42617b;
+    public /* synthetic */ a b;
 
     public b(a aVar, int i) {
         Interceptable interceptable = $ic;
@@ -33,7 +31,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f42617b = aVar;
+        this.b = aVar;
         this.a = i;
     }
 
@@ -41,7 +39,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
     public final void a(int i, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
-            this.f42617b.a(i, i2, str);
+            this.b.a(i, i2, str);
         }
     }
 
@@ -57,16 +55,16 @@ public final class b implements com.sdk.base.framework.b.a<T> {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
-            context = this.f42617b.f42603d;
+            context = this.b.d;
             com.sdk.base.framework.f.i.b.b(context);
             if (i == 0) {
-                context2 = this.f42617b.f42603d;
+                context2 = this.b.d;
                 com.sdk.base.framework.a.a.a.a(context2, this.a, com.sdk.base.framework.a.a.a.a(t, str2), g.a.a());
                 try {
-                    context3 = this.f42617b.f42603d;
+                    context3 = this.b.d;
                     t = com.sdk.base.framework.f.k.a.a(context3, String.valueOf(t));
                     if (t == 0) {
-                        this.f42617b.a(1, "SDK解密异常", 302001, t, str2);
+                        this.b.a(1, "SDK解密异常", 302001, t, str2);
                         return;
                     }
                     JSONObject jSONObject = new JSONObject(String.valueOf((Object) t));
@@ -77,7 +75,7 @@ public final class b implements com.sdk.base.framework.b.a<T> {
                 } catch (Exception unused) {
                 }
             }
-            this.f42617b.a(i, str, i2, t, str2);
+            this.b.a(i, str, i2, t, str2);
         }
     }
 }

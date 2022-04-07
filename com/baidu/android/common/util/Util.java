@@ -4,19 +4,17 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import c.a.m.k.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.c20;
+/* loaded from: classes.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean a = false;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f24131b = "Util";
+    public static final String b = "Util";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Util() {
@@ -50,12 +48,12 @@ public final class Util {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) ? b.a(bArr, str, z) : (String) invokeLLZ.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) ? c20.a(bArr, str, z) : (String) invokeLLZ.objValue;
     }
 
     public static String toMd5(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) ? b.b(bArr, z) : (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) ? c20.b(bArr, z) : (String) invokeLZ.objValue;
     }
 }

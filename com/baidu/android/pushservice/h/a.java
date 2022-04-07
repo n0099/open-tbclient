@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,16 +21,16 @@ public class a {
             try {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
                 StringBuilder sb = new StringBuilder();
-                for (byte b2 : digest) {
-                    int i = b2 & 255;
+                for (byte b : digest) {
+                    int i = b & 255;
                     if (i < 16) {
                         sb.append(0);
                     }
                     sb.append(Integer.toHexString(i));
                 }
                 return sb.toString();
-            } catch (NoSuchAlgorithmException e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (NoSuchAlgorithmException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
                 return "";
             }
         }

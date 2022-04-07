@@ -1,7 +1,7 @@
 package com.baidu.ar.auth;
 
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface IAuthenticateCallback {
     void onAvailFeaturesChanged(List<Integer> list);
 

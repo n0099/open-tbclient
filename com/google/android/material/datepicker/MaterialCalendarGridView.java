@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Calendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MaterialCalendarGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,10 +63,10 @@ public final class MaterialCalendarGridView extends GridView {
         }
     }
 
-    public static int horizontalMidPoint(@NonNull View view) {
+    public static int horizontalMidPoint(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view)) == null) ? view.getLeft() + (view.getWidth() / 2) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? view2.getLeft() + (view2.getWidth() / 2) : invokeL.intValue;
     }
 
     public static boolean skipMonth(@Nullable Long l, @Nullable Long l2, @Nullable Long l3, @Nullable Long l4) {
@@ -246,8 +246,8 @@ public final class MaterialCalendarGridView extends GridView {
         }
         this.dayCompute = UtcDates.getUtcCalendar();
         if (MaterialDatePicker.isFullscreen(getContext())) {
-            setNextFocusLeftId(R.id.obfuscated_res_0x7f09048f);
-            setNextFocusRightId(R.id.obfuscated_res_0x7f0906bc);
+            setNextFocusLeftId(R.id.obfuscated_res_0x7f090497);
+            setNextFocusRightId(R.id.obfuscated_res_0x7f0906c5);
         }
         ViewCompat.setAccessibilityDelegate(this, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.datepicker.MaterialCalendarGridView.1
             public static /* synthetic */ Interceptable $ic;
@@ -273,10 +273,10 @@ public final class MaterialCalendarGridView extends GridView {
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view, accessibilityNodeInfoCompat) == null) {
-                    super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
+                    super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                     accessibilityNodeInfoCompat.setCollectionInfo(null);
                 }
             }

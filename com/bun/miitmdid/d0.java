@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class d0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +25,8 @@ public class d0 {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 byteArrayOutputStream.write(bArr, 0, available);
                 return byteArrayOutputStream.toString();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 return "";
             }
         }

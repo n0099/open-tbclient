@@ -12,7 +12,7 @@ import com.kwad.v8.V8Value;
 import com.tachikoma.core.utility.V8Proxy;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TKProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,14 +57,14 @@ public class TKProxy {
         }
     }
 
-    public static boolean setYogaLayoutHeight(Object obj, float f2) {
+    public static boolean setYogaLayoutHeight(Object obj, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, obj, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, obj, f)) == null) {
             if (obj instanceof YogaLayout) {
                 YogaLayout yogaLayout = (YogaLayout) obj;
                 if (yogaLayout.getYogaNode() != null) {
-                    yogaLayout.getYogaNode().setHeight(f2);
+                    yogaLayout.getYogaNode().setHeight(f);
                     return true;
                 }
                 return true;
@@ -91,14 +91,14 @@ public class TKProxy {
         return invokeL.booleanValue;
     }
 
-    public static boolean setYogaLayoutWidth(Object obj, float f2) {
+    public static boolean setYogaLayoutWidth(Object obj, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, obj, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, obj, f)) == null) {
             if (obj instanceof YogaLayout) {
                 YogaLayout yogaLayout = (YogaLayout) obj;
                 if (yogaLayout.getYogaNode() != null) {
-                    yogaLayout.getYogaNode().setWidth(f2);
+                    yogaLayout.getYogaNode().setWidth(f);
                     return true;
                 }
                 return true;

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ConvertUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] CHUNK_SEPARATOR;
@@ -109,15 +109,15 @@ public class ConvertUtils {
         }
     }
 
-    public static int toDigit(char c2, int i) throws IOException {
+    public static int toDigit(char c, int i) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            int digit = Character.digit(c2, 16);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            int digit = Character.digit(c, 16);
             if (digit != -1) {
                 return digit;
             }
-            throw new IOException("Illegal hexadecimal character " + c2 + " at index " + i);
+            throw new IOException("Illegal hexadecimal character " + c + " at index " + i);
         }
         return invokeCommon.intValue;
     }

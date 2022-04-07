@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.dialog.BdToast;
@@ -19,20 +18,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.wr4;
+/* loaded from: classes3.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f35573b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f35574c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public EMTextView f35575d;
+    public View b;
+    public ImageView c;
+    public EMTextView d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FakeVideoContainer(Context context) {
@@ -58,16 +52,16 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0291, this);
-            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092392);
-            this.f35573b = findViewById(R.id.obfuscated_res_0x7f090382);
-            this.f35574c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092361);
-            this.f35575d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090969);
-            this.f35574c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            c d2 = c.d(this.f35575d);
-            d2.v(R.color.CAM_X0101);
-            d2.A(R.string.F_X01);
-            this.a.s();
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0292, this);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09236f);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09038d);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09233e);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090970);
+            this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            wr4 d = wr4.d(this.d);
+            d.v(R.color.CAM_X0101);
+            d.A(R.string.F_X01);
+            this.a.t();
             this.a.setDrawCorner(false);
             this.a.setPlaceHolder(3);
             setOnClickListener(this);
@@ -75,10 +69,10 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            BdToast.i(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f08099f, true).q();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            BdToast.i(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f14d8), R.drawable.obfuscated_res_0x7f0809a5, true).q();
         }
     }
 
@@ -90,9 +84,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
         threadData.getThreadVideoInfo().is_vertical.intValue();
         this.a.setPlaceHolder(3);
         if (!threadData.getThreadVideoInfo().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !threadData.getThreadVideoInfo().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.a.J(threadData.getThreadVideoInfo().thumbnail_url, 32, false);
+            this.a.K(threadData.getThreadVideoInfo().thumbnail_url, 32, false);
         } else {
-            this.a.J(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+            this.a.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
         }
     }
 

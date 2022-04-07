@@ -15,40 +15,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f38072b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final a f38073c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final a f38074d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final a f38075e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public static final a f38076f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public static final a f38077g;
+        public static final a b;
+        public static final a c;
+        public static final a d;
+        public static final a e;
+        public static final a f;
+        public static final a g;
         public static final /* synthetic */ a[] i;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final int f38078h;
+        public final int h;
 
         static {
             InterceptResult invokeClinit;
@@ -64,14 +50,14 @@ public final class d {
                 }
             }
             a = new a(RomUtils.UNKNOWN, 0, -1);
-            f38072b = new a("NONE", 1, 0);
-            f38073c = new a("MOBILE", 2, 1);
-            f38074d = new a("MOBILE_2G", 3, 2);
-            f38075e = new a("MOBILE_3G", 4, 3);
-            f38076f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
+            b = new a("NONE", 1, 0);
+            c = new a("MOBILE", 2, 1);
+            d = new a("MOBILE_2G", 3, 2);
+            e = new a("MOBILE_3G", 4, 3);
+            f = new a(CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING, 5, 4);
             a aVar = new a("MOBILE_4G", 6, 5);
-            f38077g = aVar;
-            i = new a[]{a, f38072b, f38073c, f38074d, f38075e, f38076f, aVar};
+            g = aVar;
+            i = new a[]{a, b, c, d, e, f, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -92,7 +78,7 @@ public final class d {
                     return;
                 }
             }
-            this.f38078h = i3;
+            this.h = i3;
         }
 
         public static a valueOf(String str) {
@@ -151,7 +137,7 @@ public final class d {
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     int type = activeNetworkInfo.getType();
                     if (1 == type) {
-                        return a.f38076f;
+                        return a.f;
                     }
                     if (type == 0) {
                         switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
@@ -164,21 +150,21 @@ public final class d {
                             case 12:
                             case 14:
                             case 15:
-                                return a.f38075e;
+                                return a.e;
                             case 4:
                             case 7:
                             case 11:
                             default:
-                                return a.f38073c;
+                                return a.c;
                             case 13:
-                                return a.f38077g;
+                                return a.g;
                         }
                     }
-                    return a.f38073c;
+                    return a.c;
                 }
-                return a.f38072b;
+                return a.b;
             } catch (Throwable unused) {
-                return a.f38073c;
+                return a.c;
             }
         }
         return (a) invokeL.objValue;

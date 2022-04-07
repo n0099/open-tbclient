@@ -1,0 +1,41 @@
+package com.repackage;
+
+import android.util.Log;
+import android.view.ViewTreeObserver;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.MiPushClient;
+/* loaded from: classes6.dex */
+public class ip9 implements ViewTreeObserver.OnDrawListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ViewTreeObserver a;
+
+    public ip9(qp9 qp9Var, ViewTreeObserver viewTreeObserver) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qp9Var, viewTreeObserver};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = viewTreeObserver;
+    }
+
+    @Override // android.view.ViewTreeObserver.OnDrawListener
+    public void onDraw() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Log.e(MiPushClient.COMMAND_REGISTER, "onDraw:" + this.a.isAlive());
+        }
+    }
+}

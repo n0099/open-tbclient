@@ -15,17 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FaceExtInfo[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public FaceExtInfo f28072b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public FaceConfig f28073c;
+    public FaceExtInfo b;
+    public FaceConfig c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +47,7 @@ public class a {
             } else if (bDFaceImageInstance != null) {
                 ArrayList<ImageInfo> arrayList = new ArrayList<>();
                 ImageInfo imageInfo = new ImageInfo();
-                FaceConfig faceConfig = this.f28073c;
+                FaceConfig faceConfig = this.c;
                 int secType = faceConfig != null ? faceConfig.getSecType() : 0;
                 imageInfo.setBase64(bDFaceImageInstance.getBase64());
                 if (secType == 1) {
@@ -74,7 +70,7 @@ public class a {
     public void a(FaceConfig faceConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceConfig) == null) {
-            this.f28073c = faceConfig;
+            this.c = faceConfig;
         }
     }
 
@@ -84,16 +80,16 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceInfoArr)) == null) {
             if (this.a == null) {
                 this.a = new FaceExtInfo[1];
-                this.f28072b = new FaceExtInfo();
+                this.b = new FaceExtInfo();
             }
             if (faceInfoArr == null || faceInfoArr.length <= 0) {
                 this.a[0] = null;
             } else {
-                if (this.f28072b == null) {
-                    this.f28072b = new FaceExtInfo();
+                if (this.b == null) {
+                    this.b = new FaceExtInfo();
                 }
-                this.f28072b.addFaceInfo(faceInfoArr[0]);
-                this.a[0] = this.f28072b;
+                this.b.addFaceInfo(faceInfoArr[0]);
+                this.a[0] = this.b;
             }
             return this.a;
         }
@@ -110,7 +106,7 @@ public class a {
             } else if (bDFaceImageInstance != null) {
                 ArrayList<ImageInfo> arrayList = new ArrayList<>();
                 ImageInfo imageInfo = new ImageInfo();
-                FaceConfig faceConfig = this.f28073c;
+                FaceConfig faceConfig = this.c;
                 int secType = faceConfig != null ? faceConfig.getSecType() : 0;
                 imageInfo.setBase64(bDFaceImageInstance.getBase64());
                 if (secType == 1) {

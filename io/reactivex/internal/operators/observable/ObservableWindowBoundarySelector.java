@@ -137,10 +137,10 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
         }
 
         @Override // io.reactivex.Observer
-        public void onNext(B b2) {
+        public void onNext(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2) == null) {
-                this.parent.open(b2);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b) == null) {
+                this.parent.open(b);
             }
         }
     }
@@ -382,10 +382,10 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
             }
         }
 
-        public void open(B b2) {
+        public void open(B b) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048587, this, b2) == null) {
-                this.queue.offer(new WindowOperation(null, b2));
+            if (interceptable == null || interceptable.invokeL(1048587, this, b) == null) {
+                this.queue.offer(new WindowOperation(null, b));
                 if (enter()) {
                     drainLoop();
                 }
@@ -400,12 +400,12 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
         public final B open;
         public final UnicastSubject<T> w;
 
-        public WindowOperation(UnicastSubject<T> unicastSubject, B b2) {
+        public WindowOperation(UnicastSubject<T> unicastSubject, B b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {unicastSubject, b2};
+                Object[] objArr = {unicastSubject, b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -416,7 +416,7 @@ public final class ObservableWindowBoundarySelector<T, B, V> extends AbstractObs
                 }
             }
             this.w = unicastSubject;
-            this.open = b2;
+            this.open = b;
         }
     }
 

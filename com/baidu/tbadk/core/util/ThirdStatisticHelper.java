@@ -2,8 +2,6 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.a;
-import c.a.o0.c1.v0;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -18,13 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
+import com.repackage.lg;
+import com.repackage.nd5;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ThirdStatisticHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_DIRECT_TIMES = 3;
@@ -34,13 +34,13 @@ public class ThirdStatisticHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.tbadk.core.util.ThirdStatisticHelper$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ThirdStatisticAsyncTask extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,34 +83,34 @@ public class ThirdStatisticHelper {
                             httpURLConnection.setReadTimeout(3000);
                             httpURLConnection.connect();
                             httpURLConnection.getResponseCode();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             BdLog.e(e);
-                            a.e(httpURLConnection);
+                            lg.e(httpURLConnection);
                             return null;
                         }
                     } catch (Throwable th2) {
                         th = th2;
-                        a.e(httpURLConnection);
+                        lg.e(httpURLConnection);
                         throw th;
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                     httpURLConnection = null;
                 } catch (Throwable th3) {
                     th = th3;
                     httpURLConnection = null;
-                    a.e(httpURLConnection);
+                    lg.e(httpURLConnection);
                     throw th;
                 }
-                a.e(httpURLConnection);
+                lg.e(httpURLConnection);
                 return null;
             }
             return (Integer) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class TiePlusStaticTask extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,7 +172,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", v0.b());
+                httpURLConnection.setRequestProperty("User-Agent", nd5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -258,12 +258,12 @@ public class ThirdStatisticHelper {
                         try {
                             try {
                                 url = new URL(strArr[0]);
-                            } catch (Exception e2) {
-                                requestStatistic(i2 + 1, e2.getMessage());
-                                BdLog.e(e2);
+                            } catch (Exception e) {
+                                requestStatistic(i2 + 1, e.getMessage());
+                                BdLog.e(e);
                             }
                         } finally {
-                            a.e(httpURLConnection);
+                            lg.e(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -280,7 +280,7 @@ public class ThirdStatisticHelper {
                                     httpURLConnection.connect();
                                     i = httpURLConnection.getResponseCode();
                                     requestStatistic(i2 + 1, String.valueOf(i));
-                                    a.e(httpURLConnection);
+                                    lg.e(httpURLConnection);
                                 }
                             }
                         } else if (url != null) {
@@ -297,7 +297,7 @@ public class ThirdStatisticHelper {
                             }
                             i = httpURLConnection.getResponseCode();
                             requestStatistic(i2 + 1, String.valueOf(i));
-                            a.e(httpURLConnection);
+                            lg.e(httpURLConnection);
                         }
                     }
                 }
@@ -317,7 +317,7 @@ public class ThirdStatisticHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface TiePlusStatisCallback {
         void onFailed(String str);
 

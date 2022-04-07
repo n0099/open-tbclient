@@ -3,21 +3,19 @@ package com.baidu.tbadk.core.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class EmptyView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f29987b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -38,7 +36,7 @@ public class EmptyView extends View {
             }
         }
         this.a = 0;
-        this.f29987b = 0;
+        this.b = 0;
     }
 
     @Override // android.view.View
@@ -46,7 +44,7 @@ public class EmptyView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            int i3 = this.f29987b;
+            int i3 = this.b;
             if (i3 == 0) {
                 setMeasuredDimension(i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.a);
             } else if (this.a == 0) {
@@ -58,7 +56,7 @@ public class EmptyView extends View {
     public void setHeightDip(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = n.d(getContext(), i);
+            this.a = oi.d(getContext(), i);
         }
     }
 
@@ -72,14 +70,14 @@ public class EmptyView extends View {
     public void setWidthDip(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f29987b = n.d(getContext(), i);
+            this.b = oi.d(getContext(), i);
         }
     }
 
     public void setWidthPx(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f29987b = i;
+            this.b = i;
         }
     }
 
@@ -103,7 +101,7 @@ public class EmptyView extends View {
             }
         }
         this.a = 0;
-        this.f29987b = 0;
+        this.b = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -126,6 +124,6 @@ public class EmptyView extends View {
             }
         }
         this.a = 0;
-        this.f29987b = 0;
+        this.b = 0;
     }
 }

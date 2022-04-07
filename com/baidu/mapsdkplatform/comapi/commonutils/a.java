@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
@@ -151,8 +151,8 @@ public class a {
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
                                         throw th;
                                     }
                                 }
@@ -183,8 +183,8 @@ public class a {
                 if (fileOutputStream2 != null) {
                     fileOutputStream2.close();
                 }
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
         } catch (Exception unused3) {
             fileOutputStream = null;
@@ -210,8 +210,8 @@ public class a {
                         zipFile = new ZipFile(a ? context.getPackageCodePath() : "");
                     } catch (IOException unused) {
                     }
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                 }
             } catch (Throwable th) {
                 th = th;
@@ -229,8 +229,8 @@ public class a {
                 }
                 file.mkdirs();
                 entry = zipFile.getEntry(str);
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
                 zipFile2 = zipFile;
                 Log.e(a.class.getSimpleName(), "copyAssetsError", e);
                 if (zipFile2 != null) {

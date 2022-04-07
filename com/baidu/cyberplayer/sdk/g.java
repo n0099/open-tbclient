@@ -15,26 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class g extends SurfaceView implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public i.a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f25380b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Surface f25381c;
+    public a b;
+    public Surface c;
 
     /* renamed from: com.baidu.cyberplayer.sdk.g$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements SurfaceHolder.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,15 +105,15 @@ public class g extends SurfaceView implements i {
         }
         CyberLog.d("CyberSurfaceView", "CyberSurfaceView constructor called");
         getHolder().setType(0);
-        this.f25380b = new a(this, null);
-        getHolder().addCallback(this.f25380b);
+        this.b = new a(this, null);
+        getHolder().addCallback(this.b);
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public Bitmap a(float f2, int i, int i2) {
+    public Bitmap a(float f, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             return null;
         }
         return (Bitmap) invokeCommon.objValue;
@@ -127,12 +123,12 @@ public class g extends SurfaceView implements i {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Surface surface = this.f25381c;
+            Surface surface = this.c;
             if (surface != null) {
                 surface.release();
             }
-            this.f25381c = null;
-            CyberLog.d("BVideoView", "release mSurface:" + this.f25381c);
+            this.c = null;
+            CyberLog.d("BVideoView", "release mSurface:" + this.c);
         }
     }
 
@@ -164,7 +160,7 @@ public class g extends SurfaceView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Surface surface = getHolder().getSurface();
-            this.f25381c = surface;
+            this.c = surface;
             return surface;
         }
         return (Surface) invokeV.objValue;
@@ -184,12 +180,12 @@ public class g extends SurfaceView implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.finalize();
-            CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.f25381c);
-            Surface surface = this.f25381c;
+            CyberLog.d("CyberSurfaceView", "CyberSurfaceView finalize called mSurface:" + this.c);
+            Surface surface = this.c;
             if (surface != null) {
                 surface.release();
-                this.f25381c = null;
-                getHolder().removeCallback(this.f25380b);
+                this.c = null;
+                getHolder().removeCallback(this.b);
             }
         }
     }

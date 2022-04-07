@@ -1,13 +1,13 @@
 package com.baidu.ar.vo.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface d {
     String a(com.baidu.ar.vo.a.b bVar);
 
     void a(b bVar);
 
-    void a(String str, int i, int i2, float[] fArr, float f2);
+    void a(String str, int i, int i2, float[] fArr, float f);
 
-    int[] b(float f2, float f3);
+    int[] b(float f, float f2);
 
     void hl();
 

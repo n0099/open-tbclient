@@ -20,32 +20,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class VideoGestureView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f35587b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ProgressBar f35588c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ViewGroup f35589d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f35590e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f35591f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AudioManager f35592g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f35593h;
+    public ImageView b;
+    public ProgressBar c;
+    public ViewGroup d;
+    public ImageView e;
+    public TextView f;
+    public AudioManager g;
+    public int h;
     public int i;
     public float j;
     public int k;
@@ -70,7 +56,7 @@ public class VideoGestureView extends RelativeLayout {
                 return;
             }
         }
-        this.f35593h = 100;
+        this.h = 100;
         this.j = 1.0f;
         this.m = 0;
         e();
@@ -80,9 +66,9 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             if (this.m != 2) {
-                this.f35589d.setVisibility(8);
+                this.d.setVisibility(8);
                 this.a.setVisibility(0);
-                this.f35588c.setMax(255);
+                this.c.setMax(255);
                 setBackgroundDrawable(null);
                 this.l = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
                 this.m = 2;
@@ -99,12 +85,12 @@ public class VideoGestureView extends RelativeLayout {
                 this.l = 255;
             }
             int i2 = this.l;
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35587b, i2 <= 43 ? R.drawable.obfuscated_res_0x7f080628 : i2 <= 128 ? R.drawable.obfuscated_res_0x7f080638 : R.drawable.obfuscated_res_0x7f08062c, R.color.CAM_X0622, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i2 <= 43 ? R.drawable.obfuscated_res_0x7f080627 : i2 <= 128 ? R.drawable.obfuscated_res_0x7f080637 : R.drawable.obfuscated_res_0x7f08062b, R.color.CAM_X0622, null);
             Window window = ((Activity) context).getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.screenBrightness = this.l / 255.0f;
             window.setAttributes(attributes);
-            this.f35588c.setProgress(this.l);
+            this.c.setProgress(this.l);
         }
     }
 
@@ -112,13 +98,13 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
             if (this.m != 3) {
-                this.f35589d.setVisibility(0);
+                this.d.setVisibility(0);
                 this.a.setVisibility(8);
                 setBackgroundResource(R.color.CAM_X0605);
                 this.m = 3;
             }
-            this.f35591f.setText(str);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35590e, z ? R.drawable.obfuscated_res_0x7f080630 : R.drawable.obfuscated_res_0x7f08062a, R.color.CAM_X0622, null);
+            this.f.setText(str);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, z ? R.drawable.obfuscated_res_0x7f08062f : R.drawable.obfuscated_res_0x7f080629, R.color.CAM_X0622, null);
         }
     }
 
@@ -135,11 +121,11 @@ public class VideoGestureView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (this.m != 1) {
-                this.f35589d.setVisibility(8);
+                this.d.setVisibility(8);
                 this.a.setVisibility(0);
-                this.f35588c.setMax(100);
+                this.c.setMax(100);
                 setBackgroundDrawable(null);
-                this.i = this.f35592g.getStreamVolume(3);
+                this.i = this.g.getStreamVolume(3);
                 this.m = 1;
             }
             if (z && (i3 = this.k) < 100) {
@@ -156,30 +142,30 @@ public class VideoGestureView extends RelativeLayout {
             }
             int i4 = this.k;
             this.i = (int) (i4 / this.j);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35587b, i4 == 0 ? R.drawable.obfuscated_res_0x7f080631 : i4 < 50 ? R.drawable.obfuscated_res_0x7f080636 : R.drawable.obfuscated_res_0x7f080635, R.color.CAM_X0622, null);
-            this.f35592g.setStreamVolume(3, this.i, 0);
-            this.f35588c.setProgress(this.k);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, i4 == 0 ? R.drawable.obfuscated_res_0x7f080630 : i4 < 50 ? R.drawable.obfuscated_res_0x7f080635 : R.drawable.obfuscated_res_0x7f080634, R.color.CAM_X0622, null);
+            this.g.setStreamVolume(3, this.i, 0);
+            this.c.setProgress(this.k);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d064f, this);
-            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092331);
-            this.f35587b = (ImageView) findViewById(R.id.obfuscated_res_0x7f092330);
-            this.f35588c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09232f);
-            this.f35589d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09232e);
-            this.f35590e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09232c);
-            this.f35591f = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d064b, this);
+            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092312);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f092311);
+            this.c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f092310);
+            this.d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09230f);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09230d);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09230e);
             this.a.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
             AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
-            this.f35592g = audioManager;
+            this.g = audioManager;
             if (audioManager != null) {
-                this.f35593h = audioManager.getStreamMaxVolume(3);
-                int streamVolume = this.f35592g.getStreamVolume(3);
+                this.h = audioManager.getStreamMaxVolume(3);
+                int streamVolume = this.g.getStreamVolume(3);
                 this.i = streamVolume;
-                int i = this.f35593h;
+                int i = this.h;
                 this.j = 100 / i;
                 this.k = (streamVolume * 100) / i;
             }
@@ -205,7 +191,7 @@ public class VideoGestureView extends RelativeLayout {
                 return;
             }
         }
-        this.f35593h = 100;
+        this.h = 100;
         this.j = 1.0f;
         this.m = 0;
         e();
@@ -230,7 +216,7 @@ public class VideoGestureView extends RelativeLayout {
                 return;
             }
         }
-        this.f35593h = 100;
+        this.h = 100;
         this.j = 1.0f;
         this.m = 0;
         e();

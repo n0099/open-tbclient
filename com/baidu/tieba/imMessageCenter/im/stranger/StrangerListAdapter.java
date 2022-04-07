@@ -3,8 +3,6 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 import android.content.Context;
 import android.text.TextUtils;
 import android.widget.ImageView;
-import c.a.o0.s.d.d;
-import c.a.p0.u1.f.i.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.g57;
+import com.repackage.zx4;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes5.dex */
-public class StrangerListAdapter extends c {
+/* loaded from: classes3.dex */
+public class StrangerListAdapter extends g57 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -38,7 +38,7 @@ public class StrangerListAdapter extends c {
         }
     }
 
-    @Override // c.a.p0.u1.f.i.c
+    @Override // com.repackage.g57
     public boolean d(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class StrangerListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.p0.u1.f.i.c
+    @Override // com.repackage.g57
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -58,12 +58,12 @@ public class StrangerListAdapter extends c {
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.p0.u1.f.i.c
-    public void g(c.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.g57
+    public void g(g57.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.f18694b.setDrawBorder(true);
-            aVar.f18694b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
+            aVar.b.setDrawBorder(true);
+            aVar.b.setDefaultScaleType(ImageView.ScaleType.FIT_XY);
             String friendBjhAvatar = imMessageCenterShowItemData.getFriendBjhAvatar();
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 friendBjhAvatar = imMessageCenterShowItemData.getFriendPortrait();
@@ -71,18 +71,18 @@ public class StrangerListAdapter extends c {
             if (TextUtils.isEmpty(friendBjhAvatar)) {
                 return;
             }
-            aVar.f18694b.J(friendBjhAvatar, 12, false);
+            aVar.b.K(friendBjhAvatar, 12, false);
         }
     }
 
-    @Override // c.a.p0.u1.f.i.c
+    @Override // com.repackage.g57
     public BasicNameValuePair p(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!d.d().r()) {
+            if (!zx4.d().r()) {
                 str = "";
                 i = 0;
             }

@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import androidx.annotation.NonNull;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class aa {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -61,8 +61,8 @@ public class aa {
             messageDigest.update(str.getBytes());
             byte[] digest = messageDigest.digest();
             return a(digest, 0, digest.length);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
             return "";
         }
     }

@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g extends RecyclerView {
     public boolean a;
 
@@ -22,9 +22,9 @@ public class g extends RecyclerView {
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView, android.view.ViewGroup
-    public void removeDetachedView(View view, boolean z) {
+    public void removeDetachedView(View view2, boolean z) {
         boolean z2 = this.a;
-        super.removeDetachedView(view, z);
+        super.removeDetachedView(view2, z);
     }
 
     public void setIngoreTmpDetachedFlag(boolean z) {

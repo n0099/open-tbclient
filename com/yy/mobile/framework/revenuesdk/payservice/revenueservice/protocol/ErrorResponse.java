@@ -8,7 +8,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.IBaseJsonResponse;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ErrorResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,11 +49,11 @@ public class ErrorResponse implements IBaseJsonResponse {
                     this.seq = jSONObject.optString("seq");
                     RLog.info("ErrorResponse", "jsonObject", jSONObject);
                     return;
-                } catch (JSONException e2) {
-                    RLog.error("ErrorResponse", "parserResponse error.", e2);
+                } catch (JSONException e) {
+                    RLog.error("ErrorResponse", "parserResponse error.", e);
                     return;
-                } catch (Exception e3) {
-                    RLog.error("ErrorResponse", "parserResponse error.", e3);
+                } catch (Exception e2) {
+                    RLog.error("ErrorResponse", "parserResponse error.", e2);
                     return;
                 }
             }

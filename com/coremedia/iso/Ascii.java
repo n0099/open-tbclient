@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Ascii {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,8 +32,8 @@ public final class Ascii {
             if (str != null) {
                 try {
                     return str.getBytes("us-ascii");
-                } catch (UnsupportedEncodingException e2) {
-                    throw new Error(e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new Error(e);
                 }
             }
             return null;
@@ -48,8 +48,8 @@ public final class Ascii {
             if (bArr != null) {
                 try {
                     return new String(bArr, "us-ascii");
-                } catch (UnsupportedEncodingException e2) {
-                    throw new Error(e2);
+                } catch (UnsupportedEncodingException e) {
+                    throw new Error(e);
                 }
             }
             return null;

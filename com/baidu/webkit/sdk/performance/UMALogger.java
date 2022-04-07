@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class UMALogger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UMALogger";
@@ -136,8 +136,8 @@ public abstract class UMALogger {
                     long j = jSONObject.getLong(next);
                     Log.i(TAG, "adding " + str2 + "=" + j);
                     addTimesHistogramSample(str2, j);
-                } catch (JSONException e2) {
-                    Log.e(TAG, "failed to get long for ".concat(String.valueOf(next)), e2);
+                } catch (JSONException e) {
+                    Log.e(TAG, "failed to get long for ".concat(String.valueOf(next)), e);
                 }
             } else {
                 Log.i(TAG, "skipping ".concat(String.valueOf(next)));

@@ -197,12 +197,12 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public FragmentTransaction addSharedElement(@NonNull View view, @NonNull String str) {
+    public FragmentTransaction addSharedElement(@NonNull View view2, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, str)) == null) {
             if (FragmentTransition.supportsTransition()) {
-                String transitionName = ViewCompat.getTransitionName(view);
+                String transitionName = ViewCompat.getTransitionName(view2);
                 if (transitionName != null) {
                     if (this.mSharedElementSourceNames == null) {
                         this.mSharedElementSourceNames = new ArrayList<>();

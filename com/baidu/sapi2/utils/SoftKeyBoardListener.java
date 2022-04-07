@@ -11,26 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SoftKeyBoardListener implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
+    public int b;
+    public OnSoftKeyBoardChangeListener c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f28532b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public OnSoftKeyBoardChangeListener f28533c;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnSoftKeyBoardChangeListener extends NoProguard {
         void keyBoardHide(int i);
 
         void keyBoardShow(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,21 +60,21 @@ public class SoftKeyBoardListener implements NoProguard {
                 PrintStream printStream = System.out;
                 printStream.println("" + height);
                 SoftKeyBoardListener softKeyBoardListener = this.a;
-                int i = softKeyBoardListener.f28532b;
+                int i = softKeyBoardListener.b;
                 if (i == 0) {
-                    softKeyBoardListener.f28532b = height;
+                    softKeyBoardListener.b = height;
                 } else if (i == height) {
                 } else {
                     if (i - height > 200) {
-                        if (softKeyBoardListener.f28533c != null) {
-                            this.a.f28533c.keyBoardShow(this.a.f28532b - height);
+                        if (softKeyBoardListener.c != null) {
+                            this.a.c.keyBoardShow(this.a.b - height);
                         }
-                        this.a.f28532b = height;
+                        this.a.b = height;
                     } else if (height - i > 200) {
-                        if (softKeyBoardListener.f28533c != null) {
-                            this.a.f28533c.keyBoardHide(height - this.a.f28532b);
+                        if (softKeyBoardListener.c != null) {
+                            this.a.c.keyBoardHide(height - this.a.b);
                         }
-                        this.a.f28532b = height;
+                        this.a.b = height;
                     }
                 }
             }
@@ -115,7 +111,7 @@ public class SoftKeyBoardListener implements NoProguard {
     private void a(OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, onSoftKeyBoardChangeListener) == null) {
-            this.f28533c = onSoftKeyBoardChangeListener;
+            this.c = onSoftKeyBoardChangeListener;
         }
     }
 }

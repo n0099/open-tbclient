@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,23 +35,23 @@ public final class a {
             if (i2 != -1) {
                 try {
                     declaredField2.setInt(obj, -1);
-                } catch (IllegalAccessException e2) {
-                    e = e2;
+                } catch (IllegalAccessException e) {
+                    e = e;
                     i = i2;
                     e.printStackTrace();
                     return i;
-                } catch (NoSuchFieldException e3) {
-                    e = e3;
+                } catch (NoSuchFieldException e2) {
+                    e = e2;
                     i = i2;
                     e.printStackTrace();
                     return i;
                 }
             }
             return i2;
-        } catch (IllegalAccessException e4) {
+        } catch (IllegalAccessException e3) {
+            e = e3;
+        } catch (NoSuchFieldException e4) {
             e = e4;
-        } catch (NoSuchFieldException e5) {
-            e = e5;
         }
     }
 
@@ -66,17 +66,17 @@ public final class a {
                 Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isFixedOrientation", new Class[0]);
                 declaredMethod.setAccessible(true);
                 return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return false;
+            } catch (NoSuchFieldException e2) {
                 e2.printStackTrace();
                 return false;
-            } catch (NoSuchFieldException e3) {
+            } catch (NoSuchMethodException e3) {
                 e3.printStackTrace();
                 return false;
-            } catch (NoSuchMethodException e4) {
+            } catch (InvocationTargetException e4) {
                 e4.printStackTrace();
-                return false;
-            } catch (InvocationTargetException e5) {
-                e5.printStackTrace();
                 return false;
             }
         }
@@ -99,14 +99,14 @@ public final class a {
                 Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
                 declaredField4.setAccessible(true);
                 return obtainStyledAttributes.getBoolean(((Integer) declaredField4.get(null)).intValue(), false) || obtainStyledAttributes.getBoolean(((Integer) declaredField2.get(null)).intValue(), false) || (!obtainStyledAttributes.hasValue(((Integer) declaredField2.get(null)).intValue()) && obtainStyledAttributes.getBoolean(((Integer) declaredField3.get(null)).intValue(), false));
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return false;
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return false;
-            } catch (IllegalAccessException e3) {
+            } catch (NoSuchFieldException e3) {
                 e3.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e4) {
-                e4.printStackTrace();
                 return false;
             }
         }

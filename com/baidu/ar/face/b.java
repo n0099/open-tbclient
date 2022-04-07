@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "b";
@@ -103,29 +103,29 @@ public class b {
         }
     }
 
-    public a.C1717a a(a.b bVar) {
+    public a.C0057a a(a.b bVar) {
         InterceptResult invokeL;
-        a.C1717a c1717a;
+        a.C0057a c0057a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
             int i = bVar.qg;
             if (i == 0) {
                 this.nL = 1;
-                c1717a = bVar.qd;
+                c0057a = bVar.qd;
             } else if (i == 1) {
                 this.nL = 1;
-                c1717a = bVar.qe;
+                c0057a = bVar.qe;
             } else if (i != 2) {
                 com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
-                c1717a = null;
+                c0057a = null;
             } else {
                 this.nL = 4;
-                c1717a = bVar.qf;
+                c0057a = bVar.qf;
             }
             this.nM = this.nL;
-            return c1717a;
+            return c0057a;
         }
-        return (a.C1717a) invokeL.objValue;
+        return (a.C0057a) invokeL.objValue;
     }
 
     public void b(String str, int i) {
@@ -137,9 +137,9 @@ public class b {
             this.needExpression = c.e(str, false);
             this.nE = c.f(str, false);
             this.nF = c.g(str, i != 0);
-            int c2 = c.c(str, 1);
-            this.nM = c2;
-            if (c2 <= 1 || ARAuth.checkFeatureAuth(FeatureCodes.FACE_MULTI)) {
+            int c = c.c(str, 1);
+            this.nM = c;
+            if (c <= 1 || ARAuth.checkFeatureAuth(FeatureCodes.FACE_MULTI)) {
                 return;
             }
             this.nM = 1;

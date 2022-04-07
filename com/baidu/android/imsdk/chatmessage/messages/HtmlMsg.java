@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HtmlMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<HtmlMsg> CREATOR;
@@ -82,8 +82,8 @@ public class HtmlMsg extends NormalMsg {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("html", str);
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getTextJson", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getTextJson", e);
             }
             return jSONObject.toString();
         }
@@ -119,8 +119,8 @@ public class HtmlMsg extends NormalMsg {
                 try {
                     this.mHtml = new JSONObject(jsonContent).optString("html");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(TAG, "parse json err!", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(TAG, "parse json err!", e);
                 }
             }
             return false;

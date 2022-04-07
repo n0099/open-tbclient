@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class hf {
     public static /* synthetic */ Interceptable $ic;
     public static final hf A;
@@ -27,27 +27,13 @@ public final class hf {
 
     /* renamed from: a  reason: collision with other field name */
     public static final /* synthetic */ hf[] f452a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final hf f44322b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final hf f44323c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final hf f44324d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final hf f44325e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final hf f44326f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final hf f44327g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final hf f44328h;
+    public static final hf b;
+    public static final hf c;
+    public static final hf d;
+    public static final hf e;
+    public static final hf f;
+    public static final hf g;
+    public static final hf h;
     public static final hf i;
     public static final hf j;
     public static final hf k;
@@ -85,13 +71,13 @@ public final class hf {
             }
         }
         a = new hf("Registration", 0, 1);
-        f44322b = new hf("UnRegistration", 1, 2);
-        f44323c = new hf("Subscription", 2, 3);
-        f44324d = new hf("UnSubscription", 3, 4);
-        f44325e = new hf("SendMessage", 4, 5);
-        f44326f = new hf("AckMessage", 5, 6);
-        f44327g = new hf("SetConfig", 6, 7);
-        f44328h = new hf("ReportFeedback", 7, 8);
+        b = new hf("UnRegistration", 1, 2);
+        c = new hf("Subscription", 2, 3);
+        d = new hf("UnSubscription", 3, 4);
+        e = new hf("SendMessage", 4, 5);
+        f = new hf("AckMessage", 5, 6);
+        g = new hf("SetConfig", 6, 7);
+        h = new hf("ReportFeedback", 7, 8);
         i = new hf("Notification", 8, 9);
         j = new hf("Command", 9, 10);
         k = new hf("MultiConnectionBroadcast", 10, 11);
@@ -122,7 +108,7 @@ public final class hf {
         J = new hf("RevokeMessage", 35, 114);
         hf hfVar = new hf("SimulatorJob", 36, 200);
         K = hfVar;
-        f452a = new hf[]{a, f44322b, f44323c, f44324d, f44325e, f44326f, f44327g, f44328h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
+        f452a = new hf[]{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, hfVar};
     }
 
     public hf(String str, int i2, int i3) {
@@ -155,19 +141,19 @@ public final class hf {
                     case 1:
                         return a;
                     case 2:
-                        return f44322b;
+                        return b;
                     case 3:
-                        return f44323c;
+                        return c;
                     case 4:
-                        return f44324d;
+                        return d;
                     case 5:
-                        return f44325e;
+                        return e;
                     case 6:
-                        return f44326f;
+                        return f;
                     case 7:
-                        return f44327g;
+                        return g;
                     case 8:
-                        return f44328h;
+                        return h;
                     case 9:
                         return i;
                     case 10:

@@ -274,12 +274,12 @@ public class MenuBuilder implements SupportMenu {
         }
     }
 
-    private void setHeaderInternal(int i, CharSequence charSequence, int i2, Drawable drawable, View view) {
+    private void setHeaderInternal(int i, CharSequence charSequence, int i2, Drawable drawable, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), drawable, view}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), drawable, view2}) == null) {
             Resources resources = getResources();
-            if (view != null) {
-                this.mHeaderView = view;
+            if (view2 != null) {
+                this.mHeaderView = view2;
                 this.mHeaderTitle = null;
                 this.mHeaderIcon = null;
             } else {
@@ -1090,11 +1090,11 @@ public class MenuBuilder implements SupportMenu {
         return (MenuBuilder) invokeL.objValue;
     }
 
-    public MenuBuilder setHeaderViewInt(View view) {
+    public MenuBuilder setHeaderViewInt(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, view)) == null) {
-            setHeaderInternal(0, null, 0, null, view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, view2)) == null) {
+            setHeaderInternal(0, null, 0, null, view2);
             return this;
         }
         return (MenuBuilder) invokeL.objValue;

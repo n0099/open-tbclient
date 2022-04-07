@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean isServing = false;
@@ -31,12 +31,8 @@ public class f extends Service {
     public static String replaceFileName = "repll.jar";
     public transient /* synthetic */ FieldHolder $fh;
     public LLSInterface a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f26085b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f26086c;
+    public LLSInterface b;
+    public LLSInterface c;
 
     static {
         InterceptResult invokeClinit;
@@ -67,8 +63,8 @@ public class f extends Service {
             }
         }
         this.a = null;
-        this.f26085b = null;
-        this.f26086c = null;
+        this.b = null;
+        this.c = null;
     }
 
     private boolean a(File file) {
@@ -126,7 +122,7 @@ public class f extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            LLSInterface lLSInterface = this.f26086c;
+            LLSInterface lLSInterface = this.c;
             if (lLSInterface != null) {
                 return lLSInterface.onBind(intent);
             }
@@ -146,7 +142,7 @@ public class f extends Service {
             }
             mC = getApplicationContext();
             System.currentTimeMillis();
-            this.f26085b = new com.baidu.location.d.a();
+            this.b = new com.baidu.location.d.a();
             try {
                 File file = new File(k.j() + File.separator + replaceFileName);
                 File file2 = new File(k.j() + File.separator + "app.jar");
@@ -165,15 +161,15 @@ public class f extends Service {
                 this.a = null;
             }
             LLSInterface lLSInterface = this.a;
-            if (lLSInterface == null || lLSInterface.getVersion() < this.f26085b.getVersion()) {
-                this.f26086c = this.f26085b;
+            if (lLSInterface == null || lLSInterface.getVersion() < this.b.getVersion()) {
+                this.c = this.b;
                 this.a = null;
             } else {
-                this.f26086c = this.a;
-                this.f26085b = null;
+                this.c = this.a;
+                this.b = null;
             }
             isServing = true;
-            this.f26086c.onCreate(this);
+            this.c.onCreate(this);
         }
     }
 
@@ -182,7 +178,7 @@ public class f extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             isServing = false;
-            LLSInterface lLSInterface = this.f26086c;
+            LLSInterface lLSInterface = this.c;
             if (lLSInterface != null) {
                 lLSInterface.onDestroy();
             }
@@ -207,11 +203,11 @@ public class f extends Service {
                         stopForeground(intent.getBooleanExtra("removenotify", true));
                         isStartedServing = false;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            return this.f26086c.onStartCommand(intent, i, i2);
+            return this.c.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
     }
@@ -220,7 +216,7 @@ public class f extends Service {
     public void onTaskRemoved(Intent intent) {
         LLSInterface lLSInterface;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f26086c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.c) == null) {
             return;
         }
         lLSInterface.onTaskRemoved(intent);

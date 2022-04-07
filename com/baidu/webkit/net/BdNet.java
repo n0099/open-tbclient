@@ -35,7 +35,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BdNet implements INoProGuard, BdNetEngine.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE = 2;
@@ -58,7 +58,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     public Vector<b> mWorkerList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class HttpMethod implements INoProGuard {
         public static final /* synthetic */ HttpMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -122,7 +122,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class NetError implements INoProGuard {
         public static final /* synthetic */ NetError[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -196,7 +196,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class NetState implements INoProGuard {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -259,14 +259,12 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class a implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public X509TrustManager a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f37936b;
+        public X509TrustManager b;
 
         public a(KeyStore keyStore) throws KeyStoreException {
             Interceptable interceptable = $ic;
@@ -285,9 +283,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             }
             try {
                 this.a = a(null);
-                this.f37936b = a(keyStore);
-            } catch (NoSuchAlgorithmException e2) {
-                e2.printStackTrace();
+                this.b = a(keyStore);
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
             }
         }
 
@@ -309,7 +307,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 try {
                     this.a.checkClientTrusted(x509CertificateArr, str);
                 } catch (CertificateException unused) {
-                    this.f37936b.checkClientTrusted(x509CertificateArr, str);
+                    this.b.checkClientTrusted(x509CertificateArr, str);
                 }
             }
         }
@@ -321,7 +319,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 try {
                     this.a.checkServerTrusted(x509CertificateArr, str);
                 } catch (CertificateException unused) {
-                    this.f37936b.checkServerTrusted(x509CertificateArr, str);
+                    this.b.checkServerTrusted(x509CertificateArr, str);
                 }
             }
         }
@@ -332,7 +330,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 X509Certificate[] acceptedIssuers = this.a.getAcceptedIssuers();
-                X509Certificate[] acceptedIssuers2 = this.f37936b.getAcceptedIssuers();
+                X509Certificate[] acceptedIssuers2 = this.b.getAcceptedIssuers();
                 X509Certificate[] x509CertificateArr = (X509Certificate[]) Arrays.copyOf(acceptedIssuers, acceptedIssuers.length + acceptedIssuers2.length);
                 System.arraycopy(acceptedIssuers2, 0, x509CertificateArr, acceptedIssuers.length, acceptedIssuers2.length);
                 return x509CertificateArr;
@@ -359,8 +357,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         this.mPriority = 1;
         this.mPoolSize = 2;
         this.mContext = new WeakReference<>(context);
-        if (com.baidu.webkit.net.a.a().f37952c == null) {
-            com.baidu.webkit.net.a.a().f37952c = getContext().getApplicationContext();
+        if (com.baidu.webkit.net.a.a().c == null) {
+            com.baidu.webkit.net.a.a().c = getContext().getApplicationContext();
         }
         this.mTaskList = new Vector<>();
         this.mWorkerList = new Vector<>();
@@ -419,9 +417,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, bdNetEngine, bdNetTask)) == null) {
             BdNetTask pollTask = pollTask();
-            BdNetTask d2 = com.baidu.webkit.net.a.a().d();
+            BdNetTask d = com.baidu.webkit.net.a.a().d();
             b worker = bdNetTask.getWorker();
-            if (d2 != null) {
+            if (d != null) {
                 if (pollTask == null) {
                     worker.b();
                     if (this.mListener != null && isComplete()) {
@@ -430,8 +428,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 } else if (!worker.a(pollTask)) {
                     startError(pollTask);
                 }
-                d2.getWorker().a(bdNetEngine);
-                return d2;
+                d.getWorker().a(bdNetEngine);
+                return d;
             } else if (pollTask != null) {
                 worker.a = pollTask;
                 worker.a(bdNetEngine);
@@ -451,16 +449,16 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                                 a2.a.clear();
                                 a2.a = null;
                             }
-                            int size = a2.f37951b.size();
+                            int size = a2.b.size();
                             for (int i = 0; i < size; i++) {
-                                a2.f37951b.get(i).stopDownload();
+                                a2.b.get(i).stopDownload();
                             }
-                            a2.f37951b.clear();
+                            a2.b.clear();
                             releaseSSLContext();
                             BdNetTask.clearTaskPool();
                             com.baidu.webkit.net.a.c();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -492,16 +490,16 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 bufferedInputStream.close();
                 throw th;
             }
-        } catch (IOException e2) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e2) {
             e2.printStackTrace();
-        } catch (KeyManagementException e3) {
+        } catch (KeyStoreException e3) {
             e3.printStackTrace();
-        } catch (KeyStoreException e4) {
+        } catch (NoSuchAlgorithmException e4) {
             e4.printStackTrace();
-        } catch (NoSuchAlgorithmException e5) {
+        } catch (CertificateException e5) {
             e5.printStackTrace();
-        } catch (CertificateException e6) {
-            e6.printStackTrace();
         }
     }
 

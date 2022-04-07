@@ -17,7 +17,7 @@ import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ZeusClassLoader extends BaseDexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ANDROIDX = "androidx.";
@@ -171,9 +171,9 @@ public final class ZeusClassLoader extends BaseDexClassLoader {
                 if (Build.VERSION.SDK_INT >= 19) {
                     setField(DexPathListClass, field, "dexElementsSuppressedExceptions", null);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throw new AndroidRuntimeException(e2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new AndroidRuntimeException(e);
             }
         }
     }

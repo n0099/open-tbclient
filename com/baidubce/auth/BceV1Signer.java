@@ -29,7 +29,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import okhttp3.internal.http.HttpMethod;
 @SuppressLint({"NewApi", "DefaultLocale"})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BceV1Signer implements Signer {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> defaultHeadersToSign;

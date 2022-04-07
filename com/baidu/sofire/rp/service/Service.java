@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_INIT_CONFIGER = 5;
@@ -54,7 +54,7 @@ public class Service {
     public Receiver mReceiver;
     public ReportHandler mReportHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class ReportHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -407,11 +407,11 @@ public class Service {
                     try {
                         jSONObject = new JSONObject(jSONObject2);
                         length = jSONObject2.length() + i2;
-                    } catch (Exception e2) {
-                        CommonMethods.handleNuLException(e2);
+                    } catch (Exception e) {
+                        CommonMethods.handleNuLException(e);
                     }
-                } catch (Exception e3) {
-                    CommonMethods.handleNuLException(e3);
+                } catch (Exception e2) {
+                    CommonMethods.handleNuLException(e2);
                 }
                 if (length >= 1048576 * reportOneceLimit) {
                     break;

@@ -288,21 +288,21 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
         }
     }
 
-    public static int measureChildForCells(View view, int i, int i2, int i3, int i4) {
+    public static int measureChildForCells(View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            LayoutParams layoutParams = (LayoutParams) view2.getLayoutParams();
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3) - i4, View.MeasureSpec.getMode(i3));
-            ActionMenuItemView actionMenuItemView = view instanceof ActionMenuItemView ? (ActionMenuItemView) view : null;
+            ActionMenuItemView actionMenuItemView = view2 instanceof ActionMenuItemView ? (ActionMenuItemView) view2 : null;
             boolean z = true;
             boolean z2 = actionMenuItemView != null && actionMenuItemView.hasText();
             int i5 = 2;
             if (i2 <= 0 || (z2 && i2 < 2)) {
                 i5 = 0;
             } else {
-                view.measure(View.MeasureSpec.makeMeasureSpec(i2 * i, Integer.MIN_VALUE), makeMeasureSpec);
-                int measuredWidth = view.getMeasuredWidth();
+                view2.measure(View.MeasureSpec.makeMeasureSpec(i2 * i, Integer.MIN_VALUE), makeMeasureSpec);
+                int measuredWidth = view2.getMeasuredWidth();
                 int i6 = measuredWidth / i;
                 if (measuredWidth % i != 0) {
                     i6++;
@@ -313,7 +313,7 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             }
             layoutParams.expandable = (layoutParams.isOverflowButton || !z2) ? false : false;
             layoutParams.cellsUsed = i5;
-            view.measure(View.MeasureSpec.makeMeasureSpec(i * i5, 1073741824), makeMeasureSpec);
+            view2.measure(View.MeasureSpec.makeMeasureSpec(i * i5, 1073741824), makeMeasureSpec);
             return i5;
         }
         return invokeCommon.intValue;
@@ -934,9 +934,9 @@ public class ActionMenuView extends LinearLayoutCompat implements MenuBuilder.It
             }
         }
         setBaselineAligned(false);
-        float f2 = context.getResources().getDisplayMetrics().density;
-        this.mMinCellSize = (int) (56.0f * f2);
-        this.mGeneratedItemPadding = (int) (f2 * 4.0f);
+        float f = context.getResources().getDisplayMetrics().density;
+        this.mMinCellSize = (int) (56.0f * f);
+        this.mGeneratedItemPadding = (int) (f * 4.0f);
         this.mPopupContext = context;
         this.mPopupTheme = 0;
     }

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.m;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,6 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,7 +34,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
     public static final String B0;
@@ -71,33 +71,19 @@ public class ShareItem {
     public boolean a;
     @Nullable
     public String a0;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f30352b;
+    public boolean b;
     public int b0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f30353c;
+    public boolean c;
     public WeakReference<Bitmap> c0;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f30354d;
+    public boolean d;
     public Bundle d0;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f30355e;
+    public boolean e;
     public boolean e0;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f30356f;
+    public boolean f;
     public boolean f0;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f30357g;
+    public boolean g;
     public boolean g0;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f30358h;
+    public boolean h;
     public boolean h0;
     public boolean i;
     public boolean i0;
@@ -166,13 +152,13 @@ public class ShareItem {
             }
         }
         this.a = false;
-        this.f30352b = false;
-        this.f30353c = false;
-        this.f30354d = false;
-        this.f30355e = false;
-        this.f30356f = false;
-        this.f30357g = false;
-        this.f30358h = false;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
         this.i = false;
         this.j = false;
         this.k = false;
@@ -288,28 +274,28 @@ public class ShareItem {
                     if (parentFile != null && !parentFile.exists()) {
                         parentFile.mkdirs();
                     }
-                    byte[] b2 = b();
-                    if (b2 != null) {
+                    byte[] b = b();
+                    if (b != null) {
                         FileOutputStream fileOutputStream2 = new FileOutputStream(file);
                         try {
-                            fileOutputStream2.write(b2);
+                            fileOutputStream2.write(b);
                             fileOutputStream2.close();
                             this.v = Uri.fromFile(file);
                             this.c0 = null;
                             try {
                                 fileOutputStream2.close();
-                            } catch (IOException e2) {
-                                BdLog.e(e2.toString());
+                            } catch (IOException e) {
+                                BdLog.e(e.toString());
                             }
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             fileOutputStream = fileOutputStream2;
                             BdLog.e(e.toString());
                             if (fileOutputStream != null) {
                                 try {
                                     fileOutputStream.close();
-                                } catch (IOException e4) {
-                                    BdLog.e(e4.toString());
+                                } catch (IOException e3) {
+                                    BdLog.e(e3.toString());
                                 }
                             }
                         } catch (Throwable th) {
@@ -318,16 +304,16 @@ public class ShareItem {
                             if (fileOutputStream != null) {
                                 try {
                                     fileOutputStream.close();
-                                } catch (IOException e5) {
-                                    BdLog.e(e5.toString());
+                                } catch (IOException e4) {
+                                    BdLog.e(e4.toString());
                                 }
                             }
                             throw th;
                         }
                     }
                 }
-            } catch (Exception e6) {
-                e = e6;
+            } catch (Exception e5) {
+                e = e5;
             }
         } catch (Throwable th2) {
             th = th2;
@@ -362,7 +348,7 @@ public class ShareItem {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -449,13 +435,13 @@ public class ShareItem {
                     }
                     forwardInfo.showText = threadData.originalThreadData.d();
                     OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-                    forwardInfo.showPicUrl = originalThreadInfo.f29823c;
+                    forwardInfo.showPicUrl = originalThreadInfo.c;
                     forwardInfo.showType = originalThreadInfo.a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f29826f;
+                    forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (postData != null && postData.N() != null) {
-                            str = postData.N().toString();
+                        if (postData != null && postData.P() != null) {
+                            str = postData.P().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -468,10 +454,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && m.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
+                    if (i == 1 && postData != null && ni.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.s() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.s().getName_show();
                     }
-                    if (i == 2 && m.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && ni.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
@@ -481,7 +467,7 @@ public class ShareItem {
                     OriginalThreadInfo l = OriginalThreadInfo.l(threadData);
                     if (l != null) {
                         forwardInfo.showText = l.d();
-                        forwardInfo.showPicUrl = l.f29823c;
+                        forwardInfo.showPicUrl = l.c;
                         forwardInfo.showType = l.a;
                     }
                     forwardInfo.originalTid = threadData.getTid();

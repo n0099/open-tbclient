@@ -14,13 +14,13 @@ import com.yy.hiidostatis.inner.util.ArdUtil;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.Packer;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class InstallController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public IStatisAPI statisAPI;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class InstUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_VERSIONNAME = "";
@@ -33,7 +33,7 @@ public class InstallController {
         public static InstInfo instInfo;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class InstInfo {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMForbidRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMForbidRequest";
@@ -183,8 +183,8 @@ public class IMForbidRequest extends IMSettingBaseHttpRequest {
                 z = z2;
                 i2 = optInt;
                 str2 = optString;
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "JSONException", e);
                 str = "";
                 z = z2;
                 str2 = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;

@@ -10,7 +10,7 @@ import com.baidu.searchbox.account.params.LogoutParams;
 import com.baidu.searchbox.live.interfaces.DI;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface BoxAccountManager {
     public static final int BOX_GET_ACCOUNT_CACHE_MODE = 10;
     public static final int BOX_GET_ACCOUNT_FORCE_MODE = 12;

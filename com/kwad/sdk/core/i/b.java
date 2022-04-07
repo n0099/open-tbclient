@@ -14,19 +14,17 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static String a = "GlobalThreadPools";
+    public static Map<String, WeakReference<ExecutorService>> b = new ConcurrentHashMap();
 
-    /* renamed from: b  reason: collision with root package name */
-    public static Map<String, WeakReference<ExecutorService>> f39542b = new ConcurrentHashMap();
-
-    /* loaded from: classes7.dex */
-    public static class a implements InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public static class a implements InterfaceC0301b {
         public a() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
         @NonNull
         public ExecutorService a() {
             return Executors.newSingleThreadExecutor();
@@ -34,128 +32,106 @@ public class b {
     }
 
     /* renamed from: com.kwad.sdk.core.i.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public interface InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public interface InterfaceC0301b {
         @NonNull
         ExecutorService a();
     }
 
-    /* loaded from: classes7.dex */
-    public static class c implements InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public static class c implements InterfaceC0301b {
         public c() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(2, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, "diskAndHttp"));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class d implements ThreadFactory {
         public static final AtomicInteger a = new AtomicInteger(1);
-
-        /* renamed from: d  reason: collision with root package name */
-        public final String f39545d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final int f39546e;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final AtomicInteger f39544c = new AtomicInteger(1);
-
-        /* renamed from: b  reason: collision with root package name */
-        public final ThreadGroup f39543b = Thread.currentThread().getThreadGroup();
+        public final String d;
+        public final int e;
+        public final AtomicInteger c = new AtomicInteger(1);
+        public final ThreadGroup b = Thread.currentThread().getThreadGroup();
 
         public d(int i, String str) {
-            this.f39546e = i;
-            this.f39545d = DiskLruCache.KS_THREAD_PREFIX + str + a.getAndIncrement() + "-thread-";
+            this.e = i;
+            this.d = DiskLruCache.KS_THREAD_PREFIX + str + a.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
         public Thread newThread(Runnable runnable) {
-            ThreadGroup threadGroup = this.f39543b;
-            Thread thread = new Thread(threadGroup, runnable, this.f39545d + this.f39544c.getAndIncrement(), 0L);
+            ThreadGroup threadGroup = this.b;
+            Thread thread = new Thread(threadGroup, runnable, this.d + this.c.getAndIncrement(), 0L);
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
-            thread.setPriority(this.f39546e);
+            thread.setPriority(this.e);
             return thread;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class e implements InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public static class e implements InterfaceC0301b {
         public e() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(1, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(3, "uil-pool-"));
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class f implements InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public static class f implements InterfaceC0301b {
         public f() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
         @NonNull
         public ExecutorService a() {
             return new ThreadPoolExecutor(0, 1, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, "lruDiskCache"));
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class g {
         public static String a = "lruDiskCache";
-
-        /* renamed from: b  reason: collision with root package name */
-        public static String f39547b = "ksImageLoaderTask";
-
-        /* renamed from: c  reason: collision with root package name */
-        public static String f39548c = "report";
-
-        /* renamed from: d  reason: collision with root package name */
-        public static String f39549d = "appInstallManager";
-
-        /* renamed from: e  reason: collision with root package name */
-        public static String f39550e = "diskAndHttpIO";
-
-        /* renamed from: f  reason: collision with root package name */
-        public static String f39551f = "async";
-
-        /* renamed from: g  reason: collision with root package name */
-        public static String f39552g = "async-schedule";
-
-        /* renamed from: h  reason: collision with root package name */
-        public static String f39553h = "videoCache";
+        public static String b = "ksImageLoaderTask";
+        public static String c = "report";
+        public static String d = "appInstallManager";
+        public static String e = "diskAndHttpIO";
+        public static String f = "async";
+        public static String g = "async-schedule";
+        public static String h = "videoCache";
     }
 
-    /* loaded from: classes7.dex */
-    public static class h implements InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public static class h implements InterfaceC0301b {
         public h() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
         @NonNull
         public ExecutorService a() {
             return Executors.newSingleThreadExecutor(new d(3, "report-"));
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class i implements InterfaceC1961b {
+    /* loaded from: classes5.dex */
+    public static class i implements InterfaceC0301b {
         public i() {
         }
 
-        @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
         @NonNull
         public ExecutorService a() {
-            return new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.f39553h));
+            return new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.h));
         }
     }
 
@@ -165,14 +141,14 @@ public class b {
     }
 
     @NonNull
-    public static ExecutorService a(String str, @NonNull InterfaceC1961b interfaceC1961b) {
+    public static ExecutorService a(String str, @NonNull InterfaceC0301b interfaceC0301b) {
         if (str == null) {
-            return interfaceC1961b.a();
+            return interfaceC0301b.a();
         }
-        WeakReference<ExecutorService> weakReference = f39542b.get(str);
+        WeakReference<ExecutorService> weakReference = b.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            ExecutorService a2 = interfaceC1961b.a();
-            f39542b.put(str, new WeakReference<>(a2));
+            ExecutorService a2 = interfaceC0301b.a();
+            b.put(str, new WeakReference<>(a2));
             return a2;
         }
         return weakReference.get();
@@ -186,7 +162,7 @@ public class b {
         ExecutorService a2;
         synchronized (b.class) {
             com.kwad.sdk.core.d.a.a(a, "forKsImageLoaderTask");
-            a2 = a(g.f39547b, new e());
+            a2 = a(g.b, new e());
         }
         return a2;
     }
@@ -195,21 +171,21 @@ public class b {
         ExecutorService a2;
         synchronized (b.class) {
             com.kwad.sdk.core.d.a.a(a, "forKsImageLoaderCachedImages");
-            a2 = a(g.f39547b, new e());
+            a2 = a(g.b, new e());
         }
         return a2;
     }
 
     public static ExecutorService e() {
         com.kwad.sdk.core.d.a.a(a, "forKsImageLoaderTaskDistributor");
-        return a(g.f39547b, new e());
+        return a(g.b, new e());
     }
 
     public static synchronized ExecutorService f() {
         ExecutorService a2;
         synchronized (b.class) {
             com.kwad.sdk.core.d.a.a(a, "forBaseBatchReporter");
-            a2 = a(g.f39548c, new h());
+            a2 = a(g.c, new h());
         }
         return a2;
     }
@@ -218,34 +194,34 @@ public class b {
         ExecutorService a2;
         synchronized (b.class) {
             com.kwad.sdk.core.d.a.a(a, "forAdReportManager");
-            a2 = a(g.f39548c, new h());
+            a2 = a(g.c, new h());
         }
         return a2;
     }
 
     public static ExecutorService h() {
         com.kwad.sdk.core.d.a.a(a, "forBaseNetwork");
-        return a(g.f39550e, new c());
+        return a(g.e, new c());
     }
 
     public static ExecutorService i() {
         com.kwad.sdk.core.d.a.a(a, "forFileHelper");
-        return a(g.f39550e, new c());
+        return a(g.e, new c());
     }
 
     public static ExecutorService j() {
         com.kwad.sdk.core.d.a.a(a, "forAppCacheManager");
-        return a(g.f39549d, new a());
+        return a(g.d, new a());
     }
 
     public static ExecutorService k() {
         com.kwad.sdk.core.d.a.a(a, "forAppInstallCheckManager");
-        return a(g.f39549d, new a());
+        return a(g.d, new a());
     }
 
     public static ExecutorService l() {
         com.kwad.sdk.core.d.a.a(a, "forHttpCacheServer");
-        return a(g.f39553h, new i());
+        return a(g.h, new i());
     }
 
     public static ExecutorService m() {
@@ -262,24 +238,24 @@ public class b {
 
     public static ExecutorService n() {
         com.kwad.sdk.core.d.a.a(a, "forAsync");
-        return a(g.f39551f, new InterfaceC1961b() { // from class: com.kwad.sdk.core.i.b.2
-            @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        return a(g.f, new InterfaceC0301b() { // from class: com.kwad.sdk.core.i.b.2
+            @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
             @NonNull
             public ExecutorService a() {
-                return new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.f39551f));
+                return new ThreadPoolExecutor(0, 3, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new d(5, g.f));
             }
         });
     }
 
     public static ScheduledExecutorService o() {
         com.kwad.sdk.core.d.a.a(a, "forAsyncSchedule");
-        ExecutorService a2 = a(g.f39552g, new InterfaceC1961b() { // from class: com.kwad.sdk.core.i.b.3
-            @Override // com.kwad.sdk.core.i.b.InterfaceC1961b
+        ExecutorService a2 = a(g.g, new InterfaceC0301b() { // from class: com.kwad.sdk.core.i.b.3
+            @Override // com.kwad.sdk.core.i.b.InterfaceC0301b
             @NonNull
             public ExecutorService a() {
-                return new ScheduledThreadPoolExecutor(1, new d(5, g.f39552g));
+                return new ScheduledThreadPoolExecutor(1, new d(5, g.g));
             }
         });
-        return a2 instanceof ScheduledExecutorService ? (ScheduledExecutorService) a2 : new ScheduledThreadPoolExecutor(1, new d(5, g.f39552g));
+        return a2 instanceof ScheduledExecutorService ? (ScheduledExecutorService) a2 : new ScheduledThreadPoolExecutor(1, new d(5, g.g));
     }
 }

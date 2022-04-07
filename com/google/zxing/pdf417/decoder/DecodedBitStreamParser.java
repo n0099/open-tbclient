@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AL = 28;
@@ -47,7 +47,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -96,7 +96,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -463,12 +463,12 @@ public final class DecodedBitStreamParser {
             for (int i3 = 0; i3 < i; i3++) {
                 int i4 = iArr[i3];
                 int i5 = AnonymousClass1.$SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode[mode2.ordinal()];
-                char c2 = WebvttCueParser.CHAR_SPACE;
+                char c = WebvttCueParser.CHAR_SPACE;
                 switch (i5) {
                     case 1:
                         if (i4 < 26) {
                             i2 = i4 + 65;
-                            c2 = (char) i2;
+                            c = (char) i2;
                             break;
                         } else if (i4 != 26) {
                             if (i4 == 27) {
@@ -477,7 +477,7 @@ public final class DecodedBitStreamParser {
                                 mode2 = Mode.MIXED;
                             } else if (i4 == 29) {
                                 mode = Mode.PUNCT_SHIFT;
-                                c2 = 0;
+                                c = 0;
                                 Mode mode4 = mode;
                                 mode3 = mode2;
                                 mode2 = mode4;
@@ -487,14 +487,14 @@ public final class DecodedBitStreamParser {
                             } else if (i4 == 900) {
                                 mode2 = Mode.ALPHA;
                             }
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                     case 2:
                         if (i4 < 26) {
                             i2 = i4 + 97;
-                            c2 = (char) i2;
+                            c = (char) i2;
                             break;
                         } else if (i4 != 26) {
                             if (i4 != 27) {
@@ -507,12 +507,12 @@ public final class DecodedBitStreamParser {
                                 } else if (i4 == 900) {
                                     mode2 = Mode.ALPHA;
                                 }
-                                c2 = 0;
+                                c = 0;
                                 break;
                             } else {
                                 mode = Mode.ALPHA_SHIFT;
                             }
-                            c2 = 0;
+                            c = 0;
                             Mode mode42 = mode;
                             mode3 = mode2;
                             mode2 = mode42;
@@ -521,7 +521,7 @@ public final class DecodedBitStreamParser {
                         break;
                     case 3:
                         if (i4 < 25) {
-                            c2 = MIXED_CHARS[i4];
+                            c = MIXED_CHARS[i4];
                             break;
                         } else {
                             if (i4 == 25) {
@@ -533,7 +533,7 @@ public final class DecodedBitStreamParser {
                                     mode2 = Mode.ALPHA;
                                 } else if (i4 == 29) {
                                     mode = Mode.PUNCT_SHIFT;
-                                    c2 = 0;
+                                    c = 0;
                                     Mode mode422 = mode;
                                     mode3 = mode2;
                                     mode2 = mode422;
@@ -544,13 +544,13 @@ public final class DecodedBitStreamParser {
                                     mode2 = Mode.ALPHA;
                                 }
                             }
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                         break;
                     case 4:
                         if (i4 < 29) {
-                            c2 = PUNCT_CHARS[i4];
+                            c = PUNCT_CHARS[i4];
                             break;
                         } else {
                             if (i4 == 29) {
@@ -560,26 +560,26 @@ public final class DecodedBitStreamParser {
                             } else if (i4 == 900) {
                                 mode2 = Mode.ALPHA;
                             }
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                     case 5:
                         if (i4 < 26) {
-                            c2 = (char) (i4 + 65);
+                            c = (char) (i4 + 65);
                         } else if (i4 != 26) {
                             if (i4 == 900) {
                                 mode2 = Mode.ALPHA;
-                                c2 = 0;
+                                c = 0;
                                 break;
                             }
                             mode2 = mode3;
-                            c2 = 0;
+                            c = 0;
                         }
                         mode2 = mode3;
                         break;
                     case 6:
                         if (i4 < 29) {
-                            c2 = PUNCT_CHARS[i4];
+                            c = PUNCT_CHARS[i4];
                             mode2 = mode3;
                             break;
                         } else {
@@ -593,15 +593,15 @@ public final class DecodedBitStreamParser {
                                 }
                                 mode2 = mode3;
                             }
-                            c2 = 0;
+                            c = 0;
                             break;
                         }
                     default:
-                        c2 = 0;
+                        c = 0;
                         break;
                 }
-                if (c2 != 0) {
-                    sb.append(c2);
+                if (c != 0) {
+                    sb.append(c);
                 }
             }
         }

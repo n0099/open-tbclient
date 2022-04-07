@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.decoder.OutputBuffer;
 import com.google.android.exoplayer2.decoder.SimpleDecoder;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputBuffer, SubtitleOutputBuffer, SubtitleDecoderException> implements SubtitleDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,8 +82,8 @@ public abstract class SimpleSubtitleDecoder extends SimpleDecoder<SubtitleInputB
                 subtitleOutputBuffer.setContent(subtitleInputBuffer.timeUs, decode(byteBuffer.array(), byteBuffer.limit(), z), subtitleInputBuffer.subsampleOffsetUs);
                 subtitleOutputBuffer.clearFlag(Integer.MIN_VALUE);
                 return null;
-            } catch (SubtitleDecoderException e2) {
-                return e2;
+            } catch (SubtitleDecoderException e) {
+                return e;
             }
         }
         return (SubtitleDecoderException) invokeLLZ.objValue;

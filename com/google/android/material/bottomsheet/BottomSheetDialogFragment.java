@@ -15,20 +15,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BottomSheetDialogFragment extends AppCompatDialogFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean waitingForDismissAllowingStateLoss;
 
     /* renamed from: com.google.android.material.bottomsheet.BottomSheetDialogFragment$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class BottomSheetDismissCallback extends BottomSheetBehavior.BottomSheetCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,16 +53,16 @@ public class BottomSheetDialogFragment extends AppCompatDialogFragment {
         }
 
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onSlide(@NonNull View view, float f2) {
+        public void onSlide(@NonNull View view2, float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048576, this, view, f2) == null) {
+            if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
             }
         }
 
         @Override // com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
-        public void onStateChanged(@NonNull View view, int i) {
+        public void onStateChanged(@NonNull View view2, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) && i == 5) {
+            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) && i == 5) {
                 this.this$0.dismissAfterAnimation();
             }
         }

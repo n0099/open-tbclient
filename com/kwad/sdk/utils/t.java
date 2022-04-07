@@ -11,7 +11,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class t {
     public static <T> List<T> a(String str) {
         ArrayList arrayList = new ArrayList();
@@ -26,8 +26,8 @@ public class t {
                     arrayList.add(obj);
                 }
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
         return arrayList;
     }
@@ -45,8 +45,8 @@ public class t {
                 a.parseJson(jSONObject);
                 arrayList.add(a);
             }
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
         return arrayList;
     }
@@ -76,16 +76,16 @@ public class t {
         jSONArray.put(jSONObject);
     }
 
-    public static void a(JSONObject jSONObject, String str, double d2) {
+    public static void a(JSONObject jSONObject, String str, double d) {
         try {
-            jSONObject.put(str, d2);
+            jSONObject.put(str, d);
         } catch (JSONException unused) {
         }
     }
 
-    public static void a(JSONObject jSONObject, String str, float f2) {
+    public static void a(JSONObject jSONObject, String str, float f) {
         try {
-            jSONObject.put(str, f2);
+            jSONObject.put(str, f);
         } catch (JSONException unused) {
         }
     }

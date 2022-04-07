@@ -3,7 +3,7 @@ package com.airbnb.lottie.model;
 import androidx.annotation.ColorInt;
 import androidx.annotation.RestrictTo;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DocumentData {
     public final float baselineShift;
     @ColorInt
@@ -19,24 +19,24 @@ public class DocumentData {
     public final String text;
     public final int tracking;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum Justification {
         LEFT_ALIGN,
         RIGHT_ALIGN,
         CENTER
     }
 
-    public DocumentData(String str, String str2, float f2, Justification justification, int i, float f3, float f4, @ColorInt int i2, @ColorInt int i3, float f5, boolean z) {
+    public DocumentData(String str, String str2, float f, Justification justification, int i, float f2, float f3, @ColorInt int i2, @ColorInt int i3, float f4, boolean z) {
         this.text = str;
         this.fontName = str2;
-        this.size = f2;
+        this.size = f;
         this.justification = justification;
         this.tracking = i;
-        this.lineHeight = f3;
-        this.baselineShift = f4;
+        this.lineHeight = f2;
+        this.baselineShift = f3;
         this.color = i2;
         this.strokeColor = i3;
-        this.strokeWidth = f5;
+        this.strokeWidth = f4;
         this.strokeOverFill = z;
     }
 

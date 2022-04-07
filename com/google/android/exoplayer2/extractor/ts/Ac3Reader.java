@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Ac3Reader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 8;

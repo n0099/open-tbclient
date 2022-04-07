@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -17,27 +16,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import tbclient.RecommendForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ItemHeaderView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public BarImageView f33818b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f33819c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f33820d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f33821e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f33822f;
+    public BarImageView b;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ItemHeaderView(Context context) {
@@ -64,14 +54,14 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ae, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02af, (ViewGroup) this, true);
             setVisibility(8);
-            this.f33818b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d10);
-            this.f33819c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0f);
-            this.f33820d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a1d);
-            this.f33821e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0e);
-            this.f33822f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d11);
-            this.f33818b.setPlaceHolder(1);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d17);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d16);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a24);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d15);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d18);
+            this.b.setPlaceHolder(1);
         }
     }
 
@@ -89,24 +79,24 @@ public class ItemHeaderView extends RelativeLayout {
             return;
         }
         boolean z = recommendForumInfo.forum_type.intValue() == 1;
-        this.f33819c.setText(recommendForumInfo.forum_name);
+        this.c.setText(recommendForumInfo.forum_name);
         if (z) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) SkinManager.getDrawable(R.drawable.icon_v);
             bitmapDrawable.setBounds(0, 0, bitmapDrawable.getIntrinsicWidth(), bitmapDrawable.getIntrinsicHeight());
-            this.f33819c.setCompoundDrawables(null, null, bitmapDrawable, null);
-            TextView textView = this.f33819c;
+            this.c.setCompoundDrawables(null, null, bitmapDrawable, null);
+            TextView textView = this.c;
             Context context = this.a;
-            textView.setCompoundDrawablePadding(n.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
-            this.f33820d.setText(recommendForumInfo.authen);
-            this.f33820d.setVisibility(0);
+            textView.setCompoundDrawablePadding(oi.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
+            this.d.setText(recommendForumInfo.authen);
+            this.d.setVisibility(0);
         } else {
-            this.f33819c.setCompoundDrawables(null, null, null, null);
-            this.f33820d.setVisibility(8);
+            this.c.setCompoundDrawables(null, null, null, null);
+            this.d.setVisibility(8);
         }
-        this.f33821e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
-        this.f33822f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int d2 = n.d(this.a, 80.0f);
-        this.f33818b.G(recommendForumInfo.avatar, 10, d2, d2, false);
+        this.e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
+        this.f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
+        int d = oi.d(this.a, 80.0f);
+        this.b.H(recommendForumInfo.avatar, 10, d, d, false);
         setVisibility(0);
     }
 

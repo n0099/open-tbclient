@@ -18,7 +18,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.transition.VisibilityAnimatorProvider;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> extends Visibility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,18 +46,18 @@ public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> e
         setInterpolator(AnimationUtils.FAST_OUT_SLOW_IN_INTERPOLATOR);
     }
 
-    private Animator createAnimator(ViewGroup viewGroup, View view, boolean z) {
+    private Animator createAnimator(ViewGroup viewGroup, View view2, boolean z) {
         InterceptResult invokeLLZ;
         Animator createDisappear;
         Animator createDisappear2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, this, viewGroup, view, z)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, this, viewGroup, view2, z)) == null) {
             AnimatorSet animatorSet = new AnimatorSet();
             ArrayList arrayList = new ArrayList();
             if (z) {
-                createDisappear = this.primaryAnimatorProvider.createAppear(viewGroup, view);
+                createDisappear = this.primaryAnimatorProvider.createAppear(viewGroup, view2);
             } else {
-                createDisappear = this.primaryAnimatorProvider.createDisappear(viewGroup, view);
+                createDisappear = this.primaryAnimatorProvider.createDisappear(viewGroup, view2);
             }
             if (createDisappear != null) {
                 arrayList.add(createDisappear);
@@ -65,9 +65,9 @@ public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> e
             VisibilityAnimatorProvider visibilityAnimatorProvider = this.secondaryAnimatorProvider;
             if (visibilityAnimatorProvider != null) {
                 if (z) {
-                    createDisappear2 = visibilityAnimatorProvider.createAppear(viewGroup, view);
+                    createDisappear2 = visibilityAnimatorProvider.createAppear(viewGroup, view2);
                 } else {
-                    createDisappear2 = visibilityAnimatorProvider.createDisappear(viewGroup, view);
+                    createDisappear2 = visibilityAnimatorProvider.createDisappear(viewGroup, view2);
                 }
                 if (createDisappear2 != null) {
                     arrayList.add(createDisappear2);
@@ -94,17 +94,17 @@ public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> e
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, view, transitionValues, transitionValues2)) == null) ? createAnimator(viewGroup, view, true) : (Animator) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, view2, transitionValues, transitionValues2)) == null) ? createAnimator(viewGroup, view2, true) : (Animator) invokeLLLL.objValue;
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewGroup, view, transitionValues, transitionValues2)) == null) ? createAnimator(viewGroup, view, false) : (Animator) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewGroup, view2, transitionValues, transitionValues2)) == null) ? createAnimator(viewGroup, view2, false) : (Animator) invokeLLLL.objValue;
     }
 
     public void setSecondaryAnimatorProvider(@Nullable VisibilityAnimatorProvider visibilityAnimatorProvider) {

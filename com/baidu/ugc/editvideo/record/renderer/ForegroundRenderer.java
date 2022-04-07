@@ -1,8 +1,6 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.z.b.a.e;
-import c.a.z.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
@@ -12,7 +10,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-/* loaded from: classes6.dex */
+import com.repackage.pf0;
+import com.repackage.xf0;
+/* loaded from: classes4.dex */
 public class ForegroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,15 +32,15 @@ public class ForegroundRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(e eVar, int i, float[] fArr) {
+    public void onDrawFrame(pf0 pf0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eVar, i, fArr) == null) || eVar == null || eVar.l() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, pf0Var, i, fArr) == null) || pf0Var == null || pf0Var.l() == null) {
             return;
         }
-        for (int i2 = 1; i2 < eVar.l().size(); i2++) {
-            MediaTrack mediaTrack = eVar.l().get(i2);
-            if (mediaTrack != null && c.m(mediaTrack, "watermark")) {
-                long a = eVar.a();
+        for (int i2 = 1; i2 < pf0Var.l().size(); i2++) {
+            MediaTrack mediaTrack = pf0Var.l().get(i2);
+            if (mediaTrack != null && xf0.m(mediaTrack, "watermark")) {
+                long a = pf0Var.a();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                         long j = mediaSegment.start;
@@ -48,14 +48,14 @@ public class ForegroundRenderer extends MediaBaseRenderer {
                         if (j != j2 && a >= j && a <= j2) {
                         }
                     }
-                    int h2 = eVar.h(mediaSegment, mediaSegment.textureId, null);
+                    int h = pf0Var.h(mediaSegment, mediaSegment.textureId, null);
                     GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;
                     GLES20.glViewport(gLViewPortLocation.x, gLViewPortLocation.y, gLViewPortLocation.width, gLViewPortLocation.height);
                     GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                     GLES20.glBlendFunc(770, 771);
                     this.mFullScreen2D.setVertexPoint(GlUtil.IDENTITY_MATRIX);
                     this.mFullScreen2D.setScaleAndTranslate(this.mScaleX, this.mScaleY, this.mTx, this.mTy);
-                    this.mFullScreen2D.drawFrame(h2, fArr);
+                    this.mFullScreen2D.drawFrame(h, fArr);
                     this.mFullScreen2D.setScaleAndTranslate(1.0f, 1.0f, 0.0f, 0.0f);
                     GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
                 }

@@ -104,13 +104,13 @@ public final class BitmapKt {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bitmap, pointF)) == null) {
-            float f2 = pointF.x;
-            float f3 = 0;
-            if (f2 < f3 || f2 >= bitmap.getWidth()) {
+            float f = pointF.x;
+            float f2 = 0;
+            if (f < f2 || f >= bitmap.getWidth()) {
                 return false;
             }
-            float f4 = pointF.y;
-            return f4 >= f3 && f4 < ((float) bitmap.getHeight());
+            float f3 = pointF.y;
+            return f3 >= f2 && f3 < ((float) bitmap.getHeight());
         }
         return invokeLL.booleanValue;
     }

@@ -17,7 +17,7 @@ import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class ResourceCacheKey implements Key {
     public static /* synthetic */ Interceptable $ic;
     public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES;

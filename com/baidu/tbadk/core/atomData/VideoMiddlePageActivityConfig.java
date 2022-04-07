@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class VideoMiddlePageActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_CONCERN_TAB = "concern_tab";
@@ -48,7 +48,7 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("PARAM_FID", str2);
         getIntent().putExtra("PARAM_FROM", str);
-        getIntent().putExtra("param_video_thread_info", videoSerializeVideoThreadInfo);
+        getIntent().putExtra(PARAM_VIDEO_THREAD_INFO, videoSerializeVideoThreadInfo);
     }
 
     public void setNid(String str) {
@@ -111,6 +111,6 @@ public class VideoMiddlePageActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("param_video_thread_info", videoSerializeVideoThreadInfo);
+        getIntent().putExtra(PARAM_VIDEO_THREAD_INFO, videoSerializeVideoThreadInfo);
     }
 }

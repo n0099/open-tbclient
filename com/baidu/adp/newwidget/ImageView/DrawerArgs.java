@@ -1,7 +1,6 @@
 package com.baidu.adp.newwidget.ImageView;
 
 import android.graphics.Matrix;
-import c.a.d.h.a.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,32 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.qk;
+/* loaded from: classes.dex */
 public class DrawerArgs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public float[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f23850b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f23851c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f23852d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f23853e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SkinType f23854f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f23855g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f23856h;
+    public boolean b;
+    public boolean c;
+    public int d;
+    public int e;
+    public SkinType f;
+    public boolean g;
+    public boolean h;
     public boolean i;
     public int j;
     public float k;
@@ -44,7 +30,7 @@ public class DrawerArgs {
     public boolean o;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class SkinType {
         public static final /* synthetic */ SkinType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -119,10 +105,10 @@ public class DrawerArgs {
             }
         }
         this.a = new float[8];
-        this.f23854f = SkinType.DAY;
-        this.f23856h = false;
+        this.f = SkinType.DAY;
+        this.h = false;
         this.i = true;
-        this.j = b.a;
+        this.j = qk.a;
         this.k = 1.0f;
         this.o = false;
     }

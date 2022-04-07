@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class WeightedLatLng extends o.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double DEFAULT_INTENSITY = 1.0d;
@@ -40,12 +40,12 @@ public class WeightedLatLng extends o.a {
         }
     }
 
-    public WeightedLatLng(LatLng latLng, double d2) {
+    public WeightedLatLng(LatLng latLng, double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {latLng, Double.valueOf(d2)};
+            Object[] objArr = {latLng, Double.valueOf(d)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,8 +61,8 @@ public class WeightedLatLng extends o.a {
         this.latLng = latLng;
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
         this.a = new Point((int) ll2mc.getLongitudeE6(), (int) ll2mc.getLatitudeE6());
-        if (d2 > 0.0d) {
-            this.intensity = d2;
+        if (d > 0.0d) {
+            this.intensity = d;
         } else {
             this.intensity = 1.0d;
         }

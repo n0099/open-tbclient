@@ -22,7 +22,7 @@ import java.util.HashMap;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class gk {
     public static /* synthetic */ Interceptable $ic;
     public static XmlPullParser a;
@@ -47,11 +47,11 @@ public class gk {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, xmlPullParser)) == null) {
-            Object m392a = gj.a().m392a("all", "xm:chat");
-            if (m392a == null || !(m392a instanceof com.xiaomi.push.service.f)) {
+            Object m388a = gj.a().m388a("all", "xm:chat");
+            if (m388a == null || !(m388a instanceof com.xiaomi.push.service.f)) {
                 return null;
             }
-            return ((com.xiaomi.push.service.f) m392a).b(xmlPullParser);
+            return ((com.xiaomi.push.service.f) m388a).b(xmlPullParser);
         }
         return (fz) invokeLLL.objValue;
     }
@@ -79,7 +79,7 @@ public class gk {
                     String name = xmlPullParser.getName();
                     String namespace = xmlPullParser.getNamespace();
                     if (name.equals("error")) {
-                        ggVar = m396a(xmlPullParser);
+                        ggVar = m392a(xmlPullParser);
                     } else {
                         gaVar = new ga();
                         gaVar.a(a(name, namespace, xmlPullParser));
@@ -89,14 +89,14 @@ public class gk {
                 }
             }
             if (gaVar == null) {
-                if (ga.a.a == a2 || ga.a.f44269b == a2) {
+                if (ga.a.a == a2 || ga.a.b == a2) {
                     gl glVar = new gl();
                     glVar.k(attributeValue);
                     glVar.m(attributeValue3);
                     glVar.n(attributeValue2);
-                    glVar.a(ga.a.f44271d);
+                    glVar.a(ga.a.d);
                     glVar.l(attributeValue4);
-                    glVar.a(new gg(gg.a.f44305e));
+                    glVar.a(new gg(gg.a.e));
                     flVar.a(glVar);
                     com.xiaomi.channel.commonutils.logger.b.d("iq usage error. send packet in packet parser.");
                     return null;
@@ -153,11 +153,11 @@ public class gk {
                                 gbVar.k(attributeValue2);
                                 gbVar.f(attributeValue5);
                                 fz fzVar = new fz("s", null, null, null);
-                                fzVar.m377a(text);
+                                fzVar.m373a(text);
                                 gbVar.a(fzVar);
                                 return gbVar;
                             }
-                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.f44552h, attributeValue2), text));
+                            a(com.xiaomi.push.service.be.a(com.xiaomi.push.service.be.a(a2.h, attributeValue2), text));
                             a.next();
                             gcVar = a(a);
                         } else if (next == 3 && xmlPullParser.getName().equals("message")) {
@@ -216,11 +216,11 @@ public class gk {
             }
             gbVar2.a(!TextUtils.isEmpty(str) && str.equalsIgnoreCase("true"));
             gbVar2.f(xmlPullParser.getAttributeValue("", "type"));
-            String b2 = b(xmlPullParser);
-            if (b2 == null || "".equals(b2.trim())) {
+            String b = b(xmlPullParser);
+            if (b == null || "".equals(b.trim())) {
                 gc.q();
             } else {
-                gbVar2.j(b2);
+                gbVar2.j(b);
             }
             while (!z) {
                 int next2 = xmlPullParser.next();
@@ -232,21 +232,21 @@ public class gk {
                     }
                     if (name.equals("subject")) {
                         b(xmlPullParser);
-                        gbVar2.g(m397a(xmlPullParser));
+                        gbVar2.g(m393a(xmlPullParser));
                     } else if (name.equals(TtmlNode.TAG_BODY)) {
-                        String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.f27906c);
-                        String m397a = m397a(xmlPullParser);
+                        String attributeValue11 = xmlPullParser.getAttributeValue("", HttpClientWrap.c);
+                        String m393a = m393a(xmlPullParser);
                         if (TextUtils.isEmpty(attributeValue11)) {
-                            gbVar2.h(m397a);
+                            gbVar2.h(m393a);
                         } else {
-                            gbVar2.a(m397a, attributeValue11);
+                            gbVar2.a(m393a, attributeValue11);
                         }
                     } else if (name.equals("thread")) {
                         if (str2 == null) {
                             str2 = xmlPullParser.nextText();
                         }
                     } else if (name.equals("error")) {
-                        gbVar2.a(m396a(xmlPullParser));
+                        gbVar2.a(m392a(xmlPullParser));
                     } else {
                         gbVar2.a(a(name, namespace, xmlPullParser));
                     }
@@ -261,7 +261,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ge m394a(XmlPullParser xmlPullParser) {
+    public static ge m390a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xmlPullParser)) == null) {
@@ -308,7 +308,7 @@ public class gk {
                             printStream2.println("Found invalid presence mode " + nextText);
                         }
                     } else if (name.equals("error")) {
-                        geVar.a(m396a(xmlPullParser));
+                        geVar.a(m392a(xmlPullParser));
                     } else {
                         geVar.a(a(name, namespace, xmlPullParser));
                     }
@@ -322,7 +322,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gf m395a(XmlPullParser xmlPullParser) {
+    public static gf m391a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, xmlPullParser)) == null) {
@@ -342,7 +342,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gg m396a(XmlPullParser xmlPullParser) {
+    public static gg m392a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, xmlPullParser)) == null) {
@@ -392,7 +392,7 @@ public class gk {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m397a(XmlPullParser xmlPullParser) {
+    public static String m393a(XmlPullParser xmlPullParser) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, xmlPullParser)) != null) {
@@ -416,8 +416,8 @@ public class gk {
                     XmlPullParser newPullParser = XmlPullParserFactory.newInstance().newPullParser();
                     a = newPullParser;
                     newPullParser.setFeature("http://xmlpull.org/v1/doc/features.html#process-namespaces", true);
-                } catch (XmlPullParserException e2) {
-                    e2.printStackTrace();
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
                 }
             }
             a.setInput(new InputStreamReader(new ByteArrayInputStream(bArr)));

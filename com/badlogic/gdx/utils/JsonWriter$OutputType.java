@@ -1,7 +1,5 @@
 package com.badlogic.gdx.utils;
 
-import c.b.b.q.j0;
-import c.b.b.q.q;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,11 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.h8;
+import com.repackage.o7;
 import com.tachikoma.core.utility.FileUtil;
 import java.util.regex.Pattern;
 import kotlin.text.Typography;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class JsonWriter$OutputType {
     public static final /* synthetic */ JsonWriter$OutputType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -91,24 +91,24 @@ public final class JsonWriter$OutputType {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            j0 j0Var = new j0(str);
-            j0Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
-            j0Var.G('\r', "\\r");
-            j0Var.G('\n', "\\n");
-            j0Var.G('\t', "\\t");
-            int i = q.a[ordinal()];
+            h8 h8Var = new h8(str);
+            h8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
+            h8Var.G('\r', "\\r");
+            h8Var.G('\n', "\\n");
+            h8Var.G('\t', "\\t");
+            int i = o7.a[ordinal()];
             if (i == 1) {
-                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(j0Var).matches()) {
-                    return j0Var.toString();
+                if (!str.contains("//") && !str.contains("/*") && minimalNamePattern.matcher(h8Var).matches()) {
+                    return h8Var.toString();
                 }
             }
-            if (javascriptPattern.matcher(j0Var).matches()) {
-                return j0Var.toString();
+            if (javascriptPattern.matcher(h8Var).matches()) {
+                return h8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            j0Var.G(Typography.quote, "\\\"");
-            sb.append(j0Var.toString());
+            h8Var.G(Typography.quote, "\\\"");
+            sb.append(h8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }
@@ -127,18 +127,18 @@ public final class JsonWriter$OutputType {
             if ((obj instanceof Number) || (obj instanceof Boolean)) {
                 return obj2;
             }
-            j0 j0Var = new j0(obj2);
-            j0Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
-            j0Var.G('\r', "\\r");
-            j0Var.G('\n', "\\n");
-            j0Var.G('\t', "\\t");
-            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = j0Var.length()) > 0 && j0Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(j0Var).matches()) {
-                return j0Var.toString();
+            h8 h8Var = new h8(obj2);
+            h8Var.G(FileUtil.WINDOWS_SEPARATOR, "\\\\");
+            h8Var.G('\r', "\\r");
+            h8Var.G('\n', "\\n");
+            h8Var.G('\t', "\\t");
+            if (this == minimal && !obj2.equals("true") && !obj2.equals("false") && !obj2.equals(StringUtil.NULL_STRING) && !obj2.contains("//") && !obj2.contains("/*") && (length = h8Var.length()) > 0 && h8Var.charAt(length - 1) != ' ' && minimalValuePattern.matcher(h8Var).matches()) {
+                return h8Var.toString();
             }
             StringBuilder sb = new StringBuilder();
             sb.append(Typography.quote);
-            j0Var.G(Typography.quote, "\\\"");
-            sb.append(j0Var.toString());
+            h8Var.G(Typography.quote, "\\\"");
+            sb.append(h8Var.toString());
             sb.append(Typography.quote);
             return sb.toString();
         }

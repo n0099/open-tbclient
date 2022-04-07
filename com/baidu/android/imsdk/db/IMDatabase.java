@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMDatabase {
     public static /* synthetic */ Interceptable $ic;
     public static DbOpenHelper mDbHelper;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,9 +120,9 @@ public class IMDatabase {
                 } else {
                     try {
                         path = mDbHelper.getReadableDatabase().getPath();
-                    } catch (SQLiteException e2) {
-                        LogUtils.e("IMDatabase", "", e2);
-                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    } catch (SQLiteException e) {
+                        LogUtils.e("IMDatabase", "", e);
+                        new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                     }
                     if (!path.equals(path2)) {
                         mDbHelper.close();
@@ -149,10 +149,10 @@ public class IMDatabase {
                 }
                 try {
                     sQLiteDatabase = dBOpenHelper.getReadableDatabase();
-                } catch (SQLException e2) {
+                } catch (SQLException e) {
                     mDbHelper = null;
-                    LogUtils.e("IMDatabase", "Exception ", e2);
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e("IMDatabase", "Exception ", e);
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 }
                 return sQLiteDatabase;
             }
@@ -172,9 +172,9 @@ public class IMDatabase {
                 }
                 try {
                     sQLiteDatabase = dBOpenHelper.getWritableDatabase();
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     mDbHelper = null;
-                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+                    new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
                 }
                 return sQLiteDatabase;
             }

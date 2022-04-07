@@ -22,7 +22,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlayerPolicyImplement implements IPlayerPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADD_OBSERVER_WORK_MSG = 2;
@@ -214,18 +214,18 @@ public class PlayerPolicyImplement implements IPlayerPolicy {
                                             this.this$0.mPullCfgSuccessfully = 1;
                                             this.this$0.mRetryCount = 0L;
                                         }
-                                    } catch (Exception e2) {
-                                        Log.e(PlayerPolicyImplement.TAG, "Get json fail => ", e2);
+                                    } catch (Exception e) {
+                                        Log.e(PlayerPolicyImplement.TAG, "Get json fail => ", e);
                                     }
-                                } catch (IOException e3) {
-                                    Log.e(PlayerPolicyImplement.TAG, "onResponse: ", e3);
+                                } catch (IOException e2) {
+                                    Log.e(PlayerPolicyImplement.TAG, "onResponse: ", e2);
                                 }
                             }
                         }
                     }
                 });
-            } catch (Exception e2) {
-                Log.e(TAG, "onUpdateConfig: ", e2);
+            } catch (Exception e) {
+                Log.e(TAG, "onUpdateConfig: ", e);
             }
         }
     }

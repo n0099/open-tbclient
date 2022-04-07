@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class c0 extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public class c0 extends l {
     public String k;
     public z l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,31 +47,31 @@ public class c0 extends l {
             }
             try {
                 c0 c0Var = this.a;
-                c0Var.f37986f = c0Var.l.d();
-                String b2 = this.a.l.b();
-                String c2 = this.a.l.c();
+                c0Var.f = c0Var.l.d();
+                String b = this.a.l.b();
+                String c = this.a.l.c();
                 String a = this.a.l.a();
-                if (b2 == null) {
-                    b2 = "";
+                if (b == null) {
+                    b = "";
                 }
-                this.a.f37983c = b2;
+                this.a.c = b;
                 c0 c0Var2 = this.a;
-                if (c2 == null) {
-                    c2 = "";
+                if (c == null) {
+                    c = "";
                 }
-                c0Var2.f37984d = c2;
+                c0Var2.d = c;
                 c0 c0Var3 = this.a;
                 if (a == null) {
                     a = "";
                 }
-                c0Var3.f37985e = a;
+                c0Var3.e = a;
                 synchronized (c0.class) {
                     this.a.i = true;
                     this.a.e();
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 synchronized (c0.class) {
-                    e0.d("ZteProvider", "doStart: Exception: " + e2.getMessage());
+                    e0.d("ZteProvider", "doStart: Exception: " + e.getMessage());
                     this.a.a();
                     this.a.i = true;
                     this.a.e();
@@ -109,8 +109,8 @@ public class c0 extends l {
         try {
             z.a(this.j, this.k);
             e0.c("ZteProvider", "Constructor: MsaService start success");
-        } catch (Exception e2) {
-            e0.b("ZteProvider", "Constructor: MsaService start Exception: " + e2.getMessage());
+        } catch (Exception e) {
+            e0.b("ZteProvider", "Constructor: MsaService start Exception: " + e.getMessage());
         }
     }
 
@@ -127,8 +127,8 @@ public class c0 extends l {
                 zVar.a(this.k);
                 e0.c("ZteProvider", "doStart: BindService success");
                 b();
-            } catch (Exception e2) {
-                e0.d("ZteProvider", "doStart: Exception: " + e2.getMessage());
+            } catch (Exception e) {
+                e0.d("ZteProvider", "doStart: Exception: " + e.getMessage());
                 a();
                 e();
             }

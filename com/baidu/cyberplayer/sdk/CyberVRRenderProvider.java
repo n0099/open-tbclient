@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class CyberVRRenderProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface INotSupportCallback {
         void onNotSupport(int i);
     }
 
     @Keep
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface IOnSurfaceReadyCallback {
         void onSurfaceReady(Surface surface);
     }
@@ -59,13 +59,13 @@ public abstract class CyberVRRenderProvider {
 
     public abstract void onResume();
 
-    public abstract void onTextureResize(float f2, float f3);
+    public abstract void onTextureResize(float f, float f2);
 
     public abstract CyberVRRenderProvider pinchEnabled(boolean z);
 
     public abstract CyberVRRenderProvider projectionMode(int i);
 
-    public abstract CyberVRRenderProvider setFov(float f2, float f3, float f4);
+    public abstract CyberVRRenderProvider setFov(float f, float f2, float f3);
 
     public abstract void switchDisplayMode(int i);
 

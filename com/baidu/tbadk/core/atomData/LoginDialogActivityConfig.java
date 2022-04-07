@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LoginDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGIN_DIALOG_DATA_LOCATE = "login_dialog_data_locate";
@@ -96,52 +96,52 @@ public class LoginDialogActivityConfig extends IntentConfig {
             getIntent().putExtra("login_dialog_login_listener", loginDialogData.getLoginListener());
         }
         String locate = loginDialogData.getLocate();
-        char c2 = 65535;
+        char c = 65535;
         switch (locate.hashCode()) {
             case -1723264065:
                 if (locate.equals(LoginDialogData.PB_COLLECT_RESULT_PAGE)) {
-                    c2 = 1;
+                    c = 1;
                     break;
                 }
                 break;
             case -1142545818:
                 if (locate.equals(LoginDialogData.FRS_PUBLISH_RESULT_PAGE)) {
-                    c2 = 2;
+                    c = 2;
                     break;
                 }
                 break;
             case -652469911:
                 if (locate.equals(LoginDialogData.PB_REPLY_RESULT_PAGE)) {
-                    c2 = 4;
+                    c = 4;
                     break;
                 }
                 break;
             case -360946952:
                 if (locate.equals(LoginDialogData.FIRST_LOGIN_ABTEST)) {
-                    c2 = 6;
+                    c = 6;
                     break;
                 }
                 break;
             case -72485631:
                 if (locate.equals(LoginDialogData.PB_BOTTOM_REPLY_RESULT_PAGE)) {
-                    c2 = 3;
+                    c = 3;
                     break;
                 }
                 break;
             case 844222914:
                 if (locate.equals(LoginDialogData.PB_MORE_REPLY_RESULT_PAGE)) {
-                    c2 = 0;
+                    c = 0;
                     break;
                 }
                 break;
             case 1683575996:
                 if (locate.equals(LoginDialogData.SEARCH_RESULT_PAGE)) {
-                    c2 = 5;
+                    c = 5;
                     break;
                 }
                 break;
         }
-        switch (c2) {
+        switch (c) {
             case 0:
                 setRequestCode(25055);
                 setIntentAction(IntentAction.ActivityForResult);

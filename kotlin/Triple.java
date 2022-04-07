@@ -13,10 +13,10 @@ public final class Triple<A, B, C> implements Serializable {
     public final B second;
     public final C third;
 
-    public Triple(A a, B b2, C c2) {
+    public Triple(A a, B b, C c) {
         this.first = a;
-        this.second = b2;
-        this.third = c2;
+        this.second = b;
+        this.third = c;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.Triple */
@@ -46,8 +46,8 @@ public final class Triple<A, B, C> implements Serializable {
         return this.third;
     }
 
-    public final Triple<A, B, C> copy(A a, B b2, C c2) {
-        return new Triple<>(a, b2, c2);
+    public final Triple<A, B, C> copy(A a, B b, C c) {
+        return new Triple<>(a, b, c);
     }
 
     public boolean equals(Object obj) {
@@ -76,10 +76,10 @@ public final class Triple<A, B, C> implements Serializable {
     public int hashCode() {
         A a = this.first;
         int hashCode = (a != null ? a.hashCode() : 0) * 31;
-        B b2 = this.second;
-        int hashCode2 = (hashCode + (b2 != null ? b2.hashCode() : 0)) * 31;
-        C c2 = this.third;
-        return hashCode2 + (c2 != null ? c2.hashCode() : 0);
+        B b = this.second;
+        int hashCode2 = (hashCode + (b != null ? b.hashCode() : 0)) * 31;
+        C c = this.third;
+        return hashCode2 + (c != null ? c.hashCode() : 0);
     }
 
     public String toString() {

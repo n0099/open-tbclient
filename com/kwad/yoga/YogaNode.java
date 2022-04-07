@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class YogaNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public abstract class YogaNode {
 
     public abstract void addChildAt(YogaNode yogaNode, int i);
 
-    public abstract void calculateLayout(float f2, float f3);
+    public abstract void calculateLayout(float f, float f2);
 
     public abstract YogaNode cloneWithoutChildren();
 
@@ -153,11 +153,11 @@ public abstract class YogaNode {
 
     public abstract void setAlignSelf(YogaAlign yogaAlign);
 
-    public abstract void setAspectRatio(float f2);
+    public abstract void setAspectRatio(float f);
 
     public abstract void setBaselineFunction(YogaBaselineFunction yogaBaselineFunction);
 
-    public abstract void setBorder(YogaEdge yogaEdge, float f2);
+    public abstract void setBorder(YogaEdge yogaEdge, float f);
 
     public abstract void setData(Object obj);
 
@@ -165,73 +165,73 @@ public abstract class YogaNode {
 
     public abstract void setDisplay(YogaDisplay yogaDisplay);
 
-    public abstract void setFlex(float f2);
+    public abstract void setFlex(float f);
 
-    public abstract void setFlexBasis(float f2);
+    public abstract void setFlexBasis(float f);
 
     public abstract void setFlexBasisAuto();
 
-    public abstract void setFlexBasisPercent(float f2);
+    public abstract void setFlexBasisPercent(float f);
 
     public abstract void setFlexDirection(YogaFlexDirection yogaFlexDirection);
 
-    public abstract void setFlexGrow(float f2);
+    public abstract void setFlexGrow(float f);
 
-    public abstract void setFlexShrink(float f2);
+    public abstract void setFlexShrink(float f);
 
-    public abstract void setHeight(float f2);
+    public abstract void setHeight(float f);
 
     public abstract void setHeightAuto();
 
-    public abstract void setHeightPercent(float f2);
+    public abstract void setHeightPercent(float f);
 
     public abstract void setIsReferenceBaseline(boolean z);
 
     public abstract void setJustifyContent(YogaJustify yogaJustify);
 
-    public abstract void setMargin(YogaEdge yogaEdge, float f2);
+    public abstract void setMargin(YogaEdge yogaEdge, float f);
 
     public abstract void setMarginAuto(YogaEdge yogaEdge);
 
-    public abstract void setMarginPercent(YogaEdge yogaEdge, float f2);
+    public abstract void setMarginPercent(YogaEdge yogaEdge, float f);
 
-    public abstract void setMaxHeight(float f2);
+    public abstract void setMaxHeight(float f);
 
-    public abstract void setMaxHeightPercent(float f2);
+    public abstract void setMaxHeightPercent(float f);
 
-    public abstract void setMaxWidth(float f2);
+    public abstract void setMaxWidth(float f);
 
-    public abstract void setMaxWidthPercent(float f2);
+    public abstract void setMaxWidthPercent(float f);
 
     public abstract void setMeasureFunction(YogaMeasureFunction yogaMeasureFunction);
 
-    public abstract void setMinHeight(float f2);
+    public abstract void setMinHeight(float f);
 
-    public abstract void setMinHeightPercent(float f2);
+    public abstract void setMinHeightPercent(float f);
 
-    public abstract void setMinWidth(float f2);
+    public abstract void setMinWidth(float f);
 
-    public abstract void setMinWidthPercent(float f2);
+    public abstract void setMinWidthPercent(float f);
 
     public abstract void setOverflow(YogaOverflow yogaOverflow);
 
-    public abstract void setPadding(YogaEdge yogaEdge, float f2);
+    public abstract void setPadding(YogaEdge yogaEdge, float f);
 
-    public abstract void setPaddingPercent(YogaEdge yogaEdge, float f2);
+    public abstract void setPaddingPercent(YogaEdge yogaEdge, float f);
 
-    public abstract void setPosition(YogaEdge yogaEdge, float f2);
+    public abstract void setPosition(YogaEdge yogaEdge, float f);
 
-    public abstract void setPositionPercent(YogaEdge yogaEdge, float f2);
+    public abstract void setPositionPercent(YogaEdge yogaEdge, float f);
 
     public abstract void setPositionType(YogaPositionType yogaPositionType);
 
     public abstract void setStyleInputs(float[] fArr, int i);
 
-    public abstract void setWidth(float f2);
+    public abstract void setWidth(float f);
 
     public abstract void setWidthAuto();
 
-    public abstract void setWidthPercent(float f2);
+    public abstract void setWidthPercent(float f);
 
     public abstract void setWrap(YogaWrap yogaWrap);
 }

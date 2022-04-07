@@ -12,6 +12,7 @@ import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,12 +25,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f28215b = "c";
+    public static final String b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -114,8 +113,8 @@ public class c extends com.baidu.platform.base.d {
                     suggestionResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                     return false;
                 }
-            } catch (JSONException e2) {
-                Log.e(f28215b, "Parse sug search error", e2);
+            } catch (JSONException e) {
+                Log.e(b, "Parse sug search error", e);
             }
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
@@ -143,7 +142,7 @@ public class c extends com.baidu.platform.base.d {
                             suggestionInfo.setTag(jSONObject2.optString("tag"));
                             suggestionInfo.setAddress(jSONObject2.optString("address"));
                             suggestionInfo.setPt(a(jSONObject2.optJSONObject("location")));
-                            JSONArray optJSONArray2 = jSONObject2.optJSONArray("children");
+                            JSONArray optJSONArray2 = jSONObject2.optJSONArray(CriusAttrConstants.CHILDREN);
                             if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                                 suggestionInfo.setPoiChildrenInfoList(a(optJSONArray2));
                             }
@@ -171,8 +170,8 @@ public class c extends com.baidu.platform.base.d {
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                } catch (JSONException e2) {
-                    Log.e(f28215b, "Parse suggestion search result error", e2);
+                } catch (JSONException e) {
+                    Log.e(b, "Parse suggestion search result error", e);
                 }
                 if (jSONObject.length() != 0) {
                     if (jSONObject.has("SDK_InnerError")) {
@@ -183,16 +182,16 @@ public class c extends com.baidu.platform.base.d {
                             return suggestionResult;
                         } else if (optJSONObject.has("httpStateError")) {
                             String optString = optJSONObject.optString("httpStateError");
-                            char c2 = 65535;
+                            char c = 65535;
                             int hashCode = optString.hashCode();
                             if (hashCode != -879828873) {
                                 if (hashCode == 1470557208 && optString.equals("REQUEST_ERROR")) {
-                                    c2 = 1;
+                                    c = 1;
                                 }
                             } else if (optString.equals("NETWORK_ERROR")) {
-                                c2 = 0;
+                                c = 0;
                             }
-                            suggestionResult.error = c2 != 0 ? c2 != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
+                            suggestionResult.error = c != 0 ? c != 1 ? SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR : SearchResult.ERRORNO.REQUEST_ERROR : SearchResult.ERRORNO.NETWORK_ERROR;
                             return suggestionResult;
                         }
                     }

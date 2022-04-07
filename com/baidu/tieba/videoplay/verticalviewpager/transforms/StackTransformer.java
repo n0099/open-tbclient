@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StackTransformer implements ViewPager.PageTransformer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,11 +26,11 @@ public class StackTransformer implements ViewPager.PageTransformer {
     }
 
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
-    public void transformPage(View view, float f2) {
+    public void transformPage(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, view, f2) == null) {
-            view.setTranslationX(view.getWidth() * (-f2));
-            view.setTranslationY(f2 < 0.0f ? view.getHeight() * f2 : 0.0f);
+        if (interceptable == null || interceptable.invokeLF(1048576, this, view2, f) == null) {
+            view2.setTranslationX(view2.getWidth() * (-f));
+            view2.setTranslationY(f < 0.0f ? view2.getHeight() * f : 0.0f);
         }
     }
 }

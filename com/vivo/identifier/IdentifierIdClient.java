@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class IdentifierIdClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AAID_FLAG = "AAID";
@@ -249,8 +249,8 @@ public class IdentifierIdClient {
                             } else {
                                 IdentifierIdLog.e(IdentifierIdClient.TAG, "get vaid failed");
                             }
-                        } catch (Exception e2) {
-                            IdentifierIdLog.e(IdentifierIdClient.TAG, "readException:" + e2.toString());
+                        } catch (Exception e) {
+                            IdentifierIdLog.e(IdentifierIdClient.TAG, "readException:" + e.toString());
                         }
                         synchronized (IdentifierIdClient.mLock) {
                             IdentifierIdClient.mLock.notify();

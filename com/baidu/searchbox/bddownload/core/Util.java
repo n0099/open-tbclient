@@ -40,7 +40,7 @@ import java.util.Map;
 import java.util.concurrent.ThreadFactory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_RANGES = "Accept-Ranges";
@@ -61,7 +61,7 @@ public class Util {
     public static Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class EmptyLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class Util {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface Logger {
         void d(String str, String str2);
 
@@ -212,20 +212,20 @@ public class Util {
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             try {
                 return (DownloadConnection.Factory) Class.forName("com.baidu.searchbox.bddownload.core.connection.DownloadOkHttp3Connection$Factory").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (ClassNotFoundException e2) {
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+                return new DownloadUrlConnection.Factory();
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return new DownloadUrlConnection.Factory();
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 e3.printStackTrace();
                 return new DownloadUrlConnection.Factory();
-            } catch (InstantiationException e4) {
+            } catch (NoSuchMethodException e4) {
                 e4.printStackTrace();
                 return new DownloadUrlConnection.Factory();
-            } catch (NoSuchMethodException e5) {
+            } catch (InvocationTargetException e5) {
                 e5.printStackTrace();
-                return new DownloadUrlConnection.Factory();
-            } catch (InvocationTargetException e6) {
-                e6.printStackTrace();
                 return new DownloadUrlConnection.Factory();
             }
         }
@@ -366,13 +366,13 @@ public class Util {
             if (j < i) {
                 return j + " B";
             }
-            double d2 = j;
-            double d3 = i;
-            int log = (int) (Math.log(d2) / Math.log(d3));
+            double d = j;
+            double d2 = i;
+            int log = (int) (Math.log(d) / Math.log(d2));
             StringBuilder sb = new StringBuilder();
             sb.append((z ? "kMGTPE" : "KMGTPE").charAt(log - 1));
             sb.append(z ? "" : "i");
-            return String.format(Locale.ENGLISH, "%.1f %sB", Double.valueOf(d2 / Math.pow(d3, log)), sb.toString());
+            return String.format(Locale.ENGLISH, "%.1f %sB", Double.valueOf(d / Math.pow(d2, log)), sb.toString());
         }
         return (String) invokeCommon.objValue;
     }
@@ -469,8 +469,8 @@ public class Util {
             }
             if (bArr != null) {
                 StringBuilder sb = new StringBuilder(bArr.length * 2);
-                for (byte b2 : bArr) {
-                    int i = b2 & 255;
+                for (byte b : bArr) {
+                    int i = b & 255;
                     if (i < 16) {
                         sb.append('0');
                     }
@@ -510,8 +510,8 @@ public class Util {
                     if (matcher.find()) {
                         return (Long.parseLong(matcher.group(2)) - Long.parseLong(matcher.group(1))) + 1;
                     }
-                } catch (Exception e2) {
-                    w("Util", "parse content-length from content-range failed " + e2);
+                } catch (Exception e) {
+                    w("Util", "parse content-length from content-range failed " + e);
                 }
             }
             return -1L;

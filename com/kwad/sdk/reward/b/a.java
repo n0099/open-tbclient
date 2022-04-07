@@ -4,24 +4,22 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.utils.t;
 import java.util.Observable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f40750b = false;
+    public boolean b = false;
 
     public void a() {
-        if (this.f40750b) {
+        if (this.b) {
             return;
         }
-        this.f40750b = true;
+        this.b = true;
         f();
     }
 
     public void b() {
-        if (this.f40750b) {
-            this.f40750b = false;
+        if (this.b) {
+            this.b = false;
             f();
         }
     }
@@ -37,18 +35,18 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     }
 
     public boolean e() {
-        return this.f40750b;
+        return this.b;
     }
 
     public void f() {
         setChanged();
-        notifyObservers(Boolean.valueOf(this.f40750b));
+        notifyObservers(Boolean.valueOf(this.b));
     }
 
     @Override // com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         try {
-            this.f40750b = jSONObject.optBoolean("selfCompleted");
+            this.b = jSONObject.optBoolean("selfCompleted");
         } catch (Throwable unused) {
         }
     }
@@ -56,7 +54,7 @@ public abstract class a extends Observable implements com.kwad.sdk.core.b, b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "selfCompleted", this.f40750b);
+        t.a(jSONObject, "selfCompleted", this.b);
         return jSONObject;
     }
 }

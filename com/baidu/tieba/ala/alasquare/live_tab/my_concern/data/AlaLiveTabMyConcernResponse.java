@@ -1,6 +1,5 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.data;
 
-import c.a.p0.c0.f.c.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -10,15 +9,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dp5;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b> followCloseList;
+    public List<dp5> followCloseList;
     public int followCloseNum;
     public List<ThreadData> followList;
     public int followStatus;
@@ -79,9 +79,9 @@ public class AlaLiveTabMyConcernResponse extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        b bVar = new b();
-                        bVar.e(optJSONObject3);
-                        this.followCloseList.add(bVar);
+                        dp5 dp5Var = new dp5();
+                        dp5Var.e(optJSONObject3);
+                        this.followCloseList.add(dp5Var);
                     }
                 }
             }

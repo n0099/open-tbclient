@@ -2,7 +2,6 @@ package com.baidu.tieba.tbadkCore.model;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.r.m0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -24,10 +23,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.b9;
+import com.repackage.dp4;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForumManageModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL_GOOD = 3;
@@ -46,57 +47,29 @@ public class ForumManageModel extends BdBaseModel {
     public static final BdUniqueId UNIQUE_ID_DEL_POST_TASK;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public c f36142b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public f f36143c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f36144d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f36145e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f36146f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f36147g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f36148h;
+    public c b;
+    public f c;
+    public String d;
+    public boolean e;
+    public String f;
+    public int g;
+    public int h;
     public String i;
     public String j;
     public int k;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f36149b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f36150c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f36151d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f36152e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public int f36153f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public int f36154g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f36155h;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public int f;
+        public int g;
+        public boolean h;
         public String i;
         public BaijiahaoData j;
         public boolean k;
@@ -119,13 +92,13 @@ public class ForumManageModel extends BdBaseModel {
             }
             this.l = forumManageModel;
             this.a = null;
-            this.f36149b = str;
-            this.f36150c = str2;
-            this.f36151d = str3;
-            this.f36152e = str4;
-            this.f36153f = i;
-            this.f36154g = i2;
-            this.f36155h = z;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = str4;
+            this.f = i;
+            this.g = i2;
+            this.h = z;
             this.i = forumManageModel.Q();
             this.j = baijiahaoData;
             this.k = z2;
@@ -140,7 +113,7 @@ public class ForumManageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 String str2 = TbConfig.SERVER_ADDRESS;
-                int i = this.f36153f;
+                int i = this.f;
                 if (i != 0 && i != 3) {
                     str = str2 + TbConfig.DEL_POST_ADDRESS;
                 } else {
@@ -148,46 +121,46 @@ public class ForumManageModel extends BdBaseModel {
                 }
                 NetWork netWork = new NetWork(str);
                 this.a = netWork;
-                netWork.addPostData("fid", this.f36149b);
-                this.a.addPostData("word", this.f36150c);
-                this.a.addPostData("z", this.f36151d);
+                netWork.addPostData("fid", this.b);
+                this.a.addPostData("word", this.c);
+                this.a.addPostData("z", this.d);
                 String str3 = this.i;
                 if (str3 != null) {
                     this.a.addPostData("reason", str3);
                 }
-                int i2 = this.f36153f;
+                int i2 = this.f;
                 if (i2 == 0) {
-                    if (this.f36154g == 0) {
+                    if (this.g == 0) {
                         this.a.addPostData("delete_my_thread", "1");
                     }
                 } else if (i2 == 1) {
-                    this.a.addPostData("pid", this.f36152e);
+                    this.a.addPostData("pid", this.e);
                     this.a.addPostData("isfloor", "0");
                     this.a.addPostData("src", "1");
-                    if (this.f36154g == 0 && this.f36155h) {
+                    if (this.g == 0 && this.h) {
                         this.a.addPostData("delete_my_post", "1");
                     }
                 } else if (i2 == 2) {
-                    this.a.addPostData("pid", this.f36152e);
+                    this.a.addPostData("pid", this.e);
                     this.a.addPostData("isfloor", "1");
                     this.a.addPostData("src", "3");
-                    if (this.f36154g == 0 && this.f36155h) {
+                    if (this.g == 0 && this.h) {
                         this.a.addPostData("delete_my_post", "1");
                     }
                 } else if (i2 == 3) {
                     this.a.addPostData("delete_my_thread", "1");
                     this.a.addPostData("is_story", "1");
                 }
-                if (this.f36154g == 0 && !this.f36155h) {
+                if (this.g == 0 && !this.h) {
                     this.a.addPostData("is_vipdel", "1");
                 } else {
                     this.a.addPostData("is_vipdel", "0");
                 }
-                if (this.f36153f == 0 && this.l.f36145e) {
-                    this.l.f36145e = false;
-                    this.a.addPostData("ori_ugc_nid", this.l.f36146f);
-                    this.a.addPostData("thread_type", String.valueOf(this.l.f36147g));
-                    this.a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.l.f36148h));
+                if (this.f == 0 && this.l.e) {
+                    this.l.e = false;
+                    this.a.addPostData("ori_ugc_nid", this.l.f);
+                    this.a.addPostData("thread_type", String.valueOf(this.l.g));
+                    this.a.addPostData(TiebaStatic.Params.UGC_TYPE, String.valueOf(this.l.h));
                     this.a.addPostData("owner_uid", this.l.i);
                     this.a.addPostData("ori_ugc_vid", this.l.j);
                     this.a.addPostData("video_type", String.valueOf(this.l.k));
@@ -240,45 +213,31 @@ public class ForumManageModel extends BdBaseModel {
                     return;
                 }
                 b bVar = new b(this.l);
-                bVar.f36158d = this.f36153f;
-                bVar.f36161g = this.f36152e;
-                bVar.f36160f = this.f36155h;
-                bVar.f36159e = this.f36154g;
-                bVar.f36156b = this.a.getErrorString();
-                bVar.f36157c = this.a.getServerErrorCode();
+                bVar.d = this.f;
+                bVar.g = this.e;
+                bVar.f = this.h;
+                bVar.e = this.g;
+                bVar.b = this.a.getErrorString();
+                bVar.c = this.a.getServerErrorCode();
                 bVar.a = bool.booleanValue();
-                bVar.f36162h = this.k;
+                bVar.h = this.k;
                 this.l.mLoadDataCallBack.c(bVar);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f36156b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f36157c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f36158d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f36159e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public boolean f36160f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f36161g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f36162h;
+        public String b;
+        public int c;
+        public int d;
+        public int e;
+        public boolean f;
+        public String g;
+        public boolean h;
 
         public b(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -297,36 +256,28 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class c extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f36163b;
+        public String b;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f36164b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f36165c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public int f36166d;
+        public String b;
+        public String c;
+        public int d;
 
         public e() {
             Interceptable interceptable = $ic;
@@ -343,32 +294,18 @@ public class ForumManageModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class f extends BdAsyncTask<String, String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f36167b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f36168c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f36169d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f36170e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public ArrayList<m0> f36171f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f36172g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ ForumManageModel f36173h;
+        public String b;
+        public String c;
+        public String d;
+        public int e;
+        public ArrayList<dp4> f;
+        public String g;
+        public final /* synthetic */ ForumManageModel h;
 
         public f(ForumManageModel forumManageModel, String str, String str2, String str3, int i, String str4) {
             Interceptable interceptable = $ic;
@@ -385,16 +322,16 @@ public class ForumManageModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f36173h = forumManageModel;
+            this.h = forumManageModel;
             this.a = null;
-            this.f36171f = null;
-            this.f36172g = null;
-            this.f36167b = str;
-            this.f36168c = str2;
-            this.f36169d = str3;
-            this.f36170e = i;
-            this.f36172g = str4;
-            this.f36171f = new ArrayList<>();
+            this.f = null;
+            this.g = null;
+            this.b = str;
+            this.c = str2;
+            this.d = str3;
+            this.e = i;
+            this.g = str4;
+            this.f = new ArrayList<>();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -406,18 +343,18 @@ public class ForumManageModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
                 NetWork netWork = new NetWork(strArr[0]);
                 this.a = netWork;
-                netWork.addPostData("word", this.f36168c);
-                if (this.f36170e != 6) {
-                    this.a.addPostData("fid", this.f36167b);
-                    this.a.addPostData("z", this.f36169d);
-                    int i = this.f36170e;
+                netWork.addPostData("word", this.c);
+                if (this.e != 6) {
+                    this.a.addPostData("fid", this.b);
+                    this.a.addPostData("z", this.d);
+                    int i = this.e;
                     if (i == 4) {
                         this.a.addPostData("ntn", "set");
                     } else if (i == 5) {
                         this.a.addPostData("ntn", "");
                     } else if (i == 2) {
                         this.a.addPostData("ntn", "set");
-                        this.a.addPostData("cid", this.f36172g);
+                        this.a.addPostData("cid", this.g);
                     } else {
                         this.a.addPostData("ntn", "");
                     }
@@ -426,16 +363,16 @@ public class ForumManageModel extends BdBaseModel {
                 this.a.getNetContext().getRequest().mIsNeedTbs = true;
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    if (this.f36170e == 6) {
+                    if (this.e == 6) {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                m0 m0Var = new m0();
-                                m0Var.c(optJSONArray.optJSONObject(i2));
-                                this.f36171f.add(m0Var);
+                                dp4 dp4Var = new dp4();
+                                dp4Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(dp4Var);
                             }
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
+                        } catch (Exception e) {
+                            BdLog.e(e.getMessage());
                             return Boolean.FALSE;
                         }
                     }
@@ -454,9 +391,9 @@ public class ForumManageModel extends BdBaseModel {
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f36173h.f36143c = null;
+                this.h.c = null;
                 super.cancel(true);
-                this.f36173h.mLoadDataCallBack.c(null);
+                this.h.mLoadDataCallBack.c(null);
             }
         }
 
@@ -466,36 +403,32 @@ public class ForumManageModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 super.onPostExecute((f) bool);
-                this.f36173h.f36143c = null;
+                this.h.c = null;
                 if (this.a == null) {
-                    this.f36173h.mLoadDataCallBack.c(null);
+                    this.h.mLoadDataCallBack.c(null);
                     return;
                 }
-                g gVar = new g(this.f36173h);
+                g gVar = new g(this.h);
                 gVar.a = bool.booleanValue();
                 if (bool.booleanValue()) {
-                    if (this.f36170e == 6) {
-                        gVar.f36175c = this.f36171f;
+                    if (this.e == 6) {
+                        gVar.c = this.f;
                     }
                 } else {
-                    gVar.f36174b = this.a.getErrorString();
+                    gVar.b = this.a.getErrorString();
                 }
-                this.f36173h.mLoadDataCallBack.c(gVar);
+                this.h.mLoadDataCallBack.c(gVar);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f36174b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public ArrayList<m0> f36175c;
+        public String b;
+        public ArrayList<dp4> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;
@@ -542,16 +475,16 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((c.a.d.a.f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f36142b = null;
-        this.f36143c = null;
-        this.f36145e = false;
+        this.b = null;
+        this.c = null;
+        this.e = false;
     }
 
     public void O() {
@@ -562,15 +495,15 @@ public class ForumManageModel extends BdBaseModel {
                 aVar.cancel();
                 this.a = null;
             }
-            c cVar = this.f36142b;
+            c cVar = this.b;
             if (cVar != null) {
                 cVar.cancel();
-                this.f36142b = null;
+                this.b = null;
             }
-            f fVar = this.f36143c;
+            f fVar = this.c;
             if (fVar != null) {
                 fVar.cancel();
-                this.f36143c = null;
+                this.c = null;
             }
         }
     }
@@ -592,7 +525,7 @@ public class ForumManageModel extends BdBaseModel {
             } else {
                 throw new IllegalStateException();
             }
-            return BarManageResultListener.a.a(optType, gVar.a, gVar.f36174b);
+            return BarManageResultListener.a.a(optType, gVar.a, gVar.b);
         }
         return (BarManageResultListener.a) invokeIL.objValue;
     }
@@ -600,13 +533,13 @@ public class ForumManageModel extends BdBaseModel {
     public String Q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36144d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
     public boolean R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null && this.f36142b == null && this.f36143c == null) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a == null && this.b == null && this.c == null) ? false : true : invokeV.booleanValue;
     }
 
     public void S(ThreadData threadData) {
@@ -614,11 +547,11 @@ public class ForumManageModel extends BdBaseModel {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null || threadData.getBaijiahaoData() == null) {
             return;
         }
-        this.f36145e = true;
-        this.f36146f = threadData.getBaijiahaoData().oriUgcNid;
-        this.f36148h = threadData.getBaijiahaoData().oriUgcType;
+        this.e = true;
+        this.f = threadData.getBaijiahaoData().oriUgcNid;
+        this.h = threadData.getBaijiahaoData().oriUgcType;
         this.j = threadData.getBaijiahaoData().oriUgcVid;
-        this.f36147g = threadData.threadType;
+        this.g = threadData.threadType;
         this.i = TbadkCoreApplication.getCurrentAccount();
         this.k = threadData.getThreadVideoInfo() != null ? threadData.getThreadVideoInfo().video_type.intValue() : 0;
     }
@@ -626,7 +559,7 @@ public class ForumManageModel extends BdBaseModel {
     public void T(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f36144d = str;
+            this.d = str;
         }
     }
 
@@ -651,14 +584,14 @@ public class ForumManageModel extends BdBaseModel {
         String str5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, Integer.valueOf(i), str4}) == null) {
-            f fVar = this.f36143c;
+            f fVar = this.c;
             if (fVar != null) {
                 fVar.cancel();
-                this.f36143c = null;
+                this.c = null;
             }
             this.mLoadDataMode = i;
             f fVar2 = new f(this, str, str2, str3, i, str4);
-            this.f36143c = fVar2;
+            this.c = fVar2;
             fVar2.setPriority(2);
             String str6 = TbConfig.SERVER_ADDRESS;
             if (i == 6) {
@@ -668,7 +601,7 @@ public class ForumManageModel extends BdBaseModel {
             } else {
                 str5 = str6 + TbConfig.COMMIT_GOOD_ADDRESS;
             }
-            this.f36143c.execute(str5);
+            this.c.execute(str5);
         }
     }
 
@@ -705,15 +638,15 @@ public class ForumManageModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((c.a.d.a.f) newInitContext.callArgs[0]);
+                super((b9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f36142b = null;
-        this.f36143c = null;
-        this.f36145e = false;
+        this.b = null;
+        this.c = null;
+        this.e = false;
     }
 }

@@ -2,13 +2,13 @@ package com.baidu.nadcore.video.videoplayer.ui.full;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.a.a0.v.v0.h;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.ay0;
+/* loaded from: classes2.dex */
 public class BdVideoNewCacheView extends BdVideoCacheView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,10 +37,10 @@ public class BdVideoNewCacheView extends BdVideoCacheView {
     public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            h.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+            ay0.b("BdVideoNewCacheView", "onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
             if (i != 0) {
                 setVisibility(4);
-            } else if (this.f27683b.b()) {
+            } else if (this.b.b()) {
                 setVisibility(0);
             }
             super.onWindowVisibilityChanged(i);

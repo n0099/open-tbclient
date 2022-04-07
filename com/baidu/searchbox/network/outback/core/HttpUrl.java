@@ -29,7 +29,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import kotlin.text.Typography;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -117,8 +117,8 @@ public final class HttpUrl {
                 try {
                     Util.writeUtf8(byteArrayOutputStream, str, i, i3);
                     canonicalize(byteArrayOutputStream, str, i3, i2, str2, z, z2, z3, z4, charset);
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 return new String(byteArrayOutputStream.toByteArray(), Util.UTF_8);
             }
@@ -538,11 +538,11 @@ public final class HttpUrl {
             String builder = newBuilder().reencodeForUri().toString();
             try {
                 return new URI(builder);
-            } catch (URISyntaxException e2) {
+            } catch (URISyntaxException e) {
                 try {
                     return URI.create(builder.replaceAll("[\\u0000-\\u001F\\u007F-\\u009F\\p{javaWhitespace}]", ""));
                 } catch (Exception unused) {
-                    throw new RuntimeException(e2);
+                    throw new RuntimeException(e);
                 }
             }
         }
@@ -555,8 +555,8 @@ public final class HttpUrl {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             try {
                 return new URL(this.url);
-            } catch (MalformedURLException e2) {
-                throw new RuntimeException(e2);
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
             }
         }
         return (URL) invokeV.objValue;
@@ -568,7 +568,7 @@ public final class HttpUrl {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
@@ -1066,8 +1066,8 @@ public final class HttpUrl {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but no colon was found");
                 }
                 int slashCount = slashCount(str, skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace);
-                char c2 = '?';
-                char c3 = '#';
+                char c = '?';
+                char c2 = '#';
                 if (slashCount < 2 && httpUrl != null && httpUrl.scheme.equals(this.scheme)) {
                     this.encodedUsername = httpUrl.encodedUsername();
                     this.encodedPassword = httpUrl.encodedPassword();
@@ -1085,7 +1085,7 @@ public final class HttpUrl {
                     while (true) {
                         delimiterOffset = Util.delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "@/\\?#");
                         char charAt = delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535;
-                        if (charAt == 65535 || charAt == c3 || charAt == '/' || charAt == '\\' || charAt == c2) {
+                        if (charAt == 65535 || charAt == c2 || charAt == '/' || charAt == '\\' || charAt == c) {
                             break;
                         }
                         if (charAt == '@') {
@@ -1108,8 +1108,8 @@ public final class HttpUrl {
                             }
                             i2 = i + 1;
                         }
-                        c2 = '?';
-                        c3 = '#';
+                        c = '?';
+                        c2 = '#';
                     }
                     int portColonOffset = portColonOffset(str, i2, delimiterOffset);
                     int i3 = portColonOffset + 1;
@@ -1438,8 +1438,8 @@ public final class HttpUrl {
                         Util.writeUtf8(byteArrayOutputStream, str, i, i3);
                         percentDecode(byteArrayOutputStream, str, i3, i2, z);
                         return new String(byteArrayOutputStream.toByteArray(), Util.UTF_8);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     } finally {
                         Util.closeQuietly(byteArrayOutputStream);
                     }
@@ -1473,8 +1473,8 @@ public final class HttpUrl {
                         } else {
                             Util.writeUtf8CodePoint(byteArrayOutputStream, codePointAt);
                         }
-                        for (byte b2 : byteArrayOutputStream.toByteArray()) {
-                            int i4 = b2 & 255;
+                        for (byte b : byteArrayOutputStream.toByteArray()) {
+                            int i4 = b & 255;
                             outputStream.write(37);
                             outputStream.write(HEX_DIGITS[(i4 >> 4) & 15]);
                             outputStream.write(HEX_DIGITS[i4 & 15]);

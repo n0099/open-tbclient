@@ -1,7 +1,5 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
-import c.a.g0.b.a.a;
-import c.a.r0.c0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -12,7 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.s49;
+import com.repackage.ub1;
+/* loaded from: classes2.dex */
 public class InitUBCTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class InitUBCTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (a.g()) {
-                c0.a();
+            if (ub1.g()) {
+                s49.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }

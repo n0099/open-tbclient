@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import f.c.g0;
+import com.repackage.ky9;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -197,9 +197,9 @@ public class Camera2Session implements CameraSession {
                 this.this$0.surface = new Surface(this.this$0.surfaceTextureHelper.getSurfaceTexture());
                 try {
                     cameraDevice.createCaptureSession(Arrays.asList(this.this$0.surface), new CaptureSessionCallback(this.this$0, null), this.this$0.cameraThreadHandler);
-                } catch (CameraAccessException e2) {
+                } catch (CameraAccessException e) {
                     Camera2Session camera2Session = this.this$0;
-                    camera2Session.reportError("Failed to create capture session. " + e2);
+                    camera2Session.reportError("Failed to create capture session. " + e);
                 }
             }
         }
@@ -280,7 +280,7 @@ public class Camera2Session implements CameraSession {
                     this.this$0.firstFrameReported = true;
                     Camera2Session.camera2StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                 }
-                VideoFrame videoFrame2 = new VideoFrame(g0.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
+                VideoFrame videoFrame2 = new VideoFrame(ky9.a((TextureBufferImpl) videoFrame.getBuffer(), this.this$0.isCameraFrontFacing, -this.this$0.cameraOrientation), this.this$0.getFrameOrientation(), videoFrame.getTimestampNs());
                 this.this$0.events.onFrameCaptured(this.this$0, videoFrame2);
                 videoFrame2.release();
                 return;
@@ -314,7 +314,7 @@ public class Camera2Session implements CameraSession {
                     chooseFocusMode(createCaptureRequest);
                     createCaptureRequest.addTarget(this.this$0.surface);
                     cameraCaptureSession.setRepeatingRequest(createCaptureRequest.build(), new CameraCaptureCallback(null), this.this$0.cameraThreadHandler);
-                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: f.c.f
+                    this.this$0.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.repackage.jx9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -328,9 +328,9 @@ public class Camera2Session implements CameraSession {
                     });
                     Logging.d(Camera2Session.TAG, "Camera device successfully started.");
                     this.this$0.callback.onDone(this.this$0);
-                } catch (CameraAccessException e2) {
+                } catch (CameraAccessException e) {
                     Camera2Session camera2Session = this.this$0;
-                    camera2Session.reportError("Failed to start capture request. " + e2);
+                    camera2Session.reportError("Failed to start capture request. " + e);
                 }
             }
         }
@@ -492,11 +492,11 @@ public class Camera2Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65566, this)) == null) {
-            int b2 = g0.b(this.applicationContext);
+            int b = ky9.b(this.applicationContext);
             if (!this.isCameraFrontFacing) {
-                b2 = 360 - b2;
+                b = 360 - b;
             }
-            return (this.cameraOrientation + b2) % 360;
+            return (this.cameraOrientation + b) % 360;
         }
         return invokeV.intValue;
     }
@@ -509,8 +509,8 @@ public class Camera2Session implements CameraSession {
             this.events.onCameraOpening();
             try {
                 this.cameraManager.openCamera(this.cameraId, new CameraStateCallback(this, null), this.cameraThreadHandler);
-            } catch (CameraAccessException e2) {
-                reportError("Failed to open camera: " + e2);
+            } catch (CameraAccessException e) {
+                reportError("Failed to open camera: " + e);
             }
         }
     }
@@ -544,8 +544,8 @@ public class Camera2Session implements CameraSession {
                 this.isCameraFrontFacing = ((Integer) this.cameraCharacteristics.get(CameraCharacteristics.LENS_FACING)).intValue() == 0;
                 findCaptureFormat();
                 openCamera();
-            } catch (CameraAccessException e2) {
-                reportError("getCameraCharacteristics(): " + e2.getMessage());
+            } catch (CameraAccessException e) {
+                reportError("getCameraCharacteristics(): " + e.getMessage());
             }
         }
     }

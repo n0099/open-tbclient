@@ -13,30 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final c f37956b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final c f37957c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final c f37958d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final c f37959e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final c f37960f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static final c f37961g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final c f37962h;
+    public static final c b;
+    public static final c c;
+    public static final c d;
+    public static final c e;
+    public static final c f;
+    public static final c g;
+    public static final c h;
     public static final c i;
     public static final c j;
     public static final c k;
@@ -67,19 +53,19 @@ public final class c {
             }
         }
         c cVar = new c("UNSUPPORT", 0, -1, "unsupport");
-        f37956b = cVar;
+        b = cVar;
         c cVar2 = new c("HUAWEI", 1, 0, "HUAWEI");
-        f37957c = cVar2;
+        c = cVar2;
         c cVar3 = new c("XIAOMI", 2, 1, "Xiaomi");
-        f37958d = cVar3;
+        d = cVar3;
         c cVar4 = new c("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f37959e = cVar4;
+        e = cVar4;
         c cVar5 = new c("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f37960f = cVar5;
+        f = cVar5;
         c cVar6 = new c("MOTO", 5, 4, "motorola");
-        f37961g = cVar6;
+        g = cVar6;
         c cVar7 = new c("LENOVO", 6, 5, "lenovo");
-        f37962h = cVar7;
+        h = cVar7;
         c cVar8 = new c("ASUS", 7, 6, "asus");
         i = cVar8;
         c cVar9 = new c(com.kuaishou.weapon.un.g.j, 8, 7, ManufacturerUtils.SAMSUNG);
@@ -134,14 +120,14 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f37956b;
+                return b;
             }
             for (c cVar : values()) {
                 if (cVar.a.equalsIgnoreCase(str)) {
                     return cVar;
                 }
             }
-            return f37956b;
+            return b;
         }
         return (c) invokeL.objValue;
     }

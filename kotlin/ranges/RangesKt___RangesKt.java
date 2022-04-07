@@ -24,25 +24,25 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "byteRangeContains")
-    public static final /* synthetic */ boolean byteRangeContains(ClosedRange<Byte> contains, double d2) {
+    public static final /* synthetic */ boolean byteRangeContains(ClosedRange<Byte> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Byte byteExactOrNull = toByteExactOrNull(d2);
+        Byte byteExactOrNull = toByteExactOrNull(d);
         if (byteExactOrNull != null) {
             return contains.contains(byteExactOrNull);
         }
         return false;
     }
 
-    public static final byte coerceAtLeast(byte b2, byte b3) {
-        return b2 < b3 ? b3 : b2;
+    public static final byte coerceAtLeast(byte b, byte b2) {
+        return b < b2 ? b2 : b;
     }
 
-    public static final double coerceAtLeast(double d2, double d3) {
-        return d2 < d3 ? d3 : d2;
+    public static final double coerceAtLeast(double d, double d2) {
+        return d < d2 ? d2 : d;
     }
 
-    public static final float coerceAtLeast(float f2, float f3) {
-        return f2 < f3 ? f3 : f2;
+    public static final float coerceAtLeast(float f, float f2) {
+        return f < f2 ? f2 : f;
     }
 
     public static final int coerceAtLeast(int i, int i2) {
@@ -63,16 +63,16 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return s < s2 ? s2 : s;
     }
 
-    public static final byte coerceAtMost(byte b2, byte b3) {
-        return b2 > b3 ? b3 : b2;
+    public static final byte coerceAtMost(byte b, byte b2) {
+        return b > b2 ? b2 : b;
     }
 
-    public static final double coerceAtMost(double d2, double d3) {
-        return d2 > d3 ? d3 : d2;
+    public static final double coerceAtMost(double d, double d2) {
+        return d > d2 ? d2 : d;
     }
 
-    public static final float coerceAtMost(float f2, float f3) {
-        return f2 > f3 ? f3 : f2;
+    public static final float coerceAtMost(float f, float f2) {
+        return f > f2 ? f2 : f;
     }
 
     public static final int coerceAtMost(int i, int i2) {
@@ -123,20 +123,20 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return num != null && contains.contains(num.intValue());
     }
 
-    public static final IntProgression downTo(int i, byte b2) {
-        return IntProgression.Companion.fromClosedRange(i, b2, -1);
+    public static final IntProgression downTo(int i, byte b) {
+        return IntProgression.Companion.fromClosedRange(i, b, -1);
     }
 
     @JvmName(name = "intRangeContains")
-    public static final boolean intRangeContains(ClosedRange<Integer> contains, byte b2) {
+    public static final boolean intRangeContains(ClosedRange<Integer> contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.contains(Integer.valueOf(b2));
+        return contains.contains(Integer.valueOf(b));
     }
 
     @JvmName(name = "longRangeContains")
-    public static final boolean longRangeContains(ClosedRange<Long> contains, byte b2) {
+    public static final boolean longRangeContains(ClosedRange<Long> contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.contains(Long.valueOf(b2));
+        return contains.contains(Long.valueOf(b));
     }
 
     @SinceKotlin(version = "1.3")
@@ -158,9 +158,9 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     }
 
     @JvmName(name = "shortRangeContains")
-    public static final boolean shortRangeContains(ClosedRange<Short> contains, byte b2) {
+    public static final boolean shortRangeContains(ClosedRange<Short> contains, byte b) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.contains(Short.valueOf(b2));
+        return contains.contains(Short.valueOf(b));
     }
 
     public static final IntProgression step(IntProgression step, int i) {
@@ -190,12 +190,12 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
-    public static final Long toLongExactOrNull(double d2) {
-        double d3 = Long.MAX_VALUE;
-        if (d2 < Long.MIN_VALUE || d2 > d3) {
+    public static final Long toLongExactOrNull(double d) {
+        double d2 = Long.MAX_VALUE;
+        if (d < Long.MIN_VALUE || d > d2) {
             return null;
         }
-        return Long.valueOf((long) d2);
+        return Long.valueOf((long) d);
     }
 
     public static final Short toShortExactOrNull(int i) {
@@ -205,16 +205,16 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
-    public static final IntRange until(int i, byte b2) {
-        return new IntRange(i, b2 - 1);
+    public static final IntRange until(int i, byte b) {
+        return new IntRange(i, b - 1);
     }
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "byteRangeContains")
-    public static final /* synthetic */ boolean byteRangeContains(ClosedRange<Byte> contains, float f2) {
+    public static final /* synthetic */ boolean byteRangeContains(ClosedRange<Byte> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Byte byteExactOrNull = toByteExactOrNull(f2);
+        Byte byteExactOrNull = toByteExactOrNull(f);
         if (byteExactOrNull != null) {
             return contains.contains(byteExactOrNull);
         }
@@ -229,27 +229,27 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     }
 
     @JvmName(name = "doubleRangeContains")
-    public static final boolean doubleRangeContains(ClosedRange<Double> contains, float f2) {
+    public static final boolean doubleRangeContains(ClosedRange<Double> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.contains(Double.valueOf(f2));
+        return contains.contains(Double.valueOf(f));
     }
 
-    public static final LongProgression downTo(long j, byte b2) {
-        return LongProgression.Companion.fromClosedRange(j, b2, -1L);
+    public static final LongProgression downTo(long j, byte b) {
+        return LongProgression.Companion.fromClosedRange(j, b, -1L);
     }
 
     @JvmName(name = "floatRangeContains")
-    public static final boolean floatRangeContains(ClosedRange<Float> contains, double d2) {
+    public static final boolean floatRangeContains(ClosedRange<Float> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        return contains.contains(Float.valueOf((float) d2));
+        return contains.contains(Float.valueOf((float) d));
     }
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "intRangeContains")
-    public static final /* synthetic */ boolean intRangeContains(ClosedRange<Integer> contains, double d2) {
+    public static final /* synthetic */ boolean intRangeContains(ClosedRange<Integer> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Integer intExactOrNull = toIntExactOrNull(d2);
+        Integer intExactOrNull = toIntExactOrNull(d);
         if (intExactOrNull != null) {
             return contains.contains(intExactOrNull);
         }
@@ -259,9 +259,9 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "longRangeContains")
-    public static final /* synthetic */ boolean longRangeContains(ClosedRange<Long> contains, double d2) {
+    public static final /* synthetic */ boolean longRangeContains(ClosedRange<Long> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Long longExactOrNull = toLongExactOrNull(d2);
+        Long longExactOrNull = toLongExactOrNull(d);
         if (longExactOrNull != null) {
             return contains.contains(longExactOrNull);
         }
@@ -289,9 +289,9 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "shortRangeContains")
-    public static final /* synthetic */ boolean shortRangeContains(ClosedRange<Short> contains, double d2) {
+    public static final /* synthetic */ boolean shortRangeContains(ClosedRange<Short> contains, double d) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Short shortExactOrNull = toShortExactOrNull(d2);
+        Short shortExactOrNull = toShortExactOrNull(d);
         if (shortExactOrNull != null) {
             return contains.contains(shortExactOrNull);
         }
@@ -306,20 +306,20 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
-    public static final Integer toIntExactOrNull(double d2) {
-        double d3 = Integer.MAX_VALUE;
-        if (d2 < Integer.MIN_VALUE || d2 > d3) {
+    public static final Integer toIntExactOrNull(double d) {
+        double d2 = Integer.MAX_VALUE;
+        if (d < Integer.MIN_VALUE || d > d2) {
             return null;
         }
-        return Integer.valueOf((int) d2);
+        return Integer.valueOf((int) d);
     }
 
-    public static final Long toLongExactOrNull(float f2) {
-        float f3 = (float) Long.MAX_VALUE;
-        if (f2 < ((float) Long.MIN_VALUE) || f2 > f3) {
+    public static final Long toLongExactOrNull(float f) {
+        float f2 = (float) Long.MAX_VALUE;
+        if (f < ((float) Long.MIN_VALUE) || f > f2) {
             return null;
         }
-        return Long.valueOf(f2);
+        return Long.valueOf(f);
     }
 
     public static final Short toShortExactOrNull(long j) {
@@ -330,8 +330,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
-    public static final LongRange until(long j, byte b2) {
-        return new LongRange(j, b2 - 1);
+    public static final LongRange until(long j, byte b) {
+        return new LongRange(j, b - 1);
     }
 
     @JvmName(name = "byteRangeContains")
@@ -351,16 +351,16 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return ch != null && contains.contains(ch.charValue());
     }
 
-    public static final IntProgression downTo(byte b2, byte b3) {
-        return IntProgression.Companion.fromClosedRange(b2, b3, -1);
+    public static final IntProgression downTo(byte b, byte b2) {
+        return IntProgression.Companion.fromClosedRange(b, b2, -1);
     }
 
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "intRangeContains")
-    public static final /* synthetic */ boolean intRangeContains(ClosedRange<Integer> contains, float f2) {
+    public static final /* synthetic */ boolean intRangeContains(ClosedRange<Integer> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Integer intExactOrNull = toIntExactOrNull(f2);
+        Integer intExactOrNull = toIntExactOrNull(f);
         if (intExactOrNull != null) {
             return contains.contains(intExactOrNull);
         }
@@ -370,9 +370,9 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "longRangeContains")
-    public static final /* synthetic */ boolean longRangeContains(ClosedRange<Long> contains, float f2) {
+    public static final /* synthetic */ boolean longRangeContains(ClosedRange<Long> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Long longExactOrNull = toLongExactOrNull(f2);
+        Long longExactOrNull = toLongExactOrNull(f);
         if (longExactOrNull != null) {
             return contains.contains(longExactOrNull);
         }
@@ -400,9 +400,9 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
     @Deprecated(message = "This `contains` operation mixing integer and floating point arguments has ambiguous semantics and is going to be removed.")
     @DeprecatedSinceKotlin(errorSince = "1.4", hiddenSince = "1.5", warningSince = "1.3")
     @JvmName(name = "shortRangeContains")
-    public static final /* synthetic */ boolean shortRangeContains(ClosedRange<Short> contains, float f2) {
+    public static final /* synthetic */ boolean shortRangeContains(ClosedRange<Short> contains, float f) {
         Intrinsics.checkNotNullParameter(contains, "$this$contains");
-        Short shortExactOrNull = toShortExactOrNull(f2);
+        Short shortExactOrNull = toShortExactOrNull(f);
         if (shortExactOrNull != null) {
             return contains.contains(shortExactOrNull);
         }
@@ -429,24 +429,24 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return null;
     }
 
-    public static final Integer toIntExactOrNull(float f2) {
-        float f3 = Integer.MAX_VALUE;
-        if (f2 < Integer.MIN_VALUE || f2 > f3) {
+    public static final Integer toIntExactOrNull(float f) {
+        float f2 = Integer.MAX_VALUE;
+        if (f < Integer.MIN_VALUE || f > f2) {
             return null;
         }
-        return Integer.valueOf((int) f2);
+        return Integer.valueOf((int) f);
     }
 
-    public static final Short toShortExactOrNull(double d2) {
-        double d3 = 32767;
-        if (d2 < -32768 || d2 > d3) {
+    public static final Short toShortExactOrNull(double d) {
+        double d2 = 32767;
+        if (d < -32768 || d > d2) {
             return null;
         }
-        return Short.valueOf((short) d2);
+        return Short.valueOf((short) d);
     }
 
-    public static final IntRange until(byte b2, byte b3) {
-        return new IntRange(b2, b3 - 1);
+    public static final IntRange until(byte b, byte b2) {
+        return new IntRange(b, b2 - 1);
     }
 
     @JvmName(name = "byteRangeContains")
@@ -459,8 +459,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
-    public static final IntProgression downTo(short s, byte b2) {
-        return IntProgression.Companion.fromClosedRange(s, b2, -1);
+    public static final IntProgression downTo(short s, byte b) {
+        return IntProgression.Companion.fromClosedRange(s, b, -1);
     }
 
     @JvmName(name = "intRangeContains")
@@ -485,8 +485,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         Intrinsics.checkNotNullParameter(random2, "random");
         try {
             return RandomKt.nextInt(random2, random);
-        } catch (IllegalArgumentException e2) {
-            throw new NoSuchElementException(e2.getMessage());
+        } catch (IllegalArgumentException e) {
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 
@@ -511,24 +511,24 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
-    public static final Byte toByteExactOrNull(double d2) {
-        double d3 = 127;
-        if (d2 < -128 || d2 > d3) {
+    public static final Byte toByteExactOrNull(double d) {
+        double d2 = 127;
+        if (d < -128 || d > d2) {
             return null;
         }
-        return Byte.valueOf((byte) d2);
+        return Byte.valueOf((byte) d);
     }
 
-    public static final Short toShortExactOrNull(float f2) {
-        float f3 = 32767;
-        if (f2 < -32768 || f2 > f3) {
+    public static final Short toShortExactOrNull(float f) {
+        float f2 = 32767;
+        if (f < -32768 || f > f2) {
             return null;
         }
-        return Short.valueOf((short) f2);
+        return Short.valueOf((short) f);
     }
 
-    public static final IntRange until(short s, byte b2) {
-        return new IntRange(s, b2 - 1);
+    public static final IntRange until(short s, byte b) {
+        return new IntRange(s, b - 1);
     }
 
     @JvmName(name = "byteRangeContains")
@@ -541,8 +541,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return false;
     }
 
-    public static final CharProgression downTo(char c2, char c3) {
-        return CharProgression.Companion.fromClosedRange(c2, c3, -1);
+    public static final CharProgression downTo(char c, char c2) {
+        return CharProgression.Companion.fromClosedRange(c, c2, -1);
     }
 
     @JvmName(name = "intRangeContains")
@@ -579,16 +579,16 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return companion.fromClosedRange(first, last, i);
     }
 
-    public static final Byte toByteExactOrNull(float f2) {
-        float f3 = 127;
-        if (f2 < -128 || f2 > f3) {
+    public static final Byte toByteExactOrNull(float f) {
+        float f2 = 127;
+        if (f < -128 || f > f2) {
             return null;
         }
-        return Byte.valueOf((byte) f2);
+        return Byte.valueOf((byte) f);
     }
 
-    public static final CharRange until(char c2, char c3) {
-        return Intrinsics.compare((int) c3, 0) <= 0 ? CharRange.Companion.getEMPTY() : new CharRange(c2, (char) (c3 - 1));
+    public static final CharRange until(char c, char c2) {
+        return Intrinsics.compare((int) c2, 0) <= 0 ? CharRange.Companion.getEMPTY() : new CharRange(c, (char) (c2 - 1));
     }
 
     public static final IntProgression downTo(int i, int i2) {
@@ -601,8 +601,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         Intrinsics.checkNotNullParameter(random2, "random");
         try {
             return RandomKt.nextLong(random2, random);
-        } catch (IllegalArgumentException e2) {
-            throw new NoSuchElementException(e2.getMessage());
+        } catch (IllegalArgumentException e) {
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 
@@ -617,11 +617,11 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return Long.valueOf(RandomKt.nextLong(random, randomOrNull));
     }
 
-    public static final byte coerceIn(byte b2, byte b3, byte b4) {
-        if (b3 <= b4) {
-            return b2 < b3 ? b3 : b2 > b4 ? b4 : b2;
+    public static final byte coerceIn(byte b, byte b2, byte b3) {
+        if (b2 <= b3) {
+            return b < b2 ? b2 : b > b3 ? b3 : b;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + ((int) b4) + " is less than minimum " + ((int) b3) + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + ((int) b3) + " is less than minimum " + ((int) b2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     public static final LongProgression downTo(long j, int i) {
@@ -642,8 +642,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + ((int) s3) + " is less than minimum " + ((int) s2) + IStringUtil.EXTENSION_SEPARATOR);
     }
 
-    public static final IntProgression downTo(byte b2, int i) {
-        return IntProgression.Companion.fromClosedRange(b2, i, -1);
+    public static final IntProgression downTo(byte b, int i) {
+        return IntProgression.Companion.fromClosedRange(b, i, -1);
     }
 
     @SinceKotlin(version = "1.3")
@@ -652,8 +652,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         Intrinsics.checkNotNullParameter(random2, "random");
         try {
             return (char) random2.nextInt(random.getFirst(), random.getLast() + 1);
-        } catch (IllegalArgumentException e2) {
-            throw new NoSuchElementException(e2.getMessage());
+        } catch (IllegalArgumentException e) {
+            throw new NoSuchElementException(e.getMessage());
         }
     }
 
@@ -694,33 +694,33 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return LongProgression.Companion.fromClosedRange(i, j, -1L);
     }
 
-    public static final IntRange until(byte b2, int i) {
+    public static final IntRange until(byte b, int i) {
         if (i <= Integer.MIN_VALUE) {
             return IntRange.Companion.getEMPTY();
         }
-        return new IntRange(b2, i - 1);
+        return new IntRange(b, i - 1);
     }
 
-    public static final float coerceIn(float f2, float f3, float f4) {
-        if (f3 <= f4) {
-            return f2 < f3 ? f3 : f2 > f4 ? f4 : f2;
+    public static final float coerceIn(float f, float f2, float f3) {
+        if (f2 <= f3) {
+            return f < f2 ? f2 : f > f3 ? f3 : f;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + f4 + " is less than minimum " + f3 + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + f3 + " is less than minimum " + f2 + IStringUtil.EXTENSION_SEPARATOR);
     }
 
     public static final LongProgression downTo(long j, long j2) {
         return LongProgression.Companion.fromClosedRange(j, j2, -1L);
     }
 
-    public static final double coerceIn(double d2, double d3, double d4) {
-        if (d3 <= d4) {
-            return d2 < d3 ? d3 : d2 > d4 ? d4 : d2;
+    public static final double coerceIn(double d, double d2, double d3) {
+        if (d2 <= d3) {
+            return d < d2 ? d2 : d > d3 ? d3 : d;
         }
-        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + d4 + " is less than minimum " + d3 + IStringUtil.EXTENSION_SEPARATOR);
+        throw new IllegalArgumentException("Cannot coerce value to an empty range: maximum " + d3 + " is less than minimum " + d2 + IStringUtil.EXTENSION_SEPARATOR);
     }
 
-    public static final LongProgression downTo(byte b2, long j) {
-        return LongProgression.Companion.fromClosedRange(b2, j, -1L);
+    public static final LongProgression downTo(byte b, long j) {
+        return LongProgression.Companion.fromClosedRange(b, j, -1L);
     }
 
     public static final IntRange until(short s, int i) {
@@ -759,8 +759,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return LongProgression.Companion.fromClosedRange(j, s, -1L);
     }
 
-    public static final IntProgression downTo(byte b2, short s) {
-        return IntProgression.Companion.fromClosedRange(b2, s, -1);
+    public static final IntProgression downTo(byte b, short s) {
+        return IntProgression.Companion.fromClosedRange(b, s, -1);
     }
 
     public static final LongRange until(long j, long j2) {
@@ -786,11 +786,11 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return IntProgression.Companion.fromClosedRange(s, s2, -1);
     }
 
-    public static final LongRange until(byte b2, long j) {
+    public static final LongRange until(byte b, long j) {
         if (j <= Long.MIN_VALUE) {
             return LongRange.Companion.getEMPTY();
         }
-        return new LongRange(b2, j - 1);
+        return new LongRange(b, j - 1);
     }
 
     public static final LongRange until(short s, long j) {
@@ -819,8 +819,8 @@ public class RangesKt___RangesKt extends RangesKt__RangesKt {
         return new LongRange(j, s - 1);
     }
 
-    public static final IntRange until(byte b2, short s) {
-        return new IntRange(b2, s - 1);
+    public static final IntRange until(byte b, short s) {
+        return new IntRange(b, s - 1);
     }
 
     public static final IntRange until(short s, short s2) {

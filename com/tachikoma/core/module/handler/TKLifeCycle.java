@@ -25,13 +25,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKLifeCycle implements NativeModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public V8Object mV8AssociatedObject;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ActivityLifecycleCallbacksProxy implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<TKJSContext, TKLifeCycle> mCallBackMaps;
@@ -178,8 +178,8 @@ public class TKLifeCycle implements NativeModule {
                 if (V8Proxy.isV8Valid(this.mV8AssociatedObject)) {
                     this.mV8AssociatedObject.executeJSFunction(str, Integer.valueOf(activity.hashCode()));
                 }
-            } catch (Exception e2) {
-                Logger.logE("safelyCallLifecycle", e2);
+            } catch (Exception e) {
+                Logger.logE("safelyCallLifecycle", e);
             }
         }
     }

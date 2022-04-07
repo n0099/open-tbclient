@@ -31,10 +31,10 @@ import com.baidu.webkit.sdk.performance.PagePerformanceTiming;
 import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 import java.io.BufferedWriter;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface WebViewProvider {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ScrollDelegate {
         int computeHorizontalScrollOffset();
 
@@ -49,11 +49,11 @@ public interface WebViewProvider {
         int computeVerticalScrollRange();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface ViewDelegate {
         boolean dispatchKeyEvent(KeyEvent keyEvent);
 
-        View findFocus(View view);
+        View findFocus(View view2);
 
         AccessibilityNodeProvider getAccessibilityNodeProvider();
 
@@ -113,7 +113,7 @@ public interface WebViewProvider {
 
         boolean onTrackballEvent(MotionEvent motionEvent);
 
-        void onVisibilityChanged(View view, int i);
+        void onVisibilityChanged(View view2, int i);
 
         void onWindowFocusChanged(boolean z);
 
@@ -125,7 +125,7 @@ public interface WebViewProvider {
 
         void preDispatchDraw(Canvas canvas);
 
-        boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z);
+        boolean requestChildRectangleOnScreen(View view2, Rect rect, boolean z);
 
         boolean requestFocus(int i, Rect rect);
 
@@ -440,13 +440,13 @@ public interface WebViewProvider {
 
     void setPictureListener(WebView.PictureListener pictureListener);
 
-    boolean setPreviewZoomScale(float f2);
+    boolean setPreviewZoomScale(float f);
 
     void setRendererPriorityPolicy(int i, boolean z);
 
     boolean setSelectingText(boolean z);
 
-    void setStatusBar(View view, int i);
+    void setStatusBar(View view2, int i);
 
     void setTextFieldText(CharSequence charSequence);
 
@@ -486,7 +486,7 @@ public interface WebViewProvider {
 
     void updateTopControlsState(boolean z, boolean z2, boolean z3);
 
-    boolean zoomByZeus(float f2);
+    boolean zoomByZeus(float f);
 
     boolean zoomIn();
 

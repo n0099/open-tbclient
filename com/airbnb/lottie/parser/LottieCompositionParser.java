@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LottieCompositionParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of("w", "h", "ip", Config.OPERATOR, "fr", "v", "layers", "assets", "fonts", "chars", "markers");
 
@@ -34,9 +34,9 @@ public class LottieCompositionParser {
         LottieComposition lottieComposition = new LottieComposition();
         jsonReader.beginObject();
         int i = 0;
+        float f = 0.0f;
         float f2 = 0.0f;
         float f3 = 0.0f;
-        float f4 = 0.0f;
         int i2 = 0;
         while (jsonReader.hasNext()) {
             switch (jsonReader2.selectName(NAMES)) {
@@ -49,18 +49,18 @@ public class LottieCompositionParser {
                     continue;
                     jsonReader2 = jsonReader;
                 case 2:
-                    f2 = (float) jsonReader.nextDouble();
+                    f = (float) jsonReader.nextDouble();
                     continue;
                     jsonReader2 = jsonReader;
                 case 3:
                     hashMap = hashMap4;
                     arrayList = arrayList3;
-                    f3 = ((float) jsonReader.nextDouble()) - 0.01f;
+                    f2 = ((float) jsonReader.nextDouble()) - 0.01f;
                     break;
                 case 4:
                     hashMap = hashMap4;
                     arrayList = arrayList3;
-                    f4 = (float) jsonReader.nextDouble();
+                    f3 = (float) jsonReader.nextDouble();
                     break;
                 case 5:
                     String[] split = jsonReader.nextString().split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
@@ -82,7 +82,7 @@ public class LottieCompositionParser {
             arrayList3 = arrayList;
             jsonReader2 = jsonReader;
         }
-        lottieComposition.init(new Rect(0, 0, (int) (i * dpScale), (int) (i2 * dpScale)), f2, f3, f4, arrayList2, longSparseArray, hashMap2, hashMap3, sparseArrayCompat, hashMap4, arrayList3);
+        lottieComposition.init(new Rect(0, 0, (int) (i * dpScale), (int) (i2 * dpScale)), f, f2, f3, arrayList2, longSparseArray, hashMap2, hashMap3, sparseArrayCompat, hashMap4, arrayList3);
         return lottieComposition;
     }
 

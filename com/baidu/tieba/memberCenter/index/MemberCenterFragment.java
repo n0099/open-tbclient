@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -31,32 +30,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mi;
+import com.repackage.vl4;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class MemberCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NoNetworkView a;
+    public NavigationBar b;
+    public View c;
+    public View d;
+    public QuickWebView e;
+    public String f;
+    public boolean g;
 
-    /* renamed from: b  reason: collision with root package name */
-    public NavigationBar f34474b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f34475c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f34476d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public QuickWebView f34477e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f34478f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f34479g;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements BaseWebView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +80,7 @@ public class MemberCenterFragment extends BaseFragment {
                     }
                     if (StringUtils.isNull(str) || !str.contains(UrlSchemaHelper.JUMP_TO_THIS_PAGE)) {
                         if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                            c.a.o0.l.a.r(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
+                            vl4.r(this.a.getPageContext().getContext(), null, str, false, true, false, false, false);
                             return true;
                         }
                         UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{str}, true);
@@ -105,7 +94,7 @@ public class MemberCenterFragment extends BaseFragment {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements BaseWebView.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,12 +122,12 @@ public class MemberCenterFragment extends BaseFragment {
         public void onPageStarted(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.a.J0();
+                this.a.I0();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class c implements BaseWebView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,16 +155,16 @@ public class MemberCenterFragment extends BaseFragment {
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                if (l.z()) {
-                    this.a.J0();
-                } else {
+                if (mi.z()) {
                     this.a.I0();
+                } else {
+                    this.a.H0();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class d implements BaseWebView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -203,12 +192,12 @@ public class MemberCenterFragment extends BaseFragment {
         public void a(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048576, this, webView, i, str, str2) == null) {
-                this.a.I0();
+                this.a.H0();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class e implements BaseWebView.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -236,7 +225,7 @@ public class MemberCenterFragment extends BaseFragment {
         public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
-                this.a.I0();
+                this.a.H0();
             }
         }
     }
@@ -254,81 +243,81 @@ public class MemberCenterFragment extends BaseFragment {
                 return;
             }
         }
-        this.f34479g = false;
+        this.g = false;
     }
 
-    public final void E0(String str) {
+    public final void D0(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.f34477e == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.e == null) {
             return;
         }
-        if (l.A()) {
-            J0();
-            this.f34477e.loadUrl(str);
+        if (mi.A()) {
+            I0();
+            this.e.loadUrl(str);
             return;
         }
-        I0();
+        H0();
     }
 
-    public void F0() {
+    public void E0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f34475c.findViewById(R.id.obfuscated_res_0x7f0923cf);
-            this.f34474b = navigationBar;
+            NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            this.b = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f34474b.setTitleText(R.string.obfuscated_res_0x7f0f0a9f);
-            SkinManager.setNavbarTitleColor(this.f34474b.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-            if (this.f34474b.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f34474b.getBackImageView(), R.drawable.obfuscated_res_0x7f080624, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            this.b.setTitleText(R.string.obfuscated_res_0x7f0f0aa1);
+            SkinManager.setNavbarTitleColor(this.b.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+            if (this.b.getBackImageView() != null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b.getBackImageView(), R.drawable.obfuscated_res_0x7f080623, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
-            this.f34474b.showBottomLine(false);
+            this.b.showBottomLine(false);
         }
     }
 
-    public final void G0() {
+    public final void F0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f34477e.setHorizontalScrollBarEnabled(false);
-            this.f34477e.requestDisallowInterceptTouchEvent(true);
-            this.f34477e.setOnLoadUrlListener(new a(this));
-            this.f34477e.setOnPageStartedListener(new b(this));
-            this.f34477e.setOnPageFinishedListener(new c(this));
-            this.f34477e.setOnReceivedErrorListener(new d(this));
-            this.f34477e.setOnReceivedSslErrorListener(new e(this));
+            this.e.setHorizontalScrollBarEnabled(false);
+            this.e.requestDisallowInterceptTouchEvent(true);
+            this.e.setOnLoadUrlListener(new a(this));
+            this.e.setOnPageStartedListener(new b(this));
+            this.e.setOnPageFinishedListener(new c(this));
+            this.e.setOnReceivedErrorListener(new d(this));
+            this.e.setOnReceivedSslErrorListener(new e(this));
         }
     }
 
-    public void H0(String str) {
+    public void G0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f34478f = str;
+            this.f = str;
         }
     }
 
-    public final void I0() {
+    public final void H0() {
         QuickWebView quickWebView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (quickWebView = this.f34477e) == null || this.f34474b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (quickWebView = this.e) == null || this.b == null) {
             return;
         }
         quickWebView.setVisibility(8);
-        this.f34474b.setVisibility(0);
-        showNetRefreshView(this.f34476d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c15), true);
+        this.b.setVisibility(0);
+        showNetRefreshView(this.d, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c18), true);
     }
 
-    public final void J0() {
+    public final void I0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.f34477e == null || this.f34474b == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.e == null || this.b == null) {
             return;
         }
-        hideNetRefreshView(this.f34476d);
-        this.f34477e.setVisibility(0);
-        this.f34474b.setVisibility(8);
+        hideNetRefreshView(this.d);
+        this.e.setVisibility(0);
+        this.b.setVisibility(8);
     }
 
     public void loadData() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.f34477e == null || this.f34479g) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.e == null || this.g) {
             return;
         }
         refresh();
@@ -343,14 +332,14 @@ public class MemberCenterFragment extends BaseFragment {
                 return;
             }
             this.mSkinType = i;
-            if (this.f34477e != null) {
-                if (StringUtils.isNull(this.f34478f)) {
-                    E0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+            if (this.e != null) {
+                if (StringUtils.isNull(this.f)) {
+                    D0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
                 } else {
-                    E0(this.f34478f);
+                    D0(this.f);
                 }
             }
-            this.f34474b.onChangeSkinType(getPageContext(), i);
+            this.b.onChangeSkinType(getPageContext(), i);
             this.a.c(getPageContext(), i);
         }
     }
@@ -368,17 +357,17 @@ public class MemberCenterFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03dc, (ViewGroup) null);
-            this.f34475c = inflate;
-            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923d1);
-            this.f34474b = (NavigationBar) this.f34475c.findViewById(R.id.obfuscated_res_0x7f0923cf);
+            View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03d9, (ViewGroup) null);
+            this.c = inflate;
+            this.a = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ad);
+            this.b = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923ab);
+            E0();
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f0913ca);
+            this.e = (QuickWebView) this.c.findViewById(R.id.obfuscated_res_0x7f092425);
             F0();
-            this.f34476d = this.f34475c.findViewById(R.id.obfuscated_res_0x7f0913d1);
-            this.f34477e = (QuickWebView) this.f34475c.findViewById(R.id.obfuscated_res_0x7f09244a);
-            G0();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TiebaStatic.log("c10387");
-            return this.f34475c;
+            return this.c;
         }
         return (View) invokeLLL.objValue;
     }
@@ -387,7 +376,7 @@ public class MemberCenterFragment extends BaseFragment {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            QuickWebView quickWebView = this.f34477e;
+            QuickWebView quickWebView = this.e;
             if (quickWebView != null) {
                 quickWebView.destroy();
             }
@@ -408,7 +397,7 @@ public class MemberCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
-            if (this.f34477e == null || this.f34479g) {
+            if (this.e == null || this.g) {
                 return;
             }
             refresh();
@@ -426,12 +415,12 @@ public class MemberCenterFragment extends BaseFragment {
     public final void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.f34479g = true;
-            if (StringUtils.isNull(this.f34478f)) {
-                E0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
+            this.g = true;
+            if (StringUtils.isNull(this.f)) {
+                D0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
                 return;
             }
-            E0(this.f34478f);
+            D0(this.f);
         }
     }
 }

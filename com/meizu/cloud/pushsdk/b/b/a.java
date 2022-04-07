@@ -1,47 +1,41 @@
 package com.meizu.cloud.pushsdk.b.b;
 
 import com.meizu.cloud.pushsdk.b.c.k;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a extends Exception {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f41925b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f41926c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public k f41927d;
+    public int b;
+    public String c;
+    public k d;
 
     public a() {
-        this.f41925b = 0;
+        this.b = 0;
     }
 
     public a(k kVar) {
-        this.f41925b = 0;
-        this.f41927d = kVar;
+        this.b = 0;
+        this.d = kVar;
     }
 
     public a(Throwable th) {
         super(th);
-        this.f41925b = 0;
+        this.b = 0;
     }
 
     public k a() {
-        return this.f41927d;
+        return this.d;
     }
 
     public void a(int i) {
-        this.f41925b = i;
+        this.b = i;
     }
 
     public void a(String str) {
-        this.f41926c = str;
+        this.c = str;
     }
 
     public int b() {
-        return this.f41925b;
+        return this.b;
     }
 
     public void b(String str) {

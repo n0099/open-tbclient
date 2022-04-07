@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.extractor.mp3.Mp3Extractor;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import com.googlecode.mp4parser.authoring.tracks.MP3TrackImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class VbriSeeker implements Mp3Extractor.Seeker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

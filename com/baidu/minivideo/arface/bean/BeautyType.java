@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class BeautyType {
     public static final /* synthetic */ BeautyType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -116,12 +116,12 @@ public final class BeautyType {
         $VALUES = new BeautyType[]{lutFile, lutIntensity, whitenFile, blackEyeCircle, laughLine, lipsMask, lips, cheeks, highlight, eyeliner, eyeshadow, eyeball, eyelash, eyebrow, makeupClose, whiten, smooth, eye, thinFace, threeCounts, chinHeight, noseWidth, noseLength, eyeDistance, mouthWidth, eyebrowDistance, upCount, middleCount, downCount, faceWidth, jawAngleWidth, eyeAngle, cheekboneWidth, beautyDebugDraw, beautyJsonPath, beautyJsonStr, globalScaleValue, hazeAtom, beautyType};
     }
 
-    public BeautyType(String str, int i, float f2, FilterParam filterParam) {
+    public BeautyType(String str, int i, float f, FilterParam filterParam) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Float.valueOf(f2), filterParam};
+            Object[] objArr = {str, Integer.valueOf(i), Float.valueOf(f), filterParam};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -134,7 +134,7 @@ public final class BeautyType {
                 return;
             }
         }
-        this.value = f2;
+        this.value = f;
         this.type = filterParam;
     }
 

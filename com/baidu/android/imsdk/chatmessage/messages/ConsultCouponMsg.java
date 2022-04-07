@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ConsultCouponMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ConsultCouponMsg> CREATOR;
@@ -144,8 +144,8 @@ public class ConsultCouponMsg extends NormalMsg {
                 this.mUrl = jSONObject.optString("url");
                 this.mCouponStatus = jSONObject.optInt("status");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 return false;
             }
         }
@@ -199,8 +199,8 @@ public class ConsultCouponMsg extends NormalMsg {
                 }
                 setMsgContentFromServer(jSONObject.toString());
                 return ChatMsgManager.updateChatMsg(context, this);
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "updateStatus", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "updateStatus", e);
                 return false;
             }
         }

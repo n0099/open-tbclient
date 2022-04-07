@@ -18,7 +18,7 @@ import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubAliasStatus;
 import com.meizu.cloud.pushsdk.platform.message.SubTagsStatus;
 import com.meizu.cloud.pushsdk.platform.message.UnRegisterStatus;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,8 +61,8 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
             intent.putExtra("mz_push_msg_type", 3);
             m.a(intent, context.getApplicationContext());
             com.baidu.android.pushservice.frequency.b.a().a(context, false, 1, new com.baidu.android.pushservice.message.i().c(context, selfDefineContentString));
-        } catch (Exception e2) {
-            new b.c(context).a(Log.getStackTraceString(e2)).a();
+        } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
     }
 
@@ -81,8 +81,8 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
                 if (Double.parseDouble(m.n(context)) < 6.0d) {
                     return;
                 }
-            } catch (Exception e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (Exception e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
             super.onReceive(context, intent);
         }
@@ -107,8 +107,8 @@ public class MzPushPatchMessageReceiver extends MzPushMessageReceiver {
             intent.putExtra("mz_pushid", pushId);
             intent.putExtra("mz_register_errorcode", registerStatus.getCode());
             m.a(intent, context.getApplicationContext());
-        } catch (Exception e2) {
-            new b.c(context).a(Log.getStackTraceString(e2)).a();
+        } catch (Exception e) {
+            new b.c(context).a(Log.getStackTraceString(e)).a();
         }
     }
 

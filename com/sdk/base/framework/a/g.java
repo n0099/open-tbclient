@@ -13,21 +13,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final g f42527b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final g f42528c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final g f42529d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final g f42530e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final g f42531f;
+    public static final g b;
+    public static final g c;
+    public static final g d;
+    public static final g e;
+    public static final g f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,11 +34,11 @@ public final class g {
             }
         }
         a = new g("WAITING", 0, 0);
-        f42527b = new g("STARTED", 1, 1);
-        f42528c = new g("LOADING", 2, 2);
-        f42529d = new g("FAILURE", 3, 3);
-        f42530e = new g("CANCELLED", 4, 4);
-        f42531f = new g("SUCCESS", 5, 5);
+        b = new g("STARTED", 1, 1);
+        c = new g("LOADING", 2, 2);
+        d = new g("FAILURE", 3, 3);
+        e = new g("CANCELLED", 4, 4);
+        f = new g("SUCCESS", 5, 5);
     }
 
     public g(String str, int i, int i2) {

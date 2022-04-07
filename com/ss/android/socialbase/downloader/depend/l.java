@@ -17,14 +17,12 @@ public interface l extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C2066a implements l {
+        public static class C0610a implements l {
             public static l a;
+            public IBinder b;
 
-            /* renamed from: b  reason: collision with root package name */
-            public IBinder f43226b;
-
-            public C2066a(IBinder iBinder) {
-                this.f43226b = iBinder;
+            public C0610a(IBinder iBinder) {
+                this.b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -39,7 +37,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43226b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(downloadInfo);
                     } else {
                         obtain2.readException();
@@ -52,7 +50,7 @@ public interface l extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f43226b;
+                return this.b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.l
@@ -67,7 +65,7 @@ public interface l extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f43226b.transact(2, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.b.transact(2, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().b(downloadInfo);
                     }
                     obtain2.readException();
@@ -91,7 +89,7 @@ public interface l extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof l)) {
                 return (l) queryLocalInterface;
             }
-            return new C2066a(iBinder);
+            return new C0610a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -114,15 +112,15 @@ public interface l extends IInterface {
                 return true;
             } else {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadCompleteAidlHandler");
-                boolean b2 = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
+                boolean b = b(parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null);
                 parcel2.writeNoException();
-                parcel2.writeInt(b2 ? 1 : 0);
+                parcel2.writeInt(b ? 1 : 0);
                 return true;
             }
         }
 
         public static l a() {
-            return C2066a.a;
+            return C0610a.a;
         }
     }
 }

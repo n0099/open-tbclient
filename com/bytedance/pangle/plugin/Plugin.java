@@ -35,7 +35,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Plugin {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIFE_INSTALLED = 2;
@@ -93,8 +93,8 @@ public class Plugin {
             this.mMinVersionCode = jSONObject.optInt("minPluginVersion", 0);
             this.mMaxVersionCode = jSONObject.optInt("maxPluginVersion", Integer.MAX_VALUE);
             this.mApiVersionCode = jSONObject.getInt("apiVersionCode");
-        } catch (JSONException e2) {
-            throw e2;
+        } catch (JSONException e) {
+            throw e;
         }
     }
 
@@ -255,9 +255,7 @@ public class Plugin {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Plugin f38144b;
+                public final /* synthetic */ Plugin b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -274,7 +272,7 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f38144b = this;
+                    this.b = this;
                     this.a = r7;
                 }
 
@@ -287,7 +285,7 @@ public class Plugin {
                             e.a(file.getAbsolutePath());
                             ZeusLogger.w(ZeusLogger.TAG_INIT, "Plugin deleteOtherExpired " + file.getAbsolutePath());
                             if (file.getName().matches("^version-(\\d+)$")) {
-                                j.a().a(this.f38144b.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
+                                j.a().a(this.b.mPkgName, Integer.parseInt(file.getName().split("-")[1]), false);
                             }
                         }
                         return false;
@@ -357,12 +355,8 @@ public class Plugin {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f38145b;
-
-                /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ Plugin f38146c;
+                public final /* synthetic */ boolean b;
+                public final /* synthetic */ Plugin c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -379,20 +373,20 @@ public class Plugin {
                             return;
                         }
                     }
-                    this.f38146c = this;
+                    this.c = this;
                     this.a = str;
-                    this.f38145b = z;
+                    this.b = z;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     List<ZeusPluginStateListener> list;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = g.a().f38134c) == null || list.size() <= 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (list = g.a().c) == null || list.size() <= 0) {
                         return;
                     }
                     for (ZeusPluginStateListener zeusPluginStateListener : list) {
-                        zeusPluginStateListener.onPluginInstallResult(this.a, this.f38145b);
+                        zeusPluginStateListener.onPluginInstallResult(this.a, this.b);
                     }
                 }
             });
@@ -504,7 +498,7 @@ public class Plugin {
                 }
                 deleteIfNeeded();
                 int installedMaxVer = getInstalledMaxVer();
-                if (checkVersionValid(installedMaxVer, this.mApiVersionCode, g.a().f38133b.getHostVersionCode(), z)) {
+                if (checkVersionValid(installedMaxVer, this.mApiVersionCode, g.a().b.getHostVersionCode(), z)) {
                     updateToInstalled(installedMaxVer);
                     i = installedMaxVer;
                 }
@@ -547,7 +541,7 @@ public class Plugin {
             try {
                 ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin install from local file " + file + StringUtil.ARRAY_ELEMENT_SEPARATOR + Thread.currentThread().getName());
                 String str = eVar.a;
-                int i = eVar.f38107b;
+                int i = eVar.b;
                 synchronized (this.installLock) {
                     ZeusLogger.i(ZeusLogger.TAG_INSTALL, "Plugin synchronized begin, plugin=".concat(String.valueOf(this)));
                     boolean checkValid = checkValid(file, str, i);

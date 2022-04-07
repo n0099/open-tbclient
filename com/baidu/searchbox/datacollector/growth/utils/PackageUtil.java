@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PackageUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -54,9 +54,9 @@ public class PackageUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 j = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).firstInstallTime;
-            } catch (PackageManager.NameNotFoundException e2) {
+            } catch (PackageManager.NameNotFoundException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 j = 0;
             }
@@ -72,9 +72,9 @@ public class PackageUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             try {
                 j = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).lastUpdateTime;
-            } catch (PackageManager.NameNotFoundException e2) {
+            } catch (PackageManager.NameNotFoundException e) {
                 if (DEBUG) {
-                    e2.printStackTrace();
+                    e.printStackTrace();
                 }
                 j = 0;
             }

@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isDarkMode;
     public String queryContent;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class AddrListItemViewHolder extends ViewHolder<JSONObject> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,13 +33,13 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
         public TextView tvName;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public AddrListItemViewHolder(SuggestAddrListAdapter suggestAddrListAdapter, View view) {
-            super(view);
+        public AddrListItemViewHolder(SuggestAddrListAdapter suggestAddrListAdapter, View view2) {
+            super(view2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {suggestAddrListAdapter, view};
+                Object[] objArr = {suggestAddrListAdapter, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,15 +51,15 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
                 }
             }
             this.this$0 = suggestAddrListAdapter;
-            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091bcb);
-            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091bca);
-            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091bc7);
-            Resources resources = view.getContext().getResources();
+            this.tvName = (TextView) findViewById(R.id.obfuscated_res_0x7f091bba);
+            this.tvAddress = (TextView) findViewById(R.id.obfuscated_res_0x7f091bb9);
+            this.bottomLine = findViewById(R.id.obfuscated_res_0x7f091bb6);
+            Resources resources = view2.getContext().getResources();
             if (suggestAddrListAdapter.isDarkMode) {
-                view.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060922));
-                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06097f));
-                this.tvAddress.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06097d));
-                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060918));
+                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060931));
+                this.tvName.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06098e));
+                this.tvAddress.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06098c));
+                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060927));
             }
         }
 
@@ -72,7 +72,7 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
                 int indexOf = optString.indexOf(this.this$0.queryContent);
                 if (indexOf >= 0) {
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(optString);
-                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.tvName.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060987)), indexOf, this.this$0.queryContent.length() + indexOf, 33);
+                    spannableStringBuilder.setSpan(new ForegroundColorSpan(this.tvName.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060996)), indexOf, this.this$0.queryContent.length() + indexOf, 33);
                     this.tvName.setText(spannableStringBuilder);
                 } else {
                     this.tvName.setText(optString);
@@ -101,17 +101,17 @@ public class SuggestAddrListAdapter extends CommonAdapter<JSONObject> {
     }
 
     @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
-    public ViewHolder createViewHolder(View view) {
+    public ViewHolder createViewHolder(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? new AddrListItemViewHolder(this, view) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? new AddrListItemViewHolder(this, view2) : (ViewHolder) invokeL.objValue;
     }
 
     @Override // com.baidu.pass.ecommerce.common.adapter.CommonAdapter
     public int getItemLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d04e1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d04dc : invokeV.intValue;
     }
 
     public void setQueryContent(String str) {

@@ -29,7 +29,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long CONNECTION_TIMEOUT = 15;
@@ -40,13 +40,13 @@ public class HttpExecutor {
     public OkHttpClient okHttpClient;
 
     /* renamed from: com.baidu.android.imsdk.utils.HttpExecutor$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class HttpExecutorLogger implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +85,8 @@ public class HttpExecutor {
                         return proceed;
                     }
                     return proceed;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return chain.proceed(chain.request());
                 }
             }
@@ -98,7 +98,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class MyTrustManager implements X509TrustManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,7 +141,7 @@ public class HttpExecutor {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class TrustAllHostnameVerifier implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,8 +205,8 @@ public class HttpExecutor {
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
                 sSLContext.init(null, new TrustManager[]{myTrustManager}, new SecureRandom());
                 return sSLContext.getSocketFactory();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -226,8 +226,8 @@ public class HttpExecutor {
                     }
                 }
                 return builder.build();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -275,14 +275,14 @@ public class HttpExecutor {
                     byte[] bytes = execute.body().bytes();
                     LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
                     responseHandler.onSuccess(execute.code(), bytes);
-                } catch (IOException e2) {
-                    LogUtils.e("HttpExecutor", "exception :", e2);
-                    responseHandler.onSuccess(1011, e2.getMessage().getBytes());
+                } catch (IOException e) {
+                    LogUtils.e("HttpExecutor", "exception :", e);
+                    responseHandler.onSuccess(1011, e.getMessage().getBytes());
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e2) {
+                e2.printStackTrace();
                 if (responseHandler != null) {
-                    responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e3);
+                    responseHandler.onFailure(-1003, "Http Unknown exception".getBytes(), e2);
                 }
             }
         }

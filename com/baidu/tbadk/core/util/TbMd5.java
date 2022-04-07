@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.t;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,11 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ui;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TbMd5 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] HEX_DIGITS;
@@ -87,15 +87,15 @@ public class TbMd5 {
                 char[] cArr = new char[32];
                 int i = 0;
                 for (int i2 = 0; i2 < 16; i2++) {
-                    byte b2 = digest[i2];
+                    byte b = digest[i2];
                     int i3 = i + 1;
-                    cArr[i] = HEX_DIGITS[(b2 >>> 4) & 15];
+                    cArr[i] = HEX_DIGITS[(b >>> 4) & 15];
                     i = i3 + 1;
-                    cArr[i3] = HEX_DIGITS[b2 & 15];
+                    cArr[i3] = HEX_DIGITS[b & 15];
                 }
                 return new String(cArr);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -112,9 +112,9 @@ public class TbMd5 {
             File file = new File(packageInfo.applicationInfo.publicSourceDir);
             if (file.exists()) {
                 try {
-                    return t.b(new FileInputStream(file));
-                } catch (FileNotFoundException e2) {
-                    BdLog.detailException(e2);
+                    return ui.b(new FileInputStream(file));
+                } catch (FileNotFoundException e) {
+                    BdLog.detailException(e);
                 }
             }
             return null;
@@ -125,7 +125,7 @@ public class TbMd5 {
     public static String getNameMd5FromUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? t.c(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? ui.c(str) : (String) invokeL.objValue;
     }
 
     public static String getSignMd5(PackageInfo packageInfo) {
@@ -137,9 +137,9 @@ public class TbMd5 {
                 return null;
             }
             try {
-                return t.d(signatureArr[0].toCharsString().getBytes());
-            } catch (Exception e2) {
-                BdLog.detailException(e2);
+                return ui.d(signatureArr[0].toCharsString().getBytes());
+            } catch (Exception e) {
+                BdLog.detailException(e);
                 return null;
             }
         }

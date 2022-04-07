@@ -1,7 +1,6 @@
 package com.badlogic.gdx.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import c.b.b.q.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.y6;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class BufferUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static a<ByteBuffer> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f23789b;
+    public static y6<ByteBuffer> a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,8 +34,8 @@ public final class BufferUtils {
                 return;
             }
         }
-        a = new a<>();
-        f23789b = 0;
+        a = new y6<>();
+        b = 0;
     }
 
     public BufferUtils() {
@@ -76,7 +74,7 @@ public final class BufferUtils {
                     throw new IllegalArgumentException("buffer not allocated with newUnsafeByteBuffer or already disposed");
                 }
             }
-            f23789b -= capacity;
+            b -= capacity;
             freeMemory(byteBuffer);
         }
     }
@@ -129,7 +127,7 @@ public final class BufferUtils {
         if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
             ByteBuffer newDisposableByteBuffer = newDisposableByteBuffer(i);
             newDisposableByteBuffer.order(ByteOrder.nativeOrder());
-            f23789b += i;
+            b += i;
             synchronized (a) {
                 a.a(newDisposableByteBuffer);
             }
@@ -140,19 +138,19 @@ public final class BufferUtils {
 
     public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4);
 
-    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4, float f2);
+    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4, float f);
 
     public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4);
 
-    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4, float f2);
+    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4, float f);
 
     public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4);
 
-    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4, float f2);
+    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4, float f);
 
     public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4);
 
-    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4, float f2);
+    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4, float f);
 
     public static native void freeMemory(ByteBuffer byteBuffer);
 

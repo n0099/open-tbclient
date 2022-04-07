@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
@@ -17,11 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.wt4;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UrlSchemaJumpHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_APP_JUMP_BLACK_LIST = "ad_scheme_blacklist";
@@ -61,14 +61,14 @@ public class UrlSchemaJumpHelper {
     public static void ensureBlackList() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ListUtils.isEmpty(SCHEMA_BLACK_LIST)) {
-            String q = b.k().q(KEY_APP_JUMP_BLACK_LIST, null);
+            String q = wt4.k().q(KEY_APP_JUMP_BLACK_LIST, null);
             if (TextUtils.isEmpty(q)) {
                 return;
             }
             try {
                 setBlackList(new JSONArray(q));
-            } catch (JSONException e2) {
-                BdLog.e(e2);
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
         }
     }
@@ -131,10 +131,10 @@ public class UrlSchemaJumpHelper {
                     SCHEMA_BLACK_LIST.clear();
                     SCHEMA_BLACK_LIST.addAll(arrayList);
                 }
-                b.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
+                wt4.k().y(KEY_APP_JUMP_BLACK_LIST, jSONArray.toString());
                 return;
             }
-            b.k().D(KEY_APP_JUMP_BLACK_LIST);
+            wt4.k().D(KEY_APP_JUMP_BLACK_LIST);
             SCHEMA_BLACK_LIST.clear();
         }
     }

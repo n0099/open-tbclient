@@ -31,32 +31,22 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Executor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f42423d;
+    public static final Pattern d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
+    public f b;
+    public Executor c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public f f42424b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Executor f42425c;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final int f42426b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f42427c;
+        public final int b;
+        public final /* synthetic */ c c;
 
         public a(c cVar, String str, int i) {
             Interceptable interceptable = $ic;
@@ -73,9 +63,9 @@ public class c {
                     return;
                 }
             }
-            this.f42427c = cVar;
+            this.c = cVar;
             this.a = str;
-            this.f42426b = i;
+            this.b = i;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x003d */
@@ -95,7 +85,7 @@ public class c {
         /* JADX WARN: Type inference failed for: r7v9, types: [java.io.InputStream] */
         private String a(Response response, File file) {
             InterceptResult invokeLL;
-            Throwable e2;
+            Throwable e;
             OutputStream outputStream;
             FileOutputStream fileOutputStream;
             MessageDigest messageDigest;
@@ -114,17 +104,17 @@ public class c {
                 }
                 try {
                     fileOutputStream = new FileOutputStream(file);
-                } catch (IOException e3) {
-                    e2 = e3;
+                } catch (IOException e2) {
+                    e = e2;
                     fileOutputStream = null;
-                    GDTLogger.e("更新插件出现异常", e2);
+                    GDTLogger.e("更新插件出现异常", e);
                     FileUtil.tryClose((InputStream) response);
                     FileUtil.tryClose(fileOutputStream);
                     return null;
-                } catch (NoSuchAlgorithmException e4) {
-                    e2 = e4;
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
                     fileOutputStream = null;
-                    GDTLogger.e("更新插件出现异常", e2);
+                    GDTLogger.e("更新插件出现异常", e);
                     FileUtil.tryClose((InputStream) response);
                     FileUtil.tryClose(fileOutputStream);
                     return null;
@@ -149,24 +139,24 @@ public class c {
                         messageDigest.update(bArr, 0, read);
                         fileOutputStream.write(bArr, 0, read);
                     }
-                } catch (IOException e5) {
-                    e2 = e5;
-                    GDTLogger.e("更新插件出现异常", e2);
+                } catch (IOException e4) {
+                    e = e4;
+                    GDTLogger.e("更新插件出现异常", e);
                     FileUtil.tryClose((InputStream) response);
                     FileUtil.tryClose(fileOutputStream);
                     return null;
-                } catch (NoSuchAlgorithmException e6) {
-                    e2 = e6;
-                    GDTLogger.e("更新插件出现异常", e2);
+                } catch (NoSuchAlgorithmException e5) {
+                    e = e5;
+                    GDTLogger.e("更新插件出现异常", e);
                     FileUtil.tryClose((InputStream) response);
                     FileUtil.tryClose(fileOutputStream);
                     return null;
                 }
-            } catch (IOException e7) {
-                e2 = e7;
+            } catch (IOException e6) {
+                e = e6;
                 response = 0;
-            } catch (NoSuchAlgorithmException e8) {
-                e2 = e8;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
                 response = 0;
             } catch (Throwable th3) {
                 th = th3;
@@ -176,10 +166,10 @@ public class c {
 
         private void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.f42427c.f42424b == null) {
+            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.c.b == null) {
                 return;
             }
-            ((PM.b) this.f42427c.f42424b).a.a();
+            ((PM.b) this.c.b).a.a();
             com.qq.e.comm.managers.plugin.a.a(new Exception(str), str);
         }
 
@@ -208,32 +198,32 @@ public class c {
                     return;
                 }
                 try {
-                    File g2 = h.g(this.f42427c.a);
-                    File h2 = h.h(this.f42427c.a);
-                    String a = a(response, g2);
+                    File g = h.g(this.c.a);
+                    File h = h.h(this.c.a);
+                    String a = a(response, g);
                     boolean z2 = true;
                     if (com.qq.e.comm.util.a.a().a(this.a, a)) {
                         try {
-                            StringUtil.writeTo(this.f42426b + "#####" + this.a, h2);
+                            StringUtil.writeTo(this.b + "#####" + this.a, h);
                             z = true;
                         } catch (IOException unused) {
                             GDTLogger.d("IOException While Update Plugin");
                             z = false;
                         }
                         if (z) {
-                            if (FileUtil.renameTo(g2, h.c(this.f42427c.a)) && FileUtil.renameTo(h2, h.d(this.f42427c.a))) {
+                            if (FileUtil.renameTo(g, h.c(this.c.a)) && FileUtil.renameTo(h, h.d(this.c.a))) {
                                 GDTLogger.d("PluginUpdateSucc:" + z2);
-                                if (this.f42427c.f42424b != null) {
-                                    PM.d(((PM.b) this.f42427c.f42424b).a);
+                                if (this.c.b != null) {
+                                    PM.d(((PM.b) this.c.b).a);
                                 }
                             }
                         }
                         z2 = false;
                         GDTLogger.d("PluginUpdateSucc:" + z2);
-                        if (this.f42427c.f42424b != null) {
+                        if (this.c.b != null) {
                         }
                     } else {
-                        g2.delete();
+                        g.delete();
                         GDTLogger.d(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.a, a));
                         a(String.format("Fail to update plugin while verifying,sig=%s,md5=%s", this.a, a));
                     }
@@ -270,7 +260,7 @@ public class c {
                 return;
             }
         }
-        f42423d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
+        d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
     }
 
     public c(Context context, Executor executor) {
@@ -289,13 +279,13 @@ public class c {
             }
         }
         this.a = context.getApplicationContext();
-        this.f42425c = executor;
+        this.c = executor;
     }
 
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f42424b = fVar;
+            this.b = fVar;
         }
     }
 
@@ -304,7 +294,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        Matcher matcher = f42423d.matcher(str2);
+        Matcher matcher = d.matcher(str2);
         boolean z = true;
         int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
         if (parseInteger < 1292) {
@@ -313,7 +303,7 @@ public class c {
         }
         if (z) {
             GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f42425c);
+            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.c);
         }
     }
 }

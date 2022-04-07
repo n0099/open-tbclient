@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ChildVerifyActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_EXTERNAL_URL = "external_url";
@@ -44,7 +44,7 @@ public class ChildVerifyActivity extends BaseActivity {
             try {
                 this.t = CoreViewRouter.getInstance().getAccountRealNameCallback();
                 CoreViewRouter.getInstance().releaseAccountRealNameCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04df);
                 setupViews();
             } catch (Throwable th) {
                 reportWebviewError(th);
@@ -90,8 +90,8 @@ public class ChildVerifyActivity extends BaseActivity {
                             JSONObject jSONObject = null;
                             try {
                                 jSONObject = new JSONObject(str);
-                            } catch (JSONException e2) {
-                                Log.e(e2);
+                            } catch (JSONException e) {
+                                Log.e(e);
                             }
                             if (jSONObject != null) {
                                 accountRealNameResult.setResultCode(0);

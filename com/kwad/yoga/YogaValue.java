@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class YogaValue {
     public static /* synthetic */ Interceptable $ic;
     public static final YogaValue AUTO;
@@ -20,7 +20,7 @@ public class YogaValue {
     public final float value;
 
     /* renamed from: com.kwad.yoga.YogaValue$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$yoga$YogaUnit;
         public static /* synthetic */ Interceptable $ic;
@@ -79,13 +79,13 @@ public class YogaValue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public YogaValue(float f2, int i) {
-        this(f2, YogaUnit.fromInt(i));
+    public YogaValue(float f, int i) {
+        this(f, YogaUnit.fromInt(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Integer.valueOf(i)};
+            Object[] objArr = {Float.valueOf(f), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -99,12 +99,12 @@ public class YogaValue {
         }
     }
 
-    public YogaValue(float f2, YogaUnit yogaUnit) {
+    public YogaValue(float f, YogaUnit yogaUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), yogaUnit};
+            Object[] objArr = {Float.valueOf(f), yogaUnit};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -114,7 +114,7 @@ public class YogaValue {
                 return;
             }
         }
-        this.value = f2;
+        this.value = f;
         this.unit = yogaUnit;
     }
 

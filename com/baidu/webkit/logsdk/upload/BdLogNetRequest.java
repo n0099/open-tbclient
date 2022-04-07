@@ -18,7 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BdLogNetRequest implements INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT = 30000;
@@ -79,8 +79,8 @@ public class BdLogNetRequest implements INetListener {
                 bdNetTask.setHeaders(hashMap);
                 bdNetTask.setContent(RC4.kernelEncrypt(RC4.kernelGzipCompress(bytes)));
                 bdNet.start(bdNetTask, false);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 dVar.a(null);
             }
         }

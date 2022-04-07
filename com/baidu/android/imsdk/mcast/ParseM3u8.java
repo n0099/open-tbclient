@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ParseM3u8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ParseM3u8";
@@ -32,7 +32,7 @@ public class ParseM3u8 {
     public boolean mIsend;
     public ArrayList<TS> mTslist;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class TS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,8 +114,8 @@ public class ParseM3u8 {
             if (trim.length() >= 20) {
                 try {
                     ts.time = stringToLong(trim.substring(0, 19), "yyyy-MM-dd HH:mm:ss");
-                } catch (ParseException e2) {
-                    e2.printStackTrace();
+                } catch (ParseException e) {
+                    e.printStackTrace();
                     LogUtils.e(TAG, "stringToLong execption");
                 }
                 int indexOf = str2.indexOf(":") + 1;

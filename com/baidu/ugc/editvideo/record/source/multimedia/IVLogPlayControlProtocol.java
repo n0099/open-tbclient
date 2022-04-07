@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface IVLogPlayControlProtocol {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnPlayStateListener {
         void onPause();
 
@@ -17,12 +17,12 @@ public interface IVLogPlayControlProtocol {
 
         void onSetIsLoop(boolean z);
 
-        void onSpeedChanged(float f2, MultiMediaData multiMediaData);
+        void onSpeedChanged(float f, MultiMediaData multiMediaData);
 
         void onStart();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static abstract class OnPlayStateListenerAdapter implements OnPlayStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +63,9 @@ public interface IVLogPlayControlProtocol {
         }
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onSpeedChanged(float f2, MultiMediaData multiMediaData) {
+        public void onSpeedChanged(float f, MultiMediaData multiMediaData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f2), multiMediaData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Float.valueOf(f), multiMediaData}) == null) {
             }
         }
 
@@ -109,9 +109,9 @@ public interface IVLogPlayControlProtocol {
 
     void setPreparedListener(IMultiMediaPreparedListener iMultiMediaPreparedListener);
 
-    void setVolume(float f2);
+    void setVolume(float f);
 
-    void setVolume(int i, float f2);
+    void setVolume(int i, float f);
 
     void start();
 }

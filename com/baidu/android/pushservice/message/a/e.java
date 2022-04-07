@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,8 +75,8 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, publicMsg)) == null) {
             if (publicMsg.mNetType == 1) {
-                NetworkInfo c2 = com.baidu.android.pushservice.i.g.c(context);
-                if (!(c2 != null && "wifi".equals(c2.getTypeName().toLowerCase(Locale.getDefault())))) {
+                NetworkInfo c = com.baidu.android.pushservice.i.g.c(context);
+                if (!(c != null && "wifi".equals(c.getTypeName().toLowerCase(Locale.getDefault())))) {
                     return false;
                 }
             }
@@ -84,8 +84,8 @@ public class e {
                 return true;
             }
             try {
-            } catch (PackageManager.NameNotFoundException e2) {
-                new b.c(context).a(Log.getStackTraceString(e2)).a();
+            } catch (PackageManager.NameNotFoundException e) {
+                new b.c(context).a(Log.getStackTraceString(e)).a();
             }
             if (context.getPackageManager().getPackageInfo(publicMsg.mSupportAppname, 0) != null) {
                 z = true;

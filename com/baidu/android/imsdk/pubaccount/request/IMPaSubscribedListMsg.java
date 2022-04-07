@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMPaSubscribedListMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,9 +107,9 @@ public class IMPaSubscribedListMsg extends Message {
                 jSONObject.put("appid", this.mAppid);
                 jSONObject.put("uk", this.mUk);
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "buildBody:", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "buildBody:", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }
@@ -142,8 +142,8 @@ public class IMPaSubscribedListMsg extends Message {
                                 paInfo.setTPL(jSONObject2.optLong("tpl", -1L));
                                 paInfo.setStatus(jSONObject2.optInt("status"));
                                 arrayList.add(paInfo);
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 list = arrayList;
                                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
@@ -154,16 +154,16 @@ public class IMPaSubscribedListMsg extends Message {
                         localSyncSubscribedPaList(context, arrayList);
                         list = arrayList;
                     }
-                } catch (Exception e3) {
-                    e = e3;
+                } catch (Exception e2) {
+                    e = e2;
                 }
             } else if (1001 == i) {
                 try {
                     str = "query from local db";
                     list = PaInfoDBManager.getInstance(context).querySubscribedPaList();
                     i = 0;
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     i = 0;
                     LogUtils.e(LogUtils.TAG, "handleMessageResult:", e);
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();

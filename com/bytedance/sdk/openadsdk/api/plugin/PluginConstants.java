@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.api.plugin;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PluginConstants {
     public static final int EVENT_TYPE_PLUGIN_UPDATE = 1;
     public static final String KEY_APP_ID = "app_id";

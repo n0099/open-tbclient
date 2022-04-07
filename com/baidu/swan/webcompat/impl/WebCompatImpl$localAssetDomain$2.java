@@ -1,6 +1,5 @@
 package com.baidu.swan.webcompat.impl;
 
-import c.a.n0.a.t1.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i03;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class WebCompatImpl$localAssetDomain$2 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public static final WebCompatImpl$localAssetDomain$2 INSTANCE;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$localAssetDomain$2 extends Lambda implements Fu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            d J = d.J();
+            i03 J = i03.J();
             Intrinsics.checkNotNullExpressionValue(J, "Swan.get()");
             sb.append(J.getPackageName());
             sb.append(".swanhost.smartapps.cn");

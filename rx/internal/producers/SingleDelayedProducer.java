@@ -5,12 +5,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.j;
-import g.m.a;
+import com.repackage.az9;
+import com.repackage.gz9;
+import com.repackage.wy9;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements wy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
@@ -18,15 +18,15 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j<? super T> child;
+    public final az9<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(j<? super T> jVar) {
+    public SingleDelayedProducer(az9<? super T> az9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
+            Object[] objArr = {az9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,28 +36,28 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements f {
                 return;
             }
         }
-        this.child = jVar;
+        this.child = az9Var;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(j<? super T> jVar, T t) {
+    public static <T> void emit(az9<? super T> az9Var, T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, jVar, t) == null) || jVar.isUnsubscribed()) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, az9Var, t) == null) || az9Var.isUnsubscribed()) {
             return;
         }
         try {
-            jVar.onNext(t);
-            if (jVar.isUnsubscribed()) {
+            az9Var.onNext(t);
+            if (az9Var.isUnsubscribed()) {
                 return;
             }
-            jVar.onCompleted();
+            az9Var.onCompleted();
         } catch (Throwable th) {
-            a.g(th, jVar, t);
+            gz9.g(th, az9Var, t);
         }
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {

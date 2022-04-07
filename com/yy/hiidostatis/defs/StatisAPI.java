@@ -23,7 +23,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import com.yy.hiidostatis.provider.MessageConfigFactory;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class StatisAPI implements IStatisAPI {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -169,10 +169,10 @@ public class StatisAPI implements IStatisAPI {
         }
     }
 
-    public void reportCountEvent(long j, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
-            this.sApi.reportCountEvent(j, str, d2);
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d)}) == null) {
+            this.sApi.reportCountEvent(j, str, d);
         }
     }
 
@@ -279,10 +279,10 @@ public class StatisAPI implements IStatisAPI {
         }
     }
 
-    public void reportLocation(long j, double d2, double d3, double d4, IStatisAPI.ReportResult reportResult) {
+    public void reportLocation(long j, double d, double d2, double d3, IStatisAPI.ReportResult reportResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), reportResult}) == null) {
-            this.sApi.reportLocation(j, d2, d3, d4, reportResult);
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), reportResult}) == null) {
+            this.sApi.reportLocation(j, d, d2, d3, reportResult);
         }
     }
 
@@ -460,10 +460,10 @@ public class StatisAPI implements IStatisAPI {
         }
     }
 
-    public void reportCountEvent(long j, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
-            this.sApi.reportCountEvent(j, str, d2, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2}) == null) {
+            this.sApi.reportCountEvent(j, str, d, str2);
         }
     }
 
@@ -532,10 +532,10 @@ public class StatisAPI implements IStatisAPI {
         }
     }
 
-    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
-            this.sApi.reportCountEvent(j, str, d2, str2, property);
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d), str2, property}) == null) {
+            this.sApi.reportCountEvent(j, str, d, str2, property);
         }
     }
 

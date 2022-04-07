@@ -9,10 +9,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.e;
-import c.a.d.f.p.n;
-import c.a.o0.b.f;
-import c.a.p0.l3.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,13 +21,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.a9;
+import com.repackage.au4;
+import com.repackage.fa8;
+import com.repackage.fo;
+import com.repackage.gd7;
+import com.repackage.hd7;
+import com.repackage.hg;
+import com.repackage.ia8;
+import com.repackage.ig;
+import com.repackage.ja8;
+import com.repackage.oi;
+import com.repackage.sk4;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FormCardView extends BaseLegoCardView<FormCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +60,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     public int y;
     public int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,17 +85,17 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 FormCardView formCardView = this.a;
-                formCardView.R(formCardView.w, this.a.n.getPostUrl(), this.a.x);
+                formCardView.S(formCardView.w, this.a.n.getPostUrl(), this.a.x);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends c.a.d.f.l.c<c.a.d.o.d.a> {
+    /* loaded from: classes3.dex */
+    public class b extends hg<fo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FormCardView a;
@@ -111,21 +119,21 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
+        @Override // com.repackage.hg
+        public void onLoaded(fo foVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) {
-                super.onLoaded((b) aVar, str, i);
-                if (aVar != null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, foVar, str, i) == null) {
+                super.onLoaded((b) foVar, str, i);
+                if (foVar != null) {
                     try {
-                        if (aVar.p() != null) {
-                            int height = aVar.p().getHeight();
-                            int width = aVar.p().getWidth();
+                        if (foVar.p() != null) {
+                            int height = foVar.p().getHeight();
+                            int width = foVar.p().getWidth();
                             if (width == 0) {
                                 return;
                             }
                             int i2 = (this.a.y * height) / width;
-                            int i3 = this.a.v.backgroundInfo.f35705c;
+                            int i3 = this.a.v.backgroundInfo.c;
                             if (i3 == 1) {
                                 this.a.q.getLayoutParams().width = this.a.y;
                                 this.a.q.getLayoutParams().height = i2;
@@ -133,11 +141,11 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
                                 this.a.q.getLayoutParams().width = this.a.y;
                                 this.a.q.getLayoutParams().height = this.a.z;
                             }
-                            int b2 = c.a.p0.b2.o.k.b.b(this.a.v.backgroundInfo.f35704b);
-                            if (!c.a.p0.b2.o.k.b.a(b2)) {
-                                this.a.t.setBackgroundColor(b2);
+                            int b = hd7.b(this.a.v.backgroundInfo.b);
+                            if (!hd7.a(b)) {
+                                this.a.t.setBackgroundColor(b);
                             }
-                            aVar.h(this.a.q);
+                            foVar.h(this.a.q);
                             return;
                         }
                     } catch (Exception unused) {
@@ -155,8 +163,8 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends e {
+    /* loaded from: classes3.dex */
+    public class c extends a9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FormCardView a;
@@ -179,20 +187,20 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             this.a = formCardView;
         }
 
-        @Override // c.a.d.a.e
+        @Override // com.repackage.a9
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof f) {
-                    f fVar = (f) obj;
-                    if (fVar.a) {
+                if (obj instanceof sk4) {
+                    sk4 sk4Var = (sk4) obj;
+                    if (sk4Var.a) {
                         this.a.v.setCommitState(true);
-                        this.a.Z();
-                    } else if (!TextUtils.isEmpty(fVar.f9853c)) {
-                        new c.a.o0.r.l0.c().b(fVar.f9853c);
+                        this.a.a0();
+                    } else if (!TextUtils.isEmpty(sk4Var.c)) {
+                        new au4().b(sk4Var.c);
                         this.a.v.setCommitState(false);
                     } else {
-                        new c.a.o0.r.l0.c().d(R.drawable.obfuscated_res_0x7f080a66, R.string.obfuscated_res_0x7f0f063b);
+                        new au4().d(R.drawable.obfuscated_res_0x7f080a66, R.string.obfuscated_res_0x7f0f0642);
                         this.a.v.setCommitState(false);
                     }
                 }
@@ -201,7 +209,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         boolean a();
 
@@ -232,10 +240,10 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         this.B = 1.0f;
         this.A = tbPageContext;
         this.u = tbPageContext.getPageActivity();
-        this.y = n.k(TbadkCoreApplication.getInst());
+        this.y = oi.k(TbadkCoreApplication.getInst());
     }
 
-    public final JSONObject L(String str, String str2) {
+    public final JSONObject M(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
@@ -246,33 +254,33 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             try {
                 jSONObject.put("tag", str);
                 jSONObject.put("value", str2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;
     }
 
-    public final void M(String str, HashMap<String, String> hashMap) {
+    public final void N(String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap) == null) {
             if (TextUtils.isEmpty(str)) {
                 this.n.setClickable(true);
             } else {
-                c.a.p0.l3.c0.b.a().d(null, str, hashMap, new c(this));
+                ja8.a().d(null, str, hashMap, new c(this));
             }
         }
     }
 
-    public final void N() {
+    public final void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.t.setBackgroundResource(R.drawable.obfuscated_res_0x7f08057e);
+            this.t.setBackgroundResource(R.drawable.obfuscated_res_0x7f08057c);
             if (this.v.backgroundInfo != null) {
                 this.q.setVisibility(0);
                 if (!TextUtils.isEmpty(this.v.backgroundInfo.a)) {
-                    c.a.d.f.l.d.h().m(this.v.backgroundInfo.a, 10, new b(this), this.A.getUniqueId());
+                    ig.h().m(this.v.backgroundInfo.a, 10, new b(this), this.A.getUniqueId());
                     return;
                 }
             }
@@ -280,25 +288,25 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    public final void O() {
+    public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             FormCard.f fVar = this.v.resultInfo;
-            float dimension = this.i.getResources().getDimension(R.dimen.obfuscated_res_0x7f07032c);
+            float dimension = this.i.getResources().getDimension(R.dimen.obfuscated_res_0x7f070336);
             float dimension2 = this.i.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702b5);
-            int color = this.i.getResources().getColor(R.color.obfuscated_res_0x7f060715);
+            int color = this.i.getResources().getColor(R.color.obfuscated_res_0x7f06071e);
             if (fVar != null) {
                 this.r.setText(fVar.a);
                 this.r.setTextColor(-1);
                 this.r.setTextSize(0, dimension);
-                this.s.setText(fVar.f35713b);
+                this.s.setText(fVar.b);
                 this.s.setTextColor(color);
                 this.s.setTextSize(0, dimension2);
             }
         }
     }
 
-    public final void P() {
+    public final void Q() {
         List<FormCard.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.v.itemList) == null || list.size() <= 0) {
@@ -310,39 +318,39 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             if (bVar != null) {
                 switch (bVar.a) {
                     case 1:
-                        Q(bVar, new TitleView(this.u), i, size);
+                        R(bVar, new TitleView(this.u), i, size);
                         continue;
                     case 2:
-                        Q(bVar, new CommitView(this.u), i, size);
+                        R(bVar, new CommitView(this.u), i, size);
                         continue;
                     case 3:
                     case 4:
                     case 5:
-                        Q(bVar, new EditView(this.u), i, size);
+                        R(bVar, new EditView(this.u), i, size);
                         continue;
                     case 6:
                     case 7:
                     case 8:
-                        Q(bVar, new PickerView(this.u), i, size);
+                        R(bVar, new PickerView(this.u), i, size);
                         continue;
                 }
             }
         }
     }
 
-    public final void Q(FormCard.b bVar, FormItemBaseView formItemBaseView, int i, int i2) {
+    public final void R(FormCard.b bVar, FormItemBaseView formItemBaseView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLII(1048581, this, bVar, formItemBaseView, i, i2) == null) {
             formItemBaseView.f(this.B);
             formItemBaseView.g(bVar);
-            Y(formItemBaseView, i, i2);
-            V(formItemBaseView);
+            Z(formItemBaseView, i, i2);
+            W(formItemBaseView);
             this.p.addView(formItemBaseView);
         }
     }
 
-    public void R(List<d> list, String str, String str2) {
-        JSONObject L;
+    public void S(List<d> list, String str, String str2) {
+        JSONObject M;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048582, this, list, str, str2) == null) || list == null || list.size() < 1) {
             return;
@@ -369,23 +377,23 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
             JSONArray jSONArray = new JSONArray();
             for (d dVar2 : list) {
                 FormItemBaseView formView2 = dVar2.getFormView();
-                if (formView2 != null && (L = L(formView2.getTag(), formView2.getResult())) != null) {
-                    jSONArray.put(L);
+                if (formView2 != null && (M = M(formView2.getTag(), formView2.getResult())) != null) {
+                    jSONArray.put(M);
                 }
             }
             HashMap<String, String> hashMap = new HashMap<>();
             hashMap.put("commit_content", jSONArray.toString());
             hashMap.put("item_id", str2);
             hashMap.put("url", str);
-            M(str, hashMap);
+            N(str, hashMap);
             this.n.setClickable(false);
             return;
         }
-        new c.a.o0.r.l0.c().d(R.drawable.obfuscated_res_0x7f080a66, R.string.obfuscated_res_0x7f0f063a);
+        new au4().d(R.drawable.obfuscated_res_0x7f080a66, R.string.obfuscated_res_0x7f0f0641);
         this.n.setClickable(true);
     }
 
-    public final void S() {
+    public final void T() {
         CommitView commitView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (commitView = this.n) == null) {
@@ -396,8 +404,8 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: T */
-    public void t(FormCard formCard, int i) {
+    /* renamed from: U */
+    public void u(FormCard formCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, formCard, i) == null) {
         }
@@ -405,61 +413,61 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    /* renamed from: U */
-    public void u(FormCard formCard) {
+    /* renamed from: V */
+    public void v(FormCard formCard) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, formCard) == null) || formCard == null || !formCard.mIsLegal || this.v == formCard) {
             return;
         }
-        W();
+        X();
         this.v = formCard;
         this.x = formCard.getItemId();
-        X(formCard.mWidth, formCard.mHeight);
+        Y(formCard.mWidth, formCard.mHeight);
         this.m.f(this.B);
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.m.getLayoutParams();
         if (marginLayoutParams != null) {
-            marginLayoutParams.topMargin = (int) (((int) this.u.getApplicationContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070336)) * this.B);
+            marginLayoutParams.topMargin = (int) (((int) this.u.getApplicationContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070340)) * this.B);
         }
         this.n.f(this.B);
         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.n.getLayoutParams();
         if (marginLayoutParams2 != null) {
-            marginLayoutParams2.bottomMargin = (int) (((int) this.u.getApplicationContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070336)) * this.B);
+            marginLayoutParams2.bottomMargin = (int) (((int) this.u.getApplicationContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070340)) * this.B);
         }
         this.m.g(formCard.titleInfo);
         this.n.g(formCard.commitInfo);
-        c.a.p0.l3.c0.b.a().b(new c.a.p0.l3.c0.a(this.n.getPostUrl()));
-        N();
-        P();
+        ja8.a().b(new ia8(this.n.getPostUrl()));
         O();
-        V(this.m);
-        V(this.n);
+        Q();
+        P();
+        W(this.m);
+        W(this.n);
         if (formCard.isCommitSuccess()) {
-            Z();
+            a0();
         }
         if (formCard.mHasShown) {
             return;
         }
-        z.q().l().d(formCard.getShowExtra(), this.a);
+        fa8.q().l().d(formCard.getShowExtra(), this.a);
         formCard.mHasShown = true;
     }
 
-    public void V(d dVar) {
+    public void W(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, dVar) == null) {
             if (this.w == null) {
                 this.w = new ArrayList();
             }
-            c.a.p0.b2.o.k.a.a(this.w, dVar);
+            gd7.a(this.w, dVar);
         }
     }
 
-    public final void W() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             this.p.removeAllViews();
             List<d> list = this.w;
             if (list != null) {
-                c.a.p0.b2.o.k.a.c(list);
+                gd7.c(list);
             } else {
                 this.w = new ArrayList();
             }
@@ -471,7 +479,7 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    public final void X(int i, int i2) {
+    public final void Y(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
             this.z = (this.y * i2) / i;
@@ -483,21 +491,21 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
         }
     }
 
-    public final void Y(FormItemBaseView formItemBaseView, int i, int i2) {
+    public final void Z(FormItemBaseView formItemBaseView, int i, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLII(1048589, this, formItemBaseView, i, i2) == null) || formItemBaseView == null) {
             return;
         }
         if (i != i2 - 1) {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, formItemBaseView.b());
-            layoutParams.bottomMargin = (int) (((int) this.u.getApplicationContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070333)) * this.B);
+            layoutParams.bottomMargin = (int) (((int) this.u.getApplicationContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f07033d)) * this.B);
             formItemBaseView.setLayoutParams(layoutParams);
             return;
         }
         formItemBaseView.setLayoutParams(new LinearLayout.LayoutParams(-1, formItemBaseView.b()));
     }
 
-    public final void Z() {
+    public final void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             this.n.setVisibility(4);
@@ -507,22 +515,22 @@ public class FormCardView extends BaseLegoCardView<FormCard> {
     }
 
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View q() {
+    public View r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0186, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d018a, (ViewGroup) null);
             this.t = inflate;
-            this.m = (TitleView) inflate.findViewById(R.id.obfuscated_res_0x7f090a16);
-            ImageView imageView = (ImageView) this.t.findViewById(R.id.obfuscated_res_0x7f091eff);
+            this.m = (TitleView) inflate.findViewById(R.id.obfuscated_res_0x7f090a1d);
+            ImageView imageView = (ImageView) this.t.findViewById(R.id.obfuscated_res_0x7f091eeb);
             this.q = imageView;
             imageView.setEnabled(false);
-            this.n = (CommitView) this.t.findViewById(R.id.obfuscated_res_0x7f090a13);
-            this.p = (LinearLayout) this.t.findViewById(R.id.obfuscated_res_0x7f090f64);
-            this.o = (LinearLayout) this.t.findViewById(R.id.obfuscated_res_0x7f090a12);
-            this.r = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090a15);
-            this.s = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090a14);
-            S();
+            this.n = (CommitView) this.t.findViewById(R.id.obfuscated_res_0x7f090a1a);
+            this.p = (LinearLayout) this.t.findViewById(R.id.obfuscated_res_0x7f090f5e);
+            this.o = (LinearLayout) this.t.findViewById(R.id.obfuscated_res_0x7f090a19);
+            this.r = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090a1c);
+            this.s = (TextView) this.t.findViewById(R.id.obfuscated_res_0x7f090a1b);
+            T();
             return this.t;
         }
         return (View) invokeV.objValue;

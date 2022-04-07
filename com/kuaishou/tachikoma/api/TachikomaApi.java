@@ -39,20 +39,20 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TachikomaApi {
     public static /* synthetic */ Interceptable $ic;
     public static final TachikomaApi instance;
     public transient /* synthetic */ FieldHolder $fh;
     public Application mApplication;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class TKInitParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Map<String, Object> config;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -169,10 +169,10 @@ public class TachikomaApi {
                 Field declaredField = V8.class.getDeclaredField("nativeLibraryLoaded");
                 declaredField.setAccessible(true);
                 declaredField.setBoolean(null, true);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e2) {
                 e2.printStackTrace();
-            } catch (NoSuchFieldException e3) {
-                e3.printStackTrace();
             }
         }
     }
@@ -523,10 +523,10 @@ public class TachikomaApi {
                             }
 
                             @Override // com.tachikoma.core.api.IAnimatedImageInner
-                            public void setBorderWidth(ImageView imageView, double d2) {
+                            public void setBorderWidth(ImageView imageView, double d) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeCommon(1048580, this, new Object[]{imageView, Double.valueOf(d2)}) == null) {
-                                    this.this$1.val$hostService.obtainAnimatedImage().setBorderWidth(imageView, d2);
+                                if (interceptable3 == null || interceptable3.invokeCommon(1048580, this, new Object[]{imageView, Double.valueOf(d)}) == null) {
+                                    this.this$1.val$hostService.obtainAnimatedImage().setBorderWidth(imageView, d);
                                 }
                             }
 

@@ -45,71 +45,71 @@ public class PathInterpolatorApi14 implements Interpolator {
         }
     }
 
-    public static Path createCubic(float f2, float f3, float f4, float f5) {
+    public static Path createCubic(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             Path path = new Path();
             path.moveTo(0.0f, 0.0f);
-            path.cubicTo(f2, f3, f4, f5, 1.0f, 1.0f);
+            path.cubicTo(f, f2, f3, f4, 1.0f, 1.0f);
             return path;
         }
         return (Path) invokeCommon.objValue;
     }
 
-    public static Path createQuad(float f2, float f3) {
+    public static Path createQuad(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
             Path path = new Path();
             path.moveTo(0.0f, 0.0f);
-            path.quadTo(f2, f3, 1.0f, 1.0f);
+            path.quadTo(f, f2, 1.0f, 1.0f);
             return path;
         }
         return (Path) invokeCommon.objValue;
     }
 
     @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f2) {
+    public float getInterpolation(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            if (f2 <= 0.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            if (f <= 0.0f) {
                 return 0.0f;
             }
-            if (f2 >= 1.0f) {
+            if (f >= 1.0f) {
                 return 1.0f;
             }
             int i = 0;
             int length = this.mX.length - 1;
             while (length - i > 1) {
                 int i2 = (i + length) / 2;
-                if (f2 < this.mX[i2]) {
+                if (f < this.mX[i2]) {
                     length = i2;
                 } else {
                     i = i2;
                 }
             }
             float[] fArr = this.mX;
-            float f3 = fArr[length] - fArr[i];
-            if (f3 == 0.0f) {
+            float f2 = fArr[length] - fArr[i];
+            if (f2 == 0.0f) {
                 return this.mY[i];
             }
             float[] fArr2 = this.mY;
-            float f4 = fArr2[i];
-            return f4 + (((f2 - fArr[i]) / f3) * (fArr2[length] - f4));
+            float f3 = fArr2[i];
+            return f3 + (((f - fArr[i]) / f2) * (fArr2[length] - f3));
         }
         return invokeF.floatValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PathInterpolatorApi14(float f2, float f3) {
-        this(createQuad(f2, f3));
+    public PathInterpolatorApi14(float f, float f2) {
+        this(createQuad(f, f2));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -123,13 +123,13 @@ public class PathInterpolatorApi14 implements Interpolator {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PathInterpolatorApi14(float f2, float f3, float f4, float f5) {
-        this(createCubic(f2, f3, f4, f5));
+    public PathInterpolatorApi14(float f, float f2, float f3, float f4) {
+        this(createCubic(f, f2, f3, f4));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {

@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import c.a.d.f.p.n;
-import c.a.d.m.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,7 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.ln;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class AiAppGuideActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GIF_HEIGHT = 828;
@@ -25,7 +25,7 @@ public class AiAppGuideActivity extends BaseActivity {
     public ImageView mImgClose;
     public View.OnClickListener mOnClickListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class AiAppGuideActivity extends BaseActivity {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.closeActivity();
             }
         }
@@ -92,13 +92,13 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0923c5);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0923a2);
             this.mGifView = gifView;
-            gifView.setGifFile(i.b("aiapp_guide.gif"));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eab);
+            gifView.setGifFile(ln.b("aiapp_guide.gif"));
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
             this.mImgClose = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
-            int k = n.k(getActivity()) - (n.f(getActivity(), R.dimen.tbds44) * 2);
+            int k = oi.k(getActivity()) - (oi.f(getActivity(), R.dimen.tbds44) * 2);
             ViewGroup.LayoutParams layoutParams = this.mGifView.getLayoutParams();
             layoutParams.width = k;
             layoutParams.height = (int) (((k * GIF_HEIGHT) * 1.0f) / 760.0f);

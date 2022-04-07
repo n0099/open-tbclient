@@ -6,7 +6,6 @@ import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.g0.b.a.a;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -18,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ub1;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FileUploadStrategy implements IUpload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,7 +37,7 @@ public class FileUploadStrategy implements IUpload {
     public boolean mInvalidDirDeleted;
     public ThreadPoolExecutor mUploadExecutor;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -60,7 +60,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";
@@ -233,7 +233,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
@@ -283,7 +283,7 @@ public class FileUploadStrategy implements IUpload {
                 if (applicationContext != null) {
                     appContext = applicationContext;
                 }
-                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), a.b().replace(":", "_"));
+                return new File(new File(appContext.getFilesDir(), BASE_ATTACHMENT_UPLOAD_FILE_PATH), ub1.b().replace(":", "_"));
             }
             return (File) invokeV.objValue;
         }
@@ -296,7 +296,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -416,9 +416,9 @@ public class FileUploadStrategy implements IUpload {
                     obtainFilePath.delete();
                 }
                 obtainFilePath.createNewFile();
-            } catch (IOException e2) {
+            } catch (IOException e) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    Log.d(TAG, e.getMessage());
                 }
             }
             if (obtainFilePath.exists()) {
@@ -437,9 +437,9 @@ public class FileUploadStrategy implements IUpload {
                     }
                     ZipUtils.zip(obtainFilePath, linkedList2);
                     return obtainFilePath;
-                } catch (IOException e3) {
+                } catch (IOException e2) {
                     if (DEBUG) {
-                        Log.d(TAG, e3.getMessage());
+                        Log.d(TAG, e2.getMessage());
                     }
                 }
             }
@@ -546,8 +546,8 @@ public class FileUploadStrategy implements IUpload {
             } else {
                 try {
                     attachFlag.createNewFile();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -657,7 +657,7 @@ public class FileUploadStrategy implements IUpload {
     public void upload(@NonNull List<File> list, @NonNull String str, @NonNull String str2) {
         File createAttachZipFile;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) || (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), a.b(), str2)) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, list, str, str2) == null) || (createAttachZipFile = createAttachZipFile(list, FileName.createFileID(str, System.currentTimeMillis()), ub1.b(), str2)) == null) {
             return;
         }
         this.mUploadExecutor.execute(new Runnable(this, createAttachZipFile, str) { // from class: com.baidu.searchbox.aperf.bosuploader.uploadstrategy.FileUploadStrategy.1

@@ -146,8 +146,8 @@ public final class HashingSink extends ForwardingSink {
             this.mac = mac;
             mac.init(new SecretKeySpec(byteString.toByteArray(), str));
             this.messageDigest = null;
-        } catch (InvalidKeyException e2) {
-            throw new IllegalArgumentException(e2);
+        } catch (InvalidKeyException e) {
+            throw new IllegalArgumentException(e);
         } catch (NoSuchAlgorithmException unused) {
             throw new AssertionError();
         }

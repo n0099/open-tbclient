@@ -5,27 +5,13 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c implements DownloadEventConfig {
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public boolean f42627b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42628c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f42629d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f42630e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f42631f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f42632g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f42633h;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
     public String i;
     public String j;
     public String k;
@@ -39,27 +25,13 @@ public class c implements DownloadEventConfig {
     /* loaded from: classes7.dex */
     public static final class a {
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public boolean f42634b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f42635c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f42636d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f42637e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public String f42638f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public String f42639g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public String f42640h;
+        public boolean b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
         public String i;
         public String j;
         public String k;
@@ -82,12 +54,12 @@ public class c implements DownloadEventConfig {
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickContinueLabel() {
-        return this.f42631f;
+        return this.f;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickInstallLabel() {
-        return this.f42632g;
+        return this.g;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -97,17 +69,17 @@ public class c implements DownloadEventConfig {
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickLabel() {
-        return this.f42628c;
+        return this.c;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickPauseLabel() {
-        return this.f42630e;
+        return this.e;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public String getClickStartLabel() {
-        return this.f42629d;
+        return this.d;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -142,7 +114,7 @@ public class c implements DownloadEventConfig {
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
     public boolean isEnableClickEvent() {
-        return this.f42627b;
+        return this.b;
     }
 
     @Override // com.ss.android.download.api.download.DownloadEventConfig
@@ -163,13 +135,13 @@ public class c implements DownloadEventConfig {
 
     public c(a aVar) {
         this.a = aVar.a;
-        this.f42627b = aVar.f42634b;
-        this.f42628c = aVar.f42635c;
-        this.f42629d = aVar.f42636d;
-        this.f42630e = aVar.f42637e;
-        this.f42631f = aVar.f42638f;
-        this.f42632g = aVar.f42639g;
-        this.f42633h = aVar.f42640h;
+        this.b = aVar.b;
+        this.c = aVar.c;
+        this.d = aVar.d;
+        this.e = aVar.e;
+        this.f = aVar.f;
+        this.g = aVar.g;
+        this.h = aVar.h;
         this.i = aVar.i;
         this.j = aVar.j;
         this.k = aVar.k;

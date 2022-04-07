@@ -4,24 +4,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.f;
-import g.j;
-import g.m.a;
+import com.repackage.az9;
+import com.repackage.gz9;
+import com.repackage.wy9;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements f {
+public final class SingleProducer<T> extends AtomicBoolean implements wy9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3353584923995471404L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j<? super T> child;
+    public final az9<? super T> child;
     public final T value;
 
-    public SingleProducer(j<? super T> jVar, T t) {
+    public SingleProducer(az9<? super T> az9Var, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar, t};
+            Object[] objArr = {az9Var, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,31 +31,31 @@ public final class SingleProducer<T> extends AtomicBoolean implements f {
                 return;
             }
         }
-        this.child = jVar;
+        this.child = az9Var;
         this.value = t;
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0 && compareAndSet(false, true)) {
-                    j<? super T> jVar = this.child;
-                    if (jVar.isUnsubscribed()) {
+                    az9<? super T> az9Var = this.child;
+                    if (az9Var.isUnsubscribed()) {
                         return;
                     }
                     Object obj = (T) this.value;
                     try {
-                        jVar.onNext(obj);
-                        if (jVar.isUnsubscribed()) {
+                        az9Var.onNext(obj);
+                        if (az9Var.isUnsubscribed()) {
                             return;
                         }
-                        jVar.onCompleted();
+                        az9Var.onCompleted();
                         return;
                     } catch (Throwable th) {
-                        a.g(th, jVar, obj);
+                        gz9.g(th, az9Var, obj);
                         return;
                     }
                 }

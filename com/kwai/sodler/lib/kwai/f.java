@@ -17,32 +17,18 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class f<P extends a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f41844b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f41845c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f41846d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f41847e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f41848f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f41849g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public P f41850h;
+    public int b;
+    public int c;
+    public StringBuffer d;
+    public String e;
+    public String f;
+    public boolean g;
+    public P h;
     public com.kwai.sodler.lib.ext.b i;
     public e j;
     public Throwable k;
@@ -67,10 +53,10 @@ public abstract class f<P extends a> {
                 return;
             }
         }
-        this.f41845c = -1;
-        this.f41844b = -2233;
+        this.c = -1;
+        this.b = -2233;
         this.q = new byte[0];
-        this.f41846d = new StringBuffer(String.valueOf(-1));
+        this.d = new StringBuffer(String.valueOf(-1));
     }
 
     public abstract a a(String str);
@@ -80,7 +66,7 @@ public abstract class f<P extends a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             synchronized (this.q) {
-                this.f41845c = i;
+                this.c = i;
             }
             return c(String.valueOf(i));
         }
@@ -145,7 +131,7 @@ public abstract class f<P extends a> {
     public void a(P p) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, p) == null) {
-            this.f41850h = p;
+            this.h = p;
         }
     }
 
@@ -160,7 +146,7 @@ public abstract class f<P extends a> {
         if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || i <= 0) {
             return;
         }
-        this.f41844b = i;
+        this.b = i;
     }
 
     public void b(PluginError.UpdateError updateError) {
@@ -183,7 +169,7 @@ public abstract class f<P extends a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             synchronized (this.q) {
-                i = this.f41845c;
+                i = this.c;
             }
             return i;
         }
@@ -195,7 +181,7 @@ public abstract class f<P extends a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                StringBuffer stringBuffer = this.f41846d;
+                StringBuffer stringBuffer = this.d;
                 stringBuffer.append(" --> ");
                 stringBuffer.append(str);
             }
@@ -207,13 +193,13 @@ public abstract class f<P extends a> {
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f41846d.toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.d.toString() : (String) invokeV.objValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f41847e = str;
+            this.e = str;
         }
     }
 
@@ -229,7 +215,7 @@ public abstract class f<P extends a> {
     public void e(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f41848f = str;
+            this.f = str;
         }
     }
 
@@ -243,7 +229,7 @@ public abstract class f<P extends a> {
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f41845c == -7 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.c == -7 : invokeV.booleanValue;
     }
 
     @Nullable
@@ -275,8 +261,8 @@ public abstract class f<P extends a> {
                 if (this.j.e().c(str, str2)) {
                     com.kwai.sodler.lib.a.a aVar = new com.kwai.sodler.lib.a.a();
                     aVar.a = str;
-                    aVar.f41792b = str2;
-                    aVar.f41793c = true;
+                    aVar.b = str2;
+                    aVar.c = true;
                     arrayList.add(aVar);
                 }
             }
@@ -289,8 +275,8 @@ public abstract class f<P extends a> {
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            int i = this.f41844b - 1;
-            this.f41844b = i;
+            int i = this.b - 1;
+            this.b = i;
             if (i < 0) {
                 throw new PluginError.RetryError();
             }
@@ -307,21 +293,21 @@ public abstract class f<P extends a> {
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f41849g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
     @Nullable
     public String k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? !TextUtils.isEmpty(this.f41847e) ? this.f41847e : this.f41848f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? !TextUtils.isEmpty(this.e) ? this.e : this.f : (String) invokeV.objValue;
     }
 
     @Nullable
     public P l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.f41850h : (P) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.h : (P) invokeV.objValue;
     }
 
     @Nullable

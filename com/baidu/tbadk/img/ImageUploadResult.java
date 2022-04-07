@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImageUploadResult extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static int CHUNK_ERROR = 2230203;
@@ -30,7 +30,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
     public picInfo picInfo;
     public String resourceId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class PicDetailedInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,8 +72,8 @@ public class ImageUploadResult extends OrmObject implements Serializable {
                     jSONObject.put("width", this.width);
                     jSONObject.put("height", this.height);
                     jSONObject.put("picUrl", this.picUrl);
-                } catch (JSONException e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (JSONException e) {
+                    BdLog.e(e.getMessage());
                 }
                 return jSONObject;
             }
@@ -81,7 +81,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class picInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,8 +134,8 @@ public class ImageUploadResult extends OrmObject implements Serializable {
                     if (this.originPic != null) {
                         jSONObject.put("originPic", this.originPic.toJson());
                     }
-                } catch (JSONException e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (JSONException e) {
+                    BdLog.e(e.getMessage());
                 }
                 return jSONObject;
             }
@@ -185,8 +185,8 @@ public class ImageUploadResult extends OrmObject implements Serializable {
             ImageUploadResult imageUploadResult = new ImageUploadResult();
             try {
                 return (ImageUploadResult) OrmObject.objectWithJsonStr(str, ImageUploadResult.class);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return imageUploadResult;
             }
         }

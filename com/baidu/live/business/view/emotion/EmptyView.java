@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import c.a.v.b.f.a;
-import c.a.v.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
@@ -16,14 +14,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes3.dex */
+import com.repackage.fa0;
+import com.repackage.fc0;
+import com.repackage.y90;
+/* loaded from: classes2.dex */
 public class EmptyView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SimpleDraweeView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public AppCompatTextView f25780b;
+    public AppCompatTextView b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -50,16 +49,16 @@ public class EmptyView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-            layoutParams.width = a.a(getContext(), c.a.v.b.g.b.a.a().i);
-            layoutParams.height = a.a(getContext(), c.a.v.b.g.b.a.a().j);
+            layoutParams.width = y90.a(getContext(), fa0.a().i);
+            layoutParams.height = y90.a(getContext(), fa0.a().j);
             this.a.setLayoutParams(layoutParams);
-            setImageResource(f.e().b(z));
+            setImageResource(fc0.e().b(z));
             if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.f25780b.setText(R.string.obfuscated_res_0x7f0f09f4);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f4);
             } else {
-                this.f25780b.setText(R.string.obfuscated_res_0x7f0f09f3);
+                this.b.setText(R.string.obfuscated_res_0x7f0f09f3);
             }
-            this.f25780b.setTextColor(f.e().a(getContext(), z, "color_8585852"));
+            this.b.setTextColor(fc0.e().a(getContext(), z, "color_8585852"));
         }
     }
 
@@ -84,7 +83,7 @@ public class EmptyView extends LinearLayout {
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f25780b.setText(charSequence);
+            this.b.setText(charSequence);
         }
     }
 
@@ -112,7 +111,7 @@ public class EmptyView extends LinearLayout {
     public void setText(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.f25780b.setText(i);
+            this.b.setText(i);
         }
     }
 
@@ -135,10 +134,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0510, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d050b, this);
         setOrientation(1);
         setGravity(17);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908bd);
-        this.f25780b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908bf);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908c5);
+        this.b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908c7);
     }
 }

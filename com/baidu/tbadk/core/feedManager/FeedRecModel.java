@@ -17,21 +17,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dk8;
+import com.repackage.l95;
+import com.repackage.wa;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
+    public int b;
+    public wa c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public int f29880b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f29881c;
-
-    /* loaded from: classes4.dex */
-    public class a extends c.a.d.c.g.a {
+    /* loaded from: classes3.dex */
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FeedRecModel a;
@@ -60,7 +59,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:24:0x0052  */
-        @Override // c.a.d.c.g.a
+        @Override // com.repackage.wa
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -98,7 +97,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(DataRes dataRes, boolean z, boolean z2);
 
@@ -118,22 +117,22 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f29880b = 1;
-        this.f29881c = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        this.b = 1;
+        this.c = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(BdUniqueId.gen());
         z();
         A();
-        registerListener(this.f29881c);
+        registerListener(this.c);
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.o0.z0.b bVar = new c.a.o0.z0.b(309264);
-            bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
-            bVar.g(true);
-            bVar.setPriority(4);
-            MessageManager.getInstance().registerTask(bVar);
+            l95 l95Var = new l95(309264);
+            l95Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            l95Var.g(true);
+            l95Var.setPriority(4);
+            MessageManager.getInstance().registerTask(l95Var);
         }
     }
 
@@ -161,8 +160,8 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             FeedRecRequest feedRecRequest = new FeedRecRequest();
-            int i = this.f29880b;
-            this.f29880b = i + 1;
+            int i = this.b;
+            this.b = i + 1;
             feedRecRequest.setRequestTime(i);
             feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
             feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -175,7 +174,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, c.a.p0.a4.g0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, dk8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);

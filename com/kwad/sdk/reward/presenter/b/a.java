@@ -36,29 +36,15 @@ import com.kwad.sdk.utils.j;
 import com.kwad.sdk.utils.q;
 import java.io.File;
 import java.io.FileInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends g {
-
-    /* renamed from: b  reason: collision with root package name */
-    public AdInfo f40926b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f40927c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f40928d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f40929e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a f40930f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public k f40931g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public h f40932h;
+    public AdInfo b;
+    public long c;
+    public boolean d;
+    public com.kwad.sdk.contentalliance.detail.video.d e;
+    public com.kwad.sdk.core.webview.a f;
+    public k g;
+    public h h;
     public f i;
     public com.kwad.sdk.plugin.g j;
     public j k;
@@ -66,7 +52,7 @@ public abstract class a extends g {
     public final com.kwad.sdk.reward.a.f m = new com.kwad.sdk.reward.a.f() { // from class: com.kwad.sdk.reward.presenter.b.a.1
         @Override // com.kwad.sdk.reward.a.f
         public void a() {
-            if (a.this.f40928d) {
+            if (a.this.d) {
                 com.kwad.sdk.reward.k.a(((g) a.this).a);
             }
         }
@@ -89,25 +75,25 @@ public abstract class a extends g {
     /* JADX INFO: Access modifiers changed from: private */
     public void A() {
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        com.kwad.sdk.core.report.a.a(aVar.f40747g, 40, aVar.j.getTouchCoords(), ((g) this).a.f40745e);
-        ((g) this).a.f40742b.a();
+        com.kwad.sdk.core.report.a.a(aVar.g, 40, aVar.j.getTouchCoords(), ((g) this).a.e);
+        ((g) this).a.b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void B() {
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        com.kwad.sdk.core.report.a.a(aVar.f40747g, 41, aVar.j.getTouchCoords(), ((g) this).a.f40745e);
-        ((g) this).a.f40742b.a();
+        com.kwad.sdk.core.report.a.a(aVar.g, 41, aVar.j.getTouchCoords(), ((g) this).a.e);
+        ((g) this).a.b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void C() {
-        ((g) this).a.f40742b.a(false);
+        ((g) this).a.b.a(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void D() {
-        ((g) this).a.f40742b.e();
+        ((g) this).a.b.e();
     }
 
     private void E() {
@@ -121,23 +107,23 @@ public abstract class a extends g {
     }
 
     private void a(h hVar, ViewGroup viewGroup) {
-        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(((g) this).a.f40747g);
+        com.kwad.sdk.core.download.a.b bVar = new com.kwad.sdk.core.download.a.b(((g) this).a.g);
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
-        this.f40930f = aVar;
-        aVar.a(((g) this).a.f40747g);
-        this.f40930f.a = !af.e(q()) ? 1 : 0;
-        com.kwad.sdk.core.webview.a aVar2 = this.f40930f;
-        aVar2.f39981b = ((g) this).a.j;
-        aVar2.f39983d = viewGroup;
-        aVar2.f39984e = null;
+        this.f = aVar;
+        aVar.a(((g) this).a.g);
+        this.f.a = !af.e(q()) ? 1 : 0;
+        com.kwad.sdk.core.webview.a aVar2 = this.f;
+        aVar2.b = ((g) this).a.j;
+        aVar2.d = viewGroup;
+        aVar2.e = null;
         hVar.a(new l());
         hVar.a(new com.kwad.sdk.core.webview.jshandler.e());
         hVar.a(new com.kwad.sdk.core.webview.a.g());
-        hVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.f40930f, bVar, w()));
-        hVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f40930f, bVar, w()));
-        hVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f40930f));
-        hVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f40930f));
-        com.kwad.sdk.core.webview.jshandler.d dVar = new com.kwad.sdk.core.webview.jshandler.d(this.f40930f);
+        hVar.a(new com.kwad.sdk.core.webview.jshandler.b(this.f, bVar, w()));
+        hVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.f, bVar, w()));
+        hVar.a(new com.kwad.sdk.core.webview.jshandler.f(this.f));
+        hVar.a(new com.kwad.sdk.core.webview.jshandler.g(this.f));
+        com.kwad.sdk.core.webview.jshandler.d dVar = new com.kwad.sdk.core.webview.jshandler.d(this.f);
         dVar.a(new d.b() { // from class: com.kwad.sdk.reward.presenter.b.a.12
             @Override // com.kwad.sdk.core.webview.jshandler.d.b
             public void a(d.a aVar3) {
@@ -145,7 +131,7 @@ public abstract class a extends g {
             }
         });
         hVar.a(dVar);
-        hVar.a(new com.kwad.sdk.core.webview.jshandler.j(this.f40930f, new j.b() { // from class: com.kwad.sdk.reward.presenter.b.a.13
+        hVar.a(new com.kwad.sdk.core.webview.jshandler.j(this.f, new j.b() { // from class: com.kwad.sdk.reward.presenter.b.a.13
             @Override // com.kwad.sdk.core.webview.jshandler.j.b
             public void a(j.a aVar3) {
                 a.this.a(aVar3);
@@ -157,22 +143,22 @@ public abstract class a extends g {
                 if (aVar3.a == 1) {
                     a.this.F();
                 } else {
-                    a.this.a(aVar3.f40074b);
+                    a.this.a(aVar3.b);
                 }
             }
         }));
         hVar.a(new s());
-        hVar.a(new t(this.f40930f, bVar));
+        hVar.a(new t(this.f, bVar));
         hVar.a(new com.kwad.sdk.core.webview.jshandler.i(new i.b() { // from class: com.kwad.sdk.reward.presenter.b.a.15
             @Override // com.kwad.sdk.core.webview.jshandler.i.b
             public void a(int i) {
                 ((g) a.this).a.j.findViewById(a.this.i()).setVisibility(8);
             }
         }));
-        hVar.a(new com.kwad.sdk.core.webview.jshandler.k(this.f40930f));
+        hVar.a(new com.kwad.sdk.core.webview.jshandler.k(this.f));
         hVar.a(new com.kwad.sdk.core.webview.a.f());
         k kVar = new k();
-        this.f40931g = kVar;
+        this.g = kVar;
         hVar.a(kVar);
         com.kwad.sdk.contentalliance.detail.video.e eVar = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.reward.presenter.b.a.16
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
@@ -187,8 +173,8 @@ public abstract class a extends g {
 
             @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
             public void a(long j, long j2) {
-                a.this.f40927c = j2;
-                a.this.f40928d = j - j2 < 800;
+                a.this.c = j2;
+                a.this.d = j - j2 < 800;
                 a.this.a(j2);
             }
 
@@ -206,19 +192,19 @@ public abstract class a extends g {
                 }
             }
         };
-        this.f40929e = eVar;
+        this.e = eVar;
         ((g) this).a.k.a(eVar);
         m mVar = new m();
         mVar.a(new m.a() { // from class: com.kwad.sdk.reward.presenter.b.a.17
             @Override // com.kwad.sdk.core.webview.a.m.a
             public void a(com.kwad.sdk.core.webview.a.kwai.e eVar2) {
-                com.kwad.sdk.core.report.a.a(((g) a.this).a.f40747g, 69, (int) (com.kwad.sdk.core.response.a.a.o(a.this.f40926b) / 1000), (int) (a.this.f40927c / 1000));
+                com.kwad.sdk.core.report.a.a(((g) a.this).a.g, 69, (int) (com.kwad.sdk.core.response.a.a.o(a.this.b) / 1000), (int) (a.this.c / 1000));
                 boolean z = !((g) a.this).a.r || (!((g) a.this).a.v && com.kwad.sdk.core.config.b.R());
                 if (eVar2.a && z) {
                     com.kwad.sdk.reward.widget.a.a(((g) a.this).a);
                     return;
                 }
-                com.kwad.sdk.core.report.a.a(((g) a.this).a.f40747g, (int) (com.kwad.sdk.core.response.a.a.o(a.this.f40926b) / 1000), (int) (a.this.f40927c / 1000));
+                com.kwad.sdk.core.report.a.a(((g) a.this).a.g, (int) (com.kwad.sdk.core.response.a.a.o(a.this.b) / 1000), (int) (a.this.c / 1000));
                 ((g) a.this).a.u = true;
                 ((g) a.this).a.k.a(true);
                 com.kwad.sdk.reward.k.a(((g) a.this).a);
@@ -248,7 +234,7 @@ public abstract class a extends g {
             @Override // java.lang.Runnable
             public void run() {
                 com.kwad.sdk.core.webview.a.kwai.b bVar2 = new com.kwad.sdk.core.webview.a.kwai.b();
-                bVar2.a = !((g) a.this).a.f40744d.isVideoSoundEnable();
+                bVar2.a = !((g) a.this).a.d.isVideoSoundEnable();
                 a.this.k.a(bVar2);
             }
         }, 0L);
@@ -256,7 +242,7 @@ public abstract class a extends g {
         cVar.a(new c.a() { // from class: com.kwad.sdk.reward.presenter.b.a.4
             @Override // com.kwad.sdk.core.webview.a.c.a
             public void a(final com.kwad.sdk.core.webview.a.kwai.c cVar2) {
-                com.kwad.sdk.core.download.a.a.a(new a.C1956a(a.this.q()).a(((g) a.this).a.f40747g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.4.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0296a(a.this.q()).a(((g) a.this).a.g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.4.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         if (cVar2.a) {
@@ -273,7 +259,7 @@ public abstract class a extends g {
         dVar2.a(new d.a() { // from class: com.kwad.sdk.reward.presenter.b.a.5
             @Override // com.kwad.sdk.core.webview.a.d.a
             public void a() {
-                com.kwad.sdk.core.download.a.a.a(new a.C1956a(a.this.q()).a(((g) a.this).a.f40747g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.5.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0296a(a.this.q()).a(((g) a.this).a.g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.5.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         a.this.B();
@@ -286,7 +272,7 @@ public abstract class a extends g {
         hVar2.a(new h.a() { // from class: com.kwad.sdk.reward.presenter.b.a.6
             @Override // com.kwad.sdk.core.webview.a.h.a
             public void a() {
-                ((g) a.this).a.f40742b.e();
+                ((g) a.this).a.b.e();
             }
         });
         hVar.a(hVar2);
@@ -349,10 +335,10 @@ public abstract class a extends g {
                 if (inputStreamToString != null) {
                     File file2 = new File(a);
                     a2.a(inputStreamToString, file2.getAbsolutePath() + "/");
-                    View view = a2.getView();
-                    view.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-                    frameLayout.addView(view);
-                    this.f40932h = a2;
+                    View view2 = a2.getView();
+                    view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+                    frameLayout.addView(view2);
+                    this.h = a2;
                 }
                 q.a(fileInputStream2);
                 return true;
@@ -377,7 +363,7 @@ public abstract class a extends g {
         return new b.c() { // from class: com.kwad.sdk.reward.presenter.b.a.10
             @Override // com.kwad.sdk.core.webview.jshandler.b.c
             public void a(@Nullable b.a aVar) {
-                ((g) a.this).a.f40742b.a();
+                ((g) a.this).a.b.a();
             }
         };
     }
@@ -385,26 +371,26 @@ public abstract class a extends g {
     /* JADX INFO: Access modifiers changed from: private */
     public void x() {
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        com.kwad.sdk.core.report.a.c(aVar.f40747g, 17, aVar.f40745e);
+        com.kwad.sdk.core.report.a.c(aVar.g, 17, aVar.e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void y() {
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        com.kwad.sdk.core.report.a.c(aVar.f40747g, 18, aVar.f40745e);
+        com.kwad.sdk.core.report.a.c(aVar.g, 18, aVar.e);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void z() {
         com.kwad.sdk.reward.a aVar = ((g) this).a;
-        com.kwad.sdk.core.report.a.a(aVar.f40747g, 39, aVar.j.getTouchCoords(), ((g) this).a.f40745e);
+        com.kwad.sdk.core.report.a.a(aVar.g, 39, aVar.j.getTouchCoords(), ((g) this).a.e);
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
         this.l = 0L;
-        this.f40926b = com.kwad.sdk.core.response.a.d.j(((g) this).a.f40747g);
+        this.b = com.kwad.sdk.core.response.a.d.j(((g) this).a.g);
         ((g) this).a.a(this.m);
         this.i = new f();
         if (v()) {
@@ -413,11 +399,11 @@ public abstract class a extends g {
         r();
     }
 
-    public void a(double d2) {
+    public void a(double d) {
         f fVar = this.i;
-        fVar.f39991b = false;
-        fVar.f39992c = false;
-        fVar.a = (int) Math.ceil(d2 / 1000.0d);
+        fVar.b = false;
+        fVar.c = false;
+        fVar.a = (int) Math.ceil(d / 1000.0d);
         u();
     }
 
@@ -429,7 +415,7 @@ public abstract class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        com.kwad.sdk.contentalliance.detail.video.d dVar = this.f40929e;
+        com.kwad.sdk.contentalliance.detail.video.d dVar = this.e;
         if (dVar != null) {
             ((g) this).a.k.b(dVar);
         }
@@ -443,7 +429,7 @@ public abstract class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void d_() {
         super.d_();
-        com.kwad.sdk.plugin.h hVar = this.f40932h;
+        com.kwad.sdk.plugin.h hVar = this.h;
         if (hVar != null) {
             hVar.a();
         }
@@ -458,22 +444,22 @@ public abstract class a extends g {
 
     public void s() {
         f fVar = this.i;
-        fVar.f39992c = true;
-        fVar.f39991b = false;
-        fVar.a = com.kwad.sdk.core.response.a.a.b(com.kwad.sdk.core.response.a.d.j(this.f40930f.a()));
+        fVar.c = true;
+        fVar.b = false;
+        fVar.a = com.kwad.sdk.core.response.a.a.b(com.kwad.sdk.core.response.a.d.j(this.f.a()));
         u();
     }
 
     public void t() {
         f fVar = this.i;
-        fVar.f39991b = true;
-        fVar.f39992c = false;
+        fVar.b = true;
+        fVar.c = false;
         u();
     }
 
     public void u() {
         f fVar;
-        k kVar = this.f40931g;
+        k kVar = this.g;
         if (kVar == null || (fVar = this.i) == null) {
             return;
         }

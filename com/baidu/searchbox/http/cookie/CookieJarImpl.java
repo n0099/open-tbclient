@@ -14,7 +14,7 @@ import okhttp3.Cookie;
 import okhttp3.CookieJar;
 import okhttp3.HttpUrl;
 import okhttp3.internal.Util;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CookieJarImpl implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

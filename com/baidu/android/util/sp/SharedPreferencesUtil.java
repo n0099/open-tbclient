@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class SharedPreferencesUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CARD_REMIND_GUIDANCE_SHARED_PREFERENCE = "card_remind_guidance_preference";
@@ -89,10 +89,10 @@ public final class SharedPreferencesUtil {
         return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) ? this.mSharedPreferences.getBoolean(str, z) : invokeLZ.booleanValue;
     }
 
-    public float getFloatPreference(String str, float f2) {
+    public float getFloatPreference(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, str, f2)) == null) ? this.mSharedPreferences.getFloat(str, f2) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, str, f)) == null) ? this.mSharedPreferences.getFloat(str, f) : invokeLF.floatValue;
     }
 
     public int getIntPreference(String str, int i) {
@@ -129,10 +129,10 @@ public final class SharedPreferencesUtil {
         }
     }
 
-    public void setFloatPreference(String str, float f2) {
+    public void setFloatPreference(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048585, this, str, f2) == null) {
-            this.mEditor.putFloat(str, f2);
+        if (interceptable == null || interceptable.invokeLF(1048585, this, str, f) == null) {
+            this.mEditor.putFloat(str, f);
             this.mEditor.commit();
         }
     }

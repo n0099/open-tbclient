@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UploadedImageInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POST_BJH_FORMAT = "#(pic_bos,%s,%d,%d,%b)";
@@ -64,8 +64,8 @@ public class UploadedImageInfo implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }
@@ -116,8 +116,8 @@ public class UploadedImageInfo implements Serializable {
             this.pic_id = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
             this.width = jSONObject.optInt("width", 0);
             this.height = jSONObject.optInt("height", 0);
-        } catch (Exception e2) {
-            BdLog.e(e2.getMessage());
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

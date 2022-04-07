@@ -68,7 +68,7 @@ public final class PaintCompat {
             float measureText = paint.measureText(TOFU_STRING);
             float measureText2 = paint.measureText("m");
             float measureText3 = paint.measureText(str);
-            float f2 = 0.0f;
+            float f = 0.0f;
             if (measureText3 == 0.0f) {
                 return false;
             }
@@ -79,10 +79,10 @@ public final class PaintCompat {
                 int i = 0;
                 while (i < length) {
                     int charCount = Character.charCount(str.codePointAt(i)) + i;
-                    f2 += paint.measureText(str, i, charCount);
+                    f += paint.measureText(str, i, charCount);
                     i = charCount;
                 }
-                if (measureText3 >= f2) {
+                if (measureText3 >= f) {
                     return false;
                 }
             }

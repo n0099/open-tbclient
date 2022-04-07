@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class GetUserAccountResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,8 +88,8 @@ public class GetUserAccountResponse implements IBaseJsonResponse {
                         this.accountPeriodList.put(Integer.valueOf(accountPeriod.currencyType), accountPeriod);
                     }
                 }
-            } catch (JSONException e2) {
-                RLog.error("GetUserAccountResponse", "parserResponse error.", e2);
+            } catch (JSONException e) {
+                RLog.error("GetUserAccountResponse", "parserResponse error.", e);
             }
         }
     }

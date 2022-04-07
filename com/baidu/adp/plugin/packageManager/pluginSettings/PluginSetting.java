@@ -2,7 +2,6 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PluginSetting implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6614934206499164039L;
@@ -84,12 +84,12 @@ public class PluginSetting implements Serializable, Cloneable {
                 }
                 String[] split2 = split[i].split("-");
                 if (split2 != null && split2.length == 2) {
-                    int e2 = b.e(split2[0], -1);
-                    int e3 = b.e(split2[1], -1);
-                    if (e2 >= 0 && e3 >= 0 && e2 <= e3) {
+                    int e = mg.e(split2[0], -1);
+                    int e2 = mg.e(split2[1], -1);
+                    if (e >= 0 && e2 >= 0 && e <= e2) {
                         int i2 = i * 2;
-                        iArr[i2] = e2;
-                        iArr[i2 + 1] = e3;
+                        iArr[i2] = e;
+                        iArr[i2 + 1] = e2;
                     } else {
                         BdLog.e("cmdRange2Int split  toInt error");
                         return null;

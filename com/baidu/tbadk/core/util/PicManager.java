@@ -3,8 +3,6 @@ package com.baidu.tbadk.core.util;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.o.d.a;
-import c.a.o0.b0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -18,14 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.fo;
+import com.repackage.h35;
+/* loaded from: classes3.dex */
 public class PicManager {
     public static /* synthetic */ Interceptable $ic;
     public static PicManager instance;
     public static final BdUniqueId taskId;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class SaveImgCacheAsyncTask extends BdAsyncTask<String, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,10 +107,10 @@ public class PicManager {
         }
     }
 
-    public static void addPicMemoryCache(String str, a aVar) {
+    public static void addPicMemoryCache(String str, fo foVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) {
-            c.k().d(str, aVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, foVar) == null) {
+            h35.k().d(str, foVar);
         }
     }
 
@@ -138,7 +138,7 @@ public class PicManager {
                 bitmap = getReSizeBitmap(bitmap);
             }
             if (z && bitmap != null) {
-                float f2 = 10.0f;
+                float f = 10.0f;
                 bitmap = BitmapHelper.getRoundedCornerBitmap(bitmap, (bitmap.getHeight() < 100 || bitmap.getWidth() < 100) ? 5.0f : 5.0f, true);
             }
             if (!TextUtils.isEmpty(str)) {
@@ -230,7 +230,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    c.k().i(imageSize);
+                    h35.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }
@@ -254,9 +254,9 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new a(fixBitmap, z2));
-            } catch (Exception e2) {
-                TiebaStatic.imgError(-1006, "addPicMemoryCache error: " + e2.toString(), str);
+                addPicMemoryCache(str, new fo(fixBitmap, z2));
+            } catch (Exception e) {
+                TiebaStatic.imgError(-1006, "addPicMemoryCache error: " + e.toString(), str);
             }
         }
     }
@@ -274,7 +274,7 @@ public class PicManager {
                 }
                 Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i, i2);
                 return resizedBitmap != null ? resizedBitmap : bitmap;
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 FieldBuilder fieldBuilder = new FieldBuilder();
                 if (bitmap == null) {
                     fieldBuilder.append("bitmap", StringUtil.NULL_STRING);
@@ -282,7 +282,7 @@ public class PicManager {
                     fieldBuilder.append("bitW", Integer.valueOf(bitmap.getWidth()));
                     fieldBuilder.append("bitH", Integer.valueOf(bitmap.getHeight()));
                 }
-                TiebaStatic.imgError(-1005, "getResizedBitmap error: " + e2.toString(), fieldBuilder.toString());
+                TiebaStatic.imgError(-1005, "getResizedBitmap error: " + e.toString(), fieldBuilder.toString());
                 return bitmap;
             }
         }

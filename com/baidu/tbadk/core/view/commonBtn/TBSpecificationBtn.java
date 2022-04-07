@@ -11,8 +11,6 @@ import android.view.View;
 import androidx.annotation.DimenRes;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.n.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,32 +22,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.mu4;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class TBSpecificationBtn extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Object a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TBSpecificationButtonConfig f30234b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Drawable f30235c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Paint f30236d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f30237e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Drawable f30238f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Drawable f30239g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Rect f30240h;
+    public TBSpecificationButtonConfig b;
+    public Drawable c;
+    public Paint d;
+    public String e;
+    public Drawable f;
+    public Drawable g;
+    public Rect h;
     public boolean i;
     public boolean j;
     public boolean k;
@@ -57,7 +43,7 @@ public class TBSpecificationBtn extends View {
     public boolean m;
     public TBSpecificationButtonConfig.a n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements TBSpecificationButtonConfig.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +71,7 @@ public class TBSpecificationBtn extends View {
         public void a() {
             int width;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (width = this.a.getWidth()) <= 0 || this.a.getLayoutParams().width != -2 || this.a.getContentWidth() + this.a.f30234b.j + this.a.f30234b.k == width) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (width = this.a.getWidth()) <= 0 || this.a.getLayoutParams().width != -2 || this.a.getContentWidth() + this.a.b.j + this.a.b.k == width) {
                 return;
             }
             this.a.requestLayout();
@@ -97,7 +83,7 @@ public class TBSpecificationBtn extends View {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.o();
                 int width = this.a.getWidth();
-                if (width > 0 && this.a.getLayoutParams().width == -2 && this.a.getContentWidth() + this.a.f30234b.j + this.a.f30234b.k != width) {
+                if (width > 0 && this.a.getLayoutParams().width == -2 && this.a.getContentWidth() + this.a.b.j + this.a.b.k != width) {
                     this.a.requestLayout();
                 } else {
                     this.a.invalidate();
@@ -135,8 +121,8 @@ public class TBSpecificationBtn extends View {
             }
         }
         this.a = null;
-        this.f30237e = "";
-        this.f30240h = new Rect();
+        this.e = "";
+        this.h = new Rect();
         this.i = true;
         this.j = true;
         this.k = false;
@@ -151,22 +137,22 @@ public class TBSpecificationBtn extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            TBSpecificationButtonConfig tBSpecificationButtonConfig = this.f30234b;
+            TBSpecificationButtonConfig tBSpecificationButtonConfig = this.b;
             int i = 0;
-            if (tBSpecificationButtonConfig.f30244e[0] > 0) {
-                i = tBSpecificationButtonConfig.f30246g;
-                if (!StringUtils.isNull(this.f30237e)) {
-                    i += this.f30234b.m;
+            if (tBSpecificationButtonConfig.e[0] > 0) {
+                i = tBSpecificationButtonConfig.g;
+                if (!StringUtils.isNull(this.e)) {
+                    i += this.b.m;
                 }
             }
-            TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.f30234b;
-            if (tBSpecificationButtonConfig2.f30244e[1] > 0) {
-                i = tBSpecificationButtonConfig2.f30246g;
-                if (!StringUtils.isNull(this.f30237e)) {
-                    i += this.f30234b.m;
+            TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.b;
+            if (tBSpecificationButtonConfig2.e[1] > 0) {
+                i = tBSpecificationButtonConfig2.g;
+                if (!StringUtils.isNull(this.e)) {
+                    i += this.b.m;
                 }
             }
-            return i + this.f30240h.width();
+            return i + this.h.width();
         }
         return invokeV.intValue;
     }
@@ -205,13 +191,13 @@ public class TBSpecificationBtn extends View {
     public TBSpecificationButtonConfig getStyleConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30234b : (TBSpecificationButtonConfig) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (TBSpecificationButtonConfig) invokeV.objValue;
     }
 
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30237e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
     public void k() {
@@ -225,7 +211,7 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.l = i;
-            this.f30234b.r = i;
+            this.b.r = i;
             o();
             n(i);
             invalidate();
@@ -236,13 +222,13 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.l = TbadkCoreApplication.getInst().getSkinType();
-            b bVar = new b();
-            this.f30234b = bVar;
-            bVar.t = this.n;
+            mu4 mu4Var = new mu4();
+            this.b = mu4Var;
+            mu4Var.t = this.n;
             Paint paint = new Paint();
-            this.f30236d = paint;
-            paint.setTextSize(n.f(getContext(), R.dimen.T_X08));
-            this.f30236d.setAntiAlias(true);
+            this.d = paint;
+            paint.setTextSize(oi.f(getContext(), R.dimen.T_X08));
+            this.d.setAntiAlias(true);
         }
     }
 
@@ -251,19 +237,19 @@ public class TBSpecificationBtn extends View {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || getHeight() == 0) {
             return;
         }
-        TBSpecificationButtonConfig tBSpecificationButtonConfig = this.f30234b;
+        TBSpecificationButtonConfig tBSpecificationButtonConfig = this.b;
         tBSpecificationButtonConfig.r = i;
-        this.f30235c = tBSpecificationButtonConfig.a(getHeight() / 2);
-        Paint paint = this.f30236d;
-        TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.f30234b;
-        paint.setColor(tBSpecificationButtonConfig2.q ? SkinManager.getColor(i, tBSpecificationButtonConfig2.f30241b) : tBSpecificationButtonConfig2.f30241b);
+        this.c = tBSpecificationButtonConfig.a(getHeight() / 2);
+        Paint paint = this.d;
+        TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.b;
+        paint.setColor(tBSpecificationButtonConfig2.q ? SkinManager.getColor(i, tBSpecificationButtonConfig2.b) : tBSpecificationButtonConfig2.b);
     }
 
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f30238f = this.f30234b.c();
-            this.f30239g = this.f30234b.d();
+            this.f = this.b.c();
+            this.g = this.b.d();
         }
     }
 
@@ -276,46 +262,46 @@ public class TBSpecificationBtn extends View {
                 o();
                 this.i = false;
             }
-            Drawable drawable = this.f30235c;
+            Drawable drawable = this.c;
             if (drawable != null) {
                 if (drawable instanceof GradientDrawable) {
                     ((GradientDrawable) drawable).setCornerRadius(getHeight() / 2);
                 }
-                this.f30235c.setBounds(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom());
-                this.f30235c.draw(canvas);
+                this.c.setBounds(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom());
+                this.c.draw(canvas);
             }
             int width = ((getWidth() - getContentWidth()) - getPaddingRight()) - getPaddingLeft();
-            TBSpecificationButtonConfig tBSpecificationButtonConfig = this.f30234b;
+            TBSpecificationButtonConfig tBSpecificationButtonConfig = this.b;
             int i = tBSpecificationButtonConfig.j;
             if (width != tBSpecificationButtonConfig.k + i) {
                 i = ((((getWidth() - getContentWidth()) - getPaddingRight()) - getPaddingLeft()) / 2) + getPaddingLeft();
             }
             int height = (getHeight() + getPaddingTop()) / 2;
-            int i2 = this.f30234b.f30246g;
+            int i2 = this.b.g;
             int i3 = i2 / 2;
-            Drawable drawable2 = this.f30238f;
+            Drawable drawable2 = this.f;
             if (drawable2 != null) {
                 drawable2.setBounds(i, height - i3, i2 + i, height + i3);
-                this.f30238f.draw(canvas);
-                TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.f30234b;
-                i += tBSpecificationButtonConfig2.f30246g + tBSpecificationButtonConfig2.m;
+                this.f.draw(canvas);
+                TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.b;
+                i += tBSpecificationButtonConfig2.g + tBSpecificationButtonConfig2.m;
             }
             if (this.k) {
-                i = (getWidth() - this.f30240h.width()) / 2;
+                i = (getWidth() - this.h.width()) / 2;
             }
-            if (!StringUtils.isNull(this.f30237e)) {
-                Paint paint = this.f30236d;
-                String str = this.f30237e;
-                paint.getTextBounds(str, 0, str.length(), this.f30240h);
-                canvas.drawText(this.f30237e, i, (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.f30240h.centerY(), this.f30236d);
+            if (!StringUtils.isNull(this.e)) {
+                Paint paint = this.d;
+                String str = this.e;
+                paint.getTextBounds(str, 0, str.length(), this.h);
+                canvas.drawText(this.e, i, (((getHeight() - getPaddingBottom()) + getPaddingTop()) / 2.0f) - this.h.centerY(), this.d);
             }
-            Drawable drawable3 = this.f30239g;
+            Drawable drawable3 = this.g;
             if (drawable3 != null) {
-                int i4 = this.f30240h.right;
-                TBSpecificationButtonConfig tBSpecificationButtonConfig3 = this.f30234b;
+                int i4 = this.h.right;
+                TBSpecificationButtonConfig tBSpecificationButtonConfig3 = this.b;
                 int i5 = tBSpecificationButtonConfig3.m;
-                drawable3.setBounds(i + i4 + i5, height - i3, i + i4 + i5 + tBSpecificationButtonConfig3.f30246g, height + i3);
-                this.f30239g.draw(canvas);
+                drawable3.setBounds(i + i4 + i5, height - i3, i + i4 + i5 + tBSpecificationButtonConfig3.g, height + i3);
+                this.g.draw(canvas);
             }
         }
     }
@@ -325,8 +311,8 @@ public class TBSpecificationBtn extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            int q = q(i);
-            setMeasuredDimension(q, !this.f30234b.i ? p(i2) : q);
+            int r = r(i);
+            setMeasuredDimension(r, !this.b.i ? p(i2) : r);
         }
     }
 
@@ -334,16 +320,16 @@ public class TBSpecificationBtn extends View {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            float textSize = this.f30236d.getTextSize();
+            float textSize = this.d.getTextSize();
             if (View.MeasureSpec.getMode(i) == 1073741824) {
                 return View.MeasureSpec.getSize(i);
             }
-            return (int) Math.max(this.f30234b.o, textSize + (this.f30234b.l * 2) + getPaddingTop() + getPaddingBottom());
+            return (int) Math.max(this.b.o, textSize + (this.b.l * 2) + getPaddingTop() + getPaddingBottom());
         }
         return invokeI.intValue;
     }
 
-    public final int q(int i) {
+    public final int r(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
@@ -351,8 +337,8 @@ public class TBSpecificationBtn extends View {
             if (View.MeasureSpec.getMode(i) == 1073741824) {
                 return View.MeasureSpec.getSize(i);
             }
-            TBSpecificationButtonConfig tBSpecificationButtonConfig = this.f30234b;
-            return (int) Math.max(this.f30234b.n, contentWidth + tBSpecificationButtonConfig.j + tBSpecificationButtonConfig.k + getPaddingLeft() + getPaddingRight());
+            TBSpecificationButtonConfig tBSpecificationButtonConfig = this.b;
+            return (int) Math.max(this.b.n, contentWidth + tBSpecificationButtonConfig.j + tBSpecificationButtonConfig.k + getPaddingLeft() + getPaddingRight());
         }
         return invokeI.intValue;
     }
@@ -369,7 +355,7 @@ public class TBSpecificationBtn extends View {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, tBSpecificationButtonConfig) == null) || tBSpecificationButtonConfig == null) {
             return;
         }
-        this.f30234b = tBSpecificationButtonConfig;
+        this.b = tBSpecificationButtonConfig;
         tBSpecificationButtonConfig.t = this.n;
         this.i = true;
     }
@@ -380,16 +366,16 @@ public class TBSpecificationBtn extends View {
             if (StringUtils.isNull(str)) {
                 str = "";
             }
-            this.f30237e = str;
-            if (this.f30234b.p) {
-                this.f30236d.setFakeBoldText(true);
+            this.e = str;
+            if (this.b.p) {
+                this.d.setFakeBoldText(true);
             }
-            this.f30236d.getTextBounds(str, 0, str.length(), this.f30240h);
+            this.d.getTextBounds(str, 0, str.length(), this.h);
             int width = getWidth();
             if (width > 0) {
                 if (getLayoutParams().width == -2) {
                     int contentWidth = getContentWidth();
-                    TBSpecificationButtonConfig tBSpecificationButtonConfig = this.f30234b;
+                    TBSpecificationButtonConfig tBSpecificationButtonConfig = this.b;
                     if (contentWidth + tBSpecificationButtonConfig.j + tBSpecificationButtonConfig.k != width) {
                         requestLayout();
                         return;
@@ -413,21 +399,21 @@ public class TBSpecificationBtn extends View {
     public void setTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.f30236d.setTextSize(n.f(getContext(), i));
-            Paint paint = this.f30236d;
-            String str = this.f30237e;
-            paint.getTextBounds(str, 0, str.length(), this.f30240h);
+            this.d.setTextSize(oi.f(getContext(), i));
+            Paint paint = this.d;
+            String str = this.e;
+            paint.getTextBounds(str, 0, str.length(), this.h);
             int width = getWidth();
             if (width > 0 && getLayoutParams().width == -2) {
                 int contentWidth = getContentWidth();
-                TBSpecificationButtonConfig tBSpecificationButtonConfig = this.f30234b;
+                TBSpecificationButtonConfig tBSpecificationButtonConfig = this.b;
                 if (contentWidth + tBSpecificationButtonConfig.j + tBSpecificationButtonConfig.k != width) {
                     requestLayout();
                     return;
                 }
             }
             int height = getHeight();
-            if (height <= 0 || getLayoutParams().height != -2 || ((int) this.f30236d.getTextSize()) + (this.f30234b.l * 2) == height) {
+            if (height <= 0 || getLayoutParams().height != -2 || ((int) this.d.getTextSize()) + (this.b.l * 2) == height) {
                 return;
             }
             requestLayout();
@@ -462,8 +448,8 @@ public class TBSpecificationBtn extends View {
             }
         }
         this.a = null;
-        this.f30237e = "";
-        this.f30240h = new Rect();
+        this.e = "";
+        this.h = new Rect();
         this.i = true;
         this.j = true;
         this.k = false;
@@ -493,8 +479,8 @@ public class TBSpecificationBtn extends View {
             }
         }
         this.a = null;
-        this.f30237e = "";
-        this.f30240h = new Rect();
+        this.e = "";
+        this.h = new Rect();
         this.i = true;
         this.j = true;
         this.k = false;

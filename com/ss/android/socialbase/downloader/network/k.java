@@ -2,30 +2,18 @@ package com.ss.android.socialbase.downloader.network;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class k {
     public static final String a = "k";
-
-    /* renamed from: b  reason: collision with root package name */
-    public final d f43527b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f43528c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final AtomicReference<l> f43529d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public AtomicReference<l> f43530e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final ArrayList<b> f43531f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f43532g;
+    public final d b;
+    public volatile boolean c;
+    public final AtomicReference<l> d;
+    public AtomicReference<l> e;
+    public final ArrayList<b> f;
+    public int g;
 
     /* renamed from: com.ss.android.socialbase.downloader.network.k$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] a;
 
@@ -51,12 +39,12 @@ public class k {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static final k a = new k(null);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(l lVar);
     }
@@ -70,32 +58,32 @@ public class k {
     }
 
     private boolean c() {
-        if (this.f43527b == null) {
+        if (this.b == null) {
             return false;
         }
         try {
-            int i = AnonymousClass1.a[this.f43529d.get().ordinal()];
-            double d2 = 2000.0d;
-            double d3 = 550.0d;
+            int i = AnonymousClass1.a[this.d.get().ordinal()];
+            double d = 2000.0d;
+            double d2 = 550.0d;
             if (i == 1) {
-                d3 = 0.0d;
-                d2 = 150.0d;
+                d2 = 0.0d;
+                d = 150.0d;
             } else if (i == 2) {
-                d2 = 550.0d;
-                d3 = 150.0d;
+                d = 550.0d;
+                d2 = 150.0d;
             } else if (i != 3) {
                 if (i != 4) {
                     return true;
                 }
-                d2 = 3.4028234663852886E38d;
-                d3 = 2000.0d;
+                d = 3.4028234663852886E38d;
+                d2 = 2000.0d;
             }
-            double a2 = this.f43527b.a();
-            if (a2 > d2) {
-                if (a2 > d2 * 1.25d) {
+            double a2 = this.b.a();
+            if (a2 > d) {
+                if (a2 > d * 1.25d) {
                     return true;
                 }
-            } else if (a2 < d3 * 0.8d) {
+            } else if (a2 < d2 * 0.8d) {
                 return true;
             }
         } catch (Throwable th) {
@@ -106,9 +94,9 @@ public class k {
 
     private void d() {
         try {
-            int size = this.f43531f.size();
+            int size = this.f.size();
             for (int i = 0; i < size; i++) {
-                this.f43531f.get(i).a(this.f43529d.get());
+                this.f.get(i).a(this.d.get());
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -116,61 +104,61 @@ public class k {
     }
 
     public synchronized l b() {
-        if (this.f43527b == null) {
+        if (this.b == null) {
             return l.UNKNOWN;
         }
-        return a(this.f43527b.a());
+        return a(this.b.a());
     }
 
     public k() {
-        this.f43527b = new d(0.05d);
-        this.f43528c = false;
-        this.f43529d = new AtomicReference<>(l.UNKNOWN);
-        this.f43531f = new ArrayList<>();
+        this.b = new d(0.05d);
+        this.c = false;
+        this.d = new AtomicReference<>(l.UNKNOWN);
+        this.f = new ArrayList<>();
     }
 
     public synchronized void a(long j, long j2) {
         l b2;
-        double d2 = ((j * 1.0d) / j2) * 8.0d;
-        if (j2 == 0 || d2 < 3.0d) {
+        double d = ((j * 1.0d) / j2) * 8.0d;
+        if (j2 == 0 || d < 3.0d) {
             return;
         }
         try {
-            this.f43527b.a(d2);
+            this.b.a(d);
             b2 = b();
         } catch (Throwable unused) {
         }
-        if (this.f43528c) {
-            this.f43532g++;
-            if (b2 != this.f43530e.get()) {
-                this.f43528c = false;
-                this.f43532g = 1;
+        if (this.c) {
+            this.g++;
+            if (b2 != this.e.get()) {
+                this.c = false;
+                this.g = 1;
             }
-            if (this.f43532g >= 5.0d && c()) {
-                this.f43528c = false;
-                this.f43532g = 1;
-                this.f43529d.set(this.f43530e.get());
+            if (this.g >= 5.0d && c()) {
+                this.c = false;
+                this.g = 1;
+                this.d.set(this.e.get());
                 d();
             }
             return;
         }
-        if (this.f43529d.get() != b2) {
-            this.f43528c = true;
-            this.f43530e = new AtomicReference<>(b2);
+        if (this.d.get() != b2) {
+            this.c = true;
+            this.e = new AtomicReference<>(b2);
         }
     }
 
-    private l a(double d2) {
-        if (d2 < 0.0d) {
+    private l a(double d) {
+        if (d < 0.0d) {
             return l.UNKNOWN;
         }
-        if (d2 < 150.0d) {
+        if (d < 150.0d) {
             return l.POOR;
         }
-        if (d2 < 550.0d) {
+        if (d < 550.0d) {
             return l.MODERATE;
         }
-        if (d2 < 2000.0d) {
+        if (d < 2000.0d) {
             return l.GOOD;
         }
         return l.EXCELLENT;

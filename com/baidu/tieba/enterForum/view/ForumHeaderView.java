@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import c.a.p0.w0.e.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,23 +22,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.m46;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f31991b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f31992c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public e f31993d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f31994e;
+    public TextView b;
+    public ImageView c;
+    public m46 d;
+    public int e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context) {
@@ -60,7 +52,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f31994e = 0;
+        this.e = 0;
         a();
     }
 
@@ -68,10 +60,10 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) this, true);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c23);
-            this.f31991b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4b);
-            this.f31992c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c35);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0491, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c12);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c3a);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c24);
             setDescendantFocusability(262144);
             this.a.setOnClickListener(this);
         }
@@ -80,33 +72,33 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e eVar = this.f31993d;
-            if (eVar != null && eVar.a) {
-                if (eVar.f19354c > 0) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31992c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                    SkinManager.setViewTextColor(this.f31991b, (int) R.color.white_alpha50);
+            m46 m46Var = this.d;
+            if (m46Var != null && m46Var.a) {
+                if (m46Var.b > 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                    SkinManager.setViewTextColor(this.b, (int) R.color.white_alpha50);
                     SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
                     return;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31992c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f31991b, (int) R.color.CAM_X0109);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
                 SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31992c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f31991b, (int) R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
             SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (!TbadkCoreApplication.isLogin()) {
                 TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
             }
-            if (this.f31994e != 1) {
+            if (this.e != 1) {
                 TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
             } else {
                 TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
@@ -119,14 +111,14 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            super.onMeasure(View.MeasureSpec.makeMeasureSpec(n.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(n.f(getContext(), R.dimen.tbds114), 1073741824));
+            super.onMeasure(View.MeasureSpec.makeMeasureSpec(oi.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(oi.f(getContext(), R.dimen.tbds114), 1073741824));
         }
     }
 
-    public void setAdState(e eVar) {
+    public void setAdState(m46 m46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
-            this.f31993d = eVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, m46Var) == null) {
+            this.d = m46Var;
             b();
         }
     }
@@ -134,14 +126,14 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f31994e = i;
+            this.e = i;
         }
     }
 
     public void setSearchHint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f31991b.setText(str);
+            this.b.setText(str);
         }
     }
 
@@ -164,7 +156,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f31994e = 0;
+        this.e = 0;
         a();
     }
 
@@ -187,7 +179,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f31994e = 0;
+        this.e = 0;
         a();
     }
 }

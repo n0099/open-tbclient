@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LocationMsg> CREATOR;
@@ -98,22 +98,22 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         setMsgType(7);
     }
 
-    private String getLocationContent(String str, double d2, double d3, byte[] bArr) {
+    private String getLocationContent(String str, double d, double d2, byte[] bArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Double.valueOf(d2), Double.valueOf(d3), bArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), bArr})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("x", d3);
-                jSONObject.put("y", d2);
+                jSONObject.put("x", d2);
+                jSONObject.put("y", d);
                 jSONObject.put("thumbnail", Base64.encode(bArr));
                 jSONObject.put("title", str);
                 return jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(LogUtils.TAG, "getLocationContent", e2);
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getLocationContent", e);
                 return "";
             }
         }
@@ -157,8 +157,8 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
                     this.mLatitude = jSONObject.optDouble("x");
                     this.mLongitude = jSONObject.optDouble("y");
                     return true;
-                } catch (JSONException e2) {
-                    LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
+                } catch (JSONException e) {
+                    LogUtils.e(LogUtils.TAG, "parseJsonString", e);
                 }
             }
             return false;
@@ -166,10 +166,10 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         return invokeV.booleanValue;
     }
 
-    public void setContent(String str, double d2, double d3, byte[] bArr) {
+    public void setContent(String str, double d, double d2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d2), Double.valueOf(d3), bArr}) == null) {
-            setMsgContent(getLocationContent(str, d3, d2, bArr));
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), bArr}) == null) {
+            setMsgContent(getLocationContent(str, d2, d, bArr));
         }
     }
 
@@ -191,12 +191,12 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         }
     }
 
-    public LocationMsg(double d2, double d3, String str) {
+    public LocationMsg(double d, double d2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), str};
+            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), str};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -210,10 +210,10 @@ public class LocationMsg extends RichMediaMsg implements Parcelable, NoProGuard 
         this.mLatitude = 0.0d;
         this.mLongitude = 0.0d;
         setMsgType(7);
-        this.mLatitude = d2;
-        this.mLongitude = d3;
+        this.mLatitude = d;
+        this.mLongitude = d2;
         this.mTitle = str;
-        setContent(str, d2, d3, null);
+        setContent(str, d, d2, null);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

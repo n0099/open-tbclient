@@ -4,36 +4,23 @@ import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class e {
     public int a;
+    public String b = String.valueOf(-1);
+    public String c = "";
+    public String d = "";
+    public int e = -1;
+    public String f = "";
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f42167b = String.valueOf(-1);
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f42168c = "";
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f42169d = "";
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f42170e = -1;
-
-    /* renamed from: f  reason: collision with root package name */
-    public String f42171f = "";
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f42172b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f42173c;
+        public String b;
+        public String c;
 
         public a(String str) {
             if (TextUtils.isEmpty(str)) {
@@ -51,13 +38,13 @@ public class e {
                     return;
                 }
                 c(jSONObject.getString("value"));
-            } catch (JSONException e2) {
-                c.h.a.a.a.b("SecurityMessage", "covert json error " + e2.getMessage());
+            } catch (JSONException e) {
+                rm9.b("SecurityMessage", "covert json error " + e.getMessage());
             }
         }
 
         public String a() {
-            return this.f42173c;
+            return this.c;
         }
 
         public void a(String str) {
@@ -65,15 +52,15 @@ public class e {
         }
 
         public void b(String str) {
-            this.f42172b = str;
+            this.b = str;
         }
 
         public void c(String str) {
-            this.f42173c = str;
+            this.c = str;
         }
 
         public String toString() {
-            return "PublicKeyStatus{code='" + this.a + "', message='" + this.f42172b + "', publicKey='" + this.f42173c + "'}";
+            return "PublicKeyStatus{code='" + this.a + "', message='" + this.b + "', publicKey='" + this.c + "'}";
         }
     }
 
@@ -93,8 +80,8 @@ public class e {
                                 str = jSONObject3.getString("se");
                             }
                         }
-                    } catch (JSONException e2) {
-                        c.h.a.a.a.b("SecurityMessage", "parse notification message error " + e2.getMessage());
+                    } catch (JSONException e) {
+                        rm9.b("SecurityMessage", "parse notification message error " + e.getMessage());
                         if (TextUtils.isEmpty(null)) {
                             jSONObject = new JSONObject(notificationMessage);
                         }
@@ -115,36 +102,36 @@ public class e {
             }
         } catch (Exception unused2) {
         }
-        c.h.a.a.a.d("SecurityMessage", "encrypt message " + str);
+        rm9.d("SecurityMessage", "encrypt message " + str);
         return str;
     }
 
     public static boolean a(String str, MessageV3 messageV3) {
         String str2;
-        e e2 = e(str);
-        c.h.a.a.a.b("SecurityMessage", "securityMessage " + e2);
-        if (System.currentTimeMillis() / 1000 > e2.a()) {
+        e e = e(str);
+        rm9.b("SecurityMessage", "securityMessage " + e);
+        if (System.currentTimeMillis() / 1000 > e.a()) {
             str2 = "message expire";
-        } else if (!messageV3.getTitle().contains(e2.c())) {
+        } else if (!messageV3.getTitle().contains(e.c())) {
             str2 = "invalid title";
-        } else if (!messageV3.getContent().contains(e2.d())) {
+        } else if (!messageV3.getContent().contains(e.d())) {
             str2 = "invalid content";
-        } else if (!String.valueOf(-1).equals(e2.b()) && !e2.b().equals(messageV3.getTaskId())) {
+        } else if (!String.valueOf(-1).equals(e.b()) && !e.b().equals(messageV3.getTaskId())) {
             str2 = "invalid taskId";
-        } else if (e2.e() != -1) {
-            int e3 = e2.e();
-            if (e3 == 1) {
-                if (!messageV3.getActivity().contains(e2.f())) {
+        } else if (e.e() != -1) {
+            int e2 = e.e();
+            if (e2 == 1) {
+                if (!messageV3.getActivity().contains(e.f())) {
                     str2 = "invalid click activity";
                 }
                 return true;
-            } else if (e3 == 2) {
-                if (!messageV3.getWebUrl().contains(e2.f())) {
+            } else if (e2 == 2) {
+                if (!messageV3.getWebUrl().contains(e.f())) {
                     str2 = "invalid web url";
                 }
                 return true;
             } else {
-                if (e3 == 3 && !MzPushMessage.fromMessageV3(messageV3).getSelfDefineContentString().contains(e2.f())) {
+                if (e2 == 3 && !MzPushMessage.fromMessageV3(messageV3).getSelfDefineContentString().contains(e.f())) {
                     str2 = "invalid self define";
                 }
                 return true;
@@ -152,7 +139,7 @@ public class e {
         } else {
             str2 = "invalid click type";
         }
-        c.h.a.a.a.b("SecurityMessage", str2);
+        rm9.b("SecurityMessage", str2);
         return false;
     }
 
@@ -178,8 +165,8 @@ public class e {
             if (!jSONObject.isNull("pm")) {
                 eVar.d(jSONObject.getString("pm"));
             }
-        } catch (Exception e2) {
-            c.h.a.a.a.b("SecurityMessage", "parse decryptSign error " + e2.getMessage());
+        } catch (Exception e) {
+            rm9.b("SecurityMessage", "parse decryptSign error " + e.getMessage());
         }
         return eVar;
     }
@@ -193,46 +180,46 @@ public class e {
     }
 
     public void a(String str) {
-        this.f42167b = str;
+        this.b = str;
     }
 
     public String b() {
-        return this.f42167b;
+        return this.b;
     }
 
     public void b(int i) {
-        this.f42170e = i;
+        this.e = i;
     }
 
     public void b(String str) {
-        this.f42168c = str;
+        this.c = str;
     }
 
     public String c() {
-        return this.f42168c;
+        return this.c;
     }
 
     public void c(String str) {
-        this.f42169d = str;
+        this.d = str;
     }
 
     public String d() {
-        return this.f42169d;
+        return this.d;
     }
 
     public void d(String str) {
-        this.f42171f = str;
+        this.f = str;
     }
 
     public int e() {
-        return this.f42170e;
+        return this.e;
     }
 
     public String f() {
-        return this.f42171f;
+        return this.f;
     }
 
     public String toString() {
-        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.f42167b + "', title='" + this.f42168c + "', content='" + this.f42169d + "', clickType=" + this.f42170e + ", params='" + this.f42171f + "'}";
+        return "SecurityMessage{timestamp=" + this.a + ", taskId='" + this.b + "', title='" + this.c + "', content='" + this.d + "', clickType=" + this.e + ", params='" + this.f + "'}";
     }
 }

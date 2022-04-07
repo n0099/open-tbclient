@@ -3,8 +3,6 @@ package com.baidu.swan.apps.jsbridge;
 import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
-import c.a.n0.a.o1.c.f.b;
-import c.a.n0.a.x.f.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hx2;
+import com.repackage.hz1;
+import com.repackage.tg1;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SwanAppPreloadJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String JAVASCRIPT_INTERFACE_NAME = "swanPreload";
     public static final String TAG = "SwanAppPreloadJsBridge";
     public transient /* synthetic */ FieldHolder $fh;
-    public a mJSContainer;
+    public hz1 mJSContainer;
 
     static {
         InterceptResult invokeClinit;
@@ -35,15 +36,15 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = c.a.n0.a.a.a;
+        DEBUG = tg1.a;
     }
 
-    public SwanAppPreloadJsBridge(a aVar) {
+    public SwanAppPreloadJsBridge(hz1 hz1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {hz1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,7 +54,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        this.mJSContainer = aVar;
+        this.mJSContainer = hz1Var;
     }
 
     @JavascriptInterface
@@ -65,7 +66,7 @@ public class SwanAppPreloadJsBridge {
             if (DEBUG) {
                 Log.d(TAG, "onJsLoaded");
             }
-            return b.f();
+            return hx2.f();
         }
         return (String) invokeV.objValue;
     }

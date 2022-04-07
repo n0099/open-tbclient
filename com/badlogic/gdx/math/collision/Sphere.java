@@ -1,6 +1,5 @@
 package com.badlogic.gdx.math.collision;
 
-import c.b.b.q.t;
 import com.badlogic.gdx.math.Vector3;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.r7;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Sphere implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float PI_4_3 = 4.1887903f;
@@ -18,12 +18,12 @@ public class Sphere implements Serializable {
     public final Vector3 center;
     public float radius;
 
-    public Sphere(Vector3 vector3, float f2) {
+    public Sphere(Vector3 vector3, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vector3, Float.valueOf(f2)};
+            Object[] objArr = {vector3, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,7 +34,7 @@ public class Sphere implements Serializable {
             }
         }
         this.center = new Vector3(vector3);
-        this.radius = f2;
+        this.radius = f;
     }
 
     public boolean equals(Object obj) {
@@ -56,7 +56,7 @@ public class Sphere implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.center.hashCode() + 71) * 71) + t.b(this.radius) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((this.center.hashCode() + 71) * 71) + r7.b(this.radius) : invokeV.intValue;
     }
 
     public boolean overlaps(Sphere sphere) {
@@ -64,9 +64,9 @@ public class Sphere implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sphere)) == null) {
             float dst2 = this.center.dst2(sphere.center);
-            float f2 = this.radius;
-            float f3 = sphere.radius;
-            return dst2 < (f2 + f3) * (f2 + f3);
+            float f = this.radius;
+            float f2 = sphere.radius;
+            return dst2 < (f + f2) * (f + f2);
         }
         return invokeL.booleanValue;
     }
@@ -75,8 +75,8 @@ public class Sphere implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            float f2 = this.radius;
-            return 12.566371f * f2 * f2;
+            float f = this.radius;
+            return 12.566371f * f * f;
         }
         return invokeV.floatValue;
     }
@@ -85,8 +85,8 @@ public class Sphere implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            float f2 = this.radius;
-            return 4.1887903f * f2 * f2 * f2;
+            float f = this.radius;
+            return 4.1887903f * f * f * f;
         }
         return invokeV.floatValue;
     }

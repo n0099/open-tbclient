@@ -5,8 +5,6 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.g0.b.a.a;
-import c.a.o.a.b;
 import com.baidu.crashpad.ZwCrashpad;
 import com.baidu.disasterrecovery.jnicrash.NativeCrashCapture;
 import com.baidu.searchbox.aop.annotation.DebugTrace;
@@ -24,7 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.j30;
+import com.repackage.ub1;
+/* loaded from: classes2.dex */
 public class Loki {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRASHPAD_DUMPER_PROCESS_NAME = ":dumper";
@@ -66,7 +66,7 @@ public class Loki {
     @TimeSpendTrace(tag = "AppInit")
     public static void init(@NonNull Context context, @NonNull BaseUncaughtExceptionHandler baseUncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, baseUncaughtExceptionHandler) == null) || isLokiService(a.b())) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, baseUncaughtExceptionHandler) == null) || isLokiService(ub1.b())) {
             return;
         }
         retryUpload(context);
@@ -86,7 +86,7 @@ public class Loki {
 
     public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, logSystemProcessor) == null) && isLokiService(a.b())) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, logSystemProcessor) == null) && isLokiService(ub1.b())) {
             LokiService.mProcessor = logSystemProcessor;
         }
     }
@@ -123,7 +123,7 @@ public class Loki {
 
     public static void retryUpload(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a.f() && LogSystemUploaderStrategy.checkFlag()) {
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && ub1.f() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }
@@ -151,34 +151,34 @@ public class Loki {
         Track.getInstance().startTrack(AppRuntime.getAppContext());
     }
 
-    public static void initNative(@NonNull Context context, @NonNull b bVar) {
+    public static void initNative(@NonNull Context context, @NonNull j30 j30Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
-            initNative(context, bVar, true);
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, j30Var) == null) {
+            initNative(context, j30Var, true);
         }
     }
 
     public static void initNative(@NonNull Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65543, null, context, z) == null) || isLokiService(a.b())) {
+        if (!(interceptable == null || interceptable.invokeLZ(65543, null, context, z) == null) || isLokiService(ub1.b())) {
             return;
         }
-        NativeCrashCapture.init(context, new b(context), z);
+        NativeCrashCapture.init(context, new j30(context), z);
     }
 
     public static void initService() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && isLokiService(a.b())) {
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && isLokiService(ub1.b())) {
             LokiService.mProcessor = new LogSystemProcessor();
         }
     }
 
-    public static void initNative(@NonNull Context context, @NonNull b bVar, boolean z) {
+    public static void initNative(@NonNull Context context, @NonNull j30 j30Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, context, bVar, z) == null) || isLokiService(a.b())) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, context, j30Var, z) == null) || isLokiService(ub1.b())) {
             return;
         }
-        NativeCrashCapture.init(context, bVar, z);
+        NativeCrashCapture.init(context, j30Var, z);
     }
 
     public static void init(@NonNull Context context) {

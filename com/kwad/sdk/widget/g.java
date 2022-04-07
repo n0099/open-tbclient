@@ -5,29 +5,29 @@ import android.view.View;
 import android.view.ViewOutlineProvider;
 import androidx.annotation.RequiresApi;
 @RequiresApi(api = 21)
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g extends ViewOutlineProvider {
     public float a;
 
-    public g(float f2) {
-        this.a = f2;
+    public g(float f) {
+        this.a = f;
     }
 
     @RequiresApi(api = 21)
-    public static void a(View view, float f2) {
+    public static void a(View view2, float f) {
         boolean z;
-        if (f2 <= 0.0f) {
-            view.setOutlineProvider(null);
+        if (f <= 0.0f) {
+            view2.setOutlineProvider(null);
             z = false;
         } else {
-            view.setOutlineProvider(new g(f2));
+            view2.setOutlineProvider(new g(f));
             z = true;
         }
-        view.setClipToOutline(z);
+        view2.setClipToOutline(z);
     }
 
     @Override // android.view.ViewOutlineProvider
-    public void getOutline(View view, Outline outline) {
-        outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), this.a);
+    public void getOutline(View view2, Outline outline) {
+        outline.setRoundRect(0, 0, view2.getWidth(), view2.getHeight(), this.a);
     }
 }

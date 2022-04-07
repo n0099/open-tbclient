@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,15 +31,15 @@ public class b implements View.OnClickListener {
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         StringBuilder sb;
         PermissionsDTO permissionsDTO;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            sb = this.a.f28153e;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            sb = this.a.e;
             SharedPreferencesUtil.put(sb.toString(), Boolean.TRUE);
             PermissionsHelperActivity permissionsHelperActivity = this.a;
-            permissionsDTO = permissionsHelperActivity.f28151c;
+            permissionsDTO = permissionsHelperActivity.c;
             permissionsHelperActivity.requestPermissions(permissionsDTO.permissions, 8001);
         }
     }

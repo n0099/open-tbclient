@@ -14,26 +14,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.io.File;
 import java.io.FileOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class BdLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static FileOutputStream f24978b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static boolean f24979c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f24980d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f24981e;
+    public static FileOutputStream b;
+    public static boolean c;
+    public static String d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -98,7 +90,7 @@ public final class BdLog {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -155,13 +147,13 @@ public final class BdLog {
                 return;
             }
         }
-        f24980d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
+        d = Environment.getExternalStorageDirectory() + File.separator + "baidu" + File.separator + "flyflow" + File.separator + TbConfig.TMP_LOG_DIR_NAME + File.separator;
         StringBuilder sb = new StringBuilder();
-        sb.append(f24980d);
+        sb.append(d);
         sb.append("baiduliulanqi_log.txt");
-        f24981e = sb.toString();
+        e = sb.toString();
         StringBuilder sb2 = new StringBuilder();
-        sb2.append(f24980d);
+        sb2.append(d);
         sb2.append("baiduliulanqi_lasttime_log.txt");
         sb2.toString();
     }
@@ -210,7 +202,7 @@ public final class BdLog {
             } else {
                 Log.d(str, str2, th);
             }
-            if (f24979c) {
+            if (c) {
                 d(str, str2);
             }
         }
@@ -227,15 +219,15 @@ public final class BdLog {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && Environment.getExternalStorageState().equals("mounted")) {
             try {
-                File file = new File(f24980d);
+                File file = new File(d);
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                if (f24978b == null) {
-                    f24978b = new FileOutputStream(f24981e);
+                if (b == null) {
+                    b = new FileOutputStream(e);
                 }
-                f24978b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
-                f24978b.write("\n".getBytes());
+                b.write((str + ZeusCrashHandler.NAME_SEPERATOR + str2).getBytes("UTF-8"));
+                b.write("\n".getBytes());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

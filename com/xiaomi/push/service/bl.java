@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.bk;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bl implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class bl implements Runnable {
                 for (bk.a aVar : concurrentHashMap.values()) {
                     aVar.run();
                 }
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m112a("Sync job exception :" + e2.getMessage());
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.m108a("Sync job exception :" + e.getMessage());
             }
             this.a.f919a = false;
         }

@@ -4,19 +4,19 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import c.a.n0.a.p1.i.a;
-import c.a.n0.a.p1.j.g;
-import c.a.n0.a.p1.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
+import com.repackage.by2;
+import com.repackage.ky2;
+import com.repackage.my2;
+/* loaded from: classes2.dex */
+public class SPSwitchFSPanelLinearLayout extends LinearLayout implements my2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public by2 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SPSwitchFSPanelLinearLayout(Context context) {
@@ -42,11 +42,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = new a(this);
+            this.a = new by2(this);
         }
     }
 
-    @Override // c.a.n0.a.p1.k.b
+    @Override // com.repackage.my2
     public void onSoftInputShowing(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -54,11 +54,11 @@ public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
         }
     }
 
-    @Override // c.a.n0.a.p1.k.b
+    @Override // com.repackage.my2
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            g.g(this, i);
+            ky2.g(this, i);
         }
     }
 

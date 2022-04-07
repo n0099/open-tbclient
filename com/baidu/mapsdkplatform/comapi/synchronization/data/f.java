@@ -9,52 +9,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26833b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26834c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public b f26835d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f26836e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f26837f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public a f26838g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f26839h;
+    public String b;
+    public String c;
+    public b d;
+    public int e;
+    public int f;
+    public a g;
+    public String h;
     public String i;
     public int j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final a a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final a f26840b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final a f26841c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public static final a f26842d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ a[] f26843e;
+        public static final a b;
+        public static final a c;
+        public static final a d;
+        public static final /* synthetic */ a[] e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -71,11 +49,11 @@ public final class f {
                 }
             }
             a = new a("GPS", 0);
-            f26840b = new a("COMMON", 1);
-            f26841c = new a("BD09LL", 2);
+            b = new a("COMMON", 1);
+            c = new a("BD09LL", 2);
             a aVar = new a("BD09MC", 3);
-            f26842d = aVar;
-            f26843e = new a[]{a, f26840b, f26841c, aVar};
+            d = aVar;
+            e = new a[]{a, b, c, aVar};
         }
 
         public a(String str, int i) {
@@ -106,21 +84,17 @@ public final class f {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f26843e.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) e.clone() : (a[]) invokeV.objValue;
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public static final b f26844b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ b[] f26845c;
+        public static final b b;
+        public static final /* synthetic */ b[] c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -138,8 +112,8 @@ public final class f {
             }
             a = new b("DRIVING", 0);
             b bVar = new b("RIDING", 1);
-            f26844b = bVar;
-            f26845c = new b[]{a, bVar};
+            b = bVar;
+            c = new b[]{a, bVar};
         }
 
         public b(String str, int i) {
@@ -170,7 +144,7 @@ public final class f {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f26845c.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) c.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -187,12 +161,12 @@ public final class f {
                 return;
             }
         }
-        this.f26835d = b.a;
-        this.f26837f = 15;
-        this.f26838g = a.f26841c;
-        this.f26835d = b.a;
-        this.f26838g = a.f26841c;
-        this.f26837f = 15;
+        this.d = b.a;
+        this.f = 15;
+        this.g = a.c;
+        this.d = b.a;
+        this.g = a.c;
+        this.f = 15;
     }
 
     public String a() {
@@ -204,7 +178,7 @@ public final class f {
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.f26836e = i;
+            this.e = i;
         }
     }
 
@@ -218,39 +192,39 @@ public final class f {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26833b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f26833b = str;
+            this.b = str;
         }
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26834c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f26834c = str;
+            this.c = str;
         }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26839h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (String) invokeV.objValue;
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f26839h = str;
+            this.h = str;
         }
     }
 
@@ -270,25 +244,25 @@ public final class f {
     public a f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26838g : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.g : (a) invokeV.objValue;
     }
 
     public b g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f26835d : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.d : (b) invokeV.objValue;
     }
 
     public int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f26836e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : invokeV.intValue;
     }
 
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f26837f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f : invokeV.intValue;
     }
 
     public int j() {

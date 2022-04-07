@@ -105,15 +105,15 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view, viewGroup)) == null) {
-                if (view == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
                     return this.this$0.createTabView((ActionBar.Tab) getItem(i), true);
                 }
-                ((TabView) view).bindTab((ActionBar.Tab) getItem(i));
-                return view;
+                ((TabView) view2).bindTab((ActionBar.Tab) getItem(i));
+                return view2;
             }
             return (View) invokeILL.objValue;
         }
@@ -144,14 +144,14 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ((TabView) view).getTab().select();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ((TabView) view2).getTab().select();
                 int childCount = this.this$0.mTabLayout.getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     View childAt = this.this$0.mTabLayout.getChildAt(i);
-                    childAt.setSelected(childAt == view);
+                    childAt.setSelected(childAt == view2);
                 }
             }
         }
@@ -288,9 +288,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                     }
                     return;
                 }
-                View view = this.mCustomView;
-                if (view != null) {
-                    removeView(view);
+                View view2 = this.mCustomView;
+                if (view2 != null) {
+                    removeView(view2);
                     this.mCustomView = null;
                 }
                 Drawable icon = tab.getIcon();
@@ -671,10 +671,10 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
+    public void onItemSelected(AdapterView<?> adapterView, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ((TabView) view).getTab().select();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            ((TabView) view2).getTab().select();
         }
     }
 

@@ -22,7 +22,7 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitArray;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class UPCEANReader extends OneDReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] END_PATTERN;
@@ -121,13 +121,13 @@ public abstract class UPCEANReader extends OneDReader {
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(65539, null, bitArray, iArr, i, iArr2)) == null) {
             OneDReader.recordPattern(bitArray, i, iArr);
             int length = iArr2.length;
-            float f2 = 0.48f;
+            float f = 0.48f;
             int i2 = -1;
             for (int i3 = 0; i3 < length; i3++) {
                 float patternMatchVariance = OneDReader.patternMatchVariance(iArr, iArr2[i3], 0.7f);
-                if (patternMatchVariance < f2) {
+                if (patternMatchVariance < f) {
                     i2 = i3;
-                    f2 = patternMatchVariance;
+                    f = patternMatchVariance;
                 }
             }
             if (i2 >= 0) {
@@ -256,8 +256,8 @@ public abstract class UPCEANReader extends OneDReader {
                 if (sb2.length() >= 8) {
                     if (checkChecksum(sb2)) {
                         BarcodeFormat barcodeFormat = getBarcodeFormat();
-                        float f2 = i;
-                        Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[1] + iArr[0]) / 2.0f, f2), new ResultPoint((decodeEnd[1] + decodeEnd[0]) / 2.0f, f2)}, barcodeFormat);
+                        float f = i;
+                        Result result = new Result(sb2, null, new ResultPoint[]{new ResultPoint((iArr[1] + iArr[0]) / 2.0f, f), new ResultPoint((decodeEnd[1] + decodeEnd[0]) / 2.0f, f)}, barcodeFormat);
                         try {
                             Result decodeRow = this.extensionReader.decodeRow(i, bitArray, decodeEnd[1]);
                             result.putMetadata(ResultMetadataType.UPC_EAN_EXTENSION, decodeRow.getText());

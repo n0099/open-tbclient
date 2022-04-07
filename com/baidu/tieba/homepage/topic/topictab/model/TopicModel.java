@@ -1,7 +1,5 @@
 package com.baidu.tieba.homepage.topic.topictab.model;
 
-import c.a.d.f.p.l;
-import c.a.p0.q1.l.c.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -10,20 +8,17 @@ import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessag
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.repackage.mi;
+import com.repackage.n27;
+import com.repackage.wa;
+/* loaded from: classes3.dex */
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public c.a.d.c.g.a f33563b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public c.a.d.c.g.a f33564c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f33565d;
+    public n27 a;
+    public wa b;
+    public wa c;
+    public boolean d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
@@ -49,9 +44,9 @@ public class TopicModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f33563b);
-            MessageManager.getInstance().unRegisterListener(this.f33564c);
-            this.f33565d = false;
+            MessageManager.getInstance().unRegisterListener(this.b);
+            MessageManager.getInstance().unRegisterListener(this.c);
+            this.d = false;
         }
     }
 
@@ -60,38 +55,38 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
             super.setUniqueId(bdUniqueId);
-            this.f33563b.setTag(bdUniqueId);
-            registerListener(this.f33563b);
-            this.f33564c.setTag(bdUniqueId);
-            registerListener(this.f33564c);
+            this.b.setTag(bdUniqueId);
+            registerListener(this.b);
+            this.c.setTag(bdUniqueId);
+            registerListener(this.c);
         }
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!l.A()) {
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.netCallback(-1, null);
+            if (!mi.A()) {
+                n27 n27Var = this.a;
+                if (n27Var != null) {
+                    n27Var.netCallback(-1, null);
                 }
-            } else if (this.f33565d) {
+            } else if (this.d) {
             } else {
                 cancelLoadData();
                 RequestGetTopicListMessage requestGetTopicListMessage = new RequestGetTopicListMessage();
                 requestGetTopicListMessage.setCallFrom("topic_tab");
                 requestGetTopicListMessage.setTag(this.unique_id);
                 if (MessageManager.getInstance().sendMessage(requestGetTopicListMessage)) {
-                    this.f33565d = true;
+                    this.d = true;
                 }
             }
         }
     }
 
-    public void z(a aVar) {
+    public void z(n27 n27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n27Var) == null) {
+            this.a = n27Var;
         }
     }
 }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SpeedStatsStampTable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AD_CALL_SHOW_END_STAMP_KEY = 3308;
@@ -52,8 +52,6 @@ public final class SpeedStatsStampTable {
     public static final int CUSTOM_VIEW_PAPER_INIT_START_STAMP_KEY = 4010;
     public static final int CUSTOM_VIEW_PAPER_VIEW_INIT_END_STAMP_KEY = 4011;
     public static final int ELAPSED_CPU_START_STAMP_KEY = 1001;
-    public static final int FLUTTER_FRAGMENT_ATTACH_END_KEY = 3046;
-    public static final int FLUTTER_FRAGMENT_ATTACH_START_KEY = 3045;
     public static final int GAME_VIDEO_TAB_ON_CREATE_END_STAMP_KEY = 5043;
     public static final int GAME_VIDEO_TAB_ON_CREATE_START_STAMP_KEY = 5042;
     public static final int GAME_VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5045;
@@ -121,6 +119,8 @@ public final class SpeedStatsStampTable {
     public static final int MAINACTIVITY_ONRESUME_START_STAMP_KEY = 3041;
     public static final int MAINACTIVITY_ONSTART_END_STAMP_KEY = 3040;
     public static final int MAINACTIVITY_ONSTART_START_STAMP_KEY = 3039;
+    public static final int MAINACTIVITY_SECONDCREATE_END_STAMP_KEY = 3046;
+    public static final int MAINACTIVITY_SECONDCREATE_START_STAMP_KEY = 3045;
     public static final int MAINACTIVITY_SUPER_CREATE_END_STAMP_KEY = 3013;
     public static final int MAIN_PAGE_END_STAMP_KEY = 6000;
     public static final int MIGRATE_SP_END_STAMP_KEY = 1008;

@@ -4,7 +4,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.a;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.h.a {
     public T mCallerContext;
     public Presenter mPresenter;
@@ -50,8 +50,8 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.h.
         }
     }
 
-    public void onActivityCreated(@NonNull View view) {
-        this.mRootView = view;
+    public void onActivityCreated(@NonNull View view2) {
+        this.mRootView = view2;
         this.mCallerContext = onCreateCallerContext();
         if (this.mPresenter == null) {
             Presenter onCreatePresenter = onCreatePresenter();

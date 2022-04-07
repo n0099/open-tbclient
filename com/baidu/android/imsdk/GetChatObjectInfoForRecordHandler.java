@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public abstract class GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic;
     public static Method method;
@@ -113,9 +113,9 @@ public abstract class GetChatObjectInfoForRecordHandler {
                 if (method != null) {
                     MethodInvokeUtil.invoke(method, cls, objArr);
                 }
-            } catch (Exception e2) {
-                LogUtils.e(LogUtils.TAG, "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                LogUtils.e(LogUtils.TAG, "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

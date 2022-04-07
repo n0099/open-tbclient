@@ -254,13 +254,13 @@ public final class RectKt {
         return (Region) invokeLL.objValue;
     }
 
-    public static final RectF minus(RectF rectF, float f2) {
+    public static final RectF minus(RectF rectF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65550, null, rectF, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65550, null, rectF, f)) == null) {
             RectF rectF2 = new RectF(rectF);
-            float f3 = -f2;
-            rectF2.offset(f3, f3);
+            float f2 = -f;
+            rectF2.offset(f2, f2);
             return rectF2;
         }
         return (RectF) invokeLF.objValue;
@@ -277,15 +277,15 @@ public final class RectKt {
         return (Rect) invokeLI.objValue;
     }
 
-    public static final RectF times(RectF rectF, float f2) {
+    public static final RectF times(RectF rectF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65563, null, rectF, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65563, null, rectF, f)) == null) {
             RectF rectF2 = new RectF(rectF);
-            rectF2.top *= f2;
-            rectF2.left *= f2;
-            rectF2.right *= f2;
-            rectF2.bottom *= f2;
+            rectF2.top *= f;
+            rectF2.left *= f;
+            rectF2.right *= f;
+            rectF2.bottom *= f;
             return rectF2;
         }
         return (RectF) invokeLF.objValue;
@@ -302,12 +302,12 @@ public final class RectKt {
         return (Rect) invokeLL.objValue;
     }
 
-    public static final RectF plus(RectF rectF, float f2) {
+    public static final RectF plus(RectF rectF, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65559, null, rectF, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65559, null, rectF, f)) == null) {
             RectF rectF2 = new RectF(rectF);
-            rectF2.offset(f2, f2);
+            rectF2.offset(f, f);
             return rectF2;
         }
         return (RectF) invokeLF.objValue;
@@ -365,12 +365,12 @@ public final class RectKt {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, rectF, i)) == null) {
-            float f2 = i;
+            float f = i;
             RectF rectF2 = new RectF(rectF);
-            rectF2.top *= f2;
-            rectF2.left *= f2;
-            rectF2.right *= f2;
-            rectF2.bottom *= f2;
+            rectF2.top *= f;
+            rectF2.left *= f;
+            rectF2.right *= f;
+            rectF2.bottom *= f;
             return rectF2;
         }
         return (RectF) invokeLI.objValue;

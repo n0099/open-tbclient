@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,8 +69,8 @@ public class FileUtil {
                     try {
                         fileInputStream.close();
                         byteArrayOutputStream.close();
-                    } catch (IOException e2) {
-                        L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e2.getMessage(), new Object[0]);
+                    } catch (IOException e) {
+                        L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e.getMessage(), new Object[0]);
                     }
                     return trim;
                 } catch (Throwable th2) {
@@ -80,8 +80,8 @@ public class FileUtil {
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e3) {
-                                L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e3.getMessage(), new Object[0]);
+                            } catch (IOException e2) {
+                                L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e2.getMessage(), new Object[0]);
                                 return null;
                             }
                         }
@@ -93,8 +93,8 @@ public class FileUtil {
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
-                            } catch (IOException e4) {
-                                L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e4.getMessage(), new Object[0]);
+                            } catch (IOException e3) {
+                                L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e3.getMessage(), new Object[0]);
                                 throw th3;
                             }
                         }

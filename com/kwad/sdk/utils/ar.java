@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ar {
     public static String a = "plugin.signature";
 
@@ -14,10 +14,10 @@ public class ar {
     public static Signature[] a(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
-        } catch (PackageManager.NameNotFoundException e2) {
+        } catch (PackageManager.NameNotFoundException e) {
             String str = a;
-            com.kwad.sdk.core.d.a.d(str, "Can not get signature, error = " + e2.getLocalizedMessage());
-            com.kwad.sdk.core.d.a.a(a, e2);
+            com.kwad.sdk.core.d.a.d(str, "Can not get signature, error = " + e.getLocalizedMessage());
+            com.kwad.sdk.core.d.a.a(a, e);
             return null;
         }
     }
@@ -29,8 +29,8 @@ public class ar {
                 return aa.a(a2[0].toByteArray());
             }
             return "";
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(a, e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(a, e);
             return "";
         }
     }

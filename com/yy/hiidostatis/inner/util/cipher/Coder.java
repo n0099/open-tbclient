@@ -14,7 +14,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Coder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "UTF-8";
@@ -49,8 +49,8 @@ public final class Coder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder();
             if (bArr != null) {
-                for (byte b2 : bArr) {
-                    sb.append(Integer.toString((b2 & 255) + 256, 16).substring(1));
+                for (byte b : bArr) {
+                    sb.append(Integer.toString((b & 255) + 256, 16).substring(1));
                 }
             }
             return sb.toString();

@@ -44,8 +44,8 @@ public class LinearSnapHelper extends SnapHelper {
             if (childCount == 0) {
                 return 1.0f;
             }
-            View view = null;
             View view2 = null;
+            View view3 = null;
             int i = Integer.MAX_VALUE;
             int i2 = Integer.MIN_VALUE;
             for (int i3 = 0; i3 < childCount; i3++) {
@@ -53,19 +53,19 @@ public class LinearSnapHelper extends SnapHelper {
                 int position = layoutManager.getPosition(childAt);
                 if (position != -1) {
                     if (position < i) {
-                        view = childAt;
+                        view2 = childAt;
                         i = position;
                     }
                     if (position > i2) {
-                        view2 = childAt;
+                        view3 = childAt;
                         i2 = position;
                     }
                 }
             }
-            if (view == null || view2 == null) {
+            if (view2 == null || view3 == null) {
                 return 1.0f;
             }
-            int max = Math.max(orientationHelper.getDecoratedEnd(view), orientationHelper.getDecoratedEnd(view2)) - Math.min(orientationHelper.getDecoratedStart(view), orientationHelper.getDecoratedStart(view2));
+            int max = Math.max(orientationHelper.getDecoratedEnd(view2), orientationHelper.getDecoratedEnd(view3)) - Math.min(orientationHelper.getDecoratedStart(view2), orientationHelper.getDecoratedStart(view3));
             if (max == 0) {
                 return 1.0f;
             }
@@ -74,10 +74,10 @@ public class LinearSnapHelper extends SnapHelper {
         return invokeLL.floatValue;
     }
 
-    private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view, OrientationHelper orientationHelper) {
+    private int distanceToCenter(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, OrientationHelper orientationHelper) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, layoutManager, view, orientationHelper)) == null) ? (orientationHelper.getDecoratedStart(view) + (orientationHelper.getDecoratedMeasurement(view) / 2)) - (orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2)) : invokeLLL.intValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, this, layoutManager, view2, orientationHelper)) == null) ? (orientationHelper.getDecoratedStart(view2) + (orientationHelper.getDecoratedMeasurement(view2) / 2)) - (orientationHelper.getStartAfterPadding() + (orientationHelper.getTotalSpace() / 2)) : invokeLLL.intValue;
     }
 
     private int estimateNextPositionDiffForFling(RecyclerView.LayoutManager layoutManager, OrientationHelper orientationHelper, int i, int i2) {
@@ -100,7 +100,7 @@ public class LinearSnapHelper extends SnapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, layoutManager, orientationHelper)) == null) {
             int childCount = layoutManager.getChildCount();
-            View view = null;
+            View view2 = null;
             if (childCount == 0) {
                 return null;
             }
@@ -110,11 +110,11 @@ public class LinearSnapHelper extends SnapHelper {
                 View childAt = layoutManager.getChildAt(i2);
                 int abs = Math.abs((orientationHelper.getDecoratedStart(childAt) + (orientationHelper.getDecoratedMeasurement(childAt) / 2)) - startAfterPadding);
                 if (abs < i) {
-                    view = childAt;
+                    view2 = childAt;
                     i = abs;
                 }
             }
-            return view;
+            return view2;
         }
         return (View) invokeLL.objValue;
     }
@@ -148,18 +148,18 @@ public class LinearSnapHelper extends SnapHelper {
     }
 
     @Override // androidx.recyclerview.widget.SnapHelper
-    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view) {
+    public int[] calculateDistanceToFinalSnap(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, layoutManager, view2)) == null) {
             int[] iArr = new int[2];
             if (layoutManager.canScrollHorizontally()) {
-                iArr[0] = distanceToCenter(layoutManager, view, getHorizontalHelper(layoutManager));
+                iArr[0] = distanceToCenter(layoutManager, view2, getHorizontalHelper(layoutManager));
             } else {
                 iArr[0] = 0;
             }
             if (layoutManager.canScrollVertically()) {
-                iArr[1] = distanceToCenter(layoutManager, view, getVerticalHelper(layoutManager));
+                iArr[1] = distanceToCenter(layoutManager, view2, getVerticalHelper(layoutManager));
             } else {
                 iArr[1] = 0;
             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public static final ArgbEvaluatorCompat instance;
@@ -55,17 +55,17 @@ public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.TypeEvaluator
     @NonNull
-    public Integer evaluate(float f2, Integer num, Integer num2) {
+    public Integer evaluate(float f, Integer num, Integer num2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), num, num2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), num, num2})) == null) {
             int intValue = num.intValue();
-            float f3 = ((intValue >> 24) & 255) / 255.0f;
+            float f2 = ((intValue >> 24) & 255) / 255.0f;
             int intValue2 = num2.intValue();
             float pow = (float) Math.pow(((intValue >> 16) & 255) / 255.0f, 2.2d);
             float pow2 = (float) Math.pow(((intValue >> 8) & 255) / 255.0f, 2.2d);
             float pow3 = (float) Math.pow((intValue & 255) / 255.0f, 2.2d);
-            return Integer.valueOf((Math.round(((float) Math.pow(pow + ((((float) Math.pow(((intValue2 >> 16) & 255) / 255.0f, 2.2d)) - pow) * f2), 0.45454545454545453d)) * 255.0f) << 16) | (Math.round((f3 + (((((intValue2 >> 24) & 255) / 255.0f) - f3) * f2)) * 255.0f) << 24) | (Math.round(((float) Math.pow(pow2 + ((((float) Math.pow(((intValue2 >> 8) & 255) / 255.0f, 2.2d)) - pow2) * f2), 0.45454545454545453d)) * 255.0f) << 8) | Math.round(((float) Math.pow(pow3 + (f2 * (((float) Math.pow((intValue2 & 255) / 255.0f, 2.2d)) - pow3)), 0.45454545454545453d)) * 255.0f));
+            return Integer.valueOf((Math.round(((float) Math.pow(pow + ((((float) Math.pow(((intValue2 >> 16) & 255) / 255.0f, 2.2d)) - pow) * f), 0.45454545454545453d)) * 255.0f) << 16) | (Math.round((f2 + (((((intValue2 >> 24) & 255) / 255.0f) - f2) * f)) * 255.0f) << 24) | (Math.round(((float) Math.pow(pow2 + ((((float) Math.pow(((intValue2 >> 8) & 255) / 255.0f, 2.2d)) - pow2) * f), 0.45454545454545453d)) * 255.0f) << 8) | Math.round(((float) Math.pow(pow3 + (f * (((float) Math.pow((intValue2 & 255) / 255.0f, 2.2d)) - pow3)), 0.45454545454545453d)) * 255.0f));
         }
         return (Integer) invokeCommon.objValue;
     }

@@ -66,8 +66,8 @@ public enum CharCategory {
         this.code = str;
     }
 
-    public final boolean contains(char c2) {
-        return Character.getType(c2) == this.value;
+    public final boolean contains(char c) {
+        return Character.getType(c) == this.value;
     }
 
     public final String getCode() {

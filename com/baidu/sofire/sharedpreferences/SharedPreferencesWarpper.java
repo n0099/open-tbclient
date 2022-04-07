@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SharedPreferencesWarpper implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -133,22 +133,22 @@ public class SharedPreferencesWarpper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f2) {
+    public float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048580, this, str, f)) == null) {
             try {
             } catch (Throwable th) {
                 CommonMethods.handleNuLException(th);
             }
             if (this.mIsMainProcess == 1 && (!this.mIsPlatformShared || TextUtils.isEmpty(this.mHandleSharedPlatformName))) {
-                return this.mBase == null ? f2 : this.mBase.getFloat(str, f2);
+                return this.mBase == null ? f : this.mBase.getFloat(str, f);
             }
-            Bundle callProviderGet = callProviderGet(SharedPreferenceManager.OPERATION_GET_FLOAT, str, String.valueOf(f2));
+            Bundle callProviderGet = callProviderGet(SharedPreferenceManager.OPERATION_GET_FLOAT, str, String.valueOf(f));
             if (callProviderGet != null) {
-                return callProviderGet.getFloat("result", f2);
+                return callProviderGet.getFloat("result", f);
             }
-            return f2;
+            return f;
         }
         return invokeLF.floatValue;
     }

@@ -1,7 +1,5 @@
 package com.baidu.searchbox.task.async.appcreate;
 
-import c.a.p0.e4.b;
-import c.a.p0.e4.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,7 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.yp8;
+import com.repackage.zp8;
+/* loaded from: classes2.dex */
 public class InitSDKAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,18 +32,18 @@ public class InitSDKAsyncTask extends LaunchTask {
     private void initJpusbSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            b.b().d(TbadkCoreApplication.getInst());
+            yp8.b().d(TbadkCoreApplication.getInst());
         }
     }
 
     private void initStatSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            c.b().a(TbadkCoreApplication.getInst());
-            c b2 = c.b();
+            zp8.b().a(TbadkCoreApplication.getInst());
+            zp8 b = zp8.b();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             TbadkCoreApplication.getInst();
-            b2.e(inst, TbadkCoreApplication.getFrom(), true);
+            b.e(inst, TbadkCoreApplication.getFrom(), true);
         }
     }
 

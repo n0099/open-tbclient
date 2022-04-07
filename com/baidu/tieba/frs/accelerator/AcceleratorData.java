@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.accelerator;
 
-import c.a.p0.f1.r2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.aq6;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AcceleratorData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final int AVAILABLE_NODES_NUM_DEFAULT_TAG = 0;
@@ -91,7 +91,7 @@ public class AcceleratorData implements Serializable {
             }
             this.availableTornadoNodeInfoList = new ArrayList();
             for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
-                if (c.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
+                if (aq6.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
                     this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
                     this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
                 }

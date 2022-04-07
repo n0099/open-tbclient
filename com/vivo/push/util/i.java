@@ -10,14 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class i implements BaseNotifyLayoutAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f43949b;
+    public String b;
 
     public i() {
         Interceptable interceptable = $ic;
@@ -37,7 +35,7 @@ public final class i implements BaseNotifyLayoutAdapter {
     public final int getNotificationLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getIdentifier("push_notify", TtmlNode.TAG_LAYOUT, this.f43949b) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getIdentifier("push_notify", TtmlNode.TAG_LAYOUT, this.b) : invokeV.intValue;
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -48,17 +46,17 @@ public final class i implements BaseNotifyLayoutAdapter {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (j.f43955g) {
+            if (j.g) {
                 resources = this.a;
-                str = this.f43949b;
+                str = this.b;
                 str2 = "notify_icon_rom30";
-            } else if (j.f43954f) {
+            } else if (j.f) {
                 resources = this.a;
-                str = this.f43949b;
+                str = this.b;
                 str2 = "notify_icon_rom20";
             } else {
                 resources = this.a;
-                str = this.f43949b;
+                str = this.b;
                 str2 = "notify_icon";
             }
             return resources.getIdentifier(str2, "id", str);
@@ -74,18 +72,18 @@ public final class i implements BaseNotifyLayoutAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
                 i = ((Integer) aa.a("com.android.internal.R$color", "vivo_notification_title_text_color")).intValue();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 i = 0;
             }
             if (i > 0) {
                 return this.a.getColor(i);
             }
-            if (j.f43955g) {
+            if (j.g) {
                 return -1;
             }
-            if (j.f43954f) {
-                if (j.f43955g) {
+            if (j.f) {
+                if (j.g) {
                     return Color.parseColor("#ff999999");
                 }
                 return -1;
@@ -99,7 +97,7 @@ public final class i implements BaseNotifyLayoutAdapter {
     public final void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f43949b = context.getPackageName();
+            this.b = context.getPackageName();
             this.a = context.getResources();
         }
     }

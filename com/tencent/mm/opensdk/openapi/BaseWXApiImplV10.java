@@ -59,7 +59,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
@@ -174,8 +174,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 parse = Uri.parse(str);
                 queryParameter = parse.getQueryParameter("wx_internal_resptype");
                 Log.i("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType, respType = " + queryParameter);
-            } catch (Exception e2) {
-                Log.e("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType fail, ex = " + e2.getMessage());
+            } catch (Exception e) {
+                Log.e("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType fail, ex = " + e.getMessage());
             }
             if (d.b(queryParameter)) {
                 Log.e("MicroMsg.SDK.WXApiImplV10", "handleWxInternalRespType fail, respType is null");
@@ -486,8 +486,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 if (wxappPayEntryClassname == null) {
                     try {
                         wxappPayEntryClassname = context.getPackageManager().getApplicationInfo("com.tencent.mm", 128).metaData.getString("com.tencent.mm.BuildInfo.OPEN_SDK_PAY_ENTRY_CLASSNAME", null);
-                    } catch (Exception e2) {
-                        Log.e("MicroMsg.SDK.WXApiImplV10", "get from metaData failed : " + e2.getMessage());
+                    } catch (Exception e) {
+                        Log.e("MicroMsg.SDK.WXApiImplV10", "get from metaData failed : " + e.getMessage());
                     }
                 }
                 if (wxappPayEntryClassname == null) {
@@ -608,8 +608,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
                         try {
                             MMSharedPreferences mMSharedPreferences = new MMSharedPreferences(this.this$0.context);
                             this.this$0.wxSdkVersion = mMSharedPreferences.getInt("_build_info_sdk_int_", 0);
-                        } catch (Exception e2) {
-                            Log.w("MicroMsg.SDK.WXApiImplV10", e2.getMessage());
+                        } catch (Exception e) {
+                            Log.w("MicroMsg.SDK.WXApiImplV10", e.getMessage());
                         }
                         this.val$countDownWait.countDown();
                     }
@@ -617,16 +617,16 @@ public class BaseWXApiImplV10 implements IWXAPI {
             });
             try {
                 countDownLatch.await(1000L, TimeUnit.MILLISECONDS);
-            } catch (InterruptedException e2) {
-                Log.w("MicroMsg.SDK.WXApiImplV10", e2.getMessage());
+            } catch (InterruptedException e) {
+                Log.w("MicroMsg.SDK.WXApiImplV10", e.getMessage());
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "wxSdkVersion = " + this.wxSdkVersion);
             if (this.wxSdkVersion == 0) {
                 try {
                     this.wxSdkVersion = this.context.getPackageManager().getApplicationInfo("com.tencent.mm", 128).metaData.getInt("com.tencent.mm.BuildInfo.OPEN_SDK_VERSION", 0);
                     Log.d("MicroMsg.SDK.WXApiImplV10", "OPEN_SDK_VERSION = " + this.wxSdkVersion);
-                } catch (Exception e3) {
-                    Log.e("MicroMsg.SDK.WXApiImplV10", "get from metaData failed : " + e3.getMessage());
+                } catch (Exception e2) {
+                    Log.e("MicroMsg.SDK.WXApiImplV10", "get from metaData failed : " + e2.getMessage());
                 }
             }
             return this.wxSdkVersion;
@@ -640,8 +640,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent, iWXAPIEventHandler)) == null) {
             try {
-            } catch (Exception e2) {
-                Log.e("MicroMsg.SDK.WXApiImplV10", "handleIntent fail, ex = " + e2.getMessage());
+            } catch (Exception e) {
+                Log.e("MicroMsg.SDK.WXApiImplV10", "handleIntent fail, ex = " + e.getMessage());
             }
             if (!WXApiImplComm.isIntentFromWx(intent, "com.tencent.mm.openapi.token")) {
                 Log.i("MicroMsg.SDK.WXApiImplV10", "handleIntent fail, intent not from weixin msg");
@@ -696,8 +696,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
                                         return true;
                                     }
                                     Log.d("MicroMsg.SDK.WXApiImplV10", "not openbusinesswebview %" + str);
-                                } catch (Exception e3) {
-                                    Log.e("MicroMsg.SDK.WXApiImplV10", "parse fail, ex = " + e3.getMessage());
+                                } catch (Exception e2) {
+                                    Log.e("MicroMsg.SDK.WXApiImplV10", "parse fail, ex = " + e2.getMessage());
                                 }
                             }
                             iWXAPIEventHandler.onReq(req);
@@ -804,8 +804,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 try {
                     this.context.startActivity(this.context.getPackageManager().getLaunchIntentForPackage("com.tencent.mm"));
                     return true;
-                } catch (Exception e2) {
-                    str = "startActivity fail, exception = " + e2.getMessage();
+                } catch (Exception e) {
+                    str = "startActivity fail, exception = " + e.getMessage();
                 }
             } else {
                 str = "open wx app failed, not installed or signature check failed";
@@ -844,12 +844,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C2101a c2101a = new a.C2101a();
-            c2101a.a = "com.tencent.mm";
-            c2101a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c2101a.content = "weixin://registerapp?appid=" + this.appId;
-            c2101a.f43670b = j;
-            return a.a(this.context, c2101a);
+            a.C0645a c0645a = new a.C0645a();
+            c0645a.a = "com.tencent.mm";
+            c0645a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c0645a.content = "weixin://registerapp?appid=" + this.appId;
+            c0645a.b = j;
+            return a.a(this.context, c0645a);
         }
         return invokeLJ.booleanValue;
     }
@@ -983,8 +983,8 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 if (baseReq.getType() == 2) {
                     try {
                         args.token = getTokenFromWX(this.context);
-                    } catch (Exception e2) {
-                        Log.e("MicroMsg.SDK.WXApiImplV10", "getTokenFromWX fail, exception = " + e2.getMessage());
+                    } catch (Exception e) {
+                        Log.e("MicroMsg.SDK.WXApiImplV10", "getTokenFromWX fail, exception = " + e.getMessage());
                     }
                 }
                 return MMessageActV2.send(this.context, args);
@@ -1052,11 +1052,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C2101a c2101a = new a.C2101a();
-            c2101a.a = "com.tencent.mm";
-            c2101a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c2101a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c2101a);
+            a.C0645a c0645a = new a.C0645a();
+            c0645a.a = "com.tencent.mm";
+            c0645a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c0645a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c0645a);
         }
     }
 }

@@ -3,9 +3,6 @@ package com.baidu.tieba.im.chat;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.t;
-import c.a.p0.u1.f.c;
-import c.a.p0.u1.f.h;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.model.MsglistModel;
@@ -14,8 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements c {
+import com.repackage.d57;
+import com.repackage.jc5;
+import com.repackage.y47;
+/* loaded from: classes3.dex */
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements y47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,7 +33,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    public abstract boolean first(c cVar);
+    public abstract boolean first(y47 y47Var);
 
     public abstract boolean initData(Bundle bundle);
 
@@ -76,7 +76,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (first(this)) {
                 loadDraft();
                 regReceiver();
-                h.a = t.e();
+                d57.a = jc5.e();
             }
         }
     }
@@ -90,7 +90,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // c.a.p0.u1.f.c
+    @Override // com.repackage.y47
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

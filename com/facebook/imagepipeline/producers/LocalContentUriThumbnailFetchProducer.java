@@ -27,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Rect MICRO_THUMBNAIL_DIMENSIONS;
@@ -129,8 +129,8 @@ public class LocalContentUriThumbnailFetchProducer extends LocalFetchProducer im
             if (str != null) {
                 try {
                     return JfifUtil.getAutoRotateAngleFromOrientation(new ExifInterface(str).getAttributeInt("Orientation", 1));
-                } catch (IOException e2) {
-                    FLog.e(TAG, e2, "Unable to retrieve thumbnail rotation for %s", str);
+                } catch (IOException e) {
+                    FLog.e(TAG, e, "Unable to retrieve thumbnail rotation for %s", str);
                 }
             }
             return 0;

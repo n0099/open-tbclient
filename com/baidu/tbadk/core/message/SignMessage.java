@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SignMessage extends CustomResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,8 +46,8 @@ public class SignMessage extends CustomResponsedMessage {
             if (jSONObject != null) {
                 try {
                     jSONObject2 = jSONObject.optJSONObject("error");
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                     return;
                 }
             }

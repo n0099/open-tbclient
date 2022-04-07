@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +11,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class FrsBaseViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f32257f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f32258g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Activity f32259h;
+    public int f;
+    public float g;
+    public Activity h;
     public boolean i;
     public a j;
     public boolean k;
     public boolean l;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a();
 
@@ -63,7 +57,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            this.f32258g = motionEvent.getRawX();
+            this.g = motionEvent.getRawX();
             int action = motionEvent.getAction();
             boolean z = false;
             if (action == 0) {
@@ -71,7 +65,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 if (aVar != null) {
                     aVar.a();
                 }
-                if (this.f32258g >= getMeasuredWidth() - this.f32257f && this.f32258g <= getMeasuredWidth()) {
+                if (this.g >= getMeasuredWidth() - this.f && this.g <= getMeasuredWidth()) {
                     setmDisallowSlip(false);
                     this.i = true;
                     this.l = true;
@@ -81,9 +75,9 @@ public class FrsBaseViewPager extends BdBaseViewPager {
             } else if (action != 1) {
                 if (action == 2 && this.l) {
                     a aVar2 = this.j;
-                    boolean b2 = aVar2 != null ? aVar2.b() : true;
-                    setmDisallowSlip((this.i && b2) ? true : true);
-                    this.l = b2;
+                    boolean b = aVar2 != null ? aVar2.b() : true;
+                    setmDisallowSlip((this.i && b) ? true : true);
+                    this.l = b;
                 }
             } else {
                 this.l = true;
@@ -111,7 +105,7 @@ public class FrsBaseViewPager extends BdBaseViewPager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            this.f32258g = motionEvent.getRawX();
+            this.g = motionEvent.getRawX();
             if (motionEvent.getAction() == 1) {
                 if (this.i) {
                     this.i = false;
@@ -159,12 +153,12 @@ public class FrsBaseViewPager extends BdBaseViewPager {
                 return;
             }
         }
-        this.f32257f = 0;
+        this.f = 0;
         this.l = true;
         Activity activity = (Activity) context;
-        this.f32259h = activity;
-        this.f32257f = n.d(activity, 0);
-        BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.f32259h);
+        this.h = activity;
+        this.f = oi.d(activity, 0);
+        BdBaseViewPager.a aVar = new BdBaseViewPager.a(this, this.h);
         aVar.b(1000);
         aVar.a(this);
     }

@@ -9,9 +9,6 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.w.a;
-import c.a.o0.w.h;
-import c.a.o0.w.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -22,35 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class BLauncher extends ImageView implements h {
+import com.repackage.i05;
+import com.repackage.p05;
+import com.repackage.u05;
+/* loaded from: classes3.dex */
+public class BLauncher extends ImageView implements p05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30464b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30465c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public m f30466d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Drawable f30467e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f30468f;
+    public int b;
+    public int c;
+    public u05 d;
+    public Drawable e;
+    public boolean f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, m mVar) {
+    public BLauncher(Context context, u05 u05Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, mVar};
+            Object[] objArr = {context, u05Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,14 +51,14 @@ public class BLauncher extends ImageView implements h {
                 return;
             }
         }
-        this.f30465c = 0;
-        this.f30468f = false;
-        if (mVar == null) {
+        this.c = 0;
+        this.f = false;
+        if (u05Var == null) {
             return;
         }
-        this.f30466d = mVar;
+        this.d = u05Var;
         setIcon();
-        setToolId(mVar.f11509c);
+        setToolId(u05Var.c);
     }
 
     public void a(String str) {
@@ -91,21 +81,21 @@ public class BLauncher extends ImageView implements h {
                 ((ViewGroup) parent2).addView(this.a);
             }
         }
-        SkinManager.setViewTextColor(this.a, R.color.CAM_X0111, 1, this.f30465c);
+        SkinManager.setViewTextColor(this.a, R.color.CAM_X0111, 1, this.c);
         this.a.setGravity(17);
         if (!str.equals(" ")) {
             this.a.setTextSize(10.0f);
             this.a.setText(str);
-            SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_red_dot, this.f30465c);
+            SkinManager.setBackgroundResource(this.a, R.drawable.icon_news_red_dot, this.c);
             this.a.setVisibility(0);
             return;
         }
         this.a.setVisibility(8);
-        this.f30466d.o = true;
+        this.d.o = true;
         invalidate();
     }
 
-    @Override // c.a.o0.w.h
+    @Override // com.repackage.p05
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -120,7 +110,7 @@ public class BLauncher extends ImageView implements h {
             return;
         }
         textView.setVisibility(8);
-        f();
+        e();
     }
 
     @Override // android.view.View
@@ -128,21 +118,21 @@ public class BLauncher extends ImageView implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.draw(canvas);
-            if (this.f30466d.o) {
-                this.f30467e = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
+            if (this.d.o) {
+                this.e = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
                 int width = getWidth();
-                int intrinsicHeight = this.f30467e.getIntrinsicHeight();
-                this.f30467e.setBounds(getWidth() - this.f30467e.getIntrinsicWidth(), 0, width, intrinsicHeight);
-                this.f30467e.draw(canvas);
+                int intrinsicHeight = this.e.getIntrinsicHeight();
+                this.e.setBounds(getWidth() - this.e.getIntrinsicWidth(), 0, width, intrinsicHeight);
+                this.e.draw(canvas);
             }
         }
     }
 
-    @Override // c.a.o0.w.h
-    public void f() {
+    @Override // com.repackage.p05
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f30466d.o = false;
+            this.d.o = false;
             invalidate();
         }
     }
@@ -150,7 +140,7 @@ public class BLauncher extends ImageView implements h {
     public boolean getIsOutSetVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30468f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
     public TextView getNotice() {
@@ -159,14 +149,14 @@ public class BLauncher extends ImageView implements h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (TextView) invokeV.objValue;
     }
 
-    @Override // c.a.o0.w.h
+    @Override // com.repackage.p05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f30464b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // c.a.o0.w.h
+    @Override // com.repackage.p05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -175,11 +165,11 @@ public class BLauncher extends ImageView implements h {
         }
     }
 
-    @Override // c.a.o0.w.b
-    public void onAction(a aVar) {
+    @Override // com.repackage.j05
+    public void onAction(i05 i05Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) && aVar != null && aVar.a == 2) {
-            Object obj = aVar.f11499c;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, i05Var) == null) && i05Var != null && i05Var.a == 2) {
+            Object obj = i05Var.c;
             if (obj == null) {
                 c();
             } else if (obj instanceof String) {
@@ -188,11 +178,11 @@ public class BLauncher extends ImageView implements h {
         }
     }
 
-    @Override // c.a.o0.w.h
+    @Override // com.repackage.p05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.f30465c = i;
+            this.c = i;
             setIcon();
             TextView textView = this.a;
             if (textView != null) {
@@ -222,27 +212,27 @@ public class BLauncher extends ImageView implements h {
     }
 
     public void setIcon() {
-        m mVar;
+        u05 u05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mVar = this.f30466d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (u05Var = this.d) == null) {
             return;
         }
-        if (mVar.f11513g) {
+        if (u05Var.g) {
             SvgManager svgManager = SvgManager.getInstance();
-            m mVar2 = this.f30466d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(mVar2.f11510d, mVar2.f11511e, this.f30465c));
-        } else if (mVar.f11514h) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(mVar.f11510d, mVar.f11511e, this.f30465c));
+            u05 u05Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(u05Var2.d, u05Var2.e, this.c));
+        } else if (u05Var.h) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(u05Var.d, u05Var.e, this.c));
         } else {
-            SkinManager.setImageResource(this, mVar.f11510d, this.f30465c);
+            SkinManager.setImageResource(this, u05Var.d, this.c);
         }
-        if (this.f30466d.c()) {
+        if (this.d.c()) {
             return;
         }
         setEnabled(false);
     }
 
-    @Override // c.a.o0.w.h
+    @Override // com.repackage.p05
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
@@ -252,14 +242,14 @@ public class BLauncher extends ImageView implements h {
     public void setOutSetVisibilty(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.f30468f = z;
+            this.f = z;
         }
     }
 
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.f30464b = i;
+            this.b = i;
         }
     }
 }

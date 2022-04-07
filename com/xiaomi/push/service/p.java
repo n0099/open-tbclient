@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public static ArrayList<Pair<String, byte[]>> a;
@@ -75,9 +75,9 @@ public class p {
                     }
                     f949a.clear();
                 }
-            } catch (fw e2) {
-                com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e2);
-                xMPushService.a(10, e2);
+            } catch (fw e) {
+                com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e);
+                xMPushService.a(10, e);
             }
         }
     }
@@ -112,9 +112,9 @@ public class p {
                         }
                     }
                 }
-            } catch (fw e2) {
-                com.xiaomi.channel.commonutils.logger.b.d("meet error when process pending message. " + e2);
-                xMPushService.a(10, e2);
+            } catch (fw e) {
+                com.xiaomi.channel.commonutils.logger.b.d("meet error when process pending message. " + e);
+                xMPushService.a(10, e);
             }
         }
     }

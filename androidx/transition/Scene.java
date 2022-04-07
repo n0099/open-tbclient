@@ -155,12 +155,12 @@ public class Scene {
         this.mLayoutId = i;
     }
 
-    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view) {
+    public Scene(@NonNull ViewGroup viewGroup, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup, view};
+            Object[] objArr = {viewGroup, view2};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -172,6 +172,6 @@ public class Scene {
         }
         this.mLayoutId = -1;
         this.mSceneRoot = viewGroup;
-        this.mLayout = view;
+        this.mLayout = view2;
     }
 }

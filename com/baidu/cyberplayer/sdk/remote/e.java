@@ -13,15 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class e implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<e> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public Uri a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f25429b;
+    public Map<String, String> b;
 
     static {
         InterceptResult invokeClinit;
@@ -90,7 +88,7 @@ public class e implements Parcelable {
             }
         }
         this.a = uri;
-        this.f25429b = map;
+        this.b = map;
     }
 
     public e(Parcel parcel) {
@@ -109,10 +107,10 @@ public class e implements Parcelable {
             }
         }
         this.a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f25429b = new HashMap();
+        this.b = new HashMap();
         int readInt = parcel.readInt();
         for (int i3 = 0; i3 < readInt; i3++) {
-            this.f25429b.put(parcel.readString(), parcel.readString());
+            this.b.put(parcel.readString(), parcel.readString());
         }
     }
 
@@ -125,7 +123,7 @@ public class e implements Parcelable {
     public Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25429b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Map) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -143,13 +141,13 @@ public class e implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeParcelable(this.a, i);
-            Map<String, String> map = this.f25429b;
+            Map<String, String> map = this.b;
             if (map == null || map.size() <= 0) {
                 parcel.writeInt(0);
                 return;
             }
-            parcel.writeInt(this.f25429b.size());
-            for (Map.Entry<String, String> entry : this.f25429b.entrySet()) {
+            parcel.writeInt(this.b.size());
+            for (Map.Entry<String, String> entry : this.b.entrySet()) {
                 parcel.writeString(entry.getKey());
                 parcel.writeString(entry.getValue());
             }

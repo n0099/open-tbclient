@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AC3TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public static int[][][][] bitRateAndFrameSizeTable;
@@ -438,8 +438,8 @@ public class AC3TrackImpl extends AbstractTrack {
                         if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
                             try {
                                 return this.dataSource.map(this.start, this.size);
-                            } catch (IOException e2) {
-                                throw new RuntimeException(e2);
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
                             }
                         }
                         return (ByteBuffer) invokeV2.objValue;

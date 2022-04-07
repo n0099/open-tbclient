@@ -15,7 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -124,8 +124,8 @@ public class PreViewPickCoverEditDraftBean implements Serializable, Cloneable {
                     jSONObject.put("font", TextWordsEntity.TextFontEntity.toJson(this.mFontEntity));
                 }
                 jSONObject.put("multiMediaDataList", MultiMediaData.arratToJson(this.mMultiMediaDataList));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }

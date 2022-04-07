@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DuPaBInfoMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String B_ACTION = "action";
@@ -99,8 +99,8 @@ public class DuPaBInfoMsg extends ChatMsg {
                     jSONObject.put("ip", this.ip);
                 }
                 jSONObject.put("action", this.action);
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "getBInfoContentJson :", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "getBInfoContentJson :", e);
             }
             return jSONObject.toString();
         }

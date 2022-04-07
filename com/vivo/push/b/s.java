@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f43848b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(int i) {
@@ -34,7 +32,7 @@ public class s extends com.vivo.push.o {
             }
         }
         this.a = null;
-        this.f43848b = 0;
+        this.b = 0;
     }
 
     @Override // com.vivo.push.o
@@ -42,7 +40,7 @@ public class s extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             aVar.a("req_id", this.a);
-            aVar.a("status_msg_code", this.f43848b);
+            aVar.a("status_msg_code", this.b);
         }
     }
 
@@ -51,7 +49,7 @@ public class s extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             this.a = aVar.a("req_id");
-            this.f43848b = aVar.b("status_msg_code", this.f43848b);
+            this.b = aVar.b("status_msg_code", this.b);
         }
     }
 
@@ -64,7 +62,7 @@ public class s extends com.vivo.push.o {
     public final int h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43848b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
     }
 
     @Override // com.vivo.push.o

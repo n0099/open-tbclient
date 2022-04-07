@@ -12,7 +12,7 @@ public class k extends a {
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
         Intent intent = new Intent("com.android.filemanager.OPEN_FOLDER");
-        intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.f43007c);
+        intent.putExtra("com.android.filemanager.OPEN_FOLDER", this.c);
         intent.putExtra("com.iqoo.secure", true);
         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         intent.addFlags(32768);

@@ -6,13 +6,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.a.h;
-import c.a.d.f.p.f;
-import c.a.d.i.c;
-import c.a.g0.b.a.e;
-import c.a.o0.c1.y;
-import c.a.o0.r.j0.b;
-import c.a.o0.r0.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -36,14 +29,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d9;
+import com.repackage.el;
+import com.repackage.gi;
+import com.repackage.ii0;
+import com.repackage.ks4;
+import com.repackage.nb;
+import com.repackage.oc5;
+import com.repackage.s85;
+import com.repackage.wt4;
+import com.repackage.yb1;
+import com.repackage.yf;
 import java.util.Collections;
 import java.util.HashSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class TiebaBaseApplication extends TbadkApplication {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +111,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             HashSet<String> hashSet = new HashSet<>();
             if (SpeedRuntime.getSpeedContext().isMainProcess()) {
-                String q = b.k().q("key_sync_task_switch", "");
+                String q = wt4.k().q("key_sync_task_switch", "");
                 if (!StringUtils.isNull(q) && (split = q.split("_")) != null && split.length > 0) {
                     Collections.addAll(hashSet, split);
                 }
@@ -142,7 +146,7 @@ public class TiebaBaseApplication extends TbadkApplication {
     private void initBitmapHelper() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            f.d().f(this.mContext);
+            gi.d().f(this.mContext);
         }
     }
 
@@ -151,12 +155,12 @@ public class TiebaBaseApplication extends TbadkApplication {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             boolean z = false;
             if (isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-                z = y.a(this);
+                z = oc5.a(this);
             }
             if (z) {
                 return;
             }
-            c.a.d.e.a.b().d();
+            nb.b().d();
         }
     }
 
@@ -186,18 +190,18 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
             SwanAppInitHelper.initContext(this);
             AppRuntimeInit.onApplicationattachBaseContext(this);
-            e.b(this);
+            yb1.b(this);
             if (isMainProcess(false, context)) {
-                c.a.o0.r.a0.a.b(context);
+                ks4.b(context);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             NPSHookManager.init(this);
-            c.e().g(this);
+            el.e().g(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1011);
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            c.a.a0.h.b.b(this);
+            ii0.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
     }
@@ -211,10 +215,10 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
             TbadkApplication.sApp = this;
             if (isMainProcess(false)) {
-                c.a.o0.r.a0.a.a();
+                ks4.a();
             }
             this.mAppInitHandler = new a(this, Looper.getMainLooper());
-            h.a().c(super.getResources());
+            d9.a().c(super.getResources());
             initBdBaseApp(this);
             super.onCreate();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2001);
@@ -226,11 +230,11 @@ public class TiebaBaseApplication extends TbadkApplication {
             if (isMainProcess(false)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921659));
             }
-            k.b().G(System.currentTimeMillis());
+            s85.b().F(System.currentTimeMillis());
             if (isMainProcess(false)) {
-                c.a.o0.r.a0.a.j();
+                ks4.j();
             }
-            c.a.d.f.j.b.m.a.a().b();
+            yf.a().b();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2004);
             SpeedStats.getInstance().onAppCreateEnd();
         }

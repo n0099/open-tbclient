@@ -30,7 +30,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class TextLayer extends BaseLayer {
     public final LongSparseArray<String> codePointCache;
     @Nullable
@@ -64,7 +64,7 @@ public class TextLayer extends BaseLayer {
     public BaseKeyframeAnimation<Float, Float> trackingCallbackAnimation;
 
     /* renamed from: com.airbnb.lottie.model.layer.TextLayer$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$DocumentData$Justification;
 
@@ -141,13 +141,13 @@ public class TextLayer extends BaseLayer {
         addAnimation(this.trackingAnimation);
     }
 
-    private void applyJustification(DocumentData.Justification justification, Canvas canvas, float f2) {
+    private void applyJustification(DocumentData.Justification justification, Canvas canvas, float f) {
         int i = AnonymousClass3.$SwitchMap$com$airbnb$lottie$model$DocumentData$Justification[justification.ordinal()];
         if (i == 2) {
-            canvas.translate(-f2, 0.0f);
+            canvas.translate(-f, 0.0f);
         } else if (i != 3) {
         } else {
-            canvas.translate((-f2) / 2.0f, 0.0f);
+            canvas.translate((-f) / 2.0f, 0.0f);
         }
     }
 
@@ -187,14 +187,14 @@ public class TextLayer extends BaseLayer {
         canvas.drawText(str, 0, str.length(), 0.0f, 0.0f, paint);
     }
 
-    private void drawCharacterAsGlyph(FontCharacter fontCharacter, Matrix matrix, float f2, DocumentData documentData, Canvas canvas) {
+    private void drawCharacterAsGlyph(FontCharacter fontCharacter, Matrix matrix, float f, DocumentData documentData, Canvas canvas) {
         List<ContentGroup> contentsForCharacter = getContentsForCharacter(fontCharacter);
         for (int i = 0; i < contentsForCharacter.size(); i++) {
             Path path = contentsForCharacter.get(i).getPath();
             path.computeBounds(this.rectF, false);
             this.matrix.set(matrix);
             this.matrix.preTranslate(0.0f, (-documentData.baselineShift) * Utils.dpScale());
-            this.matrix.preScale(f2, f2);
+            this.matrix.preScale(f, f);
             path.transform(this.matrix);
             if (documentData.strokeOverFill) {
                 drawGlyph(path, this.fillPaint, canvas);
@@ -216,13 +216,13 @@ public class TextLayer extends BaseLayer {
         drawCharacter(str, this.fillPaint, canvas);
     }
 
-    private void drawFontTextLine(String str, DocumentData documentData, Canvas canvas, float f2) {
+    private void drawFontTextLine(String str, DocumentData documentData, Canvas canvas, float f) {
         int i = 0;
         while (i < str.length()) {
             String codePointToString = codePointToString(str, i);
             i += codePointToString.length();
             drawCharacterFromFont(codePointToString, documentData, canvas);
-            canvas.translate(this.fillPaint.measureText(codePointToString) + f2, 0.0f);
+            canvas.translate(this.fillPaint.measureText(codePointToString) + f, 0.0f);
         }
     }
 
@@ -236,14 +236,14 @@ public class TextLayer extends BaseLayer {
         canvas.drawPath(path, paint);
     }
 
-    private void drawGlyphTextLine(String str, DocumentData documentData, Matrix matrix, Font font, Canvas canvas, float f2, float f3) {
+    private void drawGlyphTextLine(String str, DocumentData documentData, Matrix matrix, Font font, Canvas canvas, float f, float f2) {
         float floatValue;
         for (int i = 0; i < str.length(); i++) {
             FontCharacter fontCharacter = this.composition.getCharacters().get(FontCharacter.hashFor(str.charAt(i), font.getFamily(), font.getStyle()));
             if (fontCharacter != null) {
-                drawCharacterAsGlyph(fontCharacter, matrix, f3, documentData, canvas);
-                float width = ((float) fontCharacter.getWidth()) * f3 * Utils.dpScale() * f2;
-                float f4 = documentData.tracking / 10.0f;
+                drawCharacterAsGlyph(fontCharacter, matrix, f2, documentData, canvas);
+                float width = ((float) fontCharacter.getWidth()) * f2 * Utils.dpScale() * f;
+                float f3 = documentData.tracking / 10.0f;
                 BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation = this.trackingCallbackAnimation;
                 if (baseKeyframeAnimation != null) {
                     floatValue = baseKeyframeAnimation.getValue().floatValue();
@@ -252,28 +252,28 @@ public class TextLayer extends BaseLayer {
                     if (baseKeyframeAnimation2 != null) {
                         floatValue = baseKeyframeAnimation2.getValue().floatValue();
                     }
-                    canvas.translate(width + (f4 * f2), 0.0f);
+                    canvas.translate(width + (f3 * f), 0.0f);
                 }
-                f4 += floatValue;
-                canvas.translate(width + (f4 * f2), 0.0f);
+                f3 += floatValue;
+                canvas.translate(width + (f3 * f), 0.0f);
             }
         }
     }
 
     private void drawTextGlyphs(DocumentData documentData, Matrix matrix, Font font, Canvas canvas) {
-        float f2;
+        float f;
         BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation = this.textSizeCallbackAnimation;
         if (baseKeyframeAnimation != null) {
-            f2 = baseKeyframeAnimation.getValue().floatValue();
+            f = baseKeyframeAnimation.getValue().floatValue();
         } else {
             BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation2 = this.textSizeAnimation;
             if (baseKeyframeAnimation2 != null) {
-                f2 = baseKeyframeAnimation2.getValue().floatValue();
+                f = baseKeyframeAnimation2.getValue().floatValue();
             } else {
-                f2 = documentData.size;
+                f = documentData.size;
             }
         }
-        float f3 = f2 / 100.0f;
+        float f2 = f / 100.0f;
         float scale = Utils.getScale(matrix);
         String str = documentData.text;
         float dpScale = documentData.lineHeight * Utils.dpScale();
@@ -281,11 +281,11 @@ public class TextLayer extends BaseLayer {
         int size = textLines.size();
         for (int i = 0; i < size; i++) {
             String str2 = textLines.get(i);
-            float textLineWidthForGlyphs = getTextLineWidthForGlyphs(str2, font, f3, scale);
+            float textLineWidthForGlyphs = getTextLineWidthForGlyphs(str2, font, f2, scale);
             canvas.save();
             applyJustification(documentData.justification, canvas, textLineWidthForGlyphs);
             canvas.translate(0.0f, (i * dpScale) - (((size - 1) * dpScale) / 2.0f));
-            drawGlyphTextLine(str2, documentData, matrix, font, canvas, scale, f3);
+            drawGlyphTextLine(str2, documentData, matrix, font, canvas, scale, f2);
             canvas.restore();
         }
     }
@@ -295,7 +295,7 @@ public class TextLayer extends BaseLayer {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void drawTextWithFont(DocumentData documentData, Font font, Matrix matrix, Canvas canvas) {
-        float f2;
+        float f;
         float floatValue;
         int size;
         int i;
@@ -312,20 +312,20 @@ public class TextLayer extends BaseLayer {
         this.fillPaint.setTypeface(typeface);
         BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation = this.textSizeCallbackAnimation;
         if (baseKeyframeAnimation != null) {
-            f2 = baseKeyframeAnimation.getValue().floatValue();
+            f = baseKeyframeAnimation.getValue().floatValue();
         } else {
             BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation2 = this.textSizeAnimation;
             if (baseKeyframeAnimation2 != null) {
-                f2 = baseKeyframeAnimation2.getValue().floatValue();
+                f = baseKeyframeAnimation2.getValue().floatValue();
             } else {
-                f2 = documentData.size;
+                f = documentData.size;
             }
         }
-        this.fillPaint.setTextSize(Utils.dpScale() * f2);
+        this.fillPaint.setTextSize(Utils.dpScale() * f);
         this.strokePaint.setTypeface(this.fillPaint.getTypeface());
         this.strokePaint.setTextSize(this.fillPaint.getTextSize());
         float dpScale = documentData.lineHeight * Utils.dpScale();
-        float f3 = documentData.tracking / 10.0f;
+        float f2 = documentData.tracking / 10.0f;
         BaseKeyframeAnimation<Float, Float> baseKeyframeAnimation3 = this.trackingCallbackAnimation;
         if (baseKeyframeAnimation3 != null) {
             floatValue = baseKeyframeAnimation3.getValue().floatValue();
@@ -334,7 +334,7 @@ public class TextLayer extends BaseLayer {
             if (baseKeyframeAnimation4 != null) {
                 floatValue = baseKeyframeAnimation4.getValue().floatValue();
             }
-            float dpScale2 = ((f3 * Utils.dpScale()) * f2) / 100.0f;
+            float dpScale2 = ((f2 * Utils.dpScale()) * f) / 100.0f;
             List<String> textLines = getTextLines(str);
             size = textLines.size();
             for (i = 0; i < size; i++) {
@@ -347,8 +347,8 @@ public class TextLayer extends BaseLayer {
                 canvas.restore();
             }
         }
-        f3 += floatValue;
-        float dpScale22 = ((f3 * Utils.dpScale()) * f2) / 100.0f;
+        f2 += floatValue;
+        float dpScale22 = ((f2 * Utils.dpScale()) * f) / 100.0f;
         List<String> textLines2 = getTextLines(str);
         size = textLines2.size();
         while (i < size) {
@@ -369,15 +369,15 @@ public class TextLayer extends BaseLayer {
         return arrayList;
     }
 
-    private float getTextLineWidthForGlyphs(String str, Font font, float f2, float f3) {
-        float f4 = 0.0f;
+    private float getTextLineWidthForGlyphs(String str, Font font, float f, float f2) {
+        float f3 = 0.0f;
         for (int i = 0; i < str.length(); i++) {
             FontCharacter fontCharacter = this.composition.getCharacters().get(FontCharacter.hashFor(str.charAt(i), font.getFamily(), font.getStyle()));
             if (fontCharacter != null) {
-                f4 = (float) (f4 + (fontCharacter.getWidth() * f2 * Utils.dpScale() * f3));
+                f3 = (float) (f3 + (fontCharacter.getWidth() * f * Utils.dpScale() * f2));
             }
         }
-        return f4;
+        return f3;
     }
 
     private List<String> getTextLines(String str) {

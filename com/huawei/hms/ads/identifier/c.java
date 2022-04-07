@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class c {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadPoolExecutor a;

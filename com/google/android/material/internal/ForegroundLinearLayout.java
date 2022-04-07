@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForegroundLinearLayout extends LinearLayoutCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,13 +85,13 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
     @Override // android.view.View
     @RequiresApi(21)
     @TargetApi(21)
-    public void drawableHotspotChanged(float f2, float f3) {
+    public void drawableHotspotChanged(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            super.drawableHotspotChanged(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            super.drawableHotspotChanged(f, f2);
             Drawable drawable = this.foreground;
             if (drawable != null) {
-                drawable.setHotspot(f2, f3);
+                drawable.setHotspot(f, f2);
             }
         }
     }
@@ -254,7 +254,7 @@ public class ForegroundLinearLayout extends LinearLayoutCompat {
         this.foregroundGravity = 119;
         this.mForegroundInPadding = true;
         this.foregroundBoundsChanged = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f040259}, i, 0, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{16843017, 16843264, R.attr.obfuscated_res_0x7f0402a1}, i, 0, new int[0]);
         this.foregroundGravity = obtainStyledAttributes.getInt(1, this.foregroundGravity);
         Drawable drawable = obtainStyledAttributes.getDrawable(0);
         if (drawable != null) {

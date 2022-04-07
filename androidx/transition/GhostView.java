@@ -4,7 +4,7 @@ import android.view.View;
 import android.view.ViewGroup;
 /* loaded from: classes.dex */
 public interface GhostView {
-    void reserveEndViewTransition(ViewGroup viewGroup, View view);
+    void reserveEndViewTransition(ViewGroup viewGroup, View view2);
 
     void setVisibility(int i);
 }

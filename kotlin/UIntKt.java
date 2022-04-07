@@ -7,42 +7,42 @@ public final class UIntKt {
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final int toUInt(byte b2) {
-        return UInt.m786constructorimpl(b2);
+    public static final int toUInt(byte b) {
+        return UInt.m782constructorimpl(b);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(short s) {
-        return UInt.m786constructorimpl(s);
+        return UInt.m782constructorimpl(s);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(int i) {
-        return UInt.m786constructorimpl(i);
+        return UInt.m782constructorimpl(i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final int toUInt(long j) {
-        return UInt.m786constructorimpl((int) j);
+        return UInt.m782constructorimpl((int) j);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final int toUInt(float f2) {
-        return UnsignedKt.doubleToUInt(f2);
+    public static final int toUInt(float f) {
+        return UnsignedKt.doubleToUInt(f);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
-    public static final int toUInt(double d2) {
-        return UnsignedKt.doubleToUInt(d2);
+    public static final int toUInt(double d) {
+        return UnsignedKt.doubleToUInt(d);
     }
 }

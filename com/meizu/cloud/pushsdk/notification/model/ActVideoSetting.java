@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class ActVideoSetting implements Parcelable {
     public static final String ACT_URL = "au";
     public static final String ACT_VIDEO_SETTING = "acts";
@@ -42,8 +43,8 @@ public class ActVideoSetting implements Parcelable {
         if (!TextUtils.isEmpty(str)) {
             try {
                 jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                c.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+            } catch (JSONException e) {
+                rm9.b(TAG, "parse json string error " + e.getMessage());
             }
             return parse(jSONObject);
         }
@@ -62,13 +63,13 @@ public class ActVideoSetting implements Parcelable {
                 if (!jSONObject.isNull(ACT_URL)) {
                     actVideoSetting.setActUrl(jSONObject.getString(ACT_URL));
                 }
-            } catch (JSONException e2) {
-                str = "parse json obj error " + e2.getMessage();
+            } catch (JSONException e) {
+                str = "parse json obj error " + e.getMessage();
             }
             return actVideoSetting;
         }
         str = "no such tag ActVideoSetting";
-        c.h.a.a.a.b(TAG, str);
+        rm9.b(TAG, str);
         return actVideoSetting;
     }
 

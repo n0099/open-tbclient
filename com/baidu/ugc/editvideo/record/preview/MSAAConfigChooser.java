@@ -10,7 +10,7 @@ import com.baidu.webkit.internal.monitor.MonitorType;
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MSAAConfigChooser implements GLSurfaceView.EGLConfigChooser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

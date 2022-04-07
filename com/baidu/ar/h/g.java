@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static UUID uuid;
@@ -49,8 +49,8 @@ public final class g {
                             if (uuid != null) {
                                 sharedPreferences.edit().putString("device_id", uuid.toString()).apply();
                             }
-                        } catch (UnsupportedEncodingException e2) {
-                            throw new RuntimeException(e2);
+                        } catch (UnsupportedEncodingException e) {
+                            throw new RuntimeException(e);
                         }
                     }
                 }

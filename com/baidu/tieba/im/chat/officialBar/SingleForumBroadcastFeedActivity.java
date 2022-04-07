@@ -2,8 +2,6 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-import c.a.o0.j0.i;
-import c.a.p0.u1.f.j.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -18,25 +16,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d77;
+import com.repackage.n57;
+import com.repackage.p55;
+import com.repackage.r67;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public OfficialBarFeedMsglistView feedView;
     public String forumId;
-    public i mTopToastEventListener;
-    public g model;
-    public g.d onDataLoadListener;
+    public p55 mTopToastEventListener;
+    public n57 model;
+    public n57.d onDataLoadListener;
     public byte source;
 
-    /* loaded from: classes5.dex */
-    public class a extends i<TopToastEvent> {
+    /* loaded from: classes3.dex */
+    public class a extends p55<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f33758c;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity c;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f33758c = singleForumBroadcastFeedActivity;
+            this.c = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.j0.b
+        @Override // com.repackage.i55
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f33758c.feedView != null) {
-                    this.f33758c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.c.feedView != null) {
+                    this.c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -73,8 +73,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements g.d {
+    /* loaded from: classes3.dex */
+    public class b implements n57.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleForumBroadcastFeedActivity a;
@@ -97,16 +97,16 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // c.a.p0.u1.f.j.g.d
-        public void a(List<c.a.p0.u1.l.c.b> list) {
+        @Override // com.repackage.n57.d
+        public void a(List<d77> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 this.a.feedView.l(list, null);
             }
         }
 
-        @Override // c.a.p0.u1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<c.a.p0.u1.i.a.b.b> longSparseArray) {
+        @Override // com.repackage.n57.d
+        public void onReadCountLoad(LongSparseArray<r67> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
                 this.a.feedView.m(longSparseArray);
@@ -145,9 +145,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            g gVar = new g(getPageContext());
-            this.model = gVar;
-            gVar.i(this.onDataLoadListener);
+            n57 n57Var = new n57(getPageContext());
+            this.model = n57Var;
+            n57Var.i(this.onDataLoadListener);
             this.feedView = new OfficialBarFeedMsglistView(this, true);
             if (getIntent() != null) {
                 this.forumId = getIntent().getStringExtra("key_uid");
@@ -164,9 +164,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            g gVar = this.model;
-            if (gVar != null) {
-                gVar.e();
+            n57 n57Var = this.model;
+            if (n57Var != null) {
+                n57Var.e();
             }
             unRegisterResponsedEventListener();
         }

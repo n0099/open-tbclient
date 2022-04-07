@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SPSwitchRootLayoutHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -45,12 +45,12 @@ public class SPSwitchRootLayoutHandler {
         DEBUG = SPConfig.isDebug();
     }
 
-    public SPSwitchRootLayoutHandler(View view) {
+    public SPSwitchRootLayoutHandler(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,24 +61,24 @@ public class SPSwitchRootLayoutHandler {
             }
         }
         this.mOldHeight = -1;
-        this.mRootLayout = view;
-        this.mContext = view.getContext();
+        this.mRootLayout = view2;
+        this.mContext = view2.getContext();
     }
 
-    private IPanelConflictLayout getPanelLayout(View view) {
+    private IPanelConflictLayout getPanelLayout(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
             IPanelConflictLayout iPanelConflictLayout = this.mPanelLayout;
             if (iPanelConflictLayout != null) {
                 return iPanelConflictLayout;
             }
-            if (view instanceof IPanelConflictLayout) {
-                IPanelConflictLayout iPanelConflictLayout2 = (IPanelConflictLayout) view;
+            if (view2 instanceof IPanelConflictLayout) {
+                IPanelConflictLayout iPanelConflictLayout2 = (IPanelConflictLayout) view2;
                 this.mPanelLayout = iPanelConflictLayout2;
                 return iPanelConflictLayout2;
-            } else if (view instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) view;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
                 for (int i = 0; i < viewGroup.getChildCount(); i++) {
                     IPanelConflictLayout panelLayout = getPanelLayout(viewGroup.getChildAt(i));
                     if (panelLayout != null) {

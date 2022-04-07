@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class m extends ReportAction {
     public static final SparseArray<com.kwad.sdk.core.report.kwai.b> bP;
     public String bN;
@@ -58,8 +58,8 @@ public class m extends ReportAction {
         a.b(jSONObject, this.bO);
         try {
             jSONObject.put("ecIdentityFlag", true);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
@@ -71,8 +71,8 @@ public class m extends ReportAction {
         }
         try {
             this.bN = jSONObject.optString("ua");
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 

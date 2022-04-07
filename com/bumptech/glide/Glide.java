@@ -101,7 +101,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Glide implements ComponentCallbacks2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
@@ -212,17 +212,17 @@ public class Glide implements ComponentCallbacks2 {
                     Log.w("Glide", "Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored");
                 }
                 return null;
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throwIncorrectGlideModule(e);
+                return null;
+            } catch (InstantiationException e2) {
                 throwIncorrectGlideModule(e2);
                 return null;
-            } catch (InstantiationException e3) {
+            } catch (NoSuchMethodException e3) {
                 throwIncorrectGlideModule(e3);
                 return null;
-            } catch (NoSuchMethodException e4) {
+            } catch (InvocationTargetException e4) {
                 throwIncorrectGlideModule(e4);
-                return null;
-            } catch (InvocationTargetException e5) {
-                throwIncorrectGlideModule(e5);
                 return null;
             }
         }
@@ -570,9 +570,9 @@ public class Glide implements ComponentCallbacks2 {
     }
 
     @NonNull
-    public static RequestManager with(@NonNull View view) {
+    public static RequestManager with(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, view)) == null) ? getRetriever(view.getContext()).get(view) : (RequestManager) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, view2)) == null) ? getRetriever(view2.getContext()).get(view2) : (RequestManager) invokeL.objValue;
     }
 }

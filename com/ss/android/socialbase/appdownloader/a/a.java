@@ -5,17 +5,13 @@ import android.util.Log;
 /* loaded from: classes7.dex */
 public abstract class a implements e {
     public final Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.g.a f43006b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final String f43007c;
+    public final com.ss.android.socialbase.downloader.g.a b;
+    public final String c;
 
     public a(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str) {
         this.a = context;
-        this.f43006b = aVar;
-        this.f43007c = str;
+        this.b = aVar;
+        this.c = str;
     }
 
     public boolean a() {

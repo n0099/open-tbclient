@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.download.api.constant.BaseConstants;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class MtjConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_MTJ_PUSH_CALL = "Baidu_mtj_push_call";
@@ -18,7 +18,7 @@ public class MtjConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class FeedTrackStrategy {
         public static /* synthetic */ Interceptable $ic;
         public static final FeedTrackStrategy TRACK_ALL;
@@ -80,7 +80,7 @@ public class MtjConfig {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class PushPlatform {
         public static /* synthetic */ Interceptable $ic;
         public static final PushPlatform ALIYUN;
@@ -93,14 +93,10 @@ public class MtjConfig {
         public static final PushPlatform UMENG;
         public static final PushPlatform XIAOMI;
         public static final PushPlatform XINGE;
-
-        /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ PushPlatform[] f27127c;
+        public static final /* synthetic */ PushPlatform[] c;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public int f27128b;
+        public int b;
 
         static {
             InterceptResult invokeClinit;
@@ -126,7 +122,7 @@ public class MtjConfig {
             OPPO = new PushPlatform("OPPO", 8, RomUtils.MANUFACTURER_OPPO, 8);
             PushPlatform pushPlatform = new PushPlatform("MEIZU", 9, "meizu", 9);
             MEIZU = pushPlatform;
-            f27127c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
+            c = new PushPlatform[]{BAIDUYUN, JIGUANG, GETUI, HUAWEI, XIAOMI, UMENG, XINGE, ALIYUN, OPPO, pushPlatform};
         }
 
         public PushPlatform(String str, int i, String str2, int i2) {
@@ -148,7 +144,7 @@ public class MtjConfig {
                 }
             }
             this.a = str2;
-            this.f27128b = i2;
+            this.b = i2;
         }
 
         public static PushPlatform valueOf(String str) {
@@ -160,7 +156,7 @@ public class MtjConfig {
         public static PushPlatform[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) f27127c.clone() : (PushPlatform[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (PushPlatform[]) c.clone() : (PushPlatform[]) invokeV.objValue;
         }
 
         public String showName() {
@@ -173,7 +169,7 @@ public class MtjConfig {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "p" + this.f27128b;
+                return "p" + this.b;
             }
             return (String) invokeV.objValue;
         }

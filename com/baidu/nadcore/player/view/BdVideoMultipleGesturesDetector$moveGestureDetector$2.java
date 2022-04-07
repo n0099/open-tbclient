@@ -1,30 +1,30 @@
 package com.baidu.nadcore.player.view;
 
-import c.a.a0.v.w0.a;
-import c.a.a0.v.w0.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.my0;
+import com.repackage.ny0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/nadcore/player/view/BdVideoMoveGestureDetector;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
-public final class BdVideoMultipleGesturesDetector$moveGestureDetector$2 extends Lambda implements Function0<a> {
+/* loaded from: classes2.dex */
+public final class BdVideoMultipleGesturesDetector$moveGestureDetector$2 extends Lambda implements Function0<my0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ b this$0;
+    public final /* synthetic */ ny0 this$0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdVideoMultipleGesturesDetector$moveGestureDetector$2(b bVar) {
+    public BdVideoMultipleGesturesDetector$moveGestureDetector$2(ny0 ny0Var) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {ny0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,15 +35,15 @@ public final class BdVideoMultipleGesturesDetector$moveGestureDetector$2 extends
                 return;
             }
         }
-        this.this$0 = bVar;
+        this.this$0 = ny0Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // kotlin.jvm.functions.Function0
-    public final a invoke() {
+    public final my0 invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.a() : (my0) invokeV.objValue;
     }
 }

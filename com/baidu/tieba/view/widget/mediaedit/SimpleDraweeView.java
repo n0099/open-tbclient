@@ -3,13 +3,13 @@ package com.baidu.tieba.view.widget.mediaedit;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
-import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.tb9;
+/* loaded from: classes4.dex */
 public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class SimpleDraweeView extends com.facebook.drawee.view.SimpleDraweeView 
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             try {
                 super.onDraw(canvas);
-            } catch (Exception e2) {
-                c.g(e2);
+            } catch (Exception e) {
+                tb9.g(e);
             }
         }
     }

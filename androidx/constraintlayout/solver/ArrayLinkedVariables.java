@@ -65,15 +65,15 @@ public class ArrayLinkedVariables {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, solverVariable, linearSystem)) == null) ? solverVariable.usageInRowCount <= 1 : invokeLL.booleanValue;
     }
 
-    public final void add(SolverVariable solverVariable, float f2, boolean z) {
+    public final void add(SolverVariable solverVariable, float f, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{solverVariable, Float.valueOf(f2), Boolean.valueOf(z)}) == null) || f2 == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{solverVariable, Float.valueOf(f), Boolean.valueOf(z)}) == null) || f == 0.0f) {
             return;
         }
         int i = this.mHead;
         if (i == -1) {
             this.mHead = 0;
-            this.mArrayValues[0] = f2;
+            this.mArrayValues[0] = f;
             this.mArrayIndices[0] = solverVariable.id;
             this.mArrayNextIndices[0] = -1;
             solverVariable.usageInRowCount++;
@@ -99,7 +99,7 @@ public class ArrayLinkedVariables {
             int i6 = solverVariable.id;
             if (i5 == i6) {
                 float[] fArr = this.mArrayValues;
-                fArr[i] = fArr[i] + f2;
+                fArr[i] = fArr[i] + f;
                 if (fArr[i] == 0.0f) {
                     if (i == this.mHead) {
                         this.mHead = this.mArrayNextIndices[i];
@@ -161,7 +161,7 @@ public class ArrayLinkedVariables {
             this.mArrayNextIndices = Arrays.copyOf(this.mArrayNextIndices, this.ROW_SIZE);
         }
         this.mArrayIndices[i7] = solverVariable.id;
-        this.mArrayValues[i7] = f2;
+        this.mArrayValues[i7] = f;
         if (i3 != -1) {
             int[] iArr8 = this.mArrayNextIndices;
             iArr8[i7] = iArr8[i3];
@@ -200,55 +200,55 @@ public class ArrayLinkedVariables {
             SolverVariable solverVariable2 = null;
             boolean z = false;
             boolean z2 = false;
+            float f = 0.0f;
             float f2 = 0.0f;
-            float f3 = 0.0f;
             for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
                 float[] fArr = this.mArrayValues;
-                float f4 = fArr[i];
+                float f3 = fArr[i];
                 SolverVariable solverVariable3 = this.mCache.mIndexedVariables[this.mArrayIndices[i]];
-                if (f4 < 0.0f) {
-                    if (f4 > -0.001f) {
+                if (f3 < 0.0f) {
+                    if (f3 > -0.001f) {
                         fArr[i] = 0.0f;
                         solverVariable3.removeFromRow(this.mRow);
-                        f4 = 0.0f;
+                        f3 = 0.0f;
                     }
-                    if (f4 != 0.0f) {
+                    if (f3 != 0.0f) {
                         if (solverVariable3.mType == SolverVariable.Type.UNRESTRICTED) {
                             if (solverVariable2 == null) {
                                 isNew2 = isNew(solverVariable3, linearSystem);
-                            } else if (f2 > f4) {
+                            } else if (f > f3) {
                                 isNew2 = isNew(solverVariable3, linearSystem);
                             } else if (!z && isNew(solverVariable3, linearSystem)) {
-                                f2 = f4;
+                                f = f3;
                                 solverVariable2 = solverVariable3;
                                 z = true;
                             }
                             z = isNew2;
-                            f2 = f4;
+                            f = f3;
                             solverVariable2 = solverVariable3;
-                        } else if (solverVariable2 == null && f4 < 0.0f) {
+                        } else if (solverVariable2 == null && f3 < 0.0f) {
                             if (solverVariable == null) {
                                 isNew = isNew(solverVariable3, linearSystem);
-                            } else if (f3 > f4) {
+                            } else if (f2 > f3) {
                                 isNew = isNew(solverVariable3, linearSystem);
                             } else if (!z2 && isNew(solverVariable3, linearSystem)) {
-                                f3 = f4;
+                                f2 = f3;
                                 solverVariable = solverVariable3;
                                 z2 = true;
                             }
                             z2 = isNew;
-                            f3 = f4;
+                            f2 = f3;
                             solverVariable = solverVariable3;
                         }
                     }
                     i = this.mArrayNextIndices[i];
                 } else {
-                    if (f4 < 0.001f) {
+                    if (f3 < 0.001f) {
                         fArr[i] = 0.0f;
                         solverVariable3.removeFromRow(this.mRow);
-                        f4 = 0.0f;
+                        f3 = 0.0f;
                     }
-                    if (f4 != 0.0f) {
+                    if (f3 != 0.0f) {
                     }
                     i = this.mArrayNextIndices[i];
                 }
@@ -311,13 +311,13 @@ public class ArrayLinkedVariables {
         }
     }
 
-    public void divideByAmount(float f2) {
+    public void divideByAmount(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
             int i = this.mHead;
             for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
                 float[] fArr = this.mArrayValues;
-                fArr[i] = fArr[i] / f2;
+                fArr[i] = fArr[i] / f;
                 i = this.mArrayNextIndices[i];
             }
         }
@@ -423,17 +423,17 @@ public class ArrayLinkedVariables {
         }
     }
 
-    public final void put(SolverVariable solverVariable, float f2) {
+    public final void put(SolverVariable solverVariable, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048589, this, solverVariable, f2) == null) {
-            if (f2 == 0.0f) {
+        if (interceptable == null || interceptable.invokeLF(1048589, this, solverVariable, f) == null) {
+            if (f == 0.0f) {
                 remove(solverVariable, true);
                 return;
             }
             int i = this.mHead;
             if (i == -1) {
                 this.mHead = 0;
-                this.mArrayValues[0] = f2;
+                this.mArrayValues[0] = f;
                 this.mArrayIndices[0] = solverVariable.id;
                 this.mArrayNextIndices[0] = -1;
                 solverVariable.usageInRowCount++;
@@ -458,7 +458,7 @@ public class ArrayLinkedVariables {
                 int i5 = iArr2[i];
                 int i6 = solverVariable.id;
                 if (i5 == i6) {
-                    this.mArrayValues[i] = f2;
+                    this.mArrayValues[i] = f;
                     return;
                 }
                 if (iArr2[i] < i6) {
@@ -503,7 +503,7 @@ public class ArrayLinkedVariables {
                 this.mArrayNextIndices = Arrays.copyOf(this.mArrayNextIndices, this.ROW_SIZE);
             }
             this.mArrayIndices[i7] = solverVariable.id;
-            this.mArrayValues[i7] = f2;
+            this.mArrayValues[i7] = f;
             if (i3 != -1) {
                 int[] iArr7 = this.mArrayNextIndices;
                 iArr7[i7] = iArr7[i3];
@@ -601,15 +601,15 @@ public class ArrayLinkedVariables {
                     int i3 = this.mArrayIndices[i];
                     SolverVariable solverVariable = arrayRow2.variable;
                     if (i3 == solverVariable.id) {
-                        float f2 = this.mArrayValues[i];
+                        float f = this.mArrayValues[i];
                         remove(solverVariable, z);
                         ArrayLinkedVariables arrayLinkedVariables = arrayRow2.variables;
                         int i4 = arrayLinkedVariables.mHead;
                         for (int i5 = 0; i4 != -1 && i5 < arrayLinkedVariables.currentSize; i5++) {
-                            add(this.mCache.mIndexedVariables[arrayLinkedVariables.mArrayIndices[i4]], arrayLinkedVariables.mArrayValues[i4] * f2, z);
+                            add(this.mCache.mIndexedVariables[arrayLinkedVariables.mArrayIndices[i4]], arrayLinkedVariables.mArrayValues[i4] * f, z);
                             i4 = arrayLinkedVariables.mArrayNextIndices[i4];
                         }
-                        arrayRow.constantValue += arrayRow2.constantValue * f2;
+                        arrayRow.constantValue += arrayRow2.constantValue * f;
                         if (z) {
                             arrayRow2.variable.removeFromRow(arrayRow);
                         }
@@ -631,18 +631,18 @@ public class ArrayLinkedVariables {
                 for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
                     SolverVariable solverVariable = this.mCache.mIndexedVariables[this.mArrayIndices[i]];
                     if (solverVariable.definitionId != -1) {
-                        float f2 = this.mArrayValues[i];
+                        float f = this.mArrayValues[i];
                         remove(solverVariable, true);
                         ArrayRow arrayRow2 = arrayRowArr[solverVariable.definitionId];
                         if (!arrayRow2.isSimpleDefinition) {
                             ArrayLinkedVariables arrayLinkedVariables = arrayRow2.variables;
                             int i3 = arrayLinkedVariables.mHead;
                             for (int i4 = 0; i3 != -1 && i4 < arrayLinkedVariables.currentSize; i4++) {
-                                add(this.mCache.mIndexedVariables[arrayLinkedVariables.mArrayIndices[i3]], arrayLinkedVariables.mArrayValues[i3] * f2, true);
+                                add(this.mCache.mIndexedVariables[arrayLinkedVariables.mArrayIndices[i3]], arrayLinkedVariables.mArrayValues[i3] * f, true);
                                 i3 = arrayLinkedVariables.mArrayNextIndices[i3];
                             }
                         }
-                        arrayRow.constantValue += arrayRow2.constantValue * f2;
+                        arrayRow.constantValue += arrayRow2.constantValue * f;
                         arrayRow2.variable.removeFromRow(arrayRow);
                         i = this.mHead;
                     } else {
@@ -661,15 +661,15 @@ public class ArrayLinkedVariables {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zArr, solverVariable)) == null) {
             int i = this.mHead;
             SolverVariable solverVariable2 = null;
-            float f2 = 0.0f;
+            float f = 0.0f;
             for (int i2 = 0; i != -1 && i2 < this.currentSize; i2++) {
                 if (this.mArrayValues[i] < 0.0f) {
                     SolverVariable solverVariable3 = this.mCache.mIndexedVariables[this.mArrayIndices[i]];
                     if ((zArr == null || !zArr[solverVariable3.id]) && solverVariable3 != solverVariable && ((type = solverVariable3.mType) == SolverVariable.Type.SLACK || type == SolverVariable.Type.ERROR)) {
-                        float f3 = this.mArrayValues[i];
-                        if (f3 < f2) {
+                        float f2 = this.mArrayValues[i];
+                        if (f2 < f) {
                             solverVariable2 = solverVariable3;
-                            f2 = f3;
+                            f = f2;
                         }
                     }
                 }

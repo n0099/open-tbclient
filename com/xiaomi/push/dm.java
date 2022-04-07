@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dm {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
@@ -14,9 +14,7 @@ public class dm {
     /* renamed from: a  reason: collision with other field name */
     public static final String f220a;
     @Deprecated
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f44155b;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,6 +32,6 @@ public class dm {
         }
         a = new Object();
         f220a = String.valueOf(hh.o.a());
-        f44155b = String.valueOf(hh.p.a());
+        b = String.valueOf(hh.p.a());
     }
 }

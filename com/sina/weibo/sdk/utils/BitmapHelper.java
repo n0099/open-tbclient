@@ -85,8 +85,8 @@ public final class BitmapHelper {
             BitmapFactory.decodeStream(inputStream, null, options);
             try {
                 inputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
             return options.outHeight > 0 && options.outWidth > 0;
         }
@@ -99,8 +99,8 @@ public final class BitmapHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
                 return verifyBitmap(new FileInputStream(str));
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
                 return false;
             }
         }

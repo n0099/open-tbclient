@@ -9,8 +9,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.f.p.n;
-import c.a.p0.a4.k0.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,32 +19,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.hk8;
+import com.repackage.oi;
+import com.repackage.vl4;
+/* loaded from: classes3.dex */
 public class ShowPicCardView extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public a f35290b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TbImageView f35291c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f35292d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f35293e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f35294f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f35295g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f35296h;
+    public hk8 b;
+    public TbImageView c;
+    public LinearLayout d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public View h;
     public boolean i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -73,84 +60,84 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f35296h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06e4, (ViewGroup) this, true);
-            this.f35291c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091833);
-            this.f35292d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903cb);
-            this.f35294f = (TextView) findViewById(R.id.obfuscated_res_0x7f092049);
-            this.f35295g = (TextView) findViewById(R.id.obfuscated_res_0x7f09077f);
-            this.f35293e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf8);
+            this.h = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06e1, (ViewGroup) this, true);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09182f);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903d5);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09202e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090788);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ce6);
         }
     }
 
-    public a getData() {
+    public hk8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35290b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (hk8) invokeV.objValue;
     }
 
     public ImageView getIcon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35293e : (ImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (ImageView) invokeV.objValue;
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
-        a aVar;
+    public void onClick(View view2) {
+        hk8 hk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (aVar = this.f35290b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (hk8Var = this.b) == null) {
             return;
         }
-        c.a.o0.l.a.m(this.a, aVar.e());
+        vl4.m(this.a, hk8Var.e());
     }
 
-    public void setData(a aVar) {
+    public void setData(hk8 hk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || this.f35290b == aVar) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, hk8Var) == null) || hk8Var == null || this.b == hk8Var) {
             return;
         }
-        this.f35290b = aVar;
-        if (!StringUtils.isNULL(aVar.f())) {
-            this.f35294f.setVisibility(0);
-            this.f35294f.setText(aVar.f());
+        this.b = hk8Var;
+        if (!StringUtils.isNULL(hk8Var.f())) {
+            this.f.setVisibility(0);
+            this.f.setText(hk8Var.f());
         } else {
-            this.f35294f.setVisibility(8);
+            this.f.setVisibility(8);
         }
-        if (!StringUtils.isNULL(aVar.a())) {
-            this.f35295g.setVisibility(0);
-            this.f35295g.setText(aVar.a());
+        if (!StringUtils.isNULL(hk8Var.a())) {
+            this.g.setVisibility(0);
+            this.g.setText(hk8Var.a());
         } else {
-            this.f35295g.setVisibility(8);
+            this.g.setVisibility(8);
         }
         if (this.i) {
-            this.f35291c.setSupportNoImage(true);
+            this.c.setSupportNoImage(true);
         }
-        int d2 = aVar.d();
-        int b2 = aVar.b();
-        if (d2 <= 0 || b2 <= 0) {
+        int d = hk8Var.d();
+        int b = hk8Var.b();
+        if (d <= 0 || b <= 0) {
             return;
         }
-        this.f35291c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f35291c.setOnClickListener(this);
-        this.f35291c.setInterceptOnClick(true);
-        this.f35291c.setDefaultResource(R.drawable.icon_click);
-        this.f35291c.J(aVar.c(), 18, false);
-        int k = n.k(this.a) - (n.f(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
-        float f2 = b2 / d2;
-        this.f35291c.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f2 > 1.7777778f ? k * 1.7777778f : f2 < 0.75f ? k * 0.75f : k * f2)));
-        removeView(this.f35291c);
-        addView(this.f35291c);
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f35292d.getLayoutParams();
+        this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.c.setOnClickListener(this);
+        this.c.setInterceptOnClick(true);
+        this.c.setDefaultResource(R.drawable.icon_click);
+        this.c.K(hk8Var.c(), 18, false);
+        int k = oi.k(this.a) - (oi.f(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
+        float f = b / d;
+        this.c.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f > 1.7777778f ? k * 1.7777778f : f < 0.75f ? k * 0.75f : k * f)));
+        removeView(this.c);
+        addView(this.c);
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.d.getLayoutParams();
         layoutParams.width = k;
-        layoutParams.height = n.f(this.a, R.dimen.obfuscated_res_0x7f07022e);
-        removeView(this.f35292d);
-        addView(this.f35292d, layoutParams);
+        layoutParams.height = oi.f(this.a, R.dimen.obfuscated_res_0x7f070239);
+        removeView(this.d);
+        addView(this.d, layoutParams);
     }
 
     public void setIconResId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setImageResource(this.f35293e, i);
+            SkinManager.setImageResource(this.e, i);
         }
     }
 

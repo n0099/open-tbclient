@@ -8,21 +8,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.d;
-import g.e;
-import g.j;
-import g.m.a;
-import g.t.b;
+import com.repackage.az9;
+import com.repackage.gz9;
+import com.repackage.l3a;
+import com.repackage.uy9;
+import com.repackage.vy9;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements d.a<T>, e<T> {
+public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySubject$ReplayProducer<T>[]> implements uy9.a<T>, vy9<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ReplaySubject$ReplayProducer[] EMPTY;
     public static final ReplaySubject$ReplayProducer[] TERMINATED;
     public static final long serialVersionUID = 5952362471246910544L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b<T> buffer;
+    public final l3a<T> buffer;
 
     static {
         InterceptResult invokeClinit;
@@ -41,12 +41,12 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         TERMINATED = new ReplaySubject$ReplayProducer[0];
     }
 
-    public ReplaySubject$ReplayState(b<T> bVar) {
+    public ReplaySubject$ReplayState(l3a<T> l3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {l3aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,7 +56,7 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                 return;
             }
         }
-        this.buffer = bVar;
+        this.buffer = l3aVar;
         lazySet(EMPTY);
     }
 
@@ -81,9 +81,9 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return invokeL.booleanValue;
     }
 
-    @Override // g.d.a, g.n.b
+    @Override // com.repackage.uy9.a, com.repackage.iz9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((j) ((j) obj));
+        call((az9) ((az9) obj));
     }
 
     public boolean isTerminated() {
@@ -92,28 +92,28 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() == TERMINATED : invokeV.booleanValue;
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b<T> bVar = this.buffer;
-            bVar.complete();
+            l3a<T> l3aVar = this.buffer;
+            l3aVar.complete();
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
-                bVar.a(replaySubject$ReplayProducer);
+                l3aVar.a(replaySubject$ReplayProducer);
             }
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-            b<T> bVar = this.buffer;
-            bVar.error(th);
+            l3a<T> l3aVar = this.buffer;
+            l3aVar.error(th);
             ArrayList arrayList = null;
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : getAndSet(TERMINATED)) {
                 try {
-                    bVar.a(replaySubject$ReplayProducer);
+                    l3aVar.a(replaySubject$ReplayProducer);
                 } catch (Throwable th2) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
@@ -121,18 +121,18 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
                     arrayList.add(th2);
                 }
             }
-            a.d(arrayList);
+            gz9.d(arrayList);
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-            b<T> bVar = this.buffer;
-            bVar.next(t);
+            l3a<T> l3aVar = this.buffer;
+            l3aVar.next(t);
             for (ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer : get()) {
-                bVar.a(replaySubject$ReplayProducer);
+                l3aVar.a(replaySubject$ReplayProducer);
             }
         }
     }
@@ -175,12 +175,12 @@ public final class ReplaySubject$ReplayState<T> extends AtomicReference<ReplaySu
         }
     }
 
-    public void call(j<? super T> jVar) {
+    public void call(az9<? super T> az9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar) == null) {
-            ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(jVar, this);
-            jVar.b(replaySubject$ReplayProducer);
-            jVar.f(replaySubject$ReplayProducer);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, az9Var) == null) {
+            ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer = new ReplaySubject$ReplayProducer<>(az9Var, this);
+            az9Var.b(replaySubject$ReplayProducer);
+            az9Var.f(replaySubject$ReplayProducer);
             if (add(replaySubject$ReplayProducer) && replaySubject$ReplayProducer.isUnsubscribed()) {
                 remove(replaySubject$ReplayProducer);
             } else {

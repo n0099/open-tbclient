@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class p extends r {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final byte[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f38131b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(X509Certificate x509Certificate, byte[] bArr) {
@@ -36,7 +34,7 @@ public final class p extends r {
                 return;
             }
         }
-        this.f38131b = -1;
+        this.b = -1;
         this.a = bArr;
     }
 
@@ -72,14 +70,14 @@ public final class p extends r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f38131b == -1) {
+            if (this.b == -1) {
                 try {
-                    this.f38131b = Arrays.hashCode(getEncoded());
+                    this.b = Arrays.hashCode(getEncoded());
                 } catch (CertificateEncodingException unused) {
-                    this.f38131b = 0;
+                    this.b = 0;
                 }
             }
-            return this.f38131b;
+            return this.b;
         }
         return invokeV.intValue;
     }

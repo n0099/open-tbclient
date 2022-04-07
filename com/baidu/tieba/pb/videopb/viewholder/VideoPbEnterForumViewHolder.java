@@ -2,7 +2,6 @@ package com.baidu.tieba.pb.videopb.viewholder;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.d.f.p.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.CardForumHeadLayout;
@@ -16,23 +15,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ThreadData f35221b;
+    public ThreadData b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoPbEnterForumViewHolder(View view) {
-        super(view);
+    public VideoPbEnterForumViewHolder(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,7 +41,7 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
                 return;
             }
         }
-        CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+        CardForumHeadLayout cardForumHeadLayout = (CardForumHeadLayout) ((ViewGroup) view2).getChildAt(0);
         this.a = cardForumHeadLayout;
         if (cardForumHeadLayout != null) {
             cardForumHeadLayout.setOnClickListener(cardForumHeadLayout);
@@ -55,23 +53,23 @@ public class VideoPbEnterForumViewHolder extends TypeAdapter.ViewHolder implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.d();
-            SkinManager.setBackgroundShapeDrawable(this.a, n.f(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
+            SkinManager.setBackgroundShapeDrawable(this.a, oi.f(this.itemView.getContext(), R.dimen.tbds10), R.color.CAM_X0206, R.color.CAM_X0206);
         }
     }
 
     @Override // android.view.View.OnClickListener
-    public void onClick(View view) {
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f35221b == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.b == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13399").param("tid", this.f35221b.getTid()).param("fid", this.f35221b.getFid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.f35221b.getNid()));
+        TiebaStatic.log(new StatisticItem("c13399").param("tid", this.b.getTid()).param("fid", this.b.getFid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("nid", this.b.getNid()));
     }
 
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
-            this.f35221b = threadData;
+            this.b = threadData;
             this.a.setData(threadData);
         }
     }

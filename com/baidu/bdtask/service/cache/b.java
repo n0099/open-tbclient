@@ -17,30 +17,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.repackage.at;
+import com.repackage.jx;
+import com.repackage.kx;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u001d:\u0001\u001dB\t\b\u0002¢\u0006\u0004\b\u001c\u0010\u0014J)\u0010\b\u001a\u00020\u00072\u0006\u0010\u0002\u001a\u00020\u00012\b\u0010\u0004\u001a\u0004\u0018\u00010\u00032\b\b\u0002\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\b\u0010\tJ\u001f\u0010\r\u001a\u00020\u00052\u0006\u0010\u000b\u001a\u00020\n2\u0006\u0010\f\u001a\u00020\nH\u0007¢\u0006\u0004\b\r\u0010\u000eJ\r\u0010\u000f\u001a\u00020\n¢\u0006\u0004\b\u000f\u0010\u0010J\u0017\u0010\u0011\u001a\u00020\u00052\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\u0004\b\u0011\u0010\u0012J\r\u0010\u0013\u001a\u00020\u0007¢\u0006\u0004\b\u0013\u0010\u0014R\u0016\u0010\u0015\u001a\u00020\n8\u0002@\u0002X\u0082D¢\u0006\u0006\n\u0004\b\u0015\u0010\u0016R\u0016\u0010\u0017\u001a\u00020\n8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0017\u0010\u0016R\"\u0010\u001a\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00070\u00190\u00188\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001a\u0010\u001b¨\u0006\u001e"}, d2 = {"Lcom/baidu/bdtask/service/cache/TaskCacheManager;", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", "state", "Lcom/baidu/bdtask/model/info/TaskInfo;", NextActive.keyTaskInfo, "", TTDownloadField.TT_FORCE, "", "cacheTasks", "(Lcom/baidu/bdtask/ctrl/BDPTaskState;Lcom/baidu/bdtask/model/info/TaskInfo;Z)V", "", "actionId", "id", "duplicateIdIsValid", "(Ljava/lang/String;Ljava/lang/String;)Z", "getTaskStateCacheSync", "()Ljava/lang/String;", "isCacheAble", "(Lcom/baidu/bdtask/model/info/TaskInfo;)Z", "removeCache", "()V", "cacheKey", "Ljava/lang/String;", TaskInfo.keyFingerprint, "Lcom/baidu/bdtask/utils/stack/ISafeStack;", "Lkotlin/Function0;", "storageRequestStack", "Lcom/baidu/bdtask/utils/stack/ISafeStack;", "<init>", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final b f24943d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final a f24944e;
+    public static final b d;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
+    public final jx<Function0<Unit>> b;
+    public String c;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.m.d.a<Function0<Unit>> f24945b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f24946c;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,7 +57,7 @@ public final class b {
         public final b a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.f24943d : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.d : (b) invokeV.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -71,13 +66,13 @@ public final class b {
     }
 
     /* renamed from: com.baidu.bdtask.service.cache.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static final class RunnableC1734b implements Runnable {
+    /* loaded from: classes.dex */
+    public static final class RunnableC0074b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
 
-        public RunnableC1734b(b bVar) {
+        public RunnableC0074b(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +94,7 @@ public final class b {
         public final void run() {
             Function0 function0;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f24945b.c() || (function0 = (Function0) this.a.f24945b.a()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.c() || (function0 = (Function0) this.a.b.a()) == null) {
                 return;
             }
             function0.invoke();
@@ -119,8 +114,8 @@ public final class b {
                 return;
             }
         }
-        f24944e = new a(null);
-        f24943d = new b();
+        e = new a(null);
+        d = new b();
     }
 
     public b() {
@@ -137,15 +132,15 @@ public final class b {
             }
         }
         this.a = TaskState.key;
-        this.f24945b = new c.a.j.m.d.b();
-        this.f24946c = "";
+        this.b = new kx();
+        this.c = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = c.a.j.h.b.b.f3162c.c().a(this.a);
+            String a2 = at.c.c().a(this.a);
             return a2 != null ? a2 : "";
         }
         return (String) invokeV.objValue;
@@ -157,8 +152,8 @@ public final class b {
             DebugTrace.a.c(new TaskCacheManager$cacheTasks$1(z, bVar));
             if (!z) {
                 if (taskInfo == null) {
-                    SubTaskState c2 = com.baidu.bdtask.ctrl.b.c(bVar, null, 1, null);
-                    taskInfo = c2 != null ? c2.getTaskInfo() : null;
+                    SubTaskState c = com.baidu.bdtask.ctrl.b.c(bVar, null, 1, null);
+                    taskInfo = c != null ? c.getTaskInfo() : null;
                 }
                 if (taskInfo == null) {
                     return;
@@ -168,9 +163,9 @@ public final class b {
                     return;
                 }
             }
-            this.f24945b.b();
-            this.f24945b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
-            ExecutorUtilsExt.postOnSerial(new RunnableC1734b(this), "storageSync");
+            this.b.b();
+            this.b.a(new TaskCacheManager$cacheTasks$3(this, bVar));
+            ExecutorUtilsExt.postOnSerial(new RunnableC0074b(this), "storageSync");
         }
     }
 

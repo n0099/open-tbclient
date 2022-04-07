@@ -7,7 +7,7 @@ import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class dw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,21 +20,21 @@ public class dw {
     }
 
     public static void a(Context context, HashMap<String, String> hashMap) {
-        ee m325a;
+        ee m321a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m325a = ea.a(context).m325a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, hashMap) == null) || (m321a = ea.a(context).m321a()) == null) {
             return;
         }
-        m325a.a(context, hashMap);
+        m321a.a(context, hashMap);
     }
 
     public static void b(Context context, HashMap<String, String> hashMap) {
-        ee m325a;
+        ee m321a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m325a = ea.a(context).m325a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, hashMap) == null) || (m321a = ea.a(context).m321a()) == null) {
             return;
         }
-        m325a.c(context, hashMap);
+        m321a.c(context, hashMap);
     }
 
     public static void c(Context context, String str, int i, String str2) {
@@ -59,17 +59,17 @@ public class dw {
                 a(context, hashMap);
             }
             b(context, hashMap);
-        } catch (Exception e2) {
-            com.xiaomi.channel.commonutils.logger.b.a(e2);
+        } catch (Exception e) {
+            com.xiaomi.channel.commonutils.logger.b.a(e);
         }
     }
 
     public static void c(Context context, HashMap<String, String> hashMap) {
-        ee m325a;
+        ee m321a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m325a = ea.a(context).m325a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, context, hashMap) == null) || (m321a = ea.a(context).m321a()) == null) {
             return;
         }
-        m325a.b(context, hashMap);
+        m321a.b(context, hashMap);
     }
 }

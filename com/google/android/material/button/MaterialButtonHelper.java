@@ -32,7 +32,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;
@@ -114,7 +114,7 @@ public class MaterialButtonHelper {
             materialShapeDrawable.setStroke(this.strokeWidth, this.strokeColor);
             MaterialShapeDrawable materialShapeDrawable2 = new MaterialShapeDrawable(this.shapeAppearanceModel);
             materialShapeDrawable2.setTint(0);
-            materialShapeDrawable2.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f04016b) : 0);
+            materialShapeDrawable2.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f04016e) : 0);
             if (IS_LOLLIPOP) {
                 MaterialShapeDrawable materialShapeDrawable3 = new MaterialShapeDrawable(this.shapeAppearanceModel);
                 this.maskDrawable = materialShapeDrawable3;
@@ -180,7 +180,7 @@ public class MaterialButtonHelper {
             if (materialShapeDrawable != null) {
                 materialShapeDrawable.setStroke(this.strokeWidth, this.strokeColor);
                 if (surfaceColorStrokeDrawable != null) {
-                    surfaceColorStrokeDrawable.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f04016b) : 0);
+                    surfaceColorStrokeDrawable.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f04016e) : 0);
                 }
             }
         }

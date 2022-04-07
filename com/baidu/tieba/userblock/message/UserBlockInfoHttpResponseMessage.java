@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
 import tbclient.GetUserBlackInfo.DataRes;
 import tbclient.GetUserBlackInfo.GetUserBlackInfoResIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class UserBlockInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,8 +55,8 @@ public class UserBlockInfoHttpResponseMessage extends TbHttpResponsedMessage {
                 if (getUserBlackInfoResIdl != null) {
                     this.mData = getUserBlackInfoResIdl.data;
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 setError(-2);
             }
         }

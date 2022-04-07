@@ -32,19 +32,15 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static b f24655b;
+    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
     public OkHttpClient a;
+    public Context c;
 
-    /* renamed from: c  reason: collision with root package name */
-    public Context f24656c;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,9 +71,7 @@ public class b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RequestBody a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f24658b;
+                public final /* synthetic */ a b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,7 +88,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f24658b = this;
+                    this.b = this;
                     this.a = requestBody;
                 }
 
@@ -141,8 +135,8 @@ public class b {
                         return chain.proceed(request.newBuilder().header("Content-Encoding", "gzip").method(request.method(), a(request.body())).build());
                     }
                     return chain.proceed(request);
-                } catch (Exception e2) {
-                    throw new IOException(e2.getMessage());
+                } catch (Exception e) {
+                    throw new IOException(e.getMessage());
                 }
             }
             return (Response) invokeL.objValue;
@@ -165,17 +159,17 @@ public class b {
             }
         }
         this.a = a();
-        this.f24656c = context;
+        this.c = context;
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f24655b == null) {
-                f24655b = new b(context);
+            if (b == null) {
+                b = new b(context);
             }
-            return f24655b;
+            return b;
         }
         return (b) invokeL.objValue;
     }
@@ -221,13 +215,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, bArr, str)) == null) {
-            a.C1698a.C1699a.C1700a e2 = a.C1698a.C1699a.e();
+            a.C0038a.C0039a.C0040a e = a.C0038a.C0039a.e();
             if (TextUtils.isEmpty(str)) {
                 str = "";
             }
-            a.C1698a.C1699a build = e2.a(str).build();
+            a.C0038a.C0039a build = e.a(str).build();
             long currentTimeMillis = System.currentTimeMillis();
-            return a.C1698a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.f24656c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
+            return a.C0038a.o().a(1L).a(IMPushUploadConstants.Service.BAIDU_APP).a(build).b(currentTimeMillis).b(com.baidu.android.pushservice.h.a.a(this.c, IMPushUploadConstants.Service.BAIDU_APP, currentTimeMillis)).a(ByteString.copyFrom(bArr)).build().toByteArray();
         }
         return (byte[]) invokeLL.objValue;
     }
@@ -243,9 +237,7 @@ public class b {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f24657b;
+                public final /* synthetic */ b b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -262,7 +254,7 @@ public class b {
                             return;
                         }
                     }
-                    this.f24657b = this;
+                    this.b = this;
                     this.a = cVar;
                 }
 
@@ -286,7 +278,7 @@ public class b {
                         int i = 0;
                         try {
                             if (response.body() != null) {
-                                String[] a3 = this.f24657b.a(response.body().bytes());
+                                String[] a3 = this.b.a(response.body().bytes());
                                 i = Integer.valueOf(a3[0]).intValue();
                                 str2 = a3[1];
                             }

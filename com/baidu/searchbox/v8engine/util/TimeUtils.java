@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class TimeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HUNDRED_DAY_FIELD_LEN = 19;
@@ -100,7 +100,7 @@ public class TimeUtils {
 
     public static int formatDurationLocked(long j, int i) {
         InterceptResult invokeCommon;
-        char c2;
+        char c;
         int i2;
         int i3;
         int i4;
@@ -125,9 +125,9 @@ public class TimeUtils {
                 return i7 + 1;
             }
             if (i8 > 0) {
-                c2 = '+';
+                c = '+';
             } else {
-                c2 = SignatureImpl.SEP;
+                c = SignatureImpl.SEP;
                 j2 = -j2;
             }
             int i10 = (int) (j2 % 1000);
@@ -165,7 +165,7 @@ public class TimeUtils {
             } else {
                 i6 = 0;
             }
-            cArr[i6] = c2;
+            cArr[i6] = c;
             int i12 = i6 + 1;
             boolean z = i != 0;
             int printFieldLocked = printFieldLocked(cArr, i2, 'd', i12, false, 0);
@@ -216,11 +216,11 @@ public class TimeUtils {
         return (String) invokeJ.objValue;
     }
 
-    public static int printFieldLocked(char[] cArr, int i, char c2, int i2, boolean z, int i3) {
+    public static int printFieldLocked(char[] cArr, int i, char c, int i2, boolean z, int i3) {
         InterceptResult invokeCommon;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{cArr, Integer.valueOf(i), Character.valueOf(c2), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{cArr, Integer.valueOf(i), Character.valueOf(c), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
             if (z || i > 0) {
                 if (i > 999) {
                     int i5 = 0;
@@ -259,7 +259,7 @@ public class TimeUtils {
                     cArr[i4] = (char) (i + 48);
                     i2 = i4 + 1;
                 }
-                cArr[i2] = c2;
+                cArr[i2] = c;
                 return i2 + 1;
             }
             return i2;

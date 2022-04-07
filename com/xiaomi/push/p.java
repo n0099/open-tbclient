@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
     public static volatile p a;
@@ -115,7 +115,7 @@ public class p {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m582a(String str, String str2, String str3) {
+    public synchronized void m578a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
             synchronized (this) {

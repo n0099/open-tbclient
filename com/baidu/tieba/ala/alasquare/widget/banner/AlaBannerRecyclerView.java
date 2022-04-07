@@ -12,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f31412b;
+    public int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerRecyclerView(Context context) {
@@ -71,7 +69,7 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 if (action != 1) {
                     if (action == 2) {
                         int i = y - this.a;
-                        int i2 = x - this.f31412b;
+                        int i2 = x - this.b;
                         if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                         } else {
@@ -82,11 +80,11 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 getParent().requestDisallowInterceptTouchEvent(false);
             } else {
                 this.a = y;
-                this.f31412b = x;
+                this.b = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
             this.a = y;
-            this.f31412b = x;
+            this.b = x;
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;

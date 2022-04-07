@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-import c.a.d.f.p.n;
-import c.a.o0.r.l0.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -23,26 +21,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.nu4;
+import com.repackage.oi;
+/* loaded from: classes3.dex */
 public class CustomPushPremissionDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TBLottieAnimationView f29979b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f29980c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f29981d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f29982e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TBSpecificationBtn f29983f;
+    public TBLottieAnimationView b;
+    public View c;
+    public View d;
+    public TBSpecificationBtn e;
+    public TBSpecificationBtn f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CustomPushPremissionDialogView(Context context) {
@@ -76,55 +66,55 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0211));
             setBackgroundDrawable(gradientDrawable);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0214, this);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f090745);
-            this.f29979b = tBLottieAnimationView;
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0215, this);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09074e);
+            this.b = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
-            this.f29979b.setFrame(0);
-            SkinManager.setLottieAnimation(this.f29979b, R.raw.obfuscated_res_0x7f11002f);
-            this.f29979b.playAnimation();
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090748);
+            this.b.setFrame(0);
+            SkinManager.setLottieAnimation(this.b, R.raw.obfuscated_res_0x7f11003c);
+            this.b.playAnimation();
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090751);
             this.a = textView;
             textView.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.f29980c = findViewById(R.id.obfuscated_res_0x7f090744);
+            this.c = findViewById(R.id.obfuscated_res_0x7f09074d);
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                this.f29981d = findViewById(R.id.obfuscated_res_0x7f09026b);
-                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(n.f(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, n.f(getContext(), R.dimen.tbds22)).into(this.f29981d);
-                ViewGroup.LayoutParams layoutParams2 = this.f29980c.getLayoutParams();
-                layoutParams2.width = n.f(context, R.dimen.tbds774);
-                this.f29980c.setLayoutParams(layoutParams2);
-                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.f29980c);
+                this.d = findViewById(R.id.obfuscated_res_0x7f090273);
+                TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(oi.f(context, R.dimen.tbds26)).setShadowSide(273).setShadowLayer(R.color.CAM_X0804, 0, 0, oi.f(getContext(), R.dimen.tbds22)).into(this.d);
+                ViewGroup.LayoutParams layoutParams2 = this.c.getLayoutParams();
+                layoutParams2.width = oi.f(context, R.dimen.tbds774);
+                this.c.setLayoutParams(layoutParams2);
+                TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.common_color_10262), SkinManager.getResourceId(R.color.CAM_X0205)).into(this.c);
             } else {
-                TBSelector.makeDrawableSelector().setShape(0).radius(n.f(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.f29980c);
+                TBSelector.makeDrawableSelector().setShape(0).radius(oi.f(context, R.dimen.tbds26)).gradientLinear(DrawableSelector.TOP_BOTTOM, SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0205), SkinManager.getResourceId(R.color.CAM_X0211)).into(this.c);
             }
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090746);
-            this.f29982e = tBSpecificationBtn;
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09074f);
+            this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-            this.f29982e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f0b));
-            c cVar = new c();
-            cVar.r(R.color.CAM_X0105);
-            this.f29982e.setConfig(cVar);
-            this.f29982e.k();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090747);
-            this.f29983f = tBSpecificationBtn2;
+            this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f0f));
+            nu4 nu4Var = new nu4();
+            nu4Var.r(R.color.CAM_X0105);
+            this.e.setConfig(nu4Var);
+            this.e.k();
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090750);
+            this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
-            this.f29983f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f0c));
-            c cVar2 = new c();
-            cVar2.p(R.color.CAM_X0302);
-            this.f29983f.setConfig(cVar2);
+            this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f10));
+            nu4 nu4Var2 = new nu4();
+            nu4Var2.p(R.color.CAM_X0302);
+            this.f.setConfig(nu4Var2);
         }
     }
 
     public TBSpecificationBtn getPushPermissionDialogCancelButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29982e : (TBSpecificationBtn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (TBSpecificationBtn) invokeV.objValue;
     }
 
     public TBSpecificationBtn getPushPermissionDialogConfirmButton() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29983f : (TBSpecificationBtn) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (TBSpecificationBtn) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

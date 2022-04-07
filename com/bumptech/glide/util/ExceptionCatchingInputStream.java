@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ExceptionCatchingInputStream extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public static final Queue<ExceptionCatchingInputStream> QUEUE;
@@ -123,8 +123,8 @@ public class ExceptionCatchingInputStream extends InputStream {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
             try {
                 return this.wrapped.read(bArr);
-            } catch (IOException e2) {
-                this.exception = e2;
+            } catch (IOException e) {
+                this.exception = e;
                 return -1;
             }
         }
@@ -166,8 +166,8 @@ public class ExceptionCatchingInputStream extends InputStream {
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
             try {
                 return this.wrapped.skip(j);
-            } catch (IOException e2) {
-                this.exception = e2;
+            } catch (IOException e) {
+                this.exception = e;
                 return 0L;
             }
         }
@@ -181,8 +181,8 @@ public class ExceptionCatchingInputStream extends InputStream {
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
             try {
                 return this.wrapped.read(bArr, i, i2);
-            } catch (IOException e2) {
-                this.exception = e2;
+            } catch (IOException e) {
+                this.exception = e;
                 return -1;
             }
         }
@@ -196,8 +196,8 @@ public class ExceptionCatchingInputStream extends InputStream {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
                 return this.wrapped.read();
-            } catch (IOException e2) {
-                this.exception = e2;
+            } catch (IOException e) {
+                this.exception = e;
                 return -1;
             }
         }

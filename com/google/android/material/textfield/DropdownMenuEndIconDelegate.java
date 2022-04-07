@@ -38,7 +38,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_FADE_IN_DURATION = 67;
@@ -200,9 +200,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // android.view.View.OnFocusChangeListener
-            public void onFocusChange(View view, boolean z) {
+            public void onFocusChange(View view2, boolean z) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view, z) == null) {
+                if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, view2, z) == null) {
                     this.this$0.textInputLayout.setEndIconActivated(z);
                     if (z) {
                         return;
@@ -239,10 +239,10 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // com.google.android.material.textfield.TextInputLayout.AccessibilityDelegate, androidx.core.view.AccessibilityDelegateCompat
-            public void onInitializeAccessibilityNodeInfo(View view, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
+            public void onInitializeAccessibilityNodeInfo(View view2, @NonNull AccessibilityNodeInfoCompat accessibilityNodeInfoCompat) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view, accessibilityNodeInfoCompat) == null) {
-                    super.onInitializeAccessibilityNodeInfo(view, accessibilityNodeInfoCompat);
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
+                    super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                     if (this.this$0.textInputLayout.getEditText().getKeyListener() == null) {
                         accessibilityNodeInfoCompat.setClassName(Spinner.class.getName());
                     }
@@ -253,10 +253,10 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             }
 
             @Override // androidx.core.view.AccessibilityDelegateCompat
-            public void onPopulateAccessibilityEvent(View view, @NonNull AccessibilityEvent accessibilityEvent) {
+            public void onPopulateAccessibilityEvent(View view2, @NonNull AccessibilityEvent accessibilityEvent) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, accessibilityEvent) == null) {
-                    super.onPopulateAccessibilityEvent(view, accessibilityEvent);
+                if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, accessibilityEvent) == null) {
+                    super.onPopulateAccessibilityEvent(view2, accessibilityEvent);
                     DropdownMenuEndIconDelegate dropdownMenuEndIconDelegate = this.this$0;
                     AutoCompleteTextView castAutoCompleteTextViewOrThrow = dropdownMenuEndIconDelegate.castAutoCompleteTextViewOrThrow(dropdownMenuEndIconDelegate.textInputLayout.getEditText());
                     if (accessibilityEvent.getEventType() == 1 && this.this$0.accessibilityManager.isTouchExplorationEnabled()) {
@@ -391,7 +391,7 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         LayerDrawable layerDrawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(65556, this, autoCompleteTextView, i, iArr, materialShapeDrawable) == null) {
-            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.obfuscated_res_0x7f04016b);
+            int color = MaterialColors.getColor(autoCompleteTextView, R.attr.obfuscated_res_0x7f04016e);
             MaterialShapeDrawable materialShapeDrawable2 = new MaterialShapeDrawable(materialShapeDrawable.getShapeAppearanceModel());
             int layer = MaterialColors.layer(i, color, 0.1f);
             materialShapeDrawable2.setFillColor(new ColorStateList(iArr, new int[]{layer, 0}));
@@ -465,12 +465,12 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         return (ValueAnimator) invokeIL.objValue;
     }
 
-    private MaterialShapeDrawable getPopUpMaterialShapeDrawable(float f2, float f3, float f4, int i) {
+    private MaterialShapeDrawable getPopUpMaterialShapeDrawable(float f, float f2, float f3, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)})) == null) {
-            ShapeAppearanceModel build = ShapeAppearanceModel.builder().setTopLeftCornerSize(f2).setTopRightCornerSize(f2).setBottomLeftCornerSize(f3).setBottomRightCornerSize(f3).build();
-            MaterialShapeDrawable createWithElevationOverlay = MaterialShapeDrawable.createWithElevationOverlay(this.context, f4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i)})) == null) {
+            ShapeAppearanceModel build = ShapeAppearanceModel.builder().setTopLeftCornerSize(f).setTopRightCornerSize(f).setBottomLeftCornerSize(f2).setBottomRightCornerSize(f2).build();
+            MaterialShapeDrawable createWithElevationOverlay = MaterialShapeDrawable.createWithElevationOverlay(this.context, f3);
             createWithElevationOverlay.setShapeAppearanceModel(build);
             createWithElevationOverlay.setPadding(0, i, 0, i);
             return createWithElevationOverlay;
@@ -586,10 +586,10 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.view.View.OnTouchListener
-                public boolean onTouch(@NonNull View view, @NonNull MotionEvent motionEvent) {
+                public boolean onTouch(@NonNull View view2, @NonNull MotionEvent motionEvent) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view, motionEvent)) == null) {
+                    if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) {
                         if (motionEvent.getAction() == 1) {
                             if (this.this$0.isDropdownPopupActive()) {
                                 this.this$0.dropdownPopupDirty = false;
@@ -671,9 +671,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public void initialize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070459);
-            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07042f);
-            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070431);
+            float dimensionPixelOffset = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070463);
+            float dimensionPixelOffset2 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070439);
+            int dimensionPixelOffset3 = this.context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07043b);
             MaterialShapeDrawable popUpMaterialShapeDrawable = getPopUpMaterialShapeDrawable(dimensionPixelOffset, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             MaterialShapeDrawable popUpMaterialShapeDrawable2 = getPopUpMaterialShapeDrawable(0.0f, dimensionPixelOffset, dimensionPixelOffset2, dimensionPixelOffset3);
             this.outlinedPopupBackground = popUpMaterialShapeDrawable;
@@ -681,9 +681,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
             this.filledPopupBackground = stateListDrawable;
             stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
             this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
-            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d66 : R.drawable.obfuscated_res_0x7f080d67));
+            this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, IS_LOLLIPOP ? R.drawable.obfuscated_res_0x7f080d67 : R.drawable.obfuscated_res_0x7f080d68));
             TextInputLayout textInputLayout = this.textInputLayout;
-            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05c4));
+            textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f05cb));
             this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener(this) { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -708,9 +708,9 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
                 }
 
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                         this.this$0.showHideDropdown((AutoCompleteTextView) this.this$0.textInputLayout.getEditText());
                     }
                 }

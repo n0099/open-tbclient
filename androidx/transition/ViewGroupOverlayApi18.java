@@ -53,18 +53,18 @@ public class ViewGroupOverlayApi18 implements ViewGroupOverlayImpl {
     }
 
     @Override // androidx.transition.ViewGroupOverlayImpl
-    public void add(@NonNull View view) {
+    public void add(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.mViewGroupOverlay.add(view);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.mViewGroupOverlay.add(view2);
         }
     }
 
     @Override // androidx.transition.ViewGroupOverlayImpl
-    public void remove(@NonNull View view) {
+    public void remove(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.mViewGroupOverlay.remove(view);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            this.mViewGroupOverlay.remove(view2);
         }
     }
 }

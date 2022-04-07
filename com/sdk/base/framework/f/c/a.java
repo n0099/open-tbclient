@@ -18,9 +18,7 @@ import org.json.JSONObject;
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.c.a";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final boolean f42583b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +34,7 @@ public class a {
                 return;
             }
         }
-        f42583b = f.f42567b;
+        b = f.b;
     }
 
     public a() {
@@ -91,8 +89,8 @@ public class a {
                     }
                 }
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f42583b));
+            } catch (Exception e) {
+                c.b(a, e.getMessage(), Boolean.valueOf(b));
                 return null;
             }
         }

@@ -1,12 +1,12 @@
 package com.baidu.tieba.easterEgg;
 
 import android.app.Fragment;
-import c.a.p0.t0.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import com.repackage.l36;
+/* loaded from: classes3.dex */
 public class ActivityLifeCycleListener extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class ActivityLifeCycleListener extends Fragment {
     public void onStop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a.f().e();
+            l36.f().e();
             super.onStop();
         }
     }

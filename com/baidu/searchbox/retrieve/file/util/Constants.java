@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class Constants {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PATH_EXTERNAL = "external:";
@@ -12,7 +12,7 @@ public class Constants {
     public static final String PATH_PARENT = "../";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public final class FetchType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FETCH_FILE_TYPE = "file";
@@ -39,7 +39,7 @@ public class Constants {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public final class MetaError {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String ERROR_COPY = "2";

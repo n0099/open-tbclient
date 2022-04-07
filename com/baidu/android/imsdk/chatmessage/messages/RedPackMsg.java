@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RedPackMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RedPackMsg> CREATOR;
@@ -171,8 +171,8 @@ public class RedPackMsg extends NormalMsg {
                 this.mBusiName = jSONObject.optString("busi_name");
                 this.mBusiLogo = jSONObject.optString("busi_logo");
                 return true;
-            } catch (JSONException e2) {
-                LogUtils.e("CouponMsg", "parseJsonString JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("CouponMsg", "parseJsonString JSONException", e);
                 return false;
             }
         }

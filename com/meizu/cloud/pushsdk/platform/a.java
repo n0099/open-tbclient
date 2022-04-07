@@ -1,16 +1,15 @@
 package com.meizu.cloud.pushsdk.platform;
 
 import android.text.TextUtils;
+import com.repackage.rm9;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static Map<String, String> a = a();
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f42200b = new ArrayList(a.keySet());
+    public static final List<String> b = new ArrayList(a.keySet());
 
     public static String a(String str) {
         String str2;
@@ -38,7 +37,7 @@ public class a {
                         }
                         return new String(String.valueOf(cArr).getBytes("iso-8859-1"), "UTF-8");
                     } catch (Exception unused) {
-                        c.h.a.a.a.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
+                        rm9.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
                         return str;
                     }
                 }

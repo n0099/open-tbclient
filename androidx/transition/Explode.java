@@ -62,31 +62,31 @@ public class Explode extends Visibility {
         setPropagation(new CircularPropagation());
     }
 
-    public static float calculateDistance(float f2, float f3) {
+    public static float calculateDistance(float f, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? (float) Math.sqrt((f2 * f2) + (f3 * f3)) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? (float) Math.sqrt((f * f) + (f2 * f2)) : invokeCommon.floatValue;
     }
 
-    public static float calculateMaxDistance(View view, int i, int i2) {
+    public static float calculateMaxDistance(View view2, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view, i, i2)) == null) ? calculateDistance(Math.max(i, view.getWidth() - i), Math.max(i2, view.getHeight() - i2)) : invokeLII.floatValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i, i2)) == null) ? calculateDistance(Math.max(i, view2.getWidth() - i), Math.max(i2, view2.getHeight() - i2)) : invokeLII.floatValue;
     }
 
-    private void calculateOut(View view, Rect rect, int[] iArr) {
+    private void calculateOut(View view2, Rect rect, int[] iArr) {
         int centerY;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, this, view, rect, iArr) == null) {
-            view.getLocationOnScreen(this.mTempLoc);
+        if (interceptable == null || interceptable.invokeLLL(65541, this, view2, rect, iArr) == null) {
+            view2.getLocationOnScreen(this.mTempLoc);
             int[] iArr2 = this.mTempLoc;
             int i2 = iArr2[0];
             int i3 = iArr2[1];
             Rect epicenter = getEpicenter();
             if (epicenter == null) {
-                i = (view.getWidth() / 2) + i2 + Math.round(view.getTranslationX());
-                centerY = (view.getHeight() / 2) + i3 + Math.round(view.getTranslationY());
+                i = (view2.getWidth() / 2) + i2 + Math.round(view2.getTranslationX());
+                centerY = (view2.getHeight() / 2) + i3 + Math.round(view2.getTranslationY());
             } else {
                 int centerX = epicenter.centerX();
                 centerY = epicenter.centerY();
@@ -99,7 +99,7 @@ public class Explode extends Visibility {
                 centerY2 = ((float) (Math.random() * 2.0d)) - 1.0f;
             }
             float calculateDistance = calculateDistance(centerX2, centerY2);
-            float calculateMaxDistance = calculateMaxDistance(view, i - i2, centerY - i3);
+            float calculateMaxDistance = calculateMaxDistance(view2, i - i2, centerY - i3);
             iArr[0] = Math.round((centerX2 / calculateDistance) * calculateMaxDistance);
             iArr[1] = Math.round(calculateMaxDistance * (centerY2 / calculateDistance));
         }
@@ -108,12 +108,12 @@ public class Explode extends Visibility {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, transitionValues) == null) {
-            View view = transitionValues.view;
-            view.getLocationOnScreen(this.mTempLoc);
+            View view2 = transitionValues.f980view;
+            view2.getLocationOnScreen(this.mTempLoc);
             int[] iArr = this.mTempLoc;
             int i = iArr[0];
             int i2 = iArr[1];
-            transitionValues.values.put(PROPNAME_SCREEN_BOUNDS, new Rect(i, i2, view.getWidth() + i, view.getHeight() + i2));
+            transitionValues.values.put(PROPNAME_SCREEN_BOUNDS, new Rect(i, i2, view2.getWidth() + i, view2.getHeight() + i2));
         }
     }
 
@@ -136,50 +136,50 @@ public class Explode extends Visibility {
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             if (transitionValues2 == null) {
                 return null;
             }
             Rect rect = (Rect) transitionValues2.values.get(PROPNAME_SCREEN_BOUNDS);
-            float translationX = view.getTranslationX();
-            float translationY = view.getTranslationY();
+            float translationX = view2.getTranslationX();
+            float translationY = view2.getTranslationY();
             calculateOut(viewGroup, rect, this.mTempLoc);
             int[] iArr = this.mTempLoc;
-            return TranslationAnimationCreator.createAnimation(view, transitionValues2, rect.left, rect.top, translationX + iArr[0], translationY + iArr[1], translationX, translationY, sDecelerate, this);
+            return TranslationAnimationCreator.createAnimation(view2, transitionValues2, rect.left, rect.top, translationX + iArr[0], translationY + iArr[1], translationX, translationY, sDecelerate, this);
         }
         return (Animator) invokeLLLL.objValue;
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
+        float f;
         float f2;
-        float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             if (transitionValues == null) {
                 return null;
             }
             Rect rect = (Rect) transitionValues.values.get(PROPNAME_SCREEN_BOUNDS);
             int i = rect.left;
             int i2 = rect.top;
-            float translationX = view.getTranslationX();
-            float translationY = view.getTranslationY();
-            int[] iArr = (int[]) transitionValues.view.getTag(R$id.transition_position);
+            float translationX = view2.getTranslationX();
+            float translationY = view2.getTranslationY();
+            int[] iArr = (int[]) transitionValues.f980view.getTag(R$id.transition_position);
             if (iArr != null) {
-                f2 = (iArr[0] - rect.left) + translationX;
-                f3 = (iArr[1] - rect.top) + translationY;
+                f = (iArr[0] - rect.left) + translationX;
+                f2 = (iArr[1] - rect.top) + translationY;
                 rect.offsetTo(iArr[0], iArr[1]);
             } else {
-                f2 = translationX;
-                f3 = translationY;
+                f = translationX;
+                f2 = translationY;
             }
             calculateOut(viewGroup, rect, this.mTempLoc);
             int[] iArr2 = this.mTempLoc;
-            return TranslationAnimationCreator.createAnimation(view, transitionValues, i, i2, translationX, translationY, f2 + iArr2[0], f3 + iArr2[1], sAccelerate, this);
+            return TranslationAnimationCreator.createAnimation(view2, transitionValues, i, i2, translationX, translationY, f + iArr2[0], f2 + iArr2[1], sAccelerate, this);
         }
         return (Animator) invokeLLLL.objValue;
     }

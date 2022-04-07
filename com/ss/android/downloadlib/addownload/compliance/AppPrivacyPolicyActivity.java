@@ -18,30 +18,22 @@ import com.ss.android.downloadlib.addownload.j;
 /* loaded from: classes7.dex */
 public class AppPrivacyPolicyActivity extends Activity {
     public ImageView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public WebView f42801b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f42802c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public long f42803d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f42804e;
+    public WebView b;
+    public long c;
+    public long d;
+    public String e;
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ff1);
-        this.f42801b = (WebView) findViewById(R.id.obfuscated_res_0x7f0918f8);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fea);
+        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f0918eb);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
-                e.a("lp_app_privacy_click_close", AppPrivacyPolicyActivity.this.f42803d);
+            public void onClick(View view2) {
+                e.a("lp_app_privacy_click_close", AppPrivacyPolicyActivity.this.d);
                 AppPrivacyPolicyActivity.this.finish();
             }
         });
-        WebSettings settings = this.f42801b.getSettings();
+        WebSettings settings = this.b.getSettings();
         settings.setDefaultFontSize(16);
         settings.setCacheMode(-1);
         settings.setJavaScriptEnabled(true);
@@ -56,7 +48,7 @@ public class AppPrivacyPolicyActivity extends Activity {
         settings.setDisplayZoomControls(false);
         settings.setSavePassword(false);
         settings.setAllowFileAccess(false);
-        this.f42801b.setWebViewClient(new WebViewClient() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.2
+        this.b.setWebViewClient(new WebViewClient() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.2
             private boolean a(Uri uri) {
                 String scheme = uri.getScheme();
                 return ("http".equals(scheme) || "https".equals(scheme)) ? false : true;
@@ -73,21 +65,21 @@ public class AppPrivacyPolicyActivity extends Activity {
                 return a(Uri.parse(str));
             }
         });
-        a(this.f42801b);
-        this.f42801b.setScrollBarStyle(0);
-        this.f42801b.loadUrl(this.f42804e);
+        a(this.b);
+        this.b.setScrollBarStyle(0);
+        this.b.loadUrl(this.e);
     }
 
     @Override // android.app.Activity
     public void onBackPressed() {
-        e.a("lp_app_privacy_click_close", this.f42803d);
+        e.a("lp_app_privacy_click_close", this.d);
         super.onBackPressed();
     }
 
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0852);
+        setContentView(R.layout.obfuscated_res_0x7f0d0849);
         if (a()) {
             b();
         } else {
@@ -102,16 +94,16 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private boolean a() {
-        this.f42802c = getIntent().getLongExtra("app_info_id", 0L);
-        com.ss.android.downloadlib.addownload.b.b a = c.a().a(this.f42802c);
+        this.c = getIntent().getLongExtra("app_info_id", 0L);
+        com.ss.android.downloadlib.addownload.b.b a = c.a().a(this.c);
         if (a == null) {
             return false;
         }
-        this.f42803d = a.f42753b;
+        this.d = a.b;
         String str = a.i;
-        this.f42804e = str;
+        this.e = str;
         if (TextUtils.isEmpty(str)) {
-            this.f42804e = j.i().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
+            this.e = j.i().optString("ad_privacy_backup_url", "https://sf6-ttcdn-tos.pstatp.com/obj/ad-tetris-site/personal-privacy-page.html");
             return true;
         }
         return true;

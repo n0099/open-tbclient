@@ -10,10 +10,10 @@ import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface TrackOutput {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class CryptoData {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

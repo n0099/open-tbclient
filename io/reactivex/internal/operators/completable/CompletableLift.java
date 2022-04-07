@@ -10,7 +10,7 @@ import io.reactivex.CompletableOperator;
 import io.reactivex.CompletableSource;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class CompletableLift extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +42,8 @@ public final class CompletableLift extends Completable {
         if (interceptable == null || interceptable.invokeL(1048576, this, completableObserver) == null) {
             try {
                 this.source.subscribe(this.onLift.apply(completableObserver));
-            } catch (NullPointerException e2) {
-                throw e2;
+            } catch (NullPointerException e) {
+                throw e;
             } catch (Throwable th) {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);

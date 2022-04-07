@@ -58,20 +58,20 @@ public class ActionBarContainer extends FrameLayout {
         }
     }
 
-    private int getMeasuredHeightWithMargins(View view) {
+    private int getMeasuredHeightWithMargins(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view)) == null) {
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view.getLayoutParams();
-            return view.getMeasuredHeight() + layoutParams.topMargin + layoutParams.bottomMargin;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view2)) == null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+            return view2.getMeasuredHeight() + layoutParams.topMargin + layoutParams.bottomMargin;
         }
         return invokeL.intValue;
     }
 
-    private boolean isCollapsed(View view) {
+    private boolean isCollapsed(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, view)) == null) ? view == null || view.getVisibility() == 8 || view.getMeasuredHeight() == 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, view2)) == null) ? view2 == null || view2.getVisibility() == 8 || view2.getMeasuredHeight() == 0 : invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -155,14 +155,14 @@ public class ActionBarContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
-            View view = this.mTabContainer;
+            View view2 = this.mTabContainer;
             boolean z2 = true;
             boolean z3 = false;
-            boolean z4 = (view == null || view.getVisibility() == 8) ? false : true;
-            if (view != null && view.getVisibility() != 8) {
+            boolean z4 = (view2 == null || view2.getVisibility() == 8) ? false : true;
+            if (view2 != null && view2.getVisibility() != 8) {
                 int measuredHeight = getMeasuredHeight();
-                int i5 = ((FrameLayout.LayoutParams) view.getLayoutParams()).bottomMargin;
-                view.layout(i, (measuredHeight - view.getMeasuredHeight()) - i5, i3, measuredHeight - i5);
+                int i5 = ((FrameLayout.LayoutParams) view2.getLayoutParams()).bottomMargin;
+                view2.layout(i, (measuredHeight - view2.getMeasuredHeight()) - i5, i3, measuredHeight - i5);
             }
             if (this.mIsSplit) {
                 Drawable drawable2 = this.mSplitBackground;
@@ -176,8 +176,8 @@ public class ActionBarContainer extends FrameLayout {
                     if (this.mActionBarView.getVisibility() == 0) {
                         this.mBackground.setBounds(this.mActionBarView.getLeft(), this.mActionBarView.getTop(), this.mActionBarView.getRight(), this.mActionBarView.getBottom());
                     } else {
-                        View view2 = this.mContextView;
-                        if (view2 != null && view2.getVisibility() == 0) {
+                        View view3 = this.mContextView;
+                        if (view3 != null && view3.getVisibility() == 0) {
                             this.mBackground.setBounds(this.mContextView.getLeft(), this.mContextView.getTop(), this.mContextView.getRight(), this.mContextView.getBottom());
                         } else {
                             this.mBackground.setBounds(0, 0, 0, 0);
@@ -189,7 +189,7 @@ public class ActionBarContainer extends FrameLayout {
                 if (!z4 || (drawable = this.mStackedBackground) == null) {
                     z2 = z3;
                 } else {
-                    drawable.setBounds(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
+                    drawable.setBounds(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom());
                 }
             }
             if (z2) {
@@ -212,8 +212,8 @@ public class ActionBarContainer extends FrameLayout {
                 return;
             }
             int mode = View.MeasureSpec.getMode(i2);
-            View view = this.mTabContainer;
-            if (view == null || view.getVisibility() == 8 || mode == 1073741824) {
+            View view2 = this.mTabContainer;
+            if (view2 == null || view2.getVisibility() == 8 || mode == 1073741824) {
                 return;
             }
             if (!isCollapsed(this.mActionBarView)) {
@@ -247,9 +247,9 @@ public class ActionBarContainer extends FrameLayout {
             this.mBackground = drawable;
             if (drawable != null) {
                 drawable.setCallback(this);
-                View view = this.mActionBarView;
-                if (view != null) {
-                    this.mBackground.setBounds(view.getLeft(), this.mActionBarView.getTop(), this.mActionBarView.getRight(), this.mActionBarView.getBottom());
+                View view2 = this.mActionBarView;
+                if (view2 != null) {
+                    this.mBackground.setBounds(view2.getLeft(), this.mActionBarView.getTop(), this.mActionBarView.getRight(), this.mActionBarView.getBottom());
                 }
             }
             boolean z = true;
@@ -323,9 +323,9 @@ public class ActionBarContainer extends FrameLayout {
     public void setTabContainer(ScrollingTabContainerView scrollingTabContainerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, scrollingTabContainerView) == null) {
-            View view = this.mTabContainer;
-            if (view != null) {
-                removeView(view);
+            View view2 = this.mTabContainer;
+            if (view2 != null) {
+                removeView(view2);
             }
             this.mTabContainer = scrollingTabContainerView;
             if (scrollingTabContainerView != null) {
@@ -368,22 +368,22 @@ public class ActionBarContainer extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback) {
+    public ActionMode startActionModeForChild(View view2, ActionMode.Callback callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, view, callback)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, view2, callback)) == null) {
             return null;
         }
         return (ActionMode) invokeLL.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public ActionMode startActionModeForChild(View view, ActionMode.Callback callback, int i) {
+    public ActionMode startActionModeForChild(View view2, ActionMode.Callback callback, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, view, callback, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048592, this, view2, callback, i)) == null) {
             if (i != 0) {
-                return super.startActionModeForChild(view, callback, i);
+                return super.startActionModeForChild(view2, callback, i);
             }
             return null;
         }

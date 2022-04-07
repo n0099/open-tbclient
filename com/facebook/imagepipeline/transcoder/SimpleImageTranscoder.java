@@ -18,7 +18,7 @@ import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.OutputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SimpleImageTranscoder implements ImageTranscoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleImageTranscoder";
@@ -112,7 +112,7 @@ public class SimpleImageTranscoder implements ImageTranscoder {
         RotationOptions rotationOptions2;
         Bitmap bitmap;
         Throwable th;
-        OutOfMemoryError e2;
+        OutOfMemoryError e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, outputStream, rotationOptions, resizeOptions, imageFormat, num})) == null) {
             Integer num2 = num == null ? 85 : num;
@@ -136,10 +136,10 @@ public class SimpleImageTranscoder implements ImageTranscoder {
                 if (transformationMatrix != null) {
                     try {
                         bitmap = Bitmap.createBitmap(decodeStream, 0, 0, decodeStream.getWidth(), decodeStream.getHeight(), transformationMatrix, false);
-                    } catch (OutOfMemoryError e3) {
-                        e2 = e3;
+                    } catch (OutOfMemoryError e2) {
+                        e = e2;
                         bitmap = decodeStream;
-                        FLog.e(TAG, "Out-Of-Memory during transcode", e2);
+                        FLog.e(TAG, "Out-Of-Memory during transcode", e);
                         ImageTranscodeResult imageTranscodeResult = new ImageTranscodeResult(2);
                         bitmap.recycle();
                         decodeStream.recycle();
@@ -161,9 +161,9 @@ public class SimpleImageTranscoder implements ImageTranscoder {
                         bitmap.recycle();
                         decodeStream.recycle();
                         return imageTranscodeResult2;
-                    } catch (OutOfMemoryError e4) {
-                        e2 = e4;
-                        FLog.e(TAG, "Out-Of-Memory during transcode", e2);
+                    } catch (OutOfMemoryError e3) {
+                        e = e3;
+                        FLog.e(TAG, "Out-Of-Memory during transcode", e);
                         ImageTranscodeResult imageTranscodeResult3 = new ImageTranscodeResult(2);
                         bitmap.recycle();
                         decodeStream.recycle();
@@ -175,8 +175,8 @@ public class SimpleImageTranscoder implements ImageTranscoder {
                     decodeStream.recycle();
                     throw th;
                 }
-            } catch (OutOfMemoryError e5) {
-                FLog.e(TAG, "Out-Of-Memory during transcode", e5);
+            } catch (OutOfMemoryError e4) {
+                FLog.e(TAG, "Out-Of-Memory during transcode", e4);
                 return new ImageTranscodeResult(2);
             }
         }

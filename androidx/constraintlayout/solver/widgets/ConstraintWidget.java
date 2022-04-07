@@ -416,9 +416,9 @@ public class ConstraintWidget {
         this.mOffsetX = 0;
         this.mOffsetY = 0;
         this.mBaselineDistance = 0;
-        float f2 = DEFAULT_BIAS;
-        this.mHorizontalBiasPercent = f2;
-        this.mVerticalBiasPercent = f2;
+        float f = DEFAULT_BIAS;
+        this.mHorizontalBiasPercent = f;
+        this.mVerticalBiasPercent = f;
         this.mContainerItemSkip = 0;
         this.mVisibility = 0;
         this.mDebugName = null;
@@ -464,7 +464,7 @@ public class ConstraintWidget {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void applyConstraints(LinearSystem linearSystem, boolean z, SolverVariable solverVariable, SolverVariable solverVariable2, DimensionBehaviour dimensionBehaviour, boolean z2, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i, int i2, int i3, int i4, float f2, boolean z3, boolean z4, int i5, int i6, int i7, float f3, boolean z5) {
+    private void applyConstraints(LinearSystem linearSystem, boolean z, SolverVariable solverVariable, SolverVariable solverVariable2, DimensionBehaviour dimensionBehaviour, boolean z2, ConstraintAnchor constraintAnchor, ConstraintAnchor constraintAnchor2, int i, int i2, int i3, int i4, float f, boolean z3, boolean z4, int i5, int i6, int i7, float f2, boolean z5) {
         boolean z6;
         int i8;
         int i9;
@@ -496,7 +496,7 @@ public class ConstraintWidget {
         int i19;
         boolean z14;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{linearSystem, Boolean.valueOf(z), solverVariable, solverVariable2, dimensionBehaviour, Boolean.valueOf(z2), constraintAnchor, constraintAnchor2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f3), Boolean.valueOf(z5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{linearSystem, Boolean.valueOf(z), solverVariable, solverVariable2, dimensionBehaviour, Boolean.valueOf(z2), constraintAnchor, constraintAnchor2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2), Boolean.valueOf(z5)}) == null) {
             SolverVariable createObjectVariable3 = linearSystem.createObjectVariable(constraintAnchor);
             SolverVariable createObjectVariable4 = linearSystem.createObjectVariable(constraintAnchor2);
             SolverVariable createObjectVariable5 = linearSystem.createObjectVariable(constraintAnchor.getTarget());
@@ -596,7 +596,7 @@ public class ConstraintWidget {
                                 i13 = i21;
                                 i14 = i24;
                                 solverVariable4 = createObjectVariable6;
-                                linearSystem.addConstraint(linearSystem.createRow().createRowDimensionRatio(createObjectVariable4, createObjectVariable3, createObjectVariable2, solverVariable10, f3));
+                                linearSystem.addConstraint(linearSystem.createRow().createRowDimensionRatio(createObjectVariable4, createObjectVariable3, createObjectVariable2, solverVariable10, f2));
                                 z8 = false;
                                 if (z8) {
                                 }
@@ -692,7 +692,7 @@ public class ConstraintWidget {
                                                 solverVariable8 = solverVariable5;
                                                 solverVariable7 = solverVariable6;
                                                 solverVariable9 = createObjectVariable4;
-                                                linearSystem.addCentering(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), f2, solverVariable5, createObjectVariable4, constraintAnchor2.getMargin(), i15);
+                                                linearSystem.addCentering(createObjectVariable3, solverVariable6, constraintAnchor.getMargin(), f, solverVariable5, createObjectVariable4, constraintAnchor2.getMargin(), i15);
                                                 boolean z16 = constraintAnchor.mTarget.mOwner instanceof Barrier;
                                                 boolean z17 = constraintAnchor2.mTarget.mOwner instanceof Barrier;
                                                 if (z16 && !z17) {
@@ -945,11 +945,11 @@ public class ConstraintWidget {
         boolean z10 = this.mListDimensionBehaviors[0] != DimensionBehaviour.MATCH_CONSTRAINT;
         boolean z11 = this.mListDimensionBehaviors[1] != DimensionBehaviour.MATCH_CONSTRAINT;
         this.mResolvedDimensionRatioSide = this.mDimensionRatioSide;
-        float f2 = this.mDimensionRatio;
-        this.mResolvedDimensionRatio = f2;
+        float f = this.mDimensionRatio;
+        this.mResolvedDimensionRatio = f;
         int i12 = this.mMatchConstraintDefaultWidth;
         int i13 = this.mMatchConstraintDefaultHeight;
-        if (f2 <= 0.0f || this.mVisibility == 8) {
+        if (f <= 0.0f || this.mVisibility == 8) {
             solverVariable = createObjectVariable5;
             i = i12;
             i2 = i8;
@@ -1143,12 +1143,12 @@ public class ConstraintWidget {
         }
     }
 
-    public void connectCircularConstraint(ConstraintWidget constraintWidget, float f2, int i) {
+    public void connectCircularConstraint(ConstraintWidget constraintWidget, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{constraintWidget, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{constraintWidget, Float.valueOf(f), Integer.valueOf(i)}) == null) {
             ConstraintAnchor.Type type = ConstraintAnchor.Type.CENTER;
             immediateConnect(type, constraintWidget, type, i, 0);
-            this.mCircleConstraintAngle = f2;
+            this.mCircleConstraintAngle = f;
         }
     }
 
@@ -1870,9 +1870,9 @@ public class ConstraintWidget {
             this.mMinHeight = 0;
             this.mWrapWidth = 0;
             this.mWrapHeight = 0;
-            float f2 = DEFAULT_BIAS;
-            this.mHorizontalBiasPercent = f2;
-            this.mVerticalBiasPercent = f2;
+            float f = DEFAULT_BIAS;
+            this.mHorizontalBiasPercent = f;
+            this.mVerticalBiasPercent = f;
             DimensionBehaviour[] dimensionBehaviourArr = this.mListDimensionBehaviors;
             DimensionBehaviour dimensionBehaviour = DimensionBehaviour.FIXED;
             dimensionBehaviourArr[0] = dimensionBehaviour;
@@ -2105,7 +2105,7 @@ public class ConstraintWidget {
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:40:0x0088 -> B:41:0x0089). Please submit an issue!!! */
     public void setDimensionRatio(String str) {
-        float f2;
+        float f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048674, this, str) == null) {
             int i = 0;
@@ -2132,23 +2132,23 @@ public class ConstraintWidget {
                         float parseFloat2 = Float.parseFloat(substring3);
                         if (parseFloat > 0.0f && parseFloat2 > 0.0f) {
                             if (i2 == 1) {
-                                f2 = Math.abs(parseFloat2 / parseFloat);
+                                f = Math.abs(parseFloat2 / parseFloat);
                             } else {
-                                f2 = Math.abs(parseFloat / parseFloat2);
+                                f = Math.abs(parseFloat / parseFloat2);
                             }
                         }
                     }
-                    f2 = 0.0f;
+                    f = 0.0f;
                 } else {
                     String substring4 = str.substring(i3);
                     if (substring4.length() > 0) {
-                        f2 = Float.parseFloat(substring4);
+                        f = Float.parseFloat(substring4);
                     }
-                    f2 = 0.0f;
+                    f = 0.0f;
                 }
-                i = (f2 > i ? 1 : (f2 == i ? 0 : -1));
+                i = (f > i ? 1 : (f == i ? 0 : -1));
                 if (i > 0) {
-                    this.mDimensionRatio = f2;
+                    this.mDimensionRatio = f;
                     this.mDimensionRatioSide = i2;
                     return;
                 }
@@ -2272,10 +2272,10 @@ public class ConstraintWidget {
         }
     }
 
-    public void setHorizontalBiasPercent(float f2) {
+    public void setHorizontalBiasPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048685, this, f2) == null) {
-            this.mHorizontalBiasPercent = f2;
+        if (interceptable == null || interceptable.invokeF(1048685, this, f) == null) {
+            this.mHorizontalBiasPercent = f;
         }
     }
 
@@ -2309,24 +2309,24 @@ public class ConstraintWidget {
         }
     }
 
-    public void setHorizontalMatchStyle(int i, int i2, int i3, float f2) {
+    public void setHorizontalMatchStyle(int i, int i2, int i3, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048689, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048689, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
             this.mMatchConstraintDefaultWidth = i;
             this.mMatchConstraintMinWidth = i2;
             this.mMatchConstraintMaxWidth = i3;
-            this.mMatchConstraintPercentWidth = f2;
-            if (f2 >= 1.0f || i != 0) {
+            this.mMatchConstraintPercentWidth = f;
+            if (f >= 1.0f || i != 0) {
                 return;
             }
             this.mMatchConstraintDefaultWidth = 2;
         }
     }
 
-    public void setHorizontalWeight(float f2) {
+    public void setHorizontalWeight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048690, this, f2) == null) {
-            this.mWeight[0] = f2;
+        if (interceptable == null || interceptable.invokeF(1048690, this, f) == null) {
+            this.mWeight[0] = f;
         }
     }
 
@@ -2418,10 +2418,10 @@ public class ConstraintWidget {
         }
     }
 
-    public void setVerticalBiasPercent(float f2) {
+    public void setVerticalBiasPercent(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048701, this, f2) == null) {
-            this.mVerticalBiasPercent = f2;
+        if (interceptable == null || interceptable.invokeF(1048701, this, f) == null) {
+            this.mVerticalBiasPercent = f;
         }
     }
 
@@ -2455,24 +2455,24 @@ public class ConstraintWidget {
         }
     }
 
-    public void setVerticalMatchStyle(int i, int i2, int i3, float f2) {
+    public void setVerticalMatchStyle(int i, int i2, int i3, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048705, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048705, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)}) == null) {
             this.mMatchConstraintDefaultHeight = i;
             this.mMatchConstraintMinHeight = i2;
             this.mMatchConstraintMaxHeight = i3;
-            this.mMatchConstraintPercentHeight = f2;
-            if (f2 >= 1.0f || i != 0) {
+            this.mMatchConstraintPercentHeight = f;
+            if (f >= 1.0f || i != 0) {
                 return;
             }
             this.mMatchConstraintDefaultHeight = 2;
         }
     }
 
-    public void setVerticalWeight(float f2) {
+    public void setVerticalWeight(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048706, this, f2) == null) {
-            this.mWeight[1] = f2;
+        if (interceptable == null || interceptable.invokeF(1048706, this, f) == null) {
+            this.mWeight[1] = f;
         }
     }
 
@@ -2847,10 +2847,10 @@ public class ConstraintWidget {
         }
     }
 
-    public void setDimensionRatio(float f2, int i) {
+    public void setDimensionRatio(float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048673, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
-            this.mDimensionRatio = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048673, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            this.mDimensionRatio = f;
             this.mDimensionRatioSide = i;
         }
     }
@@ -2915,9 +2915,9 @@ public class ConstraintWidget {
         this.mOffsetX = 0;
         this.mOffsetY = 0;
         this.mBaselineDistance = 0;
-        float f2 = DEFAULT_BIAS;
-        this.mHorizontalBiasPercent = f2;
-        this.mVerticalBiasPercent = f2;
+        float f = DEFAULT_BIAS;
+        this.mHorizontalBiasPercent = f;
+        this.mVerticalBiasPercent = f;
         this.mContainerItemSkip = 0;
         this.mVisibility = 0;
         this.mDebugName = null;

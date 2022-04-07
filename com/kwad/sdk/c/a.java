@@ -6,7 +6,7 @@ import com.kwad.sdk.c.kwai.f;
 import com.kwai.filedownloader.i;
 import com.kwai.filedownloader.m;
 import com.kwai.filedownloader.r;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements com.kwad.sdk.c.a.b {
     public final Context a;
 
@@ -17,15 +17,15 @@ public class a implements com.kwad.sdk.c.a.b {
     @Override // com.kwad.sdk.c.a.b
     public void a(final com.kwad.sdk.c.kwai.d dVar, final b.a aVar) {
         com.kwad.sdk.c.b.b.a(dVar, 1);
-        String d2 = dVar.d();
-        String c2 = new f(d2).c();
-        if (c2 == null) {
+        String d = dVar.d();
+        String c = new f(d).c();
+        if (c == null) {
             return;
         }
-        dVar.d(c2.substring(0, c2.indexOf(".zip")));
-        String b2 = com.kwad.sdk.c.b.a.b(this.a, dVar.f());
-        dVar.c(b2);
-        r.a().a(d2).a(dVar).a(b2).a((i) new m() { // from class: com.kwad.sdk.c.a.1
+        dVar.d(c.substring(0, c.indexOf(".zip")));
+        String b = com.kwad.sdk.c.b.a.b(this.a, dVar.f());
+        dVar.c(b);
+        r.a().a(d).a(dVar).a(b).a((i) new m() { // from class: com.kwad.sdk.c.a.1
             @Override // com.kwai.filedownloader.m, com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar2, Throwable th) {
                 super.a(aVar2, th);

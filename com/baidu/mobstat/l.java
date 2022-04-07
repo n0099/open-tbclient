@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class l extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,8 +51,8 @@ public class l extends ContextWrapper {
                 if (!file2.exists()) {
                     try {
                         file2.createNewFile();
-                    } catch (IOException e2) {
-                        bb.c().b(e2);
+                    } catch (IOException e) {
+                        bb.c().b(e);
                     }
                 }
                 if (file2.exists()) {

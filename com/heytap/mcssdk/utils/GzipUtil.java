@@ -10,7 +10,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class GzipUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IO_BUF_SIZE = 1024;
@@ -38,7 +38,7 @@ public class GzipUtil {
         InterceptResult invokeL;
         Throwable th;
         GZIPOutputStream gZIPOutputStream;
-        IOException e2;
+        IOException e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (str == null || str.length() == 0) {
@@ -64,9 +64,9 @@ public class GzipUtil {
                             byteArrayInputStream.close();
                             gZIPOutputStream.close();
                             byteArrayOutputStream.close();
-                        } catch (IOException e3) {
-                            e2 = e3;
-                            LogUtil.e(e2);
+                        } catch (IOException e2) {
+                            e = e2;
+                            LogUtil.e(e);
                             byteArrayInputStream.close();
                             if (gZIPOutputStream != null) {
                                 gZIPOutputStream.close();
@@ -82,14 +82,14 @@ public class GzipUtil {
                                 gZIPOutputStream2.close();
                             }
                             byteArrayOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                         throw th;
                     }
-                } catch (IOException e5) {
+                } catch (IOException e4) {
                     gZIPOutputStream = null;
-                    e2 = e5;
+                    e = e4;
                 } catch (Throwable th3) {
                     th = th3;
                     byteArrayInputStream.close();
@@ -98,8 +98,8 @@ public class GzipUtil {
                     byteArrayOutputStream.close();
                     throw th;
                 }
-            } catch (IOException e6) {
-                e6.printStackTrace();
+            } catch (IOException e5) {
+                e5.printStackTrace();
             }
             return byteArrayOutputStream.toByteArray();
         }
@@ -114,7 +114,7 @@ public class GzipUtil {
         InterceptResult invokeL;
         GZIPInputStream gZIPInputStream;
         Throwable th;
-        IOException e2;
+        IOException e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             if (bArr == null || bArr.length == 0) {
@@ -139,9 +139,9 @@ public class GzipUtil {
                             gZIPInputStream.close();
                             byteArrayInputStream.close();
                             byteArrayOutputStream.close();
-                        } catch (IOException e3) {
-                            e2 = e3;
-                            LogUtil.e(e2);
+                        } catch (IOException e2) {
+                            e = e2;
+                            LogUtil.e(e);
                             if (gZIPInputStream != null) {
                                 gZIPInputStream.close();
                             }
@@ -154,8 +154,8 @@ public class GzipUtil {
                         if (gZIPInputStream != null) {
                             try {
                                 gZIPInputStream.close();
-                            } catch (IOException e4) {
-                                e4.printStackTrace();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
                                 throw th;
                             }
                         }
@@ -163,12 +163,12 @@ public class GzipUtil {
                         byteArrayOutputStream.close();
                         throw th;
                     }
-                } catch (IOException e5) {
-                    e5.printStackTrace();
+                } catch (IOException e4) {
+                    e4.printStackTrace();
                 }
-            } catch (IOException e6) {
+            } catch (IOException e5) {
                 gZIPInputStream = null;
-                e2 = e6;
+                e = e5;
             } catch (Throwable th3) {
                 gZIPInputStream = null;
                 th = th3;

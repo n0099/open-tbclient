@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MemoryCategory {
     public static final /* synthetic */ MemoryCategory[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -38,12 +38,12 @@ public final class MemoryCategory {
         $VALUES = new MemoryCategory[]{LOW, NORMAL, memoryCategory};
     }
 
-    public MemoryCategory(String str, int i, float f2) {
+    public MemoryCategory(String str, int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Float.valueOf(f2)};
+            Object[] objArr = {str, Integer.valueOf(i), Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -56,7 +56,7 @@ public final class MemoryCategory {
                 return;
             }
         }
-        this.multiplier = f2;
+        this.multiplier = f;
     }
 
     public static MemoryCategory valueOf(String str) {

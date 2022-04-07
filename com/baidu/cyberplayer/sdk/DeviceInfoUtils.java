@@ -22,13 +22,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f25311b;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -193,11 +191,11 @@ public class DeviceInfoUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             try {
                 return new BufferedReader(new FileReader(DeviceInfoUtil.CurPath)).readLine().trim();
-            } catch (FileNotFoundException e2) {
-                e2.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
                 return null;
-            } catch (IOException e3) {
-                e3.printStackTrace();
+            } catch (IOException e2) {
+                e2.printStackTrace();
                 return null;
             }
         }
@@ -311,15 +309,15 @@ public class DeviceInfoUtils {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39039b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.b).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
                 }
                 str = str3.trim();
                 inputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 str = null;
             }
             if (str != null) {
@@ -385,24 +383,24 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f25311b;
+            String str2 = b;
             if (str2 != null) {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39040c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.c).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
                 }
                 str = str3.trim();
                 inputStream.close();
-            } catch (IOException e2) {
-                e2.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 str = null;
             }
             if (str != null) {
-                f25311b = str;
+                b = str;
             }
             return str;
         }

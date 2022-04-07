@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HASH_ACCUMULATOR = 17;
@@ -31,7 +31,7 @@ public final class Util {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bumptech.glide.util.Util$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -282,16 +282,16 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static int hashCode(float f2) {
+    public static int hashCode(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f2)) == null) ? hashCode(f2, 17) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65549, null, f)) == null) ? hashCode(f, 17) : invokeF.intValue;
     }
 
-    public static int hashCode(float f2, int i) {
+    public static int hashCode(float f, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) ? hashCode(Float.floatToIntBits(f2), i) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) ? hashCode(Float.floatToIntBits(f), i) : invokeCommon.intValue;
     }
 
     public static int hashCode(@Nullable Object obj, int i) {

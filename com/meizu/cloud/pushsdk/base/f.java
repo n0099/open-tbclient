@@ -5,21 +5,19 @@ import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f extends i<Executor> implements Executor {
-
-    /* renamed from: c  reason: collision with root package name */
-    public static f f42058c;
+    public static f c;
 
     public f(Executor executor) {
         super(executor);
     }
 
     public static f a() {
-        if (f42058c == null) {
+        if (c == null) {
             synchronized (f.class) {
-                if (f42058c == null) {
-                    f42058c = new f(new ThreadPoolExecutor(0, 5, 30L, TimeUnit.SECONDS, new LinkedBlockingDeque(100), new RejectedExecutionHandler() { // from class: com.meizu.cloud.pushsdk.base.f.1
+                if (c == null) {
+                    c = new f(new ThreadPoolExecutor(0, 5, 30L, TimeUnit.SECONDS, new LinkedBlockingDeque(100), new RejectedExecutionHandler() { // from class: com.meizu.cloud.pushsdk.base.f.1
                         @Override // java.util.concurrent.RejectedExecutionHandler
                         public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
                             new Thread(runnable).start();
@@ -28,7 +26,7 @@ public class f extends i<Executor> implements Executor {
                 }
             }
         }
-        return f42058c;
+        return c;
     }
 
     @Override // java.util.concurrent.Executor

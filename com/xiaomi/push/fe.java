@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class fe {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
@@ -27,11 +27,9 @@ public class fe {
 
     /* renamed from: a  reason: collision with other field name */
     public short f360a;
+    public byte[] b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public byte[] f44244b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static final c a;
@@ -67,9 +65,9 @@ public class fe {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bVar)) == null) {
-                if (fe.m355a(bArr)) {
+                if (fe.m351a(bArr)) {
                     fe a2 = fe.a(bArr);
-                    return (a2.f358a == 0 || a2.f358a != bVar.a()) ? a2.f44244b : bVar.a(a2.f44244b, a2.f359a);
+                    return (a2.f358a == 0 || a2.f358a != bVar.a()) ? a2.b : bVar.a(a2.b, a2.f359a);
                 }
                 return bArr;
             }
@@ -77,14 +75,14 @@ public class fe {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         byte a();
 
         byte[] a(byte[] bArr, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +102,7 @@ public class fe {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class d implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,7 +233,7 @@ public class fe {
         this.f360a = s;
         this.f358a = b2;
         this.f359a = i;
-        this.f44244b = bArr;
+        this.b = bArr;
     }
 
     public static fe a(byte b2, int i, byte[] bArr) {
@@ -254,7 +252,7 @@ public class fe {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) {
-            if (m355a(bArr)) {
+            if (m351a(bArr)) {
                 ByteBuffer order = ByteBuffer.wrap(bArr).order(ByteOrder.BIG_ENDIAN);
                 order.getInt();
                 short s = order.getShort();
@@ -270,7 +268,7 @@ public class fe {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m355a(byte[] bArr) {
+    public static boolean m351a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {

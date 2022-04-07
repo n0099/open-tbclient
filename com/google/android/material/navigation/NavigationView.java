@@ -58,13 +58,13 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int obfuscated_res_0x7f100327 = 2131755815;
+    public static final int obfuscated_res_0x7f100329 = 2131755817;
     public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public final NavigationMenuPresenter presenter;
     public final int[] tmpLocation;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -218,10 +218,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    public void addHeaderView(@NonNull View view) {
+    public void addHeaderView(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.presenter.addHeaderView(view);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            this.presenter.addHeaderView(view2);
         }
     }
 
@@ -381,10 +381,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return (Parcelable) invokeV.objValue;
     }
 
-    public void removeHeaderView(@NonNull View view) {
+    public void removeHeaderView(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, view) == null) {
-            this.presenter.removeHeaderView(view);
+        if (interceptable == null || interceptable.invokeL(1048595, this, view2) == null) {
+            this.presenter.removeHeaderView(view2);
         }
     }
 
@@ -398,13 +398,13 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     @Override // android.view.View
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                super.setElevation(f2);
+                super.setElevation(f);
             }
-            MaterialShapeUtils.setElevation(this, f2);
+            MaterialShapeUtils.setElevation(this, f);
         }
     }
 
@@ -504,7 +504,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -627,7 +627,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04044b);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04048a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -648,7 +648,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100327), attributeSet, i);
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100329), attributeSet, i);
         ColorStateList createDefaultColorStateList;
         int i2;
         boolean z;
@@ -672,7 +672,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.tmpLocation = new int[2];
         Context context2 = getContext();
         this.menu = new NavigationMenu(context2);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f040270, R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402db, R.attr.obfuscated_res_0x7f0402dd, R.attr.obfuscated_res_0x7f0402de, R.attr.obfuscated_res_0x7f0402df, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0402e3, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402e5, R.attr.obfuscated_res_0x7f0402e6, R.attr.obfuscated_res_0x7f0402e7, R.attr.obfuscated_res_0x7f0402e8, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f040427}, i, obfuscated_res_0x7f100327, new int[0]);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f040212, R.attr.obfuscated_res_0x7f0402b9, R.attr.obfuscated_res_0x7f040315, R.attr.obfuscated_res_0x7f040317, R.attr.obfuscated_res_0x7f040319, R.attr.obfuscated_res_0x7f04031a, R.attr.obfuscated_res_0x7f04031b, R.attr.obfuscated_res_0x7f04031c, R.attr.obfuscated_res_0x7f04031f, R.attr.obfuscated_res_0x7f040320, R.attr.obfuscated_res_0x7f040321, R.attr.obfuscated_res_0x7f040322, R.attr.obfuscated_res_0x7f040323, R.attr.obfuscated_res_0x7f040324, R.attr.obfuscated_res_0x7f040325, R.attr.obfuscated_res_0x7f040329, R.attr.obfuscated_res_0x7f04032c, R.attr.obfuscated_res_0x7f040467}, i, obfuscated_res_0x7f100329, new int[0]);
         if (obtainTintedStyledAttributes.hasValue(0)) {
             ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(0));
         }

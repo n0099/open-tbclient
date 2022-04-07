@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DevicePortraitManager implements IDevicePortraitManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -30,7 +30,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
     public IDevicePortraitThresholdsConfig mThresholdsConfig;
 
     /* renamed from: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager$4  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$aideviceperformance$device$IDevicePortraitManager$ThresholdType;
         public static /* synthetic */ Interceptable $ic;
@@ -160,12 +160,12 @@ public class DevicePortraitManager implements IDevicePortraitManager {
         }, "postCheckStaticScoreStore", 3, 5000L);
     }
 
-    private void postStaticScorePercentageStore(float f2) {
+    private void postStaticScorePercentageStore(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65544, this, f2) == null) || this.mResultHandler == null) {
+        if (!(interceptable == null || interceptable.invokeF(65544, this, f) == null) || this.mResultHandler == null) {
             return;
         }
-        ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f2) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.2
+        ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DevicePortraitManager this$0;
@@ -176,7 +176,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Float.valueOf(f2)};
+                    Object[] objArr = {this, Float.valueOf(f)};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -187,7 +187,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     }
                 }
                 this.this$0 = this;
-                this.val$deviceScorePercent = f2;
+                this.val$deviceScorePercent = f;
             }
 
             @Override // java.lang.Runnable
@@ -205,12 +205,12 @@ public class DevicePortraitManager implements IDevicePortraitManager {
         }, "postStaticScoreStore", 3, 5000L);
     }
 
-    private void postStaticScoreStore(float f2) {
+    private void postStaticScoreStore(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65545, this, f2) == null) || this.mResultHandler == null) {
+        if (!(interceptable == null || interceptable.invokeF(65545, this, f) == null) || this.mResultHandler == null) {
             return;
         }
-        ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f2) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.1
+        ExecutorUtilsExt.delayPostOnElastic(new Runnable(this, f) { // from class: com.baidu.searchbox.aideviceperformance.device.DevicePortraitManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DevicePortraitManager this$0;
@@ -221,7 +221,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Float.valueOf(f2)};
+                    Object[] objArr = {this, Float.valueOf(f)};
                     interceptable2.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -232,7 +232,7 @@ public class DevicePortraitManager implements IDevicePortraitManager {
                     }
                 }
                 this.this$0 = this;
-                this.val$deviceScore = f2;
+                this.val$deviceScore = f;
             }
 
             @Override // java.lang.Runnable

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Locale;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class Id3Decoder implements MetadataDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FRAME_FLAG_V3_HAS_GROUP_IDENTIFIER = 32;
@@ -43,12 +43,12 @@ public final class Id3Decoder implements MetadataDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final FramePredicate framePredicate;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface FramePredicate {
         boolean evaluate(int i, int i2, int i3, int i4, int i5);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Id3Header {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

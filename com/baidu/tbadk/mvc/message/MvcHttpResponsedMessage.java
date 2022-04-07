@@ -1,6 +1,5 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.o0.k0.b.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public abstract class MvcHttpResponsedMessage<D extends h> extends TbHttpResponsedMessage {
+import com.repackage.p65;
+/* loaded from: classes3.dex */
+public abstract class MvcHttpResponsedMessage<D extends p65> extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public D data;
@@ -40,14 +40,14 @@ public abstract class MvcHttpResponsedMessage<D extends h> extends TbHttpRespons
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             try {
                 return cls.newInstance();
-            } catch (ExceptionInInitializerError e2) {
+            } catch (ExceptionInInitializerError e) {
+                e.printStackTrace();
+                return null;
+            } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
                 return null;
-            } catch (IllegalAccessException e3) {
+            } catch (InstantiationException e3) {
                 e3.printStackTrace();
-                return null;
-            } catch (InstantiationException e4) {
-                e4.printStackTrace();
                 return null;
             }
         }
@@ -60,10 +60,10 @@ public abstract class MvcHttpResponsedMessage<D extends h> extends TbHttpRespons
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.data : (D) invokeV.objValue;
     }
 
-    public void setData(D d2) {
+    public void setData(D d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
-            this.data = d2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d) == null) {
+            this.data = d;
         }
     }
 }

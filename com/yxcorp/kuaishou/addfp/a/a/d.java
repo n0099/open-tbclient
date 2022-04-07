@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,23 +50,23 @@ public class d implements a {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, IF, IGET, INVOKE, SGET, INVOKE, INVOKE, IF, IF, SGET, INVOKE, INVOKE, IF, IF, SGET, INVOKE] complete} */
     @Override // com.yxcorp.kuaishou.addfp.a.a.a
     public final void a(boolean z, com.yxcorp.kuaishou.addfp.a.b.a aVar) {
-        String b2;
+        String b;
         com.yxcorp.kuaishou.addfp.android.a.e eVar;
         com.yxcorp.kuaishou.addfp.android.a.e eVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
             if (z || aVar != null) {
                 try {
-                    b2 = aVar.b();
-                    if (!TextUtils.isEmpty(b2)) {
-                        b.a = b2;
+                    b = aVar.b();
+                    if (!TextUtils.isEmpty(b)) {
+                        b.a = b;
                     }
                 } catch (Throwable th) {
                     try {
                         th.printStackTrace();
                         try {
                             if (!TextUtils.isEmpty(b.a) && !b.a.startsWith("KWE")) {
-                                eVar2 = this.a.f44598g;
+                                eVar2 = this.a.g;
                                 eVar2.b(b.a);
                             }
                             if (aVar != null) {
@@ -80,7 +80,7 @@ public class d implements a {
                     } finally {
                         try {
                             if (!TextUtils.isEmpty(b.a) && !b.a.startsWith("KWE")) {
-                                eVar = this.a.f44598g;
+                                eVar = this.a.g;
                                 eVar.b(b.a);
                             }
                             if (aVar != null) {
@@ -91,9 +91,9 @@ public class d implements a {
                     }
                 }
             } else {
-                b2 = null;
+                b = null;
             }
-            new StringBuilder("get OAID ").append(b2);
+            new StringBuilder("get OAID ").append(b);
             b.a().b();
         }
     }

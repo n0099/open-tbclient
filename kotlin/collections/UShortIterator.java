@@ -15,16 +15,16 @@ public abstract class UShortIterator implements Iterator<UShort>, KMappedMarker 
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // java.util.Iterator
     public /* bridge */ /* synthetic */ UShort next() {
-        return UShort.m964boximpl(m1154nextMh2AYeg());
+        return UShort.m960boximpl(m1150nextMh2AYeg());
     }
 
     /* renamed from: next-Mh2AYeg  reason: not valid java name */
-    public final short m1154nextMh2AYeg() {
-        return mo1037nextUShortMh2AYeg();
+    public final short m1150nextMh2AYeg() {
+        return mo1033nextUShortMh2AYeg();
     }
 
     /* renamed from: nextUShort-Mh2AYeg */
-    public abstract short mo1037nextUShortMh2AYeg();
+    public abstract short mo1033nextUShortMh2AYeg();
 
     @Override // java.util.Iterator
     public void remove() {

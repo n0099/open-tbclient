@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.ul9;
+/* loaded from: classes4.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +37,13 @@ public abstract class e extends com.google.a.a.b implements d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
             if (i == 1) {
-                a((Bundle) c.f.a.a.a.a(parcel, Bundle.CREATOR));
+                a((Bundle) ul9.a(parcel, Bundle.CREATOR));
             } else if (i == 2) {
-                b((Bundle) c.f.a.a.a.a(parcel, Bundle.CREATOR));
+                b((Bundle) ul9.a(parcel, Bundle.CREATOR));
             } else if (i != 3) {
                 return false;
             } else {
-                c.f.a.a.a.a(parcel, Bundle.CREATOR);
+                ul9.a(parcel, Bundle.CREATOR);
                 a();
             }
             return true;

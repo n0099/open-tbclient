@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ConectivityUtils implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APN_3GNET = "3gnet";
@@ -77,8 +77,8 @@ public class ConectivityUtils implements INoProGuard {
             try {
                 applicationContext = context.getApplicationContext();
                 connectivityManager = (ConnectivityManager) applicationContext.getSystemService("connectivity");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             if (connectivityManager == null) {
                 return "unknown";

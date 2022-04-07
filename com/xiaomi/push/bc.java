@@ -14,25 +14,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.DataBaseOperation;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bc implements ar {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "content://com.vivo.vms.IdProvider/IdentifierId/";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static String f44114b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static String f44115c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f44116d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static String f44117e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static String f44118f;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
@@ -51,11 +41,11 @@ public class bc implements ar {
                 return;
             }
         }
-        f44114b = a + "OAID";
-        f44115c = a + "VAID_";
-        f44116d = a + "AAID_";
-        f44117e = a + DataBaseOperation.OAIDSTATUS_FLAG;
-        f44118f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
+        b = a + "OAID";
+        c = a + "VAID_";
+        d = a + "AAID_";
+        e = a + DataBaseOperation.OAIDSTATUS_FLAG;
+        f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
     }
 
     public bc(Context context) {
@@ -156,15 +146,15 @@ public class bc implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f44118f, "0")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo191b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f44114b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar

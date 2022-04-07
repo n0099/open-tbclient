@@ -14,7 +14,7 @@ import com.kwad.v8.V8Value;
 import com.tachikoma.core.bridge.JSContext;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,16 +73,16 @@ public class TKConverter {
         return invokeLL.objValue;
     }
 
-    public static float dp2px(Context context, float f2) {
+    public static float dp2px(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f2)) == null) ? TypedValue.applyDimension(1, f2, context.getResources().getDisplayMetrics()) : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f)) == null) ? TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.floatValue;
     }
 
-    public static float px2dp(Context context, float f2) {
+    public static float px2dp(Context context, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f2)) == null) ? (f2 / context.getResources().getDisplayMetrics().density) + 0.5f : invokeLF.floatValue;
+        return (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, context, f)) == null) ? (f / context.getResources().getDisplayMetrics().density) + 0.5f : invokeLF.floatValue;
     }
 
     public static Object toV8Value(Object obj, JSContext jSContext) {

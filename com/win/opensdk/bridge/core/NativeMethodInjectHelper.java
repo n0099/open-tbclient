@@ -13,17 +13,13 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NativeMethodInjectHelper {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static volatile NativeMethodInjectHelper f44019c;
+    public static volatile NativeMethodInjectHelper c;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayMap a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List f44020b;
+    public List b;
 
     public NativeMethodInjectHelper() {
         Interceptable interceptable = $ic;
@@ -39,20 +35,20 @@ public class NativeMethodInjectHelper {
             }
         }
         this.a = new ArrayMap();
-        this.f44020b = new ArrayList();
+        this.b = new ArrayList();
     }
 
     public static NativeMethodInjectHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            NativeMethodInjectHelper nativeMethodInjectHelper = f44019c;
+            NativeMethodInjectHelper nativeMethodInjectHelper = c;
             if (nativeMethodInjectHelper == null) {
                 synchronized (NativeMethodInjectHelper.class) {
-                    nativeMethodInjectHelper = f44019c;
+                    nativeMethodInjectHelper = c;
                     if (nativeMethodInjectHelper == null) {
                         nativeMethodInjectHelper = new NativeMethodInjectHelper();
-                        f44019c = nativeMethodInjectHelper;
+                        c = nativeMethodInjectHelper;
                     }
                 }
             }
@@ -66,7 +62,7 @@ public class NativeMethodInjectHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             if (cls != null) {
-                this.f44020b.add(cls);
+                this.b.add(cls);
                 return this;
             }
             throw new NullPointerException("NativeMethodInjectHelper:The clazz can not be null!");
@@ -92,12 +88,12 @@ public class NativeMethodInjectHelper {
         Method[] declaredMethods;
         Class<?>[] parameterTypes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (size = this.f44020b.size()) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (size = this.b.size()) == 0) {
             return;
         }
         this.a.clear();
         for (int i = 0; i < size; i++) {
-            Class cls = (Class) this.f44020b.get(i);
+            Class cls = (Class) this.b.get(i);
             if (cls != null) {
                 ArrayMap arrayMap = new ArrayMap();
                 for (Method method : cls.getDeclaredMethods()) {
@@ -109,6 +105,6 @@ public class NativeMethodInjectHelper {
                 this.a.put(cls.getSimpleName(), arrayMap);
             }
         }
-        this.f44020b.clear();
+        this.b.clear();
     }
 }

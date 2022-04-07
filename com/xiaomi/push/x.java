@@ -1,5 +1,6 @@
 package com.xiaomi.push;
 
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.util.HashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, String> a;
@@ -30,8 +31,8 @@ public class x {
         a = hashMap;
         hashMap.put("FFD8FF", "jpg");
         a.put("89504E47", "png");
-        a.put("47494638", "gif");
-        a.put("474946", "gif");
+        a.put("47494638", NativeConstants.TYPE_GIF);
+        a.put("474946", NativeConstants.TYPE_GIF);
         a.put("424D", "bmp");
     }
 
@@ -45,8 +46,8 @@ public class x {
                 for (int i = 0; i < listFiles.length; i++) {
                     j += listFiles[i].isDirectory() ? a(listFiles[i]) : listFiles[i].length();
                 }
-            } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (Exception e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
             }
             return j;
         }

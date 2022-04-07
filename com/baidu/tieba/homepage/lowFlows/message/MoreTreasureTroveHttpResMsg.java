@@ -1,8 +1,5 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
-import c.a.d.o.e.n;
-import c.a.p0.q1.h.e.a;
-import c.a.p0.q1.h.h.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,15 +8,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ox6;
+import com.repackage.tx6;
+import com.repackage.uo;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-/* loaded from: classes5.dex */
-public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements a {
+/* loaded from: classes3.dex */
+public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements ox6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<n> mMoreTreasureTroveDataList;
+    public List<uo> mMoreTreasureTroveDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MoreTreasureTroveHttpResMsg() {
@@ -39,8 +39,8 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
         }
     }
 
-    @Override // c.a.p0.q1.h.e.a
-    public List<n> getDataList() {
+    @Override // com.repackage.ox6
+    public List<uo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mMoreTreasureTroveDataList : (List) invokeV.objValue;
@@ -59,6 +59,6 @@ public class MoreTreasureTroveHttpResMsg extends HttpResponsedMessage implements
             setError(error.errorno.intValue());
             setErrorString(moreTreasureTroveResIdl.error.usermsg);
         }
-        this.mMoreTreasureTroveDataList = c.b(moreTreasureTroveResIdl);
+        this.mMoreTreasureTroveDataList = tx6.b(moreTreasureTroveResIdl);
     }
 }

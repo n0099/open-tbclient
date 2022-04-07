@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class DataMessageUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "type";
@@ -39,8 +39,8 @@ public class DataMessageUtil {
                 intent.putExtra("messageID", str);
                 intent.putExtra("type", CommandMessage.COMMAND_SEND_INSTANT_ACK);
                 context.startService(intent);
-            } catch (Exception e2) {
-                LogUtil.e("statisticMessage--Exception" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.e("statisticMessage--Exception" + e.getMessage());
             }
         }
     }

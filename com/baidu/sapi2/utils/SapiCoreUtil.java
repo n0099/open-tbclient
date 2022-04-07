@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class SapiCoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOM_THEME_SCHEMA = "file:///android_asset/";
@@ -120,8 +120,8 @@ public class SapiCoreUtil {
                             process2 = runtime.exec("chmod 664 " + file);
                         }
                         file = file.getParentFile();
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                         process = process2;
                         Log.e(e);
                     } catch (Throwable th) {
@@ -150,8 +150,8 @@ public class SapiCoreUtil {
                     process = process2;
                 }
                 r3 = process != null ? process.waitFor() : -1;
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
         } catch (Throwable th2) {
             th = th2;

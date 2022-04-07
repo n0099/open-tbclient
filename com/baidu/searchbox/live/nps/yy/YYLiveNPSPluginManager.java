@@ -39,7 +39,7 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class YYLiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_FROM_NPS_DOWNLOAD = "nps_download";
@@ -66,12 +66,12 @@ public class YYLiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface PluginLoadCallback {
         void onResult(int i, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static YYLiveNPSPluginManager instance;
@@ -138,8 +138,8 @@ public class YYLiveNPSPluginManager {
             }
             try {
                 return new JSONObject(queryParameter).optString("source");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return null;
             }
         }
@@ -526,8 +526,8 @@ public class YYLiveNPSPluginManager {
             jSONObject2.put("entry", str4);
             jSONObject2.put("reason", str2);
             jSONObject.put("ext", jSONObject2);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         this.ubcManager.onEvent("3036", jSONObject);
     }
@@ -545,8 +545,8 @@ public class YYLiveNPSPluginManager {
             jSONObject2.put("pkg", str);
             jSONObject2.put("entry", str2);
             jSONObject.put("ext", jSONObject2);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         this.ubcManager.onEvent("3037", jSONObject);
     }
@@ -1282,8 +1282,8 @@ public class YYLiveNPSPluginManager {
                                         try {
                                             this.this$1.this$0.impl = (IYYLiveNPSPlugin) ((Class) this.val$retObject).newInstance();
                                             this.this$1.this$0.impl.startYYActivity(this.this$1.val$context);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }
@@ -1374,8 +1374,8 @@ public class YYLiveNPSPluginManager {
                                         try {
                                             this.this$1.this$0.impl = (IYYLiveNPSPlugin) ((Class) this.val$retObject).newInstance();
                                             this.this$1.this$0.impl.startYYCustomerServiceActivity(this.this$1.val$context, this.this$1.val$url);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }
@@ -1466,8 +1466,8 @@ public class YYLiveNPSPluginManager {
                                         try {
                                             this.this$1.this$0.impl = (IYYLiveNPSPlugin) ((Class) this.val$retObject).newInstance();
                                             this.this$1.this$0.impl.startYYFeedbackActivity(this.this$1.val$context, this.this$1.val$url);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }
@@ -1575,8 +1575,8 @@ public class YYLiveNPSPluginManager {
                                                 this.this$1.this$0.pageFlow = null;
                                             }
                                             this.this$1.this$0.impl.startYYLiveActivity(this.this$1.val$context, this.this$1.val$scheme);
-                                        } catch (Exception e2) {
-                                            e2.printStackTrace();
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
                                         }
                                     }
                                 }

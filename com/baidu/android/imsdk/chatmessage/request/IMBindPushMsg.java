@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMBindPushMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public class IMBindPushMsg extends Message {
                 jSONObject2.put("rpc_retry_time", this.mReSendCount);
                 jSONObject.put("rpc", jSONObject2.toString());
                 this.mBody = jSONObject.toString();
-            } catch (JSONException e2) {
-                LogUtils.e(IMBindPushMsg.class.getSimpleName(), "Exception ", e2);
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (JSONException e) {
+                LogUtils.e(IMBindPushMsg.class.getSimpleName(), "Exception ", e);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
             }
         }
     }

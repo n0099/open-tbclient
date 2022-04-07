@@ -35,13 +35,13 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
         public boolean done;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ParallelCollectSubscriber(Subscriber<? super C> subscriber, C c2, BiConsumer<? super C, ? super T> biConsumer) {
+        public ParallelCollectSubscriber(Subscriber<? super C> subscriber, C c, BiConsumer<? super C, ? super T> biConsumer) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, c2, biConsumer};
+                Object[] objArr = {subscriber, c, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
                     return;
                 }
             }
-            this.collection = c2;
+            this.collection = c;
             this.collector = biConsumer;
         }
 
@@ -72,9 +72,9 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
                 return;
             }
             this.done = true;
-            C c2 = this.collection;
+            C c = this.collection;
             this.collection = null;
-            complete(c2);
+            complete(c);
         }
 
         @Override // io.reactivex.internal.subscribers.DeferredScalarSubscriber, org.reactivestreams.Subscriber

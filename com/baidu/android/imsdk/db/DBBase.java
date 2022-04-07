@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBBase";
@@ -27,7 +27,7 @@ public class DBBase {
     public transient /* synthetic */ FieldHolder $fh;
     public Context mContext;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class UpdateArgs {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +122,8 @@ public class DBBase {
                         query.close();
                     }
                     return insert;
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Exception e) {
+                    e = e;
                     cursor = query;
                     LogUtils.e(TAG, "deleteCmdMsg:", e);
                     if (cursor != null) {
@@ -138,8 +138,8 @@ public class DBBase {
                     }
                     throw th;
                 }
-            } catch (Exception e3) {
-                e = e3;
+            } catch (Exception e2) {
+                e = e2;
             }
         } catch (Throwable th2) {
             th = th2;
@@ -157,9 +157,9 @@ public class DBBase {
             }
             try {
                 return openDatabase.delete(str, str2, strArr);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "deleteCmdMsg:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "deleteCmdMsg:", e);
                 return -1;
             }
         }
@@ -177,9 +177,9 @@ public class DBBase {
             }
             try {
                 return openDatabase.insert(str, null, contentValues);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "saveCmdMsg:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "saveCmdMsg:", e);
                 return -1L;
             }
         }
@@ -241,10 +241,10 @@ public class DBBase {
                 }
                 throw th;
             }
-        } catch (Exception e2) {
+        } catch (Exception e) {
             try {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(LogUtils.TAG, "query:", e2);
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "query:", e);
                 if (cursor != null) {
                     cursor.close();
                 }
@@ -263,9 +263,9 @@ public class DBBase {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, str, strArr, str2, strArr2)) == null) {
             try {
                 return queryCount(openDatabase(), str, strArr, str2, strArr2);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(LogUtils.TAG, "queryCount", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(LogUtils.TAG, "queryCount", e);
                 return -1L;
             }
         }
@@ -301,10 +301,10 @@ public class DBBase {
                     }
                     throw th;
                 }
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 String str2 = TAG;
-                LogUtils.e(str2, "querymax " + e2.getMessage());
+                LogUtils.e(str2, "querymax " + e.getMessage());
                 if (cursor != null) {
                     try {
                         cursor.close();
@@ -370,22 +370,22 @@ public class DBBase {
                     if (openDatabase != null) {
                         try {
                             openDatabase.endTransaction();
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "updateBatch", e);
                             return i;
                         }
                     }
-                } catch (Exception e3) {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e3)).build();
-                    LogUtils.e(TAG, String.format("update table %s exception!", str), e3);
+                } catch (Exception e2) {
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                    LogUtils.e(TAG, String.format("update table %s exception!", str), e2);
                     if (openDatabase != null) {
                         try {
                             openDatabase.endTransaction();
-                        } catch (Exception e4) {
-                            e = e4;
+                        } catch (Exception e3) {
+                            e = e3;
                             crashBuilder = new IMTrack.CrashBuilder(this.mContext);
                             crashBuilder.exception(Log.getStackTraceString(e)).build();
                             LogUtils.e(TAG, "updateBatch", e);
@@ -398,9 +398,9 @@ public class DBBase {
                 if (openDatabase != null) {
                     try {
                         openDatabase.endTransaction();
-                    } catch (Exception e5) {
-                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e5)).build();
-                        LogUtils.e(TAG, "updateBatch", e5);
+                    } catch (Exception e4) {
+                        new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e4)).build();
+                        LogUtils.e(TAG, "updateBatch", e4);
                     }
                 }
                 throw th;
@@ -443,10 +443,10 @@ public class DBBase {
                     }
                     throw th;
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 try {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "queryCount", e2);
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "queryCount", e);
                     if (0 != 0) {
                         cursor.close();
                     }
@@ -472,9 +472,9 @@ public class DBBase {
             }
             try {
                 return sQLiteDatabase.delete(str, str2, strArr);
-            } catch (Exception e2) {
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                LogUtils.e(TAG, "deleteCmdMsg:", e2);
+            } catch (Exception e) {
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                LogUtils.e(TAG, "deleteCmdMsg:", e);
                 return -1;
             }
         }
@@ -499,10 +499,10 @@ public class DBBase {
                 if (cursor != null) {
                     cursor.close();
                 }
-            } catch (Exception e2) {
+            } catch (Exception e) {
                 try {
-                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
-                    LogUtils.e(LogUtils.TAG, "query:", e2);
+                    new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
+                    LogUtils.e(LogUtils.TAG, "query:", e);
                     if (cursor != null) {
                         cursor.close();
                     }

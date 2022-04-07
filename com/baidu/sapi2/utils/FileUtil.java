@@ -14,7 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 2048;
@@ -53,13 +53,13 @@ public final class FileUtil {
                 } finally {
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException e2) {
-                        Log.e(Log.TAG, e2);
+                    } catch (IOException e) {
+                        Log.e(Log.TAG, e);
                     }
                     try {
                         bufferedInputStream.close();
-                    } catch (IOException e3) {
-                        Log.e(Log.TAG, e3);
+                    } catch (IOException e2) {
+                        Log.e(Log.TAG, e2);
                     }
                 }
             }
@@ -75,8 +75,8 @@ public final class FileUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
             try {
                 return file.delete();
-            } catch (Exception e2) {
-                Log.i(Log.TAG, e2);
+            } catch (Exception e) {
+                Log.i(Log.TAG, e);
                 return false;
             }
         }

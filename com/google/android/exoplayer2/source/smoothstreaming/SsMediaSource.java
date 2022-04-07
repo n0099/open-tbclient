@@ -32,7 +32,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SsMediaSource implements MediaSource, Loader.Callback<ParsingLoadable<SsManifest>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LIVE_PRESENTATION_DELAY_MS = 30000;

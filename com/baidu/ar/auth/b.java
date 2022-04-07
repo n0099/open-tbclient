@@ -27,7 +27,7 @@ import java.util.HashSet;
 import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class b implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class b implements k {
     public k.a ju;
     public int jv;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,15 +148,15 @@ public class b implements k {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) == null) {
                     try {
-                        a b2 = this.jw.b(iHttpResponse);
-                        if (!b2.jx) {
+                        a b = this.jw.b(iHttpResponse);
+                        if (!b.jx) {
                             if (this.jl != null) {
-                                this.jl.onError(b2.jz, 0);
+                                this.jl.onError(b.jz, 0);
                                 return;
                             }
                             return;
                         }
-                        this.jw.e(b2.jy);
+                        this.jw.e(b.jy);
                         if (this.jl != null) {
                             this.jl.onSuccess();
                         }
@@ -220,8 +220,8 @@ public class b implements k {
             try {
                 Thread.currentThread();
                 Thread.sleep(this.jv * 500);
-            } catch (InterruptedException e2) {
-                e2.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
             a(iAuthCallback);
         }

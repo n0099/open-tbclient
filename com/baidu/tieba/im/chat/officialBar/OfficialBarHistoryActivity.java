@@ -2,8 +2,6 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.os.Handler;
-import c.a.d.c.g.c;
-import c.a.p0.u1.f.j.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,8 +16,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.k57;
+import com.repackage.mg;
+import com.repackage.ya;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryActivity> implements BdListView.p {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,23 +28,23 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     public List<ResponseHistoryMessage.a> mDataList;
     public a mListener;
     public b mLocalListener;
-    public d mView;
+    public k57 mView;
     public int mforumId;
 
-    /* loaded from: classes5.dex */
-    public class a extends c {
+    /* loaded from: classes3.dex */
+    public class a extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarHistoryActivity a;
 
         /* renamed from: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC1856a implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0197a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC1856a(a aVar) {
+            public RunnableC0197a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,14 +101,14 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 this.a.hideProgressBar();
                 this.a.isRefreshing = false;
                 if (socketResponsedMessage == null) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                     this.a.mView.j(this.a.mDataList);
                 } else if (socketResponsedMessage.getError() != 0) {
                     this.a.showToast(socketResponsedMessage.getErrorString());
                     this.a.mView.j(this.a.mDataList);
                 } else if (socketResponsedMessage.getCmd() != 208002 || !(socketResponsedMessage instanceof ResponseHistoryMessage)) {
                     this.a.mView.j(this.a.mDataList);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c18);
                 } else {
                     ResponseHistoryMessage responseHistoryMessage = (ResponseHistoryMessage) socketResponsedMessage;
                     if (responseHistoryMessage.getMsg().isEmpty()) {
@@ -128,14 +129,14 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     if (responseHistoryMessage.getMsg().size() == 0) {
                         this.a.mView.j(this.a.mDataList);
                     } else {
-                        new Handler().post(new RunnableC1856a(this));
+                        new Handler().post(new RunnableC0197a(this));
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,10 +210,10 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                 i = 0;
             } else {
                 List<ResponseHistoryMessage.a> list2 = this.mDataList;
-                i = list2.get(list2.size() - 1).f33757d;
+                i = list2.get(list2.size() - 1).d;
             }
             this.isRefreshing = true;
-            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, c.a.d.f.m.b.g(TbadkCoreApplication.getCurrentAccount(), 0L), i));
+            MessageManager.getInstance().sendMessage(new RequestHistoryMessage(this.mforumId, mg.g(TbadkCoreApplication.getCurrentAccount(), 0L), i));
         }
     }
 
@@ -238,9 +239,9 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            d dVar = new d(this);
-            this.mView = dVar;
-            dVar.i(this);
+            k57 k57Var = new k57(this);
+            this.mView = k57Var;
+            k57Var.i(this);
         }
     }
 

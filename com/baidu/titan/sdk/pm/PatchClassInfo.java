@@ -13,7 +13,7 @@ import java.util.zip.ZipFile;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PatchClassInfo {
     public HashSet<String> instantClassNames;
     public HashSet<String> lazyClassNames;
@@ -33,8 +33,8 @@ public class PatchClassInfo {
                 patchClassInfo.instantClassNames.add(jSONArray2.getString(i2));
             }
             return patchClassInfo;
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
             return null;
         }
     }

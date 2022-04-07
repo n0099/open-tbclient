@@ -12,7 +12,7 @@ import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.googlecode.mp4parser.boxes.AC3SpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MimeTypes {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APPLICATION_CAMERA_MOTION = "application/x-camera-motion";

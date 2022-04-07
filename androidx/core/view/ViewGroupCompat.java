@@ -73,10 +73,10 @@ public final class ViewGroupCompat {
     }
 
     @Deprecated
-    public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view, AccessibilityEvent accessibilityEvent) {
+    public static boolean onRequestSendAccessibilityEvent(ViewGroup viewGroup, View view2, AccessibilityEvent accessibilityEvent) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view, accessibilityEvent)) == null) ? viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent) : invokeLLL.booleanValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view2, accessibilityEvent)) == null) ? viewGroup.onRequestSendAccessibilityEvent(view2, accessibilityEvent) : invokeLLL.booleanValue;
     }
 
     public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i) {

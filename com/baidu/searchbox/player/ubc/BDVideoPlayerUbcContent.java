@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BDVideoPlayerUbcContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,13 +31,13 @@ public class BDVideoPlayerUbcContent {
     public final String mVid;
 
     /* renamed from: com.baidu.searchbox.player.ubc.BDVideoPlayerUbcContent$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,8 +226,8 @@ public class BDVideoPlayerUbcContent {
                     jSONObject.put("pdRec", "unKnow");
                 }
                 return jSONObject;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return new JSONObject();
             }
         }
@@ -263,8 +263,8 @@ public class BDVideoPlayerUbcContent {
                 try {
                     String next = keys.next();
                     jSONObject.put(next, this.mExtStatisticsLog.optString(next));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject;

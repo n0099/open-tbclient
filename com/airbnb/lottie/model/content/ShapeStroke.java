@@ -10,7 +10,7 @@ import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ShapeStroke implements ContentModel {
     public final LineCapType capType;
     public final AnimatableColorValue color;
@@ -25,7 +25,7 @@ public class ShapeStroke implements ContentModel {
     public final AnimatableFloatValue width;
 
     /* renamed from: com.airbnb.lottie.model.content.ShapeStroke$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType;
@@ -62,7 +62,7 @@ public class ShapeStroke implements ContentModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum LineCapType {
         BUTT,
         ROUND,
@@ -80,7 +80,7 @@ public class ShapeStroke implements ContentModel {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public enum LineJoinType {
         MITER,
         ROUND,
@@ -101,7 +101,7 @@ public class ShapeStroke implements ContentModel {
         }
     }
 
-    public ShapeStroke(String str, @Nullable AnimatableFloatValue animatableFloatValue, List<AnimatableFloatValue> list, AnimatableColorValue animatableColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue2, LineCapType lineCapType, LineJoinType lineJoinType, float f2, boolean z) {
+    public ShapeStroke(String str, @Nullable AnimatableFloatValue animatableFloatValue, List<AnimatableFloatValue> list, AnimatableColorValue animatableColorValue, AnimatableIntegerValue animatableIntegerValue, AnimatableFloatValue animatableFloatValue2, LineCapType lineCapType, LineJoinType lineJoinType, float f, boolean z) {
         this.name = str;
         this.offset = animatableFloatValue;
         this.lineDashPattern = list;
@@ -110,7 +110,7 @@ public class ShapeStroke implements ContentModel {
         this.width = animatableFloatValue2;
         this.capType = lineCapType;
         this.joinType = lineJoinType;
-        this.miterLimit = f2;
+        this.miterLimit = f;
         this.hidden = z;
     }
 

@@ -22,7 +22,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -243,14 +243,14 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i, float f2) {
+    public void setBorder(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
-            if (this.mBorderColor == i && this.mBorderWidth == f2) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
+            if (this.mBorderColor == i && this.mBorderWidth == f) {
                 return;
             }
             this.mBorderColor = i;
-            this.mBorderWidth = f2;
+            this.mBorderWidth = f;
             this.mIsPathDirty = true;
             invalidateSelf();
         }
@@ -275,12 +275,12 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setPadding(float f2) {
+    public void setPadding(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048596, this, f2) == null) || this.mPadding == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048596, this, f) == null) || this.mPadding == f) {
             return;
         }
-        this.mPadding = f2;
+        this.mPadding = f;
         this.mIsPathDirty = true;
         invalidateSelf();
     }
@@ -316,12 +316,12 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setRadius(float f2) {
+    public void setRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
+            int i = (f > 0.0f ? 1 : (f == 0.0f ? 0 : -1));
             Preconditions.checkState(i >= 0);
-            Arrays.fill(this.mCornerRadii, f2);
+            Arrays.fill(this.mCornerRadii, f);
             this.mRadiiNonZero = i != 0;
             this.mIsPathDirty = true;
             invalidateSelf();
@@ -360,8 +360,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
         if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && this.mIsPathDirty) {
             this.mBorderPath.reset();
             RectF rectF = this.mRootBounds;
-            float f2 = this.mBorderWidth;
-            rectF.inset(f2 / 2.0f, f2 / 2.0f);
+            float f = this.mBorderWidth;
+            rectF.inset(f / 2.0f, f / 2.0f);
             if (this.mIsCircle) {
                 this.mBorderPath.addCircle(this.mRootBounds.centerX(), this.mRootBounds.centerY(), Math.min(this.mRootBounds.width(), this.mRootBounds.height()) / 2.0f, Path.Direction.CW);
             } else {
@@ -377,11 +377,11 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                 this.mBorderPath.addRoundRect(this.mRootBounds, fArr, Path.Direction.CW);
             }
             RectF rectF2 = this.mRootBounds;
-            float f3 = this.mBorderWidth;
-            rectF2.inset((-f3) / 2.0f, (-f3) / 2.0f);
+            float f2 = this.mBorderWidth;
+            rectF2.inset((-f2) / 2.0f, (-f2) / 2.0f);
             this.mPath.reset();
-            float f4 = this.mPadding + (this.mScaleDownInsideBorders ? this.mBorderWidth : 0.0f);
-            this.mRootBounds.inset(f4, f4);
+            float f3 = this.mPadding + (this.mScaleDownInsideBorders ? this.mBorderWidth : 0.0f);
+            this.mRootBounds.inset(f3, f3);
             if (this.mIsCircle) {
                 this.mPath.addCircle(this.mRootBounds.centerX(), this.mRootBounds.centerY(), Math.min(this.mRootBounds.width(), this.mRootBounds.height()) / 2.0f, Path.Direction.CW);
             } else if (this.mScaleDownInsideBorders) {
@@ -395,8 +395,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
             } else {
                 this.mPath.addRoundRect(this.mRootBounds, this.mCornerRadii, Path.Direction.CW);
             }
-            float f5 = -f4;
-            this.mRootBounds.inset(f5, f5);
+            float f4 = -f3;
+            this.mRootBounds.inset(f4, f4);
             this.mPath.setFillType(Path.FillType.WINDING);
             this.mIsPathDirty = false;
         }
@@ -425,8 +425,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                     rectF.set(this.mRootBounds);
                 }
                 RectF rectF2 = this.mInsideBorderBounds;
-                float f2 = this.mBorderWidth;
-                rectF2.inset(f2, f2);
+                float f = this.mBorderWidth;
+                rectF2.inset(f, f);
                 if (this.mInsideBorderTransform == null) {
                     this.mInsideBorderTransform = new Matrix();
                 }

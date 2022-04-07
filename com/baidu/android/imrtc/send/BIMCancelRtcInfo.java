@@ -14,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMCancelRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public List<BIMCancelUser> mCancelUsers;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public static class BIMCancelUser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,8 +85,8 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
             BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 optJSONArray = new JSONObject(str2).optJSONArray("user_list");
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BBIMCancelRtcInfo toRtcInfo Exception ", e);
             }
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
@@ -127,8 +127,8 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
                 jSONObject.put("user_list", jSONArray);
                 LogUtils.d(TAG, "BIMCancelRtcInfo :" + jSONObject.toString());
                 return jSONObject.toString();
-            } catch (Exception e2) {
-                LogUtils.e(TAG, "BIMCancelRtcInfo Exception ", e2);
+            } catch (Exception e) {
+                LogUtils.e(TAG, "BIMCancelRtcInfo Exception ", e);
                 return "";
             }
         }

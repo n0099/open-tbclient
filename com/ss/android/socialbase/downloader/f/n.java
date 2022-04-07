@@ -6,9 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class n {
     public final JSONObject a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f43325b;
+    public int b;
 
     public n(JSONObject jSONObject) {
         this.a = jSONObject;
@@ -19,7 +17,7 @@ public class n {
     }
 
     public void a(int i) {
-        this.f43325b = b(i);
+        this.b = b(i);
     }
 
     public boolean b() {
@@ -113,7 +111,7 @@ public class n {
     }
 
     public int a() {
-        return this.f43325b;
+        return this.b;
     }
 
     @NonNull

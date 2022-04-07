@@ -1,7 +1,7 @@
 package com.baidu.ar.libloader;
 
 import com.baidu.ar.callback.ICallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public interface ILibLoaderPlugin {
     void onBeforeLoad(ICallback iCallback);
 

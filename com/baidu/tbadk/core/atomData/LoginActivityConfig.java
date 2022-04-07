@@ -2,7 +2,6 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.r.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.lt4;
+/* loaded from: classes3.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_ID = "activity_id";
@@ -172,7 +172,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
         setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
@@ -195,7 +195,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        a.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
+        lt4.a(DI.ACCOUNT, -1L, 0, context.getClass().toString(), 0, "", new Object[0]);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -216,7 +216,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -237,7 +237,7 @@ public class LoginActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(IntentConfig.CLOSE, z);
+        getIntent().putExtra("close", z);
         getIntent().putExtra("url", str);
         getIntent().putExtra(CUSTOM_LOGIN_CSS_URL, str2);
     }

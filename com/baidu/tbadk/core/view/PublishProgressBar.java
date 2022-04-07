@@ -15,17 +15,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class PublishProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public Paint f30105b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Rect f30106c;
+    public Paint b;
+    public Rect c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressBar(Context context, AttributeSet attributeSet) {
@@ -53,8 +49,8 @@ public class PublishProgressBar extends View {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f30105b = new Paint(1);
-            this.f30106c = new Rect();
+            this.b = new Paint(1);
+            this.c = new Rect();
             b();
         }
     }
@@ -65,8 +61,8 @@ public class PublishProgressBar extends View {
             int color = SkinManager.getColor(R.color.CAM_X0302);
             setBackgroundColor(color);
             getBackground().setAlpha(w0.d0);
-            this.f30105b.setColor(color);
-            this.f30105b.setAlpha(w0.d0);
+            this.b.setColor(color);
+            this.b.setAlpha(w0.d0);
             postInvalidate();
         }
     }
@@ -97,8 +93,8 @@ public class PublishProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f30106c.set(0, 0, (int) (getWidth() * (this.a / 100.0f)), getHeight());
-            canvas.drawRect(this.f30106c, this.f30105b);
+            this.c.set(0, 0, (int) (getWidth() * (this.a / 100.0f)), getHeight());
+            canvas.drawRect(this.c, this.b);
         }
     }
 

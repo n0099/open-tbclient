@@ -1,6 +1,5 @@
 package com.baidu.tieba.location.data;
 
-import c.a.p0.f2.c.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,13 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ze7;
 import com.squareup.wire.Wire;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mLocationData;
+    public ze7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchHttpResponsedMessage(int i) {
@@ -38,16 +38,16 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
         }
     }
 
-    public a getLocationData() {
+    public ze7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mLocationData : (ze7) invokeV.objValue;
     }
 
-    public void setLocationData(a aVar) {
+    public void setLocationData(ze7 ze7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.mLocationData = aVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ze7Var) == null) {
+            this.mLocationData = ze7Var;
         }
     }
 
@@ -62,9 +62,9 @@ public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            a aVar = new a();
-            this.mLocationData = aVar;
-            aVar.b(getSuggestionByAddrNameResIdl.data);
+            ze7 ze7Var = new ze7();
+            this.mLocationData = ze7Var;
+            ze7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
         }
     }

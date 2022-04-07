@@ -14,12 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.t64;
+/* loaded from: classes2.dex */
 public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a extends WrapContentHeightViewPager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,10 +48,10 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         }
 
         @Override // androidx.viewpager.widget.ViewPager
-        public boolean canScroll(View view, boolean z, int i, int i2, int i3) {
+        public boolean canScroll(View view2, boolean z, int i, int i2, int i3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
                 return false;
             }
             return invokeCommon.booleanValue;
@@ -82,12 +83,12 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            PointPageIndicator e2 = new c.a.n0.n.j.a(context).e(R.drawable.obfuscated_res_0x7f080d54, R.drawable.obfuscated_res_0x7f080d55);
-            e2.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ca));
-            this.f29693h = e2;
+            PointPageIndicator e = new t64(context).e(R.drawable.obfuscated_res_0x7f080d55, R.drawable.obfuscated_res_0x7f080d56);
+            e.f((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0701ca));
+            this.h = e;
             this.i[0] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700df);
             this.i[1] = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0700df);
-            addView(this.f29693h, e());
+            addView(this.h, e());
         }
     }
 
@@ -96,16 +97,16 @@ public class SwanAppMenuSlidableGridView extends SlideableGridView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SlideableGridView.a gridItemAdapter = getGridItemAdapter();
-            int c2 = gridItemAdapter == null ? 0 : gridItemAdapter.c();
-            boolean z = c2 > 1;
+            int c = gridItemAdapter == null ? 0 : gridItemAdapter.c();
+            boolean z = c > 1;
             int i = !z ? this.i[0] : this.i[1];
             if (!z) {
-                this.f29693h.setVisibility(8);
+                this.h.setVisibility(8);
                 return;
             }
-            this.f29693h.setVisibility(0);
-            this.f29693h.c(c2);
-            this.f29693h.getLayoutParams().height = i;
+            this.h.setVisibility(0);
+            this.h.c(c);
+            this.h.getLayoutParams().height = i;
         }
     }
 

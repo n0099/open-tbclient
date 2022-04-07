@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class StorageFile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIRECTORY_COUNT = 20;
@@ -128,8 +128,8 @@ public class StorageFile {
                 return null;
             }
             long j = 0;
-            for (byte b2 : str.getBytes()) {
-                j += b2;
+            for (byte b : str.getBytes()) {
+                j += b;
             }
             return FileUtils.IMAGE_FILE_START + (j % 20);
         }

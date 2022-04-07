@@ -6,7 +6,7 @@ import android.graphics.PointF;
 import com.airbnb.lottie.value.Keyframe;
 import com.airbnb.lottie.value.LottieValueCallback;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class PathKeyframeAnimation extends KeyframeAnimation<PointF> {
     public PathMeasure pathMeasure;
     public PathKeyframe pathMeasureKeyframe;
@@ -21,15 +21,15 @@ public class PathKeyframeAnimation extends KeyframeAnimation<PointF> {
     }
 
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f2) {
-        return getValue((Keyframe<PointF>) keyframe, f2);
+    public /* bridge */ /* synthetic */ Object getValue(Keyframe keyframe, float f) {
+        return getValue((Keyframe<PointF>) keyframe, f);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: T */
     /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.airbnb.lottie.animation.keyframe.BaseKeyframeAnimation
-    public PointF getValue(Keyframe<PointF> keyframe, float f2) {
+    public PointF getValue(Keyframe<PointF> keyframe, float f) {
         PointF pointF;
         PathKeyframe pathKeyframe = (PathKeyframe) keyframe;
         Path path = pathKeyframe.getPath();
@@ -37,13 +37,13 @@ public class PathKeyframeAnimation extends KeyframeAnimation<PointF> {
             return keyframe.startValue;
         }
         LottieValueCallback<A> lottieValueCallback = this.valueCallback;
-        if (lottieValueCallback == 0 || (pointF = (PointF) lottieValueCallback.getValueInternal(pathKeyframe.startFrame, pathKeyframe.endFrame.floatValue(), pathKeyframe.startValue, pathKeyframe.endValue, getLinearCurrentKeyframeProgress(), f2, getProgress())) == null) {
+        if (lottieValueCallback == 0 || (pointF = (PointF) lottieValueCallback.getValueInternal(pathKeyframe.startFrame, pathKeyframe.endFrame.floatValue(), pathKeyframe.startValue, pathKeyframe.endValue, getLinearCurrentKeyframeProgress(), f, getProgress())) == null) {
             if (this.pathMeasureKeyframe != pathKeyframe) {
                 this.pathMeasure.setPath(path, false);
                 this.pathMeasureKeyframe = pathKeyframe;
             }
             PathMeasure pathMeasure = this.pathMeasure;
-            pathMeasure.getPosTan(f2 * pathMeasure.getLength(), this.pos, null);
+            pathMeasure.getPosTan(f * pathMeasure.getLength(), this.pos, null);
             PointF pointF2 = this.point;
             float[] fArr = this.pos;
             pointF2.set(fArr[0], fArr[1]);

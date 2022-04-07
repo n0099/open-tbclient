@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.utility.ScheduleHandler;
 import com.tachikoma.core.utility.SizeUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MarqueeTextView extends TextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MARQUEE_DP_PER_SECOND = 12;
@@ -150,10 +150,10 @@ public class MarqueeTextView extends TextView {
             if (TextUtils.isEmpty(this.mText) || this.mTextWidth <= 0.0f || this.mWidth <= 0) {
                 return;
             }
-            float f2 = -this.mScroll;
-            while (f2 < this.mWidth) {
-                canvas.drawText(this.mText, f2, this.mBaseLine, getPaint());
-                f2 += this.mTextWidth + PADDING;
+            float f = -this.mScroll;
+            while (f < this.mWidth) {
+                canvas.drawText(this.mText, f, this.mBaseLine, getPaint());
+                f += this.mTextWidth + PADDING;
             }
         }
     }
@@ -200,11 +200,11 @@ public class MarqueeTextView extends TextView {
         startMarquee();
     }
 
-    public void setText(String str, float f2) {
+    public void setText(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048581, this, str, f2) == null) {
-            this.mTextStartOffset = f2;
-            this.mScroll = -f2;
+        if (interceptable == null || interceptable.invokeLF(1048581, this, str, f) == null) {
+            this.mTextStartOffset = f;
+            this.mScroll = -f;
             setText(str);
         }
     }

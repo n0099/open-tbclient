@@ -30,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"InlinedApi"})
 @TargetApi(16)
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class MediaCodecUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final SparseIntArray AVC_LEVEL_NUMBER_TO_CONST;
@@ -50,13 +50,13 @@ public final class MediaCodecUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.android.exoplayer2.mediacodec.MediaCodecUtil$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class CodecKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class DecoderQueryException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public final class MediaCodecUtil {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface MediaCodecListCompat {
         int getCodecCount();
 
@@ -151,7 +151,7 @@ public final class MediaCodecUtil {
         boolean secureDecodersExplicit();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MediaCodecListCompatV16 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public final class MediaCodecUtil {
     }
 
     @TargetApi(21)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class MediaCodecListCompatV21 implements MediaCodecListCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -482,40 +482,40 @@ public final class MediaCodecUtil {
                 return null;
             }
             String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            char c2 = 0;
+            char c = 0;
             String str2 = split[0];
             switch (str2.hashCode()) {
                 case 3006243:
                     if (str2.equals("avc1")) {
-                        c2 = 2;
+                        c = 2;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3006244:
                     if (str2.equals(CODEC_ID_AVC2)) {
-                        c2 = 3;
+                        c = 3;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 case 3199032:
                     break;
                 case 3214780:
                     if (str2.equals(CODEC_ID_HVC1)) {
-                        c2 = 1;
+                        c = 1;
                         break;
                     }
-                    c2 = 65535;
+                    c = 65535;
                     break;
                 default:
-                    c2 = 65535;
+                    c = 65535;
                     break;
             }
-            if (c2 == 0 || c2 == 1) {
+            if (c == 0 || c == 1) {
                 return getHevcProfileAndLevel(str, split);
             }
-            if (c2 == 2 || c2 == 3) {
+            if (c == 2 || c == 3) {
                 return getAvcProfileAndLevel(str, split);
             }
             return null;
@@ -598,12 +598,12 @@ public final class MediaCodecUtil {
                                         arrayList.add(MediaCodecInfo.newInstance(name + ".secure", str, capabilitiesForType, codecNeedsDisableAdaptationWorkaround, true));
                                         return arrayList;
                                     }
-                                } catch (Exception e2) {
+                                } catch (Exception e) {
                                     if (Util.SDK_INT <= 23 && !arrayList.isEmpty()) {
                                         Log.e(TAG, "Skipping codec " + name + " (failed to query capabilities)");
                                     } else {
                                         Log.e(TAG, "Failed to query codec " + name + " (" + str2 + SmallTailInfo.EMOTION_SUFFIX);
-                                        throw e2;
+                                        throw e;
                                     }
                                 }
                             }
@@ -616,8 +616,8 @@ public final class MediaCodecUtil {
                     mediaCodecListCompat2 = mediaCodecListCompat;
                 }
                 return arrayList;
-            } catch (Exception e3) {
-                throw new DecoderQueryException(e3, null);
+            } catch (Exception e2) {
+                throw new DecoderQueryException(e2, null);
             }
         }
         return (List) invokeLL.objValue;
@@ -724,8 +724,8 @@ public final class MediaCodecUtil {
         if (interceptable == null || interceptable.invokeLZ(65550, null, str, z) == null) {
             try {
                 getDecoderInfos(str, z);
-            } catch (DecoderQueryException e2) {
-                Log.e(TAG, "Codec warming failed", e2);
+            } catch (DecoderQueryException e) {
+                Log.e(TAG, "Codec warming failed", e);
             }
         }
     }

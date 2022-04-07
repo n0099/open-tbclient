@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ForwardingRequestListener implements RequestListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingRequestListener";
@@ -67,8 +67,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onProducerFinishWithFailure", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onProducerFinishWithFailure", e);
                 }
             }
         }
@@ -82,8 +82,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onProducerEvent(str, str2, str3);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onIntermediateChunkStart", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onIntermediateChunkStart", e);
                 }
             }
         }
@@ -97,8 +97,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onProducerFinishWithCancellation(str, str2, map);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onProducerFinishWithCancellation", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onProducerFinishWithCancellation", e);
                 }
             }
         }
@@ -112,8 +112,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onProducerFinishWithFailure(str, str2, th, map);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onProducerFinishWithFailure", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onProducerFinishWithFailure", e);
                 }
             }
         }
@@ -127,8 +127,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onProducerFinishWithSuccess(str, str2, map);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onProducerFinishWithSuccess", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onProducerFinishWithSuccess", e);
                 }
             }
         }
@@ -142,8 +142,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onProducerStart(str, str2);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onProducerStart", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onProducerStart", e);
                 }
             }
         }
@@ -157,8 +157,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onRequestCancellation(str);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onRequestCancellation", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onRequestCancellation", e);
                 }
             }
         }
@@ -172,8 +172,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onRequestFailure(imageRequest, str, th, z);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onRequestFailure", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onRequestFailure", e);
                 }
             }
         }
@@ -187,8 +187,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onRequestStart(imageRequest, obj, str, z);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onRequestStart", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onRequestStart", e);
                 }
             }
         }
@@ -202,8 +202,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onRequestSuccess(imageRequest, str, z);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onRequestSuccess", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onRequestSuccess", e);
                 }
             }
         }
@@ -217,8 +217,8 @@ public class ForwardingRequestListener implements RequestListener {
             for (int i = 0; i < size; i++) {
                 try {
                     this.mRequestListeners.get(i).onUltimateProducerReached(str, str2, z);
-                } catch (Exception e2) {
-                    onException("InternalListener exception in onProducerFinishWithSuccess", e2);
+                } catch (Exception e) {
+                    onException("InternalListener exception in onProducerFinishWithSuccess", e);
                 }
             }
         }

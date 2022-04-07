@@ -10,7 +10,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.s.a;
 import com.baidu.android.imsdk.BIMConversation;
 import com.baidu.android.imsdk.BIMConversationStudio;
 import com.baidu.android.imsdk.BIMManager;
@@ -52,6 +51,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p70;
+import com.repackage.y70;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -63,7 +64,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ConversationStudioManImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACK_INTERVAL_TIME = 3000;
@@ -102,14 +103,14 @@ public class ConversationStudioManImpl {
     public long mReliableMsgCount;
     public long mRelieableJoinStatus;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public interface HeartbeatOperation {
         void cancelHearbeat();
 
         void startHeartbeat();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class McastHeartbeat implements HeartbeatOperation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,18 +161,18 @@ public class ConversationStudioManImpl {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            if (a.f21228e) {
+                            if (p70.e) {
                                 return;
                             }
-                            Intent intent = new Intent(ConversationStudioManImpl.mContext, a.class);
+                            Intent intent = new Intent(ConversationStudioManImpl.mContext, p70.class);
                             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                             intent.setPackage(ConversationStudioManImpl.mContext.getPackageName());
-                            a.g(ConversationStudioManImpl.mContext).f(ConversationStudioManImpl.mContext, intent);
-                        } catch (Exception e2) {
-                            if (e2 instanceof SecurityException) {
-                                LogUtils.e(ConversationStudioManImpl.TAG, "box SecurityException!!", e2);
+                            p70.g(ConversationStudioManImpl.mContext).f(ConversationStudioManImpl.mContext, intent);
+                        } catch (Exception e) {
+                            if (e instanceof SecurityException) {
+                                LogUtils.e(ConversationStudioManImpl.TAG, "box SecurityException!!", e);
                             } else {
-                                LogUtils.e(ConversationStudioManImpl.TAG, "box heartbeat error!!", e2);
+                                LogUtils.e(ConversationStudioManImpl.TAG, "box heartbeat error!!", e);
                             }
                         }
                     }
@@ -184,9 +185,9 @@ public class ConversationStudioManImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    a.f21226c.removeCallbacks(this.startHeartBeatTask);
-                } catch (Exception e2) {
-                    LogUtils.e(ConversationStudioManImpl.TAG, e2.getMessage());
+                    p70.c.removeCallbacks(this.startHeartBeatTask);
+                } catch (Exception e) {
+                    LogUtils.e(ConversationStudioManImpl.TAG, e.getMessage());
                 }
             }
         }
@@ -196,16 +197,16 @@ public class ConversationStudioManImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    a.f21226c.removeCallbacks(this.startHeartBeatTask);
-                    a.f21226c.postDelayed(this.startHeartBeatTask, ConversationStudioManImpl.mCastHeartBeatTime);
-                } catch (Exception e2) {
-                    LogUtils.e(ConversationStudioManImpl.TAG, e2.getMessage());
+                    p70.c.removeCallbacks(this.startHeartBeatTask);
+                    p70.c.postDelayed(this.startHeartBeatTask, ConversationStudioManImpl.mCastHeartBeatTime);
+                } catch (Exception e) {
+                    LogUtils.e(ConversationStudioManImpl.TAG, e.getMessage());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class McastTodoAfterLogin implements TodoAfterLogin {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -276,12 +277,12 @@ public class ConversationStudioManImpl {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    a.f21226c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
+                    p70.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
                     LogUtils.d(ConversationStudioManImpl.TAG, "pingRequest customPingIntervalMs :" + ConversationStudioManImpl.mCastHeartBeatTime);
                     if (RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
                         BIMManager.pingRequest();
                     }
-                    a.f21226c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
+                    p70.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
                 }
             }
         };
@@ -345,15 +346,15 @@ public class ConversationStudioManImpl {
                                 LogUtils.d(ConversationStudioManImpl.TAG, "mAckRunnable ~~~");
                                 LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + this.this$0.mAckChatMsgList.size());
                                 ArrayList arrayList = new ArrayList(this.this$0.mAckChatMsgList);
-                                a.f21226c.removeCallbacks(this.this$0.mAckRunnable);
+                                p70.c.removeCallbacks(this.this$0.mAckRunnable);
                                 MessageParser.handleAck(ConversationStudioManImpl.mContext, arrayList, false);
                                 this.this$0.mAckChatMsgList.clear();
-                                a.f21226c.postDelayed(this.this$0.mAckRunnable, 3000L);
-                            } catch (Exception e2) {
-                                LogUtils.e(ConversationStudioManImpl.TAG, "ackRunnable Exception :", e2);
-                                a.f21226c.removeCallbacks(this.this$0.mAckRunnable);
+                                p70.c.postDelayed(this.this$0.mAckRunnable, 3000L);
+                            } catch (Exception e) {
+                                LogUtils.e(ConversationStudioManImpl.TAG, "ackRunnable Exception :", e);
+                                p70.c.removeCallbacks(this.this$0.mAckRunnable);
                                 this.this$0.mAckChatMsgList.clear();
-                                a.f21226c.postDelayed(this.this$0.mAckRunnable, 3000L);
+                                p70.c.postDelayed(this.this$0.mAckRunnable, 3000L);
                             }
                         }
                         return;
@@ -391,14 +392,14 @@ public class ConversationStudioManImpl {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (this.this$0.mAckChatMsgList.size() <= 0 || this.this$0.getConnectState() || !RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
-                        a.f21226c.removeCallbacks(this.this$0.mHttpAckRunnable);
-                        a.f21226c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
+                        p70.c.removeCallbacks(this.this$0.mHttpAckRunnable);
+                        p70.c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
                         return;
                     }
                     synchronized (this.this$0.mAckChatMsgList) {
                         LogUtils.d(ConversationStudioManImpl.TAG, "mHttpAckRunnable");
                         LogUtils.e(ConversationStudioManImpl.TAG, "ack mAckChatMsgList.size :" + this.this$0.mAckChatMsgList.size());
-                        a.f21226c.removeCallbacks(this.this$0.mHttpAckRunnable);
+                        p70.c.removeCallbacks(this.this$0.mHttpAckRunnable);
                         for (List list : Utils.splitList(new ArrayList(this.this$0.mAckChatMsgList), 15)) {
                             ArrayList arrayList = (ArrayList) list;
                             long contacter = ((ChatMsg) arrayList.get(0)).getContacter();
@@ -448,14 +449,14 @@ public class ConversationStudioManImpl {
                             });
                         }
                         this.this$0.mAckChatMsgList.clear();
-                        a.f21226c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
+                        p70.c.postDelayed(this.this$0.mHttpAckRunnable, 10000L);
                     }
                 }
             }
         };
         initStudio();
-        a.f21226c.removeCallbacks(this.mHttpAckRunnable);
-        a.f21226c.postDelayed(this.mHttpAckRunnable, 10000L);
+        p70.c.removeCallbacks(this.mHttpAckRunnable);
+        p70.c.postDelayed(this.mHttpAckRunnable, 10000L);
     }
 
     public static ConversationStudioManImpl getInstance(Context context) {
@@ -491,7 +492,7 @@ public class ConversationStudioManImpl {
 
     private void registerNetChangedReceiver() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || a.f21228e) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || p70.e) {
             return;
         }
         try {
@@ -505,14 +506,14 @@ public class ConversationStudioManImpl {
                 this.isRegisterNetReceiver = true;
                 LogUtils.d(TAG, " registerNetChangedReceiver ok !");
             }
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "Exception ", e2);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "Exception ", e);
         }
     }
 
     public static void resetHeartBeat(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65547, null, i) == null) || a.f21228e) {
+        if (!(interceptable == null || interceptable.invokeI(65547, null, i) == null) || p70.e) {
             return;
         }
         Heartbeat.ALARM_TIMEOUT = i;
@@ -540,14 +541,14 @@ public class ConversationStudioManImpl {
             }
             LogUtils.d(TAG, "begin ack");
             this.mAcking.set(true);
-            a.f21226c.removeCallbacks(this.mAckRunnable);
-            a.f21226c.postDelayed(this.mAckRunnable, 3000L);
+            p70.c.removeCallbacks(this.mAckRunnable);
+            p70.c.postDelayed(this.mAckRunnable, 3000L);
         }
     }
 
     private void unRegisterNetChangedReceiver() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || a.f21228e) {
+        if (!(interceptable == null || interceptable.invokeV(65549, this) == null) || p70.e) {
             return;
         }
         try {
@@ -556,8 +557,8 @@ public class ConversationStudioManImpl {
                 this.isRegisterNetReceiver = false;
                 LogUtils.d(TAG, " unRegisterNetChangedReceiver ok !");
             }
-        } catch (Exception e2) {
-            LogUtils.e(TAG, "Exception ", e2);
+        } catch (Exception e) {
+            LogUtils.e(TAG, "Exception ", e);
         }
     }
 
@@ -615,14 +616,14 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
                 try {
-                    a.g(mContext).f(mContext, createMcastMethodIntent);
+                    p70.g(mContext).f(mContext, createMcastMethodIntent);
                     IMTrack.RequestBuilder requestBuilder = new IMTrack.RequestBuilder(mContext);
                     requestBuilder.requestId("" + j).requestTime(System.currentTimeMillis()).ext("service enqueue join").aliasId(501112L).build();
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onJoinCastResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -666,7 +667,7 @@ public class ConversationStudioManImpl {
     public void cancelMcastQuickHeartBeat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (a.f21228e && mOpenPingRequest.get()) {
+            if (p70.e && mOpenPingRequest.get()) {
                 mOpenPingRequest.set(false);
                 pingRequest(false, 0L);
                 return;
@@ -686,7 +687,7 @@ public class ConversationStudioManImpl {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             clearReliableCastList();
             clearFetchRunnable();
-            Handler handler = a.f21226c;
+            Handler handler = p70.c;
             if (handler != null) {
                 handler.removeCallbacks(mPingRunnable);
             }
@@ -733,8 +734,8 @@ public class ConversationStudioManImpl {
                         arrayList2.add(Long.valueOf(next.getMsgId()));
                     }
                 }
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "Exception ", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "Exception ", e);
             }
             if (jSONArray.length() <= 0) {
                 return;
@@ -762,12 +763,12 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 try {
-                    a.g(mContext).f(mContext, createMcastMethodIntent);
+                    p70.g(mContext).f(mContext, createMcastMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onQuitCastResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -810,8 +811,8 @@ public class ConversationStudioManImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (a.f21228e) {
-                return c.a.t.a.b.a.b() == 0;
+            if (p70.e) {
+                return y70.b() == 0;
             }
             return IMConnection.getInstance(mContext).isConnected();
         }
@@ -835,9 +836,9 @@ public class ConversationStudioManImpl {
                             return new BIMConversationStudio(mContext, category, str, z, new ChatSession(value, longValue, longValue, null), str2, i);
                         }
                         return null;
-                    } catch (Exception e2) {
-                        LogUtils.e(TAG, "Id is not long value", e2);
-                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+                    } catch (Exception e) {
+                        LogUtils.e(TAG, "Id is not long value", e);
+                        new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e)).build();
                         return null;
                     }
                 } catch (Throwable th) {
@@ -1023,10 +1024,10 @@ public class ConversationStudioManImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (z) {
-                a.f21226c.removeCallbacks(mPingRunnable);
-                a.f21226c.postDelayed(mPingRunnable, j);
+                p70.c.removeCallbacks(mPingRunnable);
+                p70.c.postDelayed(mPingRunnable, j);
             } else {
-                a.f21226c.removeCallbacks(mPingRunnable);
+                p70.c.removeCallbacks(mPingRunnable);
             }
             LogUtils.d(TAG, "pingRequest show :" + z + ", customPingIntervalMs :" + j);
         }
@@ -1072,12 +1073,12 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
                 try {
-                    a.g(mContext).f(mContext, createMcastMethodIntent);
+                    p70.g(mContext).f(mContext, createMcastMethodIntent);
                     return;
-                } catch (Exception e2) {
+                } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onSendQuizOptsResult(addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, j2, j);
-                    LogUtils.e(TAG, "Exception ", e2);
+                    LogUtils.e(TAG, "Exception ", e);
                     return;
                 }
             }
@@ -1088,7 +1089,7 @@ public class ConversationStudioManImpl {
     public void setMcastQuickHeartBeat() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            if (a.f21228e && !mOpenPingRequest.get()) {
+            if (p70.e && !mOpenPingRequest.get()) {
                 mOpenPingRequest.set(true);
                 pingRequest(true, mCastHeartBeatTime);
                 return;

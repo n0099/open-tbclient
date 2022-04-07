@@ -14,26 +14,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SelectRuleView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30730b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30731c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<String> f30732d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<String> f30733e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public List<String> f30734f;
+    public int b;
+    public int c;
+    public List<String> d;
+    public List<String> e;
+    public List<String> f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleView(Context context) {
@@ -93,21 +83,21 @@ public class SelectRuleView extends LinearLayout {
 
     public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.f30731c == i) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.c == i) {
             return;
         }
         int i2 = this.a;
         if (i2 == 0) {
-            setData(this.f30732d, this.f30733e);
+            setData(this.d, this.e);
         } else if (i2 == 1) {
-            setData(this.f30734f, this.f30732d, this.f30733e);
+            setData(this.f, this.d, this.e);
         }
     }
 
     public void setColumn(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.f30730b = i;
+            this.b = i;
         }
     }
 
@@ -120,8 +110,8 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f30732d = list;
-        this.f30733e = list2;
+        this.d = list;
+        this.e = list2;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list);
         List<String> arrayList2 = new ArrayList<>();
@@ -135,13 +125,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i = 0;
         while (true) {
-            int i2 = this.f30730b;
+            int i2 = this.b;
             if (i >= ((size + i2) - 1) / i2) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
             selectRuleRowItem.setType(this.a);
-            int i3 = this.f30730b;
+            int i3 = this.b;
             int i4 = i * i3;
             i++;
             int i5 = i3 * i;
@@ -198,8 +188,8 @@ public class SelectRuleView extends LinearLayout {
             }
         }
         this.a = 0;
-        this.f30730b = 2;
-        this.f30731c = 3;
+        this.b = 2;
+        this.c = 3;
         c();
     }
 
@@ -212,9 +202,9 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f30732d = list2;
-        this.f30733e = list3;
-        this.f30734f = list;
+        this.d = list2;
+        this.e = list3;
+        this.f = list;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list2);
         List<String> arrayList2 = new ArrayList<>();
@@ -236,13 +226,13 @@ public class SelectRuleView extends LinearLayout {
         }
         int i = 0;
         while (true) {
-            int i2 = this.f30730b;
+            int i2 = this.b;
             if (i >= ((size + i2) - 1) / i2) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
             selectRuleRowItem.setType(this.a);
-            int i3 = this.f30730b;
+            int i3 = this.b;
             int i4 = i * i3;
             i++;
             int i5 = i3 * i;

@@ -4,44 +4,28 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.meizu.cloud.pushsdk.b.c.c;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class i {
     public final f a;
+    public final String b;
+    public final c c;
+    public final j d;
+    public final Object e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final String f41966b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final c f41967c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final j f41968d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final Object f41969e;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public f a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f41970b = "GET";
-
-        /* renamed from: c  reason: collision with root package name */
-        public c.a f41971c = new c.a();
-
-        /* renamed from: d  reason: collision with root package name */
-        public j f41972d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Object f41973e;
+        public String b = "GET";
+        public c.a c = new c.a();
+        public j d;
+        public Object e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.f41971c = cVar.c();
+            this.c = cVar.c();
             return this;
         }
 
@@ -65,7 +49,7 @@ public class i {
         public a a(String str) {
             StringBuilder sb;
             int i;
-            f c2;
+            f c;
             if (str == null) {
                 throw new IllegalArgumentException("url == null");
             }
@@ -75,9 +59,9 @@ public class i {
                     sb.append(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
                     i = 4;
                 }
-                c2 = f.c(str);
-                if (c2 == null) {
-                    return a(c2);
+                c = f.c(str);
+                if (c == null) {
+                    return a(c);
                 }
                 throw new IllegalArgumentException("unexpected url: " + str);
             }
@@ -86,8 +70,8 @@ public class i {
             i = 3;
             sb.append(str.substring(i));
             str = sb.toString();
-            c2 = f.c(str);
-            if (c2 == null) {
+            c = f.c(str);
+            if (c == null) {
             }
         }
 
@@ -98,8 +82,8 @@ public class i {
             if (jVar != null && !d.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must not have a request body.");
             } else if (jVar != null || !d.a(str)) {
-                this.f41970b = str;
-                this.f41972d = jVar;
+                this.b = str;
+                this.d = jVar;
                 return this;
             } else {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
@@ -107,7 +91,7 @@ public class i {
         }
 
         public a a(String str, String str2) {
-            this.f41971c.a(str, str2);
+            this.c.a(str, str2);
             return this;
         }
 
@@ -137,10 +121,10 @@ public class i {
 
     public i(a aVar) {
         this.a = aVar.a;
-        this.f41966b = aVar.f41970b;
-        this.f41967c = aVar.f41971c.a();
-        this.f41968d = aVar.f41972d;
-        this.f41969e = aVar.f41973e != null ? aVar.f41973e : this;
+        this.b = aVar.b;
+        this.c = aVar.c.a();
+        this.d = aVar.d;
+        this.e = aVar.e != null ? aVar.e : this;
     }
 
     public f a() {
@@ -148,11 +132,11 @@ public class i {
     }
 
     public String a(String str) {
-        return this.f41967c.a(str);
+        return this.c.a(str);
     }
 
     public String b() {
-        return this.f41966b;
+        return this.b;
     }
 
     public int c() {
@@ -175,11 +159,11 @@ public class i {
     }
 
     public c d() {
-        return this.f41967c;
+        return this.c;
     }
 
     public j e() {
-        return this.f41968d;
+        return this.d;
     }
 
     public boolean f() {
@@ -189,11 +173,11 @@ public class i {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f41966b);
+        sb.append(this.b);
         sb.append(", url=");
         sb.append(this.a);
         sb.append(", tag=");
-        Object obj = this.f41969e;
+        Object obj = this.e;
         if (obj == this) {
             obj = null;
         }

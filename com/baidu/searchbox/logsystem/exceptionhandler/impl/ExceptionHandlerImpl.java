@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ExceptionHandlerImpl implements ExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXCEPTION_TYPE_JAVA = "java";
@@ -68,8 +68,8 @@ public class ExceptionHandlerImpl implements ExceptionHandler {
                 }
                 jSONObject.put("custom", jSONObject2.toString());
             }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         create.submitPerformanceData(UBC_ID, EXCEPTION_TYPE_JAVA, System.currentTimeMillis(), new ExceptionHandlerComponent().exceptionHandlerContext.get().getAppLaunchStartTimeStamp(), exc.getMessage(), str2, jSONObject.toString());
     }

@@ -2,12 +2,10 @@ package com.kwad.sdk.core.d;
 
 import android.util.Log;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static boolean a = true;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static boolean f39349b;
+    public static boolean b;
 
     public static String a() {
         return "KSAdSDK";
@@ -51,7 +49,7 @@ public class a {
     public static String b() {
         String str;
         int i;
-        if (f39349b) {
+        if (b) {
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
             if (stackTrace.length > 3) {
                 str = stackTrace[3].getFileName();

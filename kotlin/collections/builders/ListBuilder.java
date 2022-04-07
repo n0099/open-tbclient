@@ -42,11 +42,11 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
         }
 
         @Override // java.util.ListIterator
-        public void add(E e2) {
+        public void add(E e) {
             ListBuilder<E> listBuilder = this.list;
             int i = this.index;
             this.index = i + 1;
-            listBuilder.add(i, e2);
+            listBuilder.add(i, e);
             this.lastIndex = -1;
         }
 
@@ -105,9 +105,9 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
         }
 
         @Override // java.util.ListIterator
-        public void set(E e2) {
+        public void set(E e) {
             if (this.lastIndex != -1) {
-                this.list.set(this.lastIndex, e2);
+                this.list.set(this.lastIndex, e);
                 return;
             }
             throw new IllegalStateException("Call next() or previous() before replacing element from the iterator.".toString());
@@ -138,16 +138,16 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
         }
     }
 
-    private final void addAtInternal(int i, E e2) {
+    private final void addAtInternal(int i, E e) {
         ListBuilder<E> listBuilder = this.backing;
         if (listBuilder != null) {
-            listBuilder.addAtInternal(i, e2);
+            listBuilder.addAtInternal(i, e);
             this.array = this.backing.array;
             this.length++;
             return;
         }
         insertAtInternal(i, 1);
-        this.array[i] = e2;
+        this.array[i] = e;
     }
 
     private final void checkIsMutable() {
@@ -193,11 +193,11 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
             return listBuilder.removeAtInternal(i);
         }
         E[] eArr = this.array;
-        E e2 = eArr[i];
+        E e = eArr[i];
         ArraysKt___ArraysJvmKt.copyInto(eArr, eArr, i, i + 1, this.offset + this.length);
         ListBuilderKt.resetAt(this.array, (this.offset + this.length) - 1);
         this.length--;
-        return e2;
+        return e;
     }
 
     private final void removeRangeInternal(int i, int i2) {
@@ -245,9 +245,9 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
     }
 
     @Override // java.util.AbstractList, java.util.AbstractCollection, java.util.Collection, java.util.List
-    public boolean add(E e2) {
+    public boolean add(E e) {
         checkIsMutable();
-        addAtInternal(this.offset + this.length, e2);
+        addAtInternal(this.offset + this.length, e);
         return true;
     }
 
@@ -369,14 +369,14 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
     }
 
     @Override // kotlin.collections.AbstractMutableList, java.util.AbstractList, java.util.List
-    public E set(int i, E e2) {
+    public E set(int i, E e) {
         checkIsMutable();
         AbstractList.Companion.checkElementIndex$kotlin_stdlib(i, this.length);
         E[] eArr = this.array;
         int i2 = this.offset;
-        E e3 = eArr[i2 + i];
-        eArr[i2 + i] = e2;
-        return e3;
+        E e2 = eArr[i2 + i];
+        eArr[i2 + i] = e;
+        return e2;
     }
 
     @Override // java.util.AbstractList, java.util.List
@@ -438,10 +438,10 @@ public final class ListBuilder<E> extends AbstractMutableList<E> implements List
     }
 
     @Override // kotlin.collections.AbstractMutableList, java.util.AbstractList, java.util.List
-    public void add(int i, E e2) {
+    public void add(int i, E e) {
         checkIsMutable();
         AbstractList.Companion.checkPositionIndex$kotlin_stdlib(i, this.length);
-        addAtInternal(this.offset + i, e2);
+        addAtInternal(this.offset + i, e);
     }
 
     @Override // java.util.AbstractList, java.util.List

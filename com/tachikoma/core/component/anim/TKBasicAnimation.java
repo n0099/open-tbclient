@@ -22,6 +22,7 @@ import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +51,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AXIS_X = 1;
@@ -86,9 +87,9 @@ public class TKBasicAnimation {
     public String timeFunction;
     public String timingFunction;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface AnimationJsCallback {
-        void onJsExecuteComplete(double d2);
+        void onJsExecuteComplete(double d);
     }
 
     public TKBasicAnimation(Context context, @Nullable List<Object> list) {
@@ -292,13 +293,13 @@ public class TKBasicAnimation {
         return (ObjectAnimator) invokeLLL.objValue;
     }
 
-    private ObjectAnimator buildKeyFrameAnimator(View view, String str, Map<Float, Object> map) {
+    private ObjectAnimator buildKeyFrameAnimator(View view2, String str, Map<Float, Object> map) {
         InterceptResult invokeLLL;
         float floatValue;
         float floatValue2;
         Keyframe ofFloat;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, view, str, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, this, view2, str, map)) == null) {
             if (map != null) {
                 if (1 < map.size()) {
                     ArrayList arrayList = new ArrayList();
@@ -322,7 +323,7 @@ public class TKBasicAnimation {
                     if (arrayList.size() <= 0) {
                         return null;
                     }
-                    ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofKeyframe(str, (Keyframe[]) arrayList.toArray(new Keyframe[0])));
+                    ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofKeyframe(str, (Keyframe[]) arrayList.toArray(new Keyframe[0])));
                     ofPropertyValuesHolder.setDuration(getAnimDuration());
                     ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
                     ofPropertyValuesHolder.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -400,15 +401,15 @@ public class TKBasicAnimation {
         }
     }
 
-    private ObjectAnimator setAlphaAnim(View view) {
+    private ObjectAnimator setAlphaAnim(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, view)) == null) {
-            if (((Map) this.animValue).containsKey("opacity")) {
-                float alpha = view.getAlpha();
-                float parseFloatValue = parseFloatValue(trans2String(((Map) this.animValue).get("opacity")));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, view2)) == null) {
+            if (((Map) this.animValue).containsKey(NativeConstants.OPACITY)) {
+                float alpha = view2.getAlpha();
+                float parseFloatValue = parseFloatValue(trans2String(((Map) this.animValue).get(NativeConstants.OPACITY)));
                 if (alpha != parseFloatValue) {
-                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.OPACITY, alpha, parseFloatValue);
+                    ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, alpha, parseFloatValue);
                     ofFloat.setDuration(getAnimDuration());
                     ofFloat.setRepeatCount(this.repeatCount);
                     ofFloat.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -421,13 +422,13 @@ public class TKBasicAnimation {
         return (ObjectAnimator) invokeL.objValue;
     }
 
-    private ObjectAnimator setBackgroundColorAnim(View view) {
+    private ObjectAnimator setBackgroundColorAnim(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, this, view2)) == null) {
             if (((Map) this.animValue).containsKey("backgroundColor")) {
                 Object obj = ((Map) this.animValue).get("backgroundColor");
-                TKViewBackgroundDrawable tKViewBackgroundDrawable = (TKViewBackgroundDrawable) view.getBackground();
+                TKViewBackgroundDrawable tKViewBackgroundDrawable = (TKViewBackgroundDrawable) view2.getBackground();
                 int color = tKViewBackgroundDrawable.getColor();
                 int parseColor = parseColor(trans2String(obj));
                 if (color != parseColor) {
@@ -445,11 +446,11 @@ public class TKBasicAnimation {
         return (ObjectAnimator) invokeL.objValue;
     }
 
-    private ObjectAnimator setPositionAnim(View view) {
+    private ObjectAnimator setPositionAnim(View view2) {
         InterceptResult invokeL;
         String[] trans2StringArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, view2)) == null) {
             if (!((Map) this.animValue).containsKey("position") || (trans2StringArray = trans2StringArray(((Map) this.animValue).get("position"))) == null) {
                 return null;
             }
@@ -457,7 +458,7 @@ public class TKBasicAnimation {
                 float[] fArr = {0.0f, 0.0f};
                 fArr[0] = parsePxValue(trans2StringArray[0]);
                 fArr[1] = parsePxValue(trans2StringArray[1]);
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_Y, fArr[1]));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_Y, fArr[1]));
                 ofPropertyValuesHolder.setDuration(getAnimDuration());
                 ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
                 ofPropertyValuesHolder.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -468,11 +469,11 @@ public class TKBasicAnimation {
         return (ObjectAnimator) invokeL.objValue;
     }
 
-    private ObjectAnimator setRotationAnim(View view) {
+    private ObjectAnimator setRotationAnim(View view2) {
         InterceptResult invokeL;
         String[] trans2StringArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, view2)) == null) {
             if (!((Map) this.animValue).containsKey("rotation") || (trans2StringArray = trans2StringArray(((Map) this.animValue).get("rotation"))) == null) {
                 return null;
             }
@@ -480,7 +481,7 @@ public class TKBasicAnimation {
                 float[] fArr = {0.0f, 0.0f};
                 fArr[0] = parseFloatValue(trans2StringArray[0]);
                 fArr[1] = parseFloatValue(trans2StringArray[1]);
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(AnimationProperty.ROTATE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.ROTATE_Y, fArr[1]));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(AnimationProperty.ROTATE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.ROTATE_Y, fArr[1]));
                 ofPropertyValuesHolder.setDuration(getAnimDuration());
                 ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
                 ofPropertyValuesHolder.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -491,11 +492,11 @@ public class TKBasicAnimation {
         return (ObjectAnimator) invokeL.objValue;
     }
 
-    private ObjectAnimator setScaleAnim(View view) {
+    private ObjectAnimator setScaleAnim(View view2) {
         InterceptResult invokeL;
         String[] trans2StringArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, view2)) == null) {
             if (!((Map) this.animValue).containsKey(AnimationProperty.SCALE) || (trans2StringArray = trans2StringArray(((Map) this.animValue).get(AnimationProperty.SCALE))) == null) {
                 return null;
             }
@@ -503,7 +504,7 @@ public class TKBasicAnimation {
                 float[] fArr = {0.0f, 0.0f};
                 fArr[0] = parseFloatValue(trans2StringArray[0]);
                 fArr[1] = parseFloatValue(trans2StringArray[1]);
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, fArr[1]));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, fArr[1]));
                 ofPropertyValuesHolder.setDuration(getAnimDuration());
                 ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
                 ofPropertyValuesHolder.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -518,7 +519,7 @@ public class TKBasicAnimation {
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     /* JADX WARN: Multi-variable type inference failed */
     private void startAnimation(TKBase tKBase) {
-        char c2;
+        char c;
         ObjectAnimator objectAnimator;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, tKBase) == null) {
@@ -527,7 +528,7 @@ public class TKBasicAnimation {
             if (diffAnimationProperty.isEmpty()) {
                 return;
             }
-            View view = tKBase.getView();
+            View view2 = tKBase.getView();
             ArrayList arrayList = new ArrayList();
             Iterator<String> it = animationPropertyList.iterator();
             while (it.hasNext()) {
@@ -540,182 +541,182 @@ public class TKBasicAnimation {
                     switch (next.hashCode()) {
                         case -1702268461:
                             if (next.equals(AnimationProperty.SHADOW_OFFSET)) {
-                                c2 = 20;
+                                c = 20;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1621067310:
                             if (next.equals(AnimationProperty.SHADOW_RADIUS)) {
-                                c2 = 18;
+                                c = 18;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1589741021:
                             if (next.equals(AnimationProperty.SHADOW_COLOR)) {
-                                c2 = 17;
+                                c = 17;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1249320806:
                             if (next.equals(AnimationProperty.ROTATE_X)) {
-                                c2 = 5;
+                                c = 5;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1249320805:
                             if (next.equals(AnimationProperty.ROTATE_Y)) {
-                                c2 = 6;
+                                c = 6;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1225497657:
                             if (next.equals(AnimationProperty.TRANSLATE_X)) {
-                                c2 = 0;
+                                c = 0;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1225497656:
                             if (next.equals(AnimationProperty.TRANSLATE_Y)) {
-                                c2 = 1;
+                                c = 1;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1225497655:
                             if (next.equals(AnimationProperty.TRANSLATE_Z)) {
-                                c2 = 2;
+                                c = 2;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1221029593:
                             if (next.equals("height")) {
-                                c2 = 15;
+                                c = 15;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1081309778:
-                            if (next.equals(AnimationProperty.MARGIN)) {
-                                c2 = '\t';
+                            if (next.equals("margin")) {
+                                c = '\t';
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -1044792121:
                             if (next.equals(AnimationProperty.MARGIN_TOP)) {
-                                c2 = '\f';
+                                c = '\f';
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -949513525:
                             if (next.equals(AnimationProperty.SHADOW_OPACITY)) {
-                                c2 = 19;
+                                c = 19;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -908189618:
                             if (next.equals(AnimationProperty.SCALE_X)) {
-                                c2 = 3;
+                                c = 3;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -908189617:
                             if (next.equals(AnimationProperty.SCALE_Y)) {
-                                c2 = 4;
+                                c = 4;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -289173127:
                             if (next.equals(AnimationProperty.MARGIN_BOTTOM)) {
-                                c2 = '\r';
+                                c = '\r';
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case -40300674:
                             if (next.equals("rotation")) {
-                                c2 = 7;
+                                c = 7;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 92909918:
                             if (next.equals(AnimationProperty.OPACITY)) {
-                                c2 = '\b';
+                                c = '\b';
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 113126854:
                             if (next.equals("width")) {
-                                c2 = 14;
+                                c = 14;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 975087886:
                             if (next.equals(AnimationProperty.MARGIN_RIGHT)) {
-                                c2 = 11;
+                                c = 11;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 1287124693:
                             if (next.equals("backgroundColor")) {
-                                c2 = 16;
+                                c = 16;
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         case 1970934485:
                             if (next.equals(AnimationProperty.MARGIN_LEFT)) {
-                                c2 = '\n';
+                                c = '\n';
                                 break;
                             }
-                            c2 = 65535;
+                            c = 65535;
                             break;
                         default:
-                            c2 = 65535;
+                            c = 65535;
                             break;
                     }
-                    switch (c2) {
+                    switch (c) {
                         case 0:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.TRANSLATE_X, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.TRANSLATE_X, hashMap);
                             break;
                         case 1:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.TRANSLATE_Y, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.TRANSLATE_Y, hashMap);
                             break;
                         case 2:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.TRANSLATE_Z, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.TRANSLATE_Z, hashMap);
                             break;
                         case 3:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.SCALE_X, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.SCALE_X, hashMap);
                             break;
                         case 4:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.SCALE_Y, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.SCALE_Y, hashMap);
                             break;
                         case 5:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.ROTATE_X, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.ROTATE_X, hashMap);
                             break;
                         case 6:
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.ROTATE_Y, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.ROTATE_Y, hashMap);
                             break;
                         case 7:
-                            objectAnimator = buildKeyFrameAnimator(view, "rotation", hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, "rotation", hashMap);
                             break;
                         case '\b':
-                            objectAnimator = buildKeyFrameAnimator(view, AnimationProperty.OPACITY, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, AnimationProperty.OPACITY, hashMap);
                             break;
                         case '\t':
                         case '\n':
@@ -724,7 +725,7 @@ public class TKBasicAnimation {
                         case '\r':
                         case 14:
                         case 15:
-                            objectAnimator = buildKeyFrameAnimator(view, next, hashMap);
+                            objectAnimator = buildKeyFrameAnimator(view2, next, hashMap);
                             updateAnimateLayoutParams(objectAnimator, tKBase, next);
                             break;
                         case 16:
@@ -754,18 +755,18 @@ public class TKBasicAnimation {
             animatorSet.setInterpolator(getInterpolator());
             animatorSet.addListener(this.animatorListener);
             animatorSet.start();
-            view.setTag(R.id.obfuscated_res_0x7f09207c, animatorSet);
+            view2.setTag(R.id.obfuscated_res_0x7f092061, animatorSet);
         }
     }
 
-    private void startBasicAnimation(View view) {
+    private void startBasicAnimation(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65553, this, view) == null) && (this.animValue instanceof Map)) {
-            ObjectAnimator positionAnim = setPositionAnim(view);
-            ObjectAnimator scaleAnim = setScaleAnim(view);
-            ObjectAnimator rotationAnim = setRotationAnim(view);
-            ObjectAnimator alphaAnim = setAlphaAnim(view);
-            ObjectAnimator backgroundColorAnim = setBackgroundColorAnim(view);
+        if ((interceptable == null || interceptable.invokeL(65553, this, view2) == null) && (this.animValue instanceof Map)) {
+            ObjectAnimator positionAnim = setPositionAnim(view2);
+            ObjectAnimator scaleAnim = setScaleAnim(view2);
+            ObjectAnimator rotationAnim = setRotationAnim(view2);
+            ObjectAnimator alphaAnim = setAlphaAnim(view2);
+            ObjectAnimator backgroundColorAnim = setBackgroundColorAnim(view2);
             ArrayList arrayList = new ArrayList();
             if (positionAnim != null) {
                 arrayList.add(positionAnim);
@@ -794,15 +795,15 @@ public class TKBasicAnimation {
         }
     }
 
-    private void startKeyframeAnimation(View view) {
+    private void startKeyframeAnimation(View view2) {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(65554, this, view2) == null) {
             if ("position".equalsIgnoreCase(this.animType)) {
-                animTranslation(view);
-            } else if ("opacity".equalsIgnoreCase(this.animType)) {
-                animAlpha(view);
+                animTranslation(view2);
+            } else if (NativeConstants.OPACITY.equalsIgnoreCase(this.animType)) {
+                animAlpha(view2);
             } else {
                 if (AnimationProperty.SCALE.equalsIgnoreCase(this.animType)) {
                     i2 = 13;
@@ -815,19 +816,19 @@ public class TKBasicAnimation {
                         i = 2;
                     } else if (!"rotationZ".equalsIgnoreCase(this.animType)) {
                         if ("bgColor".equalsIgnoreCase(this.animType)) {
-                            animBackgroundColor(view);
+                            animBackgroundColor(view2);
                             return;
                         }
                         return;
                     } else {
                         i = 3;
                     }
-                    animRotation(view, i);
+                    animRotation(view2, i);
                     return;
                 } else {
                     i2 = 12;
                 }
-                animScale(view, i2);
+                animScale(view2, i2);
             }
         }
     }
@@ -883,13 +884,13 @@ public class TKBasicAnimation {
         });
     }
 
-    public void animAlpha(View view) {
+    public void animAlpha(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            float alpha = view.getAlpha();
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            float alpha = view2.getAlpha();
             float parseFloatValue = parseFloatValue(trans2String(this.animValue));
             if (alpha != parseFloatValue) {
-                ObjectAnimator duration = ObjectAnimator.ofFloat(view, AnimationProperty.OPACITY, alpha, parseFloatValue).setDuration(getAnimDuration());
+                ObjectAnimator duration = ObjectAnimator.ofFloat(view2, AnimationProperty.OPACITY, alpha, parseFloatValue).setDuration(getAnimDuration());
                 this.animator = duration;
                 duration.setRepeatCount(this.repeatCount);
                 duration.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -901,14 +902,14 @@ public class TKBasicAnimation {
         }
     }
 
-    public void animBackgroundColor(View view) {
+    public void animBackgroundColor(View view2) {
         int color;
         int parseColor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (color = ((TKViewBackgroundDrawable) view.getBackground()).getColor()) == (parseColor = parseColor(trans2String(this.animValue)))) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || (color = ((TKViewBackgroundDrawable) view2.getBackground()).getColor()) == (parseColor = parseColor(trans2String(this.animValue)))) {
             return;
         }
-        ObjectAnimator duration = ObjectAnimator.ofInt(view, "backgroundColor", color, parseColor).setDuration(getAnimDuration());
+        ObjectAnimator duration = ObjectAnimator.ofInt(view2, "backgroundColor", color, parseColor).setDuration(getAnimDuration());
         this.animator = duration;
         duration.setRepeatCount(this.repeatCount);
         duration.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -919,10 +920,10 @@ public class TKBasicAnimation {
         duration.start();
     }
 
-    public void animRotation(View view, int i) {
+    public void animRotation(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view, i != 1 ? i != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X, 0.0f, parseFloatValue(trans2String(this.animValue))).setDuration(getAnimDuration());
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view2, i) == null) {
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view2, i != 1 ? i != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X, 0.0f, parseFloatValue(trans2String(this.animValue))).setDuration(getAnimDuration());
             this.animator = duration;
             duration.setRepeatCount(this.repeatCount);
             duration.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -937,16 +938,16 @@ public class TKBasicAnimation {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void animScale(View view, int i) {
+    public void animScale(View view2, int i) {
         ObjectAnimator ofFloat;
         ObjectAnimator duration;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) {
             float parseFloatValue = parseFloatValue(trans2String(this.animValue));
             if (i == 11) {
-                ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.SCALE_X, 0.0f, parseFloatValue);
+                ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.SCALE_X, 0.0f, parseFloatValue);
             } else if (i != 12) {
-                duration = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, parseFloatValue), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, parseFloatValue));
+                duration = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, parseFloatValue), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, parseFloatValue));
                 this.animator = duration;
                 duration.setRepeatCount(this.repeatCount);
                 duration.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -955,7 +956,7 @@ public class TKBasicAnimation {
                 duration.addListener(this.animatorListener);
                 duration.start();
             } else {
-                ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.SCALE_Y, 0.0f, parseFloatValue);
+                ofFloat = ObjectAnimator.ofFloat(view2, AnimationProperty.SCALE_Y, 0.0f, parseFloatValue);
             }
             duration = ofFloat.setDuration(getAnimDuration());
             this.animator = duration;
@@ -968,16 +969,16 @@ public class TKBasicAnimation {
         }
     }
 
-    public void animTranslation(View view) {
+    public void animTranslation(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             float[] fArr = {0.0f, 0.0f};
             String[] trans2StringArray = trans2StringArray(this.animValue);
             if (trans2StringArray != null && trans2StringArray.length == 2) {
                 fArr[0] = parsePxValue(trans2StringArray[0]);
                 fArr[1] = parsePxValue(trans2StringArray[1]);
             }
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_Y, fArr[1]));
+            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_X, fArr[0]), PropertyValuesHolder.ofFloat(AnimationProperty.TRANSLATE_Y, fArr[1]));
             this.animator = ofPropertyValuesHolder;
             ofPropertyValuesHolder.setRepeatCount(this.repeatCount);
             ofPropertyValuesHolder.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -1143,8 +1144,8 @@ public class TKBasicAnimation {
             }
             try {
                 return Color.parseColor(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return -1;
             }
         }
@@ -1157,8 +1158,8 @@ public class TKBasicAnimation {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             try {
                 return Float.parseFloat(str);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return 0.0f;
             }
         }
@@ -1170,18 +1171,18 @@ public class TKBasicAnimation {
         float dp2px;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            float f2 = 0.0f;
+            float f = 0.0f;
             try {
                 if (str.toLowerCase().endsWith("px")) {
                     dp2px = Float.parseFloat(str.replace("px", ""));
                 } else {
-                    f2 = Float.parseFloat(str);
-                    dp2px = TKConverter.dp2px(Tachikoma.sApplication, f2);
+                    f = Float.parseFloat(str);
+                    dp2px = TKConverter.dp2px(Tachikoma.sApplication, f);
                 }
                 return dp2px;
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return f2;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return f;
             }
         }
         return invokeL.floatValue;
@@ -1192,17 +1193,17 @@ public class TKBasicAnimation {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, tKBase) == null) || tKBase == null || tKBase.getView() == null) {
             return;
         }
-        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f09207c);
+        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f092061);
         if (tag instanceof AnimatorSet) {
             pauseAnimation((AnimatorSet) tag);
         }
     }
 
     public void readInitial() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (view = this.mTargetView) != null && this.needTranformIdentity) {
-            this.mInitialScaleX = view.getScaleX();
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (view2 = this.mTargetView) != null && this.needTranformIdentity) {
+            this.mInitialScaleX = view2.getScaleX();
             this.mInitialScaleY = this.mTargetView.getScaleY();
             this.mInitialTranslationX = this.mTargetView.getTranslationX();
             this.mInitialTranslationY = this.mTargetView.getTranslationY();
@@ -1213,10 +1214,10 @@ public class TKBasicAnimation {
     }
 
     public void resetInitial() {
-        View view;
+        View view2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (view = this.mTargetView) != null && this.needTranformIdentity) {
-            view.setScaleX(this.mInitialScaleX);
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && (view2 = this.mTargetView) != null && this.needTranformIdentity) {
+            view2.setScaleX(this.mInitialScaleX);
             this.mTargetView.setScaleY(this.mInitialScaleY);
             this.mTargetView.setTranslationX(this.mInitialTranslationX);
             this.mTargetView.setTranslationY(this.mInitialTranslationY);
@@ -1231,7 +1232,7 @@ public class TKBasicAnimation {
         if (!(interceptable == null || interceptable.invokeL(1048597, this, tKBase) == null) || tKBase == null || tKBase.getView() == null) {
             return;
         }
-        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f09207c);
+        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f092061);
         if (tag instanceof AnimatorSet) {
             resumeAnimation((AnimatorSet) tag);
         }
@@ -1258,17 +1259,17 @@ public class TKBasicAnimation {
         }
     }
 
-    public void setDelay(float f2) {
+    public void setDelay(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.delay = f2;
+        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
+            this.delay = f;
         }
     }
 
-    public void setDuration(float f2) {
+    public void setDuration(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048602, this, f2) == null) {
-            this.duration = f2;
+        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
+            this.duration = f;
         }
     }
 
@@ -1344,7 +1345,7 @@ public class TKBasicAnimation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, tKBase) == null) {
             if (newVersionEnable() && tKBase != null && tKBase.getView() != null) {
-                Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f09207c);
+                Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f092061);
                 if (tag instanceof AnimatorSet) {
                     AnimatorSet animatorSet = (AnimatorSet) tag;
                     animatorSet.removeAllListeners();

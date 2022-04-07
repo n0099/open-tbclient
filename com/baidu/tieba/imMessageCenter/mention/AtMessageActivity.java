@@ -4,10 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
-import c.a.o0.k0.c.b;
-import c.a.o0.r.l0.f;
-import c.a.p0.v1.b.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -22,6 +18,8 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
@@ -32,18 +30,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.du4;
+import com.repackage.i65;
+import com.repackage.oi;
+import com.repackage.r65;
+import com.repackage.s65;
+import com.repackage.v65;
+import com.repackage.x97;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements f.g, c.a.o0.k0.c.a {
+/* loaded from: classes3.dex */
+public class AtMessageActivity extends BaseActivity<AtMessageActivity> implements du4.g, r65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AtMeModelController atMeModelController;
-    public d atMeViewController;
+    public x97 atMeViewController;
     public CustomMessageListener mMessageFromNotifyCenterListener;
     public ViewEventCenter viewEventController;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,6 +109,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, feedData)) == null) {
             if (feedData != null) {
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_PAGE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", feedData.getIsFirstPost()));
                 if (ThreadCardUtils.isUgcThreadType(feedData.getBaijiahaoData())) {
                     TiebaStatic.log("new_at_me_visit_pb");
                     PbActivityConfig createNormalCfg = new PbActivityConfig(getActivity()).createNormalCfg(feedData.getThread_id(), (String) null, 1, "mention");
@@ -170,7 +176,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.v75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -190,19 +196,19 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
     }
 
     public void hideNetRefreshView() {
-        d dVar;
+        x97 x97Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.atMeViewController) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (x97Var = this.atMeViewController) == null) {
             return;
         }
-        BdListView bdListView = dVar.f19103b;
+        BdListView bdListView = x97Var.b;
         if (bdListView != null) {
             bdListView.setVisibility(0);
         }
-        hideNetRefreshView(this.atMeViewController.f19104c);
+        hideNetRefreshView(this.atMeViewController.c);
     }
 
-    @Override // c.a.o0.k0.c.a
+    @Override // com.repackage.r65
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -236,7 +242,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             this.atMeModelController = new AtMeModelController(this);
             registerListener(this.mMessageFromNotifyCenterListener);
             this.atMeModelController.setUniqueId(getUniqueId());
-            this.atMeViewController = new d(this);
+            this.atMeViewController = new x97(this);
             if (bundle != null) {
                 this.atMeModelController.B(bundle);
             } else {
@@ -245,19 +251,20 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             this.atMeViewController.k();
             getEventCenter().addEventDelegate(this);
             this.atMeModelController.A();
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_AT_PAGE_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    @Override // c.a.o0.k0.c.a
-    public boolean onEventDispatch(b bVar) {
+    @Override // com.repackage.r65
+    public boolean onEventDispatch(s65 s65Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar)) == null) {
-            if (bVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, s65Var)) == null) {
+            if (s65Var == null) {
                 return true;
             }
-            if (bVar.b() == 9484) {
-                c.a.o0.k0.b.a a2 = bVar.a();
+            if (s65Var.b() == 9484) {
+                i65 a2 = s65Var.a();
                 if (a2 instanceof FeedData) {
                     FeedData feedData = (FeedData) a2;
                     if (feedData.getThread_Type() == 40) {
@@ -271,14 +278,14 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
                     return toPb(feedData);
                 }
                 return false;
-            } else if (bVar.b() == 9483) {
-                c.a.o0.k0.b.a a3 = bVar.a();
+            } else if (s65Var.b() == 9483) {
+                i65 a3 = s65Var.a();
                 if (a3 instanceof FeedData) {
                     return toPersonInfo((FeedData) a3);
                 }
                 return false;
-            } else if (bVar.b() == 9489) {
-                c.a.o0.k0.b.a a4 = bVar.a();
+            } else if (s65Var.b() == 9489) {
+                i65 a4 = s65Var.a();
                 if (a4 instanceof FeedData) {
                     this.atMeViewController.h((FeedData) a4);
                     return true;
@@ -291,7 +298,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         return invokeL.booleanValue;
     }
 
-    @Override // c.a.o0.r.l0.f.g
+    @Override // com.repackage.du4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -305,7 +312,7 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onNetRefreshButtonClicked();
-            if (!n.C() || (atMeModelController = this.atMeModelController) == null) {
+            if (!oi.C() || (atMeModelController = this.atMeModelController) == null) {
                 return;
             }
             atMeModelController.E();
@@ -320,25 +327,25 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
         if (!StringUtils.isNull(errorData.error_msg)) {
             showToast(errorData.error_msg);
         }
-        BdListView bdListView = this.atMeViewController.f19103b;
+        BdListView bdListView = this.atMeViewController.b;
         if (bdListView != null) {
             bdListView.setVisibility(8);
         }
-        showNetRefreshView(this.atMeViewController.f19104c, getString(R.string.obfuscated_res_0x7f0f0f65), null, getString(R.string.obfuscated_res_0x7f0f0f64), true, getNetRefreshListener());
-        setNetRefreshViewEmotionMarginTop(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
+        showNetRefreshView(this.atMeViewController.c, getString(R.string.obfuscated_res_0x7f0f0f6a), null, getString(R.string.obfuscated_res_0x7f0f0f69), true, getNetRefreshListener());
+        setNetRefreshViewEmotionMarginTop(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds530));
     }
 
-    public void onViewDataChanged(c.a.o0.k0.b.a aVar) {
+    public void onViewDataChanged(i65 i65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.atMeViewController.m(aVar);
+        if (interceptable == null || interceptable.invokeL(1048588, this, i65Var) == null) {
+            this.atMeViewController.m(i65Var);
         }
     }
 
-    public void onViewStateChanged(c.a.o0.k0.d.b bVar) {
+    public void onViewStateChanged(v65 v65Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.atMeViewController.n(bVar);
+        if (interceptable == null || interceptable.invokeL(1048589, this, v65Var) == null) {
+            this.atMeViewController.n(v65Var);
         }
     }
 
@@ -359,6 +366,9 @@ public class AtMessageActivity extends BaseActivity<AtMessageActivity> implement
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.thread_id = feedData.getThread_id();
+            if (bool.booleanValue()) {
+                videoItemData.highLightPostId = feedData.getPost_id();
+            }
             arrayList.add(videoItemData);
             VideoRecommentPlayActivityConfig videoRecommentPlayActivityConfig = new VideoRecommentPlayActivityConfig(this, arrayList, (String) null, VideoRecommentPlayActivityConfig.FROM_AT_PAGE, bool.booleanValue());
             videoRecommentPlayActivityConfig.setParamIsVertail(true);

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.MessageStat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class EventClientReport extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class EventClientReport extends a {
                 json.put(MessageStat.EVENT_TIME, this.eventTime);
                 json.put("eventContent", this.eventContent == null ? "" : this.eventContent);
                 return json;
-            } catch (JSONException e2) {
-                com.xiaomi.channel.commonutils.logger.b.a(e2);
+            } catch (JSONException e) {
+                com.xiaomi.channel.commonutils.logger.b.a(e);
                 return null;
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import f.c.l0;
+import com.repackage.py9;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
@@ -44,7 +44,7 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     @Deprecated
     public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return l0.$default$createDecoder(this, str);
+        return py9.$default$createDecoder(this, str);
     }
 
     @Override // org.webrtc.VideoDecoderFactory

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
-import c.a.o0.a.b0.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,14 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oj4;
 import com.squareup.wire.Wire;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b mData;
+    public oj4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ActiveConfigSocketResMsg() {
@@ -35,10 +35,10 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
         }
     }
 
-    public b getData() {
+    public oj4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (oj4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -55,9 +55,9 @@ public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
             setErrorString(activeConfigResIdl.error.usermsg);
         }
         if (activeConfigResIdl.data != null) {
-            b bVar = new b();
-            this.mData = bVar;
-            bVar.c(activeConfigResIdl.data);
+            oj4 oj4Var = new oj4();
+            this.mData = oj4Var;
+            oj4Var.c(activeConfigResIdl.data);
         }
     }
 }

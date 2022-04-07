@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char SYSTEM_SEPARATOR;
@@ -67,16 +67,16 @@ public class FileUtil {
                 if (listFiles == null) {
                     throw new IOException("Failed to list contents of " + file);
                 }
-                IOException e2 = null;
+                IOException e = null;
                 for (File file2 : listFiles) {
                     try {
                         forceDelete(file2);
-                    } catch (IOException e3) {
-                        e2 = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                     }
                 }
-                if (e2 != null) {
-                    throw e2;
+                if (e != null) {
+                    throw e;
                 }
             }
         }
@@ -268,8 +268,8 @@ public class FileUtil {
                     } catch (IOException unused) {
                     }
                     return convertStreamToString;
-                } catch (IOException e2) {
-                    e = e2;
+                } catch (IOException e) {
+                    e = e;
                     e.printStackTrace();
                     if (fileInputStream != null) {
                         try {
@@ -279,8 +279,8 @@ public class FileUtil {
                     }
                     return null;
                 }
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException e2) {
+                e = e2;
                 fileInputStream = null;
             } catch (Throwable th) {
                 th = th;

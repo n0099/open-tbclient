@@ -17,32 +17,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FRSRefreshButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30674b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public Paint f30675c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public int f30676d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public PorterDuffXfermode f30677e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public PorterDuffXfermode f30678f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Drawable f30679g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30680h;
+    public int b;
+    public Paint c;
+    public int d;
+    public PorterDuffXfermode e;
+    public PorterDuffXfermode f;
+    public Drawable g;
+    public int h;
     public boolean i;
     public AlphaAnimation j;
     public AlphaAnimation k;
@@ -71,9 +57,9 @@ public class FRSRefreshButton extends ImageView {
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f30675c.setXfermode(this.f30677e);
-            canvas.drawPaint(this.f30675c);
-            this.f30675c.setXfermode(this.f30678f);
+            this.c.setXfermode(this.e);
+            canvas.drawPaint(this.c);
+            this.c.setXfermode(this.f);
         }
     }
 
@@ -98,37 +84,37 @@ public class FRSRefreshButton extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Paint paint = new Paint();
-            this.f30675c = paint;
+            this.c = paint;
             paint.setAntiAlias(true);
-            this.f30675c.setStyle(Paint.Style.FILL);
-            this.f30675c.setAntiAlias(true);
-            this.f30679g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08097c, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            this.c.setStyle(Paint.Style.FILL);
+            this.c.setAntiAlias(true);
+            this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
             setLayerType(1, null);
         }
     }
 
     public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.f30680h == i) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.h == i) {
             return;
         }
-        this.f30680h = i;
-        this.f30679g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f08097c, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+        this.h = i;
+        this.g = SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         invalidate();
     }
 
     public final void e(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.f30679g == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) || this.g == null) {
             return;
         }
         canvas.save();
         canvas.rotate(-45.0f, canvas.getWidth() / 2, canvas.getHeight() / 2);
-        int width = (getWidth() / 2) - (this.f30679g.getIntrinsicWidth() / 2);
-        int height = (getHeight() / 2) - (this.f30679g.getIntrinsicHeight() / 2);
-        int height2 = (getHeight() / 2) + (this.f30679g.getIntrinsicHeight() / 2);
-        this.f30679g.setBounds(width + 3, height + 3, ((getWidth() / 2) + (this.f30679g.getIntrinsicWidth() / 2)) - 3, height2 - 3);
-        this.f30679g.draw(canvas);
+        int width = (getWidth() / 2) - (this.g.getIntrinsicWidth() / 2);
+        int height = (getHeight() / 2) - (this.g.getIntrinsicHeight() / 2);
+        int height2 = (getHeight() / 2) + (this.g.getIntrinsicHeight() / 2);
+        this.g.setBounds(width + 3, height + 3, ((getWidth() / 2) + (this.g.getIntrinsicWidth() / 2)) - 3, height2 - 3);
+        this.g.draw(canvas);
         canvas.restore();
     }
 
@@ -154,17 +140,17 @@ public class FRSRefreshButton extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.a <= 0 || this.f30674b <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) || this.a <= 0 || this.b <= 0) {
             return;
         }
         int saveCount = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.a / 2, this.f30674b / 2);
-        this.f30675c.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
-        this.f30675c.setColor(SkinManager.getColor(this.f30676d));
+        canvas.rotate(45.0f, this.a / 2, this.b / 2);
+        this.c.setShadowLayer(16.0f, 5.0f, 5.0f, SkinManager.getColor(R.color.CAM_X0804));
+        this.c.setColor(SkinManager.getColor(this.d));
         int i = this.a;
-        canvas.drawCircle(i / 2, this.f30674b / 2, (i / 2) - 20, this.f30675c);
+        canvas.drawCircle(i / 2, this.b / 2, (i / 2) - 20, this.c);
         e(canvas);
         if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
             return;
@@ -178,7 +164,7 @@ public class FRSRefreshButton extends ImageView {
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             super.onMeasure(i, i2);
             this.a = getMeasuredWidth();
-            this.f30674b = getMeasuredHeight();
+            this.b = getMeasuredHeight();
         }
     }
 
@@ -222,10 +208,10 @@ public class FRSRefreshButton extends ImageView {
                 return;
             }
         }
-        this.f30676d = R.color.CAM_X0211;
-        this.f30677e = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-        this.f30678f = new PorterDuffXfermode(PorterDuff.Mode.SRC);
-        this.f30680h = 3;
+        this.d = R.color.CAM_X0211;
+        this.e = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+        this.f = new PorterDuffXfermode(PorterDuff.Mode.SRC);
+        this.h = 3;
         this.i = false;
         this.j = null;
         this.k = null;

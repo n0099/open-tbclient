@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class GsonBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -332,11 +332,11 @@ public final class GsonBuilder {
         return (GsonBuilder) invokeV.objValue;
     }
 
-    public GsonBuilder setVersion(double d2) {
+    public GsonBuilder setVersion(double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Double.valueOf(d2)})) == null) {
-            this.excluder = this.excluder.withVersion(d2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Double.valueOf(d)})) == null) {
+            this.excluder = this.excluder.withVersion(d);
             return this;
         }
         return (GsonBuilder) invokeCommon.objValue;

@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class bl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte b2) {
+    public static String a(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65536, null, b2)) == null) {
-            int i = (b2 & ByteCompanionObject.MAX_VALUE) + (b2 < 0 ? 128 : 0);
+        if (interceptable == null || (invokeB = interceptable.invokeB(65536, null, b)) == null) {
+            int i = (b & ByteCompanionObject.MAX_VALUE) + (b < 0 ? 128 : 0);
             StringBuilder sb = new StringBuilder();
             sb.append(i < 16 ? "0" : "");
             sb.append(Integer.toHexString(i).toLowerCase());
@@ -32,8 +32,8 @@ public class bl {
                 MessageDigest messageDigest = MessageDigest.getInstance("MD5");
                 StringBuffer stringBuffer = new StringBuffer();
                 messageDigest.update(str.getBytes(), 0, str.length());
-                for (byte b2 : messageDigest.digest()) {
-                    stringBuffer.append(a(b2));
+                for (byte b : messageDigest.digest()) {
+                    stringBuffer.append(a(b));
                 }
                 return stringBuffer.toString();
             } catch (NoSuchAlgorithmException unused) {

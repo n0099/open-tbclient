@@ -301,8 +301,8 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
                 try {
                     Thread.sleep(i);
-                } catch (InterruptedException e2) {
-                    throw new RuntimeException(e2);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
                 }
             }
         }
@@ -693,9 +693,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                     dispose();
                 }
                 return this;
-            } catch (InterruptedException e2) {
+            } catch (InterruptedException e) {
                 dispose();
-                throw ExceptionHelper.wrapOrThrow(e2);
+                throw ExceptionHelper.wrapOrThrow(e);
             }
         }
         return (U) invokeJL.objValue;
@@ -873,8 +873,8 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                             z = true;
                             break;
                         }
-                    } catch (Exception e2) {
-                        throw ExceptionHelper.wrapOrThrow(e2);
+                    } catch (Exception e) {
+                        throw ExceptionHelper.wrapOrThrow(e);
                     }
                 }
                 if (z) {
@@ -952,8 +952,8 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                     if (predicate.test((T) this.values.get(i))) {
                         throw fail("Value at position " + i + " matches predicate " + predicate.toString() + ", which was not expected.");
                     }
-                } catch (Exception e2) {
-                    throw ExceptionHelper.wrapOrThrow(e2);
+                } catch (Exception e) {
+                    throw ExceptionHelper.wrapOrThrow(e);
                 }
             }
             return this;
@@ -985,8 +985,8 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                             return this;
                         }
                         throw fail("Value not present");
-                    } catch (Exception e2) {
-                        throw ExceptionHelper.wrapOrThrow(e2);
+                    } catch (Exception e) {
+                        throw ExceptionHelper.wrapOrThrow(e);
                     }
                 }
                 throw fail("Invalid index: " + i);

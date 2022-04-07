@@ -16,14 +16,14 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class SpliceScheduleCommand extends SpliceCommand {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SpliceScheduleCommand> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Event> events;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ComponentSplice {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +183,7 @@ public final class SpliceScheduleCommand extends SpliceCommand {
         this.events = Collections.unmodifiableList(arrayList);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class Event {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

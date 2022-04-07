@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.framwork.core.sdkmonitor.SDKMonitor;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class b implements SDKMonitor.ICallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

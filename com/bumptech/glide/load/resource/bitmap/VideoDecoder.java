@@ -27,7 +27,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final MediaMetadataRetrieverFactory DEFAULT_FACTORY;
@@ -42,7 +42,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     public final MediaMetadataRetrieverFactory factory;
     public final MediaMetadataRetrieverInitializer<T> initializer;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class AssetFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<AssetFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +72,7 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class MediaMetadataRetrieverFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,12 +99,12 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
     }
 
     @VisibleForTesting
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public interface MediaMetadataRetrieverInitializer<T> {
         void initialize(MediaMetadataRetriever mediaMetadataRetriever, T t);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class ParcelFileDescriptorInitializer implements MediaMetadataRetrieverInitializer<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -319,8 +319,8 @@ public class VideoDecoder<T> implements ResourceDecoder<T, Bitmap> {
                     Bitmap decodeFrame = decodeFrame(build, longValue, num.intValue(), i, i2, downsampleStrategy2);
                     build.release();
                     return BitmapResource.obtain(decodeFrame, this.bitmapPool);
-                } catch (RuntimeException e2) {
-                    throw new IOException(e2);
+                } catch (RuntimeException e) {
+                    throw new IOException(e);
                 }
             } catch (Throwable th) {
                 build.release();

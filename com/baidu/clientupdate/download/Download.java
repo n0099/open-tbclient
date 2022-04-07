@@ -14,20 +14,14 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class Download implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f25262b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f25263c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f25264d;
+    public long b;
+    public int c;
+    public boolean d;
     public long mCurrentLength;
     public String mETag;
     public String mFailReason;
@@ -72,9 +66,9 @@ public class Download implements Serializable {
         this.mNeedNotification = false;
         this.mRequestHeaders = new ArrayList();
         this.a = 0L;
-        this.f25262b = 0L;
-        this.f25263c = 0;
-        this.f25264d = true;
+        this.b = 0L;
+        this.c = 0;
+        this.d = true;
     }
 
     public void addRequestHeader(String str, String str2) {

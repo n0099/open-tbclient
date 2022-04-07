@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
 import com.kwad.sdk.core.webview.jshandler.b;
 import com.kwad.sdk.core.webview.jshandler.l;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class as implements com.kwad.sdk.core.d<l.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
@@ -13,14 +13,14 @@ public class as implements com.kwad.sdk.core.d<l.a> {
             return;
         }
         aVar.a = jSONObject.optBoolean("clickActionButton");
-        aVar.f40061b = jSONObject.optString("adTemplate");
+        aVar.b = jSONObject.optString("adTemplate");
         if (jSONObject.opt("adTemplate") == JSONObject.NULL) {
-            aVar.f40061b = "";
+            aVar.b = "";
         }
-        aVar.f40062c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C1973b c1973b = new b.C1973b();
-        aVar.f40063d = c1973b;
-        c1973b.parseJson(jSONObject.optJSONObject("logParam"));
+        aVar.c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
+        b.C0313b c0313b = new b.C0313b();
+        aVar.d = c0313b;
+        c0313b.parseJson(jSONObject.optJSONObject("logParam"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,9 +30,9 @@ public class as implements com.kwad.sdk.core.d<l.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "clickActionButton", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", aVar.f40061b);
-        com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.f40062c);
-        com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.f40063d);
+        com.kwad.sdk.utils.t.a(jSONObject, "adTemplate", aVar.b);
+        com.kwad.sdk.utils.t.a(jSONObject, CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA, aVar.c);
+        com.kwad.sdk.utils.t.a(jSONObject, "logParam", aVar.d);
         return jSONObject;
     }
 }

@@ -7,23 +7,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ List f43868b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ List f43869c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f43870d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ h f43871e;
+    public final /* synthetic */ List b;
+    public final /* synthetic */ List c;
+    public final /* synthetic */ String d;
+    public final /* synthetic */ h e;
 
     public j(h hVar, int i, List list, List list2, String str) {
         Interceptable interceptable = $ic;
@@ -40,11 +32,11 @@ public final class j implements Runnable {
                 return;
             }
         }
-        this.f43871e = hVar;
+        this.e = hVar;
         this.a = i;
-        this.f43868b = list;
-        this.f43869c = list2;
-        this.f43870d = str;
+        this.b = list;
+        this.c = list2;
+        this.d = str;
     }
 
     @Override // java.lang.Runnable
@@ -52,10 +44,10 @@ public final class j implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            h hVar = this.f43871e;
-            PushMessageCallback pushMessageCallback = ((z) hVar).f43881b;
+            h hVar = this.e;
+            PushMessageCallback pushMessageCallback = ((z) hVar).b;
             context = hVar.a;
-            pushMessageCallback.onDelAlias(context, this.a, this.f43868b, this.f43869c, this.f43870d);
+            pushMessageCallback.onDelAlias(context, this.a, this.b, this.c, this.d);
         }
     }
 }

@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMSetMsgSettingSwitchRequest";
@@ -149,8 +149,8 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
                 JSONObject jSONObject = new JSONObject(str2);
                 i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "JSONException", e);
                 i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }

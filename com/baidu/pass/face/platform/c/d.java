@@ -22,37 +22,23 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "d";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: b  reason: collision with root package name */
-    public List<LivenessTypeEnum> f28101b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f28102c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public volatile int f28103d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f28104e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public volatile LivenessTypeEnum f28105f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public long f28106g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public HashMap<LivenessTypeEnum, Boolean> f28107h;
+    public List<LivenessTypeEnum> b;
+    public long c;
+    public volatile int d;
+    public boolean e;
+    public volatile LivenessTypeEnum f;
+    public long g;
+    public HashMap<LivenessTypeEnum, Boolean> h;
     public long i;
     public long j;
 
     /* renamed from: com.baidu.pass.face.platform.c.d$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -128,23 +114,23 @@ public class d {
                 return;
             }
         }
-        this.f28103d = 0;
-        this.f28104e = false;
-        this.f28105f = null;
-        this.f28106g = -1L;
-        this.f28107h = new HashMap<>();
+        this.d = 0;
+        this.e = false;
+        this.f = null;
+        this.g = -1L;
+        this.h = new HashMap<>();
         this.i = 0L;
         this.j = 0L;
-        this.f28103d = 0;
-        this.f28102c = 0L;
+        this.d = 0;
+        this.c = 0L;
     }
 
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f28107h.clear();
-            for (int i = 0; i < this.f28101b.size(); i++) {
-                this.f28107h.put(this.f28101b.get(i), Boolean.FALSE);
+            this.h.clear();
+            for (int i = 0; i < this.b.size(); i++) {
+                this.h.put(this.b.get(i), Boolean.FALSE);
             }
         }
     }
@@ -152,7 +138,7 @@ public class d {
     public LivenessTypeEnum a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28105f : (LivenessTypeEnum) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (LivenessTypeEnum) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:103:0x01be, code lost:
@@ -276,73 +262,73 @@ public class d {
             long timeDetectModule = faceConfig.getTimeDetectModule();
             boolean z6 = true;
             if (currentTimeMillis > timeDetectModule) {
-                this.f28104e = true;
+                this.e = true;
             } else if (faceExtInfo != null) {
-                if (faceExtInfo.getFaceId() != this.f28106g) {
-                    this.f28106g = faceExtInfo.getFaceId();
+                if (faceExtInfo.getFaceId() != this.g) {
+                    this.g = faceExtInfo.getFaceId();
                 }
                 AtomicInteger atomicInteger = new AtomicInteger();
-                switch (AnonymousClass1.a[this.f28105f.ordinal()]) {
+                switch (AnonymousClass1.a[this.f.ordinal()]) {
                     case 1:
                         faceSDKManager = FaceSDKManager.getInstance();
                         bDFaceActionLiveType = BDFaceSDKCommon.BDFaceActionLiveType.BDFace_ACTION_LIVE_BLINK;
                         faceSDKManager.a(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger);
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye) && !this.f28107h.containsKey(LivenessTypeEnum.Eye)) {
-                            hashMap = this.f28107h;
+                        if (!this.b.contains(LivenessTypeEnum.Eye) && !this.h.containsKey(LivenessTypeEnum.Eye)) {
+                            hashMap = this.h;
                             livenessTypeEnum = LivenessTypeEnum.Eye;
                             break;
                         } else {
-                            if (this.f28105f == LivenessTypeEnum.Eye && atomicInteger.get() == 1) {
-                                hashMap = this.f28107h;
+                            if (this.f == LivenessTypeEnum.Eye && atomicInteger.get() == 1) {
+                                hashMap = this.h;
                                 livenessTypeEnum = LivenessTypeEnum.Eye;
                                 break;
                             }
-                            if (!this.f28101b.contains(LivenessTypeEnum.Mouth) && !this.f28107h.containsKey(LivenessTypeEnum.Mouth)) {
-                                hashMap2 = this.f28107h;
+                            if (!this.b.contains(LivenessTypeEnum.Mouth) && !this.h.containsKey(LivenessTypeEnum.Mouth)) {
+                                hashMap2 = this.h;
                                 livenessTypeEnum2 = LivenessTypeEnum.Mouth;
                                 break;
                             } else {
-                                if (this.f28105f == LivenessTypeEnum.Mouth && atomicInteger.get() == 1) {
-                                    hashMap2 = this.f28107h;
+                                if (this.f == LivenessTypeEnum.Mouth && atomicInteger.get() == 1) {
+                                    hashMap2 = this.h;
                                     livenessTypeEnum2 = LivenessTypeEnum.Mouth;
                                     break;
                                 }
-                                if (!this.f28101b.contains(LivenessTypeEnum.HeadUp) && !this.f28107h.containsKey(LivenessTypeEnum.HeadUp)) {
-                                    hashMap3 = this.f28107h;
+                                if (!this.b.contains(LivenessTypeEnum.HeadUp) && !this.h.containsKey(LivenessTypeEnum.HeadUp)) {
+                                    hashMap3 = this.h;
                                     livenessTypeEnum3 = LivenessTypeEnum.HeadUp;
                                     break;
                                 } else {
-                                    if (this.f28105f == LivenessTypeEnum.HeadUp && atomicInteger.get() == 1) {
-                                        hashMap3 = this.f28107h;
+                                    if (this.f == LivenessTypeEnum.HeadUp && atomicInteger.get() == 1) {
+                                        hashMap3 = this.h;
                                         livenessTypeEnum3 = LivenessTypeEnum.HeadUp;
                                         break;
                                     }
-                                    if (!this.f28101b.contains(LivenessTypeEnum.HeadDown) && !this.f28107h.containsKey(LivenessTypeEnum.HeadDown)) {
-                                        hashMap4 = this.f28107h;
+                                    if (!this.b.contains(LivenessTypeEnum.HeadDown) && !this.h.containsKey(LivenessTypeEnum.HeadDown)) {
+                                        hashMap4 = this.h;
                                         livenessTypeEnum4 = LivenessTypeEnum.HeadDown;
                                         break;
                                     } else {
-                                        if (this.f28105f == LivenessTypeEnum.HeadDown && atomicInteger.get() == 1) {
-                                            hashMap4 = this.f28107h;
+                                        if (this.f == LivenessTypeEnum.HeadDown && atomicInteger.get() == 1) {
+                                            hashMap4 = this.h;
                                             livenessTypeEnum4 = LivenessTypeEnum.HeadDown;
                                             break;
                                         }
-                                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft) && !this.f28107h.containsKey(LivenessTypeEnum.HeadLeft)) {
-                                            hashMap5 = this.f28107h;
+                                        if (!this.b.contains(LivenessTypeEnum.HeadLeft) && !this.h.containsKey(LivenessTypeEnum.HeadLeft)) {
+                                            hashMap5 = this.h;
                                             livenessTypeEnum5 = LivenessTypeEnum.HeadLeft;
                                             break;
                                         } else {
-                                            if (this.f28105f == LivenessTypeEnum.HeadLeft && atomicInteger.get() == 1) {
-                                                hashMap5 = this.f28107h;
+                                            if (this.f == LivenessTypeEnum.HeadLeft && atomicInteger.get() == 1) {
+                                                hashMap5 = this.h;
                                                 livenessTypeEnum5 = LivenessTypeEnum.HeadLeft;
                                                 break;
                                             }
-                                            if (!this.f28101b.contains(LivenessTypeEnum.HeadRight) && !this.f28107h.containsKey(LivenessTypeEnum.HeadRight)) {
-                                                hashMap6 = this.f28107h;
+                                            if (!this.b.contains(LivenessTypeEnum.HeadRight) && !this.h.containsKey(LivenessTypeEnum.HeadRight)) {
+                                                hashMap6 = this.h;
                                                 livenessTypeEnum6 = LivenessTypeEnum.HeadRight;
                                                 break;
-                                            } else if (this.f28105f != LivenessTypeEnum.HeadRight && atomicInteger.get() == 1) {
-                                                hashMap6 = this.f28107h;
+                                            } else if (this.f != LivenessTypeEnum.HeadRight && atomicInteger.get() == 1) {
+                                                hashMap6 = this.h;
                                                 livenessTypeEnum6 = LivenessTypeEnum.HeadRight;
                                                 break;
                                             } else {
@@ -350,258 +336,258 @@ public class d {
                                             }
                                         }
                                         hashMap5.put(livenessTypeEnum5, Boolean.valueOf(z5));
-                                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                                         }
-                                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                                        if (this.f != LivenessTypeEnum.HeadRight) {
                                             return;
                                         }
                                         return;
                                     }
                                     hashMap4.put(livenessTypeEnum4, Boolean.valueOf(z4));
-                                    if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                                    if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                                     }
-                                    if (this.f28105f == LivenessTypeEnum.HeadLeft) {
-                                        hashMap5 = this.f28107h;
+                                    if (this.f == LivenessTypeEnum.HeadLeft) {
+                                        hashMap5 = this.h;
                                         livenessTypeEnum5 = LivenessTypeEnum.HeadLeft;
                                     }
-                                    if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                                    if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                                     }
-                                    if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                                    if (this.f != LivenessTypeEnum.HeadRight) {
                                     }
                                 }
                                 hashMap3.put(livenessTypeEnum3, Boolean.valueOf(z3));
-                                if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                                if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                                 }
-                                if (this.f28105f == LivenessTypeEnum.HeadDown) {
-                                    hashMap4 = this.f28107h;
+                                if (this.f == LivenessTypeEnum.HeadDown) {
+                                    hashMap4 = this.h;
                                     livenessTypeEnum4 = LivenessTypeEnum.HeadDown;
                                 }
-                                if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                                if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                                 }
-                                if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                                if (this.f == LivenessTypeEnum.HeadLeft) {
                                 }
-                                if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                                if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                                 }
-                                if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                                if (this.f != LivenessTypeEnum.HeadRight) {
                                 }
                             }
                             hashMap2.put(livenessTypeEnum2, Boolean.valueOf(z2));
-                            if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                            if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                             }
-                            if (this.f28105f == LivenessTypeEnum.HeadUp) {
-                                hashMap3 = this.f28107h;
+                            if (this.f == LivenessTypeEnum.HeadUp) {
+                                hashMap3 = this.h;
                                 livenessTypeEnum3 = LivenessTypeEnum.HeadUp;
                             }
-                            if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                            if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                             }
-                            if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                            if (this.f == LivenessTypeEnum.HeadDown) {
                             }
-                            if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                            if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                             }
-                            if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                            if (this.f == LivenessTypeEnum.HeadLeft) {
                             }
-                            if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                            if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                             }
-                            if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                            if (this.f != LivenessTypeEnum.HeadRight) {
                             }
                         }
                         hashMap.put(livenessTypeEnum, Boolean.valueOf(z));
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
-                            hashMap2 = this.f28107h;
+                        if (this.f == LivenessTypeEnum.Mouth) {
+                            hashMap2 = this.h;
                             livenessTypeEnum2 = LivenessTypeEnum.Mouth;
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                     case 2:
                         faceSDKManager = FaceSDKManager.getInstance();
                         bDFaceActionLiveType = BDFaceSDKCommon.BDFaceActionLiveType.BDFACE_ACTION_LIVE_OPEN_MOUTH;
                         faceSDKManager.a(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger);
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye)) {
+                        if (!this.b.contains(LivenessTypeEnum.Eye)) {
                             break;
                         }
-                        if (this.f28105f == LivenessTypeEnum.Eye) {
-                            hashMap = this.f28107h;
+                        if (this.f == LivenessTypeEnum.Eye) {
+                            hashMap = this.h;
                             livenessTypeEnum = LivenessTypeEnum.Eye;
                             break;
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
+                        if (this.f == LivenessTypeEnum.Mouth) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                     case 3:
                         faceSDKManager = FaceSDKManager.getInstance();
                         bDFaceActionLiveType = BDFaceSDKCommon.BDFaceActionLiveType.BDFACE_ACTION_LIVE_LOOK_UP;
                         faceSDKManager.a(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger);
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye)) {
+                        if (!this.b.contains(LivenessTypeEnum.Eye)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Eye) {
+                        if (this.f == LivenessTypeEnum.Eye) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
+                        if (this.f == LivenessTypeEnum.Mouth) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                     case 4:
                         faceSDKManager = FaceSDKManager.getInstance();
                         bDFaceActionLiveType = BDFaceSDKCommon.BDFaceActionLiveType.BDFACE_ACTION_LIVE_NOD;
                         faceSDKManager.a(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger);
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye)) {
+                        if (!this.b.contains(LivenessTypeEnum.Eye)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Eye) {
+                        if (this.f == LivenessTypeEnum.Eye) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
+                        if (this.f == LivenessTypeEnum.Mouth) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                     case 5:
                         faceSDKManager = FaceSDKManager.getInstance();
                         bDFaceActionLiveType = BDFaceSDKCommon.BDFaceActionLiveType.BDFACE_ACTION_LIVE_TURN_LEFT;
                         faceSDKManager.a(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger);
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye)) {
+                        if (!this.b.contains(LivenessTypeEnum.Eye)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Eye) {
+                        if (this.f == LivenessTypeEnum.Eye) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
+                        if (this.f == LivenessTypeEnum.Mouth) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                     case 6:
                         faceSDKManager = FaceSDKManager.getInstance();
                         bDFaceActionLiveType = BDFaceSDKCommon.BDFaceActionLiveType.BDFACE_ACTION_LIVE_TURN_RIGHT;
                         faceSDKManager.a(bDFaceActionLiveType, bDFaceImageInstance, faceExtInfo, atomicInteger);
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye)) {
+                        if (!this.b.contains(LivenessTypeEnum.Eye)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Eye) {
+                        if (this.f == LivenessTypeEnum.Eye) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
+                        if (this.f == LivenessTypeEnum.Mouth) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                     default:
-                        if (!this.f28101b.contains(LivenessTypeEnum.Eye)) {
+                        if (!this.b.contains(LivenessTypeEnum.Eye)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Eye) {
+                        if (this.f == LivenessTypeEnum.Eye) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.Mouth)) {
+                        if (!this.b.contains(LivenessTypeEnum.Mouth)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.Mouth) {
+                        if (this.f == LivenessTypeEnum.Mouth) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadUp)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadUp)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadUp) {
+                        if (this.f == LivenessTypeEnum.HeadUp) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadDown)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadDown)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadDown) {
+                        if (this.f == LivenessTypeEnum.HeadDown) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadLeft)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadLeft)) {
                         }
-                        if (this.f28105f == LivenessTypeEnum.HeadLeft) {
+                        if (this.f == LivenessTypeEnum.HeadLeft) {
                         }
-                        if (!this.f28101b.contains(LivenessTypeEnum.HeadRight)) {
+                        if (!this.b.contains(LivenessTypeEnum.HeadRight)) {
                         }
-                        if (this.f28105f != LivenessTypeEnum.HeadRight) {
+                        if (this.f != LivenessTypeEnum.HeadRight) {
                         }
                         break;
                 }
@@ -614,8 +600,8 @@ public class d {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() <= 0) {
             return;
         }
-        this.f28101b = list;
-        this.f28105f = list.get(0);
+        this.b = list;
+        this.f = list.get(0);
         k();
     }
 
@@ -623,10 +609,10 @@ public class d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, faceConfig)) == null) {
-            if (this.f28102c == 0) {
-                this.f28102c = System.currentTimeMillis();
+            if (this.c == 0) {
+                this.c = System.currentTimeMillis();
             }
-            return System.currentTimeMillis() - this.f28102c > faceConfig.getTimeLivenessCourse();
+            return System.currentTimeMillis() - this.c > faceConfig.getTimeLivenessCourse();
         }
         return invokeL.booleanValue;
     }
@@ -635,8 +621,8 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28105f != null) {
-                switch (AnonymousClass1.a[this.f28105f.ordinal()]) {
+            if (this.f != null) {
+                switch (AnonymousClass1.a[this.f.ordinal()]) {
                     case 1:
                         return FaceStatusNewEnum.FaceLivenessActionTypeLiveEye;
                     case 2:
@@ -661,7 +647,7 @@ public class d {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<Map.Entry<LivenessTypeEnum, Boolean>> it = this.f28107h.entrySet().iterator();
+            Iterator<Map.Entry<LivenessTypeEnum, Boolean>> it = this.h.entrySet().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = true;
@@ -686,7 +672,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            boolean booleanValue = this.f28107h.containsKey(this.f28105f) ? this.f28107h.get(this.f28105f).booleanValue() : false;
+            boolean booleanValue = this.h.containsKey(this.f) ? this.h.get(this.f).booleanValue() : false;
             if (booleanValue) {
                 this.j = 0L;
             }
@@ -698,40 +684,40 @@ public class d {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28104e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.booleanValue;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28103d + 1 < this.f28101b.size() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d + 1 < this.b.size() : invokeV.booleanValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f28103d + 1 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d + 1 : invokeV.intValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f28103d++;
-            this.f28105f = this.f28101b.get(this.f28103d);
-            this.f28102c = 0L;
+            this.d++;
+            this.f = this.b.get(this.d);
+            this.c = 0L;
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f28103d = 0;
+            this.d = 0;
             k();
-            if (this.f28101b != null && this.f28103d < this.f28101b.size()) {
-                this.f28105f = this.f28101b.get(this.f28103d);
+            if (this.b != null && this.d < this.b.size()) {
+                this.f = this.b.get(this.d);
             }
-            this.f28102c = 0L;
-            this.f28104e = false;
+            this.c = 0L;
+            this.e = false;
             this.j = 0L;
         }
     }
@@ -739,7 +725,7 @@ public class d {
     public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.f28102c = 0L;
+            this.c = 0L;
         }
     }
 }

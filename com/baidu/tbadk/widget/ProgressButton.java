@@ -10,7 +10,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -22,35 +21,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.oi;
 import java.util.Locale;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ProgressButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int q;
     public static final int r;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f30698b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f30699c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public float f30700d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f30701e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f30702f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f30703g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f30704h;
+    public int b;
+    public int c;
+    public float d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
     public Paint i;
     public TextPaint j;
     public float k;
@@ -101,17 +87,17 @@ public class ProgressButton extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f30698b = SkinManager.getColor(this.f30699c);
-            this.f30701e = SkinManager.getColor(this.f30702f);
-            this.f30703g = SkinManager.getColor(this.f30704h);
+            this.b = SkinManager.getColor(this.c);
+            this.e = SkinManager.getColor(this.f);
+            this.g = SkinManager.getColor(this.h);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f30699c = R.color.CAM_X0112;
-            this.f30702f = R.color.CAM_X0110;
+            this.c = R.color.CAM_X0112;
+            this.f = R.color.CAM_X0110;
             a();
         }
     }
@@ -119,13 +105,13 @@ public class ProgressButton extends View {
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            this.i.setColor(this.f30698b);
+            this.i.setColor(this.b);
             this.i.setAlpha((int) (this.o ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
             this.i.setStyle(this.a == 0 ? Paint.Style.STROKE : Paint.Style.FILL_AND_STROKE);
             this.i.setStrokeWidth(this.n);
-            float f2 = this.n;
-            canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.n / 2.0f), getHeight() - (this.n / 2.0f), getHeight(), getHeight(), this.i);
-            this.j.setColor(this.f30701e);
+            float f = this.n;
+            canvas.drawRoundRect(f / 2.0f, f / 2.0f, getWidth() - (this.n / 2.0f), getHeight() - (this.n / 2.0f), getHeight(), getHeight(), this.i);
+            this.j.setColor(this.e);
             this.j.setAlpha(this.o ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.j.setStyle(Paint.Style.FILL);
             this.j.setTextAlign(Paint.Align.CENTER);
@@ -144,11 +130,11 @@ public class ProgressButton extends View {
             int width = (int) (getWidth() * (this.m / 100.0f));
             canvas.save();
             canvas.clipRect(width, 0, getWidth(), getHeight());
-            this.i.setColor(this.f30698b);
-            this.i.setAlpha((int) (this.f30700d * (this.o ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
+            this.i.setColor(this.b);
+            this.i.setAlpha((int) (this.d * (this.o ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f)));
             this.i.setStyle(Paint.Style.FILL_AND_STROKE);
             canvas.drawRoundRect(0.0f, 0.0f, getWidth(), getHeight(), getHeight(), getHeight(), this.i);
-            this.j.setColor(this.f30698b);
+            this.j.setColor(this.b);
             this.j.setAlpha(this.o ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.j.setStyle(Paint.Style.FILL);
             this.j.setTextAlign(Paint.Align.CENTER);
@@ -161,12 +147,12 @@ public class ProgressButton extends View {
             canvas.restore();
             canvas.save();
             canvas.clipRect(0, 0, width, getHeight());
-            this.i.setColor(this.f30698b);
+            this.i.setColor(this.b);
             this.i.setAlpha((int) (this.o ? SkinManager.RESOURCE_ALPHA_PRESS * 255.0f : 255.0f));
             this.i.setStyle(Paint.Style.FILL_AND_STROKE);
-            float f2 = this.n;
-            canvas.drawRoundRect(f2 / 2.0f, f2 / 2.0f, getWidth() - (this.n / 2.0f), getHeight() - (this.n / 2.0f), getHeight(), getHeight(), this.i);
-            this.j.setColor(this.f30703g);
+            float f = this.n;
+            canvas.drawRoundRect(f / 2.0f, f / 2.0f, getWidth() - (this.n / 2.0f), getHeight() - (this.n / 2.0f), getHeight(), getHeight(), this.i);
+            this.j.setColor(this.g);
             this.j.setAlpha(this.o ? (int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f) : 255);
             this.j.setStyle(Paint.Style.FILL);
             this.j.setTextAlign(Paint.Align.CENTER);
@@ -182,11 +168,11 @@ public class ProgressButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int i = R.color.CAM_X0302;
-            this.f30699c = R.color.CAM_X0302;
+            this.c = R.color.CAM_X0302;
             if (this.a != 0) {
                 i = R.color.CAM_X0101;
             }
-            this.f30702f = i;
+            this.f = i;
             a();
         }
     }
@@ -209,27 +195,27 @@ public class ProgressButton extends View {
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400fc, R.attr.obfuscated_res_0x7f0400fd, R.attr.obfuscated_res_0x7f0400fe, R.attr.obfuscated_res_0x7f0400ff, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040613, R.attr.obfuscated_res_0x7f040614});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400fc, R.attr.obfuscated_res_0x7f0400fd, R.attr.obfuscated_res_0x7f040100, R.attr.obfuscated_res_0x7f040102, R.attr.obfuscated_res_0x7f040103, R.attr.obfuscated_res_0x7f040651, R.attr.obfuscated_res_0x7f040652});
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);
             this.a = i;
             int i2 = R.color.CAM_X0302;
-            this.f30699c = R.color.CAM_X0302;
-            this.f30704h = R.color.CAM_X0101;
+            this.c = R.color.CAM_X0302;
+            this.h = R.color.CAM_X0101;
             if (i != 0) {
                 i2 = R.color.CAM_X0101;
             }
-            this.f30702f = i2;
-            this.f30698b = obtainStyledAttributes.getColor(1, SkinManager.getColor(this.f30699c));
-            this.f30701e = obtainStyledAttributes.getColor(5, SkinManager.getColor(this.f30702f));
-            this.f30703g = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.f30704h));
-            this.f30700d = obtainStyledAttributes.getFloat(0, 0.2f);
+            this.f = i2;
+            this.b = obtainStyledAttributes.getColor(1, SkinManager.getColor(this.c));
+            this.e = obtainStyledAttributes.getColor(5, SkinManager.getColor(this.f));
+            this.g = obtainStyledAttributes.getColor(6, SkinManager.getColor(this.h));
+            this.d = obtainStyledAttributes.getFloat(0, 0.2f);
             obtainStyledAttributes.recycle();
-            this.n = n.f(getContext(), R.dimen.L_X02);
+            this.n = oi.f(getContext(), R.dimen.L_X02);
             Paint paint = new Paint(1);
             this.i = paint;
-            paint.setColor(this.f30698b);
+            paint.setColor(this.b);
             this.i.setStrokeWidth(this.n);
             TextPaint textPaint = new TextPaint();
             this.j = textPaint;

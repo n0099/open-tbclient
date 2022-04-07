@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.e.a;
 import com.kwad.sdk.e.b;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class BaseJsonApiParse extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -17,13 +17,13 @@ import com.example.oauthsdk.CFOauth;
 import com.example.oauthsdk.other.CFWebError;
 import com.example.oauthsdk.widget.CFAuthCallback;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String n = "CFOSSOLoginActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements CFAuthCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
                 try {
                     String string = bundle.getString("code");
                     if (this.a.sapiWebView == null) {
-                        this.a.a(-202, this.a.getString(R.string.obfuscated_res_0x7f0f100c));
+                        this.a.a(-202, this.a.getString(R.string.obfuscated_res_0x7f0f1014));
                         return;
                     }
                     this.a.a(ParamsUtil.addExtras(ParamsUtil.getUrlCFOLogin(this.a.configuration, string), new HashMap()), "春风授权登录中");
@@ -76,7 +76,7 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cFWebError) == null) {
                 Log.e(CFOSSOLoginActivity.n, String.format("onError: [%s] %s", cFWebError.getErrorCode(), cFWebError.getMessage()));
                 CFOSSOLoginActivity cFOSSOLoginActivity = this.a;
-                cFOSSOLoginActivity.a(-202, cFOSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f100c));
+                cFOSSOLoginActivity.a(-202, cFOSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f1014));
             }
         }
     }
@@ -124,11 +124,11 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.setupViews();
-            setTitleText(R.string.obfuscated_res_0x7f0f104a);
+            setTitleText(R.string.obfuscated_res_0x7f0f1052);
             try {
                 d();
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 finish();
             }
         }
@@ -138,15 +138,15 @@ public class CFOSSOLoginActivity extends BaseSSOLoginActivity {
     public void a(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
-            if (((BaseSSOLoginActivity) this).f28475g == 2001) {
+            if (((BaseSSOLoginActivity) this).g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 setResult(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                ((BaseSSOLoginActivity) this).f28476h.setResultCode(i);
-                ((BaseSSOLoginActivity) this).f28476h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).f28476h);
+                ((BaseSSOLoginActivity) this).h.setResultCode(i);
+                ((BaseSSOLoginActivity) this).h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(((BaseSSOLoginActivity) this).h);
                 CoreViewRouter.getInstance().release();
             }
             finish();

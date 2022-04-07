@@ -23,7 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcGetTokenRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcGetTokenRequest";
@@ -83,12 +83,12 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
-            for (byte b2 : bArr) {
+            for (byte b : bArr) {
                 char[] cArr = hexDigits;
-                char c2 = cArr[(b2 & 240) >> 4];
-                char c3 = cArr[b2 & 15];
+                char c = cArr[(b & 240) >> 4];
+                char c2 = cArr[b & 15];
+                sb.append(c);
                 sb.append(c2);
-                sb.append(c3);
             }
             return sb.toString();
         }
@@ -214,8 +214,8 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                     str4 = jSONObject.optString("rtc_appid", "");
                     RtcUtility.setRtcAppId(this.mContext, str4);
                     i = optInt;
-                } catch (JSONException e2) {
-                    jSONException = e2;
+                } catch (JSONException e) {
+                    jSONException = e;
                     str = str4;
                     str4 = str3;
                     LogUtils.e(TAG, "JSONException", jSONException);
@@ -225,8 +225,8 @@ public class BIMRtcGetTokenRequest extends BaseHttpRequest {
                     if (this.mListener == null) {
                     }
                 }
-            } catch (JSONException e3) {
-                jSONException = e3;
+            } catch (JSONException e2) {
+                jSONException = e2;
                 str = "";
             }
             if (this.mListener == null) {

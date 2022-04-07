@@ -31,8 +31,8 @@ public class a implements m {
                 if (z) {
                     downloadInfo.setName(str2);
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return z;

@@ -14,16 +14,16 @@ public final class CharProgressionIterator extends CharIterator {
     public int next;
     public final int step;
 
-    public CharProgressionIterator(char c2, char c3, int i) {
+    public CharProgressionIterator(char c, char c2, int i) {
         this.step = i;
-        this.finalElement = c3;
+        this.finalElement = c2;
         boolean z = true;
-        int compare = Intrinsics.compare((int) c2, (int) c3);
+        int compare = Intrinsics.compare((int) c, (int) c2);
         if (i <= 0 ? compare < 0 : compare > 0) {
             z = false;
         }
         this.hasNext = z;
-        this.next = z ? c2 : this.finalElement;
+        this.next = z ? c : this.finalElement;
     }
 
     public final int getStep() {

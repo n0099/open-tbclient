@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.LoadErrorCode;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import f.c.i0;
+import com.repackage.my9;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -134,9 +134,7 @@ public class MediaCodecVideoEncoder {
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public Exception f45367e;
+        public Exception e;
         public final /* synthetic */ MediaCodecVideoEncoder this$0;
 
         public C1CaughtException(MediaCodecVideoEncoder mediaCodecVideoEncoder) {
@@ -787,8 +785,8 @@ public class MediaCodecVideoEncoder {
             while (i4 < MediaCodecList.getCodecCount()) {
                 try {
                     mediaCodecInfo = MediaCodecList.getCodecInfoAt(i4);
-                } catch (IllegalArgumentException e2) {
-                    Logging.e(TAG, "Cannot retrieve encoder codec info", e2);
+                } catch (IllegalArgumentException e) {
+                    Logging.e(TAG, "Cannot retrieve encoder codec info", e);
                     mediaCodecInfo = encoderProperties;
                 }
                 if (mediaCodecInfo != 0 && mediaCodecInfo.isEncoder()) {
@@ -871,8 +869,8 @@ public class MediaCodecVideoEncoder {
                                     i3 = 19;
                                 }
                                 continue;
-                            } catch (IllegalArgumentException e3) {
-                                Logging.e(TAG, "Cannot retrieve encoder capabilities", e3);
+                            } catch (IllegalArgumentException e2) {
+                                Logging.e(TAG, "Cannot retrieve encoder capabilities", e2);
                             }
                         } else {
                             continue;
@@ -1011,25 +1009,25 @@ public class MediaCodecVideoEncoder {
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(65563, this, i) == null) && (i2 = this.targetFps) != 0 && this.bitrateAdjustmentType == BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
-            double d2 = this.bitrateAccumulator + (i - (this.targetBitrateBps / (i2 * 8.0d)));
-            this.bitrateAccumulator = d2;
+            double d = this.bitrateAccumulator + (i - (this.targetBitrateBps / (i2 * 8.0d)));
+            this.bitrateAccumulator = d;
             this.bitrateObservationTimeMs += 1000.0d / i2;
-            double d3 = this.bitrateAccumulatorMax * 3.0d;
-            double min = Math.min(d2, d3);
+            double d2 = this.bitrateAccumulatorMax * 3.0d;
+            double min = Math.min(d, d2);
             this.bitrateAccumulator = min;
-            this.bitrateAccumulator = Math.max(min, -d3);
+            this.bitrateAccumulator = Math.max(min, -d2);
             if (this.bitrateObservationTimeMs > 3000.0d) {
                 Logging.d(TAG, "Acc: " + ((int) this.bitrateAccumulator) + ". Max: " + ((int) this.bitrateAccumulatorMax) + ". ExpScale: " + this.bitrateAdjustmentScaleExp);
                 boolean z = false;
-                double d4 = this.bitrateAccumulator;
-                double d5 = this.bitrateAccumulatorMax;
-                if (d4 > d5) {
-                    this.bitrateAdjustmentScaleExp -= (int) ((d4 / d5) + 0.5d);
-                    this.bitrateAccumulator = d5;
+                double d3 = this.bitrateAccumulator;
+                double d4 = this.bitrateAccumulatorMax;
+                if (d3 > d4) {
+                    this.bitrateAdjustmentScaleExp -= (int) ((d3 / d4) + 0.5d);
+                    this.bitrateAccumulator = d4;
                 } else {
-                    if (d4 < (-d5)) {
-                        this.bitrateAdjustmentScaleExp += (int) (((-d4) / d5) + 0.5d);
-                        this.bitrateAccumulator = -d5;
+                    if (d3 < (-d4)) {
+                        this.bitrateAdjustmentScaleExp += (int) (((-d3) / d4) + 0.5d);
+                        this.bitrateAccumulator = -d4;
                     }
                     if (z) {
                         int min2 = Math.min(this.bitrateAdjustmentScaleExp, 20);
@@ -1055,7 +1053,7 @@ public class MediaCodecVideoEncoder {
                 Logging.w(TAG, "Egl context already set.");
                 staticEglBase.release();
             }
-            staticEglBase = i0.b(context);
+            staticEglBase = my9.b(context);
         }
     }
 
@@ -1075,11 +1073,11 @@ public class MediaCodecVideoEncoder {
             checkOnMediaCodecThread();
             int i3 = i * 1000;
             if (this.bitrateAdjustmentType == BitrateAdjustmentType.DYNAMIC_ADJUSTMENT) {
-                double d2 = i3;
-                this.bitrateAccumulatorMax = d2 / 8.0d;
+                double d = i3;
+                this.bitrateAccumulatorMax = d / 8.0d;
                 int i4 = this.targetBitrateBps;
                 if (i4 > 0 && i3 < i4) {
-                    this.bitrateAccumulator = (this.bitrateAccumulator * d2) / i4;
+                    this.bitrateAccumulator = (this.bitrateAccumulator * d) / i4;
                 }
             }
             this.targetBitrateBps = i3;
@@ -1101,8 +1099,8 @@ public class MediaCodecVideoEncoder {
                 bundle.putInt("video-bitrate", i3);
                 this.mediaCodec.setParameters(bundle);
                 return true;
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "setRates failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "setRates failed", e);
                 return false;
             }
         }
@@ -1188,8 +1186,8 @@ public class MediaCodecVideoEncoder {
             checkOnMediaCodecThread();
             try {
                 return this.mediaCodec.dequeueInputBuffer(0L);
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "dequeueIntputBuffer failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "dequeueIntputBuffer failed", e);
                 return -2;
             }
         }
@@ -1262,8 +1260,8 @@ public class MediaCodecVideoEncoder {
                     return new OutputBufferInfo(i2, allocateDirect, z, bufferInfo.presentationTimeUs);
                 }
                 return new OutputBufferInfo(i2, duplicate.slice(), z, bufferInfo.presentationTimeUs);
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "dequeueOutputBuffer failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "dequeueOutputBuffer failed", e);
                 return new OutputBufferInfo(-1, null, false, -1L);
             }
         }
@@ -1280,8 +1278,8 @@ public class MediaCodecVideoEncoder {
                 checkKeyFrameRequired(z, j);
                 this.mediaCodec.queueInputBuffer(i, 0, i2, j, 0);
                 return true;
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "encodeBuffer failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "encodeBuffer failed", e);
                 return false;
             }
         }
@@ -1328,8 +1326,8 @@ public class MediaCodecVideoEncoder {
                     }
                 }
                 return true;
-            } catch (RuntimeException e2) {
-                Logging.e(TAG, "encodeFrame failed", e2);
+            } catch (RuntimeException e) {
+                Logging.e(TAG, "encodeFrame failed", e);
                 return false;
             }
         }
@@ -1473,8 +1471,8 @@ public class MediaCodecVideoEncoder {
                                 this.outputBuffers = this.mediaCodec.getOutputBuffers();
                                 Logging.d(TAG, "Output buffers: " + this.outputBuffers.length);
                                 return true;
-                            } catch (IllegalStateException e2) {
-                                Logging.e(TAG, "initEncode failed", e2);
+                            } catch (IllegalStateException e) {
+                                Logging.e(TAG, "initEncode failed", e);
                                 release();
                                 return false;
                             }
@@ -1545,14 +1543,14 @@ public class MediaCodecVideoEncoder {
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread");
                             try {
                                 this.this$0.mediaCodec.stop();
-                            } catch (Exception e2) {
-                                Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder stop failed", e2);
+                            } catch (Exception e) {
+                                Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder stop failed", e);
                             }
                             try {
                                 this.this$0.mediaCodec.release();
-                            } catch (Exception e3) {
-                                Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e3);
-                                this.val$caughtException.f45367e = e3;
+                            } catch (Exception e2) {
+                                Logging.e(MediaCodecVideoEncoder.TAG, "Media encoder release failed", e2);
+                                this.val$caughtException.e = e2;
                             }
                             Logging.d(MediaCodecVideoEncoder.TAG, "Java releaseEncoder on release thread done");
                             this.val$releaseDone.countDown();
@@ -1589,11 +1587,11 @@ public class MediaCodecVideoEncoder {
                     errorCallback.onMediaCodecVideoEncoderCriticalError(codecErrors);
                 }
                 throw new RuntimeException("Media encoder release timeout.");
-            } else if (c1CaughtException.f45367e == null) {
+            } else if (c1CaughtException.e == null) {
                 Logging.d(TAG, "Java releaseEncoder done");
             } else {
-                RuntimeException runtimeException = new RuntimeException(c1CaughtException.f45367e);
-                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.f45367e.getStackTrace(), runtimeException.getStackTrace()));
+                RuntimeException runtimeException = new RuntimeException(c1CaughtException.e);
+                runtimeException.setStackTrace(ThreadUtils.concatStackTraces(c1CaughtException.e.getStackTrace(), runtimeException.getStackTrace()));
                 throw runtimeException;
             }
         }
@@ -1608,8 +1606,8 @@ public class MediaCodecVideoEncoder {
             try {
                 this.mediaCodec.releaseOutputBuffer(i, false);
                 return true;
-            } catch (IllegalStateException e2) {
-                Logging.e(TAG, "releaseOutputBuffer failed", e2);
+            } catch (IllegalStateException e) {
+                Logging.e(TAG, "releaseOutputBuffer failed", e);
                 return false;
             }
         }

@@ -3,15 +3,15 @@ package com.kwad.sdk.crash.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class d {
     public static Context a;
 
     @WorkerThread
     public static long a() {
-        long b2 = b(a);
-        a(a, 1 + b2);
-        return b2;
+        long b = b(a);
+        a(a, 1 + b);
+        return b;
     }
 
     public static void a(Context context) {

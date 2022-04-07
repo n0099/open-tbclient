@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.extractor.ts.TsExtractor;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class ErrorCorrection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] ALOG;
@@ -150,10 +150,10 @@ public final class ErrorCorrection {
                     int charAt = cArr[i7] ^ charSequence.charAt(i6);
                     while (i7 > 0) {
                         if (charAt != 0 && iArr2[i7] != 0) {
-                            char c2 = cArr[i7 - 1];
+                            char c = cArr[i7 - 1];
                             int[] iArr3 = ALOG;
                             int[] iArr4 = LOG;
-                            cArr[i7] = (char) (c2 ^ iArr3[(iArr4[charAt] + iArr4[iArr2[i7]]) % 255]);
+                            cArr[i7] = (char) (c ^ iArr3[(iArr4[charAt] + iArr4[iArr2[i7]]) % 255]);
                         } else {
                             cArr[i7] = cArr[i7 - 1];
                         }

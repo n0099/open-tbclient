@@ -13,10 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.d.f.p.n;
-import c.a.l.p;
-import c.a.l.q;
-import c.a.o0.m.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -44,34 +40,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fz;
+import com.repackage.gz;
+import com.repackage.lm4;
+import com.repackage.o07;
+import com.repackage.oi;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColumnListData> {
+/* loaded from: classes3.dex */
+public class SpecialTopicLayout extends LinearLayout implements gz, fz<SpecialColumnListData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public RefreshView f33499b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public PullLeftRefreshLayout f33500c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public RecyclerView f33501d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public HorizontalAdapter f33502e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f33503f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f33504g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f33505h;
+    public RefreshView b;
+    public PullLeftRefreshLayout c;
+    public RecyclerView d;
+    public HorizontalAdapter e;
+    public FrameLayout f;
+    public TextView g;
+    public View h;
     public ImageView i;
     public View j;
     public View k;
@@ -80,56 +67,38 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
     public int n;
     public PullLeftRefreshLayout.f o;
     public View.OnClickListener p;
-    public f<SpecialColumnItemData> q;
+    public lm4<SpecialColumnItemData> q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class HorizontalAdapter extends RecyclerView.Adapter<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TbPageContext<?> a;
+        public ArrayList<SpecialColumnItemData> b;
+        public lm4<SpecialColumnItemData> c;
 
-        /* renamed from: b  reason: collision with root package name */
-        public ArrayList<SpecialColumnItemData> f33506b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public f<SpecialColumnItemData> f33507c;
-
-        /* loaded from: classes5.dex */
+        /* loaded from: classes3.dex */
         public class a extends RecyclerView.ViewHolder implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public TbImageView f33508b;
-
-            /* renamed from: c  reason: collision with root package name */
-            public View f33509c;
-
-            /* renamed from: d  reason: collision with root package name */
-            public TextView f33510d;
-
-            /* renamed from: e  reason: collision with root package name */
-            public ImageView f33511e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public TextView f33512f;
-
-            /* renamed from: g  reason: collision with root package name */
-            public SpecialColumnItemData f33513g;
-
-            /* renamed from: h  reason: collision with root package name */
-            public int f33514h;
+            public TbImageView b;
+            public View c;
+            public TextView d;
+            public ImageView e;
+            public TextView f;
+            public SpecialColumnItemData g;
+            public int h;
             public final /* synthetic */ HorizontalAdapter i;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(HorizontalAdapter horizontalAdapter, View view) {
-                super(view);
+            public a(HorizontalAdapter horizontalAdapter, View view2) {
+                super(view2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {horizontalAdapter, view};
+                    Object[] objArr = {horizontalAdapter, view2};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -142,17 +111,17 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
                 }
                 this.i = horizontalAdapter;
                 this.a = 3;
-                this.f33511e = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092367);
-                this.f33512f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091f52);
-                this.f33510d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092198);
-                TbImageView tbImageView = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090fda);
-                this.f33508b = tbImageView;
+                this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092344);
+                this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f3e);
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09217c);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fd4);
+                this.b = tbImageView;
                 tbImageView.setConrers(15);
-                this.f33508b.setRadius(n.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-                this.f33508b.setDrawCorner(true);
-                this.f33508b.setPlaceHolder(2);
-                this.f33508b.setGifIconSupport(false);
-                this.f33509c = view.findViewById(R.id.obfuscated_res_0x7f090ce1);
+                this.b.setRadius(oi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
+                this.b.setDrawCorner(true);
+                this.b.setPlaceHolder(2);
+                this.b.setGifIconSupport(false);
+                this.c = view2.findViewById(R.id.obfuscated_res_0x7f090ce8);
                 this.itemView.setOnClickListener(this);
             }
 
@@ -161,13 +130,13 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
                 if (!(interceptable == null || interceptable.invokeL(1048576, this, specialColumnItemData) == null) || specialColumnItemData == null) {
                     return;
                 }
-                this.f33513g = specialColumnItemData;
-                this.f33508b.J(specialColumnItemData.image, 10, false);
-                this.f33512f.setText(specialColumnItemData.text);
-                this.f33510d.setText(specialColumnItemData.title);
-                c(this.f33513g);
-                if (this.i.f33507c != null) {
-                    this.i.f33507c.c(this.itemView, this.f33513g, getAdapterPosition(), getItemId());
+                this.g = specialColumnItemData;
+                this.b.K(specialColumnItemData.image, 10, false);
+                this.f.setText(specialColumnItemData.text);
+                this.d.setText(specialColumnItemData.title);
+                c(this.g);
+                if (this.i.c != null) {
+                    this.i.c.c(this.itemView, this.g, getAdapterPosition(), getItemId());
                 }
                 b(TbadkCoreApplication.getInst().getSkinType());
             }
@@ -176,11 +145,11 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                     if (this.a != i) {
-                        SkinManager.setViewTextColor(this.f33510d, (int) R.color.CAM_X0105);
-                        SkinManager.setViewTextColor(this.f33512f, (int) R.color.CAM_X0101);
+                        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+                        SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
                         SkinManager.setBackgroundResourceSelector(this.itemView, R.color.CAM_X0205, R.color.CAM_X0204);
-                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f33511e, this.f33514h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-                        TBSelector.makeDrawableSelector().setShape(0).gradient(R.color.CAM_X0601, R.color.CAM_X0607).cornerRadius(n.f(this.i.a.getPageActivity(), R.dimen.tbds10)).into(this.f33509c);
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                        TBSelector.makeDrawableSelector().setShape(0).gradient(R.color.CAM_X0601, R.color.CAM_X0607).cornerRadius(oi.f(this.i.a.getPageActivity(), R.dimen.tbds10)).into(this.c);
                     }
                     this.a = i;
                 }
@@ -191,28 +160,28 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, specialColumnItemData) == null) {
                     if (specialColumnItemData != null && specialColumnItemData.specialType == 2) {
-                        this.f33511e.setVisibility(0);
-                        this.f33514h = R.drawable.ic_icon_pure_video_play12_svg;
-                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f33511e, this.f33514h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                        this.e.setVisibility(0);
+                        this.h = R.drawable.ic_icon_pure_video_play12_svg;
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                     } else if (specialColumnItemData != null && ((i = specialColumnItemData.specialType) == 3 || i == 4)) {
-                        this.f33511e.setVisibility(0);
-                        this.f33514h = R.drawable.obfuscated_res_0x7f0805ff;
-                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f33511e, this.f33514h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                        this.e.setVisibility(0);
+                        this.h = R.drawable.obfuscated_res_0x7f0805fe;
+                        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, this.h, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                     } else {
-                        this.f33511e.setVisibility(8);
-                        this.f33514h = 0;
+                        this.e.setVisibility(8);
+                        this.h = 0;
                     }
                 }
             }
 
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+                if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
                     int adapterPosition = getAdapterPosition();
                     long itemId = getItemId();
-                    if (this.i.f33507c != null) {
-                        this.i.f33507c.a(this.itemView, this.f33513g, adapterPosition, itemId);
+                    if (this.i.c != null) {
+                        this.i.c.a(this.itemView, this.g, adapterPosition, itemId);
                     }
                 }
             }
@@ -233,7 +202,7 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
                     return;
                 }
             }
-            this.f33506b = new ArrayList<>();
+            this.b = new ArrayList<>();
             this.a = tbPageContext;
         }
 
@@ -243,7 +212,7 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
         public void onBindViewHolder(@NonNull a aVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, aVar, i) == null) {
-                aVar.a((SpecialColumnItemData) ListUtils.getItem(this.f33506b, i));
+                aVar.a((SpecialColumnItemData) ListUtils.getItem(this.b, i));
             }
         }
 
@@ -255,7 +224,7 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0792, (ViewGroup) null);
+                View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0789, (ViewGroup) null);
                 inflate.setLayoutParams(new RecyclerView.LayoutParams(-2, -2));
                 return new a(this, inflate);
             }
@@ -267,7 +236,7 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                ArrayList<SpecialColumnItemData> arrayList = this.f33506b;
+                ArrayList<SpecialColumnItemData> arrayList = this.b;
                 if (arrayList == null) {
                     return 0;
                 }
@@ -276,10 +245,10 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
             return invokeV.intValue;
         }
 
-        public void h(f<SpecialColumnItemData> fVar) {
+        public void h(lm4<SpecialColumnItemData> lm4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-                this.f33507c = fVar;
+            if (interceptable == null || interceptable.invokeL(1048579, this, lm4Var) == null) {
+                this.c = lm4Var;
             }
         }
 
@@ -288,13 +257,13 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
             if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || list == null) {
                 return;
             }
-            this.f33506b.clear();
-            this.f33506b.addAll(list);
+            this.b.clear();
+            this.b.addAll(list);
             notifyDataSetChanged();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a implements PullLeftRefreshLayout.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,7 +296,7 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -352,17 +321,17 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view == this.a.f33505h) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 == this.a.h) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new HomePageTabFeedCollegeSecondActivityConfig(this.a.a.getPageActivity(), this.a.m)));
-                c.a.p0.q1.k.c.a("c13755", Boolean.TRUE, 0, this.a.l);
+                o07.a("c13755", Boolean.TRUE, 0, this.a.l);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements f<SpecialColumnItemData> {
+    /* loaded from: classes3.dex */
+    public class c implements lm4<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialTopicLayout a;
@@ -386,28 +355,28 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.m.f
+        @Override // com.repackage.lm4
         /* renamed from: b */
-        public void c(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
+        public void c(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
                 return;
             }
-            c.a.p0.q1.k.c.b("c13754", specialColumnItemData, i + 1, this.a.l);
+            o07.b("c13754", specialColumnItemData, i + 1, this.a.l);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Code restructure failed: missing block: B:13:0x0013, code lost:
             if (r8 != 4) goto L14;
          */
-        @Override // c.a.o0.m.f
+        @Override // com.repackage.lm4
         /* renamed from: d */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
+        public void a(View view2, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
                 return;
             }
             int i2 = specialColumnItemData.specialType;
@@ -417,10 +386,10 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
                     this.a.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                 }
-                c.a.p0.q1.k.c.a("c13754", specialColumnItemData, i + 1, this.a.l);
+                o07.a("c13754", specialColumnItemData, i + 1, this.a.l);
             }
             this.a.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a.getContext()).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
-            c.a.p0.q1.k.c.a("c13754", specialColumnItemData, i + 1, this.a.l);
+            o07.a("c13754", specialColumnItemData, i + 1, this.a.l);
         }
     }
 
@@ -451,41 +420,41 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038f, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f33503f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092047);
-            this.f33504g = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdb);
-            this.f33505h = findViewById(R.id.obfuscated_res_0x7f0911e2);
-            this.f33500c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091a2e);
-            this.f33501d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091a27);
-            this.j = findViewById(R.id.obfuscated_res_0x7f0907ff);
-            this.k = findViewById(R.id.obfuscated_res_0x7f0907f9);
-            this.f33502e = new HorizontalAdapter(this.a);
-            int f2 = n.f(this.a.getPageActivity(), R.dimen.tbds44);
-            int f3 = n.f(this.a.getPageActivity(), R.dimen.tbds44);
-            this.f33501d.addItemDecoration(new SpaceItemDecoration(f2, n.f(this.a.getPageActivity(), R.dimen.tbds11), f3));
-            this.f33501d.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
-            this.f33501d.setAdapter(this.f33502e);
-            this.f33501d.setClipChildren(false);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09202c);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092201);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd5);
+            this.h = findViewById(R.id.obfuscated_res_0x7f0911d7);
+            this.c = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091a1e);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091a17);
+            this.j = findViewById(R.id.obfuscated_res_0x7f090808);
+            this.k = findViewById(R.id.obfuscated_res_0x7f090802);
+            this.e = new HorizontalAdapter(this.a);
+            int f = oi.f(this.a.getPageActivity(), R.dimen.tbds44);
+            int f2 = oi.f(this.a.getPageActivity(), R.dimen.tbds44);
+            this.d.addItemDecoration(new SpaceItemDecoration(f, oi.f(this.a.getPageActivity(), R.dimen.tbds11), f2));
+            this.d.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity(), 0, false));
+            this.d.setAdapter(this.e);
+            this.d.setClipChildren(false);
             RefreshView refreshView = new RefreshView(getContext());
-            this.f33499b = refreshView;
-            this.f33500c.setRefreshViewAndListener(refreshView);
-            this.f33500c.setCallback(this.o);
-            this.f33502e.h(this.q);
+            this.b = refreshView;
+            this.c.setRefreshViewAndListener(refreshView);
+            this.c.setCallback(this.o);
+            this.e.h(this.q);
             this.i.setClickable(false);
-            this.f33505h.setOnClickListener(this.p);
+            this.h.setOnClickListener(this.p);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.l.p
+    @Override // com.repackage.fz
     /* renamed from: g */
     public void a(SpecialColumnListData specialColumnListData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, specialColumnListData) == null) || specialColumnListData == null) {
             return;
         }
-        this.f33504g.setText(specialColumnListData.title);
-        this.f33502e.setData(specialColumnListData.getListData());
+        this.g.setText(specialColumnListData.title);
+        this.e.setData(specialColumnListData.getListData());
         this.m = specialColumnListData;
         this.j.setVisibility(0);
         this.k.setVisibility(8);
@@ -493,16 +462,16 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
         onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.l.q
+    @Override // com.repackage.gz
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f33504g, this.n);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f080915, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.g, this.n);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.obfuscated_res_0x7f08091b, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             HomeGroupUbsUIHelper.handleLineColor(this.j);
-            this.f33499b.d();
-            this.f33502e.notifyDataSetChanged();
+            this.b.d();
+            this.e.notifyDataSetChanged();
         }
     }
 
@@ -515,7 +484,7 @@ public class SpecialTopicLayout extends LinearLayout implements q, p<SpecialColu
     public void setShowMore(boolean z) {
         PullLeftRefreshLayout pullLeftRefreshLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (pullLeftRefreshLayout = this.f33500c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (pullLeftRefreshLayout = this.c) == null) {
             return;
         }
         pullLeftRefreshLayout.setEnablePull(z);

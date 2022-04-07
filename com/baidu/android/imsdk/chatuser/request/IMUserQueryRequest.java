@@ -23,7 +23,7 @@ import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMUserQueryRequest extends IMUserBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -126,10 +126,10 @@ public class IMUserQueryRequest extends IMUserBaseHttpRequest {
                     i2 = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
-            } catch (JSONException e2) {
-                LogUtils.e("IMUserQueryRequest", "JSONException", e2);
+            } catch (JSONException e) {
+                LogUtils.e("IMUserQueryRequest", "JSONException", e);
                 i2 = 1010;
-                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
+                new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             GroupInfoDAOImpl.setAllStarDisturbDefault(this.mContext);

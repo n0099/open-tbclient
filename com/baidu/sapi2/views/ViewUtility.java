@@ -26,23 +26,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ViewUtility implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ float a;
 
-        public a(float f2) {
+        public a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Float.valueOf(f2)};
+                Object[] objArr = {Float.valueOf(f)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,23 +52,23 @@ public class ViewUtility implements NoProguard {
                     return;
                 }
             }
-            this.a = f2;
+            this.a = f;
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if ((action == 1 || action == 3) && Build.VERSION.SDK_INT >= 11) {
-                        view.setAlpha(1.0f);
+                        view2.setAlpha(1.0f);
                         return false;
                     }
                     return false;
                 } else if (Build.VERSION.SDK_INT >= 11) {
-                    view.setAlpha(this.a);
+                    view2.setAlpha(this.a);
                     return false;
                 } else {
                     return false;
@@ -150,8 +150,8 @@ public class ViewUtility implements NoProguard {
                 try {
                     dialog.dismiss();
                     return;
-                } catch (Exception e2) {
-                    Log.e(e2);
+                } catch (Exception e) {
+                    Log.e(e);
                     return;
                 }
             }
@@ -180,9 +180,9 @@ public class ViewUtility implements NoProguard {
                 z = false;
                 if (z && -1 == i) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609a8);
+                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609b7);
                     } else {
-                        i = activity.getColor(R.color.obfuscated_res_0x7f0609a8);
+                        i = activity.getColor(R.color.obfuscated_res_0x7f0609b7);
                     }
                 }
                 if (!b(activity, true)) {
@@ -215,20 +215,20 @@ public class ViewUtility implements NoProguard {
             window2.setStatusBarColor(i);
             if (Build.VERSION.SDK_INT < 23) {
             }
-        } catch (Exception e2) {
-            Log.e(e2);
+        } catch (Exception e) {
+            Log.e(e);
         }
     }
 
-    public static void enlargedOtherView(View view, int i) {
+    public static void enlargedOtherView(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, view, i) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, view2, i) == null) || view2 == null) {
             return;
         }
-        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
         layoutParams.width = (int) ((layoutParams.width * i) / 100.0f);
         layoutParams.height = (int) ((layoutParams.height * i) / 100.0f);
-        view.setLayoutParams(layoutParams);
+        view2.setLayoutParams(layoutParams);
     }
 
     public static void enlargedTextView(TextView textView, int i) {
@@ -239,15 +239,15 @@ public class ViewUtility implements NoProguard {
         textView.setTextSize(0, (textView.getTextSize() * i) / 100.0f);
     }
 
-    public static void enlargedViews(View view, int i) {
+    public static void enlargedViews(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65543, null, view, i) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65543, null, view2, i) == null) || view2 == null) {
             return;
         }
-        if (view instanceof TextView) {
-            enlargedTextView((TextView) view, i);
+        if (view2 instanceof TextView) {
+            enlargedTextView((TextView) view2, i);
         } else {
-            enlargedOtherView(view, i);
+            enlargedOtherView(view2, i);
         }
     }
 
@@ -255,7 +255,7 @@ public class ViewUtility implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 return context.getResources().getDimensionPixelSize(identifier);
             }
@@ -275,12 +275,12 @@ public class ViewUtility implements NoProguard {
         }
     }
 
-    public static void setOnClickListener(View view, View.OnClickListener onClickListener) {
+    public static void setOnClickListener(View view2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, view, onClickListener) == null) || view == null || onClickListener == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, view2, onClickListener) == null) || view2 == null || onClickListener == null) {
             return;
         }
-        view.setOnClickListener(onClickListener);
+        view2.setOnClickListener(onClickListener);
     }
 
     public static void setOrientationToUndefined(Activity activity) {
@@ -342,11 +342,11 @@ public class ViewUtility implements NoProguard {
         }
     }
 
-    public static void setViewClickAlpha(View view, float f2) {
+    public static void setViewClickAlpha(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLF(65550, null, view, f2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLF(65550, null, view2, f) == null) || view2 == null) {
             return;
         }
-        view.setOnTouchListener(new a(f2));
+        view2.setOnTouchListener(new a(f));
     }
 }

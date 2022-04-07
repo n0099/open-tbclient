@@ -1,6 +1,5 @@
 package com.baidu.tieba.write.share;
 
-import c.a.p0.s4.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,12 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.yz8;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CheckResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c mCheckResponseData;
+    public yz8 mCheckResponseData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CheckResponse() {
@@ -45,11 +45,11 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            c cVar = new c();
-            this.mCheckResponseData = cVar;
-            cVar.a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f18403c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f18404d = jSONObject.optString("tbopen_app_icon");
+            yz8 yz8Var = new yz8();
+            this.mCheckResponseData = yz8Var;
+            yz8Var.a = jSONObject.optString("tbopen_app_key");
+            this.mCheckResponseData.c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             if (optJSONObject != null) {
                 this.mCheckResponseData.j = optJSONObject.optString("default_pic");
@@ -57,9 +57,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         }
     }
 
-    public c getCheckResponseData() {
+    public yz8 getCheckResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckResponseData : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCheckResponseData : (yz8) invokeV.objValue;
     }
 }

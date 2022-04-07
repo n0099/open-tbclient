@@ -10,7 +10,7 @@ import com.xiaomi.push.di;
 import com.xiaomi.push.hf;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class r implements di {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class r implements di {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m153a(this.a).d() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.m149a(this.a).d() : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.di

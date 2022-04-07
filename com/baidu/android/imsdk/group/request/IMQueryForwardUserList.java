@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryForwardUserList";
@@ -111,8 +111,8 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
                             }
                         }
                         i3 = optInt;
-                    } catch (JSONException e2) {
-                        e = e2;
+                    } catch (JSONException e) {
+                        e = e;
                         i3 = optInt;
                         LogUtils.e(TAG, "IMQueryForwardUserList JSONException", e);
                         i2 = 1010;
@@ -123,8 +123,8 @@ public class IMQueryForwardUserList extends FansGroupBaseHttpRequest {
                         }
                     }
                 }
-            } catch (JSONException e3) {
-                e = e3;
+            } catch (JSONException e2) {
+                e = e2;
             }
             removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {

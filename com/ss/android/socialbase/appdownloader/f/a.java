@@ -46,8 +46,8 @@ public class a {
                     return true;
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -84,8 +84,8 @@ public class a {
                     if ("market".equals(str)) {
                         str = d.i();
                     }
-                    g.a b2 = b(str);
-                    if (b2 != null && !(z = a(optJSONArray, optJSONArray2, optString2, b2))) {
+                    g.a b = b(str);
+                    if (b != null && !(z = a(optJSONArray, optJSONArray2, optString2, b))) {
                         return false;
                     }
                 }
@@ -115,30 +115,30 @@ public class a {
             }
             return null;
         }
-        g.a b2 = g.b(str);
-        a.put(str, b2);
-        if (b2 != null) {
-            return b2;
+        g.a b = g.b(str);
+        a.put(str, b);
+        if (b != null) {
+            return b;
         }
         return null;
     }
 
     public static boolean a(JSONArray jSONArray, JSONArray jSONArray2, String str, @NonNull g.a aVar) {
-        String g2 = aVar.g();
-        int f2 = aVar.f();
-        String str2 = f2 + "_" + g2;
+        String g = aVar.g();
+        int f = aVar.f();
+        String str2 = f + "_" + g;
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split("[-,]");
                 for (int i = 0; i < split.length; i += 2) {
                     int parseInt = Integer.parseInt(split[i]);
                     int parseInt2 = Integer.parseInt(split[i + 1]);
-                    if (f2 >= parseInt && f2 <= parseInt2) {
+                    if (f >= parseInt && f <= parseInt2) {
                         return true;
                     }
                 }
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         } else if (jSONArray != null && jSONArray.length() > 0) {
             if (b(jSONArray, str2)) {
@@ -156,9 +156,9 @@ public class a {
         }
         try {
             if (!TextUtils.isEmpty(str)) {
-                g.a b2 = b(str);
-                if (b2 != null) {
-                    return b2;
+                g.a b = b(str);
+                if (b != null) {
+                    return b;
                 }
             }
         } catch (Throwable unused) {

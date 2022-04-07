@@ -4,9 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a.b.a;
-import c.a.a.b.b;
-import c.a.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,12 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s20;
+import com.repackage.t20;
+import com.repackage.w;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RTCLoadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JINGLE_LIB_NAME = "jingle_peerconnection_so";
@@ -31,19 +31,19 @@ public class RTCLoadManager {
     public Context mContext;
     public ExecutorService mLoadServer;
     public LoadStatus mLoadStatus;
-    public c mSoCallback;
+    public t20 mSoCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface LoadListener {
         void onLoadError(int i, String str);
 
-        void onLoadProgress(float f2);
+        void onLoadProgress(float f);
 
         void onLoadSuccess();
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class LoadStatus {
         public static final /* synthetic */ LoadStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -127,7 +127,7 @@ public class RTCLoadManager {
         this.mLoadServer = Executors.newSingleThreadExecutor();
         this.mLoadStatus = LoadStatus.IDLE;
         this.mCallbackList = new ArrayList();
-        this.mSoCallback = new c.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
+        this.mSoCallback = new t20.a(this) { // from class: com.baidu.rtc.RTCLoadManager.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RTCLoadManager this$0;
@@ -150,7 +150,7 @@ public class RTCLoadManager {
                 this.this$0 = this;
             }
 
-            @Override // c.a.a.b.c
+            @Override // com.repackage.t20
             public void onDownloadFail(String str, int i3, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i3, str2) == null) {
@@ -161,21 +161,21 @@ public class RTCLoadManager {
                 }
             }
 
-            @Override // c.a.a.b.c.a, c.a.a.b.c
-            public void onDownloadProgress(float f2) {
+            @Override // com.repackage.t20.a, com.repackage.t20
+            public void onDownloadProgress(float f) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-                    this.this$0.callbackProgress(f2);
+                if (interceptable2 == null || interceptable2.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                    this.this$0.callbackProgress(f);
                 }
             }
 
-            @Override // c.a.a.b.c
+            @Override // com.repackage.t20
             public void onDownloadSuccess(String str, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                    String str3 = b.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
+                    String str3 = s20.k(this.this$0.mContext) + File.separator + "libjingle_peerconnection_so.so";
                     Log.d(RTCLoadManager.TAG, "RTC so path is: " + str3);
-                    a.k(this.this$0.mContext).n(b.k(this.this$0.mContext));
+                    w.k(this.this$0.mContext).n(s20.k(this.this$0.mContext));
                     try {
                         System.load(str3);
                         this.this$0.mLoadStatus = LoadStatus.LOAD_COMPLETED;
@@ -204,13 +204,13 @@ public class RTCLoadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void callbackProgress(float f2) {
+    public void callbackProgress(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65543, this, f2) == null) || this.mCallbackList == null) {
+        if (!(interceptable == null || interceptable.invokeF(65543, this, f) == null) || this.mCallbackList == null) {
             return;
         }
         for (int i = 0; i < this.mCallbackList.size(); i++) {
-            this.mCallbackList.get(i).onLoadProgress(f2);
+            this.mCallbackList.get(i).onLoadProgress(f);
         }
     }
 
@@ -296,7 +296,7 @@ public class RTCLoadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             clearCallback();
-            a.k(this.mContext).o();
+            w.k(this.mContext).o();
             ExecutorService executorService = this.mLoadServer;
             if (executorService != null) {
                 executorService.shutdown();
@@ -311,13 +311,13 @@ public class RTCLoadManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
             Log.d(TAG, "setup so later loading feature cpu type: " + str2);
-            a.k(this.mContext).p(str2);
+            w.k(this.mContext).p(str2);
             if (TextUtils.isEmpty(str)) {
-                a.k(this.mContext).j(b.j(), true, this.mSoCallback);
+                w.k(this.mContext).j(s20.j(), true, this.mSoCallback);
                 return;
             }
             Log.d(TAG, "setup so later load url: " + str);
-            a.k(this.mContext).j(str, true, this.mSoCallback);
+            w.k(this.mContext).j(str, true, this.mSoCallback);
         }
     }
 
@@ -347,8 +347,8 @@ public class RTCLoadManager {
                 this.mLoadStatus = LoadStatus.LOAD_COMPLETED;
                 callbackSuccess();
                 Log.d(TAG, "Loaded default so in aar.");
-            } catch (UnsatisfiedLinkError e2) {
-                Log.d(TAG, "Load default so fail " + e2.getMessage());
+            } catch (UnsatisfiedLinkError e) {
+                Log.d(TAG, "Load default so fail " + e.getMessage());
                 if (this.mLoadServer == null || this.mLoadServer.isShutdown()) {
                     this.mLoadServer = Executors.newSingleThreadExecutor();
                 }

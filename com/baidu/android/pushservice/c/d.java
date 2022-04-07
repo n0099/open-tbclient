@@ -9,7 +9,7 @@ import com.baidu.android.pushservice.i.m;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,15 +36,15 @@ public class d {
                 i = p;
             }
             if (contentResolver != null) {
-                cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.f24329c.name()}, null, null, null);
+                cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo_v3"), new String[]{c.g.c.name()}, null, null, null);
                 if (cursor == null) {
-                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), new String[]{c.g.f24329c.name()}, null, null, null);
+                    cursor = contentResolver.query(Uri.parse("content://" + str + ".bdpush/pushinfo"), new String[]{c.g.c.name()}, null, null, null);
                     if (cursor != null && cursor.moveToFirst()) {
-                        columnIndex = cursor.getColumnIndex(c.g.f24329c.name());
+                        columnIndex = cursor.getColumnIndex(c.g.c.name());
                         p = cursor.getInt(columnIndex);
                     }
                 } else if (cursor.moveToFirst()) {
-                    columnIndex = cursor.getColumnIndex(c.g.f24329c.name());
+                    columnIndex = cursor.getColumnIndex(c.g.c.name());
                     p = cursor.getInt(columnIndex);
                 }
                 i = p;

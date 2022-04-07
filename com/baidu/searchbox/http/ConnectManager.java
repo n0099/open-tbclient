@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Iterator;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ConnectManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -320,8 +320,8 @@ public class ConnectManager {
                     return true;
                 }
                 return checkVPN;
-            } catch (SocketException e2) {
-                e2.printStackTrace();
+            } catch (SocketException e) {
+                e.printStackTrace();
                 return checkVPN;
             }
         }

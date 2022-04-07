@@ -3,20 +3,20 @@ package com.kwad.sdk.splashscreen.kwai;
 import android.content.Context;
 import androidx.annotation.Nullable;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static void a(Context context) {
-        b b2 = b(context);
+        b b = b(context);
         long currentTimeMillis = System.currentTimeMillis();
-        if (b2 == null) {
-            b2 = new b(currentTimeMillis, 1);
-        } else if (b2.a(currentTimeMillis)) {
-            b2.f41340b++;
+        if (b == null) {
+            b = new b(currentTimeMillis, 1);
+        } else if (b.a(currentTimeMillis)) {
+            b.b++;
         } else {
-            b2.a = currentTimeMillis;
-            b2.f41340b = 1;
+            b.a = currentTimeMillis;
+            b.b = 1;
         }
-        a(context, b2);
+        a(context, b);
     }
 
     public static void a(Context context, b bVar) {
@@ -37,8 +37,8 @@ public class a {
             b bVar = new b();
             bVar.parseJson(jSONObject);
             return bVar;
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.b(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.b(e);
             return null;
         }
     }

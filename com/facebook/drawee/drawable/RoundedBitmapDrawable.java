@@ -19,7 +19,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RoundedBitmapDrawable extends RoundedDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -104,9 +104,9 @@ public class RoundedBitmapDrawable extends RoundedDrawable {
             int save = canvas.save();
             canvas.concat(this.mInverseParentTransform);
             canvas.drawPath(this.mPath, this.mPaint);
-            float f2 = this.mBorderWidth;
-            if (f2 > 0.0f) {
-                this.mBorderPaint.setStrokeWidth(f2);
+            float f = this.mBorderWidth;
+            if (f > 0.0f) {
+                this.mBorderPaint.setStrokeWidth(f);
                 this.mBorderPaint.setColor(DrawableUtils.multiplyColorAlpha(this.mBorderColor, this.mPaint.getAlpha()));
                 canvas.drawPath(this.mBorderPath, this.mBorderPaint);
             }

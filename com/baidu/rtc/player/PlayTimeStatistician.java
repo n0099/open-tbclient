@@ -13,7 +13,7 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 import org.webrtc.Logging;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PlayTimeStatistician {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<PlayStep, Long> STEPS_MAP;
@@ -23,7 +23,7 @@ public class PlayTimeStatistician {
     public long mStartTime;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class PlayStep {
         public static final /* synthetic */ PlayStep[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

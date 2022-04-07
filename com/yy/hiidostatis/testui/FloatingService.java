@@ -28,7 +28,7 @@ import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class FloatingService {
     public static final /* synthetic */ FloatingService[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,7 +47,7 @@ public final class FloatingService {
     public boolean movingState;
     public WindowManager windowManager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,10 +76,10 @@ public final class FloatingService {
         }
 
         @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
                     this.x = (int) motionEvent.getRawX();
@@ -111,7 +111,7 @@ public final class FloatingService {
                         this.y = rawY;
                         this.this$0.layoutParams.x += i5;
                         this.this$0.layoutParams.y += i6;
-                        this.this$0.windowManager.updateViewLayout(view, this.this$0.layoutParams);
+                        this.this$0.windowManager.updateViewLayout(view2, this.this$0.layoutParams);
                     } else if (System.currentTimeMillis() - this.downTime > 1500) {
                         this.this$0.movingState = true;
                         this.this$0.listView.setBackgroundColor(FloatingService.MOVING_BG);
@@ -131,7 +131,7 @@ public final class FloatingService {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class LogAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,13 +177,13 @@ public final class FloatingService {
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view2, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             TextView textView;
             LinearLayout linearLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view, viewGroup)) == null) {
-                if (view == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+                if (view2 == null) {
                     LinearLayout linearLayout2 = new LinearLayout(viewGroup.getContext());
                     linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
                     linearLayout2.setDividerPadding(0);
@@ -195,8 +195,8 @@ public final class FloatingService {
                     linearLayout2.addView(textView, layoutParams);
                     linearLayout = linearLayout2;
                 } else {
-                    textView = (TextView) view.findViewWithTag(TbConfig.TMP_LOG_DIR_NAME);
-                    linearLayout = view;
+                    textView = (TextView) view2.findViewWithTag(TbConfig.TMP_LOG_DIR_NAME);
+                    linearLayout = view2;
                 }
                 textView.setText((CharSequence) this.this$0.logs.get(i));
                 return linearLayout;

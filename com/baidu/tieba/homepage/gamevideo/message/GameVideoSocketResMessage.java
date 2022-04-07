@@ -10,7 +10,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.RecomVertical.DataRes;
 import tbclient.RecomVertical.RecomVerticalResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class GameVideoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Info<T extends Elem> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIVIDE_ELEM = "|";

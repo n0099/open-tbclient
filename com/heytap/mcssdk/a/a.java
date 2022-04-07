@@ -13,7 +13,7 @@ import com.heytap.mcssdk.mode.AppMessage;
 import com.heytap.mcssdk.mode.Message;
 import com.heytap.mcssdk.utils.CryptoUtil;
 import com.heytap.mcssdk.utils.LogUtil;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,8 +68,8 @@ public final class a extends c {
                 appMessage.setDistinctBycontent(Integer.parseInt(CryptoUtil.desDecrypt(intent.getStringExtra(Message.DISTINCT_CONTENT))));
                 LogUtil.d("OnHandleIntent-message:" + appMessage.toString());
                 return appMessage;
-            } catch (Exception e2) {
-                LogUtil.d("OnHandleIntent--" + e2.getMessage());
+            } catch (Exception e) {
+                LogUtil.d("OnHandleIntent--" + e.getMessage());
                 return null;
             }
         }

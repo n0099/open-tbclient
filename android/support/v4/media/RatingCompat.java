@@ -98,12 +98,12 @@ public final class RatingCompat implements Parcelable {
         };
     }
 
-    public RatingCompat(int i, float f2) {
+    public RatingCompat(int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -114,7 +114,7 @@ public final class RatingCompat implements Parcelable {
             }
         }
         this.mRatingStyle = i;
-        this.mRatingValue = f2;
+        this.mRatingValue = f;
     }
 
     public static RatingCompat fromRating(Object obj) {
@@ -163,12 +163,12 @@ public final class RatingCompat implements Parcelable {
         return (RatingCompat) invokeZ.objValue;
     }
 
-    public static RatingCompat newPercentageRating(float f2) {
+    public static RatingCompat newPercentageRating(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) {
-            if (f2 >= 0.0f && f2 <= 100.0f) {
-                return new RatingCompat(6, f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) {
+            if (f >= 0.0f && f <= 100.0f) {
+                return new RatingCompat(6, f);
             }
             Log.e(TAG, "Invalid percentage-based rating value");
             return null;
@@ -176,23 +176,23 @@ public final class RatingCompat implements Parcelable {
         return (RatingCompat) invokeF.objValue;
     }
 
-    public static RatingCompat newStarRating(int i, float f2) {
+    public static RatingCompat newStarRating(int i, float f) {
         InterceptResult invokeCommon;
-        float f3;
+        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
             if (i == 3) {
-                f3 = 3.0f;
+                f2 = 3.0f;
             } else if (i == 4) {
-                f3 = 4.0f;
+                f2 = 4.0f;
             } else if (i != 5) {
                 Log.e(TAG, "Invalid rating style (" + i + ") for a star rating");
                 return null;
             } else {
-                f3 = 5.0f;
+                f2 = 5.0f;
             }
-            if (f2 >= 0.0f && f2 <= f3) {
-                return new RatingCompat(i, f2);
+            if (f >= 0.0f && f <= f2) {
+                return new RatingCompat(i, f);
             }
             Log.e(TAG, "Trying to set out of range star-based rating");
             return null;
@@ -326,8 +326,8 @@ public final class RatingCompat implements Parcelable {
             sb.append("Rating:style=");
             sb.append(this.mRatingStyle);
             sb.append(" rating=");
-            float f2 = this.mRatingValue;
-            sb.append(f2 < 0.0f ? "unrated" : String.valueOf(f2));
+            float f = this.mRatingValue;
+            sb.append(f < 0.0f ? "unrated" : String.valueOf(f));
             return sb.toString();
         }
         return (String) invokeV.objValue;

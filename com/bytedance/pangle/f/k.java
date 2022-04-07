@@ -1,5 +1,5 @@
 package com.bytedance.pangle.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface k {
     long a();
 

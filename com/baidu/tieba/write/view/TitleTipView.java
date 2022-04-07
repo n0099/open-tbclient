@@ -7,8 +7,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.d.f.m.e;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -18,34 +16,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import com.repackage.pg;
+import com.repackage.wr4;
+/* loaded from: classes4.dex */
 public class TitleTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
+    public LinearLayout b;
+    public ImageView c;
+    public ImageView d;
+    public TextView e;
+    public View f;
+    public View.OnClickListener g;
+    public Runnable h;
 
-    /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f37384b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ImageView f37385c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public ImageView f37386d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f37387e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f37388f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f37389g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Runnable f37390h;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,15 +56,15 @@ public class TitleTipView extends RelativeLayout {
         }
 
         @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.a();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,8 +116,8 @@ public class TitleTipView extends RelativeLayout {
             }
         }
         this.a = 3;
-        this.f37389g = new a(this);
-        this.f37390h = new b(this);
+        this.g = new a(this);
+        this.h = new b(this);
         b();
     }
 
@@ -139,21 +125,21 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(8);
-            e.a().removeCallbacks(this.f37390h);
+            pg.a().removeCallbacks(this.h);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0842, this);
-            this.f37384b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09200b);
-            this.f37385c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb8);
-            this.f37386d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eab);
-            this.f37387e = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
-            this.f37388f = findViewById(R.id.obfuscated_res_0x7f0921cc);
-            this.f37387e.setText(R.string.obfuscated_res_0x7f0f00cf);
-            this.f37386d.setOnClickListener(this.f37389g);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0839, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ff6);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb3);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0921af);
+            this.e.setText(R.string.obfuscated_res_0x7f0f00d0);
+            this.d.setOnClickListener(this.g);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -162,16 +148,16 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.a != i) {
-                c d2 = c.d(this.f37384b);
-                d2.n(R.string.J_X05);
-                d2.l(R.dimen.L_X01);
-                d2.k(R.color.CAM_X0602);
-                d2.f(R.color.CAM_X0206);
-                c.d(this.f37388f).f(R.color.CAM_X0203);
-                c.d(this.f37387e).v(R.color.CAM_X0107);
-                this.f37386d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08090e, SkinManager.getColor(R.color.CAM_X0107), null));
-                if (this.f37385c != null) {
-                    this.f37385c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f47, SkinManager.getColor(R.color.CAM_X0302), null));
+                wr4 d = wr4.d(this.b);
+                d.n(R.string.J_X05);
+                d.l(R.dimen.L_X01);
+                d.k(R.color.CAM_X0602);
+                d.f(R.color.CAM_X0206);
+                wr4.d(this.f).f(R.color.CAM_X0203);
+                wr4.d(this.e).v(R.color.CAM_X0107);
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080914, SkinManager.getColor(R.color.CAM_X0107), null));
+                if (this.c != null) {
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f50, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
             this.a = i;
@@ -198,8 +184,8 @@ public class TitleTipView extends RelativeLayout {
             }
         }
         this.a = 3;
-        this.f37389g = new a(this);
-        this.f37390h = new b(this);
+        this.g = new a(this);
+        this.h = new b(this);
         b();
     }
 
@@ -223,8 +209,8 @@ public class TitleTipView extends RelativeLayout {
             }
         }
         this.a = 3;
-        this.f37389g = new a(this);
-        this.f37390h = new b(this);
+        this.g = new a(this);
+        this.h = new b(this);
         b();
     }
 }

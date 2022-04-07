@@ -578,16 +578,16 @@ public class AppCompatTextView extends TextView implements TintableBackgroundVie
     }
 
     @Override // android.widget.TextView
-    public void setTextSize(int i, float f2) {
+    public void setTextSize(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)}) == null) {
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
-                super.setTextSize(i, f2);
+                super.setTextSize(i, f);
                 return;
             }
             AppCompatTextHelper appCompatTextHelper = this.mTextHelper;
             if (appCompatTextHelper != null) {
-                appCompatTextHelper.setTextSize(i, f2);
+                appCompatTextHelper.setTextSize(i, f);
             }
         }
     }

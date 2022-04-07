@@ -7,17 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class s extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f38678b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public q f38679c;
+    public int b;
+    public q c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s(q qVar, int i, String str) {
@@ -37,8 +33,8 @@ public class s extends ContentObserver {
                 return;
             }
         }
-        this.f38679c = qVar;
-        this.f38678b = i;
+        this.c = qVar;
+        this.b = i;
         this.a = str;
     }
 
@@ -46,9 +42,9 @@ public class s extends ContentObserver {
     public void onChange(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            q qVar = this.f38679c;
+            q qVar = this.c;
             if (qVar != null) {
-                qVar.a(this.f38678b, this.a);
+                qVar.a(this.b, this.a);
             } else {
                 Log.e("VMS_IDLG_SDK_Observer", "mIdentifierIdClient is null");
             }

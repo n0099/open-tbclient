@@ -31,16 +31,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class l {
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Object[] f42987b = new Object[0];
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Object[] f42988c = new Object[73];
+    public static Object[] b = new Object[0];
+    public static Object[] c = new Object[73];
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-
-    /* renamed from: d  reason: collision with root package name */
-    public static String f42989d = null;
+    public static String d = null;
 
     public static boolean a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -100,8 +94,8 @@ public class l {
                 return false;
             }
             return i <= packageInfo.versionCode;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -205,8 +199,8 @@ public class l {
                         return false;
                     }
                     return false;
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return true;
                 }
             }
@@ -276,8 +270,8 @@ public class l {
             applicationInfo.publicSourceDir = str;
             try {
                 return applicationInfo.loadIcon(packageManager);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return null;
@@ -295,8 +289,8 @@ public class l {
                     }
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -311,8 +305,8 @@ public class l {
                     hashMap.put(next, jSONObject.optString(next));
                 }
                 return hashMap;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
         return hashMap;
@@ -327,14 +321,14 @@ public class l {
             PackageInfo packageInfo = com.ss.android.downloadlib.addownload.j.getContext().getPackageManager().getPackageInfo(str, 0);
             if (packageInfo != null) {
                 cVar.b(packageInfo.versionCode);
-                cVar.a(com.ss.android.downloadlib.addownload.b.c.f42760b);
-                n g2 = com.ss.android.downloadlib.addownload.j.g();
-                if (g2 != null && g2.a() && !a(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
-                    cVar.a(com.ss.android.downloadlib.addownload.b.c.f42761c);
+                cVar.a(com.ss.android.downloadlib.addownload.b.c.b);
+                n g = com.ss.android.downloadlib.addownload.j.g();
+                if (g != null && g.a() && !a(packageInfo.versionCode, i, packageInfo.versionName, str2)) {
+                    cVar.a(com.ss.android.downloadlib.addownload.b.c.c);
                 }
             }
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return cVar;
     }
@@ -374,8 +368,8 @@ public class l {
                 return i == packageInfo.versionCode;
             }
             return false;
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
@@ -395,8 +389,8 @@ public class l {
         return true;
     }
 
-    public static int a(Context context, float f2) {
-        return (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f);
+    public static int a(Context context, float f) {
+        return (int) ((f * context.getResources().getDisplayMetrics().density) + 0.5f);
     }
 
     public static String a(String str, int i) {
@@ -462,8 +456,8 @@ public class l {
     public static long a(long j) {
         try {
             return a(Environment.getExternalStorageDirectory(), j);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return j;
         }
     }
@@ -474,8 +468,8 @@ public class l {
         }
         try {
             return com.ss.android.socialbase.downloader.i.f.d(file.getAbsolutePath());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
             return j;
         }
     }
@@ -506,8 +500,8 @@ public class l {
         }
         try {
             jSONObject.putOpt(str, obj);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

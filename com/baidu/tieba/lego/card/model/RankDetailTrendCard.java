@@ -2,7 +2,6 @@ package com.baidu.tieba.lego.card.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.b2.o.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hd7;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RankDetailTrendCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,8 +54,8 @@ public class RankDetailTrendCard extends BaseCardInfo {
         this.picTrendType = jSONObject.optInt("picTrendType");
         this.picTrendUrl = jSONObject.optString("picTrendUrl");
         this.trendText = jSONObject.optString("trendText");
-        this.trendColor = b.b(jSONObject.optString("trendColor", ""));
-        this.trendColorN = b.b(jSONObject.optString("trendColorN", ""));
+        this.trendColor = hd7.b(jSONObject.optString("trendColor", ""));
+        this.trendColorN = hd7.b(jSONObject.optString("trendColorN", ""));
         this.postUrl = jSONObject.optString("postUrl");
         this.isDone = jSONObject.optInt("isDone") == 1;
         this.btnText = jSONObject.optString("btnText");

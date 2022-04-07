@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import c.a.e0.k.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,26 +14,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ea1;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class CouponEntranceView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f28274b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f28275c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public a f28276d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a.C0134a f28277e;
+    public TextView b;
+    public View c;
+    public ea1 d;
+    public ea1.a e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -66,69 +58,69 @@ public class CouponEntranceView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0205, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090703);
-            this.f28274b = (TextView) findViewById(R.id.obfuscated_res_0x7f090702);
-            this.f28275c = findViewById(R.id.obfuscated_res_0x7f090e1d);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0206, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09070c);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09070b);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090e1b);
         }
     }
 
     public void c() {
-        List<a.C0134a> list;
+        List<ea1.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28277e = null;
-            a aVar = this.f28276d;
-            if (!((aVar == null || (list = aVar.f2871b) == null || list.size() <= 0) ? false : true)) {
+            this.e = null;
+            ea1 ea1Var = this.d;
+            if (!((ea1Var == null || (list = ea1Var.b) == null || list.size() <= 0) ? false : true)) {
                 setVisibility(8);
                 return;
             }
-            Iterator<a.C0134a> it = this.f28276d.f2871b.iterator();
+            Iterator<ea1.a> it = this.d.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                a.C0134a next = it.next();
-                if (next.f2878h == 1) {
-                    this.f28277e = next;
+                ea1.a next = it.next();
+                if (next.h == 1) {
+                    this.e = next;
                     break;
                 }
             }
-            if (this.f28277e == null) {
+            if (this.e == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.a.setText(this.f28277e.f2873c);
-            a.C0134a c0134a = this.f28277e;
-            if (c0134a.f2872b == -1) {
-                String str = c0134a.f2874d;
-                this.f28274b.setVisibility(8);
+            this.a.setText(this.e.c);
+            ea1.a aVar = this.e;
+            if (aVar.b == -1) {
+                String str = aVar.d;
+                this.b.setVisibility(8);
             } else {
-                String str2 = "-" + a(this.f28277e.f2877g.longValue()) + "元";
-                this.f28274b.setVisibility(0);
-                this.f28274b.setText(this.f28277e.f2874d);
+                String str2 = "-" + a(this.e.g.longValue()) + "元";
+                this.b.setVisibility(0);
+                this.b.setText(this.e.d);
             }
-            if (this.f28276d.a) {
-                this.f28275c.setVisibility(0);
+            if (this.d.a) {
+                this.c.setVisibility(0);
                 setEnabled(true);
                 return;
             }
-            this.f28275c.setVisibility(8);
+            this.c.setVisibility(8);
             setEnabled(false);
         }
     }
 
-    public a.C0134a getSelectedItem() {
+    public ea1.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28277e : (a.C0134a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (ea1.a) invokeV.objValue;
     }
 
-    public void update(a aVar) {
+    public void update(ea1 ea1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f28276d = aVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ea1Var) == null) {
+            this.d = ea1Var;
             c();
         }
     }

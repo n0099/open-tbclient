@@ -7,14 +7,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.n0.a.k1.h;
-import c.a.n0.a.q0.d;
-import c.a.n0.a.t1.d;
-import c.a.n0.a.t1.e;
-import c.a.n0.a.v0.e.b;
-import c.a.n0.a.v1.f.o0.j;
-import c.a.n0.a.w0.f;
-import c.a.n0.a.x.u.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
@@ -28,11 +20,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.NodeJS;
+import com.repackage.b43;
+import com.repackage.d72;
+import com.repackage.fj2;
+import com.repackage.gl2;
+import com.repackage.hw2;
+import com.repackage.i03;
+import com.repackage.j03;
+import com.repackage.j42;
+import com.repackage.ka2;
+import com.repackage.ot2;
+import com.repackage.tg1;
+import com.repackage.u33;
+import com.repackage.wl2;
+import com.repackage.x62;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PrefetchEvent extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean COMBINE_PREFETCH_ON = true;
@@ -74,7 +80,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     public String userActionApis;
     public String version;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<PrefetchEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +118,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,8 +187,8 @@ public class PrefetchEvent extends SwanAppIPCData {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class c extends c.a.n0.a.e0.d.c {
+    /* loaded from: classes2.dex */
+    public static class c extends ka2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -210,7 +216,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         public Map<String, String> t() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4232c : (Map) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (Map) invokeV.objValue;
         }
 
         @NonNull
@@ -218,12 +224,12 @@ public class PrefetchEvent extends SwanAppIPCData {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                Map<String, String> map = this.f4232c;
+                Map<String, String> map = this.c;
                 if (map == null || map.size() <= 0) {
                     return "";
                 }
                 StringBuilder sb = new StringBuilder();
-                Set<Map.Entry<String, String>> entrySet = this.f4232c.entrySet();
+                Set<Map.Entry<String, String>> entrySet = this.c.entrySet();
                 int size = entrySet.size();
                 int i = 0;
                 for (Map.Entry<String, String> entry : entrySet) {
@@ -274,8 +280,8 @@ public class PrefetchEvent extends SwanAppIPCData {
             if (map == null) {
                 return null;
             }
-            b.a V = d.J().r().V();
-            if (c.a.n0.a.x.o.e.a.a(V.f0())) {
+            gl2.a V = i03.J().r().V();
+            if (j42.a(V.f0())) {
                 recordClickPrefetchEvent();
                 HashMap hashMap = new HashMap(map);
                 hashMap.put("appKey", V.H());
@@ -296,24 +302,24 @@ public class PrefetchEvent extends SwanAppIPCData {
 
     public static c createFromReLaunch(String str) {
         InterceptResult invokeL;
-        e a0;
+        j03 a0;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.equals(str, "relaunch") && (a0 = e.a0()) != null) {
+            if (TextUtils.equals(str, "relaunch") && (a0 = j03.a0()) != null) {
                 PMSAppInfo f0 = a0.V().f0();
-                if (c.a.n0.a.x.o.e.a.a(f0)) {
+                if (j42.a(f0)) {
                     recordClickPrefetchEvent();
                     PrefetchEvent prefetchEvent = new PrefetchEvent();
                     prefetchEvent.appId = a0.getAppId();
                     prefetchEvent.state = "click";
                     prefetchEvent.scene = str;
                     prefetchEvent.schema = a0.V().W();
-                    prefetchEvent.pageUrl = c.a.n0.a.v1.f.o0.c.d(f.U(), a0.V(), a0.P());
+                    prefetchEvent.pageUrl = u33.d(wl2.U(), a0.V(), a0.P());
                     prefetchEvent.appConfig = a0.P().n;
-                    prefetchEvent.appPath = d.e.i(a0.getAppId(), a0.j0()).getPath() + File.separator;
+                    prefetchEvent.appPath = fj2.e.i(a0.getAppId(), a0.j0()).getPath() + File.separator;
                     prefetchEvent.pageType = a0.P().h(prefetchEvent.pageUrl);
-                    prefetchEvent.rootPath = c.a.n0.a.x.u.a.c(a0, prefetchEvent.pageUrl);
-                    prefetchEvent.isT7Available = g.U().p0();
+                    prefetchEvent.rootPath = x62.c(a0, prefetchEvent.pageUrl);
+                    prefetchEvent.isT7Available = d72.U().p0();
                     prefetchEvent.sConsole = String.valueOf(a0.V().m0());
                     prefetchEvent.version = a0.j0();
                     if (f0 != null && !TextUtils.isEmpty(f0.userActionApis)) {
@@ -332,7 +338,7 @@ public class PrefetchEvent extends SwanAppIPCData {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, prefetchEvent, pMSAppInfo)) == null) {
-            return createMessage(prefetchEvent, c.a.n0.a.x.o.e.a.n(pMSAppInfo) ? MODULE : "preload");
+            return createMessage(prefetchEvent, j42.n(pMSAppInfo) ? MODULE : "preload");
         }
         return (c) invokeLL.objValue;
     }
@@ -346,7 +352,7 @@ public class PrefetchEvent extends SwanAppIPCData {
     public static void recordClickPrefetchEvent() {
         HybridUbcFlow p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (p = h.p(NodeJS.STARTUP_SCRIPT_NAME)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || (p = ot2.p(NodeJS.STARTUP_SCRIPT_NAME)) == null) {
             return;
         }
         p.F(new UbcFlowEvent(KEY_CLICK_PREFETCH));
@@ -451,11 +457,11 @@ public class PrefetchEvent extends SwanAppIPCData {
                 hashMap.put(EVENT_DATA_DEBUG_SCONSOLE, prefetchEvent.sConsole);
             }
             hashMap.put(EVENT_DATA_T7_AVAILABLE, String.valueOf(prefetchEvent.isT7Available));
-            c.a.n0.a.m1.h.b.a(hashMap, "prefetch event");
+            hw2.a(hashMap, "prefetch event");
             if (!TextUtils.isEmpty(prefetchEvent.pageUrl)) {
                 hashMap.put(EVENT_KEY_PAGE_URL, prefetchEvent.pageUrl);
-                j.a(prefetchEvent.pageUrl, hashMap);
-            } else if (c.a.n0.a.a.a) {
+                b43.a(prefetchEvent.pageUrl, hashMap);
+            } else if (tg1.a) {
                 Log.e("PrefetchEvent", "page url is empty, it's impossible !!!");
             }
             if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {

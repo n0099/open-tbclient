@@ -10,13 +10,11 @@ import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class c extends a {
-
-    /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f43008d;
+    public final JSONObject d;
 
     public c(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str, JSONObject jSONObject) {
         super(context, aVar, str);
-        this.f43008d = jSONObject;
+        this.d = jSONObject;
     }
 
     public static void a(@NonNull Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
@@ -35,13 +33,13 @@ public class c extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        String optString = this.f43008d.optString("action");
-        String optString2 = this.f43008d.optString("category");
-        int optInt = this.f43008d.optInt("flags", 1342210048);
-        String optString3 = this.f43008d.optString("path_extra_key");
-        String optString4 = this.f43008d.optString("path_data_key");
-        JSONObject optJSONObject = this.f43008d.optJSONObject("extra");
-        JSONObject optJSONObject2 = this.f43008d.optJSONObject("extra_type");
+        String optString = this.d.optString("action");
+        String optString2 = this.d.optString("category");
+        int optInt = this.d.optInt("flags", 1342210048);
+        String optString3 = this.d.optString("path_extra_key");
+        String optString4 = this.d.optString("path_data_key");
+        JSONObject optJSONObject = this.d.optJSONObject("extra");
+        JSONObject optJSONObject2 = this.d.optJSONObject("extra_type");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
@@ -51,13 +49,13 @@ public class c extends a {
         }
         if (!TextUtils.isEmpty(optString4)) {
             try {
-                intent.setData(Uri.parse(String.format(optString4, this.f43007c)));
+                intent.setData(Uri.parse(String.format(optString4, this.c)));
             } catch (Throwable unused) {
             }
         }
         intent.setFlags(optInt);
         if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.f43007c);
+            intent.putExtra(optString3, this.c);
         }
         a(intent, optJSONObject, optJSONObject2);
         return intent;
@@ -65,56 +63,56 @@ public class c extends a {
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
     public static void a(JSONObject jSONObject, String str, String str2, Intent intent) {
-        char c2;
+        char c;
         switch (str2.hashCode()) {
             case -1325958191:
                 if (str2.equals("double")) {
-                    c2 = 3;
+                    c = 3;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case -891985903:
                 if (str2.equals(EMABTest.TYPE_STRING)) {
-                    c2 = 4;
+                    c = 4;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 104431:
                 if (str2.equals("int")) {
-                    c2 = 0;
+                    c = 0;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 3327612:
                 if (str2.equals("long")) {
-                    c2 = 2;
+                    c = 2;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             case 64711720:
                 if (str2.equals("boolean")) {
-                    c2 = 1;
+                    c = 1;
                     break;
                 }
-                c2 = 65535;
+                c = 65535;
                 break;
             default:
-                c2 = 65535;
+                c = 65535;
                 break;
         }
-        if (c2 == 0) {
+        if (c == 0) {
             intent.putExtra(str, jSONObject.optInt(str));
-        } else if (c2 == 1) {
+        } else if (c == 1) {
             intent.putExtra(str, jSONObject.optBoolean(str));
-        } else if (c2 == 2) {
+        } else if (c == 2) {
             intent.putExtra(str, jSONObject.optLong(str));
-        } else if (c2 == 3) {
+        } else if (c == 3) {
             intent.putExtra(str, jSONObject.optDouble(str));
-        } else if (c2 != 4) {
+        } else if (c != 4) {
         } else {
             intent.putExtra(str, jSONObject.optString(str));
         }

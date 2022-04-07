@@ -11,17 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Map f43877b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ u f43878c;
+    public final /* synthetic */ Map b;
+    public final /* synthetic */ u c;
 
     public v(u uVar, Context context, Map map) {
         Interceptable interceptable = $ic;
@@ -38,9 +34,9 @@ public final class v implements Runnable {
                 return;
             }
         }
-        this.f43878c = uVar;
+        this.c = uVar;
         this.a = context;
-        this.f43877b = map;
+        this.b = map;
     }
 
     @Override // java.lang.Runnable
@@ -58,19 +54,19 @@ public final class v implements Runnable {
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
                             intent.setFlags(335544320);
-                            u.b(intent, this.f43877b);
+                            u.b(intent, this.b);
                             this.a.startActivity(intent);
                             return;
                         }
                     }
                 }
-            } catch (Exception e2) {
-                com.vivo.push.util.p.a("OnNotificationClickTask", "start recentIntent is error", e2);
+            } catch (Exception e) {
+                com.vivo.push.util.p.a("OnNotificationClickTask", "start recentIntent is error", e);
             }
             Intent launchIntentForPackage = this.a.getPackageManager().getLaunchIntentForPackage(this.a.getPackageName());
             if (launchIntentForPackage != null) {
                 launchIntentForPackage.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                u.b(launchIntentForPackage, this.f43877b);
+                u.b(launchIntentForPackage, this.b);
                 this.a.startActivity(launchIntentForPackage);
                 return;
             }

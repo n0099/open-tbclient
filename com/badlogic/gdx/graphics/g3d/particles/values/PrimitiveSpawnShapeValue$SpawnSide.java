@@ -8,10 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
-import com.tachikoma.core.component.anim.AnimationProperty;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public final class PrimitiveSpawnShapeValue$SpawnSide {
     public static final /* synthetic */ PrimitiveSpawnShapeValue$SpawnSide[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -34,8 +32,8 @@ public final class PrimitiveSpawnShapeValue$SpawnSide {
             }
         }
         both = new PrimitiveSpawnShapeValue$SpawnSide(ShareDirectionType.BOTH, 0);
-        top = new PrimitiveSpawnShapeValue$SpawnSide(AnimationProperty.TOP, 1);
-        PrimitiveSpawnShapeValue$SpawnSide primitiveSpawnShapeValue$SpawnSide = new PrimitiveSpawnShapeValue$SpawnSide(TipsConfigItem.TipConfigData.BOTTOM, 2);
+        top = new PrimitiveSpawnShapeValue$SpawnSide("top", 1);
+        PrimitiveSpawnShapeValue$SpawnSide primitiveSpawnShapeValue$SpawnSide = new PrimitiveSpawnShapeValue$SpawnSide("bottom", 2);
         bottom = primitiveSpawnShapeValue$SpawnSide;
         $VALUES = new PrimitiveSpawnShapeValue$SpawnSide[]{both, top, primitiveSpawnShapeValue$SpawnSide};
     }

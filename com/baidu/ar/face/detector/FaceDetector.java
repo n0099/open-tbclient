@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class FaceDetector extends com.baidu.ar.b.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
     public a oy;
     public boolean oz;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,12 +152,12 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            boolean f2 = com.baidu.ar.b.a.as().f(11);
+            boolean f = com.baidu.ar.b.a.as().f(11);
             int i = this.oY + 1;
             this.oY = i;
-            if (f2 && i > 1) {
+            if (f && i > 1) {
                 this.oY = 0;
-                return f2;
+                return f;
             }
             return false;
         }
@@ -248,14 +248,14 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public void a(a.C1717a c1717a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
+    public void a(a.C0057a c0057a, int i, com.baidu.ar.face.b bVar, a.b bVar2, String str) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c1717a, Integer.valueOf(i), bVar, bVar2, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{c0057a, Integer.valueOf(i), bVar, bVar2, str}) == null) {
             this.oA.G(i);
-            if (c1717a != null) {
-                this.oA.a(Float.parseFloat(c1717a.pR), Float.parseFloat(c1717a.pS));
-                this.oA.d(Float.parseFloat(c1717a.pT));
+            if (c0057a != null) {
+                this.oA.a(Float.parseFloat(c0057a.pR), Float.parseFloat(c0057a.pS));
+                this.oA.d(Float.parseFloat(c0057a.pT));
             }
             this.oA.z(bVar.dy());
             this.oA.B(bVar.dz());
@@ -389,9 +389,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, framePixels)) == null) {
-            boolean c2 = com.baidu.ar.b.a.as().c(au());
-            if (!c2 || framePixels == null) {
-                com.baidu.ar.h.b.b("FaceDetector", "detect_frame detect frame failed isInitTaskFinished: " + c2);
+            boolean c = com.baidu.ar.b.a.as().c(au());
+            if (!c || framePixels == null) {
+                com.baidu.ar.h.b.b("FaceDetector", "detect_frame detect frame failed isInitTaskFinished: " + c);
                 if (framePixels != null) {
                     e(new m(framePixels.getTimestamp()));
                     return true;
@@ -486,9 +486,9 @@ public class FaceDetector extends com.baidu.ar.b.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, nVar) == null) {
             if (!this.bn) {
-                boolean f2 = com.baidu.ar.b.a.as().f(14);
+                boolean f = com.baidu.ar.b.a.as().f(14);
                 d dVar = new d(nVar);
-                if (a(dVar, f2)) {
+                if (a(dVar, f)) {
                     com.baidu.ar.c.c.cd().c((com.baidu.ar.c.a) dVar);
                     return;
                 }

@@ -12,11 +12,11 @@ public final class ByteSpreadBuilder extends PrimitiveSpreadBuilder<byte[]> {
         this.values = new byte[i];
     }
 
-    public final void add(byte b2) {
+    public final void add(byte b) {
         byte[] bArr = this.values;
         int position = getPosition();
         setPosition(position + 1);
-        bArr[position] = b2;
+        bArr[position] = b;
     }
 
     public final byte[] toArray() {

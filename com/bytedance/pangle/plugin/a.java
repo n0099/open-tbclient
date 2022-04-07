@@ -10,14 +10,12 @@ import com.bytedance.pangle.download.ZeusPluginListener;
 import com.bytedance.pangle.e.a.e;
 import com.bytedance.pangle.log.ZeusLogger;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public final class a implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public File a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ZeusPluginListener f38147b;
+    public ZeusPluginListener b;
 
     public a(File file, ZeusPluginListener zeusPluginListener) {
         Interceptable interceptable = $ic;
@@ -35,7 +33,7 @@ public final class a implements Runnable {
             }
         }
         this.a = file;
-        this.f38147b = zeusPluginListener;
+        this.b = zeusPluginListener;
     }
 
     public final boolean a() {
@@ -48,19 +46,19 @@ public final class a implements Runnable {
                 Plugin plugin2 = PluginManager.getInstance().getPlugin(a.a);
                 if (plugin2 != null) {
                     z = plugin2.install(this.a, a);
-                    ZeusPluginListener zeusPluginListener = this.f38147b;
+                    ZeusPluginListener zeusPluginListener = this.b;
                     if (zeusPluginListener != null) {
                         zeusPluginListener.onEvent(z ? 21 : 22, "install result = ".concat(String.valueOf(z)));
                     }
                 } else {
-                    ZeusPluginListener zeusPluginListener2 = this.f38147b;
+                    ZeusPluginListener zeusPluginListener2 = this.b;
                     if (zeusPluginListener2 != null) {
                         zeusPluginListener2.onEvent(22, "cannot query valid plugin !!! packageName = " + a.a);
                     }
                     ZeusLogger.w(ZeusLogger.TAG_INSTALL, "PluginInstallRunnable cannot query valid plugin !!! packageName = " + a.a);
                 }
             } else {
-                ZeusPluginListener zeusPluginListener3 = this.f38147b;
+                ZeusPluginListener zeusPluginListener3 = this.b;
                 if (zeusPluginListener3 != null) {
                     zeusPluginListener3.onEvent(22, "read local file package info failed !!!" + this.a.getAbsolutePath() + " exists:" + this.a.exists());
                 }

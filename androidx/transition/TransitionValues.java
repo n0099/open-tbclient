@@ -17,7 +17,9 @@ public class TransitionValues {
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<Transition> mTargetedTransitions;
     public final Map<String, Object> values;
-    public View view;
+
+    /* renamed from: view  reason: collision with root package name */
+    public View f980view;
 
     @Deprecated
     public TransitionValues() {
@@ -43,7 +45,7 @@ public class TransitionValues {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof TransitionValues) {
                 TransitionValues transitionValues = (TransitionValues) obj;
-                return this.view == transitionValues.view && this.values.equals(transitionValues.values);
+                return this.f980view == transitionValues.f980view && this.values.equals(transitionValues.values);
             }
             return false;
         }
@@ -53,14 +55,14 @@ public class TransitionValues {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.view.hashCode() * 31) + this.values.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.f980view.hashCode() * 31) + this.values.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.view + "\n") + "    values:";
+            String str = (("TransitionValues@" + Integer.toHexString(hashCode()) + ":\n") + "    view = " + this.f980view + "\n") + "    values:";
             for (String str2 : this.values.keySet()) {
                 str = str + "    " + str2 + ": " + this.values.get(str2) + "\n";
             }
@@ -69,12 +71,12 @@ public class TransitionValues {
         return (String) invokeV.objValue;
     }
 
-    public TransitionValues(@NonNull View view) {
+    public TransitionValues(@NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,6 +88,6 @@ public class TransitionValues {
         }
         this.values = new HashMap();
         this.mTargetedTransitions = new ArrayList<>();
-        this.view = view;
+        this.f980view = view2;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.Log;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class HttpDnsCache implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BACKUP_IP = "{\"area\": \"idc.ct\",   \"backup\": {    \"m.baidu.com\": {      \"ip\": [        \"220.181.38.130\",       \"220.181.38.129\"        ]    },    \"mbd.baidu.com\": {      \"ip\": [       \"180.149.145.177\",         \"112.34.111.104\",        \"111.206.37.66\",        \"180.97.104.214\",        \"117.185.17.20\",        \"112.80.248.204\",       \"14.215.177.166\",        \"183.232.231.184\",        \"163.177.151.106\"       ]    }  },   \"msg\": \"ok\",   \"ttl\": 300,  \"version\": \"v.01\"}";
@@ -112,8 +112,8 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             if (bArr == null || bArr.length <= 0) {
                 return null;
             }
-            for (byte b2 : bArr) {
-                String hexString = Integer.toHexString(b2 & 255);
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
                 if (hexString.length() < 2) {
                     sb.append(0);
                 }
@@ -260,8 +260,8 @@ public class HttpDnsCache implements INoProGuard, INetListener {
                         bdNetTask.setUrl(getUrl(context));
                         bdNet.start(bdNetTask, true);
                         return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return;
                     }
                 }
@@ -291,8 +291,8 @@ public class HttpDnsCache implements INoProGuard, INetListener {
                         bdNetTask.setUrl(getUrlStaticIP());
                         bdNet.start(bdNetTask, true);
                         return;
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
+                    } catch (Exception e) {
+                        e.printStackTrace();
                         return;
                     }
                 }
@@ -383,8 +383,8 @@ public class HttpDnsCache implements INoProGuard, INetListener {
                 }
                 Log.w(LOG_TAG, "saveLastCacheToCfg ".concat(String.valueOf(httpDnsCache)));
                 saveLastCacheToCfg(httpDnsCache);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }

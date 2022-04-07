@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public abstract class o extends com.kwad.sdk.core.network.a<p> {
     public ReportResultData a;
 
@@ -23,9 +23,9 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
         }
         if (cVar != null) {
             try {
-                this.a.parseJson(new JSONObject(cVar.f39576b));
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+                this.a.parseJson(new JSONObject(cVar.b));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
         return this.a;
@@ -38,8 +38,8 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
                 KsAdSDKImpl.get().getProxyForHttp().doGetWithoutResponse(str, null);
             }
             d.a(pVar.i(), j);
-        } catch (Exception e2) {
-            com.kwad.sdk.core.d.a.a(e2);
+        } catch (Exception e) {
+            com.kwad.sdk.core.d.a.a(e);
         }
     }
 
@@ -67,43 +67,43 @@ public abstract class o extends com.kwad.sdk.core.network.a<p> {
         String str;
         ReportResultData a;
         String str2;
-        p b2 = b();
+        p b = b();
         com.kwad.sdk.core.network.c cVar = null;
         try {
-            str = b2.a();
+            str = b.a();
             try {
-                cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(str, (Map<String, String>) null, b2.e());
+                cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(str, (Map<String, String>) null, b.e());
                 if (cVar == null || cVar.a != 200) {
                     str2 = "report fail result is null";
                 } else {
-                    str2 = "report success actionType:" + b2.f39728b;
+                    str2 = "report success actionType:" + b.b;
                 }
                 com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
-            } catch (Exception e2) {
-                e = e2;
+            } catch (Exception e) {
+                e = e;
                 com.kwad.sdk.core.d.a.a(e);
                 a = a(cVar);
                 if (a.isCheatingFlow()) {
                 }
-                if (!b2.i().mCheatingFlow) {
+                if (!b.i().mCheatingFlow) {
                 }
-                if (com.kwad.sdk.b.f39154c.booleanValue()) {
+                if (com.kwad.sdk.b.c.booleanValue()) {
                     return;
                 }
                 return;
             }
-        } catch (Exception e3) {
-            e = e3;
+        } catch (Exception e2) {
+            e = e2;
             str = null;
         }
         a = a(cVar);
         if (a.isCheatingFlow()) {
-            b2.i().setCheatingFlow(a.isCheatingFlow());
+            b.i().setCheatingFlow(a.isCheatingFlow());
         }
-        if (!b2.i().mCheatingFlow) {
-            a(b2);
+        if (!b.i().mCheatingFlow) {
+            a(b);
         }
-        if (com.kwad.sdk.b.f39154c.booleanValue() || a.isResultOk()) {
+        if (com.kwad.sdk.b.c.booleanValue() || a.isResultOk()) {
             return;
         }
         throw new RuntimeException("请求返回失败 code:" + a.result + ", errorMsg:" + a.errorMsg + "\n url=" + str);

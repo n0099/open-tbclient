@@ -12,7 +12,7 @@ import com.yy.hiidostatis.defs.obj.ShareType;
 import com.yy.hiidostatis.message.Packer;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IStatisApi extends IStatisAPI {
     void addActAdditionListener(ActListener actListener);
 
@@ -58,11 +58,11 @@ public interface IStatisApi extends IStatisAPI {
 
     void reportCount(String str, int i, String str2, String str3, long j, int i2);
 
-    void reportCountEvent(long j, String str, double d2);
+    void reportCountEvent(long j, String str, double d);
 
-    void reportCountEvent(long j, String str, double d2, String str2);
+    void reportCountEvent(long j, String str, double d, String str2);
 
-    void reportCountEvent(long j, String str, double d2, String str2, Property property);
+    void reportCountEvent(long j, String str, double d, String str2, Property property);
 
     @Override // com.yy.hiidostatis.defs.interf.IStatisAPI
     void reportCrash(long j, String str);
@@ -113,7 +113,7 @@ public interface IStatisApi extends IStatisAPI {
     @Override // com.yy.hiidostatis.defs.interf.IStatisAPI
     void reportLanuch(long j, String str, StatisContent statisContent);
 
-    void reportLocation(long j, double d2, double d3, double d4, IStatisAPI.ReportResult reportResult);
+    void reportLocation(long j, double d, double d2, double d3, IStatisAPI.ReportResult reportResult);
 
     void reportLogin(long j);
 

@@ -1,7 +1,6 @@
 package com.baidu.tieba.quickWebView.message;
 
 import android.text.TextUtils;
-import c.a.p0.j3.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -10,16 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.e98;
 import com.squareup.wire.Wire;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, a> mModuleInfos;
+    public Map<String, e98> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResSocketMsg() {
@@ -39,7 +39,7 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
         }
     }
 
-    public Map<String, a> getModuleInfos() {
+    public Map<String, e98> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mModuleInfos : (Map) invokeV.objValue;
@@ -62,9 +62,9 @@ public class WebViewCacheResSocketMsg extends TbSocketReponsedMessage {
             this.mModuleInfos.clear();
             for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                 if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                    a aVar = new a();
-                    aVar.e(offpack);
-                    this.mModuleInfos.put(offpack.mod_name, aVar);
+                    e98 e98Var = new e98();
+                    e98Var.e(offpack);
+                    this.mModuleInfos.put(offpack.mod_name, e98Var);
                 }
             }
         }

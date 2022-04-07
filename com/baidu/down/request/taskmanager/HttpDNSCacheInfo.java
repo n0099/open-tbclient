@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class HttpDNSCacheInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -79,8 +79,8 @@ public class HttpDNSCacheInfo {
                         return replace + "&xcode=" + this.mXCode;
                     }
                     return replace + "?xcode=" + this.mXCode;
-                } catch (MalformedURLException e2) {
-                    e2.printStackTrace();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
                     return null;
                 }
             }

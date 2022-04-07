@@ -10,26 +10,20 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executor;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<a> a;
+    public final e.b b;
 
-    /* renamed from: b  reason: collision with root package name */
-    public final e.b f41742b;
-
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ g a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final List<Integer> f41743b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final Executor f41744c;
+        public final List<Integer> b;
+        public final Executor c;
 
         public a(g gVar, int i) {
             Interceptable interceptable = $ic;
@@ -47,27 +41,25 @@ public class g {
                 }
             }
             this.a = gVar;
-            this.f41743b = new ArrayList();
-            this.f41744c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i);
+            this.b = new ArrayList();
+            this.c = com.kwai.filedownloader.e.b.a(1, "Flow-" + i);
         }
 
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.f41743b.add(Integer.valueOf(i));
+                this.b.add(Integer.valueOf(i));
             }
         }
 
         public void a(MessageSnapshot messageSnapshot) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, messageSnapshot) == null) {
-                this.f41744c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
+                this.c.execute(new Runnable(this, messageSnapshot) { // from class: com.kwai.filedownloader.message.g.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MessageSnapshot a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f41745b;
+                    public final /* synthetic */ a b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -84,7 +76,7 @@ public class g {
                                 return;
                             }
                         }
-                        this.f41745b = this;
+                        this.b = this;
                         this.a = messageSnapshot;
                     }
 
@@ -92,9 +84,9 @@ public class g {
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f41745b.a.f41742b.a(this.a);
+                            this.b.a.b.a(this.a);
                             try {
-                                this.f41745b.f41743b.remove(Integer.valueOf(this.a.m()));
+                                this.b.b.remove(Integer.valueOf(this.a.m()));
                             } catch (Exception unused) {
                             }
                         }
@@ -119,7 +111,7 @@ public class g {
                 return;
             }
         }
-        this.f41742b = bVar;
+        this.b = bVar;
         this.a = new ArrayList();
         for (int i4 = 0; i4 < i; i4++) {
             this.a.add(new a(this, i4));
@@ -139,7 +131,7 @@ public class g {
                             break;
                         }
                         a next = it.next();
-                        if (next.f41743b.contains(Integer.valueOf(m))) {
+                        if (next.b.contains(Integer.valueOf(m))) {
                             aVar = next;
                             break;
                         }
@@ -152,11 +144,11 @@ public class g {
                                 break;
                             }
                             a next2 = it2.next();
-                            if (next2.f41743b.size() <= 0) {
+                            if (next2.b.size() <= 0) {
                                 aVar = next2;
                                 break;
-                            } else if (i == 0 || next2.f41743b.size() < i) {
-                                i = next2.f41743b.size();
+                            } else if (i == 0 || next2.b.size() < i) {
+                                i = next2.b.size();
                                 aVar = next2;
                             }
                         }

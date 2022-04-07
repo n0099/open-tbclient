@@ -5,7 +5,7 @@ import java.io.Closeable;
 public interface SupportSQLiteProgram extends Closeable {
     void bindBlob(int i, byte[] bArr);
 
-    void bindDouble(int i, double d2);
+    void bindDouble(int i, double d);
 
     void bindLong(int i, long j);
 

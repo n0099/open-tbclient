@@ -2,10 +2,6 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.v0.b;
-import c.a.v0.r.h;
-import c.a.z.b.a.e;
-import c.a.z.b.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -15,18 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.pf0;
+import com.repackage.uf0;
+import com.repackage.w79;
+import com.repackage.yb9;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class AEffectProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isCamera;
     public Map<String, ShaderConfig> mTrackConfig;
     public List<MediaTrack> mUpdateMediaTracks;
-    public j mVlogEditCore;
+    public uf0 mVlogEditCore;
     public final LinkedList<Runnable> runOnDraw;
 
     public AEffectProcessor() {
@@ -43,9 +43,9 @@ public class AEffectProcessor extends BaseEffectProcessor {
             }
         }
         this.runOnDraw = new LinkedList<>();
-        j jVar = new j();
-        this.mVlogEditCore = jVar;
-        jVar.j(b.c().getContext());
+        uf0 uf0Var = new uf0();
+        this.mVlogEditCore = uf0Var;
+        uf0Var.j(w79.c().getContext());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -54,8 +54,8 @@ public class AEffectProcessor extends BaseEffectProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             this.isCamera = false;
-            MediaTrack mediaTrack = (MediaTrack) h.c(this.mUpdateMediaTracks, 0);
-            if (mediaTrack == null || (mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {
+            MediaTrack mediaTrack = (MediaTrack) yb9.c(this.mUpdateMediaTracks, 0);
+            if (mediaTrack == null || (mediaSegment = (MediaSegment) yb9.c(mediaTrack.mediaSegments, 0)) == null || !TextUtils.equals(mediaSegment.type, "camera")) {
                 return;
             }
             this.isCamera = true;
@@ -121,17 +121,17 @@ public class AEffectProcessor extends BaseEffectProcessor {
 
     public int onProcessFrame(int i, float[] fArr) {
         InterceptResult invokeIL;
-        int c2;
+        int c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, fArr)) == null) {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {
-                c2 = this.mVlogEditCore.m(i, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c = this.mVlogEditCore.m(i, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
             } else {
-                c2 = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
             }
-            return c2 == 0 ? i : c2;
+            return c == 0 ? i : c;
         }
         return invokeIL.intValue;
     }
@@ -243,19 +243,19 @@ public class AEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i, float[] fArr) {
+    public int onProcessFrame(pf0 pf0Var, int i, float[] fArr) {
         InterceptResult invokeLIL;
-        int c2;
+        int c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, eVar, i, fArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, pf0Var, i, fArr)) == null) {
             runPendingOnDrawTasks();
             HashMap hashMap = new HashMap();
             if (this.isCamera) {
-                c2 = this.mVlogEditCore.m(i, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c = this.mVlogEditCore.m(i, null, fArr, this.mInputTextureMode, this.mPreviewWidth, this.mPreviewHeight, hashMap);
             } else {
-                c2 = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
+                c = this.mVlogEditCore.c(this.mPreviewWidth, this.mPreviewHeight, hashMap);
             }
-            return c2 == 0 ? i : c2;
+            return c == 0 ? i : c;
         }
         return invokeLIL.intValue;
     }

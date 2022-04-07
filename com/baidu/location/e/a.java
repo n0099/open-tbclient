@@ -5,31 +5,17 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "baidu_location_service";
-
-    /* renamed from: b  reason: collision with root package name */
-    public static int f26042b = 12000;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static int f26043c = 20000;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static int f26044d = 1;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static int f26045e = 2;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static int f26046f = 3;
-
-    /* renamed from: g  reason: collision with root package name */
-    public static int f26047g = 4;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static int f26048h = 5;
+    public static int b = 12000;
+    public static int c = 20000;
+    public static int d = 1;
+    public static int e = 2;
+    public static int f = 3;
+    public static int g = 4;
+    public static int h = 5;
     public static int i = 5120;
     public static int j = 0;
     public static int k = 1;

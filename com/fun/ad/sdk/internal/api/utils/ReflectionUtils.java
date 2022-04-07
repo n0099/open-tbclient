@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ReflectionUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public class ReflectionUtils {
                                 field.setAccessible(true);
                                 try {
                                     return field.get(obj);
-                                } catch (IllegalAccessException e2) {
-                                    e2.printStackTrace();
+                                } catch (IllegalAccessException e) {
+                                    e.printStackTrace();
                                     return null;
                                 }
                             }
@@ -51,8 +51,8 @@ public class ReflectionUtils {
                             break;
                         }
                     }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
             }
             return null;
@@ -69,8 +69,8 @@ public class ReflectionUtils {
             }
             try {
                 return obj.getClass().getDeclaredMethod(str, clsArr).invoke(obj, objArr);
-            } catch (Exception e2) {
-                LogPrinter.e(e2);
+            } catch (Exception e) {
+                LogPrinter.e(e);
                 return null;
             }
         }

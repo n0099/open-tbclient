@@ -283,17 +283,17 @@ public final class UserInfo extends Message {
             } else {
                 this.position = str4;
             }
-            Double d2 = builder.lng;
-            if (d2 == null) {
+            Double d = builder.lng;
+            if (d == null) {
                 this.lng = DEFAULT_LNG;
             } else {
-                this.lng = d2;
+                this.lng = d;
             }
-            Double d3 = builder.lat;
-            if (d3 == null) {
+            Double d2 = builder.lat;
+            if (d2 == null) {
                 this.lat = DEFAULT_LAT;
             } else {
-                this.lat = d3;
+                this.lat = d2;
             }
             Integer num2 = builder.level;
             if (num2 == null) {

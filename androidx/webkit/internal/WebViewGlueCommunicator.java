@@ -121,12 +121,12 @@ public class WebViewGlueCommunicator {
                 return new WebViewProviderFactoryAdapter((WebViewProviderFactoryBoundaryInterface) BoundaryInterfaceReflectionUtil.castToSuppLibClass(WebViewProviderFactoryBoundaryInterface.class, fetchGlueProviderFactoryImpl()));
             } catch (ClassNotFoundException unused) {
                 return new IncompatibleApkWebViewProviderFactory();
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 throw new RuntimeException(e3);
-            } catch (InvocationTargetException e4) {
-                throw new RuntimeException(e4);
             }
         }
         return (WebViewProviderFactory) invokeV.objValue;
@@ -170,12 +170,12 @@ public class WebViewGlueCommunicator {
                 Method declaredMethod = WebView.class.getDeclaredMethod("getFactory", new Class[0]);
                 declaredMethod.setAccessible(true);
                 return declaredMethod.invoke(null, new Object[0]);
-            } catch (IllegalAccessException e2) {
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException(e);
+            } catch (NoSuchMethodException e2) {
                 throw new RuntimeException(e2);
-            } catch (NoSuchMethodException e3) {
+            } catch (InvocationTargetException e3) {
                 throw new RuntimeException(e3);
-            } catch (InvocationTargetException e4) {
-                throw new RuntimeException(e4);
             }
         }
         return invokeV.objValue;

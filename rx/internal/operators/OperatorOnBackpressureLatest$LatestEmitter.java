@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.e;
-import g.f;
-import g.j;
-import g.k;
-import g.o.a.o;
+import com.repackage.az9;
+import com.repackage.bz9;
+import com.repackage.d0a;
+import com.repackage.vy9;
+import com.repackage.wy9;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements f, k, e<T> {
+public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicLong implements wy9, bz9, vy9<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object EMPTY;
     public static final long NOT_REQUESTED = -4611686018427387904L;
     public static final long serialVersionUID = -1364393685005146274L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j<? super T> child;
+    public final az9<? super T> child;
     public volatile boolean done;
     public boolean emitting;
     public boolean missed;
-    public o<? super T> parent;
+    public d0a<? super T> parent;
     public Throwable terminal;
     public final AtomicReference<Object> value;
 
@@ -46,12 +46,12 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         EMPTY = new Object();
     }
 
-    public OperatorOnBackpressureLatest$LatestEmitter(j<? super T> jVar) {
+    public OperatorOnBackpressureLatest$LatestEmitter(az9<? super T> az9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jVar};
+            Object[] objArr = {az9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
                 return;
             }
         }
-        this.child = jVar;
+        this.child = az9Var;
         this.value = new AtomicReference<>(EMPTY);
         lazySet(-4611686018427387904L);
     }
@@ -137,14 +137,14 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // g.k
+    @Override // com.repackage.bz9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -153,7 +153,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
@@ -163,7 +163,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         }
     }
 
-    @Override // g.e
+    @Override // com.repackage.vy9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
@@ -190,7 +190,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         return invokeJ.longValue;
     }
 
-    @Override // g.f
+    @Override // com.repackage.wy9
     public void request(long j) {
         long j2;
         int i;
@@ -220,7 +220,7 @@ public final class OperatorOnBackpressureLatest$LatestEmitter<T> extends AtomicL
         emit();
     }
 
-    @Override // g.k
+    @Override // com.repackage.bz9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || get() < 0) {

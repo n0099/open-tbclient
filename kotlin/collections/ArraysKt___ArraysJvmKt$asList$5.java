@@ -46,9 +46,9 @@ public final class ArraysKt___ArraysJvmKt$asList$5 extends AbstractList<Float> i
         return -1;
     }
 
-    public boolean contains(float f2) {
-        for (float f3 : this.$this_asList) {
-            if (Float.floatToIntBits(f3) == Float.floatToIntBits(f2)) {
+    public boolean contains(float f) {
+        for (float f2 : this.$this_asList) {
+            if (Float.floatToIntBits(f2) == Float.floatToIntBits(f)) {
                 return true;
             }
         }
@@ -61,21 +61,21 @@ public final class ArraysKt___ArraysJvmKt$asList$5 extends AbstractList<Float> i
         return Float.valueOf(this.$this_asList[i]);
     }
 
-    public int indexOf(float f2) {
+    public int indexOf(float f) {
         float[] fArr = this.$this_asList;
         int length = fArr.length;
         for (int i = 0; i < length; i++) {
-            if (Float.floatToIntBits(fArr[i]) == Float.floatToIntBits(f2)) {
+            if (Float.floatToIntBits(fArr[i]) == Float.floatToIntBits(f)) {
                 return i;
             }
         }
         return -1;
     }
 
-    public int lastIndexOf(float f2) {
+    public int lastIndexOf(float f) {
         float[] fArr = this.$this_asList;
         for (int length = fArr.length - 1; length >= 0; length--) {
-            if (Float.floatToIntBits(fArr[length]) == Float.floatToIntBits(f2)) {
+            if (Float.floatToIntBits(fArr[length]) == Float.floatToIntBits(f)) {
                 return length;
             }
         }

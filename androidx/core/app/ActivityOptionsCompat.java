@@ -126,12 +126,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
+    public static ActivityOptionsCompat makeClipRevealAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeClipRevealAnimation(view, i, i2, i3, i4));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeClipRevealAnimation(view2, i, i2, i3, i4));
             }
             return new ActivityOptionsCompat();
         }
@@ -152,12 +152,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view, int i, int i2, int i3, int i4) {
+    public static ActivityOptionsCompat makeScaleUpAnimation(@NonNull View view2, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeScaleUpAnimation(view, i, i2, i3, i4));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeScaleUpAnimation(view2, i, i2, i3, i4));
             }
             return new ActivityOptionsCompat();
         }
@@ -165,12 +165,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, @NonNull View view, @NonNull String str) {
+    public static ActivityOptionsCompat makeSceneTransitionAnimation(@NonNull Activity activity, @NonNull View view2, @NonNull String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, activity, view, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, activity, view2, str)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view, str));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeSceneTransitionAnimation(activity, view2, str));
             }
             return new ActivityOptionsCompat();
         }
@@ -191,12 +191,12 @@ public class ActivityOptionsCompat {
     }
 
     @NonNull
-    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view, @NonNull Bitmap bitmap, int i, int i2) {
+    public static ActivityOptionsCompat makeThumbnailScaleUpAnimation(@NonNull View view2, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, view, bitmap, i, i2)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, view2, bitmap, i, i2)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return new ActivityOptionsCompatImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view, bitmap, i, i2));
+                return new ActivityOptionsCompatImpl(ActivityOptions.makeThumbnailScaleUpAnimation(view2, bitmap, i, i2));
             }
             return new ActivityOptionsCompat();
         }

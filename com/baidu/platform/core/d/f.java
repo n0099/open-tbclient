@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class f extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,12 +138,12 @@ public class f extends com.baidu.platform.base.d {
                                         jSONArray3 = optJSONArray3;
                                         str2 = str6;
                                         int i5 = 5;
+                                        double d = 0.0d;
                                         double d2 = 0.0d;
-                                        double d3 = 0.0d;
                                         while (i5 < optJSONArray4.length()) {
-                                            double optDouble = d2 + optJSONArray4.optDouble(i5 + 1);
+                                            double optDouble = d + optJSONArray4.optDouble(i5 + 1);
                                             String str10 = str8;
-                                            double optDouble2 = d3 + optJSONArray4.optDouble(i5);
+                                            double optDouble2 = d2 + optJSONArray4.optDouble(i5);
                                             JSONArray jSONArray4 = optJSONArray4;
                                             GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
                                             geoPoint.setLatitudeE6(optDouble);
@@ -155,8 +155,8 @@ public class f extends com.baidu.platform.base.d {
                                             optJSONArray4 = jSONArray4;
                                             i3 = i3;
                                             indoorRouteLine3 = indoorRouteLine3;
-                                            d2 = optDouble;
-                                            d3 = optDouble2;
+                                            d = optDouble;
+                                            d2 = optDouble2;
                                             str7 = str7;
                                             str8 = str10;
                                             str9 = str9;
@@ -235,8 +235,8 @@ public class f extends com.baidu.platform.base.d {
                 }
                 indoorRouteResult.setRouteLines(arrayList);
                 return true;
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
                 return false;
             }
         }

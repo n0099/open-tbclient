@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class VINResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AZ09;
@@ -170,53 +170,53 @@ public final class VINResultParser extends ResultParser {
         return (String) invokeL.objValue;
     }
 
-    public static int modelYear(char c2) {
+    public static int modelYear(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < 'E' || c2 > 'H') {
-                if (c2 < 'J' || c2 > 'N') {
-                    if (c2 == 'P') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'E' || c > 'H') {
+                if (c < 'J' || c > 'N') {
+                    if (c == 'P') {
                         return 1993;
                     }
-                    if (c2 < 'R' || c2 > 'T') {
-                        if (c2 < 'V' || c2 > 'Y') {
-                            if (c2 < '1' || c2 > '9') {
-                                if (c2 < 'A' || c2 > 'D') {
+                    if (c < 'R' || c > 'T') {
+                        if (c < 'V' || c > 'Y') {
+                            if (c < '1' || c > '9') {
+                                if (c < 'A' || c > 'D') {
                                     throw new IllegalArgumentException();
                                 }
-                                return (c2 - 'A') + 2010;
+                                return (c - 'A') + 2010;
                             }
-                            return (c2 - '1') + 2001;
+                            return (c - '1') + 2001;
                         }
-                        return (c2 - 'V') + 1997;
+                        return (c - 'V') + 1997;
                     }
-                    return (c2 - 'R') + 1994;
+                    return (c - 'R') + 1994;
                 }
-                return (c2 - 'J') + 1988;
+                return (c - 'J') + 1988;
             }
-            return (c2 - 'E') + 1984;
+            return (c - 'E') + 1984;
         }
         return invokeCommon.intValue;
     }
 
-    public static int vinCharValue(char c2) {
+    public static int vinCharValue(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < 'A' || c2 > 'I') {
-                if (c2 < 'J' || c2 > 'R') {
-                    if (c2 < 'S' || c2 > 'Z') {
-                        if (c2 < '0' || c2 > '9') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'A' || c > 'I') {
+                if (c < 'J' || c > 'R') {
+                    if (c < 'S' || c > 'Z') {
+                        if (c < '0' || c > '9') {
                             throw new IllegalArgumentException();
                         }
-                        return c2 - '0';
+                        return c - '0';
                     }
-                    return (c2 - 'S') + 2;
+                    return (c - 'S') + 2;
                 }
-                return (c2 - 'J') + 1;
+                return (c - 'J') + 1;
             }
-            return (c2 - 'A') + 1;
+            return (c - 'A') + 1;
         }
         return invokeCommon.intValue;
     }

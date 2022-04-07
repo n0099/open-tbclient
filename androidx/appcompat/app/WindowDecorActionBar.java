@@ -290,11 +290,11 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.view.ActionMode
-        public void setCustomView(View view) {
+        public void setCustomView(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048590, this, view) == null) {
-                this.this$0.mContextView.setCustomView(view);
-                this.mCustomView = new WeakReference<>(view);
+            if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
+                this.this$0.mContextView.setCustomView(view2);
+                this.mCustomView = new WeakReference<>(view2);
             }
         }
 
@@ -437,11 +437,11 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.app.ActionBar.Tab
-        public ActionBar.Tab setCustomView(View view) {
+        public ActionBar.Tab setCustomView(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) {
-                this.mCustomView = view;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
+                this.mCustomView = view2;
                 int i = this.mPosition;
                 if (i >= 0) {
                     this.this$0.mTabScrollView.updateTab(i);
@@ -609,13 +609,13 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view) {
-                View view2;
+            public void onAnimationEnd(View view2) {
+                View view3;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     WindowDecorActionBar windowDecorActionBar = this.this$0;
-                    if (windowDecorActionBar.mContentAnimations && (view2 = windowDecorActionBar.mContentView) != null) {
-                        view2.setTranslationY(0.0f);
+                    if (windowDecorActionBar.mContentAnimations && (view3 = windowDecorActionBar.mContentView) != null) {
+                        view3.setTranslationY(0.0f);
                         this.this$0.mContainerView.setTranslationY(0.0f);
                     }
                     this.this$0.mContainerView.setVisibility(8);
@@ -654,9 +654,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view) {
+            public void onAnimationEnd(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     WindowDecorActionBar windowDecorActionBar = this.this$0;
                     windowDecorActionBar.mCurrentShowAnim = null;
                     windowDecorActionBar.mContainerView.requestLayout();
@@ -687,9 +687,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorUpdateListener
-            public void onAnimationUpdate(View view) {
+            public void onAnimationUpdate(View view2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     ((View) this.this$0.mContainerView.getParent()).invalidate();
                 }
             }
@@ -775,19 +775,19 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
     }
 
-    private DecorToolbar getDecorToolbar(View view) {
+    private DecorToolbar getDecorToolbar(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, view)) == null) {
-            if (view instanceof DecorToolbar) {
-                return (DecorToolbar) view;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, view2)) == null) {
+            if (view2 instanceof DecorToolbar) {
+                return (DecorToolbar) view2;
             }
-            if (view instanceof Toolbar) {
-                return ((Toolbar) view).getWrapper();
+            if (view2 instanceof Toolbar) {
+                return ((Toolbar) view2).getWrapper();
             }
             StringBuilder sb = new StringBuilder();
             sb.append("Can't make a decor toolbar out of ");
-            sb.append(view != null ? view.getClass().getSimpleName() : StringUtil.NULL_STRING);
+            sb.append(view2 != null ? view2.getClass().getSimpleName() : StringUtil.NULL_STRING);
             throw new IllegalStateException(sb.toString());
         }
         return (DecorToolbar) invokeL.objValue;
@@ -805,17 +805,17 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
     }
 
-    private void init(View view) {
+    private void init(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, this, view) == null) {
-            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view.findViewById(R$id.decor_content_parent);
+        if (interceptable == null || interceptable.invokeL(65546, this, view2) == null) {
+            ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R$id.decor_content_parent);
             this.mOverlayLayout = actionBarOverlayLayout;
             if (actionBarOverlayLayout != null) {
                 actionBarOverlayLayout.setActionBarVisibilityCallback(this);
             }
-            this.mDecorToolbar = getDecorToolbar(view.findViewById(R$id.action_bar));
-            this.mContextView = (ActionBarContextView) view.findViewById(R$id.action_context_bar);
-            ActionBarContainer actionBarContainer = (ActionBarContainer) view.findViewById(R$id.action_bar_container);
+            this.mDecorToolbar = getDecorToolbar(view2.findViewById(R$id.action_bar));
+            this.mContextView = (ActionBarContextView) view2.findViewById(R$id.action_context_bar);
+            ActionBarContainer actionBarContainer = (ActionBarContainer) view2.findViewById(R$id.action_bar_container);
             this.mContainerView = actionBarContainer;
             DecorToolbar decorToolbar = this.mDecorToolbar;
             if (decorToolbar != null && this.mContextView != null && actionBarContainer != null) {
@@ -996,7 +996,7 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     public void doHide(boolean z) {
-        View view;
+        View view2;
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -1008,16 +1008,16 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                 this.mContainerView.setAlpha(1.0f);
                 this.mContainerView.setTransitioning(true);
                 ViewPropertyAnimatorCompatSet viewPropertyAnimatorCompatSet2 = new ViewPropertyAnimatorCompatSet();
-                float f2 = -this.mContainerView.getHeight();
+                float f = -this.mContainerView.getHeight();
                 if (z) {
                     this.mContainerView.getLocationInWindow(new int[]{0, 0});
-                    f2 -= iArr[1];
+                    f -= iArr[1];
                 }
-                ViewPropertyAnimatorCompat translationY = ViewCompat.animate(this.mContainerView).translationY(f2);
+                ViewPropertyAnimatorCompat translationY = ViewCompat.animate(this.mContainerView).translationY(f);
                 translationY.setUpdateListener(this.mUpdateListener);
                 viewPropertyAnimatorCompatSet2.play(translationY);
-                if (this.mContentAnimations && (view = this.mContentView) != null) {
-                    viewPropertyAnimatorCompatSet2.play(ViewCompat.animate(view).translationY(f2));
+                if (this.mContentAnimations && (view2 = this.mContentView) != null) {
+                    viewPropertyAnimatorCompatSet2.play(ViewCompat.animate(view2).translationY(f));
                 }
                 viewPropertyAnimatorCompatSet2.setInterpolator(sHideInterpolator);
                 viewPropertyAnimatorCompatSet2.setDuration(250L);
@@ -1031,8 +1031,8 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     public void doShow(boolean z) {
-        View view;
         View view2;
+        View view3;
         int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
@@ -1043,18 +1043,18 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             this.mContainerView.setVisibility(0);
             if (this.mCurWindowVisibility == 0 && (this.mShowHideAnimationEnabled || z)) {
                 this.mContainerView.setTranslationY(0.0f);
-                float f2 = -this.mContainerView.getHeight();
+                float f = -this.mContainerView.getHeight();
                 if (z) {
                     this.mContainerView.getLocationInWindow(new int[]{0, 0});
-                    f2 -= iArr[1];
+                    f -= iArr[1];
                 }
-                this.mContainerView.setTranslationY(f2);
+                this.mContainerView.setTranslationY(f);
                 ViewPropertyAnimatorCompatSet viewPropertyAnimatorCompatSet2 = new ViewPropertyAnimatorCompatSet();
                 ViewPropertyAnimatorCompat translationY = ViewCompat.animate(this.mContainerView).translationY(0.0f);
                 translationY.setUpdateListener(this.mUpdateListener);
                 viewPropertyAnimatorCompatSet2.play(translationY);
-                if (this.mContentAnimations && (view2 = this.mContentView) != null) {
-                    view2.setTranslationY(f2);
+                if (this.mContentAnimations && (view3 = this.mContentView) != null) {
+                    view3.setTranslationY(f);
                     viewPropertyAnimatorCompatSet2.play(ViewCompat.animate(this.mContentView).translationY(0.0f));
                 }
                 viewPropertyAnimatorCompatSet2.setInterpolator(sShowInterpolator);
@@ -1065,8 +1065,8 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             } else {
                 this.mContainerView.setAlpha(1.0f);
                 this.mContainerView.setTranslationY(0.0f);
-                if (this.mContentAnimations && (view = this.mContentView) != null) {
-                    view.setTranslationY(0.0f);
+                if (this.mContentAnimations && (view2 = this.mContentView) != null) {
+                    view2.setTranslationY(0.0f);
                 }
                 this.mShowListener.onAnimationEnd(null);
             }
@@ -1505,10 +1505,10 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setElevation(float f2) {
+    public void setElevation(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048633, this, f2) == null) {
-            ViewCompat.setElevation(this.mContainerView, f2);
+        if (interceptable == null || interceptable.invokeF(1048633, this, f) == null) {
+            ViewCompat.setElevation(this.mContainerView, f);
         }
     }
 
@@ -1809,19 +1809,19 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setCustomView(View view) {
+    public void setCustomView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, view) == null) {
-            this.mDecorToolbar.setCustomView(view);
+        if (interceptable == null || interceptable.invokeL(1048623, this, view2) == null) {
+            this.mDecorToolbar.setCustomView(view2);
         }
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setCustomView(View view, ActionBar.LayoutParams layoutParams) {
+    public void setCustomView(View view2, ActionBar.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048624, this, view, layoutParams) == null) {
-            view.setLayoutParams(layoutParams);
-            this.mDecorToolbar.setCustomView(view);
+        if (interceptable == null || interceptable.invokeLL(1048624, this, view2, layoutParams) == null) {
+            view2.setLayoutParams(layoutParams);
+            this.mDecorToolbar.setCustomView(view2);
         }
     }
 
@@ -1883,147 +1883,13 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             }
 
             @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view) {
-                View view2;
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    WindowDecorActionBar windowDecorActionBar = this.this$0;
-                    if (windowDecorActionBar.mContentAnimations && (view2 = windowDecorActionBar.mContentView) != null) {
-                        view2.setTranslationY(0.0f);
-                        this.this$0.mContainerView.setTranslationY(0.0f);
-                    }
-                    this.this$0.mContainerView.setVisibility(8);
-                    this.this$0.mContainerView.setTransitioning(false);
-                    WindowDecorActionBar windowDecorActionBar2 = this.this$0;
-                    windowDecorActionBar2.mCurrentShowAnim = null;
-                    windowDecorActionBar2.completeDeferredDestroyActionMode();
-                    ActionBarOverlayLayout actionBarOverlayLayout = this.this$0.mOverlayLayout;
-                    if (actionBarOverlayLayout != null) {
-                        ViewCompat.requestApplyInsets(actionBarOverlayLayout);
-                    }
-                }
-            }
-        };
-        this.mShowListener = new ViewPropertyAnimatorListenerAdapter(this) { // from class: androidx.appcompat.app.WindowDecorActionBar.2
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WindowDecorActionBar this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
-            public void onAnimationEnd(View view) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    WindowDecorActionBar windowDecorActionBar = this.this$0;
-                    windowDecorActionBar.mCurrentShowAnim = null;
-                    windowDecorActionBar.mContainerView.requestLayout();
-                }
-            }
-        };
-        this.mUpdateListener = new ViewPropertyAnimatorUpdateListener(this) { // from class: androidx.appcompat.app.WindowDecorActionBar.3
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WindowDecorActionBar this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // androidx.core.view.ViewPropertyAnimatorUpdateListener
-            public void onAnimationUpdate(View view) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    ((View) this.this$0.mContainerView.getParent()).invalidate();
-                }
-            }
-        };
-        init(dialog.getWindow().getDecorView());
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public WindowDecorActionBar(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mTabs = new ArrayList<>();
-        this.mSavedTabPosition = -1;
-        this.mMenuVisibilityListeners = new ArrayList<>();
-        this.mCurWindowVisibility = 0;
-        this.mContentAnimations = true;
-        this.mNowShowing = true;
-        this.mHideListener = new ViewPropertyAnimatorListenerAdapter(this) { // from class: androidx.appcompat.app.WindowDecorActionBar.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WindowDecorActionBar this$0;
-
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext2 = TitanRuntime.newInitContext();
-                    newInitContext2.initArgs = objArr2;
-                    Object[] objArr2 = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i3 = newInitContext2.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
-                        newInitContext2.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext2);
-                        return;
-                    }
-                }
-                this.this$0 = this;
-            }
-
-            @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
             public void onAnimationEnd(View view2) {
-                View view22;
+                View view3;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
                     WindowDecorActionBar windowDecorActionBar = this.this$0;
-                    if (windowDecorActionBar.mContentAnimations && (view22 = windowDecorActionBar.mContentView) != null) {
-                        view22.setTranslationY(0.0f);
+                    if (windowDecorActionBar.mContentAnimations && (view3 = windowDecorActionBar.mContentView) != null) {
+                        view3.setTranslationY(0.0f);
                         this.this$0.mContainerView.setTranslationY(0.0f);
                     }
                     this.this$0.mContainerView.setVisibility(8);
@@ -2102,6 +1968,140 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                 }
             }
         };
-        init(view);
+        init(dialog.getWindow().getDecorView());
+    }
+
+    @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
+    public WindowDecorActionBar(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mTabs = new ArrayList<>();
+        this.mSavedTabPosition = -1;
+        this.mMenuVisibilityListeners = new ArrayList<>();
+        this.mCurWindowVisibility = 0;
+        this.mContentAnimations = true;
+        this.mNowShowing = true;
+        this.mHideListener = new ViewPropertyAnimatorListenerAdapter(this) { // from class: androidx.appcompat.app.WindowDecorActionBar.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WindowDecorActionBar this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+            public void onAnimationEnd(View view22) {
+                View view3;
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view22) == null) {
+                    WindowDecorActionBar windowDecorActionBar = this.this$0;
+                    if (windowDecorActionBar.mContentAnimations && (view3 = windowDecorActionBar.mContentView) != null) {
+                        view3.setTranslationY(0.0f);
+                        this.this$0.mContainerView.setTranslationY(0.0f);
+                    }
+                    this.this$0.mContainerView.setVisibility(8);
+                    this.this$0.mContainerView.setTransitioning(false);
+                    WindowDecorActionBar windowDecorActionBar2 = this.this$0;
+                    windowDecorActionBar2.mCurrentShowAnim = null;
+                    windowDecorActionBar2.completeDeferredDestroyActionMode();
+                    ActionBarOverlayLayout actionBarOverlayLayout = this.this$0.mOverlayLayout;
+                    if (actionBarOverlayLayout != null) {
+                        ViewCompat.requestApplyInsets(actionBarOverlayLayout);
+                    }
+                }
+            }
+        };
+        this.mShowListener = new ViewPropertyAnimatorListenerAdapter(this) { // from class: androidx.appcompat.app.WindowDecorActionBar.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WindowDecorActionBar this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // androidx.core.view.ViewPropertyAnimatorListenerAdapter, androidx.core.view.ViewPropertyAnimatorListener
+            public void onAnimationEnd(View view22) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view22) == null) {
+                    WindowDecorActionBar windowDecorActionBar = this.this$0;
+                    windowDecorActionBar.mCurrentShowAnim = null;
+                    windowDecorActionBar.mContainerView.requestLayout();
+                }
+            }
+        };
+        this.mUpdateListener = new ViewPropertyAnimatorUpdateListener(this) { // from class: androidx.appcompat.app.WindowDecorActionBar.3
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WindowDecorActionBar this$0;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext2 = TitanRuntime.newInitContext();
+                    newInitContext2.initArgs = objArr2;
+                    Object[] objArr2 = {this};
+                    interceptable2.invokeUnInit(65536, newInitContext2);
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
+                        newInitContext2.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext2);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+            }
+
+            @Override // androidx.core.view.ViewPropertyAnimatorUpdateListener
+            public void onAnimationUpdate(View view22) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeL(1048576, this, view22) == null) {
+                    ((View) this.this$0.mContainerView.getParent()).invalidate();
+                }
+            }
+        };
+        init(view2);
     }
 }

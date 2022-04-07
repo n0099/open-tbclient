@@ -6,27 +6,23 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import c.a.p0.g4.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hr8;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class ShareScrollableLayout extends LinearLayout implements b {
+/* loaded from: classes4.dex */
+public class ShareScrollableLayout extends LinearLayout implements hr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public List<LinearLayout> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f36383b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f36384c;
+    public int b;
+    public int c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareScrollableLayout(Context context) {
@@ -50,15 +46,15 @@ public class ShareScrollableLayout extends LinearLayout implements b {
         c();
     }
 
-    @Override // c.a.p0.g4.b
-    public void a(int i, @NonNull View view) {
+    @Override // com.repackage.hr8
+    public void a(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, view) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, view2) == null) {
             int size = this.a.size() - 1;
             for (int i2 = 0; i2 < i - size; i2++) {
                 b();
             }
-            this.a.get(i).addView(view, new LinearLayout.LayoutParams(this.f36383b, -1));
+            this.a.get(i).addView(view2, new LinearLayout.LayoutParams(this.b, -1));
         }
     }
 
@@ -70,7 +66,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.a.add(linearLayout);
             horizontalScrollView.addView(linearLayout);
-            addView(horizontalScrollView, new LinearLayout.LayoutParams(-1, this.f36384c));
+            addView(horizontalScrollView, new LinearLayout.LayoutParams(-1, this.c));
         }
     }
 
@@ -81,7 +77,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
         }
     }
 
-    @Override // c.a.p0.g4.b
+    @Override // com.repackage.hr8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -89,7 +85,7 @@ public class ShareScrollableLayout extends LinearLayout implements b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // android.view.ViewGroup, c.a.p0.g4.b
+    @Override // android.view.ViewGroup, com.repackage.hr8
     public void removeAllViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -98,12 +94,12 @@ public class ShareScrollableLayout extends LinearLayout implements b {
         }
     }
 
-    @Override // c.a.p0.g4.b
+    @Override // com.repackage.hr8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            this.f36383b = i;
-            this.f36384c = i2;
+            this.b = i;
+            this.c = i2;
         }
     }
 

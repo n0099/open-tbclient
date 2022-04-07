@@ -14,45 +14,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class PoiFilter implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PoiFilter> CREATOR;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static Map<SortName, String> f26425f;
+    public static Map<SortName, String> f;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f26426b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26427c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f26428d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f26429e;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public String f26430b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public String f26431c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public String f26432d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public String f26433e;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
 
         public Builder() {
             Interceptable interceptable = $ic;
@@ -67,29 +49,29 @@ public final class PoiFilter implements Parcelable {
                     return;
                 }
             }
-            PoiFilter.f26425f.put(SortName.HotelSortName.DEFAULT, "default");
-            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
-            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
-            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
-            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
-            PoiFilter.f26425f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
-            PoiFilter.f26425f.put(SortName.CaterSortName.DEFAULT, "default");
-            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
-            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_PRICE, "price");
-            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
-            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
-            PoiFilter.f26425f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
-            PoiFilter.f26425f.put(SortName.LifeSortName.DEFAULT, "default");
-            PoiFilter.f26425f.put(SortName.LifeSortName.PRICE, "price");
-            PoiFilter.f26425f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
-            PoiFilter.f26425f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
-            PoiFilter.f26425f.put(SortName.LifeSortName.DISTANCE, "distance");
+            PoiFilter.f.put(SortName.HotelSortName.DEFAULT, "default");
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_LEVEL, "level");
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_PRICE, "price");
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_DISTANCE, "distance");
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_HEALTH_SCORE, "health_score");
+            PoiFilter.f.put(SortName.HotelSortName.HOTEL_TOTAL_SCORE, "total_score");
+            PoiFilter.f.put(SortName.CaterSortName.DEFAULT, "default");
+            PoiFilter.f.put(SortName.CaterSortName.CATER_DISTANCE, "distance");
+            PoiFilter.f.put(SortName.CaterSortName.CATER_PRICE, "price");
+            PoiFilter.f.put(SortName.CaterSortName.CATER_OVERALL_RATING, "overall_rating");
+            PoiFilter.f.put(SortName.CaterSortName.CATER_SERVICE_RATING, "service_rating");
+            PoiFilter.f.put(SortName.CaterSortName.CATER_TASTE_RATING, "taste_rating");
+            PoiFilter.f.put(SortName.LifeSortName.DEFAULT, "default");
+            PoiFilter.f.put(SortName.LifeSortName.PRICE, "price");
+            PoiFilter.f.put(SortName.LifeSortName.LIFE_COMMENT_RATING, "comment_num");
+            PoiFilter.f.put(SortName.LifeSortName.LIFE_OVERALL_RATING, "overall_rating");
+            PoiFilter.f.put(SortName.LifeSortName.DISTANCE, "distance");
         }
 
         public PoiFilter build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.a, this.f26430b, this.f26431c, this.f26433e, this.f26432d) : (PoiFilter) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new PoiFilter(this.a, this.b, this.c, this.e, this.d) : (PoiFilter) invokeV.objValue;
         }
 
         public Builder industryType(IndustryType industryType) {
@@ -107,7 +89,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.f26433e = z ? "1" : "0";
+                this.e = z ? "1" : "0";
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -117,7 +99,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.f26432d = z ? "1" : "0";
+                this.d = z ? "1" : "0";
                 return this;
             }
             return (Builder) invokeZ.objValue;
@@ -128,7 +110,7 @@ public final class PoiFilter implements Parcelable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sortName)) == null) {
                 if (!TextUtils.isEmpty(this.a) && sortName != null) {
-                    this.f26430b = (String) PoiFilter.f26425f.get(sortName);
+                    this.b = (String) PoiFilter.f.get(sortName);
                 }
                 return this;
             }
@@ -139,7 +121,7 @@ public final class PoiFilter implements Parcelable {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.f26431c = i + "";
+                this.c = i + "";
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -147,7 +129,7 @@ public final class PoiFilter implements Parcelable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class IndustryType {
         public static /* synthetic */ Interceptable $ic;
         public static final IndustryType CATER;
@@ -208,11 +190,11 @@ public final class PoiFilter implements Parcelable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface SortName {
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static final class CaterSortName implements SortName {
             public static /* synthetic */ Interceptable $ic;
             public static final CaterSortName CATER_DISTANCE;
@@ -280,7 +262,7 @@ public final class PoiFilter implements Parcelable {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static final class HotelSortName implements SortName {
             public static /* synthetic */ Interceptable $ic;
             public static final HotelSortName DEFAULT;
@@ -348,7 +330,7 @@ public final class PoiFilter implements Parcelable {
         }
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static final class LifeSortName implements SortName {
             public static /* synthetic */ Interceptable $ic;
             public static final LifeSortName DEFAULT;
@@ -427,7 +409,7 @@ public final class PoiFilter implements Parcelable {
                 return;
             }
         }
-        f26425f = new HashMap();
+        f = new HashMap();
         CREATOR = new c();
     }
 
@@ -447,15 +429,15 @@ public final class PoiFilter implements Parcelable {
             }
         }
         this.a = "";
-        this.f26426b = "";
-        this.f26427c = "";
-        this.f26428d = "";
-        this.f26429e = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
         this.a = parcel.readString();
-        this.f26426b = parcel.readString();
-        this.f26427c = parcel.readString();
-        this.f26429e = parcel.readString();
-        this.f26428d = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readString();
+        this.e = parcel.readString();
+        this.d = parcel.readString();
     }
 
     public PoiFilter(String str, String str2, String str3, String str4, String str5) {
@@ -474,15 +456,15 @@ public final class PoiFilter implements Parcelable {
             }
         }
         this.a = "";
-        this.f26426b = "";
-        this.f26427c = "";
-        this.f26428d = "";
-        this.f26429e = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
         this.a = str;
-        this.f26426b = str2;
-        this.f26427c = str3;
-        this.f26429e = str4;
-        this.f26428d = str5;
+        this.b = str2;
+        this.c = str3;
+        this.e = str4;
+        this.d = str5;
     }
 
     @Override // android.os.Parcelable
@@ -505,24 +487,24 @@ public final class PoiFilter implements Parcelable {
                 sb.append(this.a);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f26426b)) {
+            if (!TextUtils.isEmpty(this.b)) {
                 sb.append("sort_name:");
-                sb.append(this.f26426b);
+                sb.append(this.b);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f26427c)) {
+            if (!TextUtils.isEmpty(this.c)) {
                 sb.append("sort_rule:");
-                sb.append(this.f26427c);
+                sb.append(this.c);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f26429e)) {
+            if (!TextUtils.isEmpty(this.e)) {
                 sb.append("discount:");
-                sb.append(this.f26429e);
+                sb.append(this.e);
                 sb.append("|");
             }
-            if (!TextUtils.isEmpty(this.f26428d)) {
+            if (!TextUtils.isEmpty(this.d)) {
                 sb.append("groupon:");
-                sb.append(this.f26428d);
+                sb.append(this.d);
                 sb.append("|");
             }
             if (!TextUtils.isEmpty(sb.toString())) {
@@ -538,10 +520,10 @@ public final class PoiFilter implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f26426b);
-            parcel.writeString(this.f26427c);
-            parcel.writeString(this.f26429e);
-            parcel.writeString(this.f26428d);
+            parcel.writeString(this.b);
+            parcel.writeString(this.c);
+            parcel.writeString(this.e);
+            parcel.writeString(this.d);
         }
     }
 }

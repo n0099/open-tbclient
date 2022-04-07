@@ -56,8 +56,8 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sIsProjectedDrawableMethod == null) {
             try {
                 sIsProjectedDrawableMethod = Drawable.class.getDeclaredMethod("isProjected", new Class[0]);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve Drawable#isProjected() method", e2);
+            } catch (Exception e) {
+                Log.w(TAG, "Failed to retrieve Drawable#isProjected() method", e);
             }
         }
     }
@@ -102,8 +102,8 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
             if (drawable != null && (method = sIsProjectedDrawableMethod) != null) {
                 try {
                     return ((Boolean) method.invoke(drawable, new Object[0])).booleanValue();
-                } catch (Exception e2) {
-                    Log.w(TAG, "Error calling Drawable#isProjected() method", e2);
+                } catch (Exception e) {
+                    Log.w(TAG, "Error calling Drawable#isProjected() method", e);
                 }
             }
             return false;
@@ -112,10 +112,10 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspot(float f2, float f3) {
+    public void setHotspot(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.mDrawable.setHotspot(f2, f3);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.mDrawable.setHotspot(f, f2);
         }
     }
 

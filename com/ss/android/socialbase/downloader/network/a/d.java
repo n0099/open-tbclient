@@ -4,28 +4,18 @@ import com.ss.android.socialbase.downloader.network.i;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class d implements i {
     public final Object a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final List<com.ss.android.socialbase.downloader.model.c> f43503b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public i f43504c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f43505d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f43506e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public InputStream f43507f;
+    public final List<com.ss.android.socialbase.downloader.model.c> b;
+    public i c;
+    public boolean d;
+    public long e;
+    public InputStream f;
 
     @Override // com.ss.android.socialbase.downloader.network.i
     public InputStream a() throws IOException {
-        InputStream inputStream = this.f43507f;
+        InputStream inputStream = this.f;
         if (inputStream != null) {
             return inputStream;
         }
@@ -38,7 +28,7 @@ public class d implements i {
 
     @Override // com.ss.android.socialbase.downloader.network.g
     public int b() throws IOException {
-        i iVar = this.f43504c;
+        i iVar = this.c;
         if (iVar != null) {
             return iVar.b();
         }
@@ -47,7 +37,7 @@ public class d implements i {
 
     @Override // com.ss.android.socialbase.downloader.network.g
     public void c() {
-        i iVar = this.f43504c;
+        i iVar = this.c;
         if (iVar != null) {
             iVar.c();
         }
@@ -55,7 +45,7 @@ public class d implements i {
 
     @Override // com.ss.android.socialbase.downloader.network.i
     public void d() {
-        i iVar = this.f43504c;
+        i iVar = this.c;
         if (iVar != null) {
             iVar.d();
         }
@@ -63,35 +53,35 @@ public class d implements i {
 
     public void e() throws InterruptedException {
         synchronized (this.a) {
-            if (this.f43505d && this.f43504c == null) {
+            if (this.d && this.c == null) {
                 this.a.wait();
             }
         }
     }
 
     public List<com.ss.android.socialbase.downloader.model.c> f() {
-        return this.f43503b;
+        return this.b;
     }
 
     public boolean g() {
         try {
-            if (this.f43504c != null) {
-                return a(this.f43504c.b());
+            if (this.c != null) {
+                return a(this.c.b());
             }
             return false;
-        } catch (IOException e2) {
-            e2.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
             return false;
         }
     }
 
     public boolean h() {
-        return System.currentTimeMillis() - this.f43506e < b.a;
+        return System.currentTimeMillis() - this.e < b.a;
     }
 
     @Override // com.ss.android.socialbase.downloader.network.g
     public String a(String str) {
-        i iVar = this.f43504c;
+        i iVar = this.c;
         if (iVar != null) {
             return iVar.a(str);
         }

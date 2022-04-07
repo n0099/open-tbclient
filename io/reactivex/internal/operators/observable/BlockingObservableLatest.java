@@ -66,10 +66,10 @@ public final class BlockingObservableLatest<T> implements Iterable<T> {
                         if (andSet.isOnError()) {
                             throw ExceptionHelper.wrapOrThrow(andSet.getError());
                         }
-                    } catch (InterruptedException e2) {
+                    } catch (InterruptedException e) {
                         dispose();
-                        this.iteratorNotification = Notification.createOnError(e2);
-                        throw ExceptionHelper.wrapOrThrow(e2);
+                        this.iteratorNotification = Notification.createOnError(e);
+                        throw ExceptionHelper.wrapOrThrow(e);
                     }
                 }
                 return this.iteratorNotification.isOnNext();

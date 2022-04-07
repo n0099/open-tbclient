@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.data;
 
-import c.a.d.f.m.b;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.account.contants.AccountConstants;
@@ -9,6 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -22,7 +22,7 @@ import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
 import tbclient.TiebaPlusInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";
@@ -167,7 +167,7 @@ public class ItemData extends OrmObject implements Serializable {
             }
         }
         this.mIconSize = itemInfo.icon_size.doubleValue();
-        this.itemId = b.g(String.valueOf(itemInfo.id), 0L);
+        this.itemId = mg.g(String.valueOf(itemInfo.id), 0L);
         this.buttonName = itemInfo.button_name;
         this.buttonLink = itemInfo.button_link;
         this.buttonLinkType = itemInfo.button_link_type;
@@ -188,7 +188,7 @@ public class ItemData extends OrmObject implements Serializable {
         this.appId = tiebaPlusInfo.app_id;
         this.mIconUrl = tiebaPlusInfo.app_icon;
         this.mIconSize = 1.0d;
-        this.itemId = b.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
+        this.itemId = mg.g(String.valueOf(tiebaPlusInfo.item_id), 0L);
         ApkDetail.Builder builder = new ApkDetail.Builder();
         builder.version = tiebaPlusInfo.app_version;
         builder.privacy_url = tiebaPlusInfo.app_privacy;

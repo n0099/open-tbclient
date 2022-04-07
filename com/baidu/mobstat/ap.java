@@ -7,23 +7,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f27205b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public long f27206c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public boolean f27207d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public long f27208e;
+    public long b;
+    public long c;
+    public boolean d;
+    public long e;
 
     public ap(String str, long j, long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
@@ -41,41 +33,41 @@ public class ap {
             }
         }
         this.a = str;
-        this.f27205b = j;
-        this.f27206c = j2;
-        this.f27208e = j3;
-        this.f27207d = z;
+        this.b = j;
+        this.c = j2;
+        this.e = j3;
+        this.d = z;
     }
 
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f27206c = j;
+            this.c = j;
         }
     }
 
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27205b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27206c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : invokeV.longValue;
     }
 
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27207d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.booleanValue;
     }
 
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27208e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.longValue;
     }
 
     public String a() {
@@ -87,7 +79,7 @@ public class ap {
     public void b(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f27208e = j;
+            this.e = j;
         }
     }
 
@@ -98,9 +90,9 @@ public class ap {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("name", str);
-                jSONObject.put("s", this.f27205b);
-                jSONObject.put("e", this.f27206c);
-                jSONObject.put("user", this.f27207d ? 1 : 0);
+                jSONObject.put("s", this.b);
+                jSONObject.put("e", this.c);
+                jSONObject.put("user", this.d ? 1 : 0);
                 return jSONObject;
             } catch (Exception unused) {
                 return null;

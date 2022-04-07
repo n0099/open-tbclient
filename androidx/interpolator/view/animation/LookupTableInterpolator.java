@@ -33,22 +33,22 @@ public abstract class LookupTableInterpolator implements Interpolator {
     }
 
     @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f2) {
+    public float getInterpolation(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            if (f2 >= 1.0f) {
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            if (f >= 1.0f) {
                 return 1.0f;
             }
-            if (f2 <= 0.0f) {
+            if (f <= 0.0f) {
                 return 0.0f;
             }
             float[] fArr = this.mValues;
-            int min = Math.min((int) ((fArr.length - 1) * f2), fArr.length - 2);
-            float f3 = this.mStepSize;
-            float f4 = (f2 - (min * f3)) / f3;
+            int min = Math.min((int) ((fArr.length - 1) * f), fArr.length - 2);
+            float f2 = this.mStepSize;
+            float f3 = (f - (min * f2)) / f2;
             float[] fArr2 = this.mValues;
-            return fArr2[min] + (f4 * (fArr2[min + 1] - fArr2[min]));
+            return fArr2[min] + (f3 * (fArr2[min + 1] - fArr2[min]));
         }
         return invokeF.floatValue;
     }

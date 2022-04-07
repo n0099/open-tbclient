@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class BarcodeMatrix {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,10 +68,10 @@ public final class BarcodeMatrix {
         return (byte[][]) invokeII.objValue;
     }
 
-    public void set(int i, int i2, byte b2) {
+    public void set(int i, int i2, byte b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b2)}) == null) {
-            this.matrix[i2].set(i, b2);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Byte.valueOf(b)}) == null) {
+            this.matrix[i2].set(i, b);
         }
     }
 

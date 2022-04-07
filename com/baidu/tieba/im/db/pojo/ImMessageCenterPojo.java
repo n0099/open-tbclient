@@ -2,9 +2,6 @@ package com.baidu.tieba.im.db.pojo;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
-import c.a.d.f.p.m;
-import c.a.p0.u1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,8 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
+import com.repackage.ni;
+import com.repackage.x87;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ImMessageCenterPojo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELETEED = 1;
@@ -98,7 +98,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (userData == null) {
                 return null;
             }
-            if (m.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
+            if (ni.isEmpty(userData.getUserId()) && (oldUserData2 = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getUser_info(), OldUserData.class)) != null) {
                 oldUserData2.setToUserData(userData);
             }
             String toUid = commonMsgPojo.getToUid();
@@ -111,7 +111,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setNameShow(userData.getName_show());
                 imMessageCenterPojo.setBjhAvatar(userData.getImBjhAvatar());
             } else if (userData2 != null) {
-                if (m.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
+                if (ni.isEmpty(userData2.getUserId()) && (oldUserData = (OldUserData) OrmObject.objectWithJsonStr(commonMsgPojo.getToUser_info(), OldUserData.class)) != null) {
                     oldUserData.setToUserData(userData2);
                 }
                 imMessageCenterPojo.setGroup_name(userData2.getUserName());
@@ -120,7 +120,7 @@ public class ImMessageCenterPojo implements Serializable {
                 imMessageCenterPojo.setBjhAvatar(userData2.getImBjhAvatar());
             }
             boolean z = false;
-            if (b.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
+            if (mg.g(TbadkCoreApplication.getCurrentAccount(), 0L) != userData.getUserIdLong()) {
                 userType = userData.getUserType();
             } else {
                 userType = userData2 != null ? userData2.getUserType() : 0;
@@ -133,7 +133,7 @@ public class ImMessageCenterPojo implements Serializable {
             if (!z) {
                 imMessageCenterPojo.setCustomGroupType(2);
             }
-            imMessageCenterPojo.setLast_content(c.u(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
+            imMessageCenterPojo.setLast_content(x87.u(commonMsgPojo.getMsg_type(), commonMsgPojo.getContent()));
             imMessageCenterPojo.setLast_user_name(userData.getName_show());
             imMessageCenterPojo.setLast_content_time(commonMsgPojo.getCreate_time() * 1000);
             imMessageCenterPojo.setSelf(commonMsgPojo.isSelf);
@@ -565,5 +565,14 @@ public class ImMessageCenterPojo implements Serializable {
         if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
             this.userType = i;
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+            return "ImMessageCenterPojo{mCustomGroupType=" + this.mCustomGroupType + ", gid='" + this.gid + "', group_name='" + this.group_name + "', group_head='" + this.group_head + "', group_type=" + this.group_type + ", group_ext='" + this.group_ext + "', is_hidden=" + this.is_hidden + ", unread_count=" + this.unread_count + ", last_rid=" + this.last_rid + ", pulled_msgId=" + this.pulled_msgId + ", last_content_time=" + this.last_content_time + ", last_user_name='" + this.last_user_name + "', last_content='" + this.last_content + "', last_content_raw_data='" + this.last_content_raw_data + "', send_status=" + this.send_status + ", type=" + this.type + ", orderCol=" + this.orderCol + ", is_delete=" + this.is_delete + ", isSelf=" + this.isSelf + ", isFriend=" + this.isFriend + ", followStatus=" + this.followStatus + ", sent_msgId=" + this.sent_msgId + ", read_msgId=" + this.read_msgId + ", userType=" + this.userType + ", sid=" + this.sid + ", taskId='" + this.taskId + "', serviceId='" + this.serviceId + "', lastServiceId='" + this.lastServiceId + "', lastTaskId='" + this.lastTaskId + "', pushIds='" + this.pushIds + "', nameShow='" + this.nameShow + "', bjhAvatar='" + this.bjhAvatar + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

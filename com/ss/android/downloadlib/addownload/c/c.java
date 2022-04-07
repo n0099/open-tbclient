@@ -65,8 +65,8 @@ public class c {
         }
         try {
             a(externalCacheDir.getPath());
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -76,7 +76,7 @@ public class c {
     */
     public static void a(File file) {
         FileOutputStream fileOutputStream;
-        Exception e2;
+        Exception e;
         FileOutputStream fileOutputStream2 = null;
         try {
             try {
@@ -84,14 +84,14 @@ public class c {
                 try {
                     fileOutputStream.write("1".getBytes());
                     fileOutputStream.close();
-                } catch (Exception e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
                     if (fileOutputStream != null) {
                         try {
                             fileOutputStream.close();
-                        } catch (Exception e4) {
-                            e4.printStackTrace();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
                         }
                     }
                     file.delete();
@@ -102,15 +102,15 @@ public class c {
                 if (fileOutputStream2 != null) {
                     try {
                         fileOutputStream2.close();
-                    } catch (Exception e5) {
-                        e5.printStackTrace();
+                    } catch (Exception e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (Exception e6) {
+        } catch (Exception e5) {
             fileOutputStream = null;
-            e2 = e6;
+            e = e5;
         } catch (Throwable th2) {
             th = th2;
             if (fileOutputStream2 != null) {

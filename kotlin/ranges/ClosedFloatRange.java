@@ -9,9 +9,9 @@ public final class ClosedFloatRange implements ClosedFloatingPointRange<Float> {
     public final float _endInclusive;
     public final float _start;
 
-    public ClosedFloatRange(float f2, float f3) {
-        this._start = f2;
-        this._endInclusive = f3;
+    public ClosedFloatRange(float f, float f2) {
+        this._start = f;
+        this._endInclusive = f2;
     }
 
     @Override // kotlin.ranges.ClosedFloatingPointRange, kotlin.ranges.ClosedRange
@@ -43,22 +43,22 @@ public final class ClosedFloatRange implements ClosedFloatingPointRange<Float> {
         return this._start > this._endInclusive;
     }
 
-    public boolean lessThanOrEquals(float f2, float f3) {
-        return f2 <= f3;
+    public boolean lessThanOrEquals(float f, float f2) {
+        return f <= f2;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable, java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedFloatingPointRange
-    public /* bridge */ /* synthetic */ boolean lessThanOrEquals(Float f2, Float f3) {
-        return lessThanOrEquals(f2.floatValue(), f3.floatValue());
+    public /* bridge */ /* synthetic */ boolean lessThanOrEquals(Float f, Float f2) {
+        return lessThanOrEquals(f.floatValue(), f2.floatValue());
     }
 
     public String toString() {
         return this._start + IStringUtil.TOP_PATH + this._endInclusive;
     }
 
-    public boolean contains(float f2) {
-        return f2 >= this._start && f2 <= this._endInclusive;
+    public boolean contains(float f) {
+        return f >= this._start && f <= this._endInclusive;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

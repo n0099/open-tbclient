@@ -29,23 +29,21 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final a f42395b;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile Boolean a;
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public class C2031a implements NetworkCallBack {
+    /* loaded from: classes5.dex */
+    public class C0371a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C2031a(a aVar, PM pm) {
+        public C0371a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -91,8 +89,8 @@ public class a {
                             if (this.a != null) {
                                 try {
                                     this.a.getPOFactory().config(1, stringContent);
-                                } catch (d e2) {
-                                    e2.printStackTrace();
+                                } catch (d e) {
+                                    e.printStackTrace();
                                 }
                                 if (jSONObject.has(FunAdSdk.PLATFORM_SIG)) {
                                     JSONObject jSONObject2 = jSONObject.getJSONObject(FunAdSdk.PLATFORM_SIG);
@@ -139,7 +137,7 @@ public class a {
                 return;
             }
         }
-        f42395b = new a();
+        b = new a();
     }
 
     public a() {
@@ -161,7 +159,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42395b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (a) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x00c4  */
@@ -209,7 +207,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2031a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(r7, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0371a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -217,7 +215,7 @@ public class a {
             GDTLogger.d("launch request: " + jSONObject62);
             String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/launch" : "http://sdk.e.qq.com/activate";
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C2031a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0371a(this, pm));
         }
     }
 

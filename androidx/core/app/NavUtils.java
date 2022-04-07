@@ -73,8 +73,8 @@ public final class NavUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
             try {
                 return getParentActivityName(activity, activity.getComponentName());
-            } catch (PackageManager.NameNotFoundException e2) {
-                throw new IllegalArgumentException(e2);
+            } catch (PackageManager.NameNotFoundException e) {
+                throw new IllegalArgumentException(e);
             }
         }
         return (String) invokeL.objValue;

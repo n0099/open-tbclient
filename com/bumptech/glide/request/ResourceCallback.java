@@ -3,7 +3,7 @@ package com.bumptech.glide.request;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.load.engine.Resource;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public interface ResourceCallback {
     void onLoadFailed(GlideException glideException);
 

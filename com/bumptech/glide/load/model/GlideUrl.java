@@ -17,7 +17,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class GlideUrl implements Key {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALLOWED_URI_CHARS = "@#&=*+-_.,:!?()/~'%;$";

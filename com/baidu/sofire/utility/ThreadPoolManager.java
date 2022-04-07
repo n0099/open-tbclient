@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ThreadPoolManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_EXECUTOR_MAX_SIZE;
@@ -42,7 +42,7 @@ public class ThreadPoolManager {
     public BlockingQueue<Runnable> mPoolQueue;
     public ThreadPoolExecutor mTaskExecutor;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class MyThreadFactory implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -185,9 +185,9 @@ public class ThreadPoolManager {
                         return 1;
                     }
                     return -2;
-                } catch (RejectedExecutionException e2) {
-                    reportRejected(e2);
-                    CommonMethods.handleNuLException(e2);
+                } catch (RejectedExecutionException e) {
+                    reportRejected(e);
+                    CommonMethods.handleNuLException(e);
                     return -1;
                 } catch (Throwable th) {
                     CommonMethods.handleNuLException(th);

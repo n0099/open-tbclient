@@ -26,9 +26,7 @@ public final class MaybeContains<T> extends Single<Boolean> implements HasUpstre
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final SingleObserver<? super Boolean> actual;
-
-        /* renamed from: d  reason: collision with root package name */
-        public Disposable f45298d;
+        public Disposable d;
         public final Object value;
 
         public ContainsMaybeObserver(SingleObserver<? super Boolean> singleObserver, Object obj) {
@@ -54,8 +52,8 @@ public final class MaybeContains<T> extends Single<Boolean> implements HasUpstre
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f45298d.dispose();
-                this.f45298d = DisposableHelper.DISPOSED;
+                this.d.dispose();
+                this.d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -63,14 +61,14 @@ public final class MaybeContains<T> extends Single<Boolean> implements HasUpstre
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45298d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f45298d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(Boolean.FALSE);
             }
         }
@@ -79,7 +77,7 @@ public final class MaybeContains<T> extends Single<Boolean> implements HasUpstre
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f45298d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -87,8 +85,8 @@ public final class MaybeContains<T> extends Single<Boolean> implements HasUpstre
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45298d, disposable)) {
-                this.f45298d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.d, disposable)) {
+                this.d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -97,7 +95,7 @@ public final class MaybeContains<T> extends Single<Boolean> implements HasUpstre
         public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
-                this.f45298d = DisposableHelper.DISPOSED;
+                this.d = DisposableHelper.DISPOSED;
                 this.actual.onSuccess(Boolean.valueOf(ObjectHelper.equals(obj, this.value)));
             }
         }

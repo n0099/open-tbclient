@@ -5,37 +5,31 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.a.j.b;
-import c.a.i0.a.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, c {
+import com.repackage.od1;
+import com.repackage.pd1;
+/* loaded from: classes2.dex */
+public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, pd1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f28636b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f28637c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public b f28638d;
+    public int b;
+    public int c;
+    public od1 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseSurfaceView(Context context, b bVar) {
+    public BaseSurfaceView(Context context, od1 od1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bVar};
+            Object[] objArr = {context, od1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,7 +41,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
         this.a = 1;
-        this.f28638d = bVar;
+        this.d = od1Var;
         getHolder().addCallback(this);
     }
 
@@ -70,10 +64,10 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            int defaultSize = SurfaceView.getDefaultSize(this.f28636b, i);
-            int defaultSize2 = SurfaceView.getDefaultSize(this.f28637c, i2);
-            int i4 = this.f28636b;
-            if (i4 > 0 && (i3 = this.f28637c) > 0) {
+            int defaultSize = SurfaceView.getDefaultSize(this.b, i);
+            int defaultSize2 = SurfaceView.getDefaultSize(this.c, i2);
+            int i4 = this.b;
+            if (i4 > 0 && (i3 = this.c) > 0) {
                 int i5 = this.a;
                 if (i5 != 0) {
                     if (i5 != 1) {
@@ -114,17 +108,17 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
                     defaultSize2 = (i3 * defaultSize) / i4;
                 }
             }
-            Log.d("BaseSurfaceView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.f28636b), Integer.valueOf(this.f28637c)));
+            Log.d("BaseSurfaceView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.b), Integer.valueOf(this.c)));
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }
 
-    @Override // c.a.i0.a.j.c
+    @Override // com.repackage.pd1
     public void onVideoSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            this.f28636b = i;
-            this.f28637c = i2;
+            this.b = i;
+            this.c = i2;
             if (i == 0 || i2 == 0) {
                 return;
             }
@@ -132,7 +126,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // c.a.i0.a.j.c
+    @Override // com.repackage.pd1
     public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -155,21 +149,21 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        b bVar;
+        od1 od1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (bVar = this.f28638d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) || (od1Var = this.d) == null) {
             return;
         }
-        bVar.surfaceCreated(surfaceHolder);
+        od1Var.surfaceCreated(surfaceHolder);
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        b bVar;
+        od1 od1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (bVar = this.f28638d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) || (od1Var = this.d) == null) {
             return;
         }
-        bVar.a();
+        od1Var.a();
     }
 }

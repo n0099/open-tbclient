@@ -14,12 +14,12 @@ import com.kwad.sdk.core.imageloader.core.assist.LoadedFrom;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageAware;
 import com.kwad.sdk.core.imageloader.core.imageaware.ImageViewAware;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class CircleBitmapDisplayer implements BitmapDisplayer {
     public final Integer strokeColor;
     public final float strokeWidth;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static class CircleDrawable extends Drawable {
         public final BitmapShader bitmapShader;
         public final RectF mBitmapRect;
@@ -30,7 +30,7 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
         public float strokeRadius;
         public final float strokeWidth;
 
-        public CircleDrawable(Bitmap bitmap, Integer num, float f2) {
+        public CircleDrawable(Bitmap bitmap, Integer num, float f) {
             this.radius = Math.min(bitmap.getWidth(), bitmap.getHeight()) / 2;
             Shader.TileMode tileMode = Shader.TileMode.CLAMP;
             this.bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
@@ -48,21 +48,21 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
                 this.strokePaint = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
                 this.strokePaint.setColor(num.intValue());
-                this.strokePaint.setStrokeWidth(f2);
+                this.strokePaint.setStrokeWidth(f);
                 this.strokePaint.setAntiAlias(true);
             }
-            this.strokeWidth = f2;
-            this.strokeRadius = this.radius - (f2 / 2.0f);
+            this.strokeWidth = f;
+            this.strokeRadius = this.radius - (f / 2.0f);
         }
 
         @Override // android.graphics.drawable.Drawable
         public void draw(Canvas canvas) {
-            float f2 = this.radius;
-            canvas.drawCircle(f2, f2, f2, this.paint);
+            float f = this.radius;
+            canvas.drawCircle(f, f, f, this.paint);
             Paint paint = this.strokePaint;
             if (paint != null) {
-                float f3 = this.radius;
-                canvas.drawCircle(f3, f3, this.strokeRadius, paint);
+                float f2 = this.radius;
+                canvas.drawCircle(f2, f2, this.strokeRadius, paint);
             }
         }
 
@@ -102,9 +102,9 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
         this(num, 0.0f);
     }
 
-    public CircleBitmapDisplayer(Integer num, float f2) {
+    public CircleBitmapDisplayer(Integer num, float f) {
         this.strokeColor = num;
-        this.strokeWidth = f2;
+        this.strokeWidth = f;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer

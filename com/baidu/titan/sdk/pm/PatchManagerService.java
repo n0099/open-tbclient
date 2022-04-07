@@ -28,7 +28,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class PatchManagerService {
     public static final boolean DEBUG = false;
     public static final String PATCH_INSTALL_TMP_PREFIX = "tmp_patch_install_";
@@ -56,8 +56,8 @@ public class PatchManagerService {
                 try {
                     jSONObject.put("dexopt_ex", Log.getStackTraceString(th));
                     return false;
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                     return false;
                 }
             }
@@ -80,14 +80,14 @@ public class PatchManagerService {
                         }
                         z = patchInstallInfo.saveDexCount(dexCount);
                         zipFile = zipFile2;
-                    } catch (ZipException e2) {
-                        e = e2;
+                    } catch (ZipException e) {
+                        e = e;
                         zipFile = zipFile2;
                         e.printStackTrace();
                         Closes.closeQuiet(zipFile);
                         return false;
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                         zipFile = zipFile2;
                         e.printStackTrace();
                         Closes.closeQuiet(zipFile);
@@ -104,10 +104,10 @@ public class PatchManagerService {
             } catch (Throwable th2) {
                 th = th2;
             }
-        } catch (ZipException e4) {
+        } catch (ZipException e3) {
+            e = e3;
+        } catch (IOException e4) {
             e = e4;
-        } catch (IOException e5) {
-            e = e5;
         }
     }
 
@@ -231,13 +231,13 @@ public class PatchManagerService {
                                     Closes.closeQuiet((OutputStream) fileOutputStream);
                                     return file;
                                 }
-                            } catch (Exception e2) {
-                                e = e2;
+                            } catch (Exception e) {
+                                e = e;
                                 if (jSONObject != null) {
                                     try {
                                         jSONObject.put("prepare_patch_ex", Log.getStackTraceString(e));
-                                    } catch (JSONException e3) {
-                                        e3.printStackTrace();
+                                    } catch (JSONException e2) {
+                                        e2.printStackTrace();
                                     }
                                 }
                                 Closes.closeQuiet((OutputStream) fileOutputStream);
@@ -253,12 +253,12 @@ public class PatchManagerService {
                             throw th;
                         }
                     }
-                } catch (Exception e4) {
-                    e = e4;
+                } catch (Exception e3) {
+                    e = e3;
                     fileOutputStream = null;
                 }
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e4) {
+                e = e4;
                 file = null;
                 fileOutputStream = null;
             }
@@ -334,8 +334,8 @@ public class PatchManagerService {
                     return installSyncLocked;
                 }
                 throw new IllegalArgumentException("unkown uri");
-            } catch (IOException e2) {
-                Log.d(TAG, "[install] ERROR", e2);
+            } catch (IOException e) {
+                Log.d(TAG, "[install] ERROR", e);
                 Closes.closeQuiet((InputStream) null);
                 doCleanPatchsLocked();
                 return -3;
@@ -392,8 +392,8 @@ public class PatchManagerService {
                             if (createFromPatch2.versionInfo.patchVersionCode <= createFromPatch.versionInfo.patchVersionCode) {
                                 try {
                                     jSONObject.put("curPatchInfo", createFromPatch.toJsonString());
-                                } catch (JSONException e2) {
-                                    e2.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
                                 }
                                 if (bundle2 != null) {
                                     bundle2.putString(PatchManager.INSTALL_RESULT_EXTRA_KEY, jSONObject.toString());

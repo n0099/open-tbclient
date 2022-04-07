@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.io.UnsupportedEncodingException;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ImageFormatCheckerUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class ImageFormatCheckerUtils {
             Preconditions.checkNotNull(str);
             try {
                 return str.getBytes(HTTP.ASCII);
-            } catch (UnsupportedEncodingException e2) {
-                throw new RuntimeException("ASCII not found!", e2);
+            } catch (UnsupportedEncodingException e) {
+                throw new RuntimeException("ASCII not found!", e);
             }
         }
         return (byte[]) invokeL.objValue;
@@ -51,16 +51,16 @@ public class ImageFormatCheckerUtils {
                 return -1;
             }
             int i3 = 0;
-            byte b2 = bArr2[0];
+            byte b = bArr2[0];
             int i4 = i - i2;
             while (i3 <= i4) {
-                if (bArr[i3] != b2) {
+                if (bArr[i3] != b) {
                     do {
                         i3++;
                         if (i3 > i4) {
                             break;
                         }
-                    } while (bArr[i3] != b2);
+                    } while (bArr[i3] != b);
                 }
                 if (i3 <= i4) {
                     int i5 = i3 + 1;

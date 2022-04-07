@@ -1,6 +1,5 @@
 package com.baidu.tieba.majorsearch.message;
 
-import c.a.p0.h2.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -9,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hg7;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a mSearchMajorResultData;
+    public hg7 mSearchMajorResultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchMajorHttpResponsedMessage() {
@@ -42,16 +42,16 @@ public class SearchMajorHttpResponsedMessage extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 JSONArray optJSONArray = jSONObject.optJSONArray("major_list");
-                a aVar = new a();
-                this.mSearchMajorResultData = aVar;
-                aVar.a(optJSONArray);
+                hg7 hg7Var = new hg7();
+                this.mSearchMajorResultData = hg7Var;
+                hg7Var.a(optJSONArray);
             }
         }
     }
 
-    public a getData() {
+    public hg7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mSearchMajorResultData : (hg7) invokeV.objValue;
     }
 }

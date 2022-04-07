@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMGroupManager extends BaseManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,8 +61,8 @@ public class BIMGroupManager extends BaseManager {
             DialogRecordDBManager.getInstance(context).delete(1, j);
             ConversationManagerImpl.getInstance(context).deleteConversation(1, valueOf);
             GroupInfoDAOImpl.quitGroup(context, valueOf);
-        } catch (Exception e2) {
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
+        } catch (Exception e) {
+            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e)).build();
             LogUtils.d(BaseManager.TAG, "ClearStarGroup exception, this is normal for device sync logic");
         }
     }

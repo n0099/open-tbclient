@@ -282,33 +282,33 @@ public class AccessibilityNodeInfoCompat {
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public boolean perform(View view, Bundle bundle) {
+        public boolean perform(View view2, Bundle bundle) {
             InterceptResult invokeLL;
             AccessibilityViewCommand.CommandArguments newInstance;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view, bundle)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, bundle)) == null) {
                 if (this.mCommand != null) {
                     AccessibilityViewCommand.CommandArguments commandArguments = null;
                     Class<? extends AccessibilityViewCommand.CommandArguments> cls = this.mViewCommandArgumentClass;
                     if (cls != null) {
                         try {
                             newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception e) {
+                            e = e;
                         }
                         try {
                             newInstance.setBundle(bundle);
                             commandArguments = newInstance;
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception e2) {
+                            e = e2;
                             commandArguments = newInstance;
                             Class<? extends AccessibilityViewCommand.CommandArguments> cls2 = this.mViewCommandArgumentClass;
                             String name = cls2 == null ? StringUtil.NULL_STRING : cls2.getName();
                             Log.e(TAG, "Failed to execute command with argument class ViewCommandArgument: " + name, e);
-                            return this.mCommand.perform(view, commandArguments);
+                            return this.mCommand.perform(view2, commandArguments);
                         }
                     }
-                    return this.mCommand.perform(view, commandArguments);
+                    return this.mCommand.perform(view2, commandArguments);
                 }
                 return false;
             }
@@ -432,12 +432,12 @@ public class AccessibilityNodeInfoCompat {
             this.mInfo = obj;
         }
 
-        public static RangeInfoCompat obtain(int i, float f2, float f3, float f4) {
+        public static RangeInfoCompat obtain(int i, float f, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
                 if (Build.VERSION.SDK_INT >= 19) {
-                    return new RangeInfoCompat(AccessibilityNodeInfo.RangeInfo.obtain(i, f2, f3, f4));
+                    return new RangeInfoCompat(AccessibilityNodeInfo.RangeInfo.obtain(i, f, f2, f3));
                 }
                 return new RangeInfoCompat(null);
             }
@@ -683,14 +683,14 @@ public class AccessibilityNodeInfoCompat {
         return (ClickableSpan[]) invokeL.objValue;
     }
 
-    private SparseArray<WeakReference<ClickableSpan>> getOrCreateSpansFromViewTags(View view) {
+    private SparseArray<WeakReference<ClickableSpan>> getOrCreateSpansFromViewTags(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, view)) == null) {
-            SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, view2)) == null) {
+            SparseArray<WeakReference<ClickableSpan>> spansFromViewTags = getSpansFromViewTags(view2);
             if (spansFromViewTags == null) {
                 SparseArray<WeakReference<ClickableSpan>> sparseArray = new SparseArray<>();
-                view.setTag(R$id.tag_accessibility_clickable_spans, sparseArray);
+                view2.setTag(R$id.tag_accessibility_clickable_spans, sparseArray);
                 return sparseArray;
             }
             return spansFromViewTags;
@@ -698,10 +698,10 @@ public class AccessibilityNodeInfoCompat {
         return (SparseArray) invokeL.objValue;
     }
 
-    private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view) {
+    private SparseArray<WeakReference<ClickableSpan>> getSpansFromViewTags(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view)) == null) ? (SparseArray) view.getTag(R$id.tag_accessibility_clickable_spans) : (SparseArray) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, this, view2)) == null) ? (SparseArray) view2.getTag(R$id.tag_accessibility_clickable_spans) : (SparseArray) invokeL.objValue;
     }
 
     private boolean hasSpans() {
@@ -728,16 +728,16 @@ public class AccessibilityNodeInfoCompat {
         return invokeLL.intValue;
     }
 
-    public static AccessibilityNodeInfoCompat obtain(View view) {
+    public static AccessibilityNodeInfoCompat obtain(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view)) == null) ? wrap(AccessibilityNodeInfo.obtain(view)) : (AccessibilityNodeInfoCompat) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view2)) == null) ? wrap(AccessibilityNodeInfo.obtain(view2)) : (AccessibilityNodeInfoCompat) invokeL.objValue;
     }
 
-    private void removeCollectedSpans(View view) {
+    private void removeCollectedSpans(View view2) {
         SparseArray<WeakReference<ClickableSpan>> spansFromViewTags;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, this, view) == null) || (spansFromViewTags = getSpansFromViewTags(view)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65553, this, view2) == null) || (spansFromViewTags = getSpansFromViewTags(view2)) == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
@@ -789,28 +789,28 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void addChild(View view) {
+    public void addChild(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            this.mInfo.addChild(view);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            this.mInfo.addChild(view2);
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void addSpansToExtras(CharSequence charSequence, View view) {
+    public void addSpansToExtras(CharSequence charSequence, View view2) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, charSequence, view) == null) || (i = Build.VERSION.SDK_INT) < 19 || i >= 26) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, charSequence, view2) == null) || (i = Build.VERSION.SDK_INT) < 19 || i >= 26) {
             return;
         }
         clearExtrasSpans();
-        removeCollectedSpans(view);
+        removeCollectedSpans(view2);
         ClickableSpan[] clickableSpans = getClickableSpans(charSequence);
         if (clickableSpans == null || clickableSpans.length <= 0) {
             return;
         }
         getExtras().putInt(SPANS_ACTION_ID_KEY, R$id.accessibility_action_clickable_span);
-        SparseArray<WeakReference<ClickableSpan>> orCreateSpansFromViewTags = getOrCreateSpansFromViewTags(view);
+        SparseArray<WeakReference<ClickableSpan>> orCreateSpansFromViewTags = getOrCreateSpansFromViewTags(view2);
         for (int i2 = 0; clickableSpans != null && i2 < clickableSpans.length; i2++) {
             int idForClickableSpan = idForClickableSpan(clickableSpans[i2], orCreateSpansFromViewTags);
             orCreateSpansFromViewTags.put(idForClickableSpan, new WeakReference<>(clickableSpans[i2]));
@@ -1573,12 +1573,12 @@ public class AccessibilityNodeInfoCompat {
         return invokeL.booleanValue;
     }
 
-    public boolean removeChild(View view) {
+    public boolean removeChild(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, view2)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return this.mInfo.removeChild(view);
+                return this.mInfo.removeChild(view2);
             }
             return false;
         }
@@ -1775,20 +1775,20 @@ public class AccessibilityNodeInfoCompat {
         this.mInfo.setInputType(i);
     }
 
-    public void setLabelFor(View view) {
+    public void setLabelFor(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048677, this, view) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeL(1048677, this, view2) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        this.mInfo.setLabelFor(view);
+        this.mInfo.setLabelFor(view2);
     }
 
-    public void setLabeledBy(View view) {
+    public void setLabeledBy(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048679, this, view) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeL(1048679, this, view2) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        this.mInfo.setLabeledBy(view);
+        this.mInfo.setLabeledBy(view2);
     }
 
     public void setLiveRegion(int i) {
@@ -1849,11 +1849,11 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setParent(View view) {
+    public void setParent(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048688, this, view2) == null) {
             this.mParentVirtualDescendantId = -1;
-            this.mInfo.setParent(view);
+            this.mInfo.setParent(view2);
         }
     }
 
@@ -1916,11 +1916,11 @@ public class AccessibilityNodeInfoCompat {
         }
     }
 
-    public void setSource(View view) {
+    public void setSource(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048697, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048697, this, view2) == null) {
             this.mVirtualDescendantId = -1;
-            this.mInfo.setSource(view);
+            this.mInfo.setSource(view2);
         }
     }
 
@@ -1970,20 +1970,20 @@ public class AccessibilityNodeInfoCompat {
         this.mInfo.setTouchDelegateInfo(touchDelegateInfoCompat.mInfo);
     }
 
-    public void setTraversalAfter(View view) {
+    public void setTraversalAfter(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048704, this, view) == null) || Build.VERSION.SDK_INT < 22) {
+        if (!(interceptable == null || interceptable.invokeL(1048704, this, view2) == null) || Build.VERSION.SDK_INT < 22) {
             return;
         }
-        this.mInfo.setTraversalAfter(view);
+        this.mInfo.setTraversalAfter(view2);
     }
 
-    public void setTraversalBefore(View view) {
+    public void setTraversalBefore(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048706, this, view) == null) || Build.VERSION.SDK_INT < 22) {
+        if (!(interceptable == null || interceptable.invokeL(1048706, this, view2) == null) || Build.VERSION.SDK_INT < 22) {
             return;
         }
-        this.mInfo.setTraversalBefore(view);
+        this.mInfo.setTraversalBefore(view2);
     }
 
     public void setViewIdResourceName(String str) {
@@ -2080,12 +2080,12 @@ public class AccessibilityNodeInfoCompat {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048711, this)) == null) ? this.mInfo : (AccessibilityNodeInfo) invokeV.objValue;
     }
 
-    public static AccessibilityNodeInfoCompat obtain(View view, int i) {
+    public static AccessibilityNodeInfoCompat obtain(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, view2, i)) == null) {
             if (Build.VERSION.SDK_INT >= 16) {
-                return wrapNonNullInstance(AccessibilityNodeInfo.obtain(view, i));
+                return wrapNonNullInstance(AccessibilityNodeInfo.obtain(view2, i));
             }
             return null;
         }
@@ -2100,12 +2100,12 @@ public class AccessibilityNodeInfoCompat {
         this.mInfo.addAction((AccessibilityNodeInfo.AccessibilityAction) accessibilityActionCompat.mAction);
     }
 
-    public void addChild(View view, int i) {
+    public void addChild(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, view, i) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, view2, i) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        this.mInfo.addChild(view, i);
+        this.mInfo.addChild(view2, i);
     }
 
     public boolean performAction(int i, Bundle bundle) {
@@ -2120,68 +2120,68 @@ public class AccessibilityNodeInfoCompat {
         return invokeIL.booleanValue;
     }
 
-    public boolean removeChild(View view, int i) {
+    public boolean removeChild(View view2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048652, this, view, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048652, this, view2, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return this.mInfo.removeChild(view, i);
+                return this.mInfo.removeChild(view2, i);
             }
             return false;
         }
         return invokeLI.booleanValue;
     }
 
-    public void setLabelFor(View view, int i) {
+    public void setLabelFor(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048678, this, view, i) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(1048678, this, view2, i) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        this.mInfo.setLabelFor(view, i);
+        this.mInfo.setLabelFor(view2, i);
     }
 
-    public void setLabeledBy(View view, int i) {
+    public void setLabeledBy(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048680, this, view, i) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(1048680, this, view2, i) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        this.mInfo.setLabeledBy(view, i);
+        this.mInfo.setLabeledBy(view2, i);
     }
 
-    public void setParent(View view, int i) {
+    public void setParent(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048689, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048689, this, view2, i) == null) {
             this.mParentVirtualDescendantId = i;
             if (Build.VERSION.SDK_INT >= 16) {
-                this.mInfo.setParent(view, i);
+                this.mInfo.setParent(view2, i);
             }
         }
     }
 
-    public void setSource(View view, int i) {
+    public void setSource(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048698, this, view, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048698, this, view2, i) == null) {
             this.mVirtualDescendantId = i;
             if (Build.VERSION.SDK_INT >= 16) {
-                this.mInfo.setSource(view, i);
+                this.mInfo.setSource(view2, i);
             }
         }
     }
 
-    public void setTraversalAfter(View view, int i) {
+    public void setTraversalAfter(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048705, this, view, i) == null) || Build.VERSION.SDK_INT < 22) {
+        if (!(interceptable == null || interceptable.invokeLI(1048705, this, view2, i) == null) || Build.VERSION.SDK_INT < 22) {
             return;
         }
-        this.mInfo.setTraversalAfter(view, i);
+        this.mInfo.setTraversalAfter(view2, i);
     }
 
-    public void setTraversalBefore(View view, int i) {
+    public void setTraversalBefore(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048707, this, view, i) == null) || Build.VERSION.SDK_INT < 22) {
+        if (!(interceptable == null || interceptable.invokeLI(1048707, this, view2, i) == null) || Build.VERSION.SDK_INT < 22) {
             return;
         }
-        this.mInfo.setTraversalBefore(view, i);
+        this.mInfo.setTraversalBefore(view2, i);
     }
 
     /* loaded from: classes.dex */

@@ -14,13 +14,9 @@ import java.io.PushbackInputStream;
 public final class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f42579b;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: c  reason: collision with root package name */
-    public byte[] f42580c;
+    public byte[] c;
 
     static {
         InterceptResult invokeClinit;
@@ -36,12 +32,12 @@ public final class a extends d {
             }
         }
         a = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', WebvttCueParser.CHAR_SLASH};
-        f42579b = new byte[256];
+        b = new byte[256];
         for (int i = 0; i < 255; i++) {
-            f42579b[i] = -1;
+            b[i] = -1;
         }
         for (int i2 = 0; i2 < 64; i2++) {
-            f42579b[a[i2]] = (byte) i2;
+            b[a[i2]] = (byte) i2;
         }
     }
 
@@ -58,7 +54,7 @@ public final class a extends d {
                 return;
             }
         }
-        this.f42580c = new byte[4];
+        this.c = new byte[4];
     }
 
     /* JADX WARN: Removed duplicated region for block: B:40:0x0085  */
@@ -87,7 +83,7 @@ public final class a extends d {
                 throw new c();
             }
             if (read != 10 && read != 13) {
-                byte[] bArr = this.f42580c;
+                byte[] bArr = this.c;
                 bArr[0] = (byte) read;
                 int i3 = i - 1;
                 int i4 = 0;
@@ -106,10 +102,10 @@ public final class a extends d {
                 if (i3 == -1) {
                     throw new c();
                 }
-                if (i > 3 && this.f42580c[3] == 61) {
+                if (i > 3 && this.c[3] == 61) {
                     i = 3;
                 }
-                if (i > 2 && this.f42580c[2] == 61) {
+                if (i > 2 && this.c[2] == 61) {
                     i = 2;
                 }
                 if (i != 2) {
@@ -135,15 +131,15 @@ public final class a extends d {
                             outputStream.write((byte) i2);
                             return;
                         }
-                        b6 = f42579b[this.f42580c[3] & 255];
+                        b6 = b[this.c[3] & 255];
                     }
                     b2 = b6;
-                    b6 = f42579b[this.f42580c[2] & 255];
+                    b6 = b[this.c[2] & 255];
                 } else {
                     b2 = -1;
                 }
-                byte[] bArr2 = f42579b;
-                byte[] bArr3 = this.f42580c;
+                byte[] bArr2 = b;
+                byte[] bArr3 = this.c;
                 b3 = bArr2[bArr3[1] & 255];
                 byte b7 = b2;
                 b4 = b6;

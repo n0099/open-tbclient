@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PreferenceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class PreferenceUtils {
         if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
             try {
                 commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().remove(str));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -95,8 +95,8 @@ public class PreferenceUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, set)) == null) {
             try {
                 return PreferenceManager.getDefaultSharedPreferences(Application.get()).getStringSet(str, set);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return set;
             }
         }
@@ -114,19 +114,19 @@ public class PreferenceUtils {
         if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
             try {
                 commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putBoolean(str, z));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public static void putFloat(String str, float f2) {
+    public static void putFloat(String str, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65553, null, str, f2) == null) {
+        if (interceptable == null || interceptable.invokeLF(65553, null, str, f) == null) {
             try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putFloat(str, f2));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putFloat(str, f));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -136,8 +136,8 @@ public class PreferenceUtils {
         if (interceptable == null || interceptable.invokeLI(65554, null, str, i) == null) {
             try {
                 commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -147,8 +147,8 @@ public class PreferenceUtils {
         if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
             try {
                 commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -158,8 +158,8 @@ public class PreferenceUtils {
         if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
             try {
                 commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putString(str, str2));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -169,8 +169,8 @@ public class PreferenceUtils {
         if (interceptable == null || interceptable.invokeLL(65557, null, str, set) == null) {
             try {
                 commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putStringSet(str, set));
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -181,23 +181,23 @@ public class PreferenceUtils {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, str, z)) == null) {
             try {
                 return PreferenceManager.getDefaultSharedPreferences(Application.get()).getBoolean(str, z);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return z;
             }
         }
         return invokeLZ.booleanValue;
     }
 
-    public static float getFloat(String str, float f2) {
+    public static float getFloat(String str, float f) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65543, null, str, f)) == null) {
             try {
-                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getFloat(str, f2);
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return f2;
+                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getFloat(str, f);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return f;
             }
         }
         return invokeLF.floatValue;
@@ -209,8 +209,8 @@ public class PreferenceUtils {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
             try {
                 return PreferenceManager.getDefaultSharedPreferences(Application.get()).getInt(str, i);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return i;
             }
         }
@@ -223,8 +223,8 @@ public class PreferenceUtils {
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j)) == null) {
             try {
                 return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return j;
             }
         }
@@ -237,8 +237,8 @@ public class PreferenceUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, str, str2)) == null) {
             try {
                 return PreferenceManager.getDefaultSharedPreferences(Application.get()).getString(str, str2);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
                 return str2;
             }
         }

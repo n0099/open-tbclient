@@ -7,7 +7,6 @@ import android.os.Looper;
 import android.os.MessageQueue;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.l0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.common.SecurityUtil;
 import com.baidu.sapi2.SapiOptions;
@@ -53,6 +52,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
+import com.repackage.ie1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -61,7 +61,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class SapiAccountManager implements ISAccountManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SESSION_BDUSS = "bduss";
@@ -82,7 +82,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public char isUseOpenBdussTpl;
     public UbcUploadImplCallback ubcUploadImplCallback;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface CheckUrlIsAvailableListener {
         void handleWebPageUrl(String str);
 
@@ -319,8 +319,8 @@ public final class SapiAccountManager implements ISAccountManager {
                         }
                         arrayList.add(LoginHistoryModel.fromJSONObject(jSONObject));
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
             HashMap hashMap = new HashMap();
@@ -723,8 +723,8 @@ public final class SapiAccountManager implements ISAccountManager {
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                         try {
                                             this.this$0.checkIntegratedEnviroment();
-                                        } catch (RuntimeException e2) {
-                                            new Handler(Looper.getMainLooper()).post(new Runnable(this, e2) { // from class: com.baidu.sapi2.SapiAccountManager.1.1
+                                        } catch (RuntimeException e) {
+                                            new Handler(Looper.getMainLooper()).post(new Runnable(this, e) { // from class: com.baidu.sapi2.SapiAccountManager.1.1
                                                 public static /* synthetic */ Interceptable $ic;
                                                 public transient /* synthetic */ FieldHolder $fh;
                                                 public final /* synthetic */ AnonymousClass1 this$1;
@@ -735,7 +735,7 @@ public final class SapiAccountManager implements ISAccountManager {
                                                     if (interceptable3 != null) {
                                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                                         newInitContext.initArgs = r2;
-                                                        Object[] objArr = {this, e2};
+                                                        Object[] objArr = {this, e};
                                                         interceptable3.invokeUnInit(65536, newInitContext);
                                                         int i = newInitContext.flag;
                                                         if ((i & 1) != 0) {
@@ -746,7 +746,7 @@ public final class SapiAccountManager implements ISAccountManager {
                                                         }
                                                     }
                                                     this.this$1 = this;
-                                                    this.val$e = e2;
+                                                    this.val$e = e;
                                                 }
 
                                                 @Override // java.lang.Runnable
@@ -860,9 +860,9 @@ public final class SapiAccountManager implements ISAccountManager {
                                                         return invokeV.booleanValue;
                                                     }
                                                 });
-                                            } catch (Exception e2) {
+                                            } catch (Exception e) {
                                                 this.this$0.initSofireSDK(this.val$configuration);
-                                                Log.e(e2);
+                                                Log.e(e);
                                             }
                                         }
                                     }
@@ -968,7 +968,7 @@ public final class SapiAccountManager implements ISAccountManager {
             return;
         }
         sapiConfiguration2.setAgreeDangerousProtocol(z);
-        a.c().h(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+        ie1.c().h(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
         sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
         if (sapiConfiguration2.supportFaceLogin) {
             new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);

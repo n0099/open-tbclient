@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
-import c.a.n0.a.a;
-import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
@@ -24,8 +22,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ae3;
+import com.repackage.tg1;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class FloatButton extends FullScreenFloatView {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean o;
@@ -44,7 +44,7 @@ public class FloatButton extends FullScreenFloatView {
                 return;
             }
         }
-        o = a.a;
+        o = tg1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,20 +68,20 @@ public class FloatButton extends FullScreenFloatView {
         }
     }
 
-    private void d(float f2, float f3) {
+    private void d(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || this.a == null) {
             return;
         }
         if (o) {
-            Log.e("FloatButton", "move--> x = " + f2 + ", y = " + f3);
+            Log.e("FloatButton", "move--> x = " + f + ", y = " + f2);
         }
-        int i = this.f29110b;
-        int i2 = (int) (f2 - (i / 2));
-        int i3 = this.f29111c;
-        int i4 = (int) (f3 - (i3 / 2));
-        int i5 = this.f29112d - i;
-        int i6 = (this.f29113e - i3) - 168;
+        int i = this.b;
+        int i2 = (int) (f - (i / 2));
+        int i3 = this.c;
+        int i4 = (int) (f2 - (i3 / 2));
+        int i5 = this.d - i;
+        int i6 = (this.e - i3) - 168;
         if (i2 <= 0) {
             i2 = 0;
         }
@@ -95,7 +95,7 @@ public class FloatButton extends FullScreenFloatView {
             i6 = i4;
         }
         if (o) {
-            Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.f29114f);
+            Log.e("FloatButton", "move--> left = 0, top = 288, mStatusBarHeight = " + this.f);
         }
         this.a.setX(i5);
         this.a.setY(i6);
@@ -117,46 +117,46 @@ public class FloatButton extends FullScreenFloatView {
                 if (rect.contains((int) x, (int) y)) {
                     this.j = x;
                     this.k = y;
-                    this.f29116h = true;
-                    this.f29115g = true;
+                    this.h = true;
+                    this.g = true;
                     postDelayed(this.l, ViewConfiguration.getTapTimeout());
                 }
             } else if (action == 1) {
-                if (this.f29115g) {
+                if (this.g) {
                     FullScreenFloatView.c cVar2 = this.m;
                     if (cVar2 != null) {
                         cVar2.onClick();
                     }
                     removeCallbacks(this.l);
-                } else if (this.f29116h && (cVar = this.m) != null) {
+                } else if (this.h && (cVar = this.m) != null) {
                     cVar.a();
                 }
                 if (o) {
-                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.f29115g);
+                    Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.g);
                 }
-                if (this.i && !this.f29115g && x >= 0.0f) {
-                    int i = this.f29112d;
-                    if (x <= i && y >= 0.0f && y <= this.f29113e + this.f29111c) {
-                        this.a.animate().x(i - this.f29110b).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+                if (this.i && !this.g && x >= 0.0f) {
+                    int i = this.d;
+                    if (x <= i && y >= 0.0f && y <= this.e + this.c) {
+                        this.a.animate().x(i - this.b).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
                     }
                 }
-                this.f29115g = false;
-                this.f29116h = false;
+                this.g = false;
+                this.h = false;
             } else if (action == 2) {
                 float abs = Math.abs(x - this.j);
                 float abs2 = Math.abs(y - this.k);
                 if (Math.sqrt((abs2 * abs2) + (abs * abs)) > 10.0d) {
-                    this.f29115g = false;
+                    this.g = false;
                 }
                 d(x, y);
             } else if (action == 3) {
-                this.f29115g = false;
-                this.f29116h = false;
+                this.g = false;
+                this.h = false;
             } else if (action == 4) {
-                this.f29115g = false;
-                this.f29116h = false;
+                this.g = false;
+                this.h = false;
             }
-            return this.f29115g | this.f29116h;
+            return this.g | this.h;
         }
         return invokeL.booleanValue;
     }
@@ -164,7 +164,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonDefaultPosition() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            findViewById(R.id.obfuscated_res_0x7f0909c8).setBottom(n0.O(191.0f));
+            findViewById(R.id.obfuscated_res_0x7f0909cf).setBottom(ae3.O(191.0f));
         }
     }
 
@@ -173,7 +173,7 @@ public class FloatButton extends FullScreenFloatView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) || drawable == null) {
             return;
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0909c8);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0909cf);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
@@ -182,7 +182,7 @@ public class FloatButton extends FullScreenFloatView {
     public void setFloatButtonStyle(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909c8);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909cf);
             String optString = jSONObject != null ? jSONObject.optString("backgroundColor", "#4E4E4E") : "#4E4E4E";
             if (findViewById instanceof Button) {
                 ((GradientDrawable) findViewById.getBackground()).setColor(SwanAppConfigData.t(optString));

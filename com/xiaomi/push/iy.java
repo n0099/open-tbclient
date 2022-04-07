@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class iy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,12 +36,12 @@ public class iy {
         }
     }
 
-    public iy(String str, byte b2, short s) {
+    public iy(String str, byte b, short s) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Byte.valueOf(b2), Short.valueOf(s)};
+            Object[] objArr = {str, Byte.valueOf(b), Short.valueOf(s)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,7 +52,7 @@ public class iy {
             }
         }
         this.f790a = str;
-        this.a = b2;
+        this.a = b;
         this.f791a = s;
     }
 

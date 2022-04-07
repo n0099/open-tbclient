@@ -9,7 +9,7 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public abstract class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,14 +80,14 @@ public abstract class s {
                 long capacity = length - allocate.capacity();
                 randomAccessFile.seek(capacity);
                 randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                int d2 = d(allocate);
-                if (d2 == -1) {
+                int d = d(allocate);
+                if (d == -1) {
                     return null;
                 }
-                allocate.position(d2);
+                allocate.position(d);
                 ByteBuffer slice = allocate.slice();
                 slice.order(ByteOrder.LITTLE_ENDIAN);
-                return Pair.create(slice, Long.valueOf(capacity + d2));
+                return Pair.create(slice, Long.valueOf(capacity + d));
             }
             throw new IllegalArgumentException("maxCommentSize: ".concat(String.valueOf(i)));
         }

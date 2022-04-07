@@ -13,21 +13,19 @@ import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.z;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static ExecutorService a = com.kwad.sdk.core.i.b.g();
 
     /* renamed from: com.kwad.sdk.core.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
-    public static class C1966a extends com.kwad.sdk.core.response.kwai.a {
+    /* loaded from: classes5.dex */
+    public static class C0306a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
+        public String b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public String f39703b;
-
-        public C1966a(int i, String str) {
+        public C0306a(int i, String str) {
             this.a = i;
-            this.f39703b = str;
+            this.b = str;
         }
     }
 
@@ -43,7 +41,7 @@ public class a {
 
     public static void a(AdTemplate adTemplate, int i, int i2) {
         p.a aVar = new p.a();
-        aVar.f39734d = 69;
+        aVar.d = 69;
         aVar.r = i;
         aVar.s = i2;
         a(adTemplate, 501, aVar, (JSONObject) null);
@@ -51,7 +49,7 @@ public class a {
 
     public static void a(AdTemplate adTemplate, int i, int i2, int i3) {
         p.a aVar = new p.a();
-        aVar.f39734d = i;
+        aVar.d = i;
         aVar.r = i2;
         aVar.s = i3;
         a(adTemplate, (int) Cea708Decoder.COMMAND_DLY, aVar, (JSONObject) null);
@@ -61,16 +59,16 @@ public class a {
         p.a aVar = new p.a();
         aVar.x = j;
         aVar.y = i2;
-        aVar.f39733c = i;
+        aVar.c = i;
         a(adTemplate, 3, aVar, jSONObject);
     }
 
     public static void a(AdTemplate adTemplate, int i, AdExposureFailedReason adExposureFailedReason) {
         if (i == 0 || i == 1 || i == 2 || i == 3 || i == 4) {
             p.a aVar = new p.a();
-            aVar.f39735e = i;
+            aVar.e = i;
             if (adExposureFailedReason != null) {
-                aVar.f39736f = adExposureFailedReason.winEcpm;
+                aVar.f = adExposureFailedReason.winEcpm;
             }
             a(adTemplate, 809, aVar, (JSONObject) null);
         }
@@ -98,36 +96,36 @@ public class a {
 
     public static void a(AdTemplate adTemplate, int i, @Nullable z.a aVar) {
         p.a aVar2 = new p.a();
-        aVar2.f39732b = i;
+        aVar2.b = i;
         if (aVar != null) {
-            aVar2.f39737g = aVar;
+            aVar2.g = aVar;
         }
         a(adTemplate, 2, aVar2, (JSONObject) null);
     }
 
     public static void a(AdTemplate adTemplate, int i, z.a aVar, @Nullable JSONObject jSONObject) {
         p.a aVar2 = new p.a();
-        aVar2.f39732b = i;
-        aVar2.f39737g = aVar;
+        aVar2.b = i;
+        aVar2.g = aVar;
         a(adTemplate, 2, aVar2, jSONObject);
     }
 
     public static void a(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         p.a aVar = new p.a();
-        aVar.f39733c = i;
+        aVar.c = i;
         a(adTemplate, 3, aVar, jSONObject);
     }
 
     public static void a(AdTemplate adTemplate, int i, JSONObject jSONObject, String str) {
         p.a aVar = new p.a();
-        aVar.f39738h = str;
+        aVar.h = str;
         a(adTemplate, i, aVar, jSONObject);
     }
 
-    public static void a(AdTemplate adTemplate, C1966a c1966a) {
+    public static void a(AdTemplate adTemplate, C0306a c0306a) {
         p.a aVar = new p.a();
-        if (c1966a != null) {
-            aVar.m = c1966a.toJson().toString();
+        if (c0306a != null) {
+            aVar.m = c0306a.toJson().toString();
         }
         a(adTemplate, 40, aVar, (JSONObject) null);
     }
@@ -142,7 +140,7 @@ public class a {
 
     public static void a(AdTemplate adTemplate, z.a aVar) {
         p.a aVar2 = new p.a();
-        aVar2.f39737g = aVar;
+        aVar2.g = aVar;
         a(adTemplate, 2, aVar2, (JSONObject) null);
     }
 
@@ -162,8 +160,8 @@ public class a {
         if (aVar == null) {
             aVar = new p.a();
         }
-        aVar.f39737g = aVar2;
-        aVar.f39738h = str;
+        aVar.g = aVar2;
+        aVar.h = str;
         a(adTemplate, 2, aVar, jSONObject);
     }
 
@@ -171,7 +169,7 @@ public class a {
         if (aVar == null) {
             aVar = new p.a();
         }
-        aVar.f39738h = str;
+        aVar.h = str;
         a(adTemplate, 2, aVar, jSONObject);
     }
 
@@ -206,11 +204,11 @@ public class a {
             @Override // java.lang.Runnable
             public void run() {
                 AdInfo j = com.kwad.sdk.core.response.a.d.j(AdTemplate.this);
-                int b2 = ag.b(j.downloadId, com.kwad.sdk.core.response.a.a.v(j));
+                int b = ag.b(j.downloadId, com.kwad.sdk.core.response.a.a.v(j));
                 p.a aVar = new p.a();
                 AdTemplate adTemplate2 = AdTemplate.this;
                 aVar.j = adTemplate2.downloadSource;
-                aVar.k = b2;
+                aVar.k = b;
                 aVar.l = adTemplate2.installFrom;
                 a.a(adTemplate2, 32, aVar, (JSONObject) null);
             }
@@ -225,7 +223,7 @@ public class a {
 
     public static void c(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         p.a aVar = new p.a();
-        aVar.f39734d = i;
+        aVar.d = i;
         a(adTemplate, 140, aVar, jSONObject);
     }
 
@@ -255,7 +253,7 @@ public class a {
     public static void d(AdTemplate adTemplate, int i, @Nullable JSONObject jSONObject) {
         p.a aVar = new p.a();
         aVar.p = com.kwad.sdk.core.response.a.a.v(com.kwad.sdk.core.response.a.d.j(adTemplate));
-        aVar.f39734d = i;
+        aVar.d = i;
         a(adTemplate, 140, aVar, jSONObject);
     }
 
@@ -302,7 +300,7 @@ public class a {
 
     public static void f(AdTemplate adTemplate, int i) {
         p.a aVar = new p.a();
-        aVar.f39734d = i;
+        aVar.d = i;
         a(adTemplate, (int) Cea708Decoder.COMMAND_DLY, aVar, (JSONObject) null);
     }
 

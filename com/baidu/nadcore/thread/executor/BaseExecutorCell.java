@@ -1,8 +1,5 @@
 package com.baidu.nadcore.thread.executor;
 
-import c.a.a0.d0.c.c;
-import c.a.a0.d0.c.d;
-import c.a.a0.d0.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.c01;
+import com.repackage.e01;
+import com.repackage.f01;
+import com.repackage.g01;
 import java.util.LinkedList;
 import java.util.concurrent.ThreadPoolExecutor;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinkedList<ElasticTask> a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f27643b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public ThreadPoolExecutor f27644c;
+    public int b;
+    public ThreadPoolExecutor c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class ExecutorType {
         public static final /* synthetic */ ExecutorType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -90,14 +87,12 @@ public abstract class BaseExecutorCell {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public class a implements ElasticTask.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ElasticTask a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ BaseExecutorCell f27645b;
+        public final /* synthetic */ BaseExecutorCell b;
 
         public a(BaseExecutorCell baseExecutorCell, ElasticTask elasticTask) {
             Interceptable interceptable = $ic;
@@ -114,7 +109,7 @@ public abstract class BaseExecutorCell {
                     return;
                 }
             }
-            this.f27645b = baseExecutorCell;
+            this.b = baseExecutorCell;
             this.a = elasticTask;
         }
 
@@ -122,7 +117,7 @@ public abstract class BaseExecutorCell {
         public void afterExecuteTask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f27645b.g(this.a);
+                this.b.g(this.a);
             }
         }
 
@@ -130,12 +125,12 @@ public abstract class BaseExecutorCell {
         public void beforeExecuteTask() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f27645b.f(this.a);
+                this.b.f(this.a);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -191,7 +186,7 @@ public abstract class BaseExecutorCell {
             }
         }
         this.a = new LinkedList<>();
-        this.f27643b = i;
+        this.b = i;
     }
 
     public static BaseExecutorCell b(int i, ExecutorType executorType) {
@@ -203,15 +198,15 @@ public abstract class BaseExecutorCell {
                 if (i2 != 2) {
                     if (i2 != 3) {
                         if (i2 != 4) {
-                            return new d(i);
+                            return new f01(i);
                         }
-                        return new e(i);
+                        return new g01(i);
                     }
-                    return new c(i);
+                    return new e01(i);
                 }
-                return new d(i);
+                return new f01(i);
             }
-            return new c.a.a0.d0.c.a(i);
+            return new c01(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }
@@ -226,7 +221,7 @@ public abstract class BaseExecutorCell {
                 if (a()) {
                     elasticTask.h(new a(this, elasticTask));
                     this.a.add(elasticTask);
-                    this.f27644c.execute(elasticTask);
+                    this.c.execute(elasticTask);
                     return true;
                 }
                 return false;

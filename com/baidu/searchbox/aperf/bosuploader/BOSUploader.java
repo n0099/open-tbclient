@@ -32,7 +32,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BOSUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -104,7 +104,7 @@ public class BOSUploader {
         return (BOSUploader) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0134 A[Catch: Exception -> 0x015d, JSONException -> 0x015f, BceClientException -> 0x0161, BceServiceException -> 0x0163, TryCatch #6 {BceServiceException -> 0x0163, BceClientException -> 0x0161, JSONException -> 0x015f, Exception -> 0x015d, blocks: (B:21:0x004a, B:23:0x0056, B:25:0x0064, B:27:0x007c, B:28:0x007e, B:67:0x0159, B:68:0x015c, B:61:0x0120, B:62:0x0123, B:64:0x0134, B:65:0x014e, B:53:0x0112), top: B:112:0x004a }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0133 A[Catch: Exception -> 0x015c, JSONException -> 0x015e, BceClientException -> 0x0160, BceServiceException -> 0x0162, TryCatch #6 {BceServiceException -> 0x0162, BceClientException -> 0x0160, JSONException -> 0x015e, Exception -> 0x015c, blocks: (B:21:0x0049, B:23:0x0055, B:25:0x0063, B:27:0x007b, B:28:0x007d, B:67:0x0158, B:68:0x015b, B:61:0x011f, B:62:0x0122, B:64:0x0133, B:65:0x014d, B:53:0x0111), top: B:112:0x0049 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -183,8 +183,8 @@ public class BOSUploader {
                                 }
                                 i = 0;
                                 j = 5242880;
-                            } catch (IOException e2) {
-                                e = e2;
+                            } catch (IOException e) {
+                                e = e;
                                 fileInputStream = fileInputStream2;
                                 if (DEBUG) {
                                     e.printStackTrace();
@@ -202,8 +202,8 @@ public class BOSUploader {
                             }
                         }
                         Closeables.closeSafely(fileInputStream2);
-                    } catch (IOException e3) {
-                        e = e3;
+                    } catch (IOException e2) {
+                        e = e2;
                     }
                     CompleteMultipartUploadResponse completeMultipartUpload2 = createBosClient.completeMultipartUpload(new CompleteMultipartUploadRequest(str3, createObjectKey, initiateMultipartUpload.getUploadId(), arrayList));
                     if (DEBUG) {
@@ -214,39 +214,39 @@ public class BOSUploader {
                 } catch (Throwable th2) {
                     th = th2;
                 }
-            } catch (BceServiceException e4) {
-                e = e4;
+            } catch (BceServiceException e3) {
+                e = e3;
                 if (DEBUG) {
                     String str6 = TAG;
                     Log.e(str6, "Error Message: " + e.getMessage());
                 }
                 return new BOSResponseEntity(false, e.getMessage(), e.getStatusCode());
-            } catch (BceClientException e5) {
-                e = e5;
+            } catch (BceClientException e4) {
+                e = e4;
                 if (DEBUG) {
                     String str7 = TAG;
                     Log.e(str7, "BceClientException Error Message:" + e.getMessage());
                 }
                 return new BOSResponseEntity(false, e.getMessage());
-            } catch (JSONException e6) {
-                e = e6;
+            } catch (JSONException e5) {
+                e = e5;
                 if (DEBUG) {
                     String str8 = TAG;
                     Log.e(str8, "JSONException Message: " + e.getMessage());
                 }
                 return new BOSResponseEntity(false, e.getMessage());
-            } catch (Exception e7) {
-                e = e7;
+            } catch (Exception e6) {
+                e = e6;
                 return new BOSResponseEntity(false, e.getMessage());
             }
-        } catch (BceServiceException e8) {
+        } catch (BceServiceException e7) {
+            e = e7;
+        } catch (BceClientException e8) {
             e = e8;
-        } catch (BceClientException e9) {
+        } catch (JSONException e9) {
             e = e9;
-        } catch (JSONException e10) {
+        } catch (Exception e10) {
             e = e10;
-        } catch (Exception e11) {
-            e = e11;
         }
     }
 
@@ -309,20 +309,20 @@ public class BOSUploader {
                     return new BOSResponseEntity(false, "byte array is too big");
                 }
                 return new BOSResponseEntity(true, createBosClient.putObject(str3, createObjectKey(str, str2), bArr).getETag());
-            } catch (BceServiceException e2) {
+            } catch (BceServiceException e) {
                 if (DEBUG) {
                     String str4 = TAG;
-                    Log.e(str4, "Error Message: " + e2.getMessage());
+                    Log.e(str4, "Error Message: " + e.getMessage());
                 }
-                return new BOSResponseEntity(false, e2.getMessage(), e2.getStatusCode());
-            } catch (BceClientException e3) {
+                return new BOSResponseEntity(false, e.getMessage(), e.getStatusCode());
+            } catch (BceClientException e2) {
                 if (DEBUG) {
                     String str5 = TAG;
-                    Log.e(str5, "BceClientException Error Message:" + e3.getMessage());
+                    Log.e(str5, "BceClientException Error Message:" + e2.getMessage());
                 }
+                return new BOSResponseEntity(false, e2.getMessage());
+            } catch (Exception e3) {
                 return new BOSResponseEntity(false, e3.getMessage());
-            } catch (Exception e4) {
-                return new BOSResponseEntity(false, e4.getMessage());
             }
         }
         return (BOSResponseEntity) invokeLLLL.objValue;

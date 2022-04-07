@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class MultiSrcBinaryTaskHandler extends BinaryReqTask.BinaryTaskHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;

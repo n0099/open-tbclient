@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
@@ -77,8 +77,8 @@ public class c {
                     byteBuffer.put(this.iJ, 0, i);
                     byteBuffer.flip();
                     this.iM.onAudioFrameAvailable(byteBuffer, i, j);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return;
                 }
             }
@@ -107,9 +107,9 @@ public class c {
             try {
                 this.iH.startRecording();
                 recordingState = this.iH.getRecordingState();
-            } catch (IllegalStateException e2) {
+            } catch (IllegalStateException e) {
                 com.baidu.ar.h.b.b(TAG, "startAudioRecord error!!!");
-                e2.printStackTrace();
+                e.printStackTrace();
             }
             if (recordingState == 3) {
                 iP = z;
@@ -162,8 +162,8 @@ public class c {
         this.iJ = null;
         try {
             this.iH.stop();
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         a aVar = this.iM;
         if (aVar != null) {

@@ -13,7 +13,7 @@ import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class TKMarqueeText extends TKBase<MarqueeTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,24 +82,24 @@ public class TKMarqueeText extends TKBase<MarqueeTextView> {
     }
 
     public void setFontWeight(String str) {
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             int hashCode = str.hashCode();
             if (hashCode != -1039745817) {
                 if (hashCode == 3029637 && str.equals("bold")) {
-                    c2 = 0;
+                    c = 0;
                 }
-                c2 = 65535;
+                c = 65535;
             } else {
                 if (str.equals("normal")) {
-                    c2 = 1;
+                    c = 1;
                 }
-                c2 = 65535;
+                c = 65535;
             }
-            if (c2 == 0) {
+            if (c == 0) {
                 getView().setTypeface(getView().getTypeface(), 1);
-            } else if (c2 != 1) {
+            } else if (c != 1) {
             } else {
                 getView().setTypeface(getView().getTypeface(), 0);
             }

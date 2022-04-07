@@ -52,12 +52,12 @@ public class ChangeTransform extends Transition {
         public GhostView mGhostView;
         public View mView;
 
-        public GhostListener(View view, GhostView ghostView) {
+        public GhostListener(View view2, GhostView ghostView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, ghostView};
+                Object[] objArr = {view2, ghostView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,7 +67,7 @@ public class ChangeTransform extends Transition {
                     return;
                 }
             }
-            this.mView = view;
+            this.mView = view2;
             this.mGhostView = ghostView;
         }
 
@@ -109,12 +109,12 @@ public class ChangeTransform extends Transition {
         public final float[] mValues;
         public final View mView;
 
-        public PathAnimatorMatrix(View view, float[] fArr) {
+        public PathAnimatorMatrix(View view2, float[] fArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, fArr};
+                Object[] objArr = {view2, fArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -125,7 +125,7 @@ public class ChangeTransform extends Transition {
                 }
             }
             this.mMatrix = new Matrix();
-            this.mView = view;
+            this.mView = view2;
             float[] fArr2 = (float[]) fArr.clone();
             this.mValues = fArr2;
             this.mTranslationX = fArr2[2];
@@ -181,12 +181,12 @@ public class ChangeTransform extends Transition {
         public final float mTranslationY;
         public final float mTranslationZ;
 
-        public Transforms(View view) {
+        public Transforms(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -196,14 +196,14 @@ public class ChangeTransform extends Transition {
                     return;
                 }
             }
-            this.mTranslationX = view.getTranslationX();
-            this.mTranslationY = view.getTranslationY();
-            this.mTranslationZ = ViewCompat.getTranslationZ(view);
-            this.mScaleX = view.getScaleX();
-            this.mScaleY = view.getScaleY();
-            this.mRotationX = view.getRotationX();
-            this.mRotationY = view.getRotationY();
-            this.mRotationZ = view.getRotation();
+            this.mTranslationX = view2.getTranslationX();
+            this.mTranslationY = view2.getTranslationY();
+            this.mTranslationZ = ViewCompat.getTranslationZ(view2);
+            this.mScaleX = view2.getScaleX();
+            this.mScaleY = view2.getScaleY();
+            this.mRotationX = view2.getRotationX();
+            this.mRotationY = view2.getRotationY();
+            this.mRotationZ = view2.getRotation();
         }
 
         public boolean equals(Object obj) {
@@ -223,30 +223,30 @@ public class ChangeTransform extends Transition {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                float f2 = this.mTranslationX;
-                int floatToIntBits = (f2 != 0.0f ? Float.floatToIntBits(f2) : 0) * 31;
-                float f3 = this.mTranslationY;
-                int floatToIntBits2 = (floatToIntBits + (f3 != 0.0f ? Float.floatToIntBits(f3) : 0)) * 31;
-                float f4 = this.mTranslationZ;
-                int floatToIntBits3 = (floatToIntBits2 + (f4 != 0.0f ? Float.floatToIntBits(f4) : 0)) * 31;
-                float f5 = this.mScaleX;
-                int floatToIntBits4 = (floatToIntBits3 + (f5 != 0.0f ? Float.floatToIntBits(f5) : 0)) * 31;
-                float f6 = this.mScaleY;
-                int floatToIntBits5 = (floatToIntBits4 + (f6 != 0.0f ? Float.floatToIntBits(f6) : 0)) * 31;
-                float f7 = this.mRotationX;
-                int floatToIntBits6 = (floatToIntBits5 + (f7 != 0.0f ? Float.floatToIntBits(f7) : 0)) * 31;
-                float f8 = this.mRotationY;
-                int floatToIntBits7 = (floatToIntBits6 + (f8 != 0.0f ? Float.floatToIntBits(f8) : 0)) * 31;
-                float f9 = this.mRotationZ;
-                return floatToIntBits7 + (f9 != 0.0f ? Float.floatToIntBits(f9) : 0);
+                float f = this.mTranslationX;
+                int floatToIntBits = (f != 0.0f ? Float.floatToIntBits(f) : 0) * 31;
+                float f2 = this.mTranslationY;
+                int floatToIntBits2 = (floatToIntBits + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0)) * 31;
+                float f3 = this.mTranslationZ;
+                int floatToIntBits3 = (floatToIntBits2 + (f3 != 0.0f ? Float.floatToIntBits(f3) : 0)) * 31;
+                float f4 = this.mScaleX;
+                int floatToIntBits4 = (floatToIntBits3 + (f4 != 0.0f ? Float.floatToIntBits(f4) : 0)) * 31;
+                float f5 = this.mScaleY;
+                int floatToIntBits5 = (floatToIntBits4 + (f5 != 0.0f ? Float.floatToIntBits(f5) : 0)) * 31;
+                float f6 = this.mRotationX;
+                int floatToIntBits6 = (floatToIntBits5 + (f6 != 0.0f ? Float.floatToIntBits(f6) : 0)) * 31;
+                float f7 = this.mRotationY;
+                int floatToIntBits7 = (floatToIntBits6 + (f7 != 0.0f ? Float.floatToIntBits(f7) : 0)) * 31;
+                float f8 = this.mRotationZ;
+                return floatToIntBits7 + (f8 != 0.0f ? Float.floatToIntBits(f8) : 0);
             }
             return invokeV.intValue;
         }
 
-        public void restore(View view) {
+        public void restore(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-                ChangeTransform.setTransforms(view, this.mTranslationX, this.mTranslationY, this.mTranslationZ, this.mScaleX, this.mScaleY, this.mRotationX, this.mRotationY, this.mRotationZ);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+                ChangeTransform.setTransforms(view2, this.mTranslationX, this.mTranslationY, this.mTranslationZ, this.mScaleX, this.mScaleY, this.mRotationX, this.mRotationY, this.mRotationZ);
             }
         }
     }
@@ -379,22 +379,22 @@ public class ChangeTransform extends Transition {
     private void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, transitionValues) == null) {
-            View view = transitionValues.view;
-            if (view.getVisibility() == 8) {
+            View view2 = transitionValues.f980view;
+            if (view2.getVisibility() == 8) {
                 return;
             }
-            transitionValues.values.put(PROPNAME_PARENT, view.getParent());
-            transitionValues.values.put(PROPNAME_TRANSFORMS, new Transforms(view));
-            Matrix matrix = view.getMatrix();
+            transitionValues.values.put(PROPNAME_PARENT, view2.getParent());
+            transitionValues.values.put(PROPNAME_TRANSFORMS, new Transforms(view2));
+            Matrix matrix = view2.getMatrix();
             transitionValues.values.put(PROPNAME_MATRIX, (matrix == null || matrix.isIdentity()) ? null : new Matrix(matrix));
             if (this.mReparent) {
                 Matrix matrix2 = new Matrix();
-                ViewGroup viewGroup = (ViewGroup) view.getParent();
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
                 ViewUtils.transformMatrixToGlobal(viewGroup, matrix2);
                 matrix2.preTranslate(-viewGroup.getScrollX(), -viewGroup.getScrollY());
                 transitionValues.values.put(PROPNAME_PARENT_MATRIX, matrix2);
-                transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view.getTag(R$id.transition_transform));
-                transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view.getTag(R$id.parent_matrix));
+                transitionValues.values.put(PROPNAME_INTERMEDIATE_MATRIX, view2.getTag(R$id.transition_transform));
+                transitionValues.values.put(PROPNAME_INTERMEDIATE_PARENT_MATRIX, view2.getTag(R$id.parent_matrix));
             }
         }
     }
@@ -402,14 +402,14 @@ public class ChangeTransform extends Transition {
     private void createGhostView(ViewGroup viewGroup, TransitionValues transitionValues, TransitionValues transitionValues2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, viewGroup, transitionValues, transitionValues2) == null) {
-            View view = transitionValues2.view;
+            View view2 = transitionValues2.f980view;
             Matrix matrix = new Matrix((Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX));
             ViewUtils.transformMatrixToLocal(viewGroup, matrix);
-            GhostView addGhost = GhostViewUtils.addGhost(view, viewGroup, matrix);
+            GhostView addGhost = GhostViewUtils.addGhost(view2, viewGroup, matrix);
             if (addGhost == null) {
                 return;
             }
-            addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.view);
+            addGhost.reserveEndViewTransition((ViewGroup) transitionValues.values.get(PROPNAME_PARENT), transitionValues.f980view);
             Transition transition = this;
             while (true) {
                 Transition transition2 = transition.mParent;
@@ -418,13 +418,13 @@ public class ChangeTransform extends Transition {
                 }
                 transition = transition2;
             }
-            transition.addListener(new GhostListener(view, addGhost));
+            transition.addListener(new GhostListener(view2, addGhost));
             if (SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                View view2 = transitionValues.view;
-                if (view2 != transitionValues2.view) {
-                    ViewUtils.setTransitionAlpha(view2, 0.0f);
+                View view3 = transitionValues.f980view;
+                if (view3 != transitionValues2.f980view) {
+                    ViewUtils.setTransitionAlpha(view3, 0.0f);
                 }
-                ViewUtils.setTransitionAlpha(view, 1.0f);
+                ViewUtils.setTransitionAlpha(view2, 1.0f);
             }
         }
     }
@@ -446,15 +446,15 @@ public class ChangeTransform extends Transition {
                 return null;
             }
             Transforms transforms = (Transforms) transitionValues2.values.get(PROPNAME_TRANSFORMS);
-            View view = transitionValues2.view;
-            setIdentityTransforms(view);
+            View view2 = transitionValues2.f980view;
+            setIdentityTransforms(view2);
             float[] fArr = new float[9];
             matrix.getValues(fArr);
             float[] fArr2 = new float[9];
             matrix3.getValues(fArr2);
-            PathAnimatorMatrix pathAnimatorMatrix = new PathAnimatorMatrix(view, fArr);
+            PathAnimatorMatrix pathAnimatorMatrix = new PathAnimatorMatrix(view2, fArr);
             ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(pathAnimatorMatrix, PropertyValuesHolder.ofObject(NON_TRANSLATIONS_PROPERTY, new FloatArrayEvaluator(new float[9]), fArr, fArr2), PropertyValuesHolderUtils.ofPointF(TRANSLATIONS_PROPERTY, getPathMotion().getPath(fArr[2], fArr[5], fArr2[2], fArr2[5])));
-            AnimatorListenerAdapter animatorListenerAdapter = new AnimatorListenerAdapter(this, z, matrix3, view, transforms, pathAnimatorMatrix) { // from class: androidx.transition.ChangeTransform.3
+            AnimatorListenerAdapter animatorListenerAdapter = new AnimatorListenerAdapter(this, z, matrix3, view2, transforms, pathAnimatorMatrix) { // from class: androidx.transition.ChangeTransform.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public boolean mIsCanceled;
@@ -471,7 +471,7 @@ public class ChangeTransform extends Transition {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), matrix3, view, transforms, pathAnimatorMatrix};
+                        Object[] objArr = {this, Boolean.valueOf(z), matrix3, view2, transforms, pathAnimatorMatrix};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -484,7 +484,7 @@ public class ChangeTransform extends Transition {
                     this.this$0 = this;
                     this.val$handleParentChange = z;
                     this.val$finalEndMatrix = matrix3;
-                    this.val$view = view;
+                    this.val$view = view2;
                     this.val$transforms = transforms;
                     this.val$pathAnimatorMatrix = pathAnimatorMatrix;
                     this.mTempMatrix = new Matrix();
@@ -548,7 +548,7 @@ public class ChangeTransform extends Transition {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001b, code lost:
-        if (r6 == r5.view) goto L12;
+        if (r6 == r5.f980view) goto L12;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x001e, code lost:
         if (r5 == r6) goto L12;
@@ -577,10 +577,10 @@ public class ChangeTransform extends Transition {
         }
     }
 
-    public static void setIdentityTransforms(View view) {
+    public static void setIdentityTransforms(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, view) == null) {
-            setTransforms(view, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f);
+        if (interceptable == null || interceptable.invokeL(65543, null, view2) == null) {
+            setTransforms(view2, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f);
         }
     }
 
@@ -588,7 +588,7 @@ public class ChangeTransform extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, transitionValues, transitionValues2) == null) {
             Matrix matrix = (Matrix) transitionValues2.values.get(PROPNAME_PARENT_MATRIX);
-            transitionValues2.view.setTag(R$id.parent_matrix, matrix);
+            transitionValues2.f980view.setTag(R$id.parent_matrix, matrix);
             Matrix matrix2 = this.mTempMatrix;
             matrix2.reset();
             matrix.invert(matrix2);
@@ -602,17 +602,17 @@ public class ChangeTransform extends Transition {
         }
     }
 
-    public static void setTransforms(View view, float f2, float f3, float f4, float f5, float f6, float f7, float f8, float f9) {
+    public static void setTransforms(View view2, float f, float f2, float f3, float f4, float f5, float f6, float f7, float f8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9)}) == null) {
-            view.setTranslationX(f2);
-            view.setTranslationY(f3);
-            ViewCompat.setTranslationZ(view, f4);
-            view.setScaleX(f5);
-            view.setScaleY(f6);
-            view.setRotationX(f7);
-            view.setRotationY(f8);
-            view.setRotation(f9);
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8)}) == null) {
+            view2.setTranslationX(f);
+            view2.setTranslationY(f2);
+            ViewCompat.setTranslationZ(view2, f3);
+            view2.setScaleX(f4);
+            view2.setScaleY(f5);
+            view2.setRotationX(f6);
+            view2.setRotationY(f7);
+            view2.setRotation(f8);
         }
     }
 
@@ -632,7 +632,7 @@ public class ChangeTransform extends Transition {
             if (SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
                 return;
             }
-            ((ViewGroup) transitionValues.view.getParent()).startViewTransition(transitionValues.view);
+            ((ViewGroup) transitionValues.f980view.getParent()).startViewTransition(transitionValues.f980view);
         }
     }
 
@@ -661,7 +661,7 @@ public class ChangeTransform extends Transition {
             if (z && createTransformAnimator != null && this.mUseOverlay) {
                 createGhostView(viewGroup, transitionValues, transitionValues2);
             } else if (!SUPPORTS_VIEW_REMOVAL_SUPPRESSION) {
-                viewGroup2.endViewTransition(transitionValues.view);
+                viewGroup2.endViewTransition(transitionValues.f980view);
             }
             return createTransformAnimator;
         }

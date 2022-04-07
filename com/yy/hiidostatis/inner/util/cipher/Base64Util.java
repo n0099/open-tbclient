@@ -12,7 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Base64Util {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] legalChars;
@@ -48,31 +48,31 @@ public class Base64Util {
         }
     }
 
-    public static int decode(char c2) {
+    public static int decode(char c) {
         InterceptResult invokeCommon;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 < 'A' || c2 > 'Z') {
-                if (c2 >= 'a' && c2 <= 'z') {
-                    i = c2 - 'a';
-                } else if (c2 < '0' || c2 > '9') {
-                    if (c2 != '+') {
-                        if (c2 != '/') {
-                            if (c2 == '=') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'A' || c > 'Z') {
+                if (c >= 'a' && c <= 'z') {
+                    i = c - 'a';
+                } else if (c < '0' || c > '9') {
+                    if (c != '+') {
+                        if (c != '/') {
+                            if (c == '=') {
                                 return 0;
                             }
-                            throw new RuntimeException("unexpected code: " + c2);
+                            throw new RuntimeException("unexpected code: " + c);
                         }
                         return 63;
                     }
                     return 62;
                 } else {
-                    i = (c2 - '0') + 26;
+                    i = (c - '0') + 26;
                 }
                 return i + 26;
             }
-            return c2 - 'A';
+            return c - 'A';
         }
         return invokeCommon.intValue;
     }
@@ -129,9 +129,9 @@ public class Base64Util {
                 byte[] byteArray = byteArrayOutputStream.toByteArray();
                 try {
                     byteArrayOutputStream.close();
-                } catch (IOException e2) {
+                } catch (IOException e) {
                     PrintStream printStream = System.err;
-                    printStream.println("Error while decoding BASE64: " + e2.toString());
+                    printStream.println("Error while decoding BASE64: " + e.toString());
                 }
                 return byteArray;
             } catch (IOException unused) {

@@ -10,20 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.sdk.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static final String f37953b = "b";
+    public static final String b = "b";
     public transient /* synthetic */ FieldHolder $fh;
     public BdNetTask a;
-
-    /* renamed from: c  reason: collision with root package name */
-    public BdNet f37954c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public BdNetEngine f37955d;
+    public BdNet c;
+    public BdNetEngine d;
 
     static {
         InterceptResult invokeClinit;
@@ -55,14 +49,14 @@ public class b {
                 return;
             }
         }
-        this.f37954c = bdNet;
+        this.c = bdNet;
     }
 
     public final void a(BdNetEngine bdNetEngine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdNetEngine) == null) {
-            this.f37955d = bdNetEngine;
-            bdNetEngine.setEventListener(this.f37954c);
+            this.d = bdNetEngine;
+            bdNetEngine.setEventListener(this.c);
         }
     }
 
@@ -85,23 +79,23 @@ public class b {
             }
             try {
                 this.a = bdNetTask;
-                bdNetTask.setNet(this.f37954c);
+                bdNetTask.setNet(this.c);
                 this.a.setWorker(this);
-                if (a.a().f37952c == null) {
-                    a.a().f37952c = this.f37954c.getContext();
+                if (a.a().c == null) {
+                    a.a().c = this.c.getContext();
                 }
-                BdNetEngine e2 = a.a().e();
-                this.f37955d = e2;
-                if (e2 != null) {
-                    e2.setEventListener(this.f37954c);
+                BdNetEngine e = a.a().e();
+                this.d = e;
+                if (e != null) {
+                    e.setEventListener(this.c);
                     a.a();
                     if (!a.b()) {
-                        bdNetEngine = this.f37955d;
+                        bdNetEngine = this.d;
                         bdNetTask2 = this.a;
                     } else if (!this.a.isHigherPriority()) {
                         return true;
                     } else {
-                        bdNetEngine = this.f37955d;
+                        bdNetEngine = this.d;
                         bdNetTask2 = this.a;
                     }
                     bdNetEngine.startDownload(bdNetTask2);
@@ -112,7 +106,7 @@ public class b {
                     BdNetTask bdNetTask3 = this.a;
                     if (bdNetTask3.getTaskPriority() == null) {
                         a = a.a();
-                        ordinal = BdNetTask.b.f37943b.ordinal();
+                        ordinal = BdNetTask.b.b.ordinal();
                     } else {
                         a = a.a();
                         ordinal = bdNetTask3.getTaskPriority().ordinal();
@@ -122,11 +116,11 @@ public class b {
                 }
                 return true;
             } catch (Exception unused) {
-                BdNetEngine bdNetEngine2 = this.f37955d;
+                BdNetEngine bdNetEngine2 = this.d;
                 if (bdNetEngine2 != null) {
                     bdNetEngine2.recycle();
                 }
-                BdNet bdNet = this.f37954c;
+                BdNet bdNet = this.c;
                 if (bdNet != null) {
                     bdNet.startError(bdNetTask);
                 }
@@ -145,8 +139,8 @@ public class b {
                     this.a.stop();
                     this.a = null;
                 }
-            } catch (Exception e2) {
-                Log.d(f37953b, "stop Exception", e2);
+            } catch (Exception e) {
+                Log.d(b, "stop Exception", e);
             }
         }
     }

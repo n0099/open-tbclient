@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.gamesubpb.model;
 
-import c.a.p0.f1.y1.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -9,12 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.al6;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class FrsDeleteSubCommentResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d mData;
+    public al6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsDeleteSubCommentResponseMessage() {
@@ -43,13 +43,13 @@ public class FrsDeleteSubCommentResponseMessage extends JsonHttpResponsedMessage
             if (hasError() || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || optJSONObject.optJSONObject("sub_comment") == null) {
                 return;
             }
-            this.mData = new d(optJSONObject.optJSONObject("sub_comment"));
+            this.mData = new al6(optJSONObject.optJSONObject("sub_comment"));
         }
     }
 
-    public d getSubCommentData() {
+    public al6 getSubCommentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (al6) invokeV.objValue;
     }
 }

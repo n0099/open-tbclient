@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class LandmarksPoints {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COORDS_PER_VERTEX = 2;
@@ -115,28 +115,28 @@ public class LandmarksPoints {
         }
     }
 
-    public void refresh(float[] fArr, int i, int i2, float f2, float f3, boolean z) {
+    public void refresh(float[] fArr, int i, int i2, float f, float f2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
             for (int i3 = 0; i3 < 150; i3++) {
                 this.pointsCoords[i3] = fArr[i3];
             }
             for (int i4 = 0; i4 < fArr.length; i4 += 2) {
-                float f4 = z ? i - this.pointsCoords[i4] : this.pointsCoords[i4];
+                float f3 = z ? i - this.pointsCoords[i4] : this.pointsCoords[i4];
                 float[] fArr2 = this.pointsCoords;
                 int i5 = i4 + 1;
                 fArr2[i4] = (-(((fArr2[i5] / i2) * 0.8f) + 0.2f)) * 1.0f;
-                fArr2[i5] = (((((f4 / i) - f2) / f3) * 0.64f) + 0.36f) * 1.0f;
+                fArr2[i5] = (((((f3 / i) - f) / f2) * 0.64f) + 0.36f) * 1.0f;
             }
             this.vertexBuffer.put(this.pointsCoords);
             this.vertexBuffer.position(0);
         }
     }
 
-    public void setPointSize(float f2) {
+    public void setPointSize(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.mPointSize = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+            this.mPointSize = f;
         }
     }
 }

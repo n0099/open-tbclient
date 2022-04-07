@@ -1,7 +1,7 @@
 package com.baidu.livesdk.api.service;
 
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface Tab {
     void addTab(Map map);
 

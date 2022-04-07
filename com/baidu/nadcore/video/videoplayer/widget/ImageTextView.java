@@ -5,7 +5,6 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.a0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,20 +13,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.b21;
+/* loaded from: classes2.dex */
 public class ImageTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final int f27709d;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f27710b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f27711c;
+    public ImageView b;
+    public TextView c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +36,7 @@ public class ImageTextView extends LinearLayout {
                 return;
             }
         }
-        f27709d = b.a(4.0f);
+        d = b21.a(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,16 +66,16 @@ public class ImageTextView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             ImageView imageView = new ImageView(getContext());
-            this.f27710b = imageView;
+            this.b = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f27710b, new LinearLayout.LayoutParams(-2, -2));
+            addView(this.b, new LinearLayout.LayoutParams(-2, -2));
             TextView textView = new TextView(getContext());
-            this.f27711c = textView;
+            this.c = textView;
             textView.setTextColor(-1);
-            this.f27711c.setTextSize(12.0f);
+            this.c.setTextSize(12.0f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, f27709d, 0, 0);
-            addView(this.f27711c, layoutParams);
+            layoutParams.setMargins(0, d, 0, 0);
+            addView(this.c, layoutParams);
         }
     }
 
@@ -89,7 +83,7 @@ public class ImageTextView extends LinearLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            this.f27711c.setTextColor(getResources().getColorStateList(i));
+            this.c.setTextColor(getResources().getColorStateList(i));
             return this;
         }
         return (ImageTextView) invokeI.objValue;
@@ -100,21 +94,21 @@ public class ImageTextView extends LinearLayout {
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             if (i != 0) {
                 if (this.a != i) {
-                    this.f27710b.setImageResource(i);
-                    this.f27710b.setVisibility(0);
+                    this.b.setImageResource(i);
+                    this.b.setVisibility(0);
                     this.a = i;
                 }
             } else {
-                this.f27710b.setImageDrawable(null);
-                this.f27710b.setVisibility(8);
+                this.b.setImageDrawable(null);
+                this.b.setVisibility(8);
             }
             if (i2 != 0) {
-                this.f27711c.setText(i2);
-                this.f27711c.setVisibility(0);
+                this.c.setText(i2);
+                this.c.setVisibility(0);
                 return;
             }
-            this.f27711c.setText((CharSequence) null);
-            this.f27711c.setVisibility(8);
+            this.c.setText((CharSequence) null);
+            this.c.setVisibility(8);
         }
     }
 

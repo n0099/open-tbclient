@@ -12,13 +12,13 @@ public class l extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        String c2 = this.f43006b.c("s");
-        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c(ag.f26685h), c2);
-        String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("ah"), c2);
-        String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("ai"), c2);
-        String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.f43006b.c("aj"), c2);
+        String c = this.b.c("s");
+        String a = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c(ag.h), c);
+        String a2 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("ah"), c);
+        String a3 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("ai"), c);
+        String a4 = com.ss.android.socialbase.appdownloader.f.c.a(this.b.c("aj"), c);
         Intent intent = new Intent();
-        intent.putExtra(a, this.f43007c);
+        intent.putExtra(a, this.c);
         intent.putExtra(a2, "*/*");
         intent.putExtra(a3, true);
         intent.setAction(a4);

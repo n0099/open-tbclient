@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class DnsChecker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class DnsChecker {
         }
         try {
             System.loadLibrary("DnsChecker");
-        } catch (UnsatisfiedLinkError e2) {
+        } catch (UnsatisfiedLinkError e) {
             if (DnsUtil.DEBUG) {
-                e2.printStackTrace();
+                e.printStackTrace();
             }
         }
     }

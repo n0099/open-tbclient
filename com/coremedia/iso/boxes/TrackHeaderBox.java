@@ -27,7 +27,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TrackHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tkhd";
@@ -395,11 +395,11 @@ public class TrackHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setHeight(double d2) {
+    public void setHeight(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Double.valueOf(d2)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_21, this, this, Conversions.doubleObject(d2)));
-            this.height = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Double.valueOf(d)}) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_21, this, this, Conversions.doubleObject(d)));
+            this.height = d;
         }
     }
 
@@ -474,19 +474,19 @@ public class TrackHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setVolume(float f2) {
+    public void setVolume(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048605, this, f2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_18, this, this, Conversions.floatObject(f2)));
-            this.volume = f2;
+        if (interceptable == null || interceptable.invokeF(1048605, this, f) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_18, this, this, Conversions.floatObject(f)));
+            this.volume = f;
         }
     }
 
-    public void setWidth(double d2) {
+    public void setWidth(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Double.valueOf(d2)}) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_20, this, this, Conversions.doubleObject(d2)));
-            this.width = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Double.valueOf(d)}) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_20, this, this, Conversions.doubleObject(d)));
+            this.width = d;
         }
     }
 

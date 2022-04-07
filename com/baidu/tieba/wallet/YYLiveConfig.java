@@ -1,16 +1,16 @@
 package com.baidu.tieba.wallet;
 
-import c.a.d.f.p.m;
-import c.a.o0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ni;
+import com.repackage.wt4;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class YYLiveConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,18 +60,18 @@ public class YYLiveConfig {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
             if (jSONObject != null) {
                 parse(jSONObject);
-                b.k().y("key_extra_yy_config", jSONObject.toString());
+                wt4.k().y("key_extra_yy_config", jSONObject.toString());
                 return;
             }
-            String q = b.k().q("key_extra_yy_config", "");
-            if (!m.isEmpty(q)) {
+            String q = wt4.k().q("key_extra_yy_config", "");
+            if (!ni.isEmpty(q)) {
                 try {
                     parse(new JSONObject(q));
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            b.k().y("key_extra_yy_config", "");
+            wt4.k().y("key_extra_yy_config", "");
         }
     }
 
@@ -83,10 +83,10 @@ public class YYLiveConfig {
             try {
                 jSONObject.put("yy_pay_open", this.yyPayOpen);
                 jSONObject.put("yy_is_convert", this.yyIsConvert);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            b.k().y("key_extra_yy_config", jSONObject.toString());
+            wt4.k().y("key_extra_yy_config", jSONObject.toString());
         }
     }
 }

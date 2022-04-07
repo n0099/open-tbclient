@@ -9,7 +9,7 @@ import kotlin.jvm.internal.markers.KMutableSet;
 /* loaded from: classes8.dex */
 public abstract class AbstractMutableSet<E> extends java.util.AbstractSet<E> implements Set<E>, KMutableSet {
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.Set
-    public abstract boolean add(E e2);
+    public abstract boolean add(E e);
 
     public abstract int getSize();
 

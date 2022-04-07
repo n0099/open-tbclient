@@ -1,6 +1,5 @@
 package com.fun.ad.sdk.channel;
 
-import c.d.a0.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,12 +12,13 @@ import com.fun.ad.sdk.FunAdConfig;
 import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-/* loaded from: classes6.dex */
+import com.repackage.fg9;
+/* loaded from: classes4.dex */
 public class CsjModule implements Module {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public class a implements TTAdSdk.InitCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class CsjModule implements Module {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(funAdConfig.logEnabled).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).customController(funAdConfig.ttCustomCtr).supportMultiProcess(funAdConfig.ttSupportMultiProcess).build(), new a(this, funAdConfig));
-            return new e();
+            return new fg9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

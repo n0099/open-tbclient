@@ -66,8 +66,8 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
             method2 = cls.getMethod("addFontWeightStyle", ByteBuffer.class, Integer.TYPE, List.class, Integer.TYPE, Boolean.TYPE);
             method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
             constructor = constructor2;
-        } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            Log.e(TAG, e2.getClass().getName(), e2);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            Log.e(TAG, e.getClass().getName(), e);
             cls = null;
             method = null;
             method2 = null;

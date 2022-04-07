@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class RemoteSdpRequest implements IJsonSignalling {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemoteSdpRequest";
@@ -50,8 +50,8 @@ public class RemoteSdpRequest implements IJsonSignalling {
                 jSONObject.put("sdp", this.sdp);
                 jSONObject.put("transaction", String.valueOf(this.transactionId));
                 jSONObject.put("streamurl", this.streamUrl);
-            } catch (JSONException e2) {
-                Logging.e("RemoteSdpRequest", "Caught error while play request as json" + e2.getMessage());
+            } catch (JSONException e) {
+                Logging.e("RemoteSdpRequest", "Caught error while play request as json" + e.getMessage());
             }
             return jSONObject;
         }

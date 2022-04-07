@@ -11,7 +11,7 @@ import java.security.MessageDigest;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
@@ -43,8 +43,8 @@ public class e {
                 Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
-            } catch (Exception e2) {
-                SLog.e("DESUtils", "encryptAES", e2);
+            } catch (Exception e) {
+                SLog.e("DESUtils", "encryptAES", e);
                 return null;
             }
         }
@@ -59,8 +59,8 @@ public class e {
                 MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
                 messageDigest.update(str.getBytes());
                 return messageDigest.digest();
-            } catch (Exception e2) {
-                SLog.e("DESUtils", "encryptSha", e2);
+            } catch (Exception e) {
+                SLog.e("DESUtils", "encryptSha", e);
                 return null;
             }
         }
@@ -76,11 +76,11 @@ public class e {
             }
             char[] cArr = new char[bArr.length * 2];
             for (int i = 0; i < bArr.length; i++) {
-                byte b2 = bArr[i];
+                byte b = bArr[i];
                 int i2 = i * 2;
                 char[] cArr2 = a;
-                cArr[i2 + 1] = cArr2[b2 & 15];
-                cArr[i2] = cArr2[((byte) (b2 >>> 4)) & 15];
+                cArr[i2 + 1] = cArr2[b & 15];
+                cArr[i2] = cArr2[((byte) (b >>> 4)) & 15];
             }
             return new String(cArr);
         }

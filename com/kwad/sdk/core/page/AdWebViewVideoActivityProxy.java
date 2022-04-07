@@ -27,7 +27,7 @@ import java.io.Serializable;
 import java.util.List;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public static final String KEY_REPORTED = "key_reported";
     public static final String KEY_TEMPLATE = "key_template";
@@ -39,13 +39,13 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     public ViewGroup mWebDownloadContainer;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a.C1956a getAdClickConfig(boolean z) {
-        return new a.C1956a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
+    public a.C0296a getAdClickConfig(boolean z) {
+        return new a.C0296a(getActivity()).a(z).b(false).a(this.mAdTemplate).d(false);
     }
 
     private void initView() {
-        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f09118e);
-        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09118d);
+        this.mProgressbar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091187);
+        this.mWebDownloadContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091186);
         final AdInfo j = com.kwad.sdk.core.response.a.d.j(this.mAdTemplate);
         if (com.kwad.sdk.core.response.a.a.B(j)) {
             this.mWebDownloadContainer.setVisibility(0);
@@ -88,16 +88,16 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
             });
             this.mProgressbar.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.2
                 @Override // android.view.View.OnClickListener
-                public void onClick(View view) {
+                public void onClick(View view2) {
                     AdWebViewVideoActivityProxy.this.mApkDownloadHelper.a(AdWebViewVideoActivityProxy.this.getAdClickConfig(true));
                 }
             });
         } else {
             this.mWebDownloadContainer.setVisibility(8);
         }
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ac);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ad);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910ae);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a5);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a6);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a7);
         List<AdInfo> list = this.mAdTemplate.adInfoList;
         if (list != null && list.size() > 0 && this.mAdTemplate.adInfoList.get(0) != null) {
             AdInfo.AdBaseInfo adBaseInfo = this.mAdTemplate.adInfoList.get(0).adBaseInfo;
@@ -105,13 +105,13 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
                 textView.setText(adBaseInfo.productName);
                 imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.3
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         AdWebViewVideoActivityProxy.this.finish();
                     }
                 });
                 imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.4
                     @Override // android.view.View.OnClickListener
-                    public void onClick(View view) {
+                    public void onClick(View view2) {
                         AdWebViewVideoActivityProxy.this.onBackPressed();
                     }
                 });
@@ -120,19 +120,19 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
                 b a = b.a(this.mAdTemplate);
                 this.mFragment = a;
                 a.a(this.mApkDownloadHelper);
-                getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0910c9, this.mFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0910c2, this.mFragment).commitAllowingStateLoss();
             }
         }
         textView.setText("详情页面");
         imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.3
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AdWebViewVideoActivityProxy.this.finish();
             }
         });
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.AdWebViewVideoActivityProxy.4
             @Override // android.view.View.OnClickListener
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 AdWebViewVideoActivityProxy.this.onBackPressed();
             }
         });
@@ -141,7 +141,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
         b a2 = b.a(this.mAdTemplate);
         this.mFragment = a2;
         a2.a(this.mApkDownloadHelper);
-        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0910c9, this.mFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0910c2, this.mFragment).commitAllowingStateLoss();
     }
 
     private boolean isFormAdExitInterceptEnable() {
@@ -215,7 +215,7 @@ public class AdWebViewVideoActivityProxy extends com.kwad.sdk.h.b {
     @Override // com.kwad.sdk.h.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d0416);
+        setContentView(R.layout.obfuscated_res_0x7f0d0411);
         Serializable serializableExtra = getIntent().getSerializableExtra(KEY_TEMPLATE);
         showingAdWebViewVideoActivity = true;
         if (!(serializableExtra instanceof AdTemplate)) {

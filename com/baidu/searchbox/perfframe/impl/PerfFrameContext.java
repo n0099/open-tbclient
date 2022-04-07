@@ -2,7 +2,6 @@ package com.baidu.searchbox.perfframe.impl;
 
 import android.content.Context;
 import android.util.Log;
-import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -17,8 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.tb1;
 @Autowired
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class PerfFrameContext {
     public static /* synthetic */ Interceptable $ic;
     public static final IPerfFrameCallBack PERFFRAME_CONTEXT_DEFAULT;
@@ -62,7 +62,7 @@ public class PerfFrameContext {
                     if (AppConfig.isDebug()) {
                         Log.d("PerfFrame", "onPerfFrameCallBack");
                     }
-                    d<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
+                    tb1<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
                     if (perfFrameRegister == null || perfFrameRegister.getList() == null || perfExpInfo == null) {
                         return;
                     }

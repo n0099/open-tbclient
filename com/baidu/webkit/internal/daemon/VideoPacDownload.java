@@ -24,7 +24,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "VideoPacDownload";
@@ -125,8 +125,8 @@ public class VideoPacDownload implements IResourceTask, INetListener {
                 bdNetTask.setNet(bdNet);
                 bdNetTask.setUrl(getPacUrl());
                 bdNet.start(bdNetTask, false);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -260,8 +260,8 @@ public class VideoPacDownload implements IResourceTask, INetListener {
                     VideoFreeFlowConfigManager.getInstance().setPacData(str3);
                     CfgFileUtils.set(CfgFileUtils.KEY_VIDEO_PROXY_DATA, str3);
                     return;
-                } catch (Exception e2) {
-                    str = "mTimgConfData1 ".concat(String.valueOf(e2));
+                } catch (Exception e) {
+                    str = "mTimgConfData1 ".concat(String.valueOf(e));
                 }
             } else {
                 str = "mData==null";

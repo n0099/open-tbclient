@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class BdThumbSeekBarView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFERING_PAINT_COLOR = -2039584;
@@ -68,7 +68,7 @@ public class BdThumbSeekBarView extends View {
     public final int mUITraceHeight;
 
     /* renamed from: com.baidu.searchbox.player.widget.BdThumbSeekBarView$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle;
         public static /* synthetic */ Interceptable $ic;
@@ -101,7 +101,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class BdSeeBarStatus {
         public static final /* synthetic */ BdSeeBarStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -161,7 +161,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class BdSeekBarStyle {
         public static final /* synthetic */ BdSeekBarStyle[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -220,7 +220,7 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface OnBdSeekBarChangeListener {
         void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
 
@@ -230,7 +230,7 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static final class SeekBarDirect {
         public static final /* synthetic */ SeekBarDirect[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -387,13 +387,13 @@ public class BdThumbSeekBarView extends View {
         return invokeI.intValue;
     }
 
-    private void scaleThumb(float f2) {
+    private void scaleThumb(float f) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(65545, this, f2) == null) || f2 <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeF(65545, this, f) == null) || f <= 0.0f) {
             return;
         }
         Matrix matrix = new Matrix();
-        matrix.postScale(f2, f2);
+        matrix.postScale(f, f);
         Bitmap bitmap = this.mThumb;
         this.mThumbScale = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), this.mThumb.getHeight(), matrix, true);
     }
@@ -460,28 +460,28 @@ public class BdThumbSeekBarView extends View {
                 }
                 canvas.drawRect(this.mDrawRectF, this.mPaint);
                 RectF rectF = this.mDrawRectF;
-                float f2 = rectF.left;
-                float abs = Math.abs(rectF.right - f2);
+                float f = rectF.left;
+                float abs = Math.abs(rectF.right - f);
                 RectF rectF2 = this.mDrawRectF;
                 float abs2 = Math.abs(rectF2.top - rectF2.bottom);
                 if (this.mDirect == SeekBarDirect.Horizontal) {
-                    float f3 = this.mMax > 0.1f ? (this.mBufferingProgress * abs) / 100.0f : 0.0f;
+                    float f2 = this.mMax > 0.1f ? (this.mBufferingProgress * abs) / 100.0f : 0.0f;
                     RectF rectF3 = this.mDrawRectF;
-                    rectF3.right = rectF3.left + f3;
+                    rectF3.right = rectF3.left + f2;
                 } else {
-                    float f4 = this.mMax > 0.1f ? this.mBufferingProgress : 0.0f;
+                    float f3 = this.mMax > 0.1f ? this.mBufferingProgress : 0.0f;
                     RectF rectF4 = this.mDrawRectF;
-                    rectF4.top = rectF4.bottom - f4;
+                    rectF4.top = rectF4.bottom - f3;
                 }
                 canvas.drawRect(this.mDrawRectF, this.mBufferingPaint);
                 if (this.mDirect == SeekBarDirect.Horizontal) {
-                    float f5 = this.mMax;
-                    r1 = f5 > 0.1f ? (this.mProgress * abs) / f5 : 0.0f;
+                    float f4 = this.mMax;
+                    r1 = f4 > 0.1f ? (this.mProgress * abs) / f4 : 0.0f;
                     RectF rectF5 = this.mDrawRectF;
                     rectF5.right = rectF5.left + r1;
                 } else {
-                    float f6 = this.mMax;
-                    r1 = f6 > 0.1f ? (this.mProgress * abs2) / f6 : 0.0f;
+                    float f5 = this.mMax;
+                    r1 = f5 > 0.1f ? (this.mProgress * abs2) / f5 : 0.0f;
                     RectF rectF6 = this.mDrawRectF;
                     rectF6.top = rectF6.bottom - r1;
                 }
@@ -490,12 +490,12 @@ public class BdThumbSeekBarView extends View {
                     if (this.mDirect == SeekBarDirect.Horizontal) {
                         int width2 = (int) (this.mDrawRectF.right - (this.mThumb.getWidth() >> 1));
                         int i2 = this.mThumbPadding;
-                        if (width2 < (-i2) + f2) {
-                            width = (-i2) + f2;
+                        if (width2 < (-i2) + f) {
+                            width = (-i2) + f;
                         } else {
-                            float f7 = abs + f2;
-                            if ((this.mThumb.getWidth() + width2) - this.mThumbPadding > f7) {
-                                width = (f7 - this.mThumb.getWidth()) + this.mThumbPadding;
+                            float f6 = abs + f;
+                            if ((this.mThumb.getWidth() + width2) - this.mThumbPadding > f6) {
+                                width = (f6 - this.mThumb.getWidth()) + this.mThumbPadding;
                             }
                             if (this.mSeeBarStatus != BdSeeBarStatus.Seek) {
                                 canvas.drawBitmap(this.mThumbScale, width2, ((((getMeasuredHeight() - this.mThumbScale.getHeight()) + getPaddingTop()) - getPaddingBottom()) >> 1) + ((int) (0 * 1.5f)), (Paint) null);
@@ -521,11 +521,11 @@ public class BdThumbSeekBarView extends View {
                 int i3 = this.mUISelectHeight;
                 canvas.drawRoundRect(rectF7, i3 >> 1, i3, this.mPaint);
                 this.mPaint.setColor(UI_SELECT_COLOR_START);
-                float f8 = this.mMax;
-                if (f8 > 0.1f) {
-                    float f9 = this.mProgress;
+                float f7 = this.mMax;
+                if (f7 > 0.1f) {
+                    float f8 = this.mProgress;
                     RectF rectF8 = this.mDrawRectF;
-                    r1 = (f9 * (rectF8.right - rectF8.left)) / f8;
+                    r1 = (f8 * (rectF8.right - rectF8.left)) / f7;
                 }
                 RectF rectF9 = this.mDrawRectF;
                 rectF9.right = rectF9.left + r1;
@@ -564,33 +564,33 @@ public class BdThumbSeekBarView extends View {
                 if (this.mDirect == SeekBarDirect.Horizontal) {
                     float x = motionEvent.getX();
                     RectF rectF = this.mDrawRectF;
-                    float f2 = rectF.left;
-                    if (x < f2) {
-                        x = f2;
+                    float f = rectF.left;
+                    if (x < f) {
+                        x = f;
                     } else {
-                        float f3 = rectF.right;
-                        if (x > f3) {
-                            x = f3;
+                        float f2 = rectF.right;
+                        if (x > f2) {
+                            x = f2;
                         }
                     }
                     RectF rectF2 = this.mDrawRectF;
-                    float f4 = rectF2.left;
-                    setProgress(((x - f4) * this.mMax) / (rectF2.right - f4));
+                    float f3 = rectF2.left;
+                    setProgress(((x - f3) * this.mMax) / (rectF2.right - f3));
                 } else {
                     float y = motionEvent.getY();
                     RectF rectF3 = this.mDrawRectF;
-                    float f5 = rectF3.top;
-                    if (y < f5) {
-                        y = f5;
+                    float f4 = rectF3.top;
+                    if (y < f4) {
+                        y = f4;
                     } else {
-                        float f6 = rectF3.bottom;
-                        if (y > f6) {
-                            y = f6;
+                        float f5 = rectF3.bottom;
+                        if (y > f5) {
+                            y = f5;
                         }
                     }
                     RectF rectF4 = this.mDrawRectF;
-                    float f7 = rectF4.bottom;
-                    setProgress(((f7 - y) * this.mMax) / (f7 - rectF4.top));
+                    float f6 = rectF4.bottom;
+                    setProgress(((f6 - y) * this.mMax) / (f6 - rectF4.top));
                 }
                 OnBdSeekBarChangeListener onBdSeekBarChangeListener = this.mListener;
                 if (onBdSeekBarChangeListener != null) {
@@ -649,10 +649,10 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    public void setMax(float f2) {
+    public void setMax(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.mMax = f2;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.mMax = f;
         }
     }
 
@@ -749,10 +749,10 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    public void setProgress(float f2) {
+    public void setProgress(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.mProgress = f2;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
+            this.mProgress = f;
             invalidate();
         }
     }
@@ -876,12 +876,12 @@ public class BdThumbSeekBarView extends View {
             scaleThumb(1.5f);
         }
         this.mDrawRectF = new RectF();
-        float f2 = getResources().getDisplayMetrics().density;
-        this.mUISpace = (int) (0.0f * f2);
-        this.mUIRightSpace = (int) (5.0f * f2);
-        this.mUITraceHeight = (int) ((i2 * f2) + 0.5d);
-        this.mDefaultWidth = (int) (50.0f * f2);
-        this.mUISelectHeight = (int) (f2 * 3.0f);
+        float f = getResources().getDisplayMetrics().density;
+        this.mUISpace = (int) (0.0f * f);
+        this.mUIRightSpace = (int) (5.0f * f);
+        this.mUITraceHeight = (int) ((i2 * f) + 0.5d);
+        this.mDefaultWidth = (int) (50.0f * f);
+        this.mUISelectHeight = (int) (f * 3.0f);
         BdVideoLog.d(TAG, "mUITraceHeight: " + this.mUITraceHeight);
     }
 }

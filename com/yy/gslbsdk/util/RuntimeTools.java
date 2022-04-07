@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RuntimeTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RuntimeTools";
@@ -42,8 +42,8 @@ public class RuntimeTools {
                     str2 = str2 + readLine;
                 }
                 bufferedReader.close();
-            } catch (Exception e2) {
-                LogTools.printWarning(TAG, e2);
+            } catch (Exception e) {
+                LogTools.printWarning(TAG, e);
             }
             return str2;
         }

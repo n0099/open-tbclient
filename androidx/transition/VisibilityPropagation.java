@@ -64,17 +64,17 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
     public void captureValues(TransitionValues transitionValues) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, transitionValues) == null) {
-            View view = transitionValues.view;
+            View view2 = transitionValues.f980view;
             Integer num = (Integer) transitionValues.values.get(Visibility.PROPNAME_VISIBILITY);
             if (num == null) {
-                num = Integer.valueOf(view.getVisibility());
+                num = Integer.valueOf(view2.getVisibility());
             }
             transitionValues.values.put(PROPNAME_VISIBILITY, num);
-            view.getLocationOnScreen(r2);
-            int[] iArr = {iArr[0] + Math.round(view.getTranslationX())};
-            iArr[0] = iArr[0] + (view.getWidth() / 2);
-            iArr[1] = iArr[1] + Math.round(view.getTranslationY());
-            iArr[1] = iArr[1] + (view.getHeight() / 2);
+            view2.getLocationOnScreen(r2);
+            int[] iArr = {iArr[0] + Math.round(view2.getTranslationX())};
+            iArr[0] = iArr[0] + (view2.getWidth() / 2);
+            iArr[1] = iArr[1] + Math.round(view2.getTranslationY());
+            iArr[1] = iArr[1] + (view2.getHeight() / 2);
             transitionValues.values.put(PROPNAME_VIEW_CENTER, iArr);
         }
     }

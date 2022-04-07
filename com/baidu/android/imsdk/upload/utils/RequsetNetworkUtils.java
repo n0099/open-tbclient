@@ -19,7 +19,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class RequsetNetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequsetNetworkUtils";
@@ -87,8 +87,8 @@ public class RequsetNetworkUtils {
                         }
                     }
                 }
-            } catch (Exception e2) {
-                Log.d("RequsetNetworkUtils", "getMobileIp exception :" + e2.getMessage());
+            } catch (Exception e) {
+                Log.d("RequsetNetworkUtils", "getMobileIp exception :" + e.getMessage());
             }
             return str;
         }
@@ -172,8 +172,8 @@ public class RequsetNetworkUtils {
                 } else {
                     Log.e("RequsetNetworkUtils", "connManager is null !!!");
                 }
-            } catch (Exception e2) {
-                Log.e("RequsetNetworkUtils", "exp: " + e2.getMessage());
+            } catch (Exception e) {
+                Log.e("RequsetNetworkUtils", "exp: " + e.getMessage());
             }
             return networkInfo;
         }

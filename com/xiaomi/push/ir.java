@@ -17,13 +17,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ir {
     public static /* synthetic */ Interceptable $ic;
     public static final Comparator a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Comparator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,14 +82,14 @@ public final class ir {
         a = new a(null);
     }
 
-    public static int a(byte b2, byte b3) {
+    public static int a(byte b, byte b2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            if (b2 < b3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2)})) == null) {
+            if (b < b2) {
                 return -1;
             }
-            return b3 < b2 ? 1 : 0;
+            return b2 < b ? 1 : 0;
         }
         return invokeCommon.intValue;
     }
@@ -253,16 +253,16 @@ public final class ir {
         return invokeLL.intValue;
     }
 
-    public static String a(byte b2) {
+    public static String a(byte b) {
         InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeB = interceptable.invokeB(65549, null, b2)) == null) ? Integer.toHexString((b2 | 256) & 511).toUpperCase().substring(1) : (String) invokeB.objValue;
+        return (interceptable == null || (invokeB = interceptable.invokeB(65549, null, b)) == null) ? Integer.toHexString((b | 256) & 511).toUpperCase().substring(1) : (String) invokeB.objValue;
     }
 
     public static ByteBuffer a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m556a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m557a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, byteBuffer)) == null) ? m552a(byteBuffer) ? byteBuffer : ByteBuffer.wrap(m553a(byteBuffer)) : (ByteBuffer) invokeL.objValue;
     }
 
     public static void a(ByteBuffer byteBuffer, StringBuilder sb) {
@@ -285,18 +285,18 @@ public final class ir {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m556a(ByteBuffer byteBuffer) {
+    public static boolean m552a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, byteBuffer)) == null) ? byteBuffer.hasArray() && byteBuffer.position() == 0 && byteBuffer.arrayOffset() == 0 && byteBuffer.remaining() == byteBuffer.capacity() : invokeL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m557a(ByteBuffer byteBuffer) {
+    public static byte[] m553a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, byteBuffer)) == null) {
-            if (m556a(byteBuffer)) {
+            if (m552a(byteBuffer)) {
                 return byteBuffer.array();
             }
             byte[] bArr = new byte[byteBuffer.remaining()];

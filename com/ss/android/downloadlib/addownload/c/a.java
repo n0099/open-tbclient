@@ -22,8 +22,8 @@ public class a implements r {
         k.b("AppDownloadDiskSpaceHandler", "waiting for space clear, sleepTime = " + a, null);
         try {
             Thread.sleep(a);
-        } catch (InterruptedException e2) {
-            e2.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         k.b("AppDownloadDiskSpaceHandler", "waiting end!", null);
         return a;
@@ -45,11 +45,11 @@ public class a implements r {
             long a3 = l.a(0L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             if (a3 < j2) {
-                long b2 = b(a);
-                if (b2 > 0) {
+                long b = b(a);
+                if (b > 0) {
                     a3 = l.a(0L);
                 }
-                j3 = b2;
+                j3 = b;
             } else {
                 j3 = 0;
             }
@@ -90,8 +90,8 @@ public class a implements r {
         }
         try {
             com.ss.android.downloadlib.a.a().a(downloadInfo, j, j2, j3, j4, j5, j2 > j3);
-        } catch (Exception e2) {
-            e2.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

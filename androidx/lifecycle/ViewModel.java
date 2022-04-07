@@ -42,8 +42,8 @@ public abstract class ViewModel {
         if ((interceptable == null || interceptable.invokeL(65537, null, obj) == null) && (obj instanceof Closeable)) {
             try {
                 ((Closeable) obj).close();
-            } catch (IOException e2) {
-                throw new RuntimeException(e2);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
     }

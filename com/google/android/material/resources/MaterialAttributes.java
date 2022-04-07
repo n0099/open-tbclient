@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MaterialAttributes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class MaterialAttributes {
     public static int resolveMinimumAccessibleTouchTarget(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f04042f, R.dimen.obfuscated_res_0x7f070450) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? resolveDimension(context, R.attr.obfuscated_res_0x7f04046d, R.dimen.obfuscated_res_0x7f07045a) : invokeL.intValue;
     }
 
     public static int resolveOrThrow(@NonNull Context context, @AttrRes int i, @NonNull String str) {
@@ -103,9 +103,9 @@ public class MaterialAttributes {
         return invokeLIL.intValue;
     }
 
-    public static int resolveOrThrow(@NonNull View view, @AttrRes int i) {
+    public static int resolveOrThrow(@NonNull View view2, @AttrRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view, i)) == null) ? resolveOrThrow(view.getContext(), i, view.getClass().getCanonicalName()) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, view2, i)) == null) ? resolveOrThrow(view2.getContext(), i, view2.getClass().getCanonicalName()) : invokeLI.intValue;
     }
 }

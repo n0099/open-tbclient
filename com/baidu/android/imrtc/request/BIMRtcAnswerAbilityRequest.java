@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMRtcAnswerAbilityRequest";
@@ -82,8 +82,8 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
                 jSONObject.put("source", this.mSource);
                 LogUtils.d(TAG, "RtcGetTokenRequest msg :" + jSONObject.toString());
                 return jSONObject.toString().getBytes();
-            } catch (JSONException e2) {
-                LogUtils.e(TAG, "RtcGetTokenRequest exception :", e2);
+            } catch (JSONException e) {
+                LogUtils.e(TAG, "RtcGetTokenRequest exception :", e);
                 return new byte[0];
             }
         }
@@ -116,8 +116,8 @@ public class BIMRtcAnswerAbilityRequest extends BaseHttpRequest {
                 bIMRtcAnswerAbilityResult.ability = optJSONObject.optInt("ability");
                 bIMRtcAnswerAbilityResult.rtcToken = optJSONObject.optString("token");
                 bIMRtcAnswerAbilityResult.rtcAppId = optJSONObject.optString("rtc_appid");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             this.mListener.onResult(i, str2, bIMRtcAnswerAbilityResult);
         }

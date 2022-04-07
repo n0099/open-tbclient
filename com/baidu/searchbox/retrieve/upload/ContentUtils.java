@@ -3,7 +3,6 @@ package com.baidu.searchbox.retrieve.upload;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.x0.c.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.he9;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ContentUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -77,16 +77,16 @@ public class ContentUtils {
                 jSONObject2.put(UploadConstant.FILE_TYPE, activeUpObj.getFileType());
                 jSONObject2.put("sign", createSign(jSONObject2, "acupload"));
                 return jSONObject2;
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 jSONObject = jSONObject2;
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 return jSONObject;
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 
@@ -119,16 +119,16 @@ public class ContentUtils {
                 jSONObject2.put("timestamp", String.valueOf(System.currentTimeMillis() / TimeUnit.SECONDS.toMillis(1L)));
                 jSONObject2.put("sign", createSign(jSONObject2, "fetchlog"));
                 return jSONObject2;
-            } catch (JSONException e2) {
-                e = e2;
+            } catch (JSONException e) {
+                e = e;
                 jSONObject = jSONObject2;
                 if (DEBUG) {
                     e.printStackTrace();
                 }
                 return jSONObject;
             }
-        } catch (JSONException e3) {
-            e = e3;
+        } catch (JSONException e2) {
+            e = e2;
         }
     }
 
@@ -159,9 +159,9 @@ public class ContentUtils {
                         if (!TextUtils.isEmpty(string)) {
                             hashMap.put(next, string);
                         }
-                    } catch (JSONException e2) {
+                    } catch (JSONException e) {
                         if (DEBUG) {
-                            e2.printStackTrace();
+                            e.printStackTrace();
                         }
                     }
                 }
@@ -198,7 +198,7 @@ public class ContentUtils {
                     stringBuffer.append((String) entry.getValue());
                 }
                 stringBuffer.append(str);
-                return d.c(stringBuffer.toString().getBytes(), false);
+                return he9.c(stringBuffer.toString().getBytes(), false);
             }
             return "";
         }

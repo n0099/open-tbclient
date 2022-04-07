@@ -1,6 +1,5 @@
 package com.baidu.tieba.frs.game.strategy.data;
 
-import c.a.p0.f1.u1.a.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +7,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qj6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
-/* loaded from: classes5.dex */
-public class LabelDataList extends ArrayList<a> {
+/* loaded from: classes3.dex */
+public class LabelDataList extends ArrayList<qj6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,11 +35,11 @@ public class LabelDataList extends ArrayList<a> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator<a> it = iterator();
+            Iterator<qj6> it = iterator();
             while (it.hasNext()) {
-                a next = it.next();
+                qj6 next = it.next();
                 if (next != null && next.a == i) {
-                    return next.f14688b;
+                    return next.b;
                 }
             }
             return null;
@@ -51,17 +51,17 @@ public class LabelDataList extends ArrayList<a> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Iterator<a> it = iterator();
+            Iterator<qj6> it = iterator();
             while (it.hasNext()) {
-                a next = it.next();
-                if (next != null && next.f14689c) {
+                qj6 next = it.next();
+                if (next != null && next.c) {
                     return next.a;
                 }
             }
-            a aVar = (a) ListUtils.getItem(this, 0);
-            if (aVar != null) {
-                aVar.f14689c = true;
-                return aVar.a;
+            qj6 qj6Var = (qj6) ListUtils.getItem(this, 0);
+            if (qj6Var != null) {
+                qj6Var.c = true;
+                return qj6Var.a;
             }
             return 0;
         }
@@ -77,31 +77,31 @@ public class LabelDataList extends ArrayList<a> {
             }
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
-                    a aVar = new a();
-                    aVar.a = forumSubLabel.id.intValue();
-                    aVar.f14688b = forumSubLabel.sub_label_name;
-                    add(aVar);
+                    qj6 qj6Var = new qj6();
+                    qj6Var.a = forumSubLabel.id.intValue();
+                    qj6Var.b = forumSubLabel.sub_label_name;
+                    add(qj6Var);
                 }
             }
             if (isEmpty()) {
                 return;
             }
-            get(0).f14689c = true;
+            get(0).c = true;
         }
     }
 
     public void setSelectedIndex(int i) {
-        a aVar;
+        qj6 qj6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (aVar = (a) ListUtils.getItem(this, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (qj6Var = (qj6) ListUtils.getItem(this, i)) == null) {
             return;
         }
-        aVar.f14689c = true;
-        Iterator<a> it = iterator();
+        qj6Var.c = true;
+        Iterator<qj6> it = iterator();
         while (it.hasNext()) {
-            a next = it.next();
-            if (next != null && next != aVar) {
-                next.f14689c = false;
+            qj6 next = it.next();
+            if (next != null && next != qj6Var) {
+                next.c = false;
             }
         }
     }

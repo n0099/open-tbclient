@@ -67,8 +67,8 @@ public class StringsKt__AppendableKt {
 
     @SinceKotlin(version = "1.4")
     @InlineOnly
-    public static final Appendable appendLine(Appendable appendable, char c2) {
-        Appendable append = appendable.append(c2);
+    public static final Appendable appendLine(Appendable appendable, char c) {
+        Appendable append = appendable.append(c);
         Intrinsics.checkNotNullExpressionValue(append, "append(value)");
         Appendable append2 = append.append('\n');
         Intrinsics.checkNotNullExpressionValue(append2, "append('\\n')");

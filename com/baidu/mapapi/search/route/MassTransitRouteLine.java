@@ -24,44 +24,26 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public final class MassTransitRouteLine extends RouteLine<TransitStep> implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MassTransitRouteLine> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public double c;
+    public List<PriceInfo> d;
+    public List<List<TransitStep>> e;
 
-    /* renamed from: b  reason: collision with root package name */
-    public String f26471b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public double f26472c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public List<PriceInfo> f26473d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public List<List<TransitStep>> f26474e;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class TransitStep extends RouteStep implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<TransitStep> CREATOR;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: d  reason: collision with root package name */
-        public List<TrafficCondition> f26475d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public LatLng f26476e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public LatLng f26477f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TrainInfo f26478g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public PlaneInfo f26479h;
+        public List<TrafficCondition> d;
+        public LatLng e;
+        public LatLng f;
+        public TrainInfo g;
+        public PlaneInfo h;
         public CoachInfo i;
         public BusInfo j;
         public StepVehicleInfoType k;
@@ -69,7 +51,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         public String m;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static final class StepVehicleInfoType {
             public static final /* synthetic */ StepVehicleInfoType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -146,15 +128,13 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             }
         }
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes2.dex */
         public static class TrafficCondition implements Parcelable {
             public static /* synthetic */ Interceptable $ic;
             public static final Parcelable.Creator<TrafficCondition> CREATOR;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
-
-            /* renamed from: b  reason: collision with root package name */
-            public int f26480b;
+            public int b;
 
             static {
                 InterceptResult invokeClinit;
@@ -202,7 +182,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
                     }
                 }
                 this.a = parcel.readInt();
-                this.f26480b = parcel.readInt();
+                this.b = parcel.readInt();
             }
 
             @Override // android.os.Parcelable
@@ -218,7 +198,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             public int getTrafficGeoCnt() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26480b : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
             }
 
             public int getTrafficStatus() {
@@ -230,7 +210,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             public void setTrafficGeoCnt(int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-                    this.f26480b = i;
+                    this.b = i;
                 }
             }
 
@@ -246,7 +226,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
                     parcel.writeInt(this.a);
-                    parcel.writeInt(this.f26480b);
+                    parcel.writeInt(this.b);
                 }
             }
         }
@@ -300,11 +280,11 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
                     return;
                 }
             }
-            this.f26475d = parcel.createTypedArrayList(TrafficCondition.CREATOR);
-            this.f26476e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f26477f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-            this.f26478g = (TrainInfo) parcel.readParcelable(TrainInfo.class.getClassLoader());
-            this.f26479h = (PlaneInfo) parcel.readParcelable(PlaneInfo.class.getClassLoader());
+            this.d = parcel.createTypedArrayList(TrafficCondition.CREATOR);
+            this.e = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.f = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+            this.g = (TrainInfo) parcel.readParcelable(TrainInfo.class.getClassLoader());
+            this.h = (PlaneInfo) parcel.readParcelable(PlaneInfo.class.getClassLoader());
             this.i = (CoachInfo) parcel.readParcelable(CoachInfo.class.getClassLoader());
             this.j = (BusInfo) parcel.readParcelable(BusInfo.class.getClassLoader());
             switch (parcel.readInt()) {
@@ -399,7 +379,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         public LatLng getEndLocation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26477f : (LatLng) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (LatLng) invokeV.objValue;
         }
 
         public String getInstructions() {
@@ -411,25 +391,25 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         public PlaneInfo getPlaneInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26479h : (PlaneInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (PlaneInfo) invokeV.objValue;
         }
 
         public LatLng getStartLocation() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26476e : (LatLng) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (LatLng) invokeV.objValue;
         }
 
         public List<TrafficCondition> getTrafficConditions() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26475d : (List) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (List) invokeV.objValue;
         }
 
         public TrainInfo getTrainInfo() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26478g : (TrainInfo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.g : (TrainInfo) invokeV.objValue;
         }
 
         public StepVehicleInfoType getVehileType() {
@@ -468,7 +448,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         public void setEndLocation(LatLng latLng) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048589, this, latLng) == null) {
-                this.f26477f = latLng;
+                this.f = latLng;
             }
         }
 
@@ -489,28 +469,28 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         public void setPlaneInfo(PlaneInfo planeInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, planeInfo) == null) {
-                this.f26479h = planeInfo;
+                this.h = planeInfo;
             }
         }
 
         public void setStartLocation(LatLng latLng) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, latLng) == null) {
-                this.f26476e = latLng;
+                this.e = latLng;
             }
         }
 
         public void setTrafficConditions(List<TrafficCondition> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, list) == null) {
-                this.f26475d = list;
+                this.d = list;
             }
         }
 
         public void setTrainInfo(TrainInfo trainInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, trainInfo) == null) {
-                this.f26478g = trainInfo;
+                this.g = trainInfo;
             }
         }
 
@@ -526,11 +506,11 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048597, this, parcel, i) == null) {
                 super.writeToParcel(parcel, i);
-                parcel.writeTypedList(this.f26475d);
-                parcel.writeParcelable(this.f26476e, i);
-                parcel.writeParcelable(this.f26477f, i);
-                parcel.writeParcelable(this.f26478g, i);
-                parcel.writeParcelable(this.f26479h, i);
+                parcel.writeTypedList(this.d);
+                parcel.writeParcelable(this.e, i);
+                parcel.writeParcelable(this.f, i);
+                parcel.writeParcelable(this.g, i);
+                parcel.writeParcelable(this.h, i);
                 parcel.writeParcelable(this.i, i);
                 parcel.writeParcelable(this.j, i);
                 parcel.writeInt(this.k.getInt());
@@ -569,7 +549,7 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
                 return;
             }
         }
-        this.f26474e = null;
+        this.e = null;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -590,15 +570,15 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
                 return;
             }
         }
-        this.f26474e = null;
+        this.e = null;
         int readInt = parcel.readInt();
-        this.f26471b = parcel.readString();
-        this.f26472c = parcel.readDouble();
-        this.f26473d = parcel.createTypedArrayList(PriceInfo.CREATOR);
+        this.b = parcel.readString();
+        this.c = parcel.readDouble();
+        this.d = parcel.createTypedArrayList(PriceInfo.CREATOR);
         if (readInt > 0) {
-            this.f26474e = new ArrayList();
+            this.e = new ArrayList();
             for (int i3 = 0; i3 < readInt; i3++) {
-                this.f26474e.add(parcel.createTypedArrayList(TransitStep.CREATOR));
+                this.e.add(parcel.createTypedArrayList(TransitStep.CREATOR));
             }
         }
     }
@@ -616,52 +596,52 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
     public String getArriveTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26471b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
     public List<List<TransitStep>> getNewSteps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26474e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
     public double getPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26472c : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.doubleValue;
     }
 
     public List<PriceInfo> getPriceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26473d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
     public void setArriveTime(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f26471b = str;
+            this.b = str;
         }
     }
 
     public void setNewSteps(List<List<TransitStep>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.f26474e = list;
+            this.e = list;
         }
     }
 
-    public void setPrice(double d2) {
+    public void setPrice(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f26472c = d2;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.c = d;
         }
     }
 
     public void setPriceInfo(List<PriceInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f26473d = list;
+            this.d = list;
         }
     }
 
@@ -670,12 +650,12 @@ public final class MassTransitRouteLine extends RouteLine<TransitStep> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
-            List<List<TransitStep>> list = this.f26474e;
+            List<List<TransitStep>> list = this.e;
             parcel.writeInt(list == null ? 0 : list.size());
-            parcel.writeString(this.f26471b);
-            parcel.writeDouble(this.f26472c);
-            parcel.writeTypedList(this.f26473d);
-            for (List<TransitStep> list2 : this.f26474e) {
+            parcel.writeString(this.b);
+            parcel.writeDouble(this.c);
+            parcel.writeTypedList(this.d);
+            for (List<TransitStep> list2 : this.e) {
                 parcel.writeTypedList(list2);
             }
         }

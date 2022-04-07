@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.o0.r.r.a;
-import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
@@ -22,17 +20,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import com.repackage.qn4;
+import com.repackage.wr4;
+/* loaded from: classes.dex */
 public class RecommendInfoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public BarImageView f25173b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f25174c;
+    public BarImageView b;
+    public TextView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendInfoLayout(Context context) {
@@ -58,46 +54,46 @@ public class RecommendInfoLayout extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0835, (ViewGroup) this, true);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a13);
-            this.f25173b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a00);
-            this.f25174c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a0f);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082c, (ViewGroup) this, true);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091a03);
+            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0919f0);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0919ff);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c d2 = c.d(this.a);
-            d2.n(R.string.J_X01);
-            d2.f(R.color.CAM_X0209);
-            c d3 = c.d(this.f25174c);
-            d3.A(R.string.F_X01);
-            d3.z(R.dimen.T_X09);
-            d3.v(R.color.CAM_X0107);
+            wr4 d = wr4.d(this.a);
+            d.n(R.string.J_X01);
+            d.f(R.color.CAM_X0209);
+            wr4 d2 = wr4.d(this.c);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X09);
+            d2.v(R.color.CAM_X0107);
         }
     }
 
-    public void setData(a aVar) {
+    public void setData(qn4 qn4Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) || aVar == null || aVar.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(aVar.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qn4Var) == null) || qn4Var == null || qn4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(qn4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
             return;
         }
         String str = threadRecommendInfoData.forumAvatar;
         if (!TextUtils.isEmpty(str)) {
-            this.f25173b.setVisibility(0);
-            this.f25173b.J(str, 10, false);
+            this.b.setVisibility(0);
+            this.b.K(str, 10, false);
         } else {
-            this.f25173b.setVisibility(8);
+            this.b.setVisibility(8);
         }
         String str2 = threadRecommendInfoData.forumName;
         String str3 = threadRecommendInfoData.recommendReason;
         if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-            this.f25174c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f063c) + str3);
+            this.c.setText(StringHelper.cutChineseAndEnglishWithSuffix(str2, 12, StringHelper.STRING_MORE) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0643) + str3);
         } else if (TextUtils.isEmpty(str3)) {
         } else {
-            this.f25174c.setText(str3);
+            this.c.setText(str3);
         }
     }
 

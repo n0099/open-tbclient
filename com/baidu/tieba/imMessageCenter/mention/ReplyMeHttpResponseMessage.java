@@ -1,15 +1,15 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
-import c.a.p0.v1.b.m;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ha7;
 import tbclient.ReplyMe.ReplyMeResIdl;
-/* loaded from: classes5.dex */
-public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<m, ReplyMeResIdl> {
+/* loaded from: classes3.dex */
+public class ReplyMeHttpResponseMessage extends MvcProtobufHttpResponsedMessage<ha7, ReplyMeResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

@@ -206,8 +206,8 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             builder.setIsEnableV3Event(jSONObject.optInt("enable_v3_event") == 1);
             builder.setExtraJson(jSONObject.optJSONObject("extra"));
             builder.setParamsJson(jSONObject.optJSONObject("params_json"));
-        } catch (Exception e2) {
-            j.s().a(e2, "AdDownloadEventConfig fromJson");
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadEventConfig fromJson");
         }
         return builder.build();
     }
@@ -342,8 +342,8 @@ public class AdDownloadEventConfig implements DownloadEventConfig {
             jSONObject.putOpt("enable_v3_event", Integer.valueOf(i));
             jSONObject.putOpt("extra", this.mExtraJson);
             jSONObject.putOpt("params_json", this.mParamsJson);
-        } catch (Exception e2) {
-            j.s().a(e2, "AdDownloadEventConfig toJson");
+        } catch (Exception e) {
+            j.s().a(e, "AdDownloadEventConfig toJson");
         }
         return jSONObject;
     }

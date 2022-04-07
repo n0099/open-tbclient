@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class JSContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,13 +38,13 @@ public class JSContext {
     public Field v8DataField;
 
     /* renamed from: com.tachikoma.core.bridge.JSContext$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class V8AssociateReference {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -152,8 +152,8 @@ public class JSContext {
                 }
                 onExecuteScript(str, str2);
                 return this.runPtr.executeScript(str, str2, 0);
-            } catch (Exception e2) {
-                TKExceptionDispatcher.dispatchJSException(e2, this.mTKJsContextHashcode);
+            } catch (Exception e) {
+                TKExceptionDispatcher.dispatchJSException(e, this.mTKJsContextHashcode);
                 return null;
             }
         }
@@ -183,13 +183,13 @@ public class JSContext {
         TKDebuggerUtils.onExecuteScript(this.mDebuggerContext, str, str2, null, 0);
     }
 
-    public void attachView(View view) {
+    public void attachView(View view2) {
         V8 v8;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.mDebuggerContext) || (v8 = this.runPtr) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.mDebuggerContext) || (v8 = this.runPtr) == null) {
             return;
         }
-        TKDebuggerUtils.enableDebug(v8, this.mDebuggerContext, view);
+        TKDebuggerUtils.enableDebug(v8, this.mDebuggerContext, view2);
     }
 
     public void destroy() {
@@ -238,8 +238,8 @@ public class JSContext {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             try {
                 return innerEvaluateScript(str, null);
-            } catch (Exception e2) {
-                TKExceptionDispatcher.dispatchJSException(e2, this.mTKJsContextHashcode);
+            } catch (Exception e) {
+                TKExceptionDispatcher.dispatchJSException(e, this.mTKJsContextHashcode);
                 return null;
             }
         }

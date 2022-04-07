@@ -8,15 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static a f27964b = null;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String f27965c = "request_data";
+    public static a b = null;
+    public static final String c = "request_data";
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, PassBiometricDto> a;
 
@@ -40,10 +36,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f27964b == null) {
-                f27964b = new a();
+            if (b == null) {
+                b = new a();
             }
-            return f27964b;
+            return b;
         }
         return (a) invokeV.objValue;
     }

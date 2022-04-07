@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.StringTokenizer;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class Mimetypes {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIMETYPE_OCTET_STREAM = "application/octet-stream";
@@ -70,12 +70,12 @@ public class Mimetypes {
                     BLog.debug("Loading mime types from file in the classpath: mime.types");
                     try {
                         mimetypes.loadAndReplaceMimetypes(resourceAsStream);
-                    } catch (IOException e2) {
-                        BLog.error("Failed to load mime types from file in the classpath: mime.types", (Throwable) e2);
+                    } catch (IOException e) {
+                        BLog.error("Failed to load mime types from file in the classpath: mime.types", (Throwable) e);
                         try {
                             resourceAsStream.close();
-                        } catch (IOException e3) {
-                            e = e3;
+                        } catch (IOException e2) {
+                            e = e2;
                             str = "";
                             BLog.debug(str, (Throwable) e);
                             return mimetypes;
@@ -83,8 +83,8 @@ public class Mimetypes {
                     }
                     try {
                         resourceAsStream.close();
-                    } catch (IOException e4) {
-                        e = e4;
+                    } catch (IOException e3) {
+                        e = e3;
                         str = "";
                         BLog.debug(str, (Throwable) e);
                         return mimetypes;

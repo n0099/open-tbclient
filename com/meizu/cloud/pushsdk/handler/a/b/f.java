@@ -2,9 +2,10 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import com.repackage.rm9;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class f implements Parcelable {
     public static final Parcelable.Creator<f> CREATOR = new Parcelable.Creator<f>() { // from class: com.meizu.cloud.pushsdk.handler.a.b.f.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,30 +23,22 @@ public class f implements Parcelable {
         }
     };
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f42174b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f42175c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public String f42176d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f42177e;
+    public String b;
+    public boolean c;
+    public String d;
+    public String e;
 
     public f() {
-        this.f42175c = false;
+        this.c = false;
     }
 
     public f(Parcel parcel) {
-        this.f42175c = false;
+        this.c = false;
         this.a = parcel.readString();
-        this.f42174b = parcel.readString();
-        this.f42175c = parcel.readByte() != 0;
-        this.f42176d = parcel.readString();
-        this.f42177e = parcel.readString();
+        this.b = parcel.readString();
+        this.c = parcel.readByte() != 0;
+        this.d = parcel.readString();
+        this.e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -62,13 +55,13 @@ public class f implements Parcelable {
                 if (!jSONObject.isNull("pushExtra")) {
                     fVar.a(jSONObject.getInt("pushExtra") != 0);
                 }
-            } catch (JSONException e2) {
-                str = " parse statics message error " + e2.getMessage();
+            } catch (JSONException e) {
+                str = " parse statics message error " + e.getMessage();
             }
             return fVar;
         }
         str = "no control statics can parse ";
-        c.h.a.a.a.b("statics", str);
+        rm9.b("statics", str);
         return fVar;
     }
 
@@ -81,31 +74,31 @@ public class f implements Parcelable {
     }
 
     public void a(boolean z) {
-        this.f42175c = z;
+        this.c = z;
     }
 
     public String b() {
-        return this.f42174b;
+        return this.b;
     }
 
     public void b(String str) {
-        this.f42174b = str;
+        this.b = str;
     }
 
     public void c(String str) {
-        this.f42176d = str;
+        this.d = str;
     }
 
     public boolean c() {
-        return this.f42175c;
+        return this.c;
     }
 
     public String d() {
-        return this.f42176d;
+        return this.d;
     }
 
     public void d(String str) {
-        this.f42177e = str;
+        this.e = str;
     }
 
     @Override // android.os.Parcelable
@@ -114,19 +107,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f42177e;
+        return this.e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.a + "', time='" + this.f42174b + "', pushExtra=" + this.f42175c + ", deviceId='" + this.f42176d + "', seqId='" + this.f42177e + "'}";
+        return "Statics{taskId='" + this.a + "', time='" + this.b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.a);
-        parcel.writeString(this.f42174b);
-        parcel.writeByte(this.f42175c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f42176d);
-        parcel.writeString(this.f42177e);
+        parcel.writeString(this.b);
+        parcel.writeByte(this.c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.d);
+        parcel.writeString(this.e);
     }
 }

@@ -116,8 +116,8 @@ public class WebRtcAudioRecord {
                     if (this.this$0.audioRecord != null) {
                         this.this$0.audioRecord.stop();
                     }
-                } catch (IllegalStateException e2) {
-                    Logging.e(WebRtcAudioRecord.TAG, "AudioRecord.stop failed: " + e2.getMessage());
+                } catch (IllegalStateException e) {
+                    Logging.e(WebRtcAudioRecord.TAG, "AudioRecord.stop failed: " + e.getMessage());
                 }
             }
         }
@@ -249,8 +249,8 @@ public class WebRtcAudioRecord {
                         reportWebRtcAudioRecordInitError("Failed to create a new AudioRecord instance");
                         releaseAudioResources();
                         return -1;
-                    } catch (IllegalArgumentException e2) {
-                        reportWebRtcAudioRecordInitError("AudioRecord ctor error: " + e2.getMessage());
+                    } catch (IllegalArgumentException e) {
+                        reportWebRtcAudioRecordInitError("AudioRecord ctor error: " + e.getMessage());
                         releaseAudioResources();
                         return -1;
                     }
@@ -356,9 +356,9 @@ public class WebRtcAudioRecord {
                 this.audioThread = audioRecordThread;
                 audioRecordThread.start();
                 return true;
-            } catch (IllegalStateException e2) {
+            } catch (IllegalStateException e) {
                 JavaAudioDeviceModule.AudioRecordStartErrorCode audioRecordStartErrorCode2 = JavaAudioDeviceModule.AudioRecordStartErrorCode.AUDIO_RECORD_START_EXCEPTION;
-                reportWebRtcAudioRecordStartError(audioRecordStartErrorCode2, "AudioRecord.startRecording failed: " + e2.getMessage());
+                reportWebRtcAudioRecordStartError(audioRecordStartErrorCode2, "AudioRecord.startRecording failed: " + e.getMessage());
                 return false;
             }
         }

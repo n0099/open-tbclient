@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes.dex */
 public class ImageAssetManager {
     public static final Object bitmapHashLock = new Object();
     public final Context context;
@@ -79,8 +79,8 @@ public class ImageAssetManager {
             try {
                 byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
                 return putBitmap(str, BitmapFactory.decodeByteArray(decode, 0, decode.length, options));
-            } catch (IllegalArgumentException e2) {
-                Logger.warning("data URL did not have correct base64 format.", e2);
+            } catch (IllegalArgumentException e) {
+                Logger.warning("data URL did not have correct base64 format.", e);
                 return null;
             }
         }
@@ -90,8 +90,8 @@ public class ImageAssetManager {
                 return putBitmap(str, Utils.resizeBitmapIfNeeded(BitmapFactory.decodeStream(assets.open(this.imagesFolder + fileName), null, options), lottieImageAsset.getWidth(), lottieImageAsset.getHeight()));
             }
             throw new IllegalStateException("You must set an images folder before loading an image. Set it with LottieComposition#setImagesFolder or LottieDrawable#setImagesFolder");
-        } catch (IOException e3) {
-            Logger.warning("Unable to open asset.", e3);
+        } catch (IOException e2) {
+            Logger.warning("Unable to open asset.", e2);
             return null;
         }
     }

@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import androidx.annotation.Nullable;
-import c.a.n0.a.s0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.repackage.qj2;
+/* loaded from: classes2.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String CONTENT_AUTHORITY;
@@ -39,7 +39,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 return;
             }
         }
-        CONTENT_AUTHORITY = a.c().getPackageName() + ".swan.subscribe_msg";
+        CONTENT_AUTHORITY = qj2.c().getPackageName() + ".swan.subscribe_msg";
         CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     }
 
@@ -65,9 +65,9 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
                 if (this.mDatabase != null) {
                     return false;
                 }
-                SQLiteOpenHelper h2 = SwanAppDbControl.f(a.c()).h();
-                if (h2 != null) {
-                    SQLiteDatabase writableDatabase = h2.getWritableDatabase();
+                SQLiteOpenHelper h = SwanAppDbControl.f(qj2.c()).h();
+                if (h != null) {
+                    SQLiteDatabase writableDatabase = h.getWritableDatabase();
                     this.mDatabase = writableDatabase;
                     return writableDatabase == null;
                 }

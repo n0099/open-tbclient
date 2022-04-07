@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -153,14 +153,14 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
                     } else {
                         query = query("app_launch_time", "app_launch_time=" + launchTimeItemModel.launchTime + " AND event_time=" + launchTimeItemModel.timeStamp);
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
                 try {
                     arrayList = new ArrayList();
-                } catch (Exception e3) {
+                } catch (Exception e2) {
                     cursor = query;
-                    e = e3;
+                    e = e2;
                     try {
                         if (DEBUG) {
                             Log.w(TAG, "", e);
@@ -175,8 +175,8 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
                         if (cursor2 != null) {
                             try {
                                 cursor2.close();
-                            } catch (Exception e4) {
-                                e4.printStackTrace();
+                            } catch (Exception e3) {
+                                e3.printStackTrace();
                             }
                         }
                         throw th;
@@ -188,8 +188,8 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
                     }
                     throw th;
                 }
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e4) {
+                e = e4;
                 cursor = null;
             } catch (Throwable th3) {
                 th = th3;
@@ -206,8 +206,8 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             if (query != null) {
                 try {
                     query.close();
-                } catch (Exception e6) {
-                    e6.printStackTrace();
+                } catch (Exception e5) {
+                    e5.printStackTrace();
                 }
             }
             return arrayList;
@@ -236,21 +236,21 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
                         if (cursor != null) {
                             try {
                                 cursor.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
                     }
-                } catch (Exception e3) {
+                } catch (Exception e2) {
                     if (DEBUG) {
-                        Log.w(TAG, "", e3);
+                        Log.w(TAG, "", e2);
                     }
                     if (cursor != null) {
                         cursor.close();
                     }
                 }
-            } catch (Exception e4) {
-                e4.printStackTrace();
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {

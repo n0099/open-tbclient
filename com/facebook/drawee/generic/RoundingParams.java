@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class RoundingParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class RoundingParams {
     public boolean mScaleDownInsideBorders;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static final class RoundingMethod {
         public static final /* synthetic */ RoundingMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -117,16 +117,16 @@ public class RoundingParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new RoundingParams().setRoundAsCircle(true) : (RoundingParams) invokeV.objValue;
     }
 
-    public static RoundingParams fromCornersRadii(float f2, float f3, float f4, float f5) {
+    public static RoundingParams fromCornersRadii(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? new RoundingParams().setCornersRadii(f2, f3, f4, f5) : (RoundingParams) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? new RoundingParams().setCornersRadii(f, f2, f3, f4) : (RoundingParams) invokeCommon.objValue;
     }
 
-    public static RoundingParams fromCornersRadius(float f2) {
+    public static RoundingParams fromCornersRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) ? new RoundingParams().setCornersRadius(f2) : (RoundingParams) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f)) == null) ? new RoundingParams().setCornersRadius(f) : (RoundingParams) invokeF.objValue;
     }
 
     private float[] getOrCreateRoundedCornersRadii() {
@@ -222,20 +222,20 @@ public class RoundingParams {
             int hashCode = (((roundingMethod != null ? roundingMethod.hashCode() : 0) * 31) + (this.mRoundAsCircle ? 1 : 0)) * 31;
             float[] fArr = this.mCornersRadii;
             int hashCode2 = (((hashCode + (fArr != null ? Arrays.hashCode(fArr) : 0)) * 31) + this.mOverlayColor) * 31;
-            float f2 = this.mBorderWidth;
-            int floatToIntBits = (((hashCode2 + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0)) * 31) + this.mBorderColor) * 31;
-            float f3 = this.mPadding;
-            return ((((floatToIntBits + (f3 != 0.0f ? Float.floatToIntBits(f3) : 0)) * 31) + (this.mScaleDownInsideBorders ? 1 : 0)) * 31) + (this.mPaintFilterBitmap ? 1 : 0);
+            float f = this.mBorderWidth;
+            int floatToIntBits = (((hashCode2 + (f != 0.0f ? Float.floatToIntBits(f) : 0)) * 31) + this.mBorderColor) * 31;
+            float f2 = this.mPadding;
+            return ((((floatToIntBits + (f2 != 0.0f ? Float.floatToIntBits(f2) : 0)) * 31) + (this.mScaleDownInsideBorders ? 1 : 0)) * 31) + (this.mPaintFilterBitmap ? 1 : 0);
         }
         return invokeV.intValue;
     }
 
-    public RoundingParams setBorder(@ColorInt int i, float f2) {
+    public RoundingParams setBorder(@ColorInt int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
-            Preconditions.checkArgument(f2 >= 0.0f, "the border width cannot be < 0");
-            this.mBorderWidth = f2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            Preconditions.checkArgument(f >= 0.0f, "the border width cannot be < 0");
+            this.mBorderWidth = f;
             this.mBorderColor = i;
             return this;
         }
@@ -252,40 +252,40 @@ public class RoundingParams {
         return (RoundingParams) invokeI.objValue;
     }
 
-    public RoundingParams setBorderWidth(float f2) {
+    public RoundingParams setBorderWidth(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f2)) == null) {
-            Preconditions.checkArgument(f2 >= 0.0f, "the border width cannot be < 0");
-            this.mBorderWidth = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
+            Preconditions.checkArgument(f >= 0.0f, "the border width cannot be < 0");
+            this.mBorderWidth = f;
             return this;
         }
         return (RoundingParams) invokeF.objValue;
     }
 
-    public RoundingParams setCornersRadii(float f2, float f3, float f4, float f5) {
+    public RoundingParams setCornersRadii(float f, float f2, float f3, float f4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
             float[] orCreateRoundedCornersRadii = getOrCreateRoundedCornersRadii();
-            orCreateRoundedCornersRadii[1] = f2;
-            orCreateRoundedCornersRadii[0] = f2;
-            orCreateRoundedCornersRadii[3] = f3;
-            orCreateRoundedCornersRadii[2] = f3;
-            orCreateRoundedCornersRadii[5] = f4;
-            orCreateRoundedCornersRadii[4] = f4;
-            orCreateRoundedCornersRadii[7] = f5;
-            orCreateRoundedCornersRadii[6] = f5;
+            orCreateRoundedCornersRadii[1] = f;
+            orCreateRoundedCornersRadii[0] = f;
+            orCreateRoundedCornersRadii[3] = f2;
+            orCreateRoundedCornersRadii[2] = f2;
+            orCreateRoundedCornersRadii[5] = f3;
+            orCreateRoundedCornersRadii[4] = f3;
+            orCreateRoundedCornersRadii[7] = f4;
+            orCreateRoundedCornersRadii[6] = f4;
             return this;
         }
         return (RoundingParams) invokeCommon.objValue;
     }
 
-    public RoundingParams setCornersRadius(float f2) {
+    public RoundingParams setCornersRadius(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048592, this, f2)) == null) {
-            Arrays.fill(getOrCreateRoundedCornersRadii(), f2);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048592, this, f)) == null) {
+            Arrays.fill(getOrCreateRoundedCornersRadii(), f);
             return this;
         }
         return (RoundingParams) invokeF.objValue;
@@ -302,12 +302,12 @@ public class RoundingParams {
         return (RoundingParams) invokeI.objValue;
     }
 
-    public RoundingParams setPadding(float f2) {
+    public RoundingParams setPadding(float f) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f2)) == null) {
-            Preconditions.checkArgument(f2 >= 0.0f, "the padding cannot be < 0");
-            this.mPadding = f2;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f)) == null) {
+            Preconditions.checkArgument(f >= 0.0f, "the padding cannot be < 0");
+            this.mPadding = f;
             return this;
         }
         return (RoundingParams) invokeF.objValue;

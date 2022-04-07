@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.tachikoma.api.model.BaseJsonApiParse;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class TKBaseResponse extends BaseJsonApiParse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

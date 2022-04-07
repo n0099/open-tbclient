@@ -23,15 +23,15 @@ public class DragStartHelper {
 
     /* loaded from: classes.dex */
     public interface OnDragStartListener {
-        boolean onDragStart(View view, DragStartHelper dragStartHelper);
+        boolean onDragStart(View view2, DragStartHelper dragStartHelper);
     }
 
-    public DragStartHelper(View view, OnDragStartListener onDragStartListener) {
+    public DragStartHelper(View view2, OnDragStartListener onDragStartListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, onDragStartListener};
+            Object[] objArr = {view2, onDragStartListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,10 +65,10 @@ public class DragStartHelper {
             }
 
             @Override // android.view.View.OnLongClickListener
-            public boolean onLongClick(View view2) {
+            public boolean onLongClick(View view3) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? this.this$0.onLongClick(view2) : invokeL.booleanValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view3)) == null) ? this.this$0.onLongClick(view3) : invokeL.booleanValue;
             }
         };
         this.mTouchListener = new View.OnTouchListener(this) { // from class: androidx.core.view.DragStartHelper.2
@@ -95,13 +95,13 @@ public class DragStartHelper {
             }
 
             @Override // android.view.View.OnTouchListener
-            public boolean onTouch(View view2, MotionEvent motionEvent) {
+            public boolean onTouch(View view3, MotionEvent motionEvent) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.this$0.onTouch(view2, motionEvent) : invokeLL.booleanValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, view3, motionEvent)) == null) ? this.this$0.onTouch(view3, motionEvent) : invokeLL.booleanValue;
             }
         };
-        this.mView = view;
+        this.mView = view2;
         this.mListener = onDragStartListener;
     }
 
@@ -128,10 +128,10 @@ public class DragStartHelper {
         }
     }
 
-    public boolean onLongClick(View view) {
+    public boolean onLongClick(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) ? this.mListener.onDragStart(view, this) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) ? this.mListener.onDragStart(view2, this) : invokeL.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001c, code lost:
@@ -140,10 +140,10 @@ public class DragStartHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean onTouch(View view, MotionEvent motionEvent) {
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view2, motionEvent)) == null) {
             int x = (int) motionEvent.getX();
             int y = (int) motionEvent.getY();
             int action = motionEvent.getAction();
@@ -153,7 +153,7 @@ public class DragStartHelper {
                         if (MotionEventCompat.isFromSource(motionEvent, 8194) && (motionEvent.getButtonState() & 1) != 0 && !this.mDragging && (this.mLastTouchX != x || this.mLastTouchY != y)) {
                             this.mLastTouchX = x;
                             this.mLastTouchY = y;
-                            boolean onDragStart = this.mListener.onDragStart(view, this);
+                            boolean onDragStart = this.mListener.onDragStart(view2, this);
                             this.mDragging = onDragStart;
                             return onDragStart;
                         }

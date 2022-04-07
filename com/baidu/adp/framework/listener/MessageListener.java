@@ -1,6 +1,5 @@
 package com.baidu.adp.framework.listener;
 
-import c.a.d.c.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
-public abstract class MessageListener<T extends ResponsedMessage<?>> extends d {
+import com.repackage.q9;
+/* loaded from: classes.dex */
+public abstract class MessageListener<T extends ResponsedMessage<?>> extends q9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mCmd;

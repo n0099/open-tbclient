@@ -153,9 +153,9 @@ public final class ByteStreamsKt {
             public byte nextByte() {
                 prepareNext();
                 if (!this.finished) {
-                    byte b2 = (byte) this.nextByte;
+                    byte b = (byte) this.nextByte;
                     this.nextPrepared = false;
-                    return b2;
+                    return b;
                 }
                 throw new NoSuchElementException("Input stream is over.");
             }

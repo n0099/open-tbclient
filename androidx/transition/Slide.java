@@ -44,9 +44,9 @@ public class Slide extends Visibility {
 
     /* loaded from: classes.dex */
     public interface CalculateSlide {
-        float getGoneX(ViewGroup viewGroup, View view);
+        float getGoneX(ViewGroup viewGroup, View view2);
 
-        float getGoneY(ViewGroup viewGroup, View view);
+        float getGoneY(ViewGroup viewGroup, View view2);
     }
 
     /* loaded from: classes.dex */
@@ -69,10 +69,10 @@ public class Slide extends Visibility {
         }
 
         @Override // androidx.transition.Slide.CalculateSlide
-        public float getGoneY(ViewGroup viewGroup, View view) {
+        public float getGoneY(ViewGroup viewGroup, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view)) == null) ? view.getTranslationY() : invokeLL.floatValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationY() : invokeLL.floatValue;
         }
     }
 
@@ -96,10 +96,10 @@ public class Slide extends Visibility {
         }
 
         @Override // androidx.transition.Slide.CalculateSlide
-        public float getGoneX(ViewGroup viewGroup, View view) {
+        public float getGoneX(ViewGroup viewGroup, View view2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view)) == null) ? view.getTranslationX() : invokeLL.floatValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationX() : invokeLL.floatValue;
         }
     }
 
@@ -144,10 +144,10 @@ public class Slide extends Visibility {
             }
 
             @Override // androidx.transition.Slide.CalculateSlide
-            public float getGoneX(ViewGroup viewGroup, View view) {
+            public float getGoneX(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view)) == null) ? view.getTranslationX() - viewGroup.getWidth() : invokeLL.floatValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationX() - viewGroup.getWidth() : invokeLL.floatValue;
             }
         };
         sCalculateStart = new CalculateSlideHorizontal() { // from class: androidx.transition.Slide.2
@@ -170,14 +170,14 @@ public class Slide extends Visibility {
             }
 
             @Override // androidx.transition.Slide.CalculateSlide
-            public float getGoneX(ViewGroup viewGroup, View view) {
+            public float getGoneX(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view)) == null) {
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
                     if (ViewCompat.getLayoutDirection(viewGroup) == 1) {
-                        return view.getTranslationX() + viewGroup.getWidth();
+                        return view2.getTranslationX() + viewGroup.getWidth();
                     }
-                    return view.getTranslationX() - viewGroup.getWidth();
+                    return view2.getTranslationX() - viewGroup.getWidth();
                 }
                 return invokeLL.floatValue;
             }
@@ -202,10 +202,10 @@ public class Slide extends Visibility {
             }
 
             @Override // androidx.transition.Slide.CalculateSlide
-            public float getGoneY(ViewGroup viewGroup, View view) {
+            public float getGoneY(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view)) == null) ? view.getTranslationY() - viewGroup.getHeight() : invokeLL.floatValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationY() - viewGroup.getHeight() : invokeLL.floatValue;
             }
         };
         sCalculateRight = new CalculateSlideHorizontal() { // from class: androidx.transition.Slide.4
@@ -228,10 +228,10 @@ public class Slide extends Visibility {
             }
 
             @Override // androidx.transition.Slide.CalculateSlide
-            public float getGoneX(ViewGroup viewGroup, View view) {
+            public float getGoneX(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view)) == null) ? view.getTranslationX() + viewGroup.getWidth() : invokeLL.floatValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationX() + viewGroup.getWidth() : invokeLL.floatValue;
             }
         };
         sCalculateEnd = new CalculateSlideHorizontal() { // from class: androidx.transition.Slide.5
@@ -254,14 +254,14 @@ public class Slide extends Visibility {
             }
 
             @Override // androidx.transition.Slide.CalculateSlide
-            public float getGoneX(ViewGroup viewGroup, View view) {
+            public float getGoneX(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view)) == null) {
+                if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) {
                     if (ViewCompat.getLayoutDirection(viewGroup) == 1) {
-                        return view.getTranslationX() - viewGroup.getWidth();
+                        return view2.getTranslationX() - viewGroup.getWidth();
                     }
-                    return view.getTranslationX() + viewGroup.getWidth();
+                    return view2.getTranslationX() + viewGroup.getWidth();
                 }
                 return invokeLL.floatValue;
             }
@@ -286,10 +286,10 @@ public class Slide extends Visibility {
             }
 
             @Override // androidx.transition.Slide.CalculateSlide
-            public float getGoneY(ViewGroup viewGroup, View view) {
+            public float getGoneY(ViewGroup viewGroup, View view2) {
                 InterceptResult invokeLL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view)) == null) ? view.getTranslationY() + viewGroup.getHeight() : invokeLL.floatValue;
+                return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, viewGroup, view2)) == null) ? view2.getTranslationY() + viewGroup.getHeight() : invokeLL.floatValue;
             }
         };
     }
@@ -316,7 +316,7 @@ public class Slide extends Visibility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, transitionValues) == null) {
             int[] iArr = new int[2];
-            transitionValues.view.getLocationOnScreen(iArr);
+            transitionValues.f980view.getLocationOnScreen(iArr);
             transitionValues.values.put(PROPNAME_SCREEN_POSITION, iArr);
         }
     }
@@ -346,29 +346,29 @@ public class Slide extends Visibility {
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onAppear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onAppear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             if (transitionValues2 == null) {
                 return null;
             }
             int[] iArr = (int[]) transitionValues2.values.get(PROPNAME_SCREEN_POSITION);
-            return TranslationAnimationCreator.createAnimation(view, transitionValues2, iArr[0], iArr[1], this.mSlideCalculator.getGoneX(viewGroup, view), this.mSlideCalculator.getGoneY(viewGroup, view), view.getTranslationX(), view.getTranslationY(), sDecelerate, this);
+            return TranslationAnimationCreator.createAnimation(view2, transitionValues2, iArr[0], iArr[1], this.mSlideCalculator.getGoneX(viewGroup, view2), this.mSlideCalculator.getGoneY(viewGroup, view2), view2.getTranslationX(), view2.getTranslationY(), sDecelerate, this);
         }
         return (Animator) invokeLLLL.objValue;
     }
 
     @Override // androidx.transition.Visibility
-    public Animator onDisappear(ViewGroup viewGroup, View view, TransitionValues transitionValues, TransitionValues transitionValues2) {
+    public Animator onDisappear(ViewGroup viewGroup, View view2, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, viewGroup, view, transitionValues, transitionValues2)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, viewGroup, view2, transitionValues, transitionValues2)) == null) {
             if (transitionValues == null) {
                 return null;
             }
             int[] iArr = (int[]) transitionValues.values.get(PROPNAME_SCREEN_POSITION);
-            return TranslationAnimationCreator.createAnimation(view, transitionValues, iArr[0], iArr[1], view.getTranslationX(), view.getTranslationY(), this.mSlideCalculator.getGoneX(viewGroup, view), this.mSlideCalculator.getGoneY(viewGroup, view), sAccelerate, this);
+            return TranslationAnimationCreator.createAnimation(view2, transitionValues, iArr[0], iArr[1], view2.getTranslationX(), view2.getTranslationY(), this.mSlideCalculator.getGoneX(viewGroup, view2), this.mSlideCalculator.getGoneY(viewGroup, view2), sAccelerate, this);
         }
         return (Animator) invokeLLLL.objValue;
     }

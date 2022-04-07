@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class ReportConfigInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,8 +64,8 @@ public class ReportConfigInfo {
                 reportConfigInfo.installLogId = jSONObject.optString("3");
                 reportConfigInfo.pkgName = jSONObject.optString("4");
                 return reportConfigInfo;
-            } catch (Exception e2) {
-                CommonMethods.handleNuLException(e2);
+            } catch (Exception e) {
+                CommonMethods.handleNuLException(e);
                 return null;
             }
         }

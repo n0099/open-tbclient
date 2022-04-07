@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.zxing.Dimension;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public final class HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ASCII_ENCODATION = 0;
@@ -110,33 +110,33 @@ public final class HighLevelEncoder {
         return invokeL.intValue;
     }
 
-    public static void illegalCharacter(char c2) {
+    public static void illegalCharacter(char c) {
         String hexString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c2)}) == null) {
-            throw new IllegalArgumentException("Illegal character: " + c2 + " (0x" + ("0000".substring(0, 4 - hexString.length()) + Integer.toHexString(c2)) + ')');
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)}) == null) {
+            throw new IllegalArgumentException("Illegal character: " + c + " (0x" + ("0000".substring(0, 4 - hexString.length()) + Integer.toHexString(c)) + ')');
         }
     }
 
-    public static boolean isDigit(char c2) {
+    public static boolean isDigit(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 >= '0' && c2 <= '9' : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= '0' && c <= '9' : invokeCommon.booleanValue;
     }
 
-    public static boolean isExtendedASCII(char c2) {
+    public static boolean isExtendedASCII(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 >= 128 && c2 <= 255 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 128 && c <= 255 : invokeCommon.booleanValue;
     }
 
-    public static boolean isNativeC40(char c2) {
+    public static boolean isNativeC40(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 != ' ') {
-                if (c2 < '0' || c2 > '9') {
-                    return c2 >= 'A' && c2 <= 'Z';
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != ' ') {
+                if (c < '0' || c > '9') {
+                    return c >= 'A' && c <= 'Z';
                 }
                 return true;
             }
@@ -145,19 +145,19 @@ public final class HighLevelEncoder {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isNativeEDIFACT(char c2) {
+    public static boolean isNativeEDIFACT(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 >= ' ' && c2 <= '^' : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{Character.valueOf(c)})) == null) ? c >= ' ' && c <= '^' : invokeCommon.booleanValue;
     }
 
-    public static boolean isNativeText(char c2) {
+    public static boolean isNativeText(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (c2 != ' ') {
-                if (c2 < '0' || c2 > '9') {
-                    return c2 >= 'a' && c2 <= 'z';
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c != ' ') {
+                if (c < '0' || c > '9') {
+                    return c >= 'a' && c <= 'z';
                 }
                 return true;
             }
@@ -166,40 +166,40 @@ public final class HighLevelEncoder {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isNativeX12(char c2) {
+    public static boolean isNativeX12(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c2)})) == null) {
-            if (isX12TermSep(c2) || c2 == ' ') {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (isX12TermSep(c) || c == ' ') {
                 return true;
             }
-            if (c2 < '0' || c2 > '9') {
-                return c2 >= 'A' && c2 <= 'Z';
+            if (c < '0' || c > '9') {
+                return c >= 'A' && c <= 'Z';
             }
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isSpecialB256(char c2) {
+    public static boolean isSpecialB256(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Character.valueOf(c)})) == null) {
             return false;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isX12TermSep(char c2) {
+    public static boolean isX12TermSep(char c) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c2)})) == null) ? c2 == '\r' || c2 == '*' || c2 == '>' : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Character.valueOf(c)})) == null) ? c == '\r' || c == '*' || c == '>' : invokeCommon.booleanValue;
     }
 
     public static int lookAheadTest(CharSequence charSequence, int i, int i2) {
         InterceptResult invokeLII;
         float[] fArr;
-        char c2;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLII = interceptable.invokeLII(65551, null, charSequence, i, i2)) != null) {
             return invokeLII.intValue;
@@ -275,10 +275,10 @@ public final class HighLevelEncoder {
                 fArr[4] = fArr[4] + 3.25f;
             }
             if (isSpecialB256(charAt)) {
-                c2 = 5;
+                c = 5;
                 fArr[5] = fArr[5] + 4.0f;
             } else {
-                c2 = 5;
+                c = 5;
                 fArr[5] = fArr[5] + 1.0f;
             }
             if (i3 >= 4) {
@@ -286,7 +286,7 @@ public final class HighLevelEncoder {
                 byte[] bArr2 = new byte[6];
                 findMinimums(fArr, iArr2, Integer.MAX_VALUE, bArr2);
                 int minimumCount2 = getMinimumCount(bArr2);
-                if (iArr2[0] < iArr2[c2] && iArr2[0] < iArr2[1] && iArr2[0] < iArr2[2] && iArr2[0] < iArr2[3] && iArr2[0] < iArr2[4]) {
+                if (iArr2[0] < iArr2[c] && iArr2[0] < iArr2[1] && iArr2[0] < iArr2[2] && iArr2[0] < iArr2[3] && iArr2[0] < iArr2[4]) {
                     return 0;
                 }
                 if (iArr2[5] < iArr2[0] || bArr2[1] + bArr2[2] + bArr2[3] + bArr2[4] == 0) {
@@ -322,11 +322,11 @@ public final class HighLevelEncoder {
         }
     }
 
-    public static char randomize253State(char c2, int i) {
+    public static char randomize253State(char c, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
-            int i2 = c2 + ((i * 149) % GDiffPatcher.COPY_INT_USHORT) + 1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Character.valueOf(c), Integer.valueOf(i)})) == null) {
+            int i2 = c + ((i * 149) % GDiffPatcher.COPY_INT_USHORT) + 1;
             if (i2 > 254) {
                 i2 += UIMsg.m_AppUI.V_WM_LISTLISTUPDATE;
             }

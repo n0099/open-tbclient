@@ -1,7 +1,5 @@
 package com.baidu.searchbox.task.async.privacy;
 
-import c.a.d.b.a.b;
-import c.a.o0.r0.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,8 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l9;
+import com.repackage.s85;
+import com.repackage.wt4;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class LogoTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +45,7 @@ public class LogoTask extends LaunchTask {
     private void startSwitchDebugService() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new b(TbadkCoreApplication.getInst())));
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2000996, new l9(TbadkCoreApplication.getInst())));
         }
     }
 
@@ -75,10 +76,10 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                c.a.o0.r.j0.b.k().u("frs_first_in", true);
+                wt4.k().u("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
-            k.b().A(this.mIsFirstUse);
+            s85.b().z(this.mIsFirstUse);
         }
     }
 

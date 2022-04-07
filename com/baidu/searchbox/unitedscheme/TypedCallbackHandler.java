@@ -1,6 +1,6 @@
 package com.baidu.searchbox.unitedscheme;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public interface TypedCallbackHandler extends CallbackHandler {
     public static final int INVOKE_TYPE_SWAN_APP = 0;
     public static final int INVOKE_TYPE_SWAN_GAME = 1;

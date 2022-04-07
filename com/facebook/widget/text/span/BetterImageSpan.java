@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class BetterImageSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALIGN_BASELINE = 1;
@@ -28,7 +28,7 @@ public class BetterImageSpan extends ReplacementSpan {
     public int mWidth;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public @interface BetterImageSpanAlignment {
     }
 
@@ -84,14 +84,14 @@ public class BetterImageSpan extends ReplacementSpan {
     }
 
     @Override // android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f2, int i3, int i4, int i5, Paint paint) {
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
             paint.getFontMetricsInt(this.mFontMetricsInt);
             int offsetAboveBaseline = i4 + getOffsetAboveBaseline(this.mFontMetricsInt);
-            canvas.translate(f2, offsetAboveBaseline);
+            canvas.translate(f, offsetAboveBaseline);
             this.mDrawable.draw(canvas);
-            canvas.translate(-f2, -offsetAboveBaseline);
+            canvas.translate(-f, -offsetAboveBaseline);
         }
     }
 

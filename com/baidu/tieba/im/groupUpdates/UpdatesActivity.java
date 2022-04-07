@@ -8,9 +8,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AbsListView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.o0.c1.s;
-import c.a.o0.r.t.j;
-import c.a.o0.r.t.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -40,25 +37,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ic5;
+import com.repackage.mg;
+import com.repackage.mi;
+import com.repackage.mr4;
+import com.repackage.o77;
+import com.repackage.or4;
+import com.repackage.w67;
+import com.repackage.xx4;
+import com.repackage.ya;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s<Boolean> delDataCallBack;
-    public j deleteItemDialog;
-    public s<LinkedList<GroupNewsPojo>> getDataCallBack;
+    public ic5<Boolean> delDataCallBack;
+    public mr4 deleteItemDialog;
+    public ic5<LinkedList<GroupNewsPojo>> getDataCallBack;
     public boolean isEditMode;
     public Runnable loadImageRunnable;
     public CustomMessageListener mCustomListener;
-    public c.a.d.c.g.c mListener;
+    public ya mListener;
     public UpdatesModel model;
     public UpdatesItemData pendingToDel;
-    public c.a.p0.u1.j.c updatesView;
+    public w67 updatesView;
 
-    /* loaded from: classes5.dex */
-    public class a implements s<LinkedList<GroupNewsPojo>> {
+    /* loaded from: classes3.dex */
+    public class a implements ic5<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdatesActivity a;
@@ -82,7 +88,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.s
+        @Override // com.repackage.ic5
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             ImMessageCenterPojo imMessageCenterPojo;
@@ -91,7 +97,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
                 this.a.updatesView.o(convertToUpdatesItemData);
                 this.a.model.calculateSelects(convertToUpdatesItemData);
-                this.a.updatesView.q(false);
+                this.a.updatesView.r(false);
                 this.a.updatesView.p(this.a.model.getDeleteSize());
                 this.a.loadImage();
                 if (convertToUpdatesItemData == null || convertToUpdatesItemData.size() <= 0) {
@@ -110,21 +116,19 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements s<Boolean> {
+    /* loaded from: classes3.dex */
+    public class b implements ic5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s a;
+        public final /* synthetic */ ic5 a;
+        public final /* synthetic */ UpdatesActivity b;
 
-        /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ UpdatesActivity f33837b;
-
-        public b(UpdatesActivity updatesActivity, s sVar) {
+        public b(UpdatesActivity updatesActivity, ic5 ic5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {updatesActivity, sVar};
+                Object[] objArr = {updatesActivity, ic5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -134,26 +138,26 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                     return;
                 }
             }
-            this.f33837b = updatesActivity;
-            this.a = sVar;
+            this.b = updatesActivity;
+            this.a = ic5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.s
+        @Override // com.repackage.ic5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                this.f33837b.model.clearSelect();
-                this.f33837b.updatesView.c();
-                this.f33837b.setEditMode(false);
+                this.b.model.clearSelect();
+                this.b.updatesView.e();
+                this.b.setEditMode(false);
                 UpdatesModel.requestUpdatesDataFromDB(this.a);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements s<LinkedList<GroupNewsPojo>> {
+    /* loaded from: classes3.dex */
+    public class c implements ic5<LinkedList<GroupNewsPojo>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdatesActivity a;
@@ -177,7 +181,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.o0.c1.s
+        @Override // com.repackage.ic5
         /* renamed from: a */
         public void onReturnDataInUI(LinkedList<GroupNewsPojo> linkedList) {
             Interceptable interceptable = $ic;
@@ -185,15 +189,15 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 List<UpdatesItemData> convertToUpdatesItemData = UpdatesModel.convertToUpdatesItemData(linkedList);
                 this.a.updatesView.o(convertToUpdatesItemData);
                 this.a.model.calculateSelects(convertToUpdatesItemData);
-                this.a.updatesView.q(false);
+                this.a.updatesView.r(false);
                 this.a.updatesView.p(this.a.model.getDeleteSize());
                 this.a.loadImage();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements l.e {
+    /* loaded from: classes3.dex */
+    public class d implements or4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdatesActivity a;
@@ -216,25 +220,25 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             this.a = updatesActivity;
         }
 
-        @Override // c.a.o0.r.t.l.e
-        public void onItemClick(l lVar, int i, View view) {
+        @Override // com.repackage.or4.e
+        public void onItemClick(or4 or4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, lVar, i, view) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, or4Var, i, view2) == null) {
                 if (this.a.deleteItemDialog != null && this.a.deleteItemDialog.isShowing()) {
                     this.a.deleteItemDialog.dismiss();
                 }
                 if (i != 0) {
                     return;
                 }
-                this.a.updatesView.q(true);
+                this.a.updatesView.r(true);
                 UpdatesActivity updatesActivity = this.a;
                 updatesActivity.processDel(updatesActivity.pendingToDel);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e extends c.a.d.c.g.c {
+    /* loaded from: classes3.dex */
+    public class e extends ya {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdatesActivity a;
@@ -265,7 +269,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.updatesView.q(false);
+                this.a.updatesView.r(false);
                 if (socketResponsedMessage != null && (socketResponsedMessage instanceof ResponsedMessage) && 202004 == socketResponsedMessage.getCmd()) {
                     ResponseDelSystemMessage responseDelSystemMessage = (ResponseDelSystemMessage) socketResponsedMessage;
                     RequestDelSystemMessage requestDelSystemMessage = (RequestDelSystemMessage) responseDelSystemMessage.getOrginalMessage();
@@ -285,7 +289,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -317,7 +321,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.updatesView.q(false);
+                this.a.updatesView.r(false);
                 if (customResponsedMessage != null && (customResponsedMessage instanceof ResponsedMessage)) {
                     int cmd = customResponsedMessage.getCmd();
                     if (2001132 == cmd || 2001133 == cmd || 2001130 == cmd || 2001129 == cmd || 2001137 == cmd) {
@@ -357,11 +361,11 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     private void initDeleteDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f04a8);
+            String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f04af);
             d dVar = new d(this);
-            j jVar = new j(getPageContext());
-            this.deleteItemDialog = jVar;
-            jVar.j(null, new String[]{string}, dVar);
+            mr4 mr4Var = new mr4(getPageContext());
+            this.deleteItemDialog = mr4Var;
+            mr4Var.j(null, new String[]{string}, dVar);
         }
     }
 
@@ -379,14 +383,14 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     public void processDel(UpdatesItemData updatesItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, this, updatesItemData) == null) {
-            if (!c.a.d.f.p.l.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c15);
-            } else if (updatesItemData == null || TextUtils.isEmpty(c.a.p0.u1.p.b.b().c()) || !TextUtils.isDigitsOnly(c.a.p0.u1.p.b.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
+            if (!mi.z()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c18);
+            } else if (updatesItemData == null || TextUtils.isEmpty(o77.b().c()) || !TextUtils.isDigitsOnly(o77.b().c()) || TextUtils.isEmpty(updatesItemData.getNotice_id()) || !TextUtils.isDigitsOnly(updatesItemData.getNotice_id())) {
             } else {
                 try {
-                    this.updatesView.q(true);
+                    this.updatesView.r(true);
                     RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                    requestDelSystemMessage.setGroupId(c.a.d.f.m.b.g(c.a.p0.u1.p.b.b().c(), 0L));
+                    requestDelSystemMessage.setGroupId(mg.g(o77.b().c(), 0L));
                     long parseLong = Long.parseLong(updatesItemData.getNotice_id());
                     requestDelSystemMessage.setMsgIds("" + (parseLong / 100));
                     MessageManager.getInstance().sendMessage(requestDelSystemMessage);
@@ -418,16 +422,16 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            c.a.p0.u1.j.c cVar = this.updatesView;
-            if (cVar != null) {
-                cVar.onChangeSkinType(i);
+            w67 w67Var = this.updatesView;
+            if (w67Var != null) {
+                w67Var.onChangeSkinType(i);
             }
         }
     }
 
-    public void onCheckedChanged(View view, boolean z, UpdatesItemData updatesItemData) {
+    public void onCheckedChanged(View view2, boolean z, UpdatesItemData updatesItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, Boolean.valueOf(z), updatesItemData}) == null) || updatesItemData == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view2, Boolean.valueOf(z), updatesItemData}) == null) || updatesItemData == null) {
             return;
         }
         if (z) {
@@ -436,7 +440,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
             if (this.model.getDeleteSize() > 100) {
                 this.model.cancelSelect(updatesItemData);
                 updatesItemData.setSelected(false);
-                showToast(R.string.obfuscated_res_0x7f0f148c);
+                showToast(R.string.obfuscated_res_0x7f0f1494);
             }
         } else {
             this.model.cancelSelect(updatesItemData);
@@ -447,32 +451,32 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
-    public void onClick(View view) {
-        c.a.p0.u1.j.c cVar;
+    public void onClick(View view2) {
+        w67 w67Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || view == null || (cVar = this.updatesView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (w67Var = this.updatesView) == null) {
             return;
         }
-        if (view.equals(cVar.g())) {
+        if (view2.equals(w67Var.g())) {
             finish();
-        } else if (view.equals(this.updatesView.j())) {
+        } else if (view2.equals(this.updatesView.j())) {
             this.model.clearSelect();
             this.model.calculateSelects(this.updatesView.k().b());
             this.updatesView.p(this.model.getDeleteSize());
             setEditMode(true);
-            this.updatesView.d();
-        } else if (view.equals(this.updatesView.h())) {
+            this.updatesView.f();
+        } else if (view2.equals(this.updatesView.h())) {
             setEditMode(false);
-            this.updatesView.c();
+            this.updatesView.e();
             this.model.clearSelect();
             UpdatesModel.requestUpdatesDataFromDB(this.getDataCallBack);
-        } else if (view.equals(this.updatesView.i())) {
-            this.updatesView.q(true);
+        } else if (view2.equals(this.updatesView.i())) {
+            this.updatesView.r(true);
             String deleteDatasIds = this.model.deleteDatasIds();
             if (!TextUtils.isEmpty(deleteDatasIds)) {
                 processDel(deleteDatasIds);
             } else {
-                this.updatesView.q(false);
+                this.updatesView.r(false);
             }
         }
     }
@@ -483,14 +487,14 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             this.model = new UpdatesModel();
-            this.updatesView = new c.a.p0.u1.j.c(this);
+            this.updatesView = new w67(this);
             initDataCallBack();
             registerListener(2001132, this.mCustomListener);
             registerListener(2001133, this.mCustomListener);
             registerListener(2001130, this.mCustomListener);
             registerListener(2001129, this.mCustomListener);
             registerListener(2001137, this.mCustomListener);
-            this.updatesView.q(true);
+            this.updatesView.r(true);
             UpdatesModel.requestUpdatesDataFromDB(this.getDataCallBack);
             registerListener(202004, this.mListener);
         }
@@ -501,9 +505,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            c.a.p0.u1.j.c cVar = this.updatesView;
-            if (cVar != null) {
-                cVar.destroy();
+            w67 w67Var = this.updatesView;
+            if (w67Var != null) {
+                w67Var.destroy();
             }
             UpdatesModel updatesModel = this.model;
             if (updatesModel != null) {
@@ -513,9 +517,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    public void onItemViewClick(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
+    public void onItemViewClick(View view2, int i, int i2, long j, UpdatesItemData updatesItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), updatesItemData}) == null) || updatesItemData == null || 101 != i || isEditMode()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), updatesItemData}) == null) || updatesItemData == null || 101 != i || isEditMode()) {
             return;
         }
         String groupId = updatesItemData.getGroupId();
@@ -525,14 +529,14 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
         try {
             if (updatesType.equals("group_level_up")) {
-                sendMessage(new CustomMessage(2002001, new GroupLevelActivityConfig(getPageContext().getPageActivity(), c.a.d.f.m.b.g(groupId, 0L), updatesItemData.isShown())));
+                sendMessage(new CustomMessage(2002001, new GroupLevelActivityConfig(getPageContext().getPageActivity(), mg.g(groupId, 0L), updatesItemData.isShown())));
             } else if (updatesType.equals("dismiss_group")) {
             } else {
                 if (updatesType.equals("group_event_info")) {
                     TiebaStatic.log("update_activity_group_event_click");
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{updatesItemData.getEventLink()});
                 } else if (updatesType.equals("group_activitys_change")) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupActivityActivityConfig(getPageContext().getPageActivity(), c.a.d.f.m.b.e(updatesItemData.getGroupActivityId(), 0), c.a.d.f.m.b.g(updatesItemData.getGroupId(), 0L), 1)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GroupActivityActivityConfig(getPageContext().getPageActivity(), mg.e(updatesItemData.getGroupActivityId(), 0), mg.g(updatesItemData.getGroupId(), 0L), 1)));
                 } else {
                     sendMessage(new CustomMessage(2008011, new GroupInfoActivityConfig(getPageContext().getPageActivity(), Long.parseLong(groupId), 0)));
                 }
@@ -542,9 +546,9 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         }
     }
 
-    public void onItemViewLongClick(View view, int i, int i2, long j, UpdatesItemData updatesItemData) {
+    public void onItemViewLongClick(View view2, int i, int i2, long j, UpdatesItemData updatesItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), updatesItemData}) == null) || view == null || updatesItemData == null || 200 != i || isEditMode()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), updatesItemData}) == null) || view2 == null || updatesItemData == null || 200 != i || isEditMode()) {
             return;
         }
         if (this.deleteItemDialog == null) {
@@ -563,7 +567,7 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
                 setEditMode(false);
                 this.model.clearSelect();
                 this.updatesView.p(this.model.getDeleteSize());
-                this.updatesView.c();
+                this.updatesView.e();
                 return true;
             }
             return super.onKeyDown(i, keyEvent);
@@ -595,8 +599,8 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onResume();
             ChatStatusManager.getInst().setIsOpen(6, true);
-            c.a.o0.s.d.b.g0().f(2);
-            c.a.o0.s.d.b.g0().g();
+            xx4.g0().f(2);
+            xx4.g0().g();
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(TbEnum.CustomGroupId.GROUP_UPDATE, -3)));
         }
     }
@@ -644,17 +648,17 @@ public class UpdatesActivity extends BaseActivity<UpdatesActivity> implements Ab
     private void processDel(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
-            if (!c.a.d.f.p.l.z()) {
-                showToast(R.string.obfuscated_res_0x7f0f0c15);
+            if (!mi.z()) {
+                showToast(R.string.obfuscated_res_0x7f0f0c18);
             } else if (TextUtils.isEmpty(str)) {
             } else {
-                String c2 = c.a.p0.u1.p.b.b().c();
+                String c2 = o77.b().c();
                 if (TextUtils.isEmpty(c2) || !TextUtils.isDigitsOnly(c2)) {
                     return;
                 }
-                this.updatesView.q(true);
+                this.updatesView.r(true);
                 RequestDelSystemMessage requestDelSystemMessage = new RequestDelSystemMessage();
-                requestDelSystemMessage.setGroupId(c.a.d.f.m.b.g(c2, 0L));
+                requestDelSystemMessage.setGroupId(mg.g(c2, 0L));
                 requestDelSystemMessage.setMsgIds(str);
                 MessageManager.getInstance().sendMessage(requestDelSystemMessage);
             }

@@ -1,7 +1,6 @@
 package com.baidu.tieba.im.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.d.f.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.mg;
 import protobuf.AddGroup.AddGroupReqIdl;
 import protobuf.AddGroup.DataReq;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class RequestAddGroupMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,10 +56,10 @@ public class RequestAddGroupMessage extends TbSocketMessage {
             builder.intro = getIntro();
             builder.portrait = getPortrait();
             builder.position = getPosition();
-            builder.lng = Double.valueOf(b.c(getLng(), 0.0d));
+            builder.lng = Double.valueOf(mg.c(getLng(), 0.0d));
             builder.groupType = Integer.valueOf(getGroupType());
             builder.flag = Integer.valueOf(getFlag());
-            builder.lat = Double.valueOf(b.c(getLat(), 0.0d));
+            builder.lat = Double.valueOf(mg.c(getLat(), 0.0d));
             builder.forumId = Integer.valueOf(getForumId());
             AddGroupReqIdl.Builder builder2 = new AddGroupReqIdl.Builder();
             builder2.data = builder.build(false);

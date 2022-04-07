@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class StreamEncoder implements Encoder<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "StreamEncoder";
@@ -59,8 +59,8 @@ public class StreamEncoder implements Encoder<InputStream> {
                                     break;
                                 }
                                 fileOutputStream2.write(bArr, 0, read);
-                            } catch (IOException e2) {
-                                e = e2;
+                            } catch (IOException e) {
+                                e = e;
                                 fileOutputStream = fileOutputStream2;
                                 if (Log.isLoggable(TAG, 3)) {
                                     Log.d(TAG, "Failed to encode data onto the OutputStream", e);
@@ -89,8 +89,8 @@ public class StreamEncoder implements Encoder<InputStream> {
                     } catch (Throwable th2) {
                         th = th2;
                     }
-                } catch (IOException e3) {
-                    e = e3;
+                } catch (IOException e2) {
+                    e = e2;
                 }
             } catch (IOException unused2) {
             }

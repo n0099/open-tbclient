@@ -47,8 +47,8 @@ public final class HandlerCompat {
                     return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, null, Boolean.TRUE);
                 } catch (IllegalAccessException | InstantiationException | NoSuchMethodException unused) {
                     Log.v(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor");
-                } catch (InvocationTargetException e2) {
-                    Throwable cause = e2.getCause();
+                } catch (InvocationTargetException e) {
+                    Throwable cause = e.getCause();
                     if (!(cause instanceof RuntimeException)) {
                         if (cause instanceof Error) {
                             throw ((Error) cause);
@@ -91,8 +91,8 @@ public final class HandlerCompat {
                     return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, callback, Boolean.TRUE);
                 } catch (IllegalAccessException | InstantiationException | NoSuchMethodException unused) {
                     Log.v(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor");
-                } catch (InvocationTargetException e2) {
-                    Throwable cause = e2.getCause();
+                } catch (InvocationTargetException e) {
+                    Throwable cause = e.getCause();
                     if (!(cause instanceof RuntimeException)) {
                         if (cause instanceof Error) {
                             throw ((Error) cause);

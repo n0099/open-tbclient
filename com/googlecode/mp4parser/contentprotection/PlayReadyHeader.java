@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import org.apache.commons.base.CharEncoding;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
     public static UUID PROTECTION_SYSTEM_ID;
@@ -26,13 +26,13 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
     public long length;
     public List<PlayReadyRecord> records;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes5.dex */
     public static abstract class PlayReadyRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int type;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static class EmeddedLicenseStore extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes5.dex */
         public static class RMHeader extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -161,8 +161,8 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
                         return ByteBuffer.wrap(this.header.getBytes(CharEncoding.UTF_16LE));
-                    } catch (UnsupportedEncodingException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException(e);
                     }
                 }
                 return (ByteBuffer) invokeV.objValue;
@@ -176,8 +176,8 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                         byte[] bArr = new byte[byteBuffer.slice().limit()];
                         byteBuffer.get(bArr);
                         this.header = new String(bArr, CharEncoding.UTF_16LE);
-                    } catch (UnsupportedEncodingException e2) {
-                        throw new RuntimeException(e2);
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException(e);
                     }
                 }
             }

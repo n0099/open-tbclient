@@ -6,14 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class v extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public long f43851b;
+    public long b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v(int i) {
@@ -41,7 +39,7 @@ public abstract class v extends s {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
-            aVar.a("notify_id", this.f43851b);
+            aVar.a("notify_id", this.b);
         }
     }
 
@@ -51,14 +49,14 @@ public abstract class v extends s {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-            this.f43851b = aVar.b("notify_id", -1L);
+            this.b = aVar.b("notify_id", -1L);
         }
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43851b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
     }
 
     public final String i() {

@@ -119,8 +119,8 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
             }
             try {
                 return ((Integer) audioAttributesToLegacyStreamTypeMethod.invoke(null, this.mAudioAttributes)).intValue();
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                Log.w(TAG, "getLegacyStreamType() failed on API: " + Build.VERSION.SDK_INT, e2);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                Log.w(TAG, "getLegacyStreamType() failed on API: " + Build.VERSION.SDK_INT, e);
                 return -1;
             }
         }

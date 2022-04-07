@@ -4,9 +4,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.d.f.p.i;
-import c.a.d.f.p.o;
-import c.a.o0.r.j0.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -23,6 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ji;
+import com.repackage.pi;
+import com.repackage.wt4;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -32,7 +32,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FatalErrorService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_TYPE_KEY = "errortype";
@@ -42,17 +42,13 @@ public class FatalErrorService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mTask;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public NetWork f35852b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FatalErrorService f35853c;
+        public NetWork b;
+        public final /* synthetic */ FatalErrorService c;
 
         public a(FatalErrorService fatalErrorService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -69,8 +65,8 @@ public class FatalErrorService extends BdBaseService {
                     return;
                 }
             }
-            this.f35853c = fatalErrorService;
-            this.f35852b = null;
+            this.c = fatalErrorService;
+            this.b = null;
             this.a = intent;
         }
 
@@ -84,8 +80,8 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter.append((CharSequence) str2);
                     }
                     fileWriter.append("\n");
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
         }
@@ -98,8 +94,8 @@ public class FatalErrorService extends BdBaseService {
                 try {
                     try {
                         fileWriter = new FileWriter(file, true);
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -118,16 +114,16 @@ public class FatalErrorService extends BdBaseService {
                     b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                     b(fileWriter, "uname", this.a.getStringExtra("uname"));
                     fileWriter.append("\n##TIEBA_NATIVE_END##\n");
-                    o.h(fileWriter);
-                } catch (Exception e3) {
-                    e = e3;
+                    pi.h(fileWriter);
+                } catch (Exception e2) {
+                    e = e2;
                     fileWriter2 = fileWriter;
                     e.printStackTrace();
-                    o.h(fileWriter2);
+                    pi.h(fileWriter2);
                 } catch (Throwable th2) {
                     th = th2;
                     fileWriter2 = fileWriter;
-                    o.h(fileWriter2);
+                    pi.h(fileWriter2);
                     throw th;
                 }
             }
@@ -137,13 +133,13 @@ public class FatalErrorService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f35852b;
+                NetWork netWork = this.b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f35853c.mTask = null;
+                this.c.mTask = null;
                 super.cancel(true);
-                this.f35853c.stopSelf();
+                this.c.stopSelf();
             }
         }
 
@@ -163,8 +159,8 @@ public class FatalErrorService extends BdBaseService {
                         } catch (Throwable th) {
                             th = th;
                         }
-                    } catch (Exception e2) {
-                        e = e2;
+                    } catch (Exception e) {
+                        e = e;
                     }
                     try {
                         String readLine = bufferedReader.readLine();
@@ -178,8 +174,8 @@ public class FatalErrorService extends BdBaseService {
                             bufferedReader2 = startsWith;
                         }
                         bufferedReader.close();
-                    } catch (Exception e3) {
-                        e = e3;
+                    } catch (Exception e2) {
+                        e = e2;
                         bufferedReader2 = bufferedReader;
                         BdLog.e(e.toString());
                         if (bufferedReader2 != null) {
@@ -191,14 +187,14 @@ public class FatalErrorService extends BdBaseService {
                         if (bufferedReader2 != null) {
                             try {
                                 bufferedReader2.close();
-                            } catch (Exception e4) {
-                                BdLog.e(e4.toString());
+                            } catch (Exception e3) {
+                                BdLog.e(e3.toString());
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e5) {
-                    BdLog.e(e5.toString());
+                } catch (Exception e4) {
+                    BdLog.e(e4.toString());
                 }
             }
         }
@@ -241,7 +237,7 @@ public class FatalErrorService extends BdBaseService {
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                                     try {
                                         if (z) {
-                                            i.a(fileInputStream, byteArrayOutputStream);
+                                            ji.a(fileInputStream, byteArrayOutputStream);
                                         } else {
                                             byte[] bArr = new byte[1024];
                                             while (true) {
@@ -257,27 +253,27 @@ public class FatalErrorService extends BdBaseService {
                                         if (byteArray == null) {
                                             try {
                                                 byteArrayOutputStream.close();
-                                            } catch (Exception e2) {
-                                                BdLog.e(e2.getMessage());
+                                            } catch (Exception e) {
+                                                BdLog.e(e.getMessage());
                                             }
                                             try {
                                                 fileInputStream.close();
                                                 return;
-                                            } catch (Exception e3) {
-                                                BdLog.e(e3.getMessage());
+                                            } catch (Exception e2) {
+                                                BdLog.e(e2.getMessage());
                                                 return;
                                             }
                                         }
                                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                        this.f35852b = netWork;
+                                        this.b = netWork;
                                         netWork.addPostData("logfile", byteArray);
                                         if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                            this.f35852b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                            this.b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                         }
-                                        this.f35852b.postMultiNetData();
+                                        this.b.postMultiNetData();
                                         byteArrayOutputStream.close();
                                         fileInputStream.close();
-                                        if (this.f35852b.getNetContext().getResponse().isRequestSuccess()) {
+                                        if (this.b.getNetContext().getResponse().isRequestSuccess()) {
                                             if (z2) {
                                                 d(file);
                                             }
@@ -287,23 +283,23 @@ public class FatalErrorService extends BdBaseService {
                                                 fileWriter.flush();
                                                 fileWriter.close();
                                                 file.delete();
-                                            } catch (Exception e4) {
-                                                e = e4;
+                                            } catch (Exception e3) {
+                                                e = e3;
                                                 fileInputStream = null;
                                                 try {
                                                     BdLog.e(e.getMessage());
                                                     if (r0 != 0) {
                                                         try {
                                                             r0.close();
-                                                        } catch (Exception e5) {
-                                                            BdLog.e(e5.getMessage());
+                                                        } catch (Exception e4) {
+                                                            BdLog.e(e4.getMessage());
                                                         }
                                                     }
                                                     if (fileInputStream != null) {
                                                         try {
                                                             fileInputStream.close();
-                                                        } catch (Exception e6) {
-                                                            BdLog.e(e6.getMessage());
+                                                        } catch (Exception e5) {
+                                                            BdLog.e(e5.getMessage());
                                                         }
                                                     }
                                                     if (fileWriter != null) {
@@ -315,22 +311,22 @@ public class FatalErrorService extends BdBaseService {
                                                     if (r0 != 0) {
                                                         try {
                                                             r0.close();
-                                                        } catch (Exception e7) {
-                                                            BdLog.e(e7.getMessage());
+                                                        } catch (Exception e6) {
+                                                            BdLog.e(e6.getMessage());
                                                         }
                                                     }
                                                     if (fileInputStream != null) {
                                                         try {
                                                             fileInputStream.close();
-                                                        } catch (Exception e8) {
-                                                            BdLog.e(e8.getMessage());
+                                                        } catch (Exception e7) {
+                                                            BdLog.e(e7.getMessage());
                                                         }
                                                     }
                                                     if (fileWriter != null) {
                                                         try {
                                                             fileWriter.close();
-                                                        } catch (Exception e9) {
-                                                            BdLog.e(e9.getMessage());
+                                                        } catch (Exception e8) {
+                                                            BdLog.e(e8.getMessage());
                                                         }
                                                     }
                                                     throw th;
@@ -347,8 +343,8 @@ public class FatalErrorService extends BdBaseService {
                                                 throw th;
                                             }
                                         }
-                                    } catch (Exception e10) {
-                                        e = e10;
+                                    } catch (Exception e9) {
+                                        e = e9;
                                         fileWriter = null;
                                         r0 = byteArrayOutputStream;
                                     } catch (Throwable th3) {
@@ -356,16 +352,16 @@ public class FatalErrorService extends BdBaseService {
                                         fileWriter = null;
                                         r0 = byteArrayOutputStream;
                                     }
-                                } catch (Exception e11) {
-                                    e = e11;
+                                } catch (Exception e10) {
+                                    e = e10;
                                     fileWriter = null;
                                 } catch (Throwable th4) {
                                     th = th4;
                                     fileWriter = null;
                                 }
                             }
-                        } catch (Exception e12) {
-                            e = e12;
+                        } catch (Exception e11) {
+                            e = e11;
                             fileWriter = null;
                             fileInputStream = null;
                         } catch (Throwable th5) {
@@ -377,22 +373,22 @@ public class FatalErrorService extends BdBaseService {
                     if (0 != 0) {
                         try {
                             r0.close();
-                        } catch (Exception e13) {
-                            BdLog.e(e13.getMessage());
+                        } catch (Exception e12) {
+                            BdLog.e(e12.getMessage());
                         }
                     }
                     if (0 != 0) {
                         try {
                             r0.close();
-                        } catch (Exception e14) {
-                            BdLog.e(e14.getMessage());
+                        } catch (Exception e13) {
+                            BdLog.e(e13.getMessage());
                         }
                     }
                     if (0 != 0) {
                         r0.close();
                     }
-                } catch (Exception e15) {
-                    BdLog.e(e15.getMessage());
+                } catch (Exception e14) {
+                    BdLog.e(e14.getMessage());
                 }
             }
         }
@@ -421,10 +417,10 @@ public class FatalErrorService extends BdBaseService {
                         return;
                     }
                 }
-            } catch (FileNotFoundException e2) {
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e2) {
                 e2.printStackTrace();
-            } catch (IOException e3) {
-                e3.printStackTrace();
             }
         }
 
@@ -440,10 +436,10 @@ public class FatalErrorService extends BdBaseService {
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
                     f();
-                    if (TbConfig.getVersion().equals(b.k().q("native_crash_dump_version", ""))) {
+                    if (TbConfig.getVersion().equals(wt4.k().q("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
-                        b.k().y("native_crash_dump_version", TbConfig.getVersion());
+                        wt4.k().y("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
                     File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
@@ -459,8 +455,8 @@ public class FatalErrorService extends BdBaseService {
                         return null;
                     }
                     return null;
-                } catch (Exception e2) {
-                    BdLog.e(e2.toString());
+                } catch (Exception e) {
+                    BdLog.e(e.toString());
                     return null;
                 }
             }
@@ -473,8 +469,8 @@ public class FatalErrorService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f35853c.mTask = null;
-                this.f35853c.stopSelf();
+                this.c.mTask = null;
+                this.c.stopSelf();
             }
         }
     }

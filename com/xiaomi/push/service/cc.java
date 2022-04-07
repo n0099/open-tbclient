@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class cc extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,7 @@ public class cc extends XMPushService.i {
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ byte[] f929a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f44572b;
+    public final /* synthetic */ int b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cc(XMPushService xMPushService, int i, int i2, byte[] bArr, String str) {
@@ -43,7 +41,7 @@ public class cc extends XMPushService.i {
             }
         }
         this.a = xMPushService;
-        this.f44572b = i2;
+        this.b = i2;
         this.f929a = bArr;
         this.f928a = str;
     }
@@ -60,9 +58,9 @@ public class cc extends XMPushService.i {
         fm fmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m.m673a((Context) this.a);
-            av.a().m646a("5");
-            com.xiaomi.push.ab.a(this.f44572b);
+            m.m669a((Context) this.a);
+            av.a().m642a("5");
+            com.xiaomi.push.ab.a(this.b);
             fmVar = this.a.f825a;
             fmVar.c(fm.a());
             this.a.a(this.f929a, this.f928a);

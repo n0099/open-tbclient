@@ -16,32 +16,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.anim.AnimationProperty;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class VideoRecordButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f36556b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f36557c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f36558d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f36559e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ObjectAnimator f36560f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ObjectAnimator f36561g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ObjectAnimator f36562h;
+    public View b;
+    public View c;
+    public TextView d;
+    public ObjectAnimator e;
+    public ObjectAnimator f;
+    public ObjectAnimator g;
+    public ObjectAnimator h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoRecordButton(Context context) {
@@ -67,91 +53,91 @@ public class VideoRecordButton extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b8, this);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091a1c);
-            this.f36556b = findViewById(R.id.obfuscated_res_0x7f091a1d);
-            this.f36557c = findViewById(R.id.obfuscated_res_0x7f091a1e);
-            this.f36558d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
-            this.f36557c.setScaleX(0.766f);
-            this.f36557c.setScaleY(0.766f);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04b3, this);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091a0c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091a0d);
+            this.c = findViewById(R.id.obfuscated_res_0x7f091a0e);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
+            this.c.setScaleX(0.766f);
+            this.c.setScaleY(0.766f);
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ObjectAnimator objectAnimator = this.f36560f;
+            ObjectAnimator objectAnimator = this.f;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f36560f.cancel();
+                this.f.cancel();
             }
-            if (this.f36559e == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f36557c, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.766f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.766f, 1.0f));
-                this.f36559e = ofPropertyValuesHolder;
+            if (this.e == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.c, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.766f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.766f, 1.0f));
+                this.e = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setRepeatCount(-1);
-                this.f36559e.setRepeatMode(2);
-                this.f36559e.setDuration(1000L);
+                this.e.setRepeatMode(2);
+                this.e.setDuration(1000L);
             }
-            this.f36557c.setVisibility(0);
+            this.c.setVisibility(0);
             if (z) {
                 this.a.setVisibility(8);
             } else {
-                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fa8);
+                this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080faf);
             }
-            this.f36558d.setVisibility(8);
-            this.f36559e.start();
+            this.d.setVisibility(8);
+            this.e.start();
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator objectAnimator = this.f36562h;
+            ObjectAnimator objectAnimator = this.h;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f36561g.cancel();
+                this.g.cancel();
             }
-            if (this.f36561g == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f36556b, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
-                this.f36561g = ofPropertyValuesHolder;
+            if (this.g == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 1.0f, 0.9f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 1.0f, 0.9f));
+                this.g = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
-            this.f36561g.start();
+            this.g.start();
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ObjectAnimator objectAnimator = this.f36559e;
+            ObjectAnimator objectAnimator = this.e;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f36559e.cancel();
+                this.e.cancel();
             }
-            if (this.f36560f == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f36557c, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, this.f36557c.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, this.f36557c.getScaleY(), 0.766f));
-                this.f36560f = ofPropertyValuesHolder;
-                ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f36557c.getScaleX()) * 500.0f) / 0.3f);
+            if (this.f == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.c, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, this.c.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, this.c.getScaleY(), 0.766f));
+                this.f = ofPropertyValuesHolder;
+                ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.c.getScaleX()) * 500.0f) / 0.3f);
             }
             this.a.setVisibility(0);
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fa7);
-            this.f36560f.start();
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080fae);
+            this.f.start();
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ObjectAnimator objectAnimator = this.f36561g;
+            ObjectAnimator objectAnimator = this.g;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f36561g.cancel();
+                this.g.cancel();
             }
-            if (this.f36556b.getScaleX() == 1.0f) {
+            if (this.b.getScaleX() == 1.0f) {
                 return;
             }
-            if (this.f36562h == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f36556b, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
-                this.f36562h = ofPropertyValuesHolder;
+            if (this.h == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.b, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, 0.9f, 1.0f), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, 0.9f, 1.0f));
+                this.h = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
-            this.f36562h.start();
+            this.h.start();
         }
     }
 
@@ -164,19 +150,19 @@ public class VideoRecordButton extends FrameLayout {
     public View getLayer2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36556b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
     public View getLayer3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36557c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
     public TextView getTvTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f36558d : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (TextView) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

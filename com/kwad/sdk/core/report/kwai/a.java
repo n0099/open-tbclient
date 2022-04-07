@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes5.dex */
 public class a implements b {
     @Override // com.kwad.sdk.core.report.kwai.b
     public void a(JSONObject jSONObject, Map<String, Object> map) {
@@ -26,8 +26,8 @@ public class a implements b {
             try {
                 jSONObject.put(entry.getKey(), entry.getValue());
                 jSONObject2.put(entry.getKey(), entry.getValue());
-            } catch (JSONException e2) {
-                com.kwad.sdk.core.d.a.a(e2);
+            } catch (JSONException e) {
+                com.kwad.sdk.core.d.a.a(e);
             }
         }
         if (jSONObject2.length() > 0) {

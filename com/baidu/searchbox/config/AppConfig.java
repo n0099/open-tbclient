@@ -29,7 +29,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 @SuppressLint({"BDOfflineUrl"})
-/* loaded from: classes4.dex */
+/* loaded from: classes2.dex */
 public class AppConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONFIG_FILE = "searchbox_config.ini";
@@ -54,7 +54,7 @@ public class AppConfig {
     public File mConfigFile;
     public File mTimestampFile;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class AppInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_PACKAGE_NAME = "com.baidu.searchbox";
@@ -115,8 +115,8 @@ public class AppConfig {
                         Context appContext = AppRuntime.getAppContext();
                         PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                         sBoxVersionCode = packageInfo.versionCode + "";
-                    } catch (PackageManager.NameNotFoundException e2) {
-                        e2.printStackTrace();
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
                     }
                 }
                 return sBoxVersionCode;
@@ -133,8 +133,8 @@ public class AppConfig {
                         Context appContext = AppRuntime.getAppContext();
                         PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
                         sBoxVersionName = packageInfo.versionName + "";
-                    } catch (PackageManager.NameNotFoundException e2) {
-                        e2.printStackTrace();
+                    } catch (PackageManager.NameNotFoundException e) {
+                        e.printStackTrace();
                     }
                 }
                 return sBoxVersionName;
@@ -173,12 +173,12 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public interface ConfigValueFilter {
         boolean isIllegalContent(String str);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class ConfigWhiteList {
         public static /* synthetic */ Interceptable $ic;
         public static final String[] WHITE_LIST;
@@ -230,7 +230,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Debug {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Downloads {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class HTTPSConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TMP_USE_HTTP_DELTA = 518400000;
@@ -331,7 +331,7 @@ public class AppConfig {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes2.dex */
     public static class Speed {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -396,7 +396,7 @@ public class AppConfig {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0035 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x004b */
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x004e */
-    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0079 */
+    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0078 */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x004b, code lost:
         if (r2 != 0) goto L19;
      */
@@ -416,7 +416,7 @@ public class AppConfig {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void activeConfigFile(Context context) {
-        Exception e2;
+        Exception e;
         DataOutputStream dataOutputStream;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || sDebug || context == null) {
@@ -433,9 +433,9 @@ public class AppConfig {
                     r2 = new FileOutputStream(file);
                 } catch (Exception unused) {
                 }
-            } catch (Exception e3) {
+            } catch (Exception e2) {
                 r2 = 0;
-                e2 = e3;
+                e = e2;
                 dataOutputStream = null;
             } catch (Throwable th) {
                 th = th;
@@ -451,15 +451,15 @@ public class AppConfig {
                 dataOutputStream.writeLong(System.currentTimeMillis());
                 dataOutputStream.flush();
                 dataOutputStream.close();
-            } catch (Exception e4) {
-                e2 = e4;
-                e2.printStackTrace();
+            } catch (Exception e3) {
+                e = e3;
+                e.printStackTrace();
                 if (dataOutputStream != null) {
                     dataOutputStream.close();
                 }
             }
-        } catch (Exception e5) {
-            e2 = e5;
+        } catch (Exception e4) {
+            e = e4;
             dataOutputStream = null;
         } catch (Throwable th3) {
             th = th3;
